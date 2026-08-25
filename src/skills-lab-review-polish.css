@@ -1,0 +1,105 @@
+/* Skills Lab — final component review after dashboard-shell redesign */
+.skills-shell-v2 .skills-workspace{container-type:inline-size;container-name:skillswork;min-width:0}
+.skills-shell-v2 .skills-workspace-body{min-width:0}
+
+/* Keep the left lab selector compact and consistent. */
+.skills-shell-v2 .skills-lab-sidebar .skills-tool-card{min-height:58px;grid-template-columns:28px minmax(0,1fr) 16px;align-items:center;padding:11px 12px}
+.skills-shell-v2 .skills-lab-sidebar .skills-tool-card p{display:none!important}
+.skills-shell-v2 .skills-lab-sidebar .skills-tool-card b{margin:0 0 3px;font-size:13.5px;line-height:1.22}
+.skills-shell-v2 .skills-lab-sidebar .skills-tool-card small{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;line-height:1.25}
+.skills-shell-v2 .skills-lab-sidebar .mistake-clinic-card{margin-bottom:3px}
+
+/* Shared text safety: never collapse prose into awkward word-by-word wrapping. */
+.skills-shell-v2 .practice-text,
+.skills-shell-v2 .practice-question,
+.skills-shell-v2 .quiz-shell,
+.skills-shell-v2 .thesis-card,
+.skills-shell-v2 .paragraph-builder>*,
+.skills-shell-v2 .clinic-intro>*,
+.skills-shell-v2 .clinic-question-shell,
+.skills-shell-v2 .choice-bank-stage,
+.skills-shell-v2 .choice-bank-control-card{min-width:0}
+.skills-shell-v2 .practice-options button,
+.skills-shell-v2 .thesis-options button,
+.skills-shell-v2 .clinic-options button,
+.skills-shell-v2 .choice-bank-options button{grid-template-columns:30px minmax(0,1fr);align-items:start;white-space:normal;word-break:normal;overflow-wrap:break-word}
+.skills-shell-v2 .practice-options button,
+.skills-shell-v2 .thesis-options button,
+.skills-shell-v2 .clinic-options button{line-height:1.5}
+
+/* Analysis Lab: preserve a readable evidence/question split when there is room. */
+.skills-shell-v2 .analysis-practice-grid{grid-template-columns:minmax(300px,.92fr) minmax(390px,1.08fr);gap:20px;align-items:start}
+.skills-shell-v2 .practice-text{padding:22px}
+.skills-shell-v2 .practice-text blockquote{max-width:62ch;margin:14px 0 17px;font-size:16px;line-height:1.72}
+.skills-shell-v2 .practice-question{padding:22px}
+.skills-shell-v2 .practice-question>h3{font-size:18px;line-height:1.4}
+.skills-shell-v2 .reasoning-chain{padding:16px}
+.skills-shell-v2 .reasoning-chain>div{gap:7px}
+.skills-shell-v2 .reasoning-chain b{line-height:1.3}
+
+/* Thesis / quiz labs: centered readable working width. */
+.skills-shell-v2 .thesis-card,.skills-shell-v2 .quiz-shell{width:100%;max-width:900px;margin-inline:auto}
+.skills-shell-v2 .thesis-anatomy{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.skills-shell-v2 .thesis-anatomy span{line-height:1.4}
+
+/* Paragraph Builder: keep controls and paragraph content balanced. */
+.skills-shell-v2 .paragraph-builder{grid-template-columns:minmax(300px,.8fr) minmax(390px,1.2fr);gap:20px}
+.skills-shell-v2 .paragraph-piece{grid-template-columns:30px minmax(0,1fr) 30px;gap:10px}
+.skills-shell-v2 .paragraph-piece p{font-size:12.5px;line-height:1.5;word-break:normal;overflow-wrap:break-word}
+
+/* Mistake Clinic: cleaner hierarchy and enough width for normal sentence flow. */
+.skills-shell-v2 .clinic-intro{grid-template-columns:minmax(0,1fr) minmax(180px,220px);gap:20px;align-items:stretch;padding:20px}
+.skills-shell-v2 .clinic-intro>div:first-child{min-width:0}
+.skills-shell-v2 .clinic-intro p{max-width:70ch;font-size:13px;line-height:1.65;word-break:normal;overflow-wrap:break-word}
+.skills-shell-v2 .clinic-target{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.skills-shell-v2 .clinic-question-shell{padding:22px}
+.skills-shell-v2 .clinic-question-shell>h3{max-width:760px;font-size:18px;line-height:1.45}
+.skills-shell-v2 .clinic-options button{font-size:13px}
+.skills-shell-v2 .clinic-feedback p{font-size:12.5px;line-height:1.55}
+
+/* Authorial Choice Check: its internal layout must react to workspace width, not browser width. */
+@container skillswork (max-width:860px){
+  .skills-workspace-body[data-choice-bank-root="true"]{grid-template-columns:1fr!important;gap:15px!important}
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-intro,
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-overview,
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-control-card,
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-stage{grid-column:1!important}
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-control-card{position:static!important;top:auto!important}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+
+/* When the actual workspace gets narrow, stack only the components that need it. */
+@container skillswork (max-width:760px){
+  .skills-shell-v2 .analysis-practice-grid,
+  .skills-shell-v2 .paragraph-builder{grid-template-columns:1fr}
+  .skills-shell-v2 .practice-text blockquote{max-width:none}
+  .skills-shell-v2 .clinic-intro{grid-template-columns:1fr}
+  .skills-shell-v2 .clinic-target{min-height:0}
+  .skills-shell-v2 .thesis-anatomy{grid-template-columns:1fr}
+}
+
+@container skillswork (max-width:620px){
+  .skills-shell-v2 .practice-options,
+  .skills-shell-v2 .thesis-options,
+  .skills-shell-v2 .choice-bank-options{grid-template-columns:1fr!important}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters{display:flex!important;overflow-x:auto;padding-bottom:3px}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters button{flex:none;min-width:132px}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats{grid-template-columns:1fr!important}
+  .skills-shell-v2 .clinic-question-shell,
+  .skills-shell-v2 .practice-question,
+  .skills-shell-v2 .practice-text,
+  .skills-shell-v2 .quiz-shell,
+  .skills-shell-v2 .thesis-card{padding:17px}
+}
+
+@media(max-width:900px){
+  .skills-shell-v2 .skills-lab-sidebar .skills-tool-card{min-height:60px}
+  .skills-shell-v2 .skills-lab-sidebar .skills-tool-card small{white-space:normal;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+}
+
+@media(max-width:560px){
+  .skills-shell-v2 .skills-lab-sidebar .skills-tool-card{grid-template-columns:26px minmax(0,1fr) 14px;padding:10px}
+  .skills-shell-v2 .skills-lab-sidebar .skills-tool-card b{font-size:12.5px}
+  .skills-shell-v2 .skills-lab-sidebar .skills-tool-card small{font-size:8.5px}
+}
