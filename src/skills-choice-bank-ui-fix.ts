@@ -19,11 +19,12 @@ function polishChoiceBank(){
   root.querySelectorAll<HTMLElement>('.choice-bank-options button p').forEach(label=>{
     if(!label.dataset.fullChoiceLabel)label.dataset.fullChoiceLabel=label.textContent?.trim()||'';
     const source=label.dataset.fullChoiceLabel||label.textContent||'';
-    label.textContent=compactOptionLabel(source);
+    const compact=compactOptionLabel(source);
+    if((label.textContent||'').trim()!==compact)label.textContent=compact;
   });
 
   const filterTitle=root.querySelector<HTMLElement>('.choice-bank-filter-head b');
-  if(filterTitle)filterTitle.textContent='Choose your practice set.';
+  if(filterTitle&&filterTitle.textContent!=='Choose your practice set.')filterTitle.textContent='Choose your practice set.';
 }
 
 let queued=false;
