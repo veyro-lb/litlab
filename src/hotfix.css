@@ -54,31 +54,159 @@
 .toc a:active{transform:scale(.96)!important}
 .content-section{scroll-margin-top:205px!important}
 
+/* ---------------- LitLab Compass ---------------- */
 @media(min-width:901px){
   .compass-wrap{
-    height:700px!important;
-    min-height:700px!important;
+    height:640px!important;
+    min-height:640px!important;
     position:relative!important;
     overflow:hidden!important;
     padding:0!important;
+    isolation:isolate!important;
+    background:
+      radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--violet) 15%,transparent) 0 13%,transparent 31%),
+      radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--cyan) 5%,transparent),transparent 58%),
+      var(--surface)!important;
   }
+
+  /* Soft orbital halo that gives the map depth without moving the destinations. */
+  .compass-wrap::after{
+    content:''!important;
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    width:510px!important;
+    height:420px!important;
+    transform:translate(-50%,-50%) rotate(-5deg)!important;
+    border:1px solid color-mix(in srgb,var(--violet) 18%,var(--line))!important;
+    border-radius:50%!important;
+    box-shadow:
+      0 0 0 34px color-mix(in srgb,var(--violet) 2.5%,transparent),
+      0 0 80px color-mix(in srgb,var(--violet) 9%,transparent)!important;
+    pointer-events:none!important;
+    z-index:0!important;
+    animation:litlabOrbitHalo 9s ease-in-out infinite!important;
+  }
+
+  .compass-lines{
+    z-index:1!important;
+    inset:5%!important;
+    width:90%!important;
+    height:90%!important;
+    filter:drop-shadow(0 0 5px color-mix(in srgb,var(--violet) 10%,transparent))!important;
+  }
+  .compass-lines line{
+    stroke:color-mix(in srgb,var(--violet) 34%,var(--line))!important;
+    stroke-width:.48!important;
+    stroke-dasharray:2.2 2.8!important;
+    stroke-dashoffset:0;
+    opacity:.72!important;
+    animation:litlabLineFlow 10s linear infinite!important;
+    animation-delay:calc(var(--line-index,0) * -1.15s)!important;
+    transition:stroke .25s ease,stroke-width .25s ease,opacity .25s ease,filter .25s ease!important;
+  }
+  .compass-lines line.active{
+    stroke:var(--cyan)!important;
+    stroke-width:.9!important;
+    opacity:1!important;
+    filter:drop-shadow(0 0 4px var(--cyan))!important;
+  }
+  .compass-lines circle{
+    stroke:color-mix(in srgb,var(--violet) 24%,var(--line))!important;
+    opacity:.7!important;
+  }
+
+  .compass-center{
+    z-index:7!important;
+    width:202px!important;
+    height:202px!important;
+    border:1px solid color-mix(in srgb,var(--violet) 25%,var(--line))!important;
+    box-shadow:
+      0 28px 75px rgba(124,92,252,.20),
+      0 0 0 11px color-mix(in srgb,var(--violet) 4%,transparent),
+      0 0 0 22px color-mix(in srgb,var(--cyan) 2.5%,transparent)!important;
+  }
+  .compass-center::before,.compass-center::after{
+    content:'';
+    position:absolute;
+    inset:-18px;
+    border-radius:50%;
+    border:1px dashed color-mix(in srgb,var(--violet) 28%,transparent);
+    pointer-events:none;
+  }
+  .compass-center::before{animation:litlabRingSpin 18s linear infinite}
+  .compass-center::after{
+    inset:-33px;
+    border-color:color-mix(in srgb,var(--cyan) 22%,transparent);
+    animation:litlabRingSpin 24s linear reverse infinite;
+  }
+
   .compass-node{
     display:flex!important;
     visibility:visible!important;
     opacity:1!important;
-    z-index:5!important;
-    width:168px!important;
-    min-height:88px!important;
+    z-index:6!important;
+    width:166px!important;
+    min-height:86px!important;
     margin:0!important;
+    border-color:color-mix(in srgb,var(--violet) 13%,var(--line))!important;
+    background:color-mix(in srgb,var(--surface) 95%,transparent)!important;
+    box-shadow:0 16px 42px rgba(25,20,58,.10)!important;
+    animation:litlabNodeReveal .65s cubic-bezier(.2,.8,.2,1) both!important;
+    animation-delay:calc(var(--orbit-index,0) * 85ms)!important;
+    transition:
+      transform .28s cubic-bezier(.2,.8,.2,1),
+      border-color .25s ease,
+      box-shadow .28s ease,
+      background .25s ease!important;
   }
-  .compass-node.n0{left:50%!important;top:14%!important}
-  .compass-node.n1{left:82%!important;top:30%!important}
-  .compass-node.n2{left:80%!important;top:72%!important}
-  .compass-node.n3{left:20%!important;top:72%!important}
-  .compass-node.n4{left:18%!important;top:30%!important}
-  .compass-node.n5{left:50%!important;top:86%!important}
-  .compass-center{z-index:6!important}
-  .compass-lines{z-index:1!important}
+  .compass-node::before{
+    content:'';
+    position:absolute;
+    right:13px;
+    top:13px;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 0 5px color-mix(in srgb,var(--cyan) 10%,transparent);
+    opacity:.55;
+    transition:opacity .2s ease,transform .25s ease,box-shadow .25s ease;
+  }
+  .compass-node:hover,.compass-node:focus-visible,.compass-node.active{
+    transform:translate(-50%,-50%) translateY(-6px) scale(1.055)!important;
+    border-color:var(--violet)!important;
+    background:color-mix(in srgb,var(--violet) 5%,var(--surface))!important;
+    box-shadow:0 25px 55px rgba(124,92,252,.19)!important;
+  }
+  .compass-node:hover::before,.compass-node:focus-visible::before,.compass-node.active::before{
+    opacity:1;
+    transform:scale(1.25);
+    box-shadow:0 0 0 7px color-mix(in srgb,var(--cyan) 12%,transparent),0 0 18px color-mix(in srgb,var(--cyan) 45%,transparent);
+  }
+  .compass-node:active{
+    transform:translate(-50%,-50%) scale(.97)!important;
+  }
+
+  /* Controlled, symmetrical six-point orbit. */
+  .compass-node.n0{left:50%!important;top:15%!important}
+  .compass-node.n1{left:72%!important;top:33%!important}
+  .compass-node.n2{left:72%!important;top:67%!important}
+  .compass-node.n3{left:28%!important;top:67%!important}
+  .compass-node.n4{left:28%!important;top:33%!important}
+  .compass-node.n5{left:50%!important;top:85%!important}
+}
+
+@keyframes litlabNodeReveal{
+  0%{opacity:0;filter:blur(7px) saturate(.7)}
+  65%{opacity:1;filter:blur(0) saturate(1.08)}
+  100%{opacity:1;filter:none}
+}
+@keyframes litlabLineFlow{to{stroke-dashoffset:-20}}
+@keyframes litlabRingSpin{to{transform:rotate(360deg)}}
+@keyframes litlabOrbitHalo{
+  0%,100%{opacity:.55;transform:translate(-50%,-50%) rotate(-5deg) scale(.99)}
+  50%{opacity:.9;transform:translate(-50%,-50%) rotate(5deg) scale(1.025)}
 }
 
 @media(max-width:900px){
@@ -87,22 +215,30 @@
   .content-section{scroll-margin-top:190px!important}
 
   .compass-wrap{
-    min-height:760px!important;
+    min-height:690px!important;
     height:auto!important;
-    padding:285px 16px 22px!important;
+    padding:265px 16px 20px!important;
     display:grid!important;
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:12px!important;
+    gap:11px!important;
     align-content:end!important;
     overflow:hidden!important;
   }
   .compass-lines{display:none!important}
   .compass-center{
-    top:145px!important;
+    top:132px!important;
     left:50%!important;
-    width:190px!important;
-    height:190px!important;
+    width:184px!important;
+    height:184px!important;
     z-index:4!important;
+  }
+  .compass-center::before{
+    content:'';
+    position:absolute;
+    inset:-18px;
+    border-radius:50%;
+    border:1px dashed color-mix(in srgb,var(--violet) 25%,transparent);
+    animation:litlabRingSpin 20s linear infinite;
   }
   .compass-node{
     position:relative!important;
@@ -110,12 +246,13 @@
     top:auto!important;
     transform:none!important;
     width:100%!important;
-    min-height:90px!important;
+    min-height:88px!important;
     margin:0!important;
     display:flex!important;
     visibility:visible!important;
     opacity:1!important;
-    animation:none!important;
+    animation:litlabNodeReveal .55s cubic-bezier(.2,.8,.2,1) both!important;
+    animation-delay:calc(var(--orbit-index,0) * 60ms)!important;
   }
   .compass-node:hover,.compass-node:focus-visible{
     transform:translateY(-4px) scale(1.01)!important;
@@ -126,10 +263,23 @@
 @media(max-width:520px){
   .toc{top:122px!important;max-width:calc(100vw - 18px)!important;margin-bottom:20px!important}
   .compass-wrap{
-    min-height:980px!important;
-    padding:270px 12px 18px!important;
-    grid-template-columns:1fr!important;
+    min-height:730px!important;
+    padding:252px 11px 16px!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:9px!important;
   }
-  .compass-center{top:135px!important;width:176px!important;height:176px!important}
-  .compass-node{min-height:94px!important}
+  .compass-center{top:126px!important;width:168px!important;height:168px!important}
+  .compass-node{min-height:92px!important;padding:12px!important}
+  .compass-node b{font-size:12px!important}
+  .compass-node span{font-size:10px!important}
+}
+
+@media(max-width:365px){
+  .compass-wrap{min-height:980px!important;grid-template-columns:1fr!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .compass-wrap::after,.compass-center::before,.compass-center::after,.compass-lines line,.compass-node{
+    animation:none!important;
+  }
 }
