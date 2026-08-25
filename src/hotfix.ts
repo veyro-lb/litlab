@@ -21,8 +21,6 @@ function scrollStartSection(id:string){
   setActiveGuideItem(id,true);
 }
 
-// Start Here section navigation never changes the URL. That keeps the app's
-// hash router completely separate from in-page scrolling.
 document.addEventListener('click',event=>{
   const link=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.toc a'):null;
   if(!link)return;
@@ -37,8 +35,6 @@ document.addEventListener('click',event=>{
   scrollStartSection(id);
 },true);
 
-// Recover old bookmarked/broken hashes once, then remove the anchor from the
-// URL so browser scroll anchoring never fights the user again.
 function recoverLegacyStartHash(){
   const raw=location.hash.slice(1);
   if(!START_SECTION_SET.has(raw))return;
@@ -47,9 +43,6 @@ function recoverLegacyStartHash(){
   setTimeout(()=>scrollStartSection(section),140);
 }
 
-/* --------------------------------------------------------------------------
-   Start Here scrollspy
-   -------------------------------------------------------------------------- */
 let activeGuideId='';
 let scrollSpyFrame=0;
 
@@ -72,7 +65,6 @@ function setActiveGuideItem(id:string,center=false){
   const active=links.find(link=>(link.getAttribute('href')||'')===`#${id}`);
   if(!active)return;
 
-  // Only scroll the guide horizontally. Never touch the page's vertical scroll.
   const desired=active.offsetLeft-(toc.clientWidth-active.clientWidth)/2;
   toc.scrollTo({left:Math.max(0,desired),behavior:reduceMotion()?'auto':'smooth'});
 }
@@ -84,7 +76,7 @@ function updateStartScrollSpy(){
   if(!toc)return;
 
   const marker=Math.min(235,Math.max(165,window.innerHeight*.24));
-  let active=START_SECTIONS[0];
+  let active:string=START_SECTIONS[0];
 
   for(const id of START_SECTIONS){
     const section=document.getElementById(id);
@@ -107,11 +99,6 @@ function requestScrollSpy(){
 window.addEventListener('scroll',requestScrollSpy,{passive:true});
 window.addEventListener('resize',requestScrollSpy,{passive:true});
 
-/* --------------------------------------------------------------------------
-   Motion-style FAQ accordion
-   Uses the same spring idea as the supplied MotionAccordion while preserving
-   the existing React FAQ content/state.
-   -------------------------------------------------------------------------- */
 const faqBypass=new WeakSet<HTMLButtonElement>();
 let faqBusy=false;
 
@@ -180,10 +167,6 @@ document.addEventListener('click',event=>{
   void handleFaqToggle(button,faq);
 },true);
 
-/* --------------------------------------------------------------------------
-   Motion-style vocabulary / glossary details
-   Applies to both the Start Here mini glossary and the full glossary page.
-   -------------------------------------------------------------------------- */
 function detailContent(details:HTMLDetailsElement){
   return Array.from(details.children).slice(1) as HTMLElement[];
 }
