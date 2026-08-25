@@ -1,4 +1,5 @@
 import './skills-lab-review-polish.css';
+import './skills-lab-stale-layout-fix.css';
 
 const route=()=>location.hash.slice(1).split('#')[0]||'home';
 
