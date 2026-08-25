@@ -10,7 +10,8 @@ const routes:Record<string,RouteInfo>={
   'paper-2':{label:'Paper 2',parent:'papers',back:'paper-1',next:'io',nextLabel:'IO'},
   io:{label:'Individual Oral',back:'papers',next:'books',nextLabel:'Books'},
   books:{label:'Books',back:'io',next:'ee',nextLabel:'Extended Essay'},
-  ee:{label:'Extended Essay',back:'books',next:'home',nextLabel:'Home'},
+  ee:{label:'Extended Essay',back:'books',next:'skills',nextLabel:'Skills Lab'},
+  skills:{label:'Skills Lab',back:'ee',next:'home',nextLabel:'Home'},
   glossary:{label:'Glossary',back:'home'},
   about:{label:'About / CAS',back:'home'}
 };
@@ -25,7 +26,21 @@ function replaceSpellingIn(root:Node){
       .replace(/\bPractising\b/g,'Practicing')
       .replace(/\bpractising\b/g,'practicing')
       .replace(/\bPractise\b/g,'Practice')
-      .replace(/\bpractise\b/g,'practice');
+      .replace(/\bpractise\b/g,'practice')
+      .replace(/\bAnalysing\b/g,'Analyzing')
+      .replace(/\banalysing\b/g,'analyzing')
+      .replace(/\bAnalysed\b/g,'Analyzed')
+      .replace(/\banalysed\b/g,'analyzed')
+      .replace(/\bAnalyse\b/g,'Analyze')
+      .replace(/\banalyse\b/g,'analyze')
+      .replace(/\bMemorising\b/g,'Memorizing')
+      .replace(/\bmemorising\b/g,'memorizing')
+      .replace(/\bMemorised\b/g,'Memorized')
+      .replace(/\bmemorised\b/g,'memorized')
+      .replace(/\bMemorise\b/g,'Memorize')
+      .replace(/\bmemorise\b/g,'memorize')
+      .replace(/\bMemorisation\b/g,'Memorization')
+      .replace(/\bmemorisation\b/g,'memorization');
     if(next!==text)root.textContent=next;
     return;
   }
@@ -66,18 +81,18 @@ function syncNavigation(){
 
   document.querySelectorAll<HTMLButtonElement>('.topbar nav button').forEach(button=>{
     const text=(button.textContent||'').trim().toLowerCase();
-    const active=(activeMain==='start'&&text==='start here')||(activeMain==='ee'&&text==='extended essay')||text===activeMain;
+    const active=(activeMain==='start'&&text==='start here')||(activeMain==='ee'&&text==='extended essay')||(activeMain==='skills'&&text==='skills lab')||text===activeMain;
     button.classList.toggle('active',active);
     if(active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
   });
 
   document.querySelectorAll<HTMLButtonElement>('.mobile-menu button').forEach(button=>{
     const text=(button.textContent||'').trim().toLowerCase();
-    const active=(activeMain==='start'&&text.startsWith('start here'))||(activeMain==='ee'&&text.startsWith('extended essay'))||text.startsWith(activeMain);
+    const active=(activeMain==='start'&&text.startsWith('start here'))||(activeMain==='ee'&&text.startsWith('extended essay'))||(activeMain==='skills'&&text.startsWith('skills lab'))||text.startsWith(activeMain);
     button.classList.toggle('ux-active',active);
   });
 
-  document.title=current==='home'?'LitLab — Explore. Analyse. Understand.':`LitLab — ${info.label}`;
+  document.title=current==='home'?'LitLab — Explore. Analyze. Understand.':`LitLab — ${info.label}`;
 
   const dock=ensureRouteDock();
   if(!dock)return;
