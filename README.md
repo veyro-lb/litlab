@@ -1,6 +1,41 @@
-# Northstar English
+# LitLab
 
-**Find your way through DP English.** A polished, student-made companion for students beginning DP English.
+**Explore. Analyse. Understand.**
+
+LitLab is an independent student-made DP English learning guide created by **Rayan Sayed Ahmad** and **Elena Bizri**. It is designed to help students starting DP English understand how the main parts of the subject connect, learn the basics of analysis, and quickly reach the section they need.
+
+## Main experience
+
+- **Home / LitLab Compass** — an interactive map into the site
+- **Start Here** — detailed DP English orientation, analysis vs summary, authorial choices, thesis basics, paragraph thinking, vocabulary, tips, common mistakes and study setup
+- **Papers** — one Papers section that lets the student choose Paper 1 or Paper 2
+- **IO** — content structure plus a working practice timer
+- **Books** — a flexible book-library template ready for class texts
+- **Extended Essay** — content structure plus an interactive Research Question Lab
+- **Search + Glossary** — fast client-side reference tools
+- **Progress** — local “reviewed/ready” progress with no account required
+- **Light / dark themes** and responsive mobile layouts
+
+## Content status
+
+The **Start Here** section is intentionally developed now. Detailed Paper 1, Paper 2, IO, EE and Books content will be added after student research and review rather than filled with invented official requirements.
+
+Course-specific facts should be checked against current IB guidance and teacher instructions. LitLab clearly separates student strategies from official information.
+
+## Creators
+
+### Rayan Sayed Ahmad
+Website development, UI/UX, interactive experience, technical implementation, Start Here / Overview and content integration.
+
+### Elena Bizri
+Research and future content for Papers, IO, Extended Essay and Books, plus proofreading and explanation review.
+
+### Together
+Planning, testing, student feedback, improvements and CAS reflection.
+
+## Instagram
+
+DP cohort updates: https://www.instagram.com/rhhs.ibdp.27/
 
 ## Run locally
 
@@ -9,41 +44,29 @@ npm install
 npm run dev
 ```
 
-Create a production build with `npm run build`.
-
-## Edit content
-
-Academic content is deliberately separate from the interface in `src/content.ts`. Each guide has a `status` (`verified`, `demo`, or `coming`) and an array of sections. Add or replace sections there without redesigning the app. Glossary terms and rotating tips live in the same file.
-
-To add a work, add another guide-style object or extend the data model in `src/content.ts`; the interface maps content data into cards and guide pages automatically.
-
-## Brand changes
-
-Site colors and typography are CSS variables at the top of `src/styles.css`. The reusable logo is in `src/main.tsx`; the favicon is `public/favicon.svg`.
-
-## GitHub Pages
-
-The workflow in `.github/workflows/deploy.yml` builds and publishes every push to `main`. In repository **Settings → Pages**, set the source to **GitHub Actions**.
-
-## Cloudflare
-
-The repository includes an assets-only Worker configuration in `wrangler.jsonc`. After authenticating Wrangler, deploy with:
+## Production build
 
 ```bash
-npm run deploy
+npm run build
 ```
 
-Use `npm run deploy:dry` to validate the Cloudflare bundle without publishing.
+## Deploy
 
-## Feedback
+The repository includes a GitHub Pages workflow in `.github/workflows/deploy.yml`. The Vite base is configured as a relative path so the static build works correctly on Pages.
 
-The current release does not collect personal information or send form data. Connect a future feedback button to a school-approved form or serverless endpoint and document what data is collected before enabling it.
+## Where to edit content
 
-## Current content status
+- `src/content.ts` — navigation, FAQs, tips, glossary, search data and official-source links
+- `src/main.tsx` — interactive page structures and tools
+- `src/styles.css` — LitLab visual system, animations and responsive design
+- `public/favicon.svg` — LitLab favicon
 
-- **Start Here:** developed student guidance; should still be reviewed before publication.
-- **Paper 1 and Books & Works:** clearly labeled demonstration content.
-- **Paper 2, Individual Oral, and Extended Essay:** complete layouts with honest coming-soon states.
-- No invented assessment requirements are presented as official facts.
+The Papers, IO, Books and EE page structures are intentionally ready for future researched content.
 
-Northstar English is independent and student-made. It is not affiliated with, endorsed by, or an official resource of the International Baccalaureate Organization.
+## Academic integrity
+
+LitLab should not host leaked exam papers, unauthorized copyrighted assessment material, full copyrighted books, ready-to-submit essays, complete IO scripts or ready-to-submit Extended Essays. The project is for explanations, original examples, thinking tools, study strategies and student-created guidance.
+
+## Disclaimer
+
+**LitLab is an independent student-made educational resource and is not affiliated with or endorsed by the International Baccalaureate Organization.**
