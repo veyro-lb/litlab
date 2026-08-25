@@ -1,0 +1,104 @@
+/* LitLab global UX polish: navigation clarity, motion, depth, and route feedback. */
+
+:root{--ux-ease:cubic-bezier(.2,.8,.2,1);--ux-fast:180ms;--ux-medium:420ms}
+
+.app-shell{--pointer-x:50vw;--pointer-y:20vh;position:relative;isolation:isolate}
+.app-shell::after{content:'';position:fixed;inset:0;z-index:999;pointer-events:none;background:radial-gradient(420px circle at var(--pointer-x) var(--pointer-y),color-mix(in srgb,var(--violet) 8%,transparent),transparent 68%);opacity:.8;mix-blend-mode:normal;transition:opacity .25s ease}
+
+.litlab-scroll-progress{position:fixed;left:0;right:0;top:0;height:3px;z-index:220;background:transparent;pointer-events:none}
+.litlab-scroll-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--violet),var(--cyan));box-shadow:0 0 14px color-mix(in srgb,var(--cyan) 55%,transparent);transition:width 80ms linear}
+
+.litlab-route-dock{position:sticky;top:76px;z-index:72;min-height:48px;padding:7px max(18px,4vw);display:flex;align-items:center;justify-content:space-between;gap:16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid color-mix(in srgb,var(--line) 75%,transparent);box-shadow:0 10px 28px rgba(20,18,48,.045);animation:dockIn .32s var(--ux-ease) both}
+.litlab-route-dock.is-home{display:none}
+.route-crumbs,.route-actions{display:flex;align-items:center;gap:7px;min-width:0}
+.route-crumbs{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden}
+.route-crumbs>span{opacity:.45}
+.route-crumbs strong{color:var(--ink);font-weight:800;overflow:hidden;text-overflow:ellipsis}
+.route-crumbs button,.route-actions button{border:0;background:transparent;color:var(--muted);border-radius:9px;padding:6px 8px;font:700 11px var(--body);transition:transform var(--ux-fast) var(--ux-ease),background var(--ux-fast),color var(--ux-fast)}
+.route-crumbs button:hover,.route-actions button:hover{color:var(--ink);background:var(--surface-2);transform:translateY(-1px)}
+.route-crumbs button:active,.route-actions button:active{transform:scale(.95)}
+.route-actions .route-next{color:#fff;background:linear-gradient(135deg,var(--violet),#6849ed);padding-inline:11px;box-shadow:0 6px 18px rgba(124,92,252,.18)}
+.route-actions .route-next:hover{color:#fff;background:linear-gradient(135deg,var(--violet-2),var(--violet));box-shadow:0 9px 24px rgba(124,92,252,.27)}
+@keyframes dockIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+.litlab-back-top{position:fixed;right:20px;bottom:20px;z-index:75;width:54px;height:54px;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);color:var(--ink);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;pointer-events:none;transform:translateY(14px) scale(.88);transition:opacity .25s ease,transform .3s var(--ux-ease),border-color .2s}
+.litlab-back-top span{font:800 18px var(--display);line-height:1}
+.litlab-back-top small{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.litlab-back-top.show{opacity:1;pointer-events:auto;transform:none}
+.litlab-back-top:hover{transform:translateY(-5px) rotate(-2deg);border-color:var(--violet);box-shadow:0 18px 42px rgba(124,92,252,.2)}
+.litlab-back-top:active{transform:scale(.92)}
+
+.topbar nav button{overflow:hidden}
+.topbar nav button::after{content:'';position:absolute;left:50%;bottom:3px;width:4px;height:4px;border-radius:999px;background:var(--cyan);transform:translate(-50%,8px) scale(.2);opacity:0;transition:.25s var(--ux-ease)}
+.topbar nav button.active::after{transform:translate(-50%,0) scale(1);opacity:1}
+.topbar nav button.active{box-shadow:0 7px 18px color-mix(in srgb,var(--ink) 14%,transparent)}
+.mobile-menu button.ux-active{color:var(--violet);background:color-mix(in srgb,var(--violet) 9%,var(--surface));font-weight:800}
+.mobile-menu button.ux-active::before{content:'●';font-size:7px;color:var(--cyan);margin-right:8px}
+
+button,.btn,.feature-card,.paper-choice,.book-card,.compass-node,.faq>button,.quick-strip button{transform-origin:center;will-change:transform}
+
+.btn.primary,.feature-card,.paper-choice,.book-card,.compass-node{position:relative;overflow:hidden}
+.btn.primary::after,.feature-card::after,.paper-choice::after,.book-card::after,.compass-node::after{content:'';position:absolute;inset:-2px;pointer-events:none;background:linear-gradient(105deg,transparent 26%,color-mix(in srgb,#fff 28%,transparent) 44%,transparent 62%);transform:translateX(-125%) skewX(-12deg);transition:transform .72s var(--ux-ease)}
+
+@media (hover:hover) and (pointer:fine){
+  .btn.primary:hover::after,.feature-card:hover::after,.paper-choice:hover::after,.book-card:hover::after,.compass-node:hover::after{transform:translateX(125%) skewX(-12deg)}
+  .feature-card:hover,.paper-choice:hover,.book-card:hover{transform:translateY(-8px) perspective(900px) rotateX(1.5deg) rotateY(-1.5deg)}
+  .feature-card:nth-child(even):hover,.book-card:nth-child(even):hover{transform:translateY(-8px) perspective(900px) rotateX(1.5deg) rotateY(1.5deg)}
+  .quick-strip button:hover svg,.card-link svg,.text-btn svg{transition:transform .22s var(--ux-ease)}
+  .quick-strip button:hover svg,.feature-card:hover .card-link svg,.text-btn:hover svg{transform:translateX(4px)}
+  .faq>button:hover{transform:translateX(4px)}
+  .choice-card:hover,.tip-card:hover,.topic-map>div:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--violet) 45%,var(--line));box-shadow:0 14px 32px rgba(124,92,252,.09)}
+}
+
+.btn:active,.feature-card:active,.paper-choice:active,.book-card:active,.quick-strip button:active,.faq>button:active,.compass-node:active{transition-duration:70ms!important;filter:saturate(1.08)}
+
+.ux-reveal{opacity:0;transform:translateY(22px) scale(.988);filter:blur(3px);transition:opacity .62s var(--ux-ease) var(--ux-delay,0ms),transform .62s var(--ux-ease) var(--ux-delay,0ms),filter .62s var(--ux-ease) var(--ux-delay,0ms)}
+.ux-reveal.ux-visible{opacity:1;transform:none;filter:none}
+
+.content-section.ux-visible .section-number{animation:numberPop .55s var(--ux-ease) both}
+@keyframes numberPop{0%{transform:scale(.7) rotate(-7deg);opacity:.2}70%{transform:scale(1.08) rotate(1deg)}100%{transform:none;opacity:1}}
+
+.progress-row .bar i,.check-progress .bar i,.lab-meter i{transition:width .8s var(--ux-ease)!important}
+.timer-ring{transition:transform .3s var(--ux-ease),filter .3s ease}
+.timer-card:has(.timer-ring) .timer-ring:hover{transform:scale(1.025);filter:drop-shadow(0 15px 25px rgba(124,92,252,.15))}
+
+.paper-choice .paper-visual,.feature-icon,.book-cover,.page-hero-mark{transition:transform .42s var(--ux-ease),filter .3s ease}
+@media (hover:hover) and (pointer:fine){
+  .paper-choice:hover .paper-visual{transform:translateY(-8px) rotate(-1deg) scale(1.035)}
+  .paper-choice.p2:hover .paper-visual{transform:translateY(-8px) rotate(1deg) scale(1.035)}
+  .feature-card:hover .feature-icon{transform:translateY(-5px) rotate(-5deg) scale(1.08)}
+  .book-card:hover .book-cover{transform:translateY(-8px) rotateY(-5deg) rotateX(2deg);filter:drop-shadow(12px 18px 16px rgba(15,13,40,.16))}
+}
+
+.compass-wrap{transform-style:preserve-3d}
+.compass-center{animation:coreBreathe 5s ease-in-out infinite}
+@keyframes coreBreathe{0%,100%{box-shadow:0 25px 60px rgba(124,92,252,.18),inset 0 0 0 10px color-mix(in srgb,var(--violet) 4%,transparent)}50%{box-shadow:0 28px 76px rgba(124,92,252,.27),0 0 0 12px color-mix(in srgb,var(--cyan) 5%,transparent),inset 0 0 0 10px color-mix(in srgb,var(--violet) 7%,transparent)}}
+.compass-node:nth-of-type(odd){animation:nodeDriftA 6s ease-in-out infinite}
+.compass-node:nth-of-type(even){animation:nodeDriftB 7s ease-in-out infinite}
+@keyframes nodeDriftA{0%,100%{margin-top:0}50%{margin-top:-5px}}
+@keyframes nodeDriftB{0%,100%{margin-top:0}50%{margin-top:5px}}
+
+@media(max-width:900px){
+  .litlab-route-dock{top:76px;padding:6px 14px;min-height:46px;overflow:hidden}
+  .route-crumbs{flex:1;overflow-x:auto;scrollbar-width:none}
+  .route-crumbs::-webkit-scrollbar{display:none}
+  .route-actions .route-back{display:none}
+  .route-actions .route-next{white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+  .app-shell::after{display:none}
+}
+
+@media(max-width:520px){
+  .litlab-route-dock{gap:6px}
+  .route-crumbs button,.route-crumbs strong{font-size:10px}
+  .route-actions .route-next{font-size:10px;padding:6px 8px;max-width:115px}
+  .litlab-back-top{right:13px;bottom:13px;width:48px;height:48px;border-radius:15px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .app-shell::after{display:none}
+  .ux-reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  .compass-center,.compass-node{animation:none!important}
+  .litlab-route-dock{animation:none!important}
+  .btn.primary::after,.feature-card::after,.paper-choice::after,.book-card::after,.compass-node::after{display:none}
+  .litlab-back-top,.route-crumbs button,.route-actions button{transition:none!important}
+}
