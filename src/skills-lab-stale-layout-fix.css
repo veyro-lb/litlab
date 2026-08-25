@@ -1,0 +1,22 @@
+/* Prevent the Authorial Choice Check grid from leaking into other Skills Lab tools. */
+.skills-shell-v2 .skills-workspace-body[data-choice-bank-root="true"]:not(:has(> .choice-bank-stage)){
+  display:block!important;
+  grid-template-columns:none!important;
+  gap:0!important;
+}
+
+.skills-shell-v2 .skills-workspace-body[data-choice-bank-root="true"]:not(:has(> .choice-bank-stage)) > *{
+  grid-column:auto!important;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+/* Clinic and Analysis must always own the full workspace before their internal layouts split. */
+.skills-shell-v2 .clinic-intro,
+.skills-shell-v2 .clinic-question-shell,
+.skills-shell-v2 .analysis-practice-grid{
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+}
