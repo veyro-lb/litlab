@@ -1,6 +1,6 @@
 import './google-auth.css';
 
-// Public browser configuration. Never place a Supabase secret/service-role key here.
+// Public browser configuration only. Never place a Supabase secret/service-role key here.
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
@@ -13,6 +13,7 @@ type AuthUser={id:string;email?:string;user_metadata?:{full_name?:string;name?:s
 let currentUser:AuthUser|null=null;
 let accountMenuOpen=false;
 let modalOpen=false;
+let renderScheduled=false;
 
 const readSession=():StoredSession|null=>{
   try{
@@ -109,7 +110,7 @@ function signInWithGoogle(){
   const authorize=new URL(`${SUPABASE_URL}/auth/v1/authorize`);
   authorize.searchParams.set('provider','google');
   authorize.searchParams.set('redirect_to',redirectTo);
-  location.assign(authorize.toString());
+  window.location.href=authorize.toString();
 }
 
 async function signOut(){
@@ -137,9 +138,13 @@ function initials(user:AuthUser){
   return ((parts[0]?.[0]||'S')+(parts.length>1?(parts[parts.length-1]?.[0]||''):'')).toUpperCase();
 }
 
-function closeModal(){modalOpen=false;document.querySelector('[data-auth-modal]')?.remove()}
+function closeModal(){
+  modalOpen=false;
+  document.querySelector('[data-auth-modal]')?.remove();
+}
 
 function openModal(){
+  if(modalOpen&&document.querySelector('[data-auth-modal]'))return;
   modalOpen=true;
   document.querySelector('[data-auth-modal]')?.remove();
   const overlay=document.createElement('div');
@@ -149,26 +154,29 @@ function openModal(){
   overlay.setAttribute('aria-modal','true');
   overlay.setAttribute('aria-label','Sign in to LitLab');
   overlay.innerHTML=`<div class="litlab-auth-dialog">
-    <button type="button" class="litlab-auth-close" aria-label="Close">×</button>
+    <button type="button" class="litlab-auth-close" data-auth-close aria-label="Close">×</button>
     <div class="litlab-auth-mark">LL</div>
     <span class="litlab-auth-eyebrow">MY LITLAB</span>
     <h2>Sign in to LitLab</h2>
     <p>Use your Google account to create or access your LitLab account. LitLab only requests your basic profile and email for sign-in.</p>
-    <button type="button" class="litlab-google-button"><span class="litlab-google-g">G</span><b>Continue with Google</b></button>
+    <button type="button" class="litlab-google-button" data-auth-google><span class="litlab-google-g">G</span><b>Continue with Google</b></button>
     <small>Your Google password is never shared with LitLab.</small>
     <div class="litlab-auth-error" data-auth-error hidden></div>
   </div>`;
-  overlay.addEventListener('mousedown',event=>{if(event.target===overlay)closeModal()});
-  overlay.querySelector<HTMLButtonElement>('.litlab-auth-close')?.addEventListener('click',closeModal);
-  overlay.querySelector<HTMLButtonElement>('.litlab-google-button')?.addEventListener('click',signInWithGoogle);
+
+  overlay.addEventListener('pointerdown',event=>{if(event.target===overlay)closeModal()});
+  overlay.querySelector<HTMLButtonElement>('[data-auth-close]')?.addEventListener('click',closeModal);
+  overlay.querySelector<HTMLButtonElement>('[data-auth-google]')?.addEventListener('click',signInWithGoogle);
+
   const error=sessionStorage.getItem(ERROR_KEY);
   if(error){
     sessionStorage.removeItem(ERROR_KEY);
     const box=overlay.querySelector<HTMLElement>('[data-auth-error]');
     if(box){box.hidden=false;box.textContent=`Sign-in error: ${error}`}
   }
+
   document.body.append(overlay);
-  overlay.querySelector<HTMLButtonElement>('.litlab-google-button')?.focus();
+  overlay.querySelector<HTMLButtonElement>('[data-auth-google]')?.focus();
 }
 
 function buildAuthRoot(){
@@ -192,6 +200,8 @@ function renderAuth(){
     const button=document.createElement('button');
     button.type='button';
     button.className='litlab-auth-signin';
+    button.dataset.authOpen='true';
+    button.setAttribute('aria-label','Sign in to LitLab');
     button.innerHTML='<span class="litlab-google-g small">G</span><span class="litlab-auth-label">Sign in</span>';
     button.addEventListener('click',openModal);
     root.append(button);
@@ -205,46 +215,99 @@ function renderAuth(){
   trigger.setAttribute('aria-expanded',String(accountMenuOpen));
   const avatar=currentUser.user_metadata?.avatar_url||currentUser.user_metadata?.picture;
   if(avatar){
-    const img=document.createElement('img');img.src=avatar;img.alt='';img.referrerPolicy='no-referrer';trigger.append(img);
+    const img=document.createElement('img');
+    img.src=avatar;
+    img.alt='';
+    img.referrerPolicy='no-referrer';
+    trigger.append(img);
   }else{
-    const badge=document.createElement('span');badge.className='litlab-account-initials';badge.textContent=initials(currentUser);trigger.append(badge);
+    const badge=document.createElement('span');
+    badge.className='litlab-account-initials';
+    badge.textContent=initials(currentUser);
+    trigger.append(badge);
   }
-  const label=document.createElement('span');label.className='litlab-auth-label';label.textContent=displayName(currentUser);trigger.append(label);
-  const chevron=document.createElement('span');chevron.className='litlab-account-chevron';chevron.textContent='⌄';trigger.append(chevron);
+  const label=document.createElement('span');
+  label.className='litlab-auth-label';
+  label.textContent=displayName(currentUser);
+  trigger.append(label);
+  const chevron=document.createElement('span');
+  chevron.className='litlab-account-chevron';
+  chevron.textContent='⌄';
+  trigger.append(chevron);
   trigger.addEventListener('click',event=>{event.stopPropagation();accountMenuOpen=!accountMenuOpen;renderAuth()});
   root.append(trigger);
 
   if(accountMenuOpen){
-    const menu=document.createElement('div');menu.className='litlab-account-menu';
-    const head=document.createElement('div');head.className='litlab-account-head';
-    const name=document.createElement('b');name.textContent=displayName(currentUser);
-    const email=document.createElement('span');email.textContent=currentUser.email||'';
-    head.append(name,email);menu.append(head);
-    const divider=document.createElement('div');divider.className='litlab-account-divider';menu.append(divider);
-    const status=document.createElement('div');status.className='litlab-account-status';status.innerHTML='<span>✓</span><p><b>Google account connected</b><small>Progress sync can be added next.</small></p>';menu.append(status);
-    const out=document.createElement('button');out.type='button';out.className='litlab-signout';out.textContent='Sign out';out.addEventListener('click',()=>void signOut());menu.append(out);
+    const menu=document.createElement('div');
+    menu.className='litlab-account-menu';
+    const head=document.createElement('div');
+    head.className='litlab-account-head';
+    const name=document.createElement('b');
+    name.textContent=displayName(currentUser);
+    const email=document.createElement('span');
+    email.textContent=currentUser.email||'';
+    head.append(name,email);
+    menu.append(head);
+    const divider=document.createElement('div');
+    divider.className='litlab-account-divider';
+    menu.append(divider);
+    const status=document.createElement('div');
+    status.className='litlab-account-status';
+    status.innerHTML='<span>✓</span><p><b>Google account connected</b><small>Progress sync can be added next.</small></p>';
+    menu.append(status);
+    const out=document.createElement('button');
+    out.type='button';
+    out.className='litlab-signout';
+    out.textContent='Sign out';
+    out.addEventListener('click',()=>void signOut());
+    menu.append(out);
     root.append(menu);
   }
 }
 
-let scheduled=false;
-function scheduleRender(){
-  if(scheduled)return;scheduled=true;
-  requestAnimationFrame(()=>{scheduled=false;renderAuth()});
+function scheduleRenderIfMissing(){
+  if(document.querySelector('[data-litlab-auth-root]')||renderScheduled)return;
+  renderScheduled=true;
+  requestAnimationFrame(()=>{
+    renderScheduled=false;
+    if(!document.querySelector('[data-litlab-auth-root]'))renderAuth();
+  });
 }
 
-const observer=new MutationObserver(mutations=>{
-  const hasExternalMutation=mutations.some(mutation=>{
-    const target=mutation.target instanceof Element?mutation.target:mutation.target.parentElement;
-    return !target?.closest?.('[data-litlab-auth-root]');
-  });
-  if(hasExternalMutation)scheduleRender();
-});
-const app=document.getElementById('root');if(app)observer.observe(app,{childList:true,subtree:true});
-window.addEventListener('hashchange',scheduleRender);
-document.addEventListener('click',event=>{
-  if(accountMenuOpen&&!((event.target as Element|null)?.closest?.('[data-litlab-auth-root]'))){accountMenuOpen=false;renderAuth()}
-});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'){accountMenuOpen=false;if(modalOpen)closeModal();renderAuth()}});
+// Failsafe: handle the initial press before any other LitLab enhancement can replace or intercept the button.
+document.addEventListener('pointerdown',event=>{
+  const target=event.target instanceof Element?event.target:null;
+  if(target?.closest('[data-auth-open]')){
+    event.preventDefault();
+    event.stopPropagation();
+    openModal();
+    return;
+  }
+  if(target?.closest('[data-auth-google]')){
+    event.preventDefault();
+    event.stopPropagation();
+    signInWithGoogle();
+  }
+},true);
 
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>void loadUser(),{once:true});else void loadUser();
+// React owns the topbar. Only restore the auth control if React actually removes it.
+const app=document.getElementById('root');
+if(app)new MutationObserver(scheduleRenderIfMissing).observe(app,{childList:true,subtree:true});
+
+window.addEventListener('hashchange',()=>setTimeout(scheduleRenderIfMissing,0));
+document.addEventListener('click',event=>{
+  if(accountMenuOpen&&!((event.target as Element|null)?.closest?.('[data-litlab-auth-root]'))){
+    accountMenuOpen=false;
+    renderAuth();
+  }
+});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    accountMenuOpen=false;
+    if(modalOpen)closeModal();
+    renderAuth();
+  }
+});
+
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>void loadUser(),{once:true});
+else void loadUser();
