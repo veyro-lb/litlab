@@ -103,7 +103,7 @@ async function loadUser(){
 }
 
 function signInWithGoogle(){
-  const returnHash=location.hash&& !location.hash.includes('access_token=')?location.hash:'#home';
+  const returnHash=location.hash&&!location.hash.includes('access_token=')?location.hash:'#home';
   sessionStorage.setItem(RETURN_KEY,returnHash);
   const redirectTo=`${location.origin}${location.pathname}`;
   const authorize=new URL(`${SUPABASE_URL}/auth/v1/authorize`);
@@ -233,7 +233,13 @@ function scheduleRender(){
   requestAnimationFrame(()=>{scheduled=false;renderAuth()});
 }
 
-const observer=new MutationObserver(scheduleRender);
+const observer=new MutationObserver(mutations=>{
+  const hasExternalMutation=mutations.some(mutation=>{
+    const target=mutation.target instanceof Element?mutation.target:mutation.target.parentElement;
+    return !target?.closest?.('[data-litlab-auth-root]');
+  });
+  if(hasExternalMutation)scheduleRender();
+});
 const app=document.getElementById('root');if(app)observer.observe(app,{childList:true,subtree:true});
 window.addEventListener('hashchange',scheduleRender);
 document.addEventListener('click',event=>{
