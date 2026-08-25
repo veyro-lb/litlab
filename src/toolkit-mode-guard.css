@@ -32,6 +32,25 @@ html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] >
   display:block!important;
 }
 
+/*
+  Reference-mode switching itself must never fade, slide, scale or blur.
+  Legacy modules used Motion on the whole panel, and repeated observers could
+  leave those inline animation values halfway applied. Force the switcher and
+  panels into a fully rendered state. Inner glossary/keyword accordions keep
+  their own animations because these rules only target the outer mode shells.
+*/
+html body main .toolkit-reference-page > .keyword-panel,
+html body main .toolkit-reference-page > .keyword-mode-tabs,
+html body main .toolkit-reference-page > .toolkit-chooser{
+  opacity:1!important;
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+  filter:none!important;
+  animation:none!important;
+  will-change:auto!important;
+}
+
 /* Stable three-tab control. Active visuals come from the page mode, never
    from whichever legacy script most recently toggled .active. */
 html body main .toolkit-reference-page > .keyword-mode-tabs{
@@ -39,17 +58,34 @@ html body main .toolkit-reference-page > .keyword-mode-tabs{
   margin:0 auto 22px!important;
   display:grid!important;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:6px!important;
+  gap:8px!important;
   padding:6px!important;
 }
 html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{
   min-width:0!important;
   width:100%!important;
+  min-height:46px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  margin:0!important;
   color:var(--muted)!important;
   background:transparent!important;
   box-shadow:none!important;
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+  animation:none!important;
+  transition:background-color .12s ease,color .12s ease,border-color .12s ease!important;
   isolation:isolate;
   white-space:nowrap;
+}
+html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]:hover,
+html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]:focus-visible,
+html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]:active{
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
 }
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .keyword-mode-tabs button[data-mode="glossary"],
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .keyword-mode-tabs button[data-mode="keywords"],
@@ -60,15 +96,37 @@ html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] >
 }
 
 /* The large chooser cards use the same single source of truth. Reset stale
-   .active classes first, then style only the card matching the page mode. */
+   .active classes first, then style only the card matching the page mode.
+   Keep these controls stationary while switching to avoid the merging/shaking
+   effect caused by competing hover/active transforms. */
 html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode]{
   border-color:var(--line)!important;
   background:var(--surface)!important;
   box-shadow:0 8px 24px rgba(22,18,55,.045)!important;
+  opacity:1!important;
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+  filter:none!important;
+  animation:none!important;
+  transition:border-color .12s ease,background-color .12s ease,box-shadow .12s ease!important;
+  will-change:auto!important;
+}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode]:hover,
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode]:focus-visible,
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode]:active{
+  transform:none!important;
+  translate:none!important;
+  scale:1!important;
+}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode] > svg{
+  transform:none!important;
+  transition:color .12s ease!important;
 }
 html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode] .toolkit-choice-icon{
   background:color-mix(in srgb,var(--violet) 8%,var(--surface-2))!important;
   color:var(--violet)!important;
+  transform:none!important;
 }
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] .toolkit-choice[data-toolkit-mode="glossary"],
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] .toolkit-choice[data-toolkit-mode="keywords"],
