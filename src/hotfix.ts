@@ -1,12 +1,15 @@
 import './hotfix.css';
 
+// Symmetrical six-point orbit: Start, Papers, IO, EE, Books, Analysis.
+// Keeping these coordinates away from the edges prevents cards disappearing
+// at common laptop widths while still preserving the radial Compass concept.
 const compassPositions=[
-  [50,14],
-  [82,30],
-  [80,72],
-  [20,72],
-  [18,30],
-  [50,86]
+  [50,15],
+  [72,33],
+  [72,67],
+  [28,67],
+  [28,33],
+  [50,85]
 ] as const;
 
 function fixStartHereToc(){
@@ -29,19 +32,24 @@ function fixStartHereToc(){
 function fixCompass(){
   const wrap=document.querySelector<HTMLElement>('.compass-wrap');
   if(!wrap)return;
+
+  wrap.dataset.orbitReady='true';
   const nodes=wrap.querySelectorAll<HTMLElement>('.compass-node');
   nodes.forEach((node,index)=>{
     node.classList.add(`n${index}`);
     node.style.removeProperty('display');
     node.style.removeProperty('visibility');
     node.style.removeProperty('opacity');
+    node.style.setProperty('--orbit-index',String(index));
   });
+
   const lines=wrap.querySelectorAll<SVGLineElement>('.compass-lines line');
   lines.forEach((line,index)=>{
     const position=compassPositions[index];
     if(!position)return;
     line.setAttribute('x2',String(position[0]));
     line.setAttribute('y2',String(position[1]));
+    line.style.setProperty('--line-index',String(index));
   });
 }
 
