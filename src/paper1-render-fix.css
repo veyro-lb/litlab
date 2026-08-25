@@ -9,7 +9,8 @@
 
 /* Keep the mechanisms table inside its section and use every available pixel cleanly. */
 #p1-choices.paper1-wide-reference{width:100%;max-width:100%;overflow:visible}
-#p1-choices.paper1-wide-reference .paper1-choice-table-wrap{width:100%;max-width:100%;margin:0 0 18px;transform:none;border-radius:24px;box-shadow:0 18px 44px rgba(20,18,48,.07);box-sizing:border-box}
+#p1-choices.paper1-wide-reference .paper1-choice-grid{grid-template-columns:minmax(0,1fr)!important;width:100%;max-width:100%}
+#p1-choices.paper1-wide-reference .paper1-choice-table-wrap{grid-column:1/-1;width:100%;max-width:100%;margin:0 0 18px;transform:none;border-radius:24px;box-shadow:0 18px 44px rgba(20,18,48,.07);box-sizing:border-box}
 #p1-choices.paper1-wide-reference .paper1-table-scroll{width:100%;max-width:100%;overflow:hidden}
 #p1-choices.paper1-wide-reference .paper1-choice-table{width:100%!important;min-width:0!important;max-width:100%;table-layout:fixed}
 #p1-choices.paper1-wide-reference .paper1-choice-table th{padding:13px 14px;font-size:8.5px;line-height:1.35;white-space:normal;overflow-wrap:anywhere}
