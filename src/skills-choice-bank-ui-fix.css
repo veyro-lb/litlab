@@ -1,0 +1,66 @@
+/* Authorial Choice Check: remove answer giveaways and improve practice navigation. */
+.skills-workspace-body[data-choice-bank-root="true"]{
+  display:grid;
+  grid-template-columns:minmax(220px,280px) minmax(0,1fr);
+  gap:18px 22px;
+  align-items:start;
+}
+.skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-intro,
+.skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-overview{grid-column:1/-1}
+.skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-control-card{grid-column:1;position:sticky;top:150px;margin:0;padding:16px;border-radius:20px}
+.skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-stage{grid-column:2;min-width:0;scroll-margin-top:150px}
+
+.choice-bank-overview{gap:8px;margin-bottom:4px}
+.choice-bank-overview article{min-height:104px;padding:14px 15px;border-radius:17px}
+.choice-bank-overview b{margin:6px 0 3px;font-size:1.3rem}
+.choice-bank-overview p{font-size:11px}
+
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filter-head{display:grid;gap:10px;align-items:start;margin-bottom:12px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filter-head>div{gap:3px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filter-head b{font-size:12px;line-height:1.4}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-missed-btn{width:100%;justify-content:space-between;padding:10px 11px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters{grid-template-columns:1fr;gap:6px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters button{min-height:42px;padding:8px 10px;border-radius:12px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters button b{font-size:10.5px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats{grid-template-columns:1fr;gap:5px;margin-top:11px;padding-top:11px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats>div{padding:8px 9px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats span{font-size:9.5px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats b{font-size:10.5px}
+
+/* Never reveal the tested term beside the category before the student answers. */
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-meta>div:first-child>b{display:none!important}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-meta{margin-bottom:16px;padding-bottom:13px}
+.skills-workspace-body[data-choice-bank-root="true"] .choice-bank-meta>div:first-child>span{display:inline-flex;align-items:center;min-height:28px;padding:0 9px;border:1px solid color-mix(in srgb,var(--violet) 22%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--violet) 5%,var(--surface));font-size:9.5px}
+
+.choice-bank-question-card{padding:22px;border-radius:22px}
+.choice-bank-example{margin-bottom:16px;padding:13px 15px}
+.choice-bank-example blockquote{font-size:14.5px;line-height:1.62}
+.choice-bank-question-card>h3{margin-bottom:15px;font-size:clamp(1.12rem,1.8vw,1.35rem)}
+.choice-bank-precision-note{font-size:10.5px}
+.choice-bank-options{gap:8px}
+.choice-bank-options button{min-height:58px;padding:11px 12px;border-radius:14px}
+.choice-bank-options button p{font-size:12.5px;font-weight:700;line-height:1.4}
+.choice-bank-options button>span{width:28px;height:28px}
+.choice-bank-explanations{margin-top:14px;padding:13px}
+.choice-bank-explanations article{padding:10px 11px}
+.choice-bank-explanations article p{font-size:11.5px}
+.choice-bank-actions{margin-top:14px}
+
+@media(max-width:1000px){
+  .skills-workspace-body[data-choice-bank-root="true"]{grid-template-columns:1fr;gap:15px}
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-intro,
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-overview,
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-control-card,
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-stage{grid-column:1}
+  .skills-workspace-body[data-choice-bank-root="true"]>.choice-bank-control-card{position:static}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+@media(max-width:680px){
+  .choice-bank-overview{grid-template-columns:1fr 1fr}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters{display:flex;overflow-x:auto;padding-bottom:3px}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-filters button{flex:none;min-width:132px}
+  .skills-workspace-body[data-choice-bank-root="true"] .choice-bank-stats{grid-template-columns:1fr}
+  .choice-bank-options{grid-template-columns:1fr}
+}
