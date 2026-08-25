@@ -12,8 +12,7 @@ function cleanStudentFacingCopy(page:HTMLElement){
   setText(page,'.paper1-eyebrow','✦ PAPER 1 • LITLAB STUDY GUIDE');
   const hero=page.querySelector<HTMLElement>('.paper1-hero-copy>p');
   if(hero)hero.innerHTML='Read an unseen text, identify the choices doing the most work, and build a focused argument about <b>how those choices shape meaning</b>. Use this guide as a complete Paper 1 study path: understand the process, review the reference material, then test yourself with original practice.';
-  setText(page,'.paper1-verify-note b','Verification note');
-  setText(page,'.paper1-verify-note p','The SL/HL comparison above shows the working Paper 1 figures used in this guide. Confirm exact current assessment details with your teacher or current IB course guide before using them as official exam requirements.');
+  page.querySelector<HTMLElement>('.paper1-verify-note')?.remove();
   setText(page,'#p1-annotation .paper1-micro-note','If nearly the whole text is highlighted, you have not prioritized. As a student strategy, aim for roughly 6–8 genuinely useful moments rather than marking everything.');
   const choicesIntro=page.querySelector<HTMLElement>('#p1-choices .paper1-section-head p');
   if(choicesIntro)choicesIntro.innerHTML='This reference includes <b>44 authorial choices</b> across language, structure, narrative, and visual/multimodal analysis. Accuracy matters more than impressive terminology.';

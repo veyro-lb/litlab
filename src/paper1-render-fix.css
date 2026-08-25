@@ -1,26 +1,39 @@
-/* Paper 1: stable SL/HL comparison + full-width mechanisms reference */
-.paper1-level-table-wrap{margin:0 0 24px;border:1px solid color-mix(in srgb,var(--violet) 24%,var(--line));border-radius:24px;background:var(--surface);box-shadow:0 18px 44px rgba(20,18,48,.07);overflow:hidden}
+/* Paper 1: stable SL/HL comparison + in-frame mechanisms reference */
+.paper1-level-table-wrap{width:100%;margin:0 0 24px;border:1px solid color-mix(in srgb,var(--violet) 24%,var(--line));border-radius:24px;background:var(--surface);box-shadow:0 18px 44px rgba(20,18,48,.07);overflow:hidden;box-sizing:border-box}
 .paper1-level-table-title{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,color-mix(in srgb,var(--violet) 9%,var(--surface)),color-mix(in srgb,var(--cyan) 5%,var(--surface)))}
 .paper1-level-table-title>div{display:grid;gap:5px}.paper1-level-table-title span{color:var(--violet);font-size:9px;font-weight:900;letter-spacing:.13em}.paper1-level-table-title b{color:var(--ink);font:800 1rem var(--display)}.paper1-level-table-title small{flex:none;border:1px solid color-mix(in srgb,var(--violet) 24%,var(--line));border-radius:999px;padding:7px 10px;background:var(--surface);color:var(--muted);font-size:8px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
-.paper1-level-table-scroll{overflow-x:auto;overscroll-behavior-inline:contain}.paper1-level-table{width:100%;min-width:1020px;border-collapse:collapse}.paper1-level-table th{padding:12px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface-2) 76%,var(--surface));color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.08em;text-align:left}.paper1-level-table td{padding:18px 16px;border-bottom:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.55;vertical-align:middle}.paper1-level-table tbody tr:last-child td{border-bottom:0}.paper1-level-table tbody tr:nth-child(2) td{background:color-mix(in srgb,var(--violet) 2.5%,var(--surface))}.paper1-level-table td b,.paper1-level-table td strong{color:var(--ink)}.paper1-level-table td span{display:block;margin-top:3px;font-size:9px;color:var(--muted)}
-.paper1-level-badge{display:grid!important;place-items:center;width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--violet),color-mix(in srgb,var(--violet) 72%,var(--cyan)));color:#fff!important;font:900 14px var(--display);box-shadow:0 8px 20px rgba(124,92,252,.2)}.paper1-level-badge.hl{background:linear-gradient(135deg,color-mix(in srgb,var(--cyan) 78%,var(--violet)),var(--violet))}.paper1-weight{display:inline-flex!important;align-items:center;justify-content:center;min-width:72px;border-radius:13px;padding:9px 12px;background:color-mix(in srgb,var(--violet) 11%,var(--surface-2));color:var(--violet)!important;font:900 1.3rem var(--display)}
+.paper1-level-table-scroll{width:100%;overflow:hidden}.paper1-level-table{width:100%;min-width:0;border-collapse:collapse;table-layout:fixed}.paper1-level-table th{padding:12px 14px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface-2) 76%,var(--surface));color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.08em;text-align:left}.paper1-level-table td{padding:18px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10.5px;line-height:1.55;vertical-align:middle;overflow-wrap:anywhere}.paper1-level-table th:nth-child(1){width:8%}.paper1-level-table th:nth-child(2){width:24%}.paper1-level-table th:nth-child(3){width:17%}.paper1-level-table th:nth-child(4){width:16%}.paper1-level-table th:nth-child(5){width:16%}.paper1-level-table th:nth-child(6){width:19%}.paper1-level-table tbody tr:last-child td{border-bottom:0}.paper1-level-table tbody tr:nth-child(2) td{background:color-mix(in srgb,var(--violet) 2.5%,var(--surface))}.paper1-level-table td b,.paper1-level-table td strong{color:var(--ink)}.paper1-level-table td span{display:block;margin-top:3px;font-size:9px;color:var(--muted)}
+.paper1-level-badge{display:grid!important;place-items:center;width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--violet),color-mix(in srgb,var(--violet) 72%,var(--cyan)));color:#fff!important;font:900 14px var(--display);box-shadow:0 8px 20px rgba(124,92,252,.2)}.paper1-level-badge.hl{background:linear-gradient(135deg,color-mix(in srgb,var(--cyan) 78%,var(--violet)),var(--violet))}.paper1-weight{display:inline-flex!important;align-items:center;justify-content:center;min-width:68px;border-radius:13px;padding:9px 11px;background:color-mix(in srgb,var(--violet) 11%,var(--surface-2));color:var(--violet)!important;font:900 1.2rem var(--display)}
 .paper1-level-note{margin:0;padding:13px 18px;border-top:1px solid var(--line);background:color-mix(in srgb,var(--cyan) 4%,var(--surface));color:var(--muted);font-size:10px;line-height:1.55}.paper1-level-note b{color:var(--ink)}
+.paper1-verify-note{display:none!important}
 
-/* Break only the mechanisms table out of the normal 1220px reading column. */
-#p1-choices.paper1-wide-reference .paper1-choice-table-wrap{width:min(1500px,calc(100vw - 48px));max-width:none;margin-left:50%;transform:translateX(-50%);border-radius:24px;box-shadow:0 18px 44px rgba(20,18,48,.07)}
-#p1-choices.paper1-wide-reference .paper1-choice-table{width:100%!important;min-width:1360px!important;table-layout:fixed}
-#p1-choices.paper1-wide-reference .paper1-choice-table th{padding:14px 17px;font-size:9px}
-#p1-choices.paper1-wide-reference .paper1-choice-table td{padding:18px 17px;font-size:11.5px;line-height:1.65}
+/* Keep the mechanisms table inside its section and use every available pixel cleanly. */
+#p1-choices.paper1-wide-reference{width:100%;max-width:100%;overflow:visible}
+#p1-choices.paper1-wide-reference .paper1-choice-table-wrap{width:100%;max-width:100%;margin:0 0 18px;transform:none;border-radius:24px;box-shadow:0 18px 44px rgba(20,18,48,.07);box-sizing:border-box}
+#p1-choices.paper1-wide-reference .paper1-table-scroll{width:100%;max-width:100%;overflow:hidden}
+#p1-choices.paper1-wide-reference .paper1-choice-table{width:100%!important;min-width:0!important;max-width:100%;table-layout:fixed}
+#p1-choices.paper1-wide-reference .paper1-choice-table th{padding:13px 14px;font-size:8.5px;line-height:1.35;white-space:normal;overflow-wrap:anywhere}
+#p1-choices.paper1-wide-reference .paper1-choice-table td{padding:16px 14px;font-size:10.5px;line-height:1.6;white-space:normal;overflow-wrap:anywhere;word-break:normal}
 #p1-choices.paper1-wide-reference .paper1-choice-table th:first-child,#p1-choices.paper1-wide-reference .paper1-choice-table td:first-child{width:13%}
 #p1-choices.paper1-wide-reference .paper1-choice-table th:nth-child(2),#p1-choices.paper1-wide-reference .paper1-choice-table td:nth-child(2){width:20%}
-#p1-choices.paper1-wide-reference .paper1-choice-table th:nth-child(3),#p1-choices.paper1-wide-reference .paper1-choice-table td:nth-child(3){width:22%}
+#p1-choices.paper1-wide-reference .paper1-choice-table th:nth-child(3),#p1-choices.paper1-wide-reference .paper1-choice-table td:nth-child(3){width:21%}
 #p1-choices.paper1-wide-reference .paper1-choice-table th:nth-child(4),#p1-choices.paper1-wide-reference .paper1-choice-table td:nth-child(4){width:23%}
-#p1-choices.paper1-wide-reference .paper1-choice-table th:nth-child(5),#p1-choices.paper1-wide-reference .paper1-choice-table td:nth-child(5){width:22%}
-#p1-choices.paper1-wide-reference .paper1-choice-table td:first-child b{font-size:12px;color:var(--ink)}
+#p1-choices.paper1-wide-reference .paper1-choice-table th:nth-child(5),#p1-choices.paper1-wide-reference .paper1-choice-table td:nth-child(5){width:23%}
+#p1-choices.paper1-wide-reference .paper1-choice-table td:first-child b{font-size:11px;color:var(--ink)}
+
+@media(max-width:900px){
+  #p1-choices.paper1-wide-reference .paper1-table-scroll{overflow:visible}
+  #p1-choices.paper1-wide-reference .paper1-choice-table,#p1-choices.paper1-wide-reference .paper1-choice-table tbody,#p1-choices.paper1-wide-reference .paper1-choice-table tr,#p1-choices.paper1-wide-reference .paper1-choice-table td{display:block;width:100%!important;min-width:0!important}
+  #p1-choices.paper1-wide-reference .paper1-choice-table thead{display:none}
+  #p1-choices.paper1-wide-reference .paper1-choice-table tbody{display:grid;gap:10px;padding:10px}
+  #p1-choices.paper1-wide-reference .paper1-choice-table tr{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--surface)}
+  #p1-choices.paper1-wide-reference .paper1-choice-table td{display:grid;grid-template-columns:130px minmax(0,1fr);gap:10px;padding:11px 12px;border-bottom:1px solid var(--line)!important}
+  #p1-choices.paper1-wide-reference .paper1-choice-table td:last-child{border-bottom:0!important}
+  #p1-choices.paper1-wide-reference .paper1-choice-table td::before{content:attr(data-label);color:var(--muted);font-size:7px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+}
 
 @media(max-width:760px){
   .paper1-level-table-wrap{border-radius:18px}.paper1-level-table-title{align-items:flex-start;flex-direction:column;gap:8px;padding:15px}.paper1-level-table-title small{display:none}.paper1-level-table-scroll{overflow:visible}.paper1-level-table,.paper1-level-table tbody,.paper1-level-table tr,.paper1-level-table td{display:block;width:100%;min-width:0}.paper1-level-table thead{display:none}.paper1-level-table tbody{display:grid;gap:10px;padding:10px}.paper1-level-table tr{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--surface)}.paper1-level-table td{display:grid;grid-template-columns:112px minmax(0,1fr);gap:10px;align-items:center;padding:11px 12px;border-bottom:1px solid var(--line)}.paper1-level-table td:last-child{border-bottom:0}.paper1-level-table td::before{content:attr(data-label);color:var(--muted);font-size:7px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.paper1-level-badge{width:42px;height:42px}.paper1-weight{justify-self:start;font-size:1.15rem}.paper1-level-note{padding:12px 14px}
-  #p1-choices.paper1-wide-reference .paper1-choice-table-wrap{width:100%;margin-left:0;transform:none;border-radius:17px}
-  #p1-choices.paper1-wide-reference .paper1-choice-table{min-width:0!important;table-layout:auto}
-  #p1-choices.paper1-wide-reference .paper1-choice-table th,#p1-choices.paper1-wide-reference .paper1-choice-table td{width:100%!important}
+  #p1-choices.paper1-wide-reference .paper1-choice-table-wrap{border-radius:17px}
+  #p1-choices.paper1-wide-reference .paper1-choice-table td{grid-template-columns:112px minmax(0,1fr)}
 }
