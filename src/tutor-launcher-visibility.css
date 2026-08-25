@@ -6,12 +6,57 @@
 .tutor-launcher::after{content:'NEW';margin-left:2px;align-self:flex-start;border-radius:999px;padding:3px 6px;background:#fff;color:var(--violet);font:900 7px var(--body);letter-spacing:.06em}
 .tutor-launcher:hover,.tutor-launcher:focus-visible{border-color:#fff!important;box-shadow:0 22px 58px rgba(124,92,252,.42)!important}
 
+/* The launcher and the open chat must not share the same bottom anchor.
+   The launcher sits above Back to Top, while the panel is clamped directly
+   to the visible viewport so its header/close button can never leave frame. */
+.litlab-tutor .tutor-panel{
+  position:fixed!important;
+  top:auto!important;
+  right:max(16px,env(safe-area-inset-right))!important;
+  bottom:max(16px,env(safe-area-inset-bottom))!important;
+  left:auto!important;
+  width:min(410px,calc(100vw - 32px))!important;
+  height:min(650px,calc(100dvh - 32px))!important;
+  max-height:calc(100dvh - 32px)!important;
+  transform-origin:bottom right!important;
+}
+
+/* Keep the top controls permanently reachable even with long conversations. */
+.tutor-head{position:relative;z-index:2;flex:0 0 auto}
+.tutor-context,.tutor-modes{flex:0 0 auto}
+.tutor-messages{min-height:0}
+.tutor-compose{flex:0 0 auto}
+
 .tutor-topbar-trigger{display:inline-flex;align-items:center;gap:7px;border:1px solid color-mix(in srgb,var(--violet) 30%,var(--line));border-radius:11px;padding:8px 10px;background:color-mix(in srgb,var(--violet) 7%,var(--surface));color:var(--violet);font:850 10px var(--body);cursor:pointer;white-space:nowrap;transition:background .18s ease,border-color .18s ease,transform .18s ease}
 .tutor-topbar-trigger:hover,.tutor-topbar-trigger:focus-visible{background:color-mix(in srgb,var(--violet) 12%,var(--surface));border-color:color-mix(in srgb,var(--violet) 55%,var(--line));outline:none;transform:translateY(-1px)}
 .tutor-topbar-trigger svg{width:15px;height:15px}
 
-@media(max-width:900px){.tutor-topbar-trigger{display:none}.litlab-tutor{right:12px!important;bottom:74px!important}}
-@media(max-width:430px){.tutor-launcher{padding:9px 11px!important}.tutor-launcher::after{display:none}.litlab-tutor{right:10px!important;bottom:68px!important}}
+@media(max-width:900px){
+  .tutor-topbar-trigger{display:none}
+  .litlab-tutor{right:12px!important;bottom:74px!important}
+  .litlab-tutor .tutor-panel{
+    right:max(10px,env(safe-area-inset-right))!important;
+    left:max(10px,env(safe-area-inset-left))!important;
+    bottom:max(10px,env(safe-area-inset-bottom))!important;
+    width:auto!important;
+    height:calc(100dvh - max(20px,env(safe-area-inset-top) + env(safe-area-inset-bottom)))!important;
+    max-height:calc(100dvh - max(20px,env(safe-area-inset-top) + env(safe-area-inset-bottom)))!important;
+    border-radius:24px!important;
+  }
+}
+@media(max-width:430px){
+  .tutor-launcher{padding:9px 11px!important}
+  .tutor-launcher::after{display:none}
+  .litlab-tutor{right:10px!important;bottom:68px!important}
+  .litlab-tutor .tutor-panel{
+    right:max(6px,env(safe-area-inset-right))!important;
+    left:max(6px,env(safe-area-inset-left))!important;
+    bottom:max(6px,env(safe-area-inset-bottom))!important;
+    height:calc(100dvh - max(12px,env(safe-area-inset-top) + env(safe-area-inset-bottom)))!important;
+    max-height:calc(100dvh - max(12px,env(safe-area-inset-top) + env(safe-area-inset-bottom)))!important;
+    border-radius:21px!important;
+  }
+}
 @media(prefers-reduced-motion:reduce){.tutor-topbar-trigger{transition:none!important}.tutor-topbar-trigger:hover,.tutor-topbar-trigger:focus-visible{transform:none!important}}
 
 /* Loaded after the tutor styles so launcher visibility always wins. */
