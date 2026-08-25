@@ -11,11 +11,12 @@ function buildSkillsDashboard(){
 
   const nav=page.querySelector<HTMLElement>('.skills-tool-grid');
   const workspace=page.querySelector<HTMLElement>('.skills-workspace');
-  if(!nav||!workspace)return;
+  if(!nav||!workspace||!nav.parentNode)return;
 
   const shell=document.createElement('section');
   shell.className='skills-practice-shell';
   shell.setAttribute('aria-label','Skills Lab practice dashboard');
+  nav.parentNode.insertBefore(shell,nav);
 
   const sidebar=document.createElement('aside');
   sidebar.className='skills-lab-sidebar';
@@ -29,8 +30,6 @@ function buildSkillsDashboard(){
   const progress=page.querySelector<HTMLElement>('.skills-progress-summary');
   if(progress)sidebar.appendChild(progress);
   sidebar.appendChild(nav);
-
-  nav.parentNode?.insertBefore(shell,nav);
   shell.append(sidebar,workspace);
 }
 
