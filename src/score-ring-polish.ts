@@ -27,7 +27,7 @@ function polishRing(ring:HTMLElement){
 
   ring.dataset.scorePolished='true';
   ring.dataset.scoreBand=band;
-  ring.style.setProperty('--litlab-score',String(pct));
+  ring.style.setProperty('--litlab-score',`${pct}%`);
   ring.setAttribute('role','img');
   ring.setAttribute('aria-label',`${pct}% accuracy: ${correct} of ${total} answers correct`);
 
