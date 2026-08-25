@@ -4,107 +4,44 @@ const START_SECTIONS=new Set([
   'overview','analysis','choices','ladder','thesis','paragraph','vocabulary','tips','mistakes','notes','setup'
 ]);
 
-const compassPositions:Record<string,[number,number]>={
-  START:[50,13],
-  PAPERS:[74,31],
-  IO:[74,69],
-  EE:[26,69],
-  BOOKS:[26,31],
-  ANALYSIS:[50,87]
-};
-
 function currentRoute(){
   return location.hash.slice(1).split('#')[0]||'home';
-}
-
-function recoverStartRoute(){
-  const raw=location.hash.slice(1);
-  if(!START_SECTIONS.has(raw))return;
-  history.replaceState(null,'',`#start#${raw}`);
-  setTimeout(()=>window.dispatchEvent(new HashChangeEvent('hashchange')),60);
 }
 
 function scrollStartSection(id:string){
   const target=document.getElementById(id);
   if(!target)return;
-  history.replaceState(null,'',`#start#${id}`);
   target.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-// Capture Start Here section navigation before the browser can turn #analysis,
-// #thesis, etc. into a new top-level application route.
+// Start Here uses its own in-page navigation. Keep these clicks out of the
+// application's hash router so the page never turns into #analysis/#thesis.
 document.addEventListener('click',event=>{
-  const element=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.toc a'):null;
-  if(!element)return;
-  const href=element.getAttribute('href')||'';
+  const link=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.toc a'):null;
+  if(!link)return;
+  const href=link.getAttribute('href')||'';
   if(!href.startsWith('#'))return;
   const id=href.slice(1);
   if(!START_SECTIONS.has(id))return;
+
   event.preventDefault();
   event.stopPropagation();
-  if(currentRoute()!=='start'){
-    location.hash=`start#${id}`;
-    setTimeout(()=>scrollStartSection(id),100);
-  }else{
-    scrollStartSection(id);
-  }
+  link.blur();
+  scrollStartSection(id);
 },true);
 
-function fixStartHere(){
-  document.querySelectorAll<HTMLAnchorElement>('.toc a').forEach(link=>{
-    const href=link.getAttribute('href')||'';
-    const id=href.startsWith('#')?href.slice(1):'';
-    if(!START_SECTIONS.has(id))return;
-    link.dataset.sectionTarget=id;
-    link.setAttribute('aria-label',`Jump to ${link.textContent?.trim()||id} within Start Here`);
-  });
-
-  if(currentRoute()==='start'){
-    const anchor=location.hash.split('#')[2];
-    if(anchor&&START_SECTIONS.has(anchor)){
-      requestAnimationFrame(()=>document.getElementById(anchor)?.scrollIntoView({behavior:'smooth',block:'start'}));
-    }
-  }
-}
-
-function fixCompass(){
-  const wrap=document.querySelector<HTMLElement>('.compass-wrap');
-  if(!wrap)return;
-
-  wrap.dataset.orbitReady='true';
-  const nodes=Array.from(wrap.querySelectorAll<HTMLElement>('.compass-node'));
-  const lines=Array.from(wrap.querySelectorAll<SVGLineElement>('.compass-lines line'));
-
-  nodes.forEach((node,index)=>{
-    const label=(node.querySelector('b')?.textContent||'').trim().toUpperCase();
-    const position=compassPositions[label];
-    if(!position)return;
-
-    node.style.setProperty('--node-x',`${position[0]}%`);
-    node.style.setProperty('--node-y',`${position[1]}%`);
-    node.style.setProperty('--orbit-index',String(index));
-    node.dataset.compassName=label;
-    node.style.removeProperty('display');
-    node.style.removeProperty('visibility');
-    node.style.removeProperty('opacity');
-
-    const line=lines[index];
-    if(line){
-      line.setAttribute('x2',String(position[0]));
-      line.setAttribute('y2',String(position[1]));
-      line.style.setProperty('--line-index',String(index));
-    }
-  });
-
-  const ee=nodes.find(node=>node.dataset.compassName==='EE');
-  if(ee){
-    ee.style.display='flex';
-    ee.style.visibility='visible';
-    ee.style.opacity='1';
-  }
+// Recover old bookmarked/broken hashes once, but never keep an anchor in the
+// URL. This prevents browser scroll anchoring from fighting normal scrolling.
+function recoverLegacyStartHash(){
+  const raw=location.hash.slice(1);
+  if(!START_SECTIONS.has(raw))return;
+  const section=raw;
+  location.hash='start';
+  setTimeout(()=>scrollStartSection(section),140);
 }
 
 function enhanceThesis(){
+  if(currentRoute()!=='start')return;
   const section=document.getElementById('thesis');
   if(!section)return;
 
@@ -124,33 +61,18 @@ function enhanceThesis(){
   }
 }
 
-let queued=false;
-function applyFixes(){
-  queued=false;
-  recoverStartRoute();
-  fixStartHere();
-  fixCompass();
-  enhanceThesis();
-}
-
-function scheduleFixes(){
-  if(queued)return;
-  queued=true;
-  requestAnimationFrame(applyFixes);
+function refreshPageEnhancements(){
+  setTimeout(enhanceThesis,90);
 }
 
 if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded',scheduleFixes,{once:true});
+  document.addEventListener('DOMContentLoaded',()=>{
+    recoverLegacyStartHash();
+    refreshPageEnhancements();
+  },{once:true});
 }else{
-  scheduleFixes();
+  recoverLegacyStartHash();
+  refreshPageEnhancements();
 }
 
-window.addEventListener('hashchange',()=>setTimeout(scheduleFixes,40));
-
-const observer=new MutationObserver(scheduleFixes);
-const startObserver=()=>{
-  const root=document.querySelector('.app-shell');
-  if(root)observer.observe(root,{childList:true,subtree:true});
-  else setTimeout(startObserver,50);
-};
-startObserver();
+window.addEventListener('hashchange',refreshPageEnhancements);
