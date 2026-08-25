@@ -1,0 +1,64 @@
+.my-litlab-dashboard.my-litlab-compact{
+  padding-top:12px!important;
+  padding-bottom:8px!important;
+}
+.my-litlab-compact .my-litlab-heading{
+  align-items:center;
+  margin-bottom:12px;
+}
+.my-litlab-compact .my-litlab-heading>div{max-width:none}
+.my-litlab-compact .my-litlab-heading h2{
+  margin:4px 0 0;
+  font-size:clamp(1.25rem,2.2vw,1.65rem);
+}
+.my-litlab-compact .my-litlab-heading p{display:none}
+.my-litlab-compact .my-litlab-local{
+  padding:6px 9px;
+  font-size:9px;
+}
+.my-litlab-compact .my-litlab-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+.my-litlab-compact .my-litlab-card{
+  padding:14px;
+  border-radius:17px;
+  box-shadow:0 10px 28px rgba(22,18,55,.045);
+}
+.my-litlab-compact .progress-card{grid-row:auto}
+.my-litlab-compact .recent-card{display:none!important}
+.my-litlab-compact .my-litlab-card h3{
+  margin:5px 0 9px;
+  font-size:.96rem;
+}
+.my-litlab-compact .dashboard-progress-row{margin-top:10px}
+.my-litlab-compact .dashboard-progress-row>i{height:6px}
+.my-litlab-compact .progress-card>small{display:none}
+.my-litlab-compact .skill-signal{
+  margin-top:7px;
+  padding:9px 10px;
+  border-radius:12px;
+}
+.my-litlab-compact .skill-signal span{display:none}
+.my-litlab-compact .recommend-card p{
+  min-height:0;
+  margin:5px 0 10px;
+  font-size:11px;
+  line-height:1.5;
+}
+.my-litlab-compact .recommend-card .btn{
+  width:auto;
+  min-height:34px;
+  padding:7px 10px;
+  font-size:10px;
+}
+
+@media(max-width:900px){
+  .my-litlab-compact .my-litlab-grid{grid-template-columns:1fr 1fr}
+  .my-litlab-compact .recommend-card{grid-column:1/-1}
+}
+@media(max-width:620px){
+  .my-litlab-compact .my-litlab-heading{gap:8px}
+  .my-litlab-compact .my-litlab-grid{grid-template-columns:1fr}
+  .my-litlab-compact .recommend-card{grid-column:auto}
+}
