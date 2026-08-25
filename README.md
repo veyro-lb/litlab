@@ -25,6 +25,16 @@ Site colors and typography are CSS variables at the top of `src/styles.css`. The
 
 The workflow in `.github/workflows/deploy.yml` builds and publishes every push to `main`. In repository **Settings → Pages**, set the source to **GitHub Actions**.
 
+## Cloudflare
+
+The repository includes an assets-only Worker configuration in `wrangler.jsonc`. After authenticating Wrangler, deploy with:
+
+```bash
+npm run deploy
+```
+
+Use `npm run deploy:dry` to validate the Cloudflare bundle without publishing.
+
 ## Feedback
 
 The current release does not collect personal information or send form data. Connect a future feedback button to a school-approved form or serverless endpoint and document what data is collected before enabling it.
