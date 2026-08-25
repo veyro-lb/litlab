@@ -1,6 +1,6 @@
-/* Final visibility authority for Toolkit reference modes.
-   Loaded after the legacy Glossary/Keywords/Command Terms modules so their
-   independent observers cannot make two panels visible at once. */
+/* Final visibility + active-state authority for Toolkit reference modes.
+   The older Glossary/Keywords/Command Terms modules still render content,
+   but this layer decides which mode is visible and selected. */
 
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-tools{
   display:flex!important;
@@ -32,17 +32,71 @@ html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] >
   display:block!important;
 }
 
-/* Keep the three tabs visually stable when scripts update around the same frame. */
-html body main .toolkit-reference-page .keyword-mode-tabs button[data-mode]{
+/* Stable three-tab control. Active visuals come from the page mode, never
+   from whichever legacy script most recently toggled .active. */
+html body main .toolkit-reference-page > .keyword-mode-tabs{
+  width:min(calc(100% - 28px),1184px)!important;
+  margin:0 auto 22px!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px!important;
+  padding:6px!important;
+}
+html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{
+  min-width:0!important;
+  width:100%!important;
+  color:var(--muted)!important;
+  background:transparent!important;
+  box-shadow:none!important;
   isolation:isolate;
+  white-space:nowrap;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .keyword-mode-tabs button[data-mode="glossary"],
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .keyword-mode-tabs button[data-mode="keywords"],
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .keyword-mode-tabs button[data-mode="commands"]{
+  color:#fff!important;
+  background:linear-gradient(135deg,var(--violet),color-mix(in srgb,var(--violet) 78%,var(--cyan)))!important;
+  box-shadow:0 8px 22px rgba(124,92,252,.24)!important;
+}
+
+/* The large chooser cards use the same single source of truth. Reset stale
+   .active classes first, then style only the card matching the page mode. */
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode]{
+  border-color:var(--line)!important;
+  background:var(--surface)!important;
+  box-shadow:0 8px 24px rgba(22,18,55,.045)!important;
+}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode] .toolkit-choice-icon{
+  background:color-mix(in srgb,var(--violet) 8%,var(--surface-2))!important;
+  color:var(--violet)!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] .toolkit-choice[data-toolkit-mode="glossary"],
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] .toolkit-choice[data-toolkit-mode="keywords"],
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] .toolkit-choice[data-toolkit-mode="commands"]{
+  border-color:color-mix(in srgb,var(--violet) 56%,var(--line))!important;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--violet) 7%,var(--surface)),color-mix(in srgb,var(--cyan) 3%,var(--surface)))!important;
+  box-shadow:0 12px 30px rgba(124,92,252,.1)!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] .toolkit-choice[data-toolkit-mode="glossary"] .toolkit-choice-icon,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] .toolkit-choice[data-toolkit-mode="keywords"] .toolkit-choice-icon,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] .toolkit-choice[data-toolkit-mode="commands"] .toolkit-choice-icon{
+  background:var(--violet)!important;
+  color:#fff!important;
 }
 
 @media(max-width:700px){
-  html body main .toolkit-reference-page .keyword-mode-tabs{
+  html body main .toolkit-reference-page > .keyword-mode-tabs{
+    width:calc(100% - 28px)!important;
     overflow:hidden;
   }
-  html body main .toolkit-reference-page .keyword-mode-tabs button[data-mode]{
-    min-width:0;
-    white-space:nowrap;
+  html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{
+    padding-inline:8px!important;
+    font-size:11px!important;
+  }
+}
+
+@media(max-width:460px){
+  html body main .toolkit-reference-page > .keyword-mode-tabs{
+    grid-template-columns:1fr;
   }
 }
