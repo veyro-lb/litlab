@@ -1,0 +1,188 @@
+/* Shared LitLab assessment-page polish: Paper 1, Paper 2, and IO. */
+
+/* Page frame + hierarchy */
+.paper1-guide-page,.paper2-guide-page,.io-guide-page{max-width:1220px;margin:0 auto;padding:28px 28px 110px}
+.paper1-breadcrumb,.p2-breadcrumb,.io-breadcrumb{margin:3px 0 18px;font-size:12px;line-height:1.35}
+.paper1-eyebrow,.p2-eyebrow,.io-eyebrow{font-size:11px;line-height:1.35;letter-spacing:.13em}
+.paper1-hero,.p2-hero,.io-hero{grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:38px;padding:46px;border-radius:32px}
+.paper1-hero h1,.p2-hero h1,.io-hero h1{font-size:clamp(3.6rem,8vw,7.2rem)}
+.paper1-hero h2,.p2-hero h2,.io-hero h2{margin:16px 0 12px}
+.paper1-hero-copy>p,.p2-hero-copy>p,.io-hero-copy>p{font-size:clamp(1rem,1.5vw,1.14rem);line-height:1.72}
+.paper1-hero-model,.p2-hero-model,.io-hero-model{padding:20px;border-radius:24px}
+.paper1-hero-model span,.p2-hero-model span,.p2-hero-model b,.p2-hero-model strong,.io-hero-model span,.io-hero-model b,.io-hero-model strong{font-size:10.5px;line-height:1.35}
+
+/* Sticky section navigation */
+.paper1-guide-nav,.p2-nav,.io-nav{margin:18px 0 40px;padding:7px;border-radius:17px}
+.paper1-guide-nav>span,.p2-nav>span,.io-nav>span{font-size:9.5px}
+.paper1-guide-nav button,.p2-nav button,.io-nav button{min-height:36px;padding:8px 11px;font-size:10.5px;line-height:1.2}
+
+/* Section rhythm */
+.paper1-section,.p2-section,.io-section{margin-bottom:74px}
+.paper1-section-head,.p2-section-head,.io-section-head{max-width:900px;margin-bottom:23px}
+.paper1-section-head>span,.p2-section-head>span,.io-section-head>span{font-size:10.5px;line-height:1.35}
+.paper1-section-head h2,.p2-section-head h2,.io-section-head h2{font-size:clamp(1.85rem,3.3vw,2.8rem)}
+.paper1-section-head p,.p2-section-head p,.io-section-head p{font-size:1rem;line-height:1.7}
+
+/* Shared card proportions */
+.paper1-overview-grid article,.paper1-apc-grid article,.paper1-strategy-card,.paper1-worked-text,
+.p2-overview-grid article,.p2-fit-grid article,.p2-decoder-card,.p2-plan-card,.p2-practice-detail,
+.io-overview-grid article,.io-material-grid article,.io-issue-test article,.io-close-grid>article,.io-timer-card{border-radius:20px}
+.paper1-overview-grid article,.paper1-apc-grid article,.paper1-strategy-card,.paper1-worked-text,
+.p2-overview-grid article,.p2-fit-grid article,
+.io-overview-grid article,.io-material-grid article,.io-issue-test article{padding:20px}
+
+/* Readable supporting copy — Paper 1 */
+.paper1-guide-page .paper1-overview-grid article>b,.paper1-guide-page .paper1-apc-grid article>span,
+.paper1-guide-page .paper1-strategy-card>span,.paper1-guide-page .paper1-worked-text>span{font-size:9.5px}
+.paper1-guide-page .paper1-overview-grid p,.paper1-guide-page .paper1-apc-grid>article>p{font-size:12px;line-height:1.62}
+.paper1-guide-page .paper1-criteria b{font-size:11.5px}
+.paper1-guide-page .paper1-criteria p{font-size:11px;line-height:1.55}
+.paper1-guide-page .paper1-step-list button b{font-size:11px}
+.paper1-guide-page .paper1-step-list button span,.paper1-guide-page .paper1-analysis-steps span{font-size:9px}
+.paper1-guide-page .paper1-step-detail>span,.paper1-guide-page .paper1-step-detail>div b{font-size:10px}
+.paper1-guide-page .paper1-step-detail>div p{font-size:11.5px;line-height:1.58}
+.paper1-guide-page .paper1-strategy-card ul,.paper1-guide-page .paper1-apc-grid ul{font-size:11.5px;line-height:1.62}
+.paper1-guide-page .paper1-micro-note{font-size:10.5px;line-height:1.58}
+.paper1-guide-page .annotation-notes p{font-size:11px;line-height:1.52}
+.paper1-guide-page .paper1-chain>b{font-size:10px}
+.paper1-guide-page .paper1-chain span,.paper1-guide-page .paper1-paragraph-chain span,.paper1-guide-page .paper1-analysis-formula span{font-size:9.5px}
+.paper1-guide-page .weak-strong small{font-size:9px}
+.paper1-guide-page .weak-strong p{font-size:11.5px!important;line-height:1.58!important}
+.paper1-guide-page .paper1-filter-row label span,.paper1-guide-page .paper1-choice-controls label span{font-size:9.5px}
+.paper1-guide-page .paper1-count{font-size:10.5px}
+.paper1-guide-page .paper1-tone-grid b{font-size:12.5px}
+.paper1-guide-page .paper1-tone-grid p{font-size:11.5px;line-height:1.52}
+.paper1-guide-page .paper1-tone-grid small{font-size:10px;line-height:1.5}
+.paper1-guide-page .paper1-choice-tabs button,.paper1-guide-page .paper1-analysis-tabs button{font-size:10.5px}
+.paper1-guide-page .choice-detail p{font-size:11px;line-height:1.55}
+.paper1-guide-page .choice-detail small,.paper1-guide-page .practice-breakdown small,.paper1-guide-page .practice-visual-note span{font-size:9px}
+.paper1-guide-page .paper1-analysis-steps p{font-size:11.5px;line-height:1.58}
+.paper1-guide-page .paper1-effect-eval small{font-size:9.5px}
+.paper1-guide-page .paper1-eval-prompts p{font-size:10.75px;line-height:1.52}
+.paper1-guide-page .paper1-example-drawer p{font-size:11.5px;line-height:1.58}
+.paper1-guide-page .paper1-plan-rules p,.paper1-guide-page .paper1-plan-examples p,.paper1-guide-page .paper1-plan-examples li{font-size:11.5px;line-height:1.58}
+.paper1-guide-page .paper1-plan-examples>article>span,.paper1-guide-page .paper1-strategy-label{font-size:9.5px}
+.paper1-guide-page .paper1-time-grid span{font-size:9px}
+.paper1-guide-page .paper1-time-grid p{font-size:10.75px;line-height:1.5}
+.paper1-guide-page .paper1-mistake-grid summary{font-size:11.5px}
+.paper1-guide-page .paper1-mistake-grid details>div>p{font-size:11.5px;line-height:1.58}
+.paper1-guide-page .paper1-practice-tabs button span{font-size:9px}
+.paper1-guide-page .paper1-practice-tabs button b{font-size:11px}
+.paper1-guide-page .paper1-practice-tabs button small{font-size:9.5px}
+.paper1-guide-page .practice-passage-head span{font-size:9.5px}
+.paper1-guide-page .practice-passage-head b{font-size:11.5px}
+.paper1-guide-page .practice-visual-note p,.paper1-guide-page .practice-breakdown p{font-size:10.75px;line-height:1.52}
+.paper1-guide-page .practice-reveal,.paper1-guide-page .practice-quiz-meta{font-size:10px}
+.paper1-guide-page .paper1-options button p{font-size:11.5px;line-height:1.5}
+.paper1-guide-page .paper1-options button>span{font-size:9px}
+.paper1-guide-page .paper1-answer-feedback b{font-size:11px}
+.paper1-guide-page .paper1-answer-feedback p{font-size:10.75px;line-height:1.52}
+.paper1-guide-page .paper1-practice-result>span,.paper1-guide-page .paper1-score-ring small{font-size:9.5px}
+.paper1-guide-page .paper1-practice-result>p{font-size:11.75px;line-height:1.6}
+.paper1-guide-page .paper1-finish>div:first-child>span{font-size:9.5px}
+.paper1-guide-page .paper1-finish p{font-size:11.5px;line-height:1.6}
+
+/* Tables — one readable scale across assessments */
+.paper1-guide-page .paper1-table-title span,.paper1-guide-page .paper1-level-table-title span,
+.paper2-guide-page .p2-table-title span,
+.io-guide-page .io-format-head span,.io-guide-page .io-table-title span{font-size:9.5px}
+.paper1-guide-page .paper1-table-title b,.paper1-guide-page .paper1-level-table-title b,
+.paper2-guide-page .p2-table-title b,
+.io-guide-page .io-format-head b,.io-guide-page .io-table-title b{font-size:1.05rem}
+.paper1-guide-page .paper1-level-table-title small,.paper2-guide-page .p2-table-title small,.io-guide-page .io-format-head small{font-size:9px}
+.paper1-guide-page .paper1-table-scroll th,.paper1-guide-page .paper1-level-table th,
+.paper2-guide-page .p2-table-wrap th,.io-guide-page .io-table-wrap th{font-size:10px;line-height:1.4}
+.paper1-guide-page .paper1-table-scroll td,.paper1-guide-page .paper1-level-table td,
+.paper2-guide-page .p2-table-wrap td,.io-guide-page .io-table-wrap td{font-size:11.75px;line-height:1.62}
+.paper1-guide-page .paper1-level-table td span,.paper2-guide-page .p2-table-wrap td span{font-size:10px;line-height:1.5}
+.paper1-guide-page .paper1-table-note,.paper1-guide-page .paper1-level-note,
+.paper2-guide-page .p2-format-caption,.io-guide-page .io-format-note{font-size:10.75px;line-height:1.58}
+#p1-choices.paper1-wide-reference .paper1-choice-table th{font-size:10px;line-height:1.4}
+#p1-choices.paper1-wide-reference .paper1-choice-table td{font-size:11.75px;line-height:1.62}
+#p1-choices.paper1-wide-reference .paper1-choice-table td:first-child b{font-size:12px}
+
+/* Readable supporting copy — Paper 2 */
+.paper2-guide-page .p2-overview-grid p,.paper2-guide-page .p2-fit-grid p{font-size:12px;line-height:1.62}
+.paper2-guide-page .p2-skill-grid b{font-size:11.5px}
+.paper2-guide-page .p2-skill-grid p{font-size:11px;line-height:1.58}
+.paper2-guide-page .p2-restrictions,.paper2-guide-page .p2-warning,.paper2-guide-page .p2-theme-example,.paper2-guide-page .p2-strategy,.paper2-guide-page .p2-placeholder-note{font-size:11px;line-height:1.6}
+.paper2-guide-page .p2-question-process p,.paper2-guide-page .p2-evidence-grid p,.paper2-guide-page .p2-mini-grid p{font-size:11px;line-height:1.58}
+.paper2-guide-page .p2-decoder-tabs button,.paper2-guide-page .p2-plan-tabs button{font-size:10.5px}
+.paper2-guide-page .p2-decoder-card>span,.paper2-guide-page .p2-plan-card>span,.paper2-guide-page .p2-practice-detail>span{font-size:9.5px}
+.paper2-guide-page .p2-decoder-card small,.paper2-guide-page .p2-method-upgrade small,.paper2-guide-page .p2-plan-card small,.paper2-guide-page .p2-practice-info small,.paper2-guide-page .p2-practice-bottom small{font-size:9px}
+.paper2-guide-page .p2-decoder-card p{font-size:11.75px;line-height:1.62}
+.paper2-guide-page .p2-sim-diff p{font-size:11.5px;line-height:1.58}
+.paper2-guide-page .p2-progression span,.paper2-guide-page .p2-progression strong,.paper2-guide-page .p2-thesis-formula span,.paper2-guide-page .p2-thesis-formula strong,.paper2-guide-page .p2-paragraph-chain span,.paper2-guide-page .p2-memory-formula span,.paper2-guide-page .p2-memory-formula strong{font-size:9.5px}
+.paper2-guide-page .p2-pair-grid summary,.paper2-guide-page .p2-paragraph-pairs summary,.paper2-guide-page .p2-mistake-grid summary{min-height:48px;font-size:11px}
+.paper2-guide-page .p2-pair-grid summary>span,.paper2-guide-page .p2-paragraph-pairs summary>span,.paper2-guide-page .p2-mistake-grid summary>span,.paper2-guide-page .p2-pair-grid summary em,.paper2-guide-page .p2-paragraph-pairs summary em,.paper2-guide-page .p2-mistake-grid summary em{font-size:9px}
+.paper2-guide-page .p2-pair-grid summary b,.paper2-guide-page .p2-paragraph-pairs summary b,.paper2-guide-page .p2-mistake-grid summary b{font-size:11.5px}
+.paper2-guide-page .p2-pair-grid small,.paper2-guide-page .p2-wording-example small,.paper2-guide-page .p2-para-compare small,.paper2-guide-page .p2-mistake-grid small{font-size:9px}
+.paper2-guide-page .p2-wording-example p,.paper2-guide-page .p2-para-compare p,.paper2-guide-page .p2-annotation{font-size:11.5px;line-height:1.62}
+.paper2-guide-page .p2-vocab-grid span,.paper2-guide-page .p2-method-work>span,.paper2-guide-page .p2-practice-search span,.paper2-guide-page .p2-mini-lab>div:first-child>span,.paper2-guide-page .p2-finish>div:first-child>span{font-size:9.5px}
+.paper2-guide-page .p2-vocab-grid b,.paper2-guide-page .p2-theme-cloud span{font-size:10.5px}
+.paper2-guide-page .p2-method-work p,.paper2-guide-page .p2-method-upgrade p,.paper2-guide-page .p2-plan-card p,.paper2-guide-page .p2-plan-card li,.paper2-guide-page .p2-practice-info p,.paper2-guide-page .p2-practice-bottom p{font-size:11.5px;line-height:1.62}
+.paper2-guide-page .p2-plan-points p,.paper2-guide-page .p2-plan-bottom p{font-size:11px;line-height:1.58}
+.paper2-guide-page .p2-mistake-grid p{font-size:11px;line-height:1.58}
+.paper2-guide-page .p2-practice-search>b{font-size:10.5px}
+.paper2-guide-page .p2-practice-list button>span{font-size:9px}
+.paper2-guide-page .p2-practice-list button>b{font-size:10.5px;line-height:1.45}
+.paper2-guide-page .p2-practice-plan>b{font-size:10.5px}
+.paper2-guide-page .p2-practice-plan span{font-size:9px}
+.paper2-guide-page .p2-practice-plan p{font-size:10.75px;line-height:1.55}
+.paper2-guide-page .p2-no-match,.paper2-guide-page .p2-mini-lab>div:first-child>p{font-size:10.75px;line-height:1.55}
+.paper2-guide-page .p2-finish p{font-size:11.5px;line-height:1.6}
+
+/* IO already starts readable; align it to the same scale. */
+.io-guide-page .io-format-grid span,.io-guide-page .io-overview-grid span,.io-guide-page .io-material-grid>article>span,.io-guide-page .io-issue-test span,.io-guide-page .io-close-grid>article>span,.io-guide-page .io-structure-grid span,.io-guide-page .io-transition-grid span{font-size:10px}
+.io-guide-page .io-format-grid p,.io-guide-page .io-overview-grid p,.io-guide-page .io-material-grid p,.io-guide-page .io-issue-test p,.io-guide-page .io-structure-grid p,.io-guide-page .io-transition-grid p,.io-guide-page .io-delivery-grid p,.io-guide-page .io-mistake-body p,.io-guide-page .io-completion p{font-size:11.75px;line-height:1.6}
+.io-guide-page .io-material-grid ul{font-size:11.75px;line-height:1.6}
+.io-guide-page .io-core-chain span,.io-guide-page .io-core-chain strong,.io-guide-page .io-connect-chain span,.io-guide-page .io-connect-chain strong,.io-guide-page .io-eval-formula span,.io-guide-page .io-eval-formula strong{font-size:10px}
+.io-guide-page .io-warning,.io-guide-page .io-extract-note,.io-guide-page .io-analysis-reminder,.io-guide-page .io-framework-note,.io-guide-page .io-practice-note{font-size:11.75px;line-height:1.6}
+.io-guide-page .io-avoid small,.io-guide-page .io-aim small,.io-guide-page .io-wording-pair small,.io-guide-page .io-chain-card small,.io-guide-page .io-timer-display small,.io-guide-page .io-mistake-body small{font-size:9.5px}
+.io-guide-page .io-avoid p,.io-guide-page .io-aim p,.io-guide-page .io-wording-pair p,.io-guide-page .io-chain-card p,.io-guide-page .io-evaluation-grid p{font-size:11.75px;line-height:1.6}
+.io-guide-page .io-practice-tabs button,.io-guide-page .io-presets button{font-size:10.5px}
+.io-guide-page .io-practice-card-head span,.io-guide-page .io-practice-card-head strong,.io-guide-page .io-practice-card-head>button,.io-guide-page .io-practice-model span,.io-guide-page .io-completion span{font-size:10px}
+.io-guide-page .io-practice-model p{font-size:12px;line-height:1.62}
+.io-guide-page .io-mistake-grid summary{min-height:52px}
+.io-guide-page .io-mistake-grid summary b{font-size:12px}
+
+/* Consistent weak → stronger visual language */
+.paper1-guide-page .weak-strong,.paper2-guide-page .p2-wording-example,.paper2-guide-page .p2-para-compare,.io-guide-page .io-wording-pair{gap:10px}
+.paper1-guide-page .weak-strong small:first-of-type,.paper2-guide-page .p2-wording-example small,.paper2-guide-page .p2-para-compare small,.io-guide-page .io-avoid small{color:var(--coral,#f36b7f)}
+.paper1-guide-page .weak-strong small:nth-of-type(2),.paper2-guide-page .p2-wording-example>div:last-child small,.paper2-guide-page .p2-para-compare article:last-child small,.io-guide-page .io-aim small{color:#278d61}
+
+/* Inputs and interactive controls */
+.paper1-guide-page input,.paper2-guide-page input,.io-guide-page input{font-size:16px}
+.paper1-guide-page button:focus-visible,.paper2-guide-page button:focus-visible,.io-guide-page button:focus-visible,
+.paper1-guide-page input:focus-visible,.paper2-guide-page input:focus-visible,.io-guide-page input:focus-visible,
+.paper1-guide-page a:focus-visible,.paper2-guide-page a:focus-visible,.io-guide-page a:focus-visible{outline:3px solid color-mix(in srgb,var(--violet) 34%,transparent);outline-offset:2px}
+
+/* Completion cards */
+.paper1-finish,.p2-finish,.io-completion{border-radius:24px;padding:26px}
+
+/* Responsive consistency and overflow protection */
+.paper1-guide-page,.paper2-guide-page,.io-guide-page{overflow-x:clip}
+.paper1-guide-page table,.paper2-guide-page table,.io-guide-page table{max-width:100%}
+@media(max-width:1040px){
+  .paper1-hero,.p2-hero,.io-hero{grid-template-columns:1fr;padding:38px}
+  .paper1-hero-model,.p2-hero-model,.io-hero-model{max-width:660px}
+}
+@media(max-width:820px){
+  .paper1-guide-page,.paper2-guide-page,.io-guide-page{padding:20px 18px 88px}
+  .paper1-hero,.p2-hero,.io-hero{padding:32px;border-radius:27px}
+  .paper1-section,.p2-section,.io-section{margin-bottom:62px}
+  .paper1-section-head,.p2-section-head,.io-section-head{margin-bottom:20px}
+  .paper1-finish,.p2-finish,.io-completion{padding:22px}
+}
+@media(max-width:560px){
+  .paper1-guide-page,.paper2-guide-page,.io-guide-page{padding-inline:14px}
+  .paper1-hero,.p2-hero,.io-hero{padding:25px 20px;border-radius:24px}
+  .paper1-hero h1,.p2-hero h1,.io-hero h1{font-size:3.7rem}
+  .paper1-guide-nav button,.p2-nav button,.io-nav button{font-size:10px}
+  .paper1-section,.p2-section,.io-section{margin-bottom:56px}
+  .paper1-table-title,.paper1-level-table-title,.p2-table-title,.io-format-head,.io-table-title{align-items:flex-start;flex-direction:column;gap:7px}
+  .paper1-finish,.p2-finish,.io-completion{padding:20px;border-radius:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .paper1-guide-page *,.paper2-guide-page *,.io-guide-page *{scroll-behavior:auto!important}
+}
