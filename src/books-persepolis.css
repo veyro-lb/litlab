@@ -1,0 +1,12 @@
+.lit-book-cover[data-book-cover="persepolis"]{background:linear-gradient(155deg,#f7f4ed 0 34%,#111827 34% 73%,#c93a42 73% 100%);color:#111827;box-shadow:0 20px 46px rgba(17,24,39,.22),inset 5px 0 0 rgba(17,24,39,.12)}
+.lit-book-cover.large[data-book-cover="persepolis"]{box-shadow:0 30px 70px rgba(17,24,39,.28),inset 7px 0 0 rgba(17,24,39,.12)}
+.lit-book-cover[data-book-cover="persepolis"] .lit-book-cover-grid{opacity:.9;background:repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 2px,transparent 2px 52px),repeating-linear-gradient(0deg,rgba(255,255,255,.12) 0 1px,transparent 1px 42px);background-size:auto;transform:none}
+.lit-book-cover[data-book-cover="persepolis"] .lit-book-wing{display:none}
+.lit-book-cover[data-book-cover="persepolis"] .lit-book-eye{right:20px;top:48px;width:54px;height:54px;display:grid;place-items:center;border:3px solid #111827;border-radius:8px;background:#f7f4ed;color:#111827;font-size:0;box-shadow:8px 8px 0 #c93a42}
+.lit-book-cover[data-book-cover="persepolis"] .lit-book-eye::before{content:'▦';font-size:34px;font-weight:900;line-height:1}
+.lit-book-cover.large[data-book-cover="persepolis"] .lit-book-eye{right:29px;top:64px;width:72px;height:72px;border-width:4px;box-shadow:10px 10px 0 #c93a42}
+.lit-book-cover.large[data-book-cover="persepolis"] .lit-book-eye::before{font-size:46px}
+.lit-book-cover[data-book-cover="persepolis"]>span{color:#111827;opacity:.88}
+.lit-book-cover[data-book-cover="persepolis"]>b{color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.18)}
+.lit-book-cover[data-book-cover="persepolis"]>small{color:#fff}
+.lit-book-cover[data-book-cover="persepolis"]::after{inset:auto -16% -30% 18%;height:62%;border:2px solid rgba(255,255,255,.32);border-radius:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.14) 0 8px,transparent 8px 18px);transform:rotate(-10deg)}
