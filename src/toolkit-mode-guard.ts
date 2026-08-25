@@ -1,6 +1,6 @@
 import './toolkit-mode-guard.css';
 
-type ToolkitMode='glossary'|'keywords'|'commands';
+type ToolkitMode='glossary'|'keywords'|'commands'|'frames';
 
 let mode:ToolkitMode='glossary';
 let scheduled=false;
@@ -10,7 +10,7 @@ let settleToken=0;
 const currentRoute=()=>location.hash.slice(1).split('#')[0]||'home';
 
 function isMode(value:string|undefined):value is ToolkitMode{
-  return value==='glossary'||value==='keywords'||value==='commands';
+  return value==='glossary'||value==='keywords'||value==='commands'||value==='frames';
 }
 
 function directChild(page:HTMLElement,className:string){
@@ -40,7 +40,7 @@ function setHidden(el:HTMLElement|undefined|null,hidden:boolean){
 */
 function stabilizeVisualState(page:HTMLElement){
   const targets=page.querySelectorAll<HTMLElement>(
-    ':scope > .keyword-panel, :scope > .keyword-mode-tabs, :scope > .toolkit-chooser, :scope > .toolkit-chooser .toolkit-choice'
+    ':scope > .keyword-panel, :scope > .sentence-frame-panel, :scope > .keyword-mode-tabs, :scope > .toolkit-chooser, :scope > .toolkit-chooser .toolkit-choice'
   );
   targets.forEach(element=>{
     element.getAnimations().forEach(animation=>animation.cancel());
@@ -76,11 +76,13 @@ function applyMode(page:HTMLElement,stabilize=true){
   const originalGrid=directChild(page,'glossary-grid');
   const keywordPanel=page.querySelector<HTMLElement>(':scope > .keyword-panel:not(.command-panel)');
   const commandPanel=page.querySelector<HTMLElement>(':scope > .command-panel');
+  const sentencePanel=page.querySelector<HTMLElement>(':scope > .sentence-frame-panel');
 
   setHidden(originalTools,mode!=='glossary');
   setHidden(originalGrid,mode!=='glossary');
   setHidden(keywordPanel,mode!=='keywords');
   setHidden(commandPanel,mode!=='commands');
+  setHidden(sentencePanel,mode!=='frames');
 
   page.querySelectorAll<HTMLButtonElement>(':scope > .keyword-mode-tabs button[data-mode]').forEach(button=>{
     const selected=button.dataset.mode===mode;
@@ -127,9 +129,8 @@ function selectMode(next:ToolkitMode){
 
 /*
   The older Keywords and Command Terms modules still create their content,
-  search controls and cards. Mode switching itself is owned here. Capturing
-  these clicks before their legacy handlers run prevents two independent
-  state machines from marking different tabs active in the same frame.
+  search controls and cards. Sentence Frames only renders its panel. Mode
+  switching itself is owned here so every Toolkit control shares one state.
 */
 document.addEventListener('click',event=>{
   if(currentRoute()!=='glossary')return;

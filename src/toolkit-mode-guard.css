@@ -1,45 +1,32 @@
 /* Final visibility + active-state authority for Toolkit reference modes.
    The older Glossary/Keywords/Command Terms modules still render content,
-   but this layer decides which mode is visible and selected. */
+   while this layer decides which mode is visible and selected. */
 
-html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-tools{
-  display:flex!important;
-}
-html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-grid{
-  display:grid!important;
-}
-html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .keyword-panel{
-  display:none!important;
-}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-tools{display:flex!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-grid{display:grid!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .keyword-panel,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .sentence-frame-panel{display:none!important}
 
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .glossary-tools,
-html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .glossary-grid{
-  display:none!important;
-}
-html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .keyword-panel:not(.command-panel){
-  display:block!important;
-}
-html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .command-panel{
-  display:none!important;
-}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .glossary-grid,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .command-panel,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .sentence-frame-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .keyword-panel:not(.command-panel){display:block!important}
 
 html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .glossary-tools,
 html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .glossary-grid,
-html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .keyword-panel:not(.command-panel){
-  display:none!important;
-}
-html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .command-panel{
-  display:block!important;
-}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .keyword-panel:not(.command-panel),
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .sentence-frame-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .command-panel{display:block!important}
 
-/*
-  Reference-mode switching itself must never fade, slide, scale or blur.
-  Legacy modules used Motion on the whole panel, and repeated observers could
-  leave those inline animation values halfway applied. Force the switcher and
-  panels into a fully rendered state. Inner glossary/keyword accordions keep
-  their own animations because these rules only target the outer mode shells.
-*/
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .glossary-tools,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .glossary-grid,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .keyword-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .sentence-frame-panel{display:block!important}
+
+/* Mode switching itself must never fade, slide, scale or blur. */
 html body main .toolkit-reference-page > .keyword-panel,
+html body main .toolkit-reference-page > .sentence-frame-panel,
 html body main .toolkit-reference-page > .keyword-mode-tabs,
 html body main .toolkit-reference-page > .toolkit-chooser{
   opacity:1!important;
@@ -51,13 +38,12 @@ html body main .toolkit-reference-page > .toolkit-chooser{
   will-change:auto!important;
 }
 
-/* Stable three-tab control. Active visuals come from the page mode, never
-   from whichever legacy script most recently toggled .active. */
+/* Stable four-tab control. */
 html body main .toolkit-reference-page > .keyword-mode-tabs{
   width:min(calc(100% - 28px),1184px)!important;
   margin:0 auto 22px!important;
   display:grid!important;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:8px!important;
   padding:6px!important;
 }
@@ -69,6 +55,7 @@ html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{
   align-items:center!important;
   justify-content:center!important;
   margin:0!important;
+  padding-inline:10px!important;
   color:var(--muted)!important;
   background:transparent!important;
   box-shadow:none!important;
@@ -89,16 +76,14 @@ html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]:ac
 }
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .keyword-mode-tabs button[data-mode="glossary"],
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .keyword-mode-tabs button[data-mode="keywords"],
-html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .keyword-mode-tabs button[data-mode="commands"]{
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .keyword-mode-tabs button[data-mode="commands"],
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .keyword-mode-tabs button[data-mode="frames"]{
   color:#fff!important;
   background:linear-gradient(135deg,var(--violet),color-mix(in srgb,var(--violet) 78%,var(--cyan)))!important;
   box-shadow:0 8px 22px rgba(124,92,252,.24)!important;
 }
 
-/* The large chooser cards use the same single source of truth. Reset stale
-   .active classes first, then style only the card matching the page mode.
-   Keep these controls stationary while switching to avoid the merging/shaking
-   effect caused by competing hover/active transforms. */
+/* Large chooser cards use the same single source of truth. */
 html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode]{
   border-color:var(--line)!important;
   background:var(--surface)!important;
@@ -119,10 +104,7 @@ html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode]:active
   translate:none!important;
   scale:1!important;
 }
-html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode] > svg{
-  transform:none!important;
-  transition:color .12s ease!important;
-}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode] > svg{transform:none!important;transition:color .12s ease!important}
 html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode] .toolkit-choice-icon{
   background:color-mix(in srgb,var(--violet) 8%,var(--surface-2))!important;
   color:var(--violet)!important;
@@ -130,31 +112,30 @@ html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode] .toolk
 }
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] .toolkit-choice[data-toolkit-mode="glossary"],
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] .toolkit-choice[data-toolkit-mode="keywords"],
-html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] .toolkit-choice[data-toolkit-mode="commands"]{
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] .toolkit-choice[data-toolkit-mode="commands"],
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] .toolkit-choice[data-toolkit-mode="frames"]{
   border-color:color-mix(in srgb,var(--violet) 56%,var(--line))!important;
   background:linear-gradient(145deg,color-mix(in srgb,var(--violet) 7%,var(--surface)),color-mix(in srgb,var(--cyan) 3%,var(--surface)))!important;
   box-shadow:0 12px 30px rgba(124,92,252,.1)!important;
 }
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] .toolkit-choice[data-toolkit-mode="glossary"] .toolkit-choice-icon,
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] .toolkit-choice[data-toolkit-mode="keywords"] .toolkit-choice-icon,
-html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] .toolkit-choice[data-toolkit-mode="commands"] .toolkit-choice-icon{
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] .toolkit-choice[data-toolkit-mode="commands"] .toolkit-choice-icon,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] .toolkit-choice[data-toolkit-mode="frames"] .toolkit-choice-icon{
   background:var(--violet)!important;
   color:#fff!important;
 }
 
-@media(max-width:700px){
+@media(max-width:780px){
   html body main .toolkit-reference-page > .keyword-mode-tabs{
     width:calc(100% - 28px)!important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
     overflow:hidden;
   }
-  html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{
-    padding-inline:8px!important;
-    font-size:11px!important;
-  }
+  html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{font-size:11px!important}
 }
 
-@media(max-width:460px){
-  html body main .toolkit-reference-page > .keyword-mode-tabs{
-    grid-template-columns:1fr;
-  }
+@media(max-width:390px){
+  html body main .toolkit-reference-page > .keyword-mode-tabs{gap:6px!important;padding:5px!important}
+  html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{padding-inline:6px!important;font-size:10px!important}
 }
