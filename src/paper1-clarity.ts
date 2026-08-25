@@ -1,4 +1,5 @@
 import './paper1-clarity.css';
+import './paper1-render-fix.css';
 import{choiceGroups,paper1Practices}from'./paper1-data';
 
 const route=()=>location.hash.slice(1).split('#')[0]||'home';
@@ -11,7 +12,8 @@ function cleanStudentFacingCopy(page:HTMLElement){
   setText(page,'.paper1-eyebrow','✦ PAPER 1 • LITLAB STUDY GUIDE');
   const hero=page.querySelector<HTMLElement>('.paper1-hero-copy>p');
   if(hero)hero.innerHTML='Read an unseen text, identify the choices doing the most work, and build a focused argument about <b>how those choices shape meaning</b>. Use this guide as a complete Paper 1 study path: understand the process, review the reference material, then test yourself with original practice.';
-  setText(page,'.paper1-verify-note p','Working course figures used in this guide are SL 1h15 / 20 marks / 35% and HL 2h15 / 40 marks / 35%. Confirm exact current timing, mark allocation, and weighting with your teacher or current IB course guide before an exam.');
+  setText(page,'.paper1-verify-note b','Verification note');
+  setText(page,'.paper1-verify-note p','The SL/HL comparison above shows the working Paper 1 figures used in this guide. Confirm exact current assessment details with your teacher or current IB course guide before using them as official exam requirements.');
   setText(page,'#p1-annotation .paper1-micro-note','If nearly the whole text is highlighted, you have not prioritized. As a student strategy, aim for roughly 6–8 genuinely useful moments rather than marking everything.');
   const choicesIntro=page.querySelector<HTMLElement>('#p1-choices .paper1-section-head p');
   if(choicesIntro)choicesIntro.innerHTML='This reference includes <b>44 authorial choices</b> across language, structure, narrative, and visual/multimodal analysis. Accuracy matters more than impressive terminology.';
@@ -21,6 +23,23 @@ function cleanStudentFacingCopy(page:HTMLElement){
   setText(page,'#p1-practice .paper1-section-head p','All five texts are original LitLab practice material — not past-paper extracts and not official IB assessments.');
   setText(page,'.paper1-finish>div:first-child>span','✦ PAPER 1 STUDY GUIDE');
   setText(page,'.paper1-finish>div:first-child>p','Use the reference sections, examples, and original practice together. Student-strategy sections are labeled as strategy rather than official requirements.');
+}
+
+function renderLevelTable(page:HTMLElement){
+  const overview=page.querySelector<HTMLElement>('#p1-overview');
+  const head=overview?.querySelector<HTMLElement>('.paper1-section-head');
+  if(!overview||!head||overview.querySelector('.paper1-level-table-wrap'))return;
+  head.insertAdjacentHTML('afterend',`<div class="paper1-level-table-wrap" aria-label="Paper 1 SL and HL comparison">
+    <div class="paper1-level-table-title"><div><span>SL vs HL • AT A GLANCE</span><b>Paper 1 format, timing, marks, and weighting</b></div><small>Quick exam reference</small></div>
+    <div class="paper1-level-table-scroll"><table class="paper1-level-table">
+      <thead><tr><th>Level</th><th>Texts analyzed</th><th>Time given</th><th>Marks available</th><th>Weighting of final grade</th><th>Marking</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Level"><strong class="paper1-level-badge">SL</strong></td><td data-label="Texts analyzed"><b>1 text</b><span>Your choice of the two given</span></td><td data-label="Time given"><strong>1 hour 15 minutes</strong></td><td data-label="Marks available"><strong>20 marks</strong></td><td data-label="Weighting"><strong class="paper1-weight">35%</strong></td><td data-label="Marking"><b>4 criteria</b><span>5 marks each (A–D)</span></td></tr>
+        <tr><td data-label="Level"><strong class="paper1-level-badge hl">HL</strong></td><td data-label="Texts analyzed"><b>Both texts</b><span>Two separate analyses</span></td><td data-label="Time given"><strong>2 hours 15 minutes</strong></td><td data-label="Marks available"><strong>40 marks</strong><span>20 per analysis</span></td><td data-label="Weighting"><strong class="paper1-weight">35%</strong></td><td data-label="Marking"><b>Same 4 criteria</b><span>Applied separately to each analysis</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="paper1-level-note"><b>HL reminder:</b> the two analyses are separate standalone responses; they are not compared with one another.</p>
+  </div>`);
 }
 
 function renderPracticeOverview(page:HTMLElement){
@@ -50,9 +69,12 @@ function bindChoiceTable(page:HTMLElement){
 
 function enhance(){
   if(route()!=='paper-1')return;
-  const page=document.querySelector<HTMLElement>('.paper1-guide-page');if(!page)return;
+  const page=document.querySelector<HTMLElement>('.paper1-guide-page');
+  if(!page){setTimeout(schedule,120);return}
   cleanStudentFacingCopy(page);
+  renderLevelTable(page);
   renderPracticeOverview(page);
+  page.querySelector<HTMLElement>('#p1-choices')?.classList.add('paper1-wide-reference');
   bindChoiceTable(page);
 }
 
