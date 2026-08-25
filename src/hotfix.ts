@@ -1,32 +1,70 @@
 import './hotfix.css';
 
-// Symmetrical six-point orbit: Start, Papers, IO, EE, Books, Analysis.
-// Keeping these coordinates away from the edges prevents cards disappearing
-// at common laptop widths while still preserving the radial Compass concept.
-const compassPositions=[
-  [50,15],
-  [72,33],
-  [72,67],
-  [28,67],
-  [28,33],
-  [50,85]
-] as const;
+const START_SECTIONS=new Set([
+  'overview','analysis','choices','ladder','thesis','paragraph','vocabulary','tips','mistakes','notes','setup'
+]);
 
-function fixStartHereToc(){
+const compassPositions:Record<string,[number,number]>={
+  START:[50,13],
+  PAPERS:[74,31],
+  IO:[74,69],
+  EE:[26,69],
+  BOOKS:[26,31],
+  ANALYSIS:[50,87]
+};
+
+function currentRoute(){
+  return location.hash.slice(1).split('#')[0]||'home';
+}
+
+function recoverStartRoute(){
+  const raw=location.hash.slice(1);
+  if(!START_SECTIONS.has(raw))return;
+  history.replaceState(null,'',`#start#${raw}`);
+  setTimeout(()=>window.dispatchEvent(new HashChangeEvent('hashchange')),60);
+}
+
+function scrollStartSection(id:string){
+  const target=document.getElementById(id);
+  if(!target)return;
+  history.replaceState(null,'',`#start#${id}`);
+  target.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Capture Start Here section navigation before the browser can turn #analysis,
+// #thesis, etc. into a new top-level application route.
+document.addEventListener('click',event=>{
+  const element=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.toc a'):null;
+  if(!element)return;
+  const href=element.getAttribute('href')||'';
+  if(!href.startsWith('#'))return;
+  const id=href.slice(1);
+  if(!START_SECTIONS.has(id))return;
+  event.preventDefault();
+  event.stopPropagation();
+  if(currentRoute()!=='start'){
+    location.hash=`start#${id}`;
+    setTimeout(()=>scrollStartSection(id),100);
+  }else{
+    scrollStartSection(id);
+  }
+},true);
+
+function fixStartHere(){
   document.querySelectorAll<HTMLAnchorElement>('.toc a').forEach(link=>{
-    if(link.dataset.litlabFixed==='true')return;
-    link.dataset.litlabFixed='true';
-    link.addEventListener('click',event=>{
-      const href=link.getAttribute('href')||'';
-      if(!href.startsWith('#'))return;
-      const id=href.slice(1);
-      const target=document.getElementById(id);
-      if(!target)return;
-      event.preventDefault();
-      history.replaceState(null,'',`#start#${id}`);
-      target.scrollIntoView({behavior:'smooth',block:'start'});
-    });
+    const href=link.getAttribute('href')||'';
+    const id=href.startsWith('#')?href.slice(1):'';
+    if(!START_SECTIONS.has(id))return;
+    link.dataset.sectionTarget=id;
+    link.setAttribute('aria-label',`Jump to ${link.textContent?.trim()||id} within Start Here`);
   });
+
+  if(currentRoute()==='start'){
+    const anchor=location.hash.split('#')[2];
+    if(anchor&&START_SECTIONS.has(anchor)){
+      requestAnimationFrame(()=>document.getElementById(anchor)?.scrollIntoView({behavior:'smooth',block:'start'}));
+    }
+  }
 }
 
 function fixCompass(){
@@ -34,23 +72,36 @@ function fixCompass(){
   if(!wrap)return;
 
   wrap.dataset.orbitReady='true';
-  const nodes=wrap.querySelectorAll<HTMLElement>('.compass-node');
+  const nodes=Array.from(wrap.querySelectorAll<HTMLElement>('.compass-node'));
+  const lines=Array.from(wrap.querySelectorAll<SVGLineElement>('.compass-lines line'));
+
   nodes.forEach((node,index)=>{
-    node.classList.add(`n${index}`);
+    const label=(node.querySelector('b')?.textContent||'').trim().toUpperCase();
+    const position=compassPositions[label];
+    if(!position)return;
+
+    node.style.setProperty('--node-x',`${position[0]}%`);
+    node.style.setProperty('--node-y',`${position[1]}%`);
+    node.style.setProperty('--orbit-index',String(index));
+    node.dataset.compassName=label;
     node.style.removeProperty('display');
     node.style.removeProperty('visibility');
     node.style.removeProperty('opacity');
-    node.style.setProperty('--orbit-index',String(index));
+
+    const line=lines[index];
+    if(line){
+      line.setAttribute('x2',String(position[0]));
+      line.setAttribute('y2',String(position[1]));
+      line.style.setProperty('--line-index',String(index));
+    }
   });
 
-  const lines=wrap.querySelectorAll<SVGLineElement>('.compass-lines line');
-  lines.forEach((line,index)=>{
-    const position=compassPositions[index];
-    if(!position)return;
-    line.setAttribute('x2',String(position[0]));
-    line.setAttribute('y2',String(position[1]));
-    line.style.setProperty('--line-index',String(index));
-  });
+  const ee=nodes.find(node=>node.dataset.compassName==='EE');
+  if(ee){
+    ee.style.display='flex';
+    ee.style.visibility='visible';
+    ee.style.opacity='1';
+  }
 }
 
 function enhanceThesis(){
@@ -73,21 +124,30 @@ function enhanceThesis(){
   }
 }
 
+let queued=false;
 function applyFixes(){
-  fixStartHereToc();
+  queued=false;
+  recoverStartRoute();
+  fixStartHere();
   fixCompass();
   enhanceThesis();
 }
 
-if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(applyFixes),{once:true});
-}else{
+function scheduleFixes(){
+  if(queued)return;
+  queued=true;
   requestAnimationFrame(applyFixes);
 }
 
-window.addEventListener('hashchange',()=>setTimeout(applyFixes,100));
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',scheduleFixes,{once:true});
+}else{
+  scheduleFixes();
+}
 
-const observer=new MutationObserver(()=>applyFixes());
+window.addEventListener('hashchange',()=>setTimeout(scheduleFixes,40));
+
+const observer=new MutationObserver(scheduleFixes);
 const startObserver=()=>{
   const root=document.querySelector('.app-shell');
   if(root)observer.observe(root,{childList:true,subtree:true});
