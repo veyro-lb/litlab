@@ -5,6 +5,7 @@ type ToolkitMode='glossary'|'keywords'|'commands';
 let mode:ToolkitMode='glossary';
 let scheduled=false;
 let applying=false;
+let settleToken=0;
 
 const currentRoute=()=>location.hash.slice(1).split('#')[0]||'home';
 
@@ -30,7 +31,41 @@ function setHidden(el:HTMLElement|undefined|null,hidden:boolean){
   if(el.hidden!==hidden)el.hidden=hidden;
 }
 
-function applyMode(page:HTMLElement){
+/*
+  Older Toolkit modules used Motion to fade/translate entire panels. Their
+  observers can re-run after another module inserts or filters content, which
+  can leave a panel midway through an opacity animation or make the controls
+  appear to shake. Mode switching is intentionally motion-free now; accordion
+  content inside each reference mode can still animate normally.
+*/
+function stabilizeVisualState(page:HTMLElement){
+  const targets=page.querySelectorAll<HTMLElement>(
+    ':scope > .keyword-panel, :scope > .keyword-mode-tabs, :scope > .toolkit-chooser, :scope > .toolkit-chooser .toolkit-choice'
+  );
+  targets.forEach(element=>{
+    element.getAnimations().forEach(animation=>animation.cancel());
+    element.style.removeProperty('opacity');
+    element.style.removeProperty('transform');
+    element.style.removeProperty('filter');
+    element.style.removeProperty('translate');
+    element.style.removeProperty('scale');
+  });
+}
+
+function settleVisualState(page:HTMLElement){
+  const token=++settleToken;
+  let frames=0;
+  const settle=()=>{
+    if(token!==settleToken||currentRoute()!=='glossary')return;
+    stabilizeVisualState(page);
+    applyMode(page,false);
+    frames++;
+    if(frames<10)requestAnimationFrame(settle);
+  };
+  requestAnimationFrame(settle);
+}
+
+function applyMode(page:HTMLElement,stabilize=true){
   if(applying)return;
   applying=true;
 
@@ -61,6 +96,7 @@ function applyMode(page:HTMLElement){
     button.setAttribute('aria-pressed',String(selected));
   });
 
+  if(stabilize)stabilizeVisualState(page);
   applying=false;
 }
 
@@ -70,7 +106,10 @@ function scheduleApply(){
   requestAnimationFrame(()=>{
     scheduled=false;
     const page=toolkitPage();
-    if(page)applyMode(page);
+    if(page){
+      applyMode(page);
+      stabilizeVisualState(page);
+    }
   });
 }
 
@@ -80,7 +119,9 @@ function selectMode(next:ToolkitMode){
   if(page){
     page.classList.add('toolkit-reference-page');
     page.dataset.toolkitReferenceMode=mode;
+    stabilizeVisualState(page);
     applyMode(page);
+    settleVisualState(page);
   }else scheduleApply();
 }
 
@@ -112,6 +153,7 @@ document.addEventListener('click',event=>{
 
 window.addEventListener('hashchange',()=>{
   mode='glossary';
+  settleToken++;
   setTimeout(scheduleApply,100);
 });
 
