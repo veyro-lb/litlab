@@ -1,6 +1,6 @@
+import './books-profile-generic-fixes.css';
 import {bookProfiles,type BookProfile} from './books-data';
 
-const reduceMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc=(value:string)=>value.replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]||ch));
 const shortTitle=(profile:BookProfile)=>profile.title.split(';')[0].trim();
 const coverTitle=(profile:BookProfile)=>shortTitle(profile).toUpperCase().split(/\s+/).map(esc).join('<br/>');
@@ -8,8 +8,10 @@ const coverTitle=(profile:BookProfile)=>shortTitle(profile).toUpperCase().split(
 function styleCover(cover:HTMLElement,profile:BookProfile){
   const title=cover.querySelector<HTMLElement>('b');
   const author=cover.querySelector<HTMLElement>('small');
+  const mark=cover.querySelector<HTMLElement>('.lit-book-eye');
   if(title&&title.dataset.genericBook!==profile.id){title.innerHTML=coverTitle(profile);title.dataset.genericBook=profile.id}
   if(author)author.textContent=profile.author.toUpperCase();
+  if(mark)mark.textContent=profile.id==='frankenstein'?'⚡':'◉';
   cover.dataset.bookCover=profile.id;
   cover.classList.toggle('frankenstein-cover',profile.id==='frankenstein');
 }
