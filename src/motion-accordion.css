@@ -1,0 +1,222 @@
+/* MotionAccordion-inspired interaction layer for LitLab. */
+
+/* --------------------------------------------------------------------------
+   Start Here scrollspy
+   The guide stays visible, but it never changes the URL or controls scrolling.
+   -------------------------------------------------------------------------- */
+.toc{
+  position:sticky!important;
+  top:132px!important;
+  z-index:67!important;
+  background:color-mix(in srgb,var(--bg) 90%,transparent)!important;
+  backdrop-filter:blur(18px)!important;
+  box-shadow:0 12px 34px rgba(22,18,55,.08)!important;
+}
+.toc a{
+  position:relative;
+  transition:transform .22s cubic-bezier(.2,.8,.2,1),background .22s ease,border-color .22s ease,color .22s ease,box-shadow .22s ease!important;
+}
+.toc a.current{
+  color:#fff!important;
+  border-color:transparent!important;
+  background:linear-gradient(135deg,var(--violet),color-mix(in srgb,var(--violet) 72%,var(--cyan)))!important;
+  box-shadow:0 8px 22px rgba(124,92,252,.24)!important;
+  transform:translateY(-1px) scale(1.015)!important;
+}
+.toc a.current::before{
+  content:'';
+  display:inline-block;
+  width:6px;
+  height:6px;
+  margin-right:7px;
+  border-radius:999px;
+  background:var(--cyan);
+  box-shadow:0 0 0 4px rgba(33,199,217,.16),0 0 12px rgba(33,199,217,.42);
+  vertical-align:1px;
+}
+.content-section{scroll-margin-top:205px!important}
+
+/* --------------------------------------------------------------------------
+   Home FAQ accordion
+   Visual language mirrors the supplied MotionAccordion: large rounded cards,
+   subtle closed scale, spring height handled in JS, and plus/minus controls.
+   -------------------------------------------------------------------------- */
+.faq-list{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:10px!important;
+  padding:12px!important;
+  border-radius:34px!important;
+  background:color-mix(in srgb,var(--surface-2) 45%,transparent)!important;
+}
+.faq-list .faq{
+  overflow:hidden!important;
+  border:1px solid color-mix(in srgb,var(--line) 82%,transparent)!important;
+  border-radius:30px!important;
+  background:var(--surface)!important;
+  color:var(--ink)!important;
+  box-shadow:0 8px 22px rgba(22,18,55,.055)!important;
+  transform:scale(.985);
+  transform-origin:50% 0;
+}
+.faq-list .faq.open{
+  transform:scale(1);
+  border-color:color-mix(in srgb,var(--violet) 22%,var(--line))!important;
+  box-shadow:0 14px 34px rgba(124,92,252,.09)!important;
+}
+.faq-list .faq>button{
+  display:flex!important;
+  width:100%!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:16px!important;
+  padding:20px 28px!important;
+  text-align:left!important;
+  cursor:pointer!important;
+  border:0!important;
+  background:transparent!important;
+  color:var(--ink)!important;
+  font-size:clamp(1.05rem,1.6vw,1.28rem)!important;
+  font-weight:650!important;
+  line-height:1.35!important;
+  letter-spacing:-.015em!important;
+}
+.faq-list .faq>button svg{display:none!important}
+.faq-list .faq>button::after{
+  content:'+';
+  flex:0 0 auto;
+  display:grid;
+  width:48px;
+  height:48px;
+  place-items:center;
+  border-radius:16px;
+  background:color-mix(in srgb,var(--violet) 7%,var(--surface));
+  color:var(--ink);
+  font:500 27px/1 var(--display);
+  transition:transform .34s cubic-bezier(.2,.8,.2,1),background .2s ease,color .2s ease;
+}
+.faq-list .faq.open>button::after{
+  content:'−';
+  transform:rotate(180deg) scale(1.05);
+  background:color-mix(in srgb,var(--violet) 13%,var(--surface));
+  color:var(--violet);
+}
+.faq-list .faq-answer{
+  overflow:hidden;
+  padding:0 28px 28px!important;
+  color:color-mix(in srgb,var(--ink) 75%,var(--muted))!important;
+}
+.faq-list .faq-answer p{
+  margin:0!important;
+  font-size:1.04rem!important;
+  line-height:1.8!important;
+  color:color-mix(in srgb,var(--ink) 74%,var(--muted))!important;
+}
+.faq-list .faq-answer button{
+  margin-top:18px!important;
+}
+
+/* --------------------------------------------------------------------------
+   Vocabulary + glossary motion details
+   JS animates measured height/opacity with Motion springs; CSS supplies the UI.
+   -------------------------------------------------------------------------- */
+.mini-glossary,
+.glossary-grid{
+  gap:10px!important;
+}
+.mini-glossary details,
+.glossary-grid details{
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--line) 84%,transparent)!important;
+  border-radius:24px!important;
+  background:var(--surface)!important;
+  box-shadow:0 7px 20px rgba(22,18,55,.045)!important;
+  transform-origin:50% 0;
+}
+.glossary-grid details{border-radius:28px!important}
+.mini-glossary details[open],
+.glossary-grid details[open]{
+  border-color:color-mix(in srgb,var(--violet) 24%,var(--line))!important;
+  box-shadow:0 13px 30px rgba(124,92,252,.08)!important;
+}
+.mini-glossary summary,
+.glossary-grid summary{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:16px!important;
+  padding:18px 22px!important;
+  cursor:pointer!important;
+  list-style:none!important;
+  color:var(--ink)!important;
+  user-select:none;
+}
+.glossary-grid summary{padding:20px 24px!important}
+.mini-glossary summary::-webkit-details-marker,
+.glossary-grid summary::-webkit-details-marker{display:none!important}
+.mini-glossary summary svg,
+.glossary-grid summary svg{display:none!important}
+.mini-glossary summary::after,
+.glossary-grid summary::after{
+  content:'+';
+  flex:0 0 auto;
+  display:grid;
+  width:40px;
+  height:40px;
+  place-items:center;
+  border-radius:14px;
+  background:color-mix(in srgb,var(--violet) 7%,var(--surface-2));
+  color:var(--ink);
+  font:500 23px/1 var(--display);
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),background .2s ease,color .2s ease;
+}
+.mini-glossary details[open] summary::after,
+.glossary-grid details[open] summary::after{
+  content:'−';
+  transform:rotate(180deg) scale(1.04);
+  color:var(--violet);
+  background:color-mix(in srgb,var(--violet) 13%,var(--surface-2));
+}
+.mini-glossary details>p,
+.mini-glossary details>small,
+.glossary-grid details>p,
+.glossary-grid details>em{
+  margin-left:22px!important;
+  margin-right:22px!important;
+}
+.mini-glossary details>p,
+.glossary-grid details>p{
+  margin-top:0!important;
+  padding-top:2px!important;
+  color:color-mix(in srgb,var(--ink) 74%,var(--muted))!important;
+  line-height:1.75!important;
+}
+.mini-glossary details>small,
+.glossary-grid details>em{
+  display:block!important;
+  margin-top:8px!important;
+  margin-bottom:20px!important;
+  color:var(--muted)!important;
+}
+.mini-glossary details>p:last-child,
+.glossary-grid details>p:last-child{margin-bottom:22px!important}
+
+@media(max-width:900px){
+  .toc{top:126px!important}
+  .content-section{scroll-margin-top:194px!important}
+}
+
+@media(max-width:520px){
+  .toc{top:120px!important;padding:8px 9px!important}
+  .content-section{scroll-margin-top:184px!important}
+  .faq-list{padding:8px!important}
+  .faq-list .faq{border-radius:23px!important}
+  .faq-list .faq>button{padding:17px 18px!important;font-size:1rem!important}
+  .faq-list .faq>button::after{width:40px;height:40px;border-radius:13px;font-size:23px}
+  .faq-list .faq-answer{padding:0 18px 20px!important}
+  .mini-glossary summary,.glossary-grid summary{padding:16px 17px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .toc a,.faq-list .faq,.faq-list .faq>button::after,.mini-glossary summary::after,.glossary-grid summary::after{transition:none!important}
+}
