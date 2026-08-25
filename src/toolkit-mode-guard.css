@@ -1,0 +1,48 @@
+/* Final visibility authority for Toolkit reference modes.
+   Loaded after the legacy Glossary/Keywords/Command Terms modules so their
+   independent observers cannot make two panels visible at once. */
+
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-tools{
+  display:flex!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-grid{
+  display:grid!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .keyword-panel{
+  display:none!important;
+}
+
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .glossary-tools,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .glossary-grid{
+  display:none!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .keyword-panel:not(.command-panel){
+  display:block!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .command-panel{
+  display:none!important;
+}
+
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .glossary-tools,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .glossary-grid,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .keyword-panel:not(.command-panel){
+  display:none!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .command-panel{
+  display:block!important;
+}
+
+/* Keep the three tabs visually stable when scripts update around the same frame. */
+html body main .toolkit-reference-page .keyword-mode-tabs button[data-mode]{
+  isolation:isolate;
+}
+
+@media(max-width:700px){
+  html body main .toolkit-reference-page .keyword-mode-tabs{
+    overflow:hidden;
+  }
+  html body main .toolkit-reference-page .keyword-mode-tabs button[data-mode]{
+    min-width:0;
+    white-space:nowrap;
+  }
+}
