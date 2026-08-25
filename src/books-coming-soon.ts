@@ -20,6 +20,14 @@ const placeholderIds=new Set(placeholders.map(profile=>profile.id));
 const route=()=>location.hash.slice(1).split('#')[0]||'home';
 
 function polishLibrary(page:HTMLElement){
+  const stats=page.querySelectorAll<HTMLElement>('.books-hero-stats>div');
+  if(stats[0]){
+    const live=bookProfiles.filter(profile=>!placeholderIds.has(profile.id)).length;
+    const value=stats[0].querySelector<HTMLElement>('b');
+    const label=stats[0].querySelector<HTMLElement>('span');
+    if(value)value.textContent=String(live);
+    if(label)label.textContent=`profiles live • ${placeholderIds.size} coming soon`;
+  }
   page.querySelectorAll<HTMLElement>('[data-open-book]').forEach(card=>{
     const id=card.dataset.openBook||'';
     if(!placeholderIds.has(id))return;
@@ -43,6 +51,7 @@ function turnProfileIntoPlaceholder(page:HTMLElement){
   if(!profile)return;
   const topLine=page.querySelector<HTMLElement>('.book-profile-topline');
   if(!topLine)return;
+  page.dataset.profileLevel=profile.level.toLowerCase().startsWith('sl')?'sl':'hl';
   const status=topLine.querySelector<HTMLElement>('span');
   if(status)status.textContent=`${profile.level} • Coming soon`;
   [...page.children].forEach(child=>{if(child!==topLine)child.remove()});
