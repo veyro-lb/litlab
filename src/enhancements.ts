@@ -203,11 +203,16 @@ function init(){
   addEventListener('scroll',updateScrollUI,{passive:true});
   addEventListener('resize',updateScrollUI,{passive:true});
   const observer=new MutationObserver(mutations=>{
+    let mobileMenuAdded=false;
     mutations.forEach(mutation=>mutation.addedNodes.forEach(node=>{
       replaceSpellingIn(node);
-      if(node.nodeType===Node.ELEMENT_NODE)observeReveal(node as Element);
+      if(node.nodeType===Node.ELEMENT_NODE){
+        const element=node as Element;
+        observeReveal(element);
+        if(element.matches('.mobile-menu')||element.querySelector('.mobile-menu'))mobileMenuAdded=true;
+      }
     }));
-    syncNavigation();
+    if(mobileMenuAdded)requestAnimationFrame(syncNavigation);
   });
   observer.observe(shell,{childList:true,subtree:true});
 }
