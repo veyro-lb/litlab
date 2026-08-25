@@ -1,0 +1,99 @@
+.command-panel[hidden]{display:none!important}
+.command-panel{width:100%}
+.command-intro{border-color:color-mix(in srgb,var(--cyan) 22%,var(--line))}
+.command-tools{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.command-shortcuts{display:flex;gap:7px;flex-wrap:wrap}
+.command-shortcuts button{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 11px;
+  background:var(--surface);
+  color:var(--muted);
+  font:800 11px var(--body);
+  cursor:pointer;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease;
+}
+.command-shortcuts button:hover,.command-shortcuts button:focus-visible{
+  color:var(--ink);
+  border-color:color-mix(in srgb,var(--violet) 45%,var(--line));
+  transform:translateY(-1px);
+}
+.command-shortcuts button.active{
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(135deg,var(--violet),color-mix(in srgb,var(--violet) 72%,var(--cyan)));
+}
+.command-grid details[data-command-term="true"]{position:relative}
+.command-grid details[data-command-term="true"] summary b{font-size:1rem}
+.command-grid details[data-command-term="true"] summary small{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.command-term-body{padding:0 18px 18px}
+.command-term-body>p{margin:0 0 14px;color:var(--muted);line-height:1.7}
+.command-term-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-bottom:12px;
+}
+.command-term-grid>div{
+  min-width:0;
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:color-mix(in srgb,var(--surface-2) 58%,var(--surface));
+}
+.command-term-grid span{
+  display:block;
+  margin-bottom:6px;
+  color:var(--violet);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+.command-term-grid p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.command-term-body em{
+  display:block;
+  padding:11px 13px;
+  border-left:3px solid color-mix(in srgb,var(--cyan) 70%,var(--violet));
+  border-radius:0 10px 10px 0;
+  background:color-mix(in srgb,var(--cyan) 5%,var(--surface));
+  color:var(--muted);
+  font-size:12px;
+  font-style:normal;
+  line-height:1.65;
+}
+.command-term-body em b{display:block;margin-bottom:3px;color:var(--ink);font-size:10px;text-transform:uppercase;letter-spacing:.07em}
+.command-reminder{
+  width:min(100%,1184px);
+  margin:18px auto 0;
+  padding:14px 16px;
+  border:1px solid color-mix(in srgb,var(--cyan) 22%,var(--line));
+  border-radius:16px;
+  background:color-mix(in srgb,var(--cyan) 5%,var(--surface));
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.65;
+}
+.command-reminder b{color:var(--ink)}
+@media(max-width:700px){
+  .keyword-mode-tabs{overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
+  .keyword-mode-tabs::-webkit-scrollbar{display:none}
+  .keyword-mode-tabs button{flex:0 0 auto;min-width:max-content}
+  .command-tools{align-items:stretch}
+  .command-tools .inline-search{width:100%}
+  .command-shortcuts{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;scrollbar-width:none}
+  .command-shortcuts::-webkit-scrollbar{display:none}
+  .command-shortcuts button{flex:0 0 auto}
+  .command-term-grid{grid-template-columns:1fr}
+  .command-reminder{width:calc(100% - 28px);margin-inline:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .command-shortcuts button{transition:none!important}
+}
