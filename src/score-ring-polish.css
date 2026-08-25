@@ -1,5 +1,6 @@
 .score-ring[data-score-polished="true"]{
   --score-color:var(--violet);
+  --litlab-score:0%;
   position:relative;
   width:142px!important;
   height:142px!important;
@@ -11,7 +12,7 @@
   border:1px solid color-mix(in srgb,var(--score-color) 20%,var(--line));
   background:
     radial-gradient(circle at center,var(--surface) 0 59%,transparent 60%),
-    conic-gradient(from 0deg,var(--score-color) 0 calc(var(--litlab-score) * 1%),color-mix(in srgb,var(--score-color) 9%,var(--surface-2)) calc(var(--litlab-score) * 1%) 100%)!important;
+    conic-gradient(from 0deg,var(--score-color) 0 var(--litlab-score),color-mix(in srgb,var(--score-color) 9%,var(--surface-2)) var(--litlab-score) 100%)!important;
   box-shadow:0 16px 42px color-mix(in srgb,var(--score-color) 16%,transparent),inset 0 0 0 7px color-mix(in srgb,var(--surface) 72%,transparent)!important;
 }
 .score-ring[data-score-polished="true"][data-score-band="strong"]{--score-color:#2fa872}
