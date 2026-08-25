@@ -35,7 +35,7 @@ function applyMode(page:HTMLElement){
   applying=true;
 
   page.classList.add('toolkit-reference-page');
-  if(page.dataset.toolkitReferenceMode!==mode)page.dataset.toolkitReferenceMode=mode;
+  page.dataset.toolkitReferenceMode=mode;
 
   const originalTools=directChild(page,'glossary-tools');
   const originalGrid=directChild(page,'glossary-grid');
@@ -49,17 +49,16 @@ function applyMode(page:HTMLElement){
 
   page.querySelectorAll<HTMLButtonElement>(':scope > .keyword-mode-tabs button[data-mode]').forEach(button=>{
     const selected=button.dataset.mode===mode;
-    if(button.classList.contains('active')!==selected)button.classList.toggle('active',selected);
-    if(button.getAttribute('aria-selected')!==String(selected))button.setAttribute('aria-selected',String(selected));
-    if(selected){
-      if(button.getAttribute('aria-current')!=='page')button.setAttribute('aria-current','page');
-    }else if(button.hasAttribute('aria-current'))button.removeAttribute('aria-current');
+    button.classList.toggle('active',selected);
+    button.setAttribute('aria-selected',String(selected));
+    if(selected)button.setAttribute('aria-current','page');
+    else button.removeAttribute('aria-current');
   });
 
-  document.querySelectorAll<HTMLButtonElement>('.toolkit-choice[data-toolkit-mode]').forEach(button=>{
+  page.querySelectorAll<HTMLButtonElement>('.toolkit-choice[data-toolkit-mode]').forEach(button=>{
     const selected=button.dataset.toolkitMode===mode;
-    if(button.classList.contains('active')!==selected)button.classList.toggle('active',selected);
-    if(button.getAttribute('aria-pressed')!==String(selected))button.setAttribute('aria-pressed',String(selected));
+    button.classList.toggle('active',selected);
+    button.setAttribute('aria-pressed',String(selected));
   });
 
   applying=false;
@@ -75,22 +74,39 @@ function scheduleApply(){
   });
 }
 
-function primeMode(next:ToolkitMode){
+function selectMode(next:ToolkitMode){
   mode=next;
   const page=toolkitPage();
   if(page){
     page.classList.add('toolkit-reference-page');
     page.dataset.toolkitReferenceMode=mode;
-  }
-  scheduleApply();
+    applyMode(page);
+  }else scheduleApply();
 }
 
+/*
+  The older Keywords and Command Terms modules still create their content,
+  search controls and cards. Mode switching itself is owned here. Capturing
+  these clicks before their legacy handlers run prevents two independent
+  state machines from marking different tabs active in the same frame.
+*/
 document.addEventListener('click',event=>{
+  if(currentRoute()!=='glossary')return;
   const target=event.target as Element|null;
+
   const tab=target?.closest<HTMLButtonElement>('.keyword-mode-tabs button[data-mode]');
   if(tab&&isMode(tab.dataset.mode)){
-    primeMode(tab.dataset.mode);
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    selectMode(tab.dataset.mode);
     return;
+  }
+
+  const choice=target?.closest<HTMLButtonElement>('.toolkit-choice[data-toolkit-mode]');
+  if(choice&&isMode(choice.dataset.toolkitMode)){
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    selectMode(choice.dataset.toolkitMode);
   }
 },true);
 
