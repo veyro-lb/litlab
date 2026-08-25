@@ -4,7 +4,7 @@ export type GlossaryItem={term:string;definition:string;example?:string;category
 export type Tip={title:string;text:string};
 
 export const nav=[
-  ['home','Home'],['start','Start Here'],['papers','Papers'],['io','IO'],['books','Books'],['ee','Extended Essay']
+  ['home','Home'],['start','Start Here'],['papers','Papers'],['io','IO'],['books','Books'],['ee','Extended Essay'],['skills','Skills Lab']
 ] as const;
 
 export const homeCards=[
@@ -12,7 +12,8 @@ export const homeCards=[
   {slug:'papers',n:'02',title:'Papers',desc:'Choose Paper 1 or Paper 2, then explore the right skills, strategies and practice structure.',icon:'FileText'},
   {slug:'io',n:'03',title:'Individual Oral',desc:'A clear home for global issues, extracts, analysis, structure, delivery and practice.',icon:'Mic2'},
   {slug:'books',n:'04',title:'Books',desc:'Organise the books you study so themes, characters, choices and connections are easy to revisit.',icon:'LibraryBig'},
-  {slug:'ee',n:'05',title:'Extended Essay',desc:'A guided starting point for students considering an English-focused Extended Essay.',icon:'SearchCheck'}
+  {slug:'ee',n:'05',title:'Extended Essay',desc:'A guided starting point for students considering an English-focused Extended Essay.',icon:'SearchCheck'},
+  {slug:'skills',n:'06',title:'Skills Lab',desc:'Test your understanding through interactive analysis, thesis, evaluation, authorial-choice and paragraph practice.',icon:'FlaskConical'}
 ];
 
 export const compass=[
@@ -21,7 +22,7 @@ export const compass=[
   {slug:'io',label:'IO',sub:'Individual Oral',x:79,y:78},
   {slug:'ee',label:'EE',sub:'Research & argument',x:21,y:78},
   {slug:'books',label:'BOOKS',sub:'Build your library',x:14,y:32},
-  {slug:'start#analysis',label:'ANALYSIS',sub:'The skill underneath it all',x:50,y:91}
+  {slug:'skills',label:'SKILLS LAB',sub:'Test your understanding',x:50,y:91}
 ];
 
 export const faqs:FAQ[]=[
@@ -86,6 +87,13 @@ export const searchItems:SearchItem[]=[
   {title:'Individual Oral',preview:'IO overview, practice timer and future content structure.',to:'io',category:'Guide'},
   {title:'Books',preview:'Book library, study profile structure and note-taking system.',to:'books',category:'Guide'},
   {title:'Extended Essay',preview:'English EE starting point and research question workshop.',to:'ee',category:'Guide'},
+  {title:'Skills Lab',preview:'Interactive practice for analysis, thesis writing, authorial choices, evaluation, paragraph structure and mixed review.',to:'skills',category:'Practice'},
+  {title:'Analysis Lab',preview:'Build analysis through Notice → Choice → Effect → Meaning → Evaluation → Wider Theme.',to:'skills',category:'Skills Lab'},
+  {title:'Thesis Lab',preview:'Learn how to form focused, arguable and evaluative analytical thesis statements.',to:'skills',category:'Skills Lab'},
+  {title:'Authorial Choice Check',preview:'Identify choices accurately and connect them to effect.',to:'skills',category:'Skills Lab'},
+  {title:'Evaluation Lab',preview:'Practice judging how effectively a creator’s choices produce meaning.',to:'skills',category:'Skills Lab'},
+  {title:'Paragraph Builder',preview:'Put analytical reasoning in a logical order and understand why each move matters.',to:'skills',category:'Skills Lab'},
+  {title:'Mixed Skill Check',preview:'Test your overall understanding and get a recommendation for what to review next.',to:'skills',category:'Skills Lab'},
   {title:'Glossary',preview:'Search DP English terminology.',to:'glossary',category:'Reference'},
   ...glossary.map(g=>({title:g.term,preview:g.definition,to:'glossary',category:'Glossary'}))
 ];
