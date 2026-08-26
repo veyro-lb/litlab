@@ -21,7 +21,7 @@ export const hlGoodFits=[
 export const hlPoorFits=[
   'A theme so broad it could apply to almost any work, such as “love” or “death,” without a sharper angle.',
   'A question that mainly asks what happens and therefore invites plot summary instead of analysis.',
-  'A comparison between two works. The source pack treats that as Paper 2 territory rather than the HL Essay.',
+  'A comparison between two works. Comparison belongs in Paper 2 rather than the HL Essay.',
   'A line of inquiry that simply repeats a class discussion or essay prompt without adding a more focused, independent angle.'
 ];
 
@@ -35,8 +35,8 @@ export const hlCriteria:HLCriterion[]=[
 export const hlMistakes:HLMistake[]=[
   {title:'Line of inquiry too broad',why:'It becomes almost impossible to explore the idea with real depth in 1,200–1,500 words.',fix:'Use a narrowing process before committing to the inquiry.',example:'Move from “identity in Persepolis” to a specific visual technique operating in a specific context.'},
   {title:'Description instead of analysis',why:'It wastes scarce word count and directly weakens the analytical work the essay needs to do.',fix:'Ask whether each paragraph explains how an authorial choice creates effect and meaning, or merely reports what happens.',example:'Replace a plot-summary paragraph with sustained analysis of a specific choice and its effect.'},
-  {title:'Exceeding the word limit',why:'The pack states that examiners will not read beyond 1,500 words, so important material beyond that point will not be assessed.',fix:'Track word count from the first draft rather than waiting until the end.',example:'Trim an overlong introduction instead of sacrificing the analytical body of the essay.'},
-  {title:'Choosing a work already used for the IO',why:'The source pack identifies this as a restriction and says the same work should not be reused for the IO and HL Essay.',fix:'Plan which studied work is assigned to which assessment component early, and confirm the current rule with your teacher/course guide.',example:'Keep a simple list showing which work has been “spent” on which component.'},
+  {title:'Exceeding the word limit',why:'Examiners will not read beyond 1,500 words, so important material beyond that point will not be assessed.',fix:'Track word count from the first draft rather than waiting until the end.',example:'Trim an overlong introduction instead of sacrificing the analytical body of the essay.'},
+  {title:'Choosing a work already used for the IO',why:'The same work should not be reused for the IO and HL Essay.',fix:'Plan which studied work is assigned to which assessment component early, and confirm the current assessment-reuse rule with your teacher or current course guide.',example:'Keep a simple list showing which work has been “spent” on which component.'},
   {title:'A line of inquiry that is really a comparison',why:'The HL Essay is built around one work or body of work, while comparison belongs elsewhere in the course.',fix:'Check that the whole inquiry can be explored inside a single work or body of work.',example:'Rework “How do two authors represent power?” into a focused inquiry about one of those works.'},
   {title:'Repeating a class essay or discussion',why:'It weakens the sense of independent thinking the HL Essay is meant to demonstrate.',fix:'Push beyond the existing class angle toward a more precise, personally generated analytical focus.',example:'Turn a broad class theme into a narrower technical question you have not already answered.'},
   {title:'Weak or vague line of inquiry statement',why:'An unclear opening focus makes it difficult for the whole essay to stay coherent.',fix:'State the line of inquiry precisely in the introduction and make the analytical angle visible.',example:'Replace “This essay explores identity” with a specific, technique-focused inquiry statement.'},
@@ -53,7 +53,7 @@ export const hlMistakes:HLMistake[]=[
 export const hlChecklist=[
   'My line of inquiry is specific, analytical, and focused on one work or body of work.',
   'I have checked that my chosen work is eligible and has not already been used in a conflicting assessment component.',
-  'My essay is within the 1,200–1,500 word range described in the source pack.',
+  'My essay is within the 1,200–1,500 word range.',
   'Every paragraph connects explicitly back to the line of inquiry.',
   'Analysis dominates over description or plot summary.',
   'Quotations are short, precise, and purposeful.',
