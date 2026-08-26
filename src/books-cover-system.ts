@@ -84,7 +84,12 @@ function profileForCover(cover:HTMLElement):BookProfile|undefined{
   const profilePage=cover.closest<HTMLElement>('.books-profile-page');
   if(profilePage){
     const title=profilePage.querySelector<HTMLElement>('.book-profile-hero-copy h1')?.textContent?.trim();
-    if(title)return bookProfiles.find(profile=>profile.title===title);
+    if(title){
+      const exact=bookProfiles.find(profile=>profile.title===title);
+      if(exact)return exact;
+    }
+    const author=profilePage.querySelector<HTMLElement>('.book-byline')?.textContent?.trim();
+    if(author)return bookProfiles.find(profile=>profile.author===author);
   }
 
   if(cover.closest('.books-hero-art'))return bookProfiles.find(profile=>profile.id==='handmaids-tale')||bookProfiles[0];
@@ -92,7 +97,12 @@ function profileForCover(cover:HTMLElement):BookProfile|undefined{
 }
 
 function paintCover(cover:HTMLElement,profile:BookProfile){
-  if(cover.dataset.litlabCover==='v2'&&cover.dataset.coverId===profile.id)return;
+  const hasCurrentArtwork=Boolean(
+    cover.querySelector('.lit-cover-series')&&
+    cover.querySelector('.lit-cover-copy')&&
+    cover.querySelector('.lit-cover-foot')
+  );
+  if(cover.dataset.litlabCover==='v2'&&cover.dataset.coverId===profile.id&&hasCurrentArtwork)return;
   const spec=coverSpecs[profile.id]||fallbackSpec;
   cover.dataset.litlabCover='v2';
   cover.dataset.coverId=profile.id;
