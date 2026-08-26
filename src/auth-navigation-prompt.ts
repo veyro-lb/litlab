@@ -3,7 +3,7 @@ const SESSION_KEY='litlabSupabaseSession';
 let navigationId=0;
 
 function currentRoute(){
-  return location.hash.replace(/^#/,'').split('?')[0].trim().toLowerCase()||'home';
+  return location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
 }
 
 function hasStoredSession(){
