@@ -104,12 +104,14 @@ function scheduleRender(){
 function renameEssayNavButton(button:HTMLButtonElement){
   const label=button.textContent?.trim();
   if(label!=='Extended Essay'&&label!=='Essays')return;
-  if(button.closest('.mobile-menu')){
-    const textNode=Array.from(button.childNodes).find(node=>node.nodeType===Node.TEXT_NODE);
-    if(textNode)textNode.textContent='Essays';
-    else button.prepend(document.createTextNode('Essays'));
-  }else{
-    button.textContent='Essays';
+  if(label==='Extended Essay'){
+    if(button.closest('.mobile-menu')){
+      const textNode=Array.from(button.childNodes).find(node=>node.nodeType===Node.TEXT_NODE);
+      if(textNode)textNode.textContent='Essays';
+      else button.prepend(document.createTextNode('Essays'));
+    }else{
+      button.textContent='Essays';
+    }
   }
   button.dataset.essaysEntry='true';
 }
@@ -121,22 +123,25 @@ function patchEntryPoints(){
   document.querySelectorAll<HTMLButtonElement>('.topbar nav button,.mobile-menu button').forEach(renameEssayNavButton);
 
   document.querySelectorAll<HTMLElement>('.feature-card h3').forEach(title=>{
-    if(title.textContent?.trim()!=='Extended Essay'&&title.textContent?.trim()!=='Essays')return;
-    title.textContent='Essays';
+    const label=title.textContent?.trim();
+    if(label!=='Extended Essay'&&label!=='Essays')return;
     const card=title.closest<HTMLButtonElement>('.feature-card');
+    if(label==='Extended Essay')title.textContent='Essays';
     if(card){
       card.dataset.essaysEntry='true';
       const description=card.querySelector<HTMLParagraphElement>('p');
-      if(description)description.textContent='Choose Extended Essay or HL Essay, then open the guide that matches the work you are preparing.';
+      const copy='Choose Extended Essay or HL Essay, then open the guide that matches the work you are preparing.';
+      if(description&&description.textContent!==copy)description.textContent=copy;
     }
   });
 
   document.querySelectorAll<HTMLButtonElement>('.compass-node').forEach(node=>{
     const label=node.querySelector<HTMLElement>('b');
-    if(label?.textContent?.trim()!=='EE'&&label?.textContent?.trim()!=='ESSAYS')return;
-    label.textContent='ESSAYS';
+    const text=label?.textContent?.trim();
+    if(text!=='EE'&&text!=='ESSAYS')return;
+    if(label&&text==='EE')label.textContent='ESSAYS';
     const sub=node.querySelector<HTMLElement>('span');
-    if(sub)sub.textContent='EE + HL Essay';
+    if(sub&&sub.textContent!=='EE + HL Essay')sub.textContent='EE + HL Essay';
     node.dataset.essaysEntry='true';
   });
 
