@@ -1,23 +1,19 @@
 import './essays-hub.css';
 
 let chromeScheduled=false;
-let observerScheduled=false;
 
 function currentRoute(){
   return location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
 }
 
-function go(route:string){
-  if(currentRoute()===route){renderEssayRoute();return}
-  location.hash=route;
-}
+function go(route:string){location.hash=route}
 
-function reactMain(){
-  return document.querySelector<HTMLElement>('#root main#main');
+function routeHost(){
+  return document.querySelector<HTMLElement>('main[data-litlab-special-route-host]');
 }
 
 function essayHubMarkup(){
-  return `<section class="essays-hub-page" data-essays-page="essays" data-essay-shell="true">
+  return `<section class="essays-hub-page" data-essays-page="essays">
     <div class="essays-hub-hero">
       <span class="essays-kicker">LITLAB • ESSAYS</span>
       <h1>Which essay are you working on?</h1>
@@ -61,46 +57,29 @@ function essayHubMarkup(){
 }
 
 function hlSeedMarkup(){
-  return `<section class="hl-essay-page" data-hl-essay-seed="true" data-essay-shell="true" aria-live="polite">
+  return `<section class="hl-essay-page" data-hl-essay-seed="true" aria-live="polite">
     <nav class="essays-breadcrumb" aria-label="Breadcrumb"><button type="button" data-essay-route="essays">Essays</button><span aria-hidden="true">›</span><b>HL Essay</b></nav>
     <div class="hl-essay-hero">
-      <div><span class="essays-kicker">LITLAB • HL ESSAY</span><h1>Opening the HL Essay guide…</h1><p>Loading the full guide inside the normal LitLab page shell.</p></div>
+      <div><span class="essays-kicker">LITLAB • HL ESSAY</span><h1>Opening the HL Essay guide…</h1><p>Loading the full guide.</p></div>
       <div class="hl-essay-art" aria-hidden="true"><div class="hl-sheet sheet-back"></div><div class="hl-sheet sheet-main"><span>HL ESSAY</span><i></i><i></i><i></i><i></i><i></i></div><div class="hl-pencil">✦</div></div>
     </div>
   </section>`;
 }
 
-// Essays and HL Essay now render INSIDE React's existing main element. There is no second
-// <main>, no hidden route host, and no page layer outside the shared LitLab header. React may
-// briefly render its fallback page for these enhancement routes; the root observer below
-// immediately restores the correct route content in the same main element.
+// Important: this module only writes inside the external legacy-route host. React's #root and
+// its <main> are never modified, so navigating away cannot leave React with a corrupted DOM.
 function renderEssayRoute(){
   const route=currentRoute();
-  const main=reactMain();
-  if(!main)return;
+  if(route!=='essays'&&route!=='hl-essay')return;
+  const host=routeHost();
+  if(!host)return;
 
   if(route==='essays'){
-    if(!main.querySelector('[data-essays-page="essays"]'))main.innerHTML=essayHubMarkup();
-    main.dataset.litlabEssayRoute='essays';
+    if(!host.querySelector('[data-essays-page="essays"]'))host.innerHTML=essayHubMarkup();
     return;
   }
 
-  if(route==='hl-essay'){
-    // Never overwrite the full HL guide once its own module has mounted it.
-    if(!main.querySelector('[data-hl-guide="true"]')&&!main.querySelector('[data-hl-essay-seed="true"]'))main.innerHTML=hlSeedMarkup();
-    main.dataset.litlabEssayRoute='hl-essay';
-    return;
-  }
-
-  delete main.dataset.litlabEssayRoute;
-}
-
-function settleEssayRoute(){
-  renderEssayRoute();
-  // React's hash listener is registered before this module. Re-run after its batched commit,
-  // without relying on a manual refresh or on whichever tab the student visited previously.
-  queueMicrotask(renderEssayRoute);
-  requestAnimationFrame(renderEssayRoute);
+  if(!host.querySelector('[data-hl-guide="true"]')&&!host.querySelector('[data-hl-essay-seed="true"]'))host.innerHTML=hlSeedMarkup();
 }
 
 function renameEssayNavButton(button:HTMLButtonElement){
@@ -120,7 +99,7 @@ function patchEntryPoints(){
   chromeScheduled=false;
   const route=currentRoute();
 
-  document.querySelectorAll<HTMLButtonElement>('.topbar nav button,.mobile-menu button').forEach(renameEssayNavButton);
+  document.querySelectorAll<HTMLButtonElement>('.topbar nav button,.mobile-menu button,footer button').forEach(renameEssayNavButton);
 
   document.querySelectorAll<HTMLElement>('.feature-card h3').forEach(title=>{
     const label=title.textContent?.trim();
@@ -152,10 +131,6 @@ function patchEntryPoints(){
     if(label.textContent?.trim()==='EE')label.textContent='Essays';
   });
 
-  document.querySelectorAll<HTMLElement>('.section-head h2').forEach(title=>{
-    if(title.textContent?.trim()==='Five places. One clear map.')title.textContent='Six places. One clear map.';
-  });
-
   const essayNav=document.querySelector<HTMLButtonElement>('.topbar nav button[data-essays-entry]');
   if(essayNav){
     if(route==='essays'||route==='ee'||route==='hl-essay'){
@@ -171,6 +146,15 @@ function scheduleChrome(){
   requestAnimationFrame(patchEntryPoints);
 }
 
+function isEssayEntry(element:Element|null){
+  const candidate=element?.closest<HTMLElement>('.topbar nav button,.mobile-menu button,footer button,.feature-card,.compass-node');
+  if(!candidate)return false;
+  if(candidate.dataset.essaysEntry==='true')return true;
+  const text=(candidate.textContent||'').trim();
+  const heading=candidate.querySelector<HTMLElement>('h3,b')?.textContent?.trim()||'';
+  return text==='Extended Essay'||text==='Essays'||heading==='Extended Essay'||heading==='Essays'||heading==='EE'||heading==='ESSAYS';
+}
+
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
   const routeButton=target?.closest<HTMLElement>('[data-essay-route]');
@@ -181,8 +165,7 @@ document.addEventListener('click',event=>{
     return;
   }
 
-  const entry=target?.closest<HTMLElement>('[data-essays-entry]');
-  if(entry){
+  if(isEssayEntry(target)){
     event.preventDefault();
     event.stopPropagation();
     go('essays');
@@ -190,22 +173,13 @@ document.addEventListener('click',event=>{
 },true);
 
 window.addEventListener('hashchange',()=>{
-  settleEssayRoute();
+  renderEssayRoute();
   patchEntryPoints();
 });
-window.addEventListener('pageshow',settleEssayRoute);
+window.addEventListener('pageshow',renderEssayRoute);
 
 const root=document.querySelector('#root');
-if(root)new MutationObserver(()=>{
-  if(observerScheduled)return;
-  observerScheduled=true;
-  queueMicrotask(()=>{
-    observerScheduled=false;
-    const route=currentRoute();
-    if(route==='essays'||route==='hl-essay')renderEssayRoute();
-    scheduleChrome();
-  });
-}).observe(root,{childList:true,subtree:true});
+if(root)new MutationObserver(scheduleChrome).observe(root,{childList:true,subtree:true});
 
-settleEssayRoute();
+renderEssayRoute();
 patchEntryPoints();
