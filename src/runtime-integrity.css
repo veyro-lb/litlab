@@ -1,0 +1,31 @@
+/* Sitewide interaction hardening discovered during the runtime/navigation audit. */
+
+@media(max-width:900px){
+  .litlab-route-dock .route-actions{display:flex!important;align-items:center;gap:5px;flex-shrink:0}
+  .litlab-route-dock .route-actions .route-back,
+  .litlab-route-dock .route-actions .route-next{
+    display:inline-flex!important;
+    align-items:center;
+    justify-content:center;
+    min-height:32px;
+    max-width:128px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    pointer-events:auto!important;
+  }
+}
+
+@media(max-width:520px){
+  .litlab-route-dock{gap:6px}
+  .litlab-route-dock .route-crumbs{min-width:0;flex:1}
+  .litlab-route-dock .route-actions{max-width:58%;justify-content:flex-end}
+  .litlab-route-dock .route-actions .route-back,
+  .litlab-route-dock .route-actions .route-next{max-width:50%;font-size:10px;padding-inline:7px}
+}
+
+.litlab-route-dock,.litlab-route-dock button,.litlab-back-top{pointer-events:auto}
+.litlab-route-dock button,.litlab-back-top{touch-action:manipulation}
+
+main#main[tabindex="-1"]:focus:not(:focus-visible),
+main[data-litlab-special-route-host][tabindex="-1"]:focus:not(:focus-visible){outline:none}
