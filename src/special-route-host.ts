@@ -1,8 +1,8 @@
 import './special-route-host.css';
 
-// These routes are rendered by enhancement modules rather than React's native page switch.
-// Keep them on an isolated surface so React cannot overwrite their content during navigation.
-const SPECIAL_ROUTES=new Set(['essays','hl-essay','ee','admin']);
+// Only routes that do not have a native React page need an isolated render surface.
+// Extended Essay already has a native React page and should stay inside the normal app shell.
+const SPECIAL_ROUTES=new Set(['essays','hl-essay','admin']);
 let scheduled=false;
 let lastRoute='';
 
@@ -13,12 +13,12 @@ function currentRoute(){
 function getReactMain(){
   const root=document.getElementById('root');
   if(!root)return null;
-  return root.querySelector<HTMLElement>('main[data-litlab-react-main],main#main');
+  return root.querySelector<HTMLElement>('main[data-litlab-react-main],main#litlab-react-main,main#main');
 }
 
 function restoreReactSurface(){
   const root=document.getElementById('root');
-  const reactMain=root?.querySelector<HTMLElement>('main[data-litlab-react-main],main#litlab-react-main');
+  const reactMain=root?.querySelector<HTMLElement>('main[data-litlab-react-main],main#litlab-react-main,main#main');
   reactMain?.querySelectorAll<HTMLElement>('[data-litlab-suppressed-page]').forEach(page=>{
     page.classList.add('page');
     delete page.dataset.litlabSuppressedPage;
@@ -32,13 +32,6 @@ function restoreReactSurface(){
   document.querySelector<HTMLElement>('[data-litlab-special-route-host]')?.remove();
   document.body.classList.remove('litlab-special-route-active');
   lastRoute='';
-}
-
-function seedFor(route:string){
-  if(route==='ee'){
-    return '<section class="page litlab-special-route-seed" data-litlab-ee-seed><div class="hero"><h1>Research Question Lab</h1></div></section>';
-  }
-  return '';
 }
 
 function ensureSpecialSurface(){
@@ -57,31 +50,30 @@ function ensureSpecialSurface(){
     reactMain.dataset.litlabReactMain='true';
     if(reactMain.id==='main')reactMain.id='litlab-react-main';
     reactMain.setAttribute('aria-hidden','true');
-    if(route==='ee'){
-      reactMain.querySelectorAll<HTMLElement>('.page').forEach(page=>{
-        page.dataset.litlabSuppressedPage='true';
-        page.classList.remove('page');
-      });
-    }
   }
 
   root.querySelector<HTMLElement>('footer')?.classList.add('litlab-special-route-hidden');
   document.body.classList.add('litlab-special-route-active');
 
-  let host=document.querySelector<HTMLElement>('[data-litlab-special-route-host]');
+  let host=document.querySelector<HTMLElement>('main[data-litlab-special-route-host]');
   if(!host){
     host=document.createElement('main');
     host.id='main';
     host.dataset.litlabSpecialRouteHost='true';
     host.setAttribute('tabindex','-1');
-    root.after(host);
+    // Keep the visible route surface BEFORE React in document order. React can restore its
+    // own hidden #main during the same navigation, but all legacy main#main lookups will
+    // still resolve to this visible surface first instead of rendering into the hidden page.
+    root.before(host);
+  }else if(host.nextElementSibling!==root){
+    root.before(host);
   }
 
   const changed=lastRoute!==route||host.dataset.route!==route;
   host.dataset.route=route;
   host.hidden=false;
   if(changed){
-    host.innerHTML=seedFor(route);
+    host.replaceChildren();
     lastRoute=route;
   }
 }
