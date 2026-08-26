@@ -1,1 +1,43 @@
-body.litlab-special-route-active #root main{display:none!important}body.litlab-special-route-active #root footer,.litlab-special-route-hidden{display:none!important}body.litlab-special-route-active #root .app-shell{min-height:0!important}main[data-litlab-special-route-host]{display:block;min-height:calc(100dvh - 76px);background:var(--bg);color:var(--ink);position:relative;z-index:1}main[data-litlab-special-route-host]:focus{outline:0}.litlab-special-route-seed{min-height:55vh;display:grid;place-items:center}.litlab-special-route-seed .hero{opacity:0;pointer-events:none}@media(max-width:900px){main[data-litlab-special-route-host]{min-height:calc(100dvh - 64px)}}
+/* Special essay routes render outside React's managed <main>. Keep the shared app chrome
+   (navigation, account controls and mobile menu) available while only the React page body is hidden. */
+body.litlab-special-route-active #root main{display:none!important}
+body.litlab-special-route-active #root footer,.litlab-special-route-hidden{display:none!important}
+body.litlab-special-route-active #root .app-shell{min-height:0!important}
+
+/* A sticky header cannot remain sticky once its short React container has ended and the
+   separate special-route host is scrolling. Make the existing LitLab header fixed only on
+   these routes so navigation and signed-in account controls never disappear. */
+body.litlab-special-route-active #root .topbar{
+  position:fixed!important;
+  inset:0 0 auto 0;
+  width:100%;
+  z-index:500;
+}
+
+/* The special host lives after #root, so reserve the header's normal height explicitly. */
+main[data-litlab-special-route-host]{
+  display:block;
+  min-height:100dvh;
+  padding-top:76px;
+  background:var(--bg);
+  color:var(--ink);
+  position:relative;
+  z-index:1;
+}
+main[data-litlab-special-route-host]:focus{outline:0}
+
+/* Keep section jumps from landing underneath the fixed global navigation. */
+main[data-litlab-special-route-host] :where(section,article,[id]){scroll-margin-top:96px}
+
+.litlab-special-route-seed{min-height:55vh;display:grid;place-items:center}
+.litlab-special-route-seed .hero{opacity:0;pointer-events:none}
+
+/* Signed-in account menus and the mobile navigation must stay above the isolated guide. */
+body.litlab-special-route-active .litlab-auth-root,
+body.litlab-special-route-active .litlab-account-menu,
+body.litlab-special-route-active .mobile-menu{z-index:520}
+
+@media(max-width:900px){
+  main[data-litlab-special-route-host]{padding-top:76px;min-height:100dvh}
+  main[data-litlab-special-route-host] :where(section,article,[id]){scroll-margin-top:88px}
+}
