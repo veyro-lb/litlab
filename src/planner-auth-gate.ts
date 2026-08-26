@@ -1,6 +1,7 @@
 export {};
 
 const SESSION_KEY='litlabSupabaseSession';
+const LEGACY_LOCAL_KEYS=['litlabPaper2ComparisonBuilder','litlabIOPlanner'] as const;
 
 const selectors={
   paper2:'[data-builder-toggle]',
@@ -14,6 +15,10 @@ function hasStoredSession(){
   }catch{return false}
 }
 
+function clearSignedOutPlannerCache(){
+  LEGACY_LOCAL_KEYS.forEach(key=>localStorage.removeItem(key));
+}
+
 function openSignIn(attempt=0){
   if(hasStoredSession())return;
   if(document.querySelector('[data-auth-modal]'))return;
@@ -25,6 +30,8 @@ function openSignIn(attempt=0){
 function syncGate(){
   const signedIn=hasStoredSession();
   document.documentElement.toggleAttribute('data-planner-signin-required',!signedIn);
+
+  if(!signedIn)clearSignedOutPlannerCache();
 
   const paper2=document.querySelector<HTMLButtonElement>(selectors.paper2);
   if(paper2){
