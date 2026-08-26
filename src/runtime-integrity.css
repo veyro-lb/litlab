@@ -1,5 +1,7 @@
 /* Sitewide interaction hardening discovered during the runtime/navigation audit. */
 
+/* Keep both previous and next controls available on phones. Earlier global UX CSS hid the
+   previous button below 900px, which made navigation inconsistent between normal and essay routes. */
 @media(max-width:900px){
   .litlab-route-dock .route-actions{display:flex!important;align-items:center;gap:5px;flex-shrink:0}
   .litlab-route-dock .route-actions .route-back,
@@ -24,8 +26,11 @@
   .litlab-route-dock .route-actions .route-next{max-width:50%;font-size:10px;padding-inline:7px}
 }
 
+/* Make shared floating/navigation controls reliably clickable above decorative layers. */
 .litlab-route-dock,.litlab-route-dock button,.litlab-back-top{pointer-events:auto}
 .litlab-route-dock button,.litlab-back-top{touch-action:manipulation}
 
+/* The active main surface can receive focus from the skip link without showing a permanent
+   outline after pointer navigation. Keyboard focus remains visible through :focus-visible. */
 main#main[tabindex="-1"]:focus:not(:focus-visible),
 main[data-litlab-special-route-host][tabindex="-1"]:focus:not(:focus-visible){outline:none}
