@@ -4,7 +4,7 @@ export type GlossaryItem={term:string;definition:string;example?:string;category
 export type Tip={title:string;text:string};
 
 export const nav=[
-  ['home','Home'],['start','Start Here'],['papers','Papers'],['io','IO'],['books','Books'],['ee','Extended Essay'],['skills','Skills Lab']
+  ['home','Home'],['start','Start Here'],['papers','Papers'],['io','IO'],['books','Books'],['essays','Essays'],['skills','Skills Lab']
 ] as const;
 
 export const homeCards=[
@@ -12,7 +12,7 @@ export const homeCards=[
   {slug:'papers',n:'02',title:'Papers',desc:'Choose Paper 1 or Paper 2, then explore the right skills, strategies and practice structure.',icon:'FileText'},
   {slug:'io',n:'03',title:'Individual Oral',desc:'A clear home for global issues, extracts, analysis, structure, delivery and practice.',icon:'Mic2'},
   {slug:'books',n:'04',title:'Books',desc:'Organise the books you study so themes, characters, choices and connections are easy to revisit.',icon:'LibraryBig'},
-  {slug:'ee',n:'05',title:'Extended Essay',desc:'A guided starting point for students considering an English-focused Extended Essay.',icon:'SearchCheck'},
+  {slug:'essays',n:'05',title:'Essays',desc:'Choose Extended Essay or HL Essay, then open the guide and workspace that match the essay you are preparing.',icon:'SearchCheck'},
   {slug:'skills',n:'06',title:'Skills Lab',desc:'Test your understanding through interactive analysis, thesis, evaluation, authorial-choice and paragraph practice.',icon:'FlaskConical'}
 ];
 
@@ -20,7 +20,7 @@ export const compass=[
   {slug:'start',label:'START',sub:'New to DP English?',x:50,y:9},
   {slug:'papers',label:'PAPERS',sub:'Paper 1 + Paper 2',x:86,y:32},
   {slug:'io',label:'IO',sub:'Individual Oral',x:79,y:78},
-  {slug:'ee',label:'EE',sub:'Research & argument',x:21,y:78},
+  {slug:'essays',label:'ESSAYS',sub:'EE + HL Essay',x:21,y:78},
   {slug:'books',label:'BOOKS',sub:'Build your library',x:14,y:32},
   {slug:'skills',label:'SKILLS LAB',sub:'Test your understanding',x:50,y:91}
 ];
@@ -86,7 +86,9 @@ export const searchItems:SearchItem[]=[
   {title:'Paper 2',preview:'Comparative literary writing workspace and future guide.',to:'paper-2',category:'Papers'},
   {title:'Individual Oral',preview:'IO overview, practice timer and future content structure.',to:'io',category:'Guide'},
   {title:'Books',preview:'Book library, study profile structure and note-taking system.',to:'books',category:'Guide'},
-  {title:'Extended Essay',preview:'English EE starting point and research question workshop.',to:'ee',category:'Guide'},
+  {title:'Essays',preview:'Choose between the Extended Essay and HL Essay guides and their saved workspaces.',to:'essays',category:'Guide'},
+  {title:'Extended Essay',preview:'English EE starting point, research question workshop and Essay Workspace.',to:'ee',category:'Essays'},
+  {title:'HL Essay',preview:'HL Essay line of inquiry, structure, analysis, criteria and Essay Workspace.',to:'hl-essay',category:'Essays'},
   {title:'Skills Lab',preview:'Interactive practice for analysis, thesis writing, authorial choices, evaluation, paragraph structure and mixed review.',to:'skills',category:'Practice'},
   {title:'Analysis Lab',preview:'Build analysis through Notice → Choice → Effect → Meaning → Evaluation → Wider Theme.',to:'skills',category:'Skills Lab'},
   {title:'Thesis Lab',preview:'Learn how to form focused, arguable and evaluative analytical thesis statements.',to:'skills',category:'Skills Lab'},

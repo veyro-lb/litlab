@@ -8,17 +8,18 @@ const routes:Record<string,RouteInfo>={
   papers:{label:'Papers',back:'start',next:'paper-1',nextLabel:'Paper 1'},
   'paper-1':{label:'Paper 1',parent:'papers',back:'papers',next:'paper-2',nextLabel:'Paper 2'},
   'paper-2':{label:'Paper 2',parent:'papers',back:'paper-1',next:'io',nextLabel:'IO'},
-  io:{label:'Individual Oral',back:'papers',next:'books',nextLabel:'Books'},
+  io:{label:'Individual Oral',back:'paper-2',next:'books',nextLabel:'Books'},
   books:{label:'Books',back:'io',next:'essays',nextLabel:'Essays'},
   essays:{label:'Essays',back:'books',next:'ee',nextLabel:'Extended Essay'},
   ee:{label:'Extended Essay',parent:'essays',back:'essays',next:'hl-essay',nextLabel:'HL Essay'},
   'hl-essay':{label:'HL Essay',parent:'essays',back:'ee',next:'skills',nextLabel:'Skills Lab'},
   skills:{label:'Skills Lab',back:'hl-essay',next:'home',nextLabel:'Home'},
-  glossary:{label:'Glossary',back:'home'},
-  about:{label:'About / CAS',back:'home'}
+  glossary:{label:'Toolkit',back:'home'},
+  about:{label:'About / CAS',back:'home'},
+  admin:{label:'Developer Analytics',back:'home'}
 };
 
-const route=()=>location.hash.slice(1).split('#')[0]||'home';
+const route=()=>location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
 const go=(to:string)=>{location.hash=to};
 const reduceMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 

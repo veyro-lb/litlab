@@ -1,0 +1,42 @@
+/* Shared interaction guardrails for dynamic LitLab tools and route chrome. */
+button,[role="button"]{touch-action:manipulation}
+button:disabled{cursor:not-allowed}
+
+:where(.p2-builder,.io-planner,.essay-ws,.evidence-modal,.hl-guide-page) :where(input,textarea,select,button){max-width:100%}
+:where(.p2-builder,.io-planner,.essay-ws,.evidence-modal) :where(input,textarea,select){min-width:0}
+
+.p2-builder-workspace[hidden],.io-planner-workspace[hidden],.essay-ws-shell[hidden]{display:none!important}
+
+:where(.p2-builder,.io-planner,.essay-ws,.evidence-modal) :focus-visible,
+.litlab-route-dock button:focus-visible,
+.hl-guide-nav button:focus-visible,
+.hl-check-item:focus-visible{
+  outline:3px solid color-mix(in srgb,var(--accent,#d86d4a) 72%,white);
+  outline-offset:3px;
+}
+
+@media(max-width:900px){
+  :where(.p2-builder,.io-planner,.essay-ws,.evidence-modal) button,
+  .evidence-feature-button,
+  .evidence-profile-launch,
+  .hl-guide-nav button,
+  .hl-check-item,
+  .litlab-route-dock button{min-height:44px}
+
+  :where(.p2-builder-flow,.io-planner-flow,.essay-ws-flow,.hl-guide-nav,.litlab-route-dock .route-crumbs){
+    max-width:100%;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  :where(.p2-builder-flow,.io-planner-flow,.essay-ws-flow,.hl-guide-nav,.litlab-route-dock .route-crumbs)::-webkit-scrollbar{display:none}
+
+  .p2-builder-intro,.io-planner-hero,.essay-ws-feature{min-width:0}
+  :where(.p2-builder-intro,.io-planner-hero,.essay-ws-feature) :where(h2,h3,p,span,b,strong,small){overflow-wrap:anywhere}
+}
+
+@media(max-width:520px){
+  .p2-builder-selects,.p2-builder-matrix,.p2-builder-paragraphs,.io-planner-grid,.io-practice-layout,.essay-ws-core,.essay-ws-progress{min-width:0}
+  :where(.p2-builder,.io-planner,.essay-ws,.evidence-modal) textarea{resize:vertical}
+}
