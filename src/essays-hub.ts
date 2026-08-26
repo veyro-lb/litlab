@@ -1,18 +1,23 @@
 import './essays-hub.css';
 
-let renderScheduled=false;
 let chromeScheduled=false;
+let observerScheduled=false;
 
 function currentRoute(){
   return location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
 }
 
 function go(route:string){
+  if(currentRoute()===route){renderEssayRoute();return}
   location.hash=route;
 }
 
+function reactMain(){
+  return document.querySelector<HTMLElement>('#root main#main');
+}
+
 function essayHubMarkup(){
-  return `<section class="essays-hub-page" data-essays-page="essays">
+  return `<section class="essays-hub-page" data-essays-page="essays" data-essay-shell="true">
     <div class="essays-hub-hero">
       <span class="essays-kicker">LITLAB • ESSAYS</span>
       <h1>Which essay are you working on?</h1>
@@ -29,7 +34,7 @@ function essayHubMarkup(){
           <span class="essays-choice-number">01</span>
           <span class="essays-status ready">Guide available</span>
           <h2>Extended Essay</h2>
-          <p>Open the existing LitLab EE guide with its research, planning, argument and reflection tools.</p>
+          <p>Open the full LitLab EE guide for research questions, planning, sources, argument, analysis, reflection and the final checklist.</p>
           <b>Explore Extended Essay <span aria-hidden="true">→</span></b>
         </div>
       </button>
@@ -40,65 +45,62 @@ function essayHubMarkup(){
         </div>
         <div class="essays-choice-copy">
           <span class="essays-choice-number">02</span>
-          <span class="essays-status preparing">Guide being prepared</span>
+          <span class="essays-status ready hl-guide-ready">Guide available</span>
           <h2>HL Essay</h2>
-          <p>The HL Essay space is ready. Detailed, verified guidance will be added here from the material prepared for LitLab.</p>
-          <b>Open HL Essay <span aria-hidden="true">→</span></b>
+          <p>Open the full LitLab HL Essay guide for choosing a work, developing a line of inquiry, analysis, structure, criteria, common mistakes and a final checklist.</p>
+          <b>Explore HL Essay <span aria-hidden="true">→</span></b>
         </div>
       </button>
     </div>
 
     <div class="essays-hub-note">
       <span aria-hidden="true">◎</span>
-      <div><b>Two pathways, one clear home.</b><p>Extended Essay content stays exactly where it is. The HL Essay gets its own separate guide so the two do not get mixed together.</p></div>
+      <div><b>Two pathways, one clear home.</b><p>Extended Essay and HL Essay stay in separate guides so their requirements and strategies do not get mixed together.</p></div>
     </div>
   </section>`;
 }
 
-function hlEssayMarkup(){
-  return `<section class="hl-essay-page" data-essays-page="hl-essay">
-    <nav class="essays-breadcrumb" aria-label="Breadcrumb">
-      <button type="button" data-essay-route="essays">Essays</button><span aria-hidden="true">›</span><b>HL Essay</b>
-    </nav>
-
+function hlSeedMarkup(){
+  return `<section class="hl-essay-page" data-hl-essay-seed="true" data-essay-shell="true" aria-live="polite">
+    <nav class="essays-breadcrumb" aria-label="Breadcrumb"><button type="button" data-essay-route="essays">Essays</button><span aria-hidden="true">›</span><b>HL Essay</b></nav>
     <div class="hl-essay-hero">
-      <div>
-        <span class="essays-kicker">HL ESSAY</span>
-        <h1>The space is ready.<br><em>The guide comes next.</em></h1>
-        <p>We have set up the HL Essay as its own LitLab section. The detailed content will be added after it is reviewed, so nothing here invents requirements or guidance before the source material is provided.</p>
-        <div class="hl-essay-actions"><button type="button" data-essay-route="essays">← Back to Essays</button></div>
-      </div>
-      <div class="hl-essay-art" aria-hidden="true">
-        <div class="hl-sheet sheet-back"></div>
-        <div class="hl-sheet sheet-main"><span>HL ESSAY</span><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="hl-pencil">✦</div>
-      </div>
+      <div><span class="essays-kicker">LITLAB • HL ESSAY</span><h1>Opening the HL Essay guide…</h1><p>Loading the full guide inside the normal LitLab page shell.</p></div>
+      <div class="hl-essay-art" aria-hidden="true"><div class="hl-sheet sheet-back"></div><div class="hl-sheet sheet-main"><span>HL ESSAY</span><i></i><i></i><i></i><i></i><i></i></div><div class="hl-pencil">✦</div></div>
     </div>
-
-    <div class="hl-ready-grid">
-      <article><span>01</span><h2>Guide content</h2><p>Reserved for the verified HL Essay explanation and requirements.</p></article>
-      <article><span>02</span><h2>Examples</h2><p>Ready for useful models and examples once the content is reviewed.</p></article>
-      <article><span>03</span><h2>Practice</h2><p>Ready for LitLab-style activities based on the final guide.</p></article>
-      <article><span>04</span><h2>Checklist</h2><p>Ready for a clear student checklist built from the supplied material.</p></article>
-    </div>
-
-    <div class="hl-coming-banner"><span>COMING NEXT</span><b>HL Essay content will be added here.</b><p>The layout is complete and mobile-ready; the academic content is intentionally waiting for review.</p></div>
   </section>`;
 }
 
-function renderRoute(){
-  renderScheduled=false;
+// Essays and HL Essay now render INSIDE React's existing main element. There is no second
+// <main>, no hidden route host, and no page layer outside the shared LitLab header. React may
+// briefly render its fallback page for these enhancement routes; the root observer below
+// immediately restores the correct route content in the same main element.
+function renderEssayRoute(){
   const route=currentRoute();
-  if(route!=='essays'&&route!=='hl-essay')return;
-  const main=document.querySelector<HTMLElement>('main#main');
-  if(!main||main.querySelector(`[data-essays-page="${route}"]`))return;
-  main.innerHTML=route==='essays'?essayHubMarkup():hlEssayMarkup();
+  const main=reactMain();
+  if(!main)return;
+
+  if(route==='essays'){
+    if(!main.querySelector('[data-essays-page="essays"]'))main.innerHTML=essayHubMarkup();
+    main.dataset.litlabEssayRoute='essays';
+    return;
+  }
+
+  if(route==='hl-essay'){
+    // Never overwrite the full HL guide once its own module has mounted it.
+    if(!main.querySelector('[data-hl-guide="true"]')&&!main.querySelector('[data-hl-essay-seed="true"]'))main.innerHTML=hlSeedMarkup();
+    main.dataset.litlabEssayRoute='hl-essay';
+    return;
+  }
+
+  delete main.dataset.litlabEssayRoute;
 }
 
-function scheduleRender(){
-  if(renderScheduled)return;
-  renderScheduled=true;
-  requestAnimationFrame(renderRoute);
+function settleEssayRoute(){
+  renderEssayRoute();
+  // React's hash listener is registered before this module. Re-run after its batched commit,
+  // without relying on a manual refresh or on whichever tab the student visited previously.
+  queueMicrotask(renderEssayRoute);
+  requestAnimationFrame(renderEssayRoute);
 }
 
 function renameEssayNavButton(button:HTMLButtonElement){
@@ -109,9 +111,7 @@ function renameEssayNavButton(button:HTMLButtonElement){
       const textNode=Array.from(button.childNodes).find(node=>node.nodeType===Node.TEXT_NODE);
       if(textNode)textNode.textContent='Essays';
       else button.prepend(document.createTextNode('Essays'));
-    }else{
-      button.textContent='Essays';
-    }
+    }else button.textContent='Essays';
   }
   button.dataset.essaysEntry='true';
 }
@@ -161,14 +161,11 @@ function patchEntryPoints(){
     if(route==='essays'||route==='ee'||route==='hl-essay'){
       document.querySelectorAll('.topbar nav button.active').forEach(button=>button.classList.remove('active'));
       essayNav.classList.add('active');
-    }else{
-      essayNav.classList.remove('active');
-    }
+    }else essayNav.classList.remove('active');
   }
 }
 
-function scheduleChrome(delay=0){
-  if(delay){setTimeout(()=>scheduleChrome(),delay);return}
+function scheduleChrome(){
   if(chromeScheduled)return;
   chromeScheduled=true;
   requestAnimationFrame(patchEntryPoints);
@@ -179,6 +176,7 @@ document.addEventListener('click',event=>{
   const routeButton=target?.closest<HTMLElement>('[data-essay-route]');
   if(routeButton){
     event.preventDefault();
+    event.stopPropagation();
     go(routeButton.dataset.essayRoute||'essays');
     return;
   }
@@ -192,16 +190,22 @@ document.addEventListener('click',event=>{
 },true);
 
 window.addEventListener('hashchange',()=>{
-  scheduleRender();
-  scheduleChrome(80);
-  scheduleChrome(220);
+  settleEssayRoute();
+  patchEntryPoints();
 });
+window.addEventListener('pageshow',settleEssayRoute);
 
 const root=document.querySelector('#root');
 if(root)new MutationObserver(()=>{
-  scheduleRender();
-  scheduleChrome();
+  if(observerScheduled)return;
+  observerScheduled=true;
+  queueMicrotask(()=>{
+    observerScheduled=false;
+    const route=currentRoute();
+    if(route==='essays'||route==='hl-essay')renderEssayRoute();
+    scheduleChrome();
+  });
 }).observe(root,{childList:true,subtree:true});
 
-scheduleRender();
-scheduleChrome();
+settleEssayRoute();
+patchEntryPoints();
