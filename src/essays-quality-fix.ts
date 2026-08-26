@@ -1,3 +1,5 @@
+export {};
+
 let scheduled=false;
 
 function currentRoute(){
