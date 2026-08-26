@@ -101,16 +101,24 @@ function scheduleRender(){
   requestAnimationFrame(renderRoute);
 }
 
+function renameEssayNavButton(button:HTMLButtonElement){
+  const label=button.textContent?.trim();
+  if(label!=='Extended Essay'&&label!=='Essays')return;
+  if(button.closest('.mobile-menu')){
+    const textNode=Array.from(button.childNodes).find(node=>node.nodeType===Node.TEXT_NODE);
+    if(textNode)textNode.textContent='Essays';
+    else button.prepend(document.createTextNode('Essays'));
+  }else{
+    button.textContent='Essays';
+  }
+  button.dataset.essaysEntry='true';
+}
+
 function patchEntryPoints(){
   chromeScheduled=false;
   const route=currentRoute();
 
-  document.querySelectorAll<HTMLButtonElement>('.topbar nav button,.mobile-menu button').forEach(button=>{
-    if(button.textContent?.trim()==='Extended Essay'||button.textContent?.trim()==='Essays'){
-      button.textContent='Essays';
-      button.dataset.essaysEntry='true';
-    }
-  });
+  document.querySelectorAll<HTMLButtonElement>('.topbar nav button,.mobile-menu button').forEach(renameEssayNavButton);
 
   document.querySelectorAll<HTMLElement>('.feature-card h3').forEach(title=>{
     if(title.textContent?.trim()!=='Extended Essay'&&title.textContent?.trim()!=='Essays')return;
