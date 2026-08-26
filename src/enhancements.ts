@@ -18,6 +18,7 @@ const routes:Record<string,RouteInfo>={
 
 const route=()=>location.hash.slice(1).split('#')[0]||'home';
 const go=(to:string)=>{location.hash=to};
+const reduceMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function replaceSpellingIn(root:Node){
   if(root.nodeType===Node.TEXT_NODE){
@@ -147,7 +148,7 @@ function ensureBackTop(){
     button.className='litlab-back-top';
     button.setAttribute('aria-label','Back to top');
     button.innerHTML='<span>↑</span><small>Top</small>';
-    button.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+    button.addEventListener('click',()=>scrollTo({top:0,behavior:reduceMotion()?'auto':'smooth'}));
     document.body.append(button);
   }
   return button;
@@ -162,6 +163,15 @@ function updateScrollUI(){
   back.classList.toggle('show',scrollY>650);
 }
 
+let scrollUiFrame=0;
+function requestScrollUI(){
+  if(scrollUiFrame)return;
+  scrollUiFrame=requestAnimationFrame(()=>{
+    scrollUiFrame=0;
+    updateScrollUI();
+  });
+}
+
 const revealSelector=[
   '.content-section','.feature-card','.flow-step','.faq','.paper-choice','.book-card',
   '.topic-map > div','.creator-cards > div','.choice-card','.tip-card','.official-card',
@@ -170,7 +180,7 @@ const revealSelector=[
 
 let revealObserver:IntersectionObserver|undefined;
 function setupRevealObserver(){
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(reduceMotion())return;
   revealObserver=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
@@ -194,12 +204,21 @@ function observeReveal(root:ParentNode){
 }
 
 function setupPointerLight(){
-  if(!matchMedia('(hover: hover) and (pointer: fine)').matches)return;
+  if(reduceMotion()||!matchMedia('(hover: hover) and (pointer: fine)').matches)return;
   const shell=document.querySelector<HTMLElement>('.app-shell');
   if(!shell)return;
+  let pointerFrame=0;
+  let x=0;
+  let y=0;
   addEventListener('pointermove',event=>{
-    shell.style.setProperty('--pointer-x',`${event.clientX}px`);
-    shell.style.setProperty('--pointer-y',`${event.clientY}px`);
+    x=event.clientX;
+    y=event.clientY;
+    if(pointerFrame)return;
+    pointerFrame=requestAnimationFrame(()=>{
+      pointerFrame=0;
+      shell.style.setProperty('--pointer-x',`${x}px`);
+      shell.style.setProperty('--pointer-y',`${y}px`);
+    });
   },{passive:true});
 }
 
@@ -215,8 +234,8 @@ function init(){
   setupPointerLight();
   updateScrollUI();
   addEventListener('hashchange',()=>requestAnimationFrame(()=>{replaceSpellingIn(document.body);syncNavigation();observeReveal(document);updateScrollUI()}));
-  addEventListener('scroll',updateScrollUI,{passive:true});
-  addEventListener('resize',updateScrollUI,{passive:true});
+  addEventListener('scroll',requestScrollUI,{passive:true});
+  addEventListener('resize',requestScrollUI,{passive:true});
   const observer=new MutationObserver(mutations=>{
     let mobileMenuAdded=false;
     mutations.forEach(mutation=>mutation.addedNodes.forEach(node=>{
