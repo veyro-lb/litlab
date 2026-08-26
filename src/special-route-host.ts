@@ -1,7 +1,6 @@
 import './special-route-host.css';
 
 const SPECIAL_ROUTES=new Set(['essays','hl-essay','ee']);
-let redispatching=false;
 let scheduled=false;
 let lastRoute='';
 
@@ -83,15 +82,6 @@ function ensureSpecialSurface(){
     host.innerHTML=seedFor(route);
     lastRoute=route;
   }
-
-  if(!redispatching){
-    queueMicrotask(()=>{
-      if(redispatching||currentRoute()!==route)return;
-      redispatching=true;
-      window.dispatchEvent(new HashChangeEvent('hashchange'));
-      redispatching=false;
-    });
-  }
 }
 
 function schedule(){
@@ -100,7 +90,7 @@ function schedule(){
   requestAnimationFrame(ensureSpecialSurface);
 }
 
-window.addEventListener('hashchange',()=>{if(!redispatching)schedule()});
+window.addEventListener('hashchange',schedule);
 window.addEventListener('pageshow',schedule);
 
 const root=document.getElementById('root');
