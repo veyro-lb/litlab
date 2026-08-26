@@ -22,7 +22,7 @@ const checklistLabels=[
 ];
 const emptyState:PlannerState={globalIssue:'',literaryWork:'',secondType:'Non-literary body of work',secondTitle:'',literaryExtract:'',secondExtract:'',literaryChoices:'',secondChoices:'',literaryWider:'',secondWider:'',significance:'',outline:Array(10).fill(''),checklist:Array(checklistLabels.length).fill(false),lastPracticeSeconds:0};
 const esc=(v:string)=>v.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]||c));
-const route=()=>location.hash.slice(1).split('#')[0]||'home';
+const route=()=>location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
 const session=():Session|null=>{try{const s=JSON.parse(localStorage.getItem(SESSION_KEY)||'null');return s?.access_token&&s?.refresh_token?s:null}catch{return null}};
 const headers=(token:string,extra:Record<string,string>={})=>({apikey:SUPABASE_KEY,Authorization:`Bearer ${token}`,'Content-Type':'application/json',...extra});
 
@@ -37,18 +37,19 @@ function mount(){
  if(route()!=='io')return;
  const section=document.querySelector<HTMLElement>('#io-structure');
  if(!section||section.querySelector('[data-io-planner]'))return;
- let state=loadLocal();
+ let state=session()?loadLocal():normalize({});
  const box=document.createElement('div');box.className='io-planner';box.dataset.ioPlanner='true';
- box.innerHTML=`<div class="io-planner-hero"><div><span>✦ INTERACTIVE IO TOOL</span><h3>Build your Individual Oral.</h3><p>Plan the global issue, materials, extracts, authorial choices and wider-work links, then shape them into a 10-point speaking outline and rehearse it against a 10-minute target.</p><div class="io-planner-flow"><b>GLOBAL ISSUE</b><i>→</i><b>TEXTS</b><i>→</i><b>CHOICES</b><i>→</i><b>10 POINTS</b><i>→</i><strong>PRACTICE</strong></div></div><button type="button" class="btn primary" data-io-planner-toggle>Open IO Planner →</button></div><div class="io-planner-workspace" data-io-planner-workspace hidden></div>`;
+ box.innerHTML=`<div class="io-planner-hero"><div><span>✦ SIGNED-IN IO TOOL</span><h3>Build your Individual Oral.</h3><p>Plan the global issue, materials, extracts, authorial choices and wider-work links, then shape them into a 10-point speaking outline and rehearse it against a 10-minute target.</p><div class="io-planner-flow"><b>GLOBAL ISSUE</b><i>→</i><b>TEXTS</b><i>→</i><b>CHOICES</b><i>→</i><b>10 POINTS</b><i>→</i><strong>PRACTICE</strong></div></div><button type="button" class="btn primary" data-io-planner-toggle>Open IO Planner →</button></div><div class="io-planner-workspace" data-io-planner-workspace hidden></div>`;
  const timerCard=section.querySelector('.io-timer-card');if(timerCard)section.insertBefore(box,timerCard);else section.append(box);
  const workspace=box.querySelector<HTMLElement>('[data-io-planner-workspace]')!;
  let remoteTimer=0,clockTimer=0,clockStart=0,clockElapsed=state.lastPracticeSeconds,clockRunning=false;
- const syncLabel=()=>session()?'Signed in • syncs to your LitLab account':'Saved on this device • sign in for cross-device sync';
+ const syncLabel=()=>session()?'Saved to your LitLab account':'Sign in required';
  const titleFor=(slug:string)=>bookProfiles.find(b=>b.id===slug)?.title||'';
  const formatTime=(seconds:number)=>`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;
+ const setSaveStatus=(text:string)=>workspace.querySelectorAll<HTMLElement>('[data-io-save]').forEach(x=>x.textContent=text);
  const save=()=>{saveLocal(state);window.clearTimeout(remoteTimer);remoteTimer=window.setTimeout(()=>void syncRemote(),650)};
- const collect=()=>{workspace.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[name]').forEach(el=>{const name=el.name;if(name.startsWith('outline-')){state.outline[Number(name.split('-')[1])]=el.value}else if(name in state){(state as unknown as Record<string,string>)[name]=el.value}});save();workspace.querySelectorAll<HTMLElement>('[data-io-save]').forEach(x=>x.textContent=session()?'Saving to your account…':'Saved on this device')};
- const syncRemote=async()=>{const s=session();if(!s)return;try{const user=await currentUser(s);if(!user)return;await saveRemote(s,user,state);workspace.querySelectorAll<HTMLElement>('[data-io-save]').forEach(x=>x.textContent='Synced to your LitLab account ✓')}catch{workspace.querySelectorAll<HTMLElement>('[data-io-save]').forEach(x=>x.textContent='Saved on this device • account sync will retry')}};
+ const collect=()=>{workspace.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[name]').forEach(el=>{const name=el.name;if(name.startsWith('outline-')){state.outline[Number(name.split('-')[1])]=el.value}else if(name in state){(state as unknown as Record<string,string>)[name]=el.value}});save();setSaveStatus(session()?'Saving to your LitLab account…':'Sign in required')};
+ const syncRemote=async()=>{const s=session();if(!s)return;try{const user=await currentUser(s);if(!user)return;await saveRemote(s,user,state);setSaveStatus('Synced to your LitLab account ✓')}catch{setSaveStatus('Could not sync • keep this page open and try again')}};
  const buildOutline=()=>{collect();const lit=titleFor(state.literaryWork)||'your literary work',second=state.secondTitle||'your second material',issue=state.globalIssue||'your global issue';state.outline=[
   `Frame the global issue: ${issue}. Identify ${lit} and ${second}.`,
   `Literary extract: locate the chosen moment and establish why it matters to ${issue}. ${state.literaryExtract||''}`.trim(),
@@ -82,8 +83,8 @@ function mount(){
  <div class="io-planner-footer"><span data-io-save>${syncLabel()}</span><button type="button" data-io-planner-clear>Clear planner</button></div>`;wireWorkspace();updateClock()};
  const wireWorkspace=()=>{workspace.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[name]').forEach(el=>el.addEventListener('input',collect));workspace.querySelector('[data-io-build-outline]')?.addEventListener('click',buildOutline);workspace.querySelector('[data-io-stopwatch-toggle]')?.addEventListener('click',startStop);workspace.querySelector('[data-io-stopwatch-reset]')?.addEventListener('click',resetClock);workspace.querySelectorAll<HTMLInputElement>('[data-io-check]').forEach(cb=>cb.addEventListener('change',()=>{state.checklist[Number(cb.dataset.ioCheck)]=cb.checked;save();void syncRemote()}));workspace.querySelector('[data-io-planner-clear]')?.addEventListener('click',()=>{if(!confirm('Clear your IO planner and speaking checklist?'))return;state=normalize({});saveLocal(state);resetClock();renderWorkspace();void syncRemote()})};
  box.querySelector('[data-io-planner-toggle]')?.addEventListener('click',()=>{workspace.hidden=!workspace.hidden;if(!workspace.hidden){renderWorkspace();workspace.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'})}});
- if(state.globalIssue||state.literaryWork||state.secondTitle||state.outline.some(Boolean)){workspace.hidden=false;renderWorkspace()}
- const s=session();if(s){void(async()=>{try{const user=await currentUser(s);if(!user)return;const remote=await loadRemote(s,user);if(remote){state=remote;saveLocal(state);workspace.hidden=false;renderWorkspace()}else if(state.globalIssue||state.literaryWork||state.secondTitle){await saveRemote(s,user,state)}}catch{}})()}
+ if(session()&&(state.globalIssue||state.literaryWork||state.secondTitle||state.outline.some(Boolean))){workspace.hidden=false;renderWorkspace()}
+ const s=session();if(s){void(async()=>{try{const user=await currentUser(s);if(!user)return;const remote=await loadRemote(s,user);if(remote){state=remote;saveLocal(state);workspace.hidden=false;renderWorkspace()}}catch{}})()}
 }
 
 let scheduled=false;function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;mount()})}
