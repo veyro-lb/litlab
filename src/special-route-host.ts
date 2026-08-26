@@ -1,7 +1,7 @@
 import './special-route-host.css';
 
 // Only routes that do not have a native React page need an isolated render surface.
-// Extended Essay already has a native React page and should stay inside the normal app shell.
+// Extended Essay already has a native React page and stays inside the normal app shell.
 const SPECIAL_ROUTES=new Set(['essays','hl-essay','admin']);
 let scheduled=false;
 let lastRoute='';
@@ -29,7 +29,7 @@ function restoreReactSurface(){
     reactMain.removeAttribute('aria-hidden');
   }
   root?.querySelector<HTMLElement>('footer')?.classList.remove('litlab-special-route-hidden');
-  document.querySelector<HTMLElement>('[data-litlab-special-route-host]')?.remove();
+  document.querySelector<HTMLElement>('main[data-litlab-special-route-host]')?.remove();
   document.body.classList.remove('litlab-special-route-active');
   lastRoute='';
 }
@@ -61,9 +61,8 @@ function ensureSpecialSurface(){
     host.id='main';
     host.dataset.litlabSpecialRouteHost='true';
     host.setAttribute('tabindex','-1');
-    // Keep the visible route surface BEFORE React in document order. React can restore its
-    // own hidden #main during the same navigation, but all legacy main#main lookups will
-    // still resolve to this visible surface first instead of rendering into the hidden page.
+    // Keep the visible surface before React in document order. Even if React commits again
+    // during this navigation, legacy main#main lookups resolve to this visible host first.
     root.before(host);
   }else if(host.nextElementSibling!==root){
     root.before(host);
@@ -84,13 +83,16 @@ function schedule(){
   requestAnimationFrame(ensureSpecialSurface);
 }
 
-window.addEventListener('hashchange',schedule);
-window.addEventListener('pageshow',schedule);
+// Route changes must be synchronous. Essays/HL enhancement modules run immediately after
+// hashchange; creating the host on a later animation frame made first-click rendering depend
+// on timing and could require a manual refresh.
+window.addEventListener('hashchange',ensureSpecialSurface);
+window.addEventListener('pageshow',ensureSpecialSurface);
 
 const root=document.getElementById('root');
 if(root)new MutationObserver(()=>{
   if(SPECIAL_ROUTES.has(currentRoute()))schedule();
 }).observe(root,{childList:true,subtree:true});
 
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});
-else schedule();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensureSpecialSurface,{once:true});
+else ensureSpecialSurface();
