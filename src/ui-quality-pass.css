@@ -1,0 +1,49 @@
+/* Final interaction-quality layer: keep buttons crisp, modals contained, and motion respectful. */
+:where(button,a[href],[role="button"],summary){-webkit-tap-highlight-color:transparent}
+button{touch-action:manipulation}
+button:disabled{cursor:not-allowed;opacity:.62}
+
+:where(button,a[href],input,summary,[tabindex]):focus-visible{
+  outline:3px solid color-mix(in srgb,var(--violet,#7c5cfc) 72%,white)!important;
+  outline-offset:3px!important;
+}
+
+/* The top-level Sign in action is provider-neutral now that LitLab supports more than Google. */
+.litlab-auth-signin .litlab-google-g.small{
+  font-size:0;
+  border:0;
+  color:#fff;
+  background:linear-gradient(135deg,var(--violet,#7c5cfc),var(--cyan,#21c7d9));
+}
+.litlab-auth-signin .litlab-google-g.small::after{
+  content:'LL';
+  font:900 8px/1 var(--body,Arial,sans-serif);
+  letter-spacing:-.04em;
+}
+
+/* Prevent background-scroll and clipped controls while a modal is open. */
+body:has(.modal),
+body:has(.litlab-auth-modal),
+body:has(.litlab-account-center-overlay){overflow:hidden}
+
+.litlab-auth-dialog{
+  max-height:calc(100dvh - 28px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+
+@media(max-width:520px){
+  .litlab-auth-dialog{max-height:calc(100dvh - 16px)}
+}
+
+/* Users who request reduced motion should not pay for decorative animation/repaint work. */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
