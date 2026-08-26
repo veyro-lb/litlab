@@ -1,4 +1,4 @@
-/* Special essay/admin routes render outside React's managed <main>. Keep the shared LitLab chrome
+/* Large isolated routes render outside React's managed <main>. Keep the shared LitLab chrome
    in a dedicated viewport layer so navigation, search and signed-in account controls cannot be
    covered or clipped by the isolated route host. */
 body.litlab-special-route-active #root{
@@ -39,9 +39,8 @@ body.litlab-special-route-active #root .topbar{
 }
 body.litlab-special-route-active #root .topbar :where(button,a,nav,.top-actions,.litlab-auth-root,.litlab-account-trigger){pointer-events:auto!important}
 
-/* The page-navigation dock is also React-owned. Special routes used to leave it inside the
-   pointer-events:none root, which made the HL Essay previous/next controls disappear or become
-   unusable. Pin the dock below the topbar as a first-class chrome layer. */
+/* The page-navigation dock is also React-owned. Pin it below the topbar as a first-class chrome
+   layer so previous/next controls stay visible and tappable on every isolated guide. */
 body.litlab-special-route-active #root .litlab-route-dock{
   display:flex!important;
   visibility:visible!important;
@@ -57,6 +56,16 @@ body.litlab-special-route-active #root .litlab-route-dock{
 }
 body.litlab-special-route-active #root .litlab-route-dock :where(button,.route-crumbs,.route-actions){pointer-events:auto!important}
 
+/* Guide-local section bars must sit below both fixed chrome rows. Previously the HL Essay bar
+   stuck at ~86px, directly underneath the route dock, so it appeared to disappear while scrolling. */
+body.litlab-special-route-active :where(.essay-family-guide-nav,.hl-guide-nav,.ee-guide-nav){
+  top:132px!important;
+  z-index:90!important;
+}
+body.litlab-special-route-active :where(.essay-family-section,.hl-guide-section,.ee-section){
+  scroll-margin-top:198px!important;
+}
+
 /* React-owned overlays/menus still live under #root. Let them extend beyond the 76px chrome
    layer and remain fully interactive while a special route is open. */
 body.litlab-special-route-active #root :where(.mobile-menu,.modal,.search-modal,.litlab-account-menu,.litlab-account-center-overlay,.litlab-account-center-card){
@@ -68,10 +77,8 @@ body.litlab-special-route-active #root .modal,
 body.litlab-special-route-active #root .litlab-account-center-overlay{z-index:10020!important}
 body.litlab-special-route-active #root .litlab-account-menu{z-index:10030!important}
 
-/* Auth dialogs are appended directly to <body>, not inside #root. On Essays / HL Essay the
-   fixed React chrome previously sat above the normal sign-in overlay, making that prompt look
-   and behave differently from every other page. Keep the exact same auth component, but place
-   its body-level overlay above all special-route chrome. */
+/* Auth dialogs are appended directly to <body>, not inside #root. Keep them above all isolated
+   route chrome so sign-in behaves exactly the same on Books, EE, Essays and HL Essay. */
 body.litlab-special-route-active > .litlab-auth-modal{
   display:grid!important;
   position:fixed!important;
@@ -123,6 +130,8 @@ main[data-litlab-special-route-host] :where(section,article,[id]){scroll-margin-
     text-overflow:ellipsis;
     max-width:112px;
   }
+  body.litlab-special-route-active :where(.essay-family-guide-nav,.hl-guide-nav,.ee-guide-nav){top:130px!important}
+  body.litlab-special-route-active :where(.essay-family-section,.hl-guide-section,.ee-section){scroll-margin-top:194px!important}
   main[data-litlab-special-route-host]{padding-top:122px;min-height:100dvh}
   main[data-litlab-special-route-host] :where(section,article,[id]){scroll-margin-top:136px}
 }
@@ -133,4 +142,6 @@ main[data-litlab-special-route-host] :where(section,article,[id]){scroll-margin-
   body.litlab-special-route-active #root .litlab-route-dock .route-actions{width:100%;justify-content:space-between}
   body.litlab-special-route-active #root .litlab-route-dock .route-actions .route-back,
   body.litlab-special-route-active #root .litlab-route-dock .route-actions .route-next{max-width:48%;font-size:10px}
+  body.litlab-special-route-active :where(.essay-family-guide-nav,.hl-guide-nav,.ee-guide-nav){top:128px!important}
+  body.litlab-special-route-active :where(.essay-family-section,.hl-guide-section,.ee-section){scroll-margin-top:190px!important}
 }
