@@ -59,15 +59,37 @@ body.litlab-special-route-active #root .litlab-route-dock :where(button,.route-c
 
 /* React-owned overlays/menus still live under #root. Let them extend beyond the 76px chrome
    layer and remain fully interactive while a special route is open. */
-body.litlab-special-route-active #root :where(.mobile-menu,.modal,.search-modal,.litlab-auth-modal,.litlab-auth-dialog,.litlab-account-menu,.litlab-account-center-overlay,.litlab-account-center-card){
+body.litlab-special-route-active #root :where(.mobile-menu,.modal,.search-modal,.litlab-account-menu,.litlab-account-center-overlay,.litlab-account-center-card){
   pointer-events:auto!important;
   visibility:visible;
 }
 body.litlab-special-route-active #root .mobile-menu,
 body.litlab-special-route-active #root .modal,
-body.litlab-special-route-active #root .litlab-auth-modal,
 body.litlab-special-route-active #root .litlab-account-center-overlay{z-index:10020!important}
 body.litlab-special-route-active #root .litlab-account-menu{z-index:10030!important}
+
+/* Auth dialogs are appended directly to <body>, not inside #root. On Essays / HL Essay the
+   fixed React chrome previously sat above the normal sign-in overlay, making that prompt look
+   and behave differently from every other page. Keep the exact same auth component, but place
+   its body-level overlay above all special-route chrome. */
+body.litlab-special-route-active > .litlab-auth-modal{
+  display:grid!important;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100dvh!important;
+  z-index:10100!important;
+  pointer-events:auto!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+}
+body.litlab-special-route-active > .litlab-auth-modal > .litlab-auth-dialog{
+  pointer-events:auto!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+}
 
 /* The route host scrolls normally underneath the fixed LitLab chrome. Leave room for both the
    76px topbar and the ~48px previous/next dock. */
