@@ -2,64 +2,6 @@ export {};
 
 let scheduled=false;
 
-function currentRoute(){
-  return location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
-}
-
-function hubMarkup(){
-  return `<section class="essays-hub-page" data-essays-page="essays" data-essays-stable="true">
-    <div class="essays-hub-hero">
-      <span class="essays-kicker">LITLAB • ESSAYS</span>
-      <h1>Which essay are you working on?</h1>
-      <p>Keep the two essay pathways separate and easy to find. Choose the section you need, then LitLab takes you straight to the right guide.</p>
-    </div>
-
-    <div class="essays-choice-grid" aria-label="Choose an essay guide">
-      <button type="button" class="essays-choice essays-choice-ee" data-essay-route="ee">
-        <div class="essays-choice-visual research" aria-hidden="true">
-          <span class="research-core">RQ</span>
-          <i class="research-orbit one"></i><i class="research-orbit two"></i><i class="research-dot d1"></i><i class="research-dot d2"></i><i class="research-dot d3"></i>
-        </div>
-        <div class="essays-choice-copy">
-          <span class="essays-choice-number">01</span>
-          <span class="essays-status ready">Guide available</span>
-          <h2>Extended Essay</h2>
-          <p>Open the full LitLab EE guide for research questions, planning, sources, argument, analysis, reflection and the final checklist.</p>
-          <b>Explore Extended Essay <span aria-hidden="true">→</span></b>
-        </div>
-      </button>
-
-      <button type="button" class="essays-choice essays-choice-hl" data-essay-route="hl-essay">
-        <div class="essays-choice-visual manuscript" aria-hidden="true">
-          <span class="manuscript-page back"></span><span class="manuscript-page front"><i></i><i></i><i></i><i></i><b>HL</b></span>
-        </div>
-        <div class="essays-choice-copy">
-          <span class="essays-choice-number">02</span>
-          <span class="essays-status ready hl-guide-ready">Guide available</span>
-          <h2>HL Essay</h2>
-          <p>Open the full LitLab HL Essay guide for choosing a work, developing a line of inquiry, analysis, structure, criteria, common mistakes and a final checklist.</p>
-          <b>Explore HL Essay <span aria-hidden="true">→</span></b>
-        </div>
-      </button>
-    </div>
-
-    <div class="essays-hub-note">
-      <span aria-hidden="true">◎</span>
-      <div><b>Two pathways, one clear home.</b><p>Extended Essay and HL Essay stay in separate guides so their requirements and strategies do not get mixed together.</p></div>
-    </div>
-  </section>`;
-}
-
-function ensureEssaysHub(){
-  if(currentRoute()!=='essays')return;
-  const main=document.querySelector<HTMLElement>('main#main');
-  if(!main)return;
-  const existing=main.querySelector<HTMLElement>('[data-essays-page="essays"]');
-  if(existing){existing.dataset.essaysStable='true';return}
-  main.innerHTML=hubMarkup();
-  main.dataset.essaysGuestStable='true';
-}
-
 function setText(element:HTMLElement|null,text:string){
   if(element&&element.textContent!==text)element.textContent=text;
 }
@@ -74,12 +16,6 @@ function polishHub(){
     status.classList.add('ready','hl-guide-ready');
   }
   setText(card.querySelector<HTMLElement>('.essays-choice-copy p'),'Open the full LitLab HL Essay guide for choosing a work, developing a line of inquiry, analysis, structure, criteria, common mistakes and a final checklist.');
-  const link=card.querySelector<HTMLElement>('.essays-choice-copy b');
-  if(link&&link.textContent?.includes('Open HL Essay')){
-    const arrow=link.querySelector('span');
-    link.childNodes.forEach(node=>{if(node.nodeType===Node.TEXT_NODE&&node.textContent?.trim())node.textContent='Explore HL Essay '});
-    if(!arrow)link.append(document.createTextNode(' →'));
-  }
 }
 
 const replacements:[string,string][]=[
@@ -117,40 +53,16 @@ function polishHLCopy(){
   }
 }
 
-function run(){
-  scheduled=false;
-  ensureEssaysHub();
-  polishHub();
-  polishHLCopy();
-}
+function run(){scheduled=false;polishHub();polishHLCopy()}
+function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(run)}
 
-function schedule(){
-  if(scheduled)return;
-  scheduled=true;
-  requestAnimationFrame(run);
-}
-
-function stabilize(){
-  schedule();
-  [60,160,360,760,1200].forEach(delay=>setTimeout(schedule,delay));
-}
-
-window.addEventListener('hashchange',stabilize);
-window.addEventListener('pageshow',stabilize);
-
-document.addEventListener('click',event=>{
-  const target=event.target instanceof Element?event.target:null;
-  if(target?.closest('[data-auth-close]'))setTimeout(stabilize,0);
-},true);
-
-const observer=new MutationObserver(mutations=>{
-  const route=currentRoute();
-  if(route!=='essays'&&route!=='hl-essay')return;
+window.addEventListener('hashchange',schedule);
+window.addEventListener('pageshow',schedule);
+new MutationObserver(mutations=>{
   for(const mutation of mutations){
-    if(mutation.addedNodes.length||mutation.removedNodes.length){schedule();return}
+    if(mutation.addedNodes.length){schedule();return}
   }
-});
-observer.observe(document.body,{childList:true,subtree:true});
+}).observe(document.body,{childList:true,subtree:true});
 
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',stabilize,{once:true});
-else stabilize();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});
+else schedule();
