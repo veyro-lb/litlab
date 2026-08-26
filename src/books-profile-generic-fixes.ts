@@ -6,7 +6,7 @@ const shortTitle=(profile:BookProfile)=>profile.title.split(';')[0].trim();
 const coverTitle=(profile:BookProfile)=>shortTitle(profile).toUpperCase().split(/\s+/).map(esc).join('<br/>');
 
 function styleCover(cover:HTMLElement,profile:BookProfile){
-  if(cover.dataset.litlabCover==='v3')return;
+  if(cover.dataset.litlabCover==='v2')return;
   const title=cover.querySelector<HTMLElement>('b');
   const author=cover.querySelector<HTMLElement>('small');
   const mark=cover.querySelector<HTMLElement>('.lit-book-eye');
