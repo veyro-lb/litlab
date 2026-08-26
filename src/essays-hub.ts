@@ -18,11 +18,21 @@ function setText(element:Element|null,text:string){
   if(element&&element.textContent?.trim()!==text)element.textContent=text;
 }
 
+function setButtonLabel(button:HTMLButtonElement,text:string){
+  const textNode=[...button.childNodes].find(node=>node.nodeType===Node.TEXT_NODE&&node.textContent?.trim());
+  if(textNode){
+    if(textNode.textContent?.trim()!==text)textNode.textContent=`${text} `;
+    return;
+  }
+  const label=button.querySelector<HTMLElement>('span,b,strong');
+  if(label&&label.textContent?.trim()!==text)label.textContent=text;
+}
+
 function patchEntryPoints(){
   document.querySelectorAll<HTMLButtonElement>('.topbar nav button,.mobile-menu button,footer button').forEach(button=>{
     const label=button.textContent?.trim();
     if(label==='Extended Essay'||label==='Essays'){
-      setText(button,'Essays');
+      setButtonLabel(button,'Essays');
       button.dataset.essaysEntry='true';
       button.setAttribute('aria-label','Open Essays');
     }
@@ -34,8 +44,7 @@ function patchEntryPoints(){
     const label=title.textContent?.trim();
     if(label!=='Extended Essay'&&label!=='Essays')return;
     setText(title,'Essays');
-    const description=card.querySelector('p');
-    setText(description,'Choose Extended Essay or HL Essay, then open the guide you need.');
+    setText(card.querySelector('p'),'Choose Extended Essay or HL Essay, then open the guide you need.');
     card.dataset.essaysEntry='true';
     card.setAttribute('aria-label','Open Essays: Extended Essay or HL Essay');
   });
