@@ -22,6 +22,9 @@ function activeMain(){
   return document.querySelector<HTMLElement>('main[data-litlab-special-route-host]')||document.querySelector<HTMLElement>('#root main#main');
 }
 
+// LitLab uses the URL hash as its router. A normal href="#main" therefore looks like a route
+// change to React. Keep the accessibility skip link, but focus/scroll the active main surface
+// without mutating the route.
 document.addEventListener('click',event=>{
   const skip=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.skip[href="#main"]'):null;
   if(!skip)return;
@@ -34,6 +37,8 @@ document.addEventListener('click',event=>{
   main.scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'});
 },true);
 
+// Stop the IO practice clock before its route DOM disappears. Without this, every abandoned
+// speaking run can leave an interval alive in the background until the tab is reloaded.
 function pauseIoPractice(){
   const button=document.querySelector<HTMLButtonElement>('[data-io-stopwatch-toggle]');
   if(button&&button.textContent?.trim().toLowerCase()==='pause')button.click();
@@ -73,18 +78,22 @@ async function clearPaper2Remote(){
   }catch{}
 }
 
+// The comparison builder's own reset runs on the button before this document-level bubble
+// listener. Only delete the synced row if the confirmed reset actually left the local state blank.
 document.addEventListener('click',event=>{
   const reset=event.target instanceof Element?event.target.closest('[data-builder-reset]'):null;
   if(!reset)return;
   queueMicrotask(()=>{if(paper2LocalIsEmpty())void clearPaper2Remote()});
 });
 
+// Match the rest of LitLab's modal behavior: Escape closes the Evidence Bank as well.
 document.addEventListener('keydown',event=>{
   if(event.key!=='Escape')return;
   const evidence=document.querySelector<HTMLElement>('[data-evidence-modal]');
   if(evidence)evidence.remove();
 });
 
+// Defensive recovery for stale route UI after back/forward cache restores.
 window.addEventListener('pageshow',()=>{
   requestAnimationFrame(()=>{
     const main=activeMain();
