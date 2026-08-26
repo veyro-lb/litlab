@@ -15,6 +15,9 @@ function signInWithMicrosoft(){
   authorize.searchParams.set('provider','azure');
   authorize.searchParams.set('redirect_to',redirectTo);
   authorize.searchParams.set('scopes','email');
+  // Always ask Microsoft which account to use instead of silently reusing
+  // whichever personal/work account is already signed into the browser.
+  authorize.searchParams.set('prompt','select_account');
   window.location.href=authorize.toString();
 }
 
