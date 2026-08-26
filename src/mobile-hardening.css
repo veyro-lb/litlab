@@ -1,0 +1,102 @@
+/* Final mobile-first guardrail layer. Keep dense LitLab pages readable, tappable and inside the viewport. */
+html,body,#root,.app-shell{max-width:100%}
+body{overflow-x:clip}
+img,video,canvas{max-width:100%;height:auto}
+input,textarea,select{min-width:0;max-width:100%}
+pre,code{max-width:100%;overflow-wrap:anywhere}
+.tutor-input{resize:none;max-height:104px;overflow-y:auto;line-height:1.45}
+body.litlab-tutor-open{overflow-x:clip;overflow-y:auto}
+body.litlab-tutor-open .litlab-back-top{opacity:0!important;pointer-events:none!important}
+
+:where(.paper1-guide-page,.paper2-guide-page,.io-guide-page,.ee-guide-page,.books-library-page,.books-profile-page,.skills-lab-page,.toolkit-reference-page)>*{min-width:0;max-width:100%}
+:where(.paper1-guide-page,.paper2-guide-page,.io-guide-page,.ee-guide-page,.books-library-page,.books-profile-page,.skills-lab-page,.toolkit-reference-page) :where(article,section,div,nav,aside){min-width:0}
+:where(.paper1-guide-page,.paper2-guide-page,.io-guide-page,.ee-guide-page,.books-library-page,.books-profile-page,.skills-lab-page,.toolkit-reference-page) :where(p,li,h1,h2,h3,h4,small,strong,b){overflow-wrap:anywhere}
+
+table{max-width:100%}
+:where(.note-table,.p2-table-wrap,.paper1-table-wrap,.io-table-wrap,.ee-table-wrap,.book-table-wrap){max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
+
+@media(max-width:900px){
+  body.litlab-tutor-open{overflow:hidden}
+  .topbar{gap:8px}
+  .top-actions{gap:5px;flex:0 0 auto}
+  .mobile-menu{max-height:calc(100dvh - 88px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .mobile-menu button{min-height:46px;align-items:center}
+  .litlab-route-dock{max-width:100%;overflow:hidden}
+  .route-crumbs{overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+  .toc,.quick-strip,.paper1-guide-nav,.p2-nav,.io-guide-nav,.ee-guide-nav,.keyword-mode-tabs,.filter-chips,.command-shortcuts,.sentence-frame-tabs,.book-level-filter,.books-filter-row{overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .toc::-webkit-scrollbar,.quick-strip::-webkit-scrollbar,.paper1-guide-nav::-webkit-scrollbar,.p2-nav::-webkit-scrollbar,.io-guide-nav::-webkit-scrollbar,.ee-guide-nav::-webkit-scrollbar,.keyword-mode-tabs::-webkit-scrollbar,.filter-chips::-webkit-scrollbar,.command-shortcuts::-webkit-scrollbar,.sentence-frame-tabs::-webkit-scrollbar{display:none}
+  :where(.mobile-menu button,.toc a,.paper1-guide-nav button,.p2-nav button,.io-guide-nav button,.ee-guide-nav button,.keyword-mode-tabs button,.toolkit-choice,.command-shortcuts button,.filter-chips button,.sentence-frame-tabs button,.skills-tool-grid button){min-height:44px}
+  .litlab-auth-modal,.litlab-account-center-overlay{padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left))}
+  .litlab-auth-dialog,.litlab-account-center-card{max-width:calc(100vw - 20px);max-height:calc(100dvh - 20px);overflow-y:auto;overscroll-behavior:contain}
+  .tutor-panel{max-width:calc(100vw - 20px)!important;max-height:calc(100dvh - 20px)!important}
+  .tutor-input-wrap{align-items:end}
+  .tutor-send{flex:0 0 auto}
+  .tutor-actions,.tutor-suggestions{max-width:100%}
+  .tutor-actions button,.tutor-suggestions button,.tutor-practice-options button,.tutor-review-link,.tutor-next-practice{min-height:44px}
+}
+
+@media(max-width:700px){
+  input,textarea,select{font-size:16px!important}
+  .tutor-input{font:650 16px/1.4 var(--body)!important;padding:7px 8px}
+  .tutor-send{width:44px;height:44px;border-radius:13px}
+  .tutor-bubble{font-size:13px;line-height:1.58;max-width:96%}
+  .tutor-compose{padding-bottom:max(10px,env(safe-area-inset-bottom))}
+  .tutor-messages{scroll-padding-bottom:18px}
+}
+
+@media(max-width:520px){
+  .topbar{padding-inline:10px}
+  .top-actions{gap:4px}
+  .brand-btn .logo{gap:6px}
+  .search-trigger,.icon-btn,.litlab-auth-signin,.litlab-account-trigger{width:40px;min-width:40px;height:40px;min-height:40px;padding:0;justify-content:center}
+  .litlab-auth-root{flex:0 0 auto}
+  .mobile-menu{left:8px;right:8px;border-radius:17px;padding:8px}
+  .section,.page,.learning-page{padding-left:16px;padding-right:16px}
+  .hero-copy h1,.page-hero h1{font-size:clamp(2.55rem,12.5vw,3rem);line-height:.98}
+  .section-head h2,.content-section h2,.makers h2,.tip-lab h2,.progress-panel h2,.book-template h2,.rq-lab h2{font-size:clamp(2rem,10vw,2.7rem)}
+  .compass-wrap{height:auto!important;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px;border-radius:22px;overflow:visible}
+  .compass-lines,.compass-center{display:none!important}
+  .compass-node{position:relative!important;inset:auto!important;left:auto!important;top:auto!important;width:auto!important;min-height:88px!important;transform:none!important;margin:0!important;padding:13px!important;border-radius:16px!important;animation:none!important;align-items:flex-start;justify-content:center}
+  .compass-node:hover,.compass-node:focus-visible,.compass-node.active,.compass-node:active{transform:none!important}
+  .compass-node b{font-size:12px}
+  .compass-node span{display:block!important;font-size:9px;line-height:1.35;margin-top:3px}
+  .quick-strip{margin-inline:-16px;padding-inline:16px;scroll-snap-type:x proximity}
+  .quick-strip>*{scroll-snap-align:start}
+  .button-row{width:100%}
+  .paper1-guide-page,.paper2-guide-page,.io-guide-page,.ee-guide-page{padding-left:12px!important;padding-right:12px!important}
+  .paper1-hero,.p2-hero,.io-guide-hero,.ee-guide-hero{max-width:100%;overflow:hidden}
+  .paper1-hero h1{font-size:clamp(3rem,17vw,3.7rem)}
+  .tutor-panel{right:max(5px,env(safe-area-inset-right))!important;left:max(5px,env(safe-area-inset-left))!important;bottom:max(5px,env(safe-area-inset-bottom))!important;width:auto!important;height:calc(100dvh - max(10px,env(safe-area-inset-top) + env(safe-area-inset-bottom)))!important;max-width:none!important;max-height:none!important}
+  .tutor-head{padding-top:max(12px,env(safe-area-inset-top))}
+  .tutor-context{min-width:0}
+  .tutor-page-context{min-width:0;flex:1}
+  .tutor-actions,.tutor-suggestions{display:grid;grid-template-columns:1fr;width:100%}
+  .tutor-actions button,.tutor-suggestions button{width:100%;justify-content:space-between;text-align:left;font-size:11px}
+  .tutor-practice-options button{font-size:11px;padding:11px 12px}
+  .litlab-account-menu{top:64px!important;right:8px!important;left:8px!important;width:auto!important;max-height:calc(100dvh - 76px);overflow-y:auto;overscroll-behavior:contain}
+}
+
+@media(max-width:390px){
+  .hero-art{height:300px}
+  .paper{width:min(210px,68vw);height:270px;padding:20px}
+  .lab-orb{width:84px;height:84px}
+  .floating-tag{padding:6px 8px}
+  .makers{padding:28px 18px}
+  .tip-lab,.progress-panel{padding:22px 18px}
+  .tutor-brand small{display:none}
+  .tutor-context{font-size:8px;padding-inline:11px}
+  .tutor-modes{margin-inline:8px}
+  .tutor-messages{padding-inline:9px}
+  .tutor-compose{padding-inline:8px}
+}
+
+@media(max-width:350px){
+  .brand-btn .logo>span{display:none}
+  .topbar{padding-inline:8px}
+  .top-actions{gap:3px}
+  .search-trigger,.icon-btn,.litlab-auth-signin,.litlab-account-trigger{width:38px;min-width:38px;height:38px;min-height:38px}
+  .compass-wrap{grid-template-columns:1fr}
+  .compass-node{min-height:70px!important}
+}
+
+@media(prefers-reduced-motion:reduce){.compass-node{animation:none!important}}
