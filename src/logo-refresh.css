@@ -1,0 +1,16 @@
+.logo svg{width:42px;height:42px;overflow:visible}
+.logo-book{fill:var(--ink);stroke:var(--ink);stroke-width:1.2;stroke-linejoin:round}
+.logo-book-line{fill:none;stroke:var(--bg);stroke-width:1.7;stroke-linecap:round;opacity:.9}
+.logo-flask-fill{fill:var(--surface);stroke:none}
+.logo-flask{fill:none;stroke:var(--violet);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.logo-liquid{fill:var(--violet);opacity:.96}
+.logo-bubble{fill:var(--violet-2)}
+.logo-bubble-small{fill:var(--cyan)}
+.logo-spark{fill:var(--cyan)}
+
+.compass-center .logo svg{width:48px;height:48px}
+.maker-core .logo svg{width:46px;height:46px}
+
+@media (max-width:720px){
+  .logo svg{width:38px;height:38px}
+}
