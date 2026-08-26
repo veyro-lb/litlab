@@ -9,9 +9,11 @@ const routes:Record<string,RouteInfo>={
   'paper-1':{label:'Paper 1',parent:'papers',back:'papers',next:'paper-2',nextLabel:'Paper 2'},
   'paper-2':{label:'Paper 2',parent:'papers',back:'paper-1',next:'io',nextLabel:'IO'},
   io:{label:'Individual Oral',back:'papers',next:'books',nextLabel:'Books'},
-  books:{label:'Books',back:'io',next:'ee',nextLabel:'Extended Essay'},
-  ee:{label:'Extended Essay',back:'books',next:'skills',nextLabel:'Skills Lab'},
-  skills:{label:'Skills Lab',back:'ee',next:'home',nextLabel:'Home'},
+  books:{label:'Books',back:'io',next:'essays',nextLabel:'Essays'},
+  essays:{label:'Essays',back:'books',next:'ee',nextLabel:'Extended Essay'},
+  ee:{label:'Extended Essay',parent:'essays',back:'essays',next:'hl-essay',nextLabel:'HL Essay'},
+  'hl-essay':{label:'HL Essay',parent:'essays',back:'ee',next:'skills',nextLabel:'Skills Lab'},
+  skills:{label:'Skills Lab',back:'hl-essay',next:'home',nextLabel:'Home'},
   glossary:{label:'Glossary',back:'home'},
   about:{label:'About / CAS',back:'home'}
 };
@@ -78,18 +80,19 @@ function ensureRouteDock(){
 function syncNavigation(){
   const current=route();
   const info=routes[current]||{label:'LitLab'};
-  const activeMain=(current==='paper-1'||current==='paper-2')?'papers':current;
+  const isEssayRoute=current==='essays'||current==='ee'||current==='hl-essay';
+  const activeMain=(current==='paper-1'||current==='paper-2')?'papers':isEssayRoute?'essays':current;
 
   document.querySelectorAll<HTMLButtonElement>('.topbar nav button').forEach(button=>{
     const text=(button.textContent||'').trim().toLowerCase();
-    const active=(activeMain==='start'&&text==='start here')||(activeMain==='ee'&&text==='extended essay')||(activeMain==='skills'&&text==='skills lab')||text===activeMain;
+    const active=(activeMain==='start'&&text==='start here')||(activeMain==='essays'&&(text==='essays'||text==='extended essay'))||(activeMain==='skills'&&text==='skills lab')||text===activeMain;
     button.classList.toggle('active',active);
     if(active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
   });
 
   document.querySelectorAll<HTMLButtonElement>('.mobile-menu button').forEach(button=>{
     const text=(button.textContent||'').trim().toLowerCase();
-    const active=(activeMain==='start'&&text.startsWith('start here'))||(activeMain==='ee'&&text.startsWith('extended essay'))||(activeMain==='skills'&&text.startsWith('skills lab'))||text.startsWith(activeMain);
+    const active=(activeMain==='start'&&text.startsWith('start here'))||(activeMain==='essays'&&(text.startsWith('essays')||text.startsWith('extended essay')))||(activeMain==='skills'&&text.startsWith('skills lab'))||text.startsWith(activeMain);
     button.classList.toggle('ux-active',active);
   });
 
