@@ -1,4 +1,5 @@
 import './books-library.css';
+import './books-cover-system.css';
 import {bookProfiles,type BookProfile} from './books-data';
 
 const REVIEW_KEY='litlabBookProfilesReviewed';
@@ -6,6 +7,30 @@ const reduceMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').mat
 const route=()=>location.hash.slice(1).split('#')[0]||'home';
 const esc=(value:string)=>value.replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]||ch));
 const reviewed=()=>{try{const v=JSON.parse(localStorage.getItem(REVIEW_KEY)||'[]');return Array.isArray(v)?v:[]}catch{return []}};
+
+type CoverMotif='handmaid'|'surveillance'|'electric'|'persepolis'|'sun'|'voice'|'generic';
+type CoverSpec={title?:string;motif:CoverMotif;base:string;wash:string;ink:string;accent:string};
+const coverSpecs:Record<string,CoverSpec>={
+  'handmaids-tale':{title:"THE HANDMAID'S TALE",motif:'handmaid',base:'#75152d',wash:'#d44958',ink:'#fff7ee',accent:'#f2cbbf'},
+  'nineteen-eighty-four':{title:'1984',motif:'surveillance',base:'#090d14',wash:'#252b35',ink:'#f4efe7',accent:'#ef3e50'},
+  frankenstein:{title:'FRANKENSTEIN',motif:'electric',base:'#07140f',wash:'#143725',ink:'#efffe7',accent:'#9beb62'},
+  persepolis:{title:'PERSEPOLIS',motif:'persepolis',base:'#f1eadf',wash:'#d7cfc4',ink:'#171717',accent:'#cf413c'},
+  'the-stranger':{title:'THE STRANGER',motif:'sun',base:'#d78728',wash:'#f3c96d',ink:'#1e1710',accent:'#ff5d33'},
+  'carol-ann-duffy':{title:'CAROL ANN DUFFY',motif:'voice',base:'#24143b',wash:'#65408a',ink:'#fbf3ff',accent:'#d69cff'}
+};
+const fallbackCover:CoverSpec={motif:'generic',base:'#19162f',wash:'#493b7c',ink:'#f8f6ff',accent:'#9b82ff'};
+const compactLevel=(level:string)=>level.replace(/\s*studied work\s*/i,'').trim().toUpperCase()||'LITLAB';
+const compactYear=(year:string)=>year==='Coming soon'?'COMING SOON':year.split('/')[0].trim();
+
+function coverMotif(motif:CoverMotif){
+  if(motif==='handmaid')return `<div class="lit-cover-motif motif-handmaid"><i class="hm-halo"></i><i class="hm-face"></i><i class="hm-wing hm-left"></i><i class="hm-wing hm-right"></i><i class="hm-eye"></i></div>`;
+  if(motif==='surveillance')return `<div class="lit-cover-motif motif-surveillance"><b>84</b><i class="sv-lens"></i><i class="sv-beam"></i><i class="sv-scan one"></i><i class="sv-scan two"></i></div>`;
+  if(motif==='electric')return `<div class="lit-cover-motif motif-electric"><i class="el-bolt"></i><i class="el-body"></i><i class="el-stitch s1"></i><i class="el-stitch s2"></i><i class="el-stitch s3"></i><span>+</span></div>`;
+  if(motif==='persepolis')return `<div class="lit-cover-motif motif-persepolis"><i class="pp-panel p1"></i><i class="pp-panel p2"></i><i class="pp-panel p3"></i><i class="pp-face"></i><i class="pp-hair"></i><i class="pp-scarf"></i></div>`;
+  if(motif==='sun')return `<div class="lit-cover-motif motif-sun"><i class="sun-disc"></i><i class="sun-horizon"></i><i class="sun-figure"></i><i class="sun-shadow"></i></div>`;
+  if(motif==='voice')return `<div class="lit-cover-motif motif-voice"><b>“</b><i class="voice-line v1"></i><i class="voice-line v2"></i><i class="voice-line v3"></i><span>VOICE</span></div>`;
+  return `<div class="lit-cover-motif motif-generic"><b>LL</b><i></i><span>STUDY EDITION</span></div>`;
+}
 
 function markReviewed(id:string){
   const list=reviewed();
@@ -17,16 +42,20 @@ function markReviewed(id:string){
 }
 
 function cover(profile:BookProfile,large=false){
-  return `<div class="lit-book-cover ${large?'large':''}" aria-hidden="true">
-    <div class="lit-book-cover-grid"></div><div class="lit-book-eye">◉</div>
-    <div class="lit-book-wing left"></div><div class="lit-book-wing right"></div>
-    <span>${esc(profile.level.toUpperCase())}</span><b>THE<br/>HANDMAID'S<br/>TALE</b><small>MARGARET ATWOOD</small>
+  const spec=coverSpecs[profile.id]||fallbackCover;
+  return `<div class="lit-book-cover ${large?'large':''}" data-litlab-cover="v2" data-cover-id="${esc(profile.id)}" data-book-id="${esc(profile.id)}" style="--cover-base:${spec.base};--cover-wash:${spec.wash};--cover-ink:${spec.ink};--cover-accent:${spec.accent}" aria-hidden="true">
+    <div class="lit-cover-texture"></div>
+    <div class="lit-cover-series"><span>${esc(compactLevel(profile.level))}</span><b>LITLAB</b></div>
+    ${coverMotif(spec.motif)}
+    <div class="lit-cover-copy"><strong>${esc(spec.title||profile.title.toUpperCase())}</strong><small>${esc(profile.author||'LITLAB STUDY PROFILE')}</small></div>
+    <div class="lit-cover-foot"><span>STUDY EDITION</span><b>${esc(compactYear(profile.year))}</b></div>
   </div>`;
 }
 
 function renderLibrary(page:HTMLElement){
   page.className='page books-library-page';
   page.dataset.booksEnhanced='true';
+  delete page.dataset.activeBook;
   page.innerHTML=`
     <section class="books-hero">
       <div class="books-hero-copy"><span class="books-eyebrow">✦ BOOKS • HL LIBRARY</span><h1>Know the work.<br/><em>Build the argument.</em></h1><p>LitLab turns each studied work into a revision profile built around what you actually need later: characters, themes, methods, important moments, evidence anchors, and Paper 2 connections.</p><div class="books-hero-stats"><div><b>${bookProfiles.length}</b><span>profile live</span></div><div><b>${bookProfiles.reduce((n,p)=>n+p.moments.length,0)}</b><span>important moments</span></div><div><b>${bookProfiles.reduce((n,p)=>n+p.arguments.length,0)}</b><span>argument starters</span></div></div></div>
@@ -54,6 +83,7 @@ function renderLibrary(page:HTMLElement){
 function renderProfile(page:HTMLElement,profile:BookProfile){
   const isReviewed=reviewed().includes(profile.id);
   page.className='page books-profile-page';
+  page.dataset.activeBook=profile.id;
   page.innerHTML=`
     <div class="book-profile-topline"><button type="button" data-back-library>← Back to Books</button><span>${esc(profile.level)} • ${esc(profile.year)}</span></div>
     <section class="book-profile-hero">
@@ -80,7 +110,7 @@ function renderProfile(page:HTMLElement,profile:BookProfile){
 
     <section id="book-arguments" class="book-section"><div class="book-section-head"><span>09 • POSSIBLE ARGUMENTS</span><h2>Ten directions you can adapt to an actual prompt.</h2><p>These are argument starters, not sentences to memorize unchanged.</p></div><div class="book-argument-grid">${profile.arguments.map((a,i)=>`<article><span>${String(i+1).padStart(2,'0')}</span><p>${esc(a)}</p></article>`).join('')}</div></section>
 
-    <section id="book-review" class="book-section"><div class="book-section-head"><span>10 • REVIEW</span><h2>Common misunderstandings and book FAQs.</h2></div><div class="book-review-grid"><div><h3>Common misunderstandings</h3>${profile.misunderstandings.map((x,i)=>`<article><span>${i+1}</span><p>${esc(x)}</p></article>`).join('')}</div><div><h3>Book FAQs</h3>${profile.faqs.map(x=>`<details><summary>${esc(x.q)}<b>+</b></summary><p>${esc(x.a)}</p></details>`).join('')}</div></div><div class="book-finish-card"><span>THE HANDMAID'S TALE • PROFILE COMPLETE</span><h3>Use the profile to find evidence, not replace rereading.</h3><p>The strongest revision combines this map with your own copy, annotations, class discussion, and teacher priorities.</p><button type="button" class="btn primary ${isReviewed?'reviewed':''}" data-mark-book>${isReviewed?'✓ Profile reviewed':'Mark profile reviewed'}</button></div></section>`;
+    <section id="book-review" class="book-section"><div class="book-section-head"><span>10 • REVIEW</span><h2>Common misunderstandings and book FAQs.</h2></div><div class="book-review-grid"><div><h3>Common misunderstandings</h3>${profile.misunderstandings.map((x,i)=>`<article><span>${i+1}</span><p>${esc(x)}</p></article>`).join('')}</div><div><h3>Book FAQs</h3>${profile.faqs.map(x=>`<details><summary>${esc(x.q)}<b>+</b></summary><p>${esc(x.a)}</p></details>`).join('')}</div></div><div class="book-finish-card"><span>${esc(profile.title.split(';')[0].trim().toUpperCase())} • PROFILE COMPLETE</span><h3>Use the profile to find evidence, not replace rereading.</h3><p>The strongest revision combines this map with your own copy, annotations, class discussion, and teacher priorities.</p><button type="button" class="btn primary ${isReviewed?'reviewed':''}" data-mark-book>${isReviewed?'✓ Profile reviewed':'Mark profile reviewed'}</button></div></section>`;
 
   page.querySelectorAll<HTMLButtonElement>('[data-back-library]').forEach(btn=>btn.addEventListener('click',()=>{renderLibrary(page);window.scrollTo({top:0,behavior:reduceMotion()?'auto':'smooth'})}));
   page.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach(btn=>btn.addEventListener('click',()=>document.getElementById(btn.dataset.jump||'')?.scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'})));
