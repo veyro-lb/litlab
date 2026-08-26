@@ -56,10 +56,11 @@ function profileForCover(cover:HTMLElement):BookProfile|undefined{
 }
 
 function paintCover(cover:HTMLElement,profile:BookProfile){
-  const hasCorrectArtwork=cover.dataset.litlabCover==='v3'&&cover.dataset.coverId===profile.id&&Boolean(cover.querySelector('.lit-cover-copy')&&cover.querySelector(`.motif-${coverSpecs[profile.id]?.motif||'generic'}`));
+  const motif=coverSpecs[profile.id]?.motif||'generic';
+  const hasCorrectArtwork=cover.dataset.litlabCover==='v2'&&cover.dataset.coverId===profile.id&&Boolean(cover.querySelector('.lit-cover-copy')&&cover.querySelector(`.motif-${motif}`));
   if(hasCorrectArtwork)return;
   const spec=coverSpecs[profile.id]||fallbackSpec;
-  cover.dataset.litlabCover='v3';
+  cover.dataset.litlabCover='v2';
   cover.dataset.coverId=profile.id;
   cover.dataset.bookId=profile.id;
   cover.style.setProperty('--cover-base',spec.base);
