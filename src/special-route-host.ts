@@ -1,6 +1,8 @@
 import './special-route-host.css';
 
-const SPECIAL_ROUTES=new Set(['essays','hl-essay','ee']);
+// These routes are rendered by enhancement modules rather than React's native page switch.
+// Keep them on an isolated surface so React cannot overwrite their content during navigation.
+const SPECIAL_ROUTES=new Set(['essays','hl-essay','ee','admin']);
 let scheduled=false;
 let lastRoute='';
 
