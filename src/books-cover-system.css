@@ -1,0 +1,178 @@
+/* LitLab Books — editorial cover system v2 */
+.lit-book-cover[data-litlab-cover='v2']{
+  --cover-base:#19162f;
+  --cover-wash:#493b7c;
+  --cover-ink:#f8f6ff;
+  --cover-accent:#9b82ff;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:var(--cover-ink);
+  background:
+    radial-gradient(circle at 78% 18%,color-mix(in srgb,var(--cover-accent) 34%,transparent),transparent 30%),
+    linear-gradient(155deg,var(--cover-wash),var(--cover-base) 63%);
+  border:1px solid color-mix(in srgb,var(--cover-ink) 12%,transparent);
+  box-shadow:0 24px 54px color-mix(in srgb,var(--cover-base) 33%,transparent),inset 7px 0 0 rgba(0,0,0,.14),inset -1px 0 rgba(255,255,255,.14);
+  text-align:left;
+  transform-origin:center bottom;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.lit-book-cover[data-litlab-cover='v2']::before{
+  content:'';
+  position:absolute;
+  inset:0 auto 0 0;
+  z-index:8;
+  width:8px;
+  background:linear-gradient(90deg,rgba(0,0,0,.22),rgba(255,255,255,.08) 54%,transparent);
+  pointer-events:none;
+}
+.lit-book-cover[data-litlab-cover='v2']::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:7;
+  background:linear-gradient(120deg,rgba(255,255,255,.12),transparent 22%,transparent 72%,rgba(255,255,255,.05));
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+.books-profile-card:hover .lit-book-cover[data-litlab-cover='v2'],
+.books-profile-card:focus-visible .lit-book-cover[data-litlab-cover='v2']{
+  transform:translateY(-3px) rotate(-.7deg);
+  box-shadow:0 30px 62px color-mix(in srgb,var(--cover-base) 38%,transparent),inset 7px 0 0 rgba(0,0,0,.14),inset -1px 0 rgba(255,255,255,.14);
+}
+
+.lit-cover-texture{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.2) 0 1px,transparent 1.5px);
+  background-size:23px 23px,23px 23px,11px 11px;
+  mask-image:linear-gradient(to bottom,black,transparent 72%);
+}
+.lit-cover-series{
+  position:absolute;
+  z-index:5;
+  top:17px;
+  left:19px;
+  right:17px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  font-size:6.5px;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.lit-cover-series span{opacity:.72}.lit-cover-series b{font-size:7px;letter-spacing:.1em}
+.lit-book-cover.large .lit-cover-series{top:23px;left:25px;right:23px;font-size:8px}.lit-book-cover.large .lit-cover-series b{font-size:9px}
+
+.lit-cover-copy{
+  position:absolute;
+  z-index:5;
+  left:19px;
+  right:16px;
+  bottom:45px;
+}
+.lit-cover-copy strong{
+  display:block;
+  max-width:94%;
+  color:var(--cover-ink);
+  font:900 1.12rem/.91 var(--display);
+  letter-spacing:-.055em;
+  text-wrap:balance;
+}
+.lit-cover-copy small{
+  display:block;
+  margin-top:8px;
+  color:var(--cover-ink);
+  opacity:.82;
+  font-size:6.6px;
+  font-weight:850;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.lit-book-cover.large .lit-cover-copy{left:25px;right:22px;bottom:61px}.lit-book-cover.large .lit-cover-copy strong{font-size:1.55rem}.lit-book-cover.large .lit-cover-copy small{font-size:8px;margin-top:10px}
+
+.lit-cover-foot{
+  position:absolute;
+  z-index:5;
+  left:19px;
+  right:16px;
+  bottom:17px;
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:10px;
+  padding-top:8px;
+  border-top:1px solid color-mix(in srgb,var(--cover-ink) 24%,transparent);
+  color:var(--cover-ink);
+  font-size:5.6px;
+  font-weight:850;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.lit-cover-foot b{font-size:6px}.lit-book-cover.large .lit-cover-foot{left:25px;right:22px;bottom:23px;font-size:7px}.lit-book-cover.large .lit-cover-foot b{font-size:7.5px}
+
+.lit-cover-motif{position:absolute;z-index:2;inset:34px 12px 91px 12px;pointer-events:none}.lit-book-cover.large .lit-cover-motif{inset:47px 17px 124px 17px}
+
+/* The Handmaid's Tale — bonnet / wings / watching eye */
+[data-cover-id='handmaids-tale']{background:radial-gradient(circle at 78% 19%,rgba(255,233,222,.18),transparent 27%),linear-gradient(155deg,var(--cover-wash),var(--cover-base) 67%)!important}
+.motif-handmaid .hm-halo{position:absolute;width:68%;aspect-ratio:1;right:-6%;top:2%;border:1px solid color-mix(in srgb,var(--cover-ink) 42%,transparent);border-radius:50%}
+.motif-handmaid .hm-face{position:absolute;width:22%;aspect-ratio:.78;right:27%;top:23%;border-radius:50% 50% 44% 44%;background:var(--cover-ink);opacity:.94}
+.motif-handmaid .hm-wing{position:absolute;top:13%;width:36%;height:63%;border:2px solid color-mix(in srgb,var(--cover-ink) 78%,transparent);border-radius:90% 14% 78% 22%;opacity:.86}
+.motif-handmaid .hm-left{right:41%;transform:rotate(18deg)}.motif-handmaid .hm-right{right:4%;transform:scaleX(-1) rotate(18deg)}
+.motif-handmaid .hm-eye{position:absolute;right:4%;bottom:3%;width:28px;height:14px;border:1.6px solid color-mix(in srgb,var(--cover-ink) 70%,transparent);border-radius:50% 50% 48% 48%;transform:rotate(-8deg)}
+.motif-handmaid .hm-eye::after{content:'';position:absolute;width:6px;height:6px;left:9px;top:2.5px;border-radius:50%;background:var(--cover-accent)}
+
+/* Nineteen Eighty-Four — oversized number + surveillance lens */
+[data-cover-id='nineteen-eighty-four'] .lit-cover-texture{opacity:.32;background-size:18px 18px,18px 18px,9px 9px}
+.motif-surveillance b{position:absolute;left:-2%;top:-10%;color:var(--cover-ink);opacity:.11;font:950 5.7rem/.8 var(--display);letter-spacing:-.12em}.lit-book-cover.large .motif-surveillance b{font-size:8rem}
+.motif-surveillance .sv-lens{position:absolute;right:8%;top:20%;width:49%;aspect-ratio:1;border:7px solid var(--cover-accent);border-radius:50%;box-shadow:0 0 0 1px color-mix(in srgb,var(--cover-ink) 55%,transparent),0 0 0 13px rgba(239,62,80,.08)}
+.motif-surveillance .sv-lens::before{content:'';position:absolute;inset:26%;border-radius:50%;background:var(--cover-ink)}
+.motif-surveillance .sv-lens::after{content:'';position:absolute;inset:39%;border-radius:50%;background:var(--cover-base)}
+.motif-surveillance .sv-beam{position:absolute;right:-6%;top:41%;width:84%;height:2px;background:var(--cover-accent);box-shadow:0 0 13px var(--cover-accent);transform:rotate(-9deg)}
+.motif-surveillance .sv-scan{position:absolute;left:3%;width:42%;height:1px;background:color-mix(in srgb,var(--cover-ink) 28%,transparent)}.motif-surveillance .sv-scan.one{bottom:29%}.motif-surveillance .sv-scan.two{bottom:21%;width:29%}
+
+/* Frankenstein — electric bolt, stitched body, laboratory mark */
+[data-cover-id='frankenstein'] .lit-cover-texture{background-image:linear-gradient(rgba(155,235,98,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(155,235,98,.06) 1px,transparent 1px)}
+.motif-electric .el-body{position:absolute;right:8%;top:20%;width:47%;height:61%;border:1px solid color-mix(in srgb,var(--cover-ink) 48%,transparent);border-radius:48% 48% 32% 32%;transform:rotate(7deg);background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--cover-accent) 13%,transparent))}
+.motif-electric .el-bolt{position:absolute;left:15%;top:2%;width:27%;height:75%;background:var(--cover-accent);clip-path:polygon(56% 0,100% 0,68% 37%,93% 37%,25% 100%,42% 53%,13% 53%);filter:drop-shadow(0 0 9px color-mix(in srgb,var(--cover-accent) 65%,transparent));transform:rotate(8deg)}
+.motif-electric .el-stitch{position:absolute;right:21%;width:28%;height:1px;background:var(--cover-ink);opacity:.72}.motif-electric .el-stitch::before,.motif-electric .el-stitch::after{content:'';position:absolute;top:-4px;width:1px;height:8px;background:var(--cover-ink)}.motif-electric .el-stitch::before{left:25%}.motif-electric .el-stitch::after{right:25%}.motif-electric .s1{top:39%;transform:rotate(8deg)}.motif-electric .s2{top:52%;transform:rotate(4deg)}.motif-electric .s3{top:65%;transform:rotate(11deg)}
+.motif-electric span{position:absolute;left:5%;bottom:7%;color:var(--cover-accent);font:900 1.6rem var(--display)}
+
+/* Persepolis — graphic-memoir panel rhythm and simplified portrait */
+[data-cover-id='persepolis']{background:linear-gradient(145deg,var(--cover-base),var(--cover-wash))!important}
+[data-cover-id='persepolis'] .lit-cover-texture{opacity:.08;background-image:linear-gradient(#171717 1px,transparent 1px),linear-gradient(90deg,#171717 1px,transparent 1px);mask-image:none}
+.motif-persepolis .pp-panel{position:absolute;border:2px solid var(--cover-ink);background:transparent}.motif-persepolis .p1{left:2%;top:8%;width:42%;height:36%}.motif-persepolis .p2{right:0;top:8%;width:45%;height:18%;background:var(--cover-accent);border-color:var(--cover-accent)}.motif-persepolis .p3{right:0;top:31%;width:45%;height:43%}
+.motif-persepolis .pp-face{position:absolute;right:12%;top:36%;width:29%;aspect-ratio:.82;border-radius:46% 46% 44% 44%;background:var(--cover-base);border:2px solid var(--cover-ink)}
+.motif-persepolis .pp-hair{position:absolute;right:8%;top:29%;width:38%;height:31%;border-radius:52% 52% 18% 18%;background:var(--cover-ink)}
+.motif-persepolis .pp-face{z-index:2}.motif-persepolis .pp-face::before,.motif-persepolis .pp-face::after{content:'';position:absolute;top:38%;width:3px;height:3px;border-radius:50%;background:var(--cover-ink)}.motif-persepolis .pp-face::before{left:26%}.motif-persepolis .pp-face::after{right:26%}
+.motif-persepolis .pp-scarf{position:absolute;right:5%;top:56%;width:43%;height:27%;background:var(--cover-ink);clip-path:polygon(50% 0,100% 38%,80% 100%,20% 100%,0 38%)}
+
+/* The Stranger — hostile sun, horizon, solitary figure */
+[data-cover-id='the-stranger']{background:linear-gradient(170deg,var(--cover-wash),var(--cover-base) 72%)!important}
+.motif-sun .sun-disc{position:absolute;right:4%;top:-3%;width:58%;aspect-ratio:1;border-radius:50%;background:var(--cover-accent);box-shadow:0 0 0 12px color-mix(in srgb,var(--cover-accent) 16%,transparent),0 0 34px color-mix(in srgb,var(--cover-accent) 45%,transparent)}
+.motif-sun .sun-horizon{position:absolute;left:-4%;right:-4%;bottom:25%;height:2px;background:var(--cover-ink);opacity:.82}
+.motif-sun .sun-figure{position:absolute;left:28%;bottom:26%;width:5px;height:31px;border-radius:5px 5px 2px 2px;background:var(--cover-ink)}.motif-sun .sun-figure::before{content:'';position:absolute;left:-2px;top:-7px;width:9px;height:9px;border-radius:50%;background:var(--cover-ink)}
+.motif-sun .sun-shadow{position:absolute;left:24%;bottom:20%;width:36%;height:7px;background:color-mix(in srgb,var(--cover-ink) 35%,transparent);clip-path:polygon(0 35%,100% 0,100% 65%,0 100%)}
+
+/* Carol Ann Duffy — voice, quotation, fragmented lines */
+.motif-voice b{position:absolute;left:2%;top:-20%;color:var(--cover-accent);font:950 7rem/.8 Georgia,serif;opacity:.9}.lit-book-cover.large .motif-voice b{font-size:9.5rem}
+.motif-voice .voice-line{position:absolute;right:3%;height:2px;background:var(--cover-ink);transform-origin:right center}.motif-voice .v1{top:25%;width:53%;transform:rotate(-7deg)}.motif-voice .v2{top:38%;width:69%;transform:rotate(4deg)}.motif-voice .v3{top:51%;width:42%;transform:rotate(-3deg)}
+.motif-voice span{position:absolute;right:4%;bottom:13%;padding:4px 6px;border:1px solid color-mix(in srgb,var(--cover-ink) 42%,transparent);color:var(--cover-accent);font-size:7px;font-weight:900;letter-spacing:.18em}
+
+/* Fallback for future LitLab books */
+.motif-generic b{position:absolute;right:5%;top:8%;color:var(--cover-accent);font:950 4rem/.8 var(--display);letter-spacing:-.08em}.motif-generic i{position:absolute;left:8%;top:24%;width:65%;aspect-ratio:1;border:1px solid color-mix(in srgb,var(--cover-ink) 46%,transparent);border-radius:50%;box-shadow:25px 20px 0 -1px color-mix(in srgb,var(--cover-accent) 16%,transparent)}.motif-generic span{position:absolute;left:7%;bottom:7%;font-size:7px;font-weight:900;letter-spacing:.14em}
+
+@media (max-width:720px){
+  .books-profile-card:hover .lit-book-cover[data-litlab-cover='v2'],.books-profile-card:focus-visible .lit-book-cover[data-litlab-cover='v2']{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .lit-book-cover[data-litlab-cover='v2']{transition:none!important}
+  .books-profile-card:hover .lit-book-cover[data-litlab-cover='v2'],.books-profile-card:focus-visible .lit-book-cover[data-litlab-cover='v2']{transform:none!important}
+}
