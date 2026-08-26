@@ -1,3 +1,5 @@
+export {};
+
 const SESSION_KEY='litlabSupabaseSession';
 
 const selectors={
