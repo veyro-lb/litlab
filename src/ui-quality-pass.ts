@@ -64,10 +64,19 @@ function polishPaper1Copy(){
   if(annotationNote?.textContent?.includes("Elena's suggested target"))annotationNote.textContent='If nearly the whole text is highlighted, you have not prioritized. A useful target is roughly 6–8 genuinely useful moments.';
 }
 
-function polish(){scheduled=false;polishAuthCopy();polishAccountCenter();polishAdminCopy();polishDashboard();polishBookProfile();polishPaper1Copy()}
+function polishTutor(){
+  const root=document.querySelector<HTMLElement>('.litlab-tutor');if(!root)return;
+  const practice=root.querySelector<HTMLButtonElement>('[data-tutor-mode="practice"].active');
+  if(practice&&!root.querySelector('.tutor-practice-options')&&root.dataset.practicePrimed!=='true'){
+    root.dataset.practicePrimed='true';
+    practice.click();
+  }
+}
+
+function polish(){scheduled=false;polishAuthCopy();polishAccountCenter();polishAdminCopy();polishDashboard();polishBookProfile();polishPaper1Copy();polishTutor()}
 function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(polish)}
 
-const relevantSelector=['.litlab-auth-dialog','.litlab-account-menu','.litlab-account-center-card','.admin-page','.admin-gate','.my-litlab-dashboard','.books-profile-page','.paper1-guide-page'].join(',');
+const relevantSelector=['.litlab-auth-dialog','.litlab-account-menu','.litlab-account-center-card','.admin-page','.admin-gate','.my-litlab-dashboard','.books-profile-page','.paper1-guide-page','.litlab-tutor'].join(',');
 function relevantNode(node:Node){if(!(node instanceof Element))return false;return node.matches(relevantSelector)||Boolean(node.querySelector(relevantSelector))}
 const observer=new MutationObserver(mutations=>{for(const mutation of mutations){for(const node of mutation.addedNodes){if(relevantNode(node)){schedule();return}}}});
 observer.observe(document.body,{childList:true,subtree:true});
