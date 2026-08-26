@@ -1,8 +1,8 @@
 import './special-route-host.css';
 
-// Essays, HL Essay and Developer Analytics are legacy enhancement pages. They render in a
-// separate surface so their guide renderers never replace React's own page children.
-const SPECIAL_ROUTES=new Set(['essays','hl-essay','admin']);
+// Large enhancement-driven guides render in a separate surface so their renderers never replace
+// React's own page children. This prevents one guide's DOM from leaking into the next route.
+const SPECIAL_ROUTES=new Set(['books','essays','ee','hl-essay','admin']);
 let lastRoute='';
 let restoreFrame=0;
 let isolateFrame=0;
@@ -37,6 +37,26 @@ function restoreReactMain(){
   if(!main)return;
   main.id='main';
   delete main.dataset.litlabReactMain;
+}
+
+function seedEnhancementRoute(host:HTMLElement,route:string){
+  if(route!=='books'&&route!=='ee')return;
+  if(host.querySelector(':scope > .page'))return;
+
+  const page=document.createElement('div');
+  page.className='page';
+  page.dataset.litlabIsolatedRouteSeed=route;
+
+  // The existing EE renderer identifies its React placeholder by this phrase before replacing
+  // the page. Keep the marker hidden so the isolated host can reuse that renderer unchanged.
+  if(route==='ee'){
+    const marker=document.createElement('span');
+    marker.hidden=true;
+    marker.textContent='Research Question Lab';
+    page.append(marker);
+  }
+
+  host.append(page);
 }
 
 function restoreSurface(){
@@ -86,11 +106,15 @@ function ensureSpecialSurface(){
   const changed=lastRoute!==route||host.dataset.route!==route;
   host.dataset.route=route;
   host.hidden=false;
-  if(changed){host.replaceChildren();lastRoute=route}
+  if(changed){
+    host.replaceChildren();
+    lastRoute=route;
+  }
+  seedEnhancementRoute(host,route);
   return host;
 }
 
-// React can remount its <main> while a legacy route is open. Re-apply the id isolation without
+// React can remount its <main> while an isolated route is open. Re-apply the id isolation without
 // touching React's children so skip links and main#main lookups always resolve to one surface.
 const root=document.getElementById('root');
 if(root)new MutationObserver(scheduleIsolation).observe(root,{childList:true,subtree:true});
