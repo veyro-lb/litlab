@@ -9,6 +9,7 @@ const COOLDOWN_MS=30_000;
 
 type StoredSession={access_token?:string};
 type SubmissionKind='feedback'|'technical';
+type NavigatorWithUAData=Navigator&{userAgentData?:{brands?:Array<{brand:string}>}};
 
 type FeedbackPayload={
   respondent_role:string;
@@ -59,7 +60,8 @@ function detectBrowser(){
   if(/Firefox\//.test(ua))return 'Firefox';
   if(/Chrome\//.test(ua)&&!/Edg\//.test(ua))return 'Google Chrome';
   if(/Safari\//.test(ua)&&!/Chrome\//.test(ua))return 'Safari';
-  return navigator.userAgentData?.brands?.map(brand=>brand.brand).join(', ')||'Unknown browser';
+  const uaData=(navigator as NavigatorWithUAData).userAgentData;
+  return uaData?.brands?.map((brand:{brand:string})=>brand.brand).join(', ')||'Unknown browser';
 }
 
 function detectDevice(){
