@@ -46,14 +46,19 @@ function authHeaders(extra:Record<string,string>={}){
   };
 }
 
-async function loadFeedback():Promise<FeedbackData>{
-  const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_litlab_admin_feedback`,{
+async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
+  const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{
     method:'POST',
     headers:authHeaders({'Content-Type':'application/json',Accept:'application/json'}),
-    body:'{}'
+    body:JSON.stringify(body)
   });
-  if(!response.ok)throw new Error(`Feedback request failed (${response.status})`);
-  return await response.json() as FeedbackData;
+  if(!response.ok)throw new Error(`${name} failed (${response.status})`);
+  const text=await response.text();
+  return (text?JSON.parse(text):null) as T;
+}
+
+async function loadFeedback():Promise<FeedbackData>{
+  return await rpc<FeedbackData>('get_litlab_admin_feedback');
 }
 
 function escapeHTML(value:unknown){
@@ -93,7 +98,7 @@ function feedbackCard(item:FeedbackItem){
   const school=item.school?.trim()||'School not provided';
   const rating=Math.max(1,Math.min(5,Number(item.rating)||1));
   const searchText=`${school} ${roleLabel(item.respondent_role)} ${item.section} ${item.useful||''} ${item.improve||''} ${item.unclear||''} ${item.feature_request||''}`.toLowerCase();
-  return `<details class="admin-feedback-item" data-feedback-item data-section="${escapeHTML(item.section)}" data-rating="${rating}" data-search="${escapeHTML(searchText)}">
+  return `<details class="admin-feedback-item" data-feedback-item data-feedback-id="${escapeHTML(item.id)}" data-section="${escapeHTML(item.section)}" data-rating="${rating}" data-search="${escapeHTML(searchText)}">
     <summary>
       <div class="admin-feedback-who"><span class="admin-feedback-role">${escapeHTML(roleLabel(item.respondent_role))}</span><div><b>${escapeHTML(school)}</b><small>${escapeHTML(item.section)} • ${escapeHTML(fmt(item.created_at))}</small></div></div>
       <div class="admin-feedback-score"><strong>${rating}/5</strong><span>${escapeHTML(recommendLabel(item.recommend))}</span></div>
@@ -104,6 +109,7 @@ function feedbackCard(item:FeedbackItem){
       ${commentBlock('Incorrect or unclear',item.unclear)}
       ${commentBlock('Feature request',item.feature_request)}
       <div class="admin-feedback-meta"><span><b>Recommendation:</b> ${escapeHTML(recommendLabel(item.recommend))}</span><span><b>Submitted from:</b> ${escapeHTML(item.source_page||'Unknown page')}</span></div>
+      <div class="admin-feedback-admin-actions"><button type="button" class="admin-feedback-delete" data-feedback-delete="${escapeHTML(item.id)}">Delete feedback</button></div>
     </div>
   </details>`;
 }
@@ -113,7 +119,7 @@ function renderFeedback(container:HTMLElement,data:FeedbackData){
   container.innerHTML=`
     <section class="admin-feedback-shell">
       <header class="admin-feedback-head">
-        <div><span>STUDENT & TEACHER VOICE</span><h2>LitLab feedback</h2><p>Private submissions from the public feedback form. Only approved LitLab developer accounts can load this data.</p></div>
+        <div><span>STUDENT & TEACHER VOICE</span><h2>LitLab feedback</h2><p>Private submissions from the public feedback form. Only approved LitLab developer accounts can load or delete this data.</p></div>
         <button type="button" data-feedback-refresh>Refresh feedback</button>
       </header>
       <div class="admin-feedback-metrics">
@@ -137,6 +143,11 @@ function renderFeedback(container:HTMLElement,data:FeedbackData){
   container.querySelector<HTMLInputElement>('[data-feedback-search]')?.addEventListener('input',()=>filterFeedback(container));
   container.querySelector<HTMLSelectElement>('[data-feedback-section]')?.addEventListener('change',()=>filterFeedback(container));
   container.querySelector<HTMLSelectElement>('[data-feedback-rating]')?.addEventListener('change',()=>filterFeedback(container));
+  container.querySelectorAll<HTMLButtonElement>('[data-feedback-delete]').forEach(button=>button.addEventListener('click',event=>{
+    event.preventDefault();
+    event.stopPropagation();
+    void deleteFeedback(container,button);
+  }));
 }
 
 function filterFeedback(container:HTMLElement){
@@ -154,6 +165,31 @@ function filterFeedback(container:HTMLElement){
   });
   const count=container.querySelector<HTMLElement>('[data-feedback-count]');
   if(count)count.textContent=`${visible} response${visible===1?'':'s'} shown`;
+}
+
+async function deleteFeedback(container:HTMLElement,button:HTMLButtonElement){
+  const id=button.dataset.feedbackDelete||'';
+  if(!id)return;
+  const item=button.closest<HTMLElement>('[data-feedback-item]');
+  const school=item?.querySelector<HTMLElement>('.admin-feedback-who b')?.textContent||'this response';
+  if(!confirm(`Delete feedback from ${school}? This cannot be undone.`))return;
+
+  const oldText=button.textContent||'Delete feedback';
+  button.disabled=true;
+  button.textContent='Deleting…';
+  try{
+    const deleted=await rpc<boolean>('delete_litlab_admin_feedback',{p_feedback_id:id});
+    if(!deleted)throw new Error('Feedback was not found');
+    await refreshFeedback(container);
+  }catch(error){
+    console.error(error);
+    button.disabled=false;
+    button.textContent=oldText;
+    const body=button.closest('.admin-feedback-body');
+    if(body&&!body.querySelector('.admin-feedback-delete-error')){
+      body.insertAdjacentHTML('beforeend','<div class="admin-feedback-delete-error">Could not delete this feedback. Refresh the dashboard and try again.</div>');
+    }
+  }
 }
 
 async function refreshFeedback(container:HTMLElement){
