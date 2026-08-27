@@ -109,7 +109,7 @@ async function submitFeedback(event:SubmitEvent){
 
   const lastSent=Number(localStorage.getItem(COOLDOWN_KEY)||0);
   if(Date.now()-lastSent<COOLDOWN_MS){
-    if(status){status.textContent='Thanks — your last feedback was just submitted.';status.dataset.state='ok'}
+    if(status){status.textContent='Thank you — we already received your feedback and will take it into consideration as we continue improving LitLab.';status.dataset.state='ok'}
     return;
   }
 
@@ -147,9 +147,9 @@ async function submitFeedback(event:SubmitEvent){
     if(!response.ok)throw new Error(`Feedback request failed (${response.status})`);
     localStorage.setItem(COOLDOWN_KEY,String(Date.now()));
     form.reset();
-    if(status){status.textContent='Thank you — your feedback was sent to the LitLab team.';status.dataset.state='ok'}
+    if(status){status.textContent='Thank you for helping us improve LitLab! We’ve received your feedback and will take it into consideration as we continue developing the platform.';status.dataset.state='ok'}
     if(submit){submit.textContent='Sent ✓'}
-    setTimeout(closeFeedback,1800);
+    setTimeout(closeFeedback,3200);
   }catch(error){
     console.error(error);
     if(status){status.textContent='We could not send your feedback right now. Please try again.';status.dataset.state='error'}
