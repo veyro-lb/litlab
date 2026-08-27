@@ -1,4 +1,5 @@
 import './feedback.css';
+import './feedback-technical.css';
 
 const esc=(value:string)=>value.replace(/[&<>"']/g,char=>({
   '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
