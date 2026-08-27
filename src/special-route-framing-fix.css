@@ -1,0 +1,69 @@
+/* Final special-route framing guard for Books + Essays.
+   Special routes have two fixed chrome rows: the main LitLab topbar and the
+   previous/next route dock. Their real combined height is measured in JS. */
+body.litlab-special-route-active{
+  --litlab-special-chrome-height:124px;
+  --litlab-local-guide-height:56px;
+}
+
+/* Always begin isolated route content below all fixed LitLab chrome. */
+body.litlab-special-route-active main[data-litlab-special-route-host]{
+  padding-top:calc(var(--litlab-special-chrome-height) + 12px)!important;
+}
+
+/* Books previously used top:86px and could sit underneath the route dock.
+   Essays used a fixed approximation. Both now use the measured chrome edge. */
+body.litlab-special-route-active :where(
+  .book-profile-toc,
+  .essay-family-guide-nav,
+  .hl-guide-nav,
+  .ee-guide-nav
+){
+  top:calc(var(--litlab-special-chrome-height) + 8px)!important;
+}
+
+/* Anchor/section jumps must clear both fixed chrome and the local sticky bar. */
+body.litlab-special-route-active :where(
+  .book-section,
+  .essay-family-section,
+  .hl-guide-section,
+  .ee-section
+){
+  scroll-margin-top:calc(var(--litlab-special-chrome-height) + var(--litlab-local-guide-height) + 28px)!important;
+}
+
+/* Generic anchors inside these routes should never land under the upper bars. */
+body.litlab-special-route-active main[data-litlab-special-route-host] :where(section,article,[id]){
+  scroll-margin-top:calc(var(--litlab-special-chrome-height) + 20px);
+}
+body.litlab-special-route-active main[data-litlab-special-route-host] :where(
+  .book-section,
+  .essay-family-section,
+  .hl-guide-section,
+  .ee-section
+){
+  scroll-margin-top:calc(var(--litlab-special-chrome-height) + var(--litlab-local-guide-height) + 28px)!important;
+}
+
+/* On narrow phones keep a little more visual air beneath stacked chrome. */
+@media(max-width:620px){
+  body.litlab-special-route-active main[data-litlab-special-route-host]{
+    padding-top:calc(var(--litlab-special-chrome-height) + 8px)!important;
+  }
+  body.litlab-special-route-active :where(
+    .book-profile-toc,
+    .essay-family-guide-nav,
+    .hl-guide-nav,
+    .ee-guide-nav
+  ){
+    top:calc(var(--litlab-special-chrome-height) + 5px)!important;
+  }
+  body.litlab-special-route-active :where(
+    .book-section,
+    .essay-family-section,
+    .hl-guide-section,
+    .ee-section
+  ){
+    scroll-margin-top:calc(var(--litlab-special-chrome-height) + var(--litlab-local-guide-height) + 22px)!important;
+  }
+}
