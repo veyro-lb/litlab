@@ -2,6 +2,7 @@
    The feedback UI is attached directly to <body>; this layer makes its frame
    follow the visible viewport rather than the current page layout. */
 #ll-feedback-root{
+  position:fixed!important;
   inset:0 auto auto 0!important;
   width:100vw!important;
   height:var(--ll-feedback-visible-height,100vh)!important;
@@ -16,6 +17,13 @@
   overflow:hidden!important;
   overscroll-behavior:none;
   isolation:isolate;
+  z-index:11050!important;
+}
+
+/* Books/Essays use special-route chrome around z-index 10000. The feedback layer
+   must sit above both the main header and route dock so the modal is never cut off. */
+body.litlab-special-route-active #ll-feedback-root{
+  z-index:11050!important;
 }
 
 #ll-feedback-root.open{
@@ -27,10 +35,12 @@
 #ll-feedback-root .ll-feedback-backdrop{
   position:absolute!important;
   inset:0!important;
+  z-index:0!important;
 }
 
 #ll-feedback-root .ll-feedback-modal{
   position:relative!important;
+  z-index:1!important;
   flex:0 1 760px;
   width:min(760px,100%)!important;
   max-width:100%!important;
