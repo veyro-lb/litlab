@@ -22,7 +22,7 @@ type FeedbackPayload={
 };
 
 const esc=(value:string)=>value.replace(/[&<>"']/g,char=>({
-  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'
 }[char]||char));
 
 function getAccessToken(){
@@ -89,7 +89,13 @@ function openFeedback(){
   root.querySelectorAll('[data-feedback-close]').forEach(el=>el.addEventListener('click',closeFeedback));
   const form=root.querySelector<HTMLFormElement>('#ll-feedback-form');
   form?.addEventListener('submit',submitFeedback);
-  root.querySelector<HTMLElement>('select, input, textarea')?.focus();
+  const modal=root.querySelector<HTMLElement>('.ll-feedback-modal');
+  const close=root.querySelector<HTMLButtonElement>('.ll-feedback-close');
+  if(modal)modal.scrollTop=0;
+  requestAnimationFrame(()=>{
+    if(modal)modal.scrollTop=0;
+    close?.focus({preventScroll:true});
+  });
 }
 
 function closeFeedback(){
