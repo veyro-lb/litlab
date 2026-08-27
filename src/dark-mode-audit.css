@@ -1,0 +1,101 @@
+/* Final LitLab dark-mode compatibility and contrast pass.
+   Some newer feature modules use --text/--accent while the original theme uses --ink/--violet.
+   These aliases keep every module on the same live theme tokens instead of falling back to black. */
+:root{
+  --text:var(--ink);
+  --text-primary:var(--ink);
+  --text-secondary:var(--muted);
+  --accent:var(--violet);
+  --accent-2:var(--violet-2);
+  --border:var(--line);
+  --panel:var(--surface);
+  --card:var(--surface);
+}
+
+html[data-theme='dark']{
+  color-scheme:dark;
+  --text:var(--ink);
+  --text-primary:var(--ink);
+  --text-secondary:var(--muted);
+  --accent:var(--violet);
+  --accent-2:var(--violet-2);
+  --border:var(--line);
+  --panel:var(--surface);
+  --card:var(--surface);
+}
+
+/* Dynamic account/auth surfaces previously had hard-coded dark fallbacks. */
+html[data-theme='dark'] .litlab-account-menu,
+html[data-theme='dark'] .litlab-account-center-card,
+html[data-theme='dark'] .litlab-auth-dialog,
+html[data-theme='dark'] .litlab-auth-signin,
+html[data-theme='dark'] .litlab-account-trigger,
+html[data-theme='dark'] .litlab-signout,
+html[data-theme='dark'] .litlab-google-button,
+html[data-theme='dark'] .litlab-microsoft-button,
+html[data-theme='dark'] .litlab-account-center-entry,
+html[data-theme='dark'] .litlab-admin-menu-entry{
+  color:var(--ink)!important;
+}
+
+html[data-theme='dark'] .litlab-account-head b,
+html[data-theme='dark'] .litlab-account-status b,
+html[data-theme='dark'] .litlab-account-center-head h2,
+html[data-theme='dark'] .litlab-account-center-stats b,
+html[data-theme='dark'] .litlab-account-center-cloud-head b,
+html[data-theme='dark'] .litlab-account-center-card footer b,
+html[data-theme='dark'] .litlab-auth-dialog h2,
+html[data-theme='dark'] .litlab-google-button b,
+html[data-theme='dark'] .litlab-microsoft-button b{
+  color:var(--ink)!important;
+}
+
+/* Keep secondary account copy readable without turning it bright white. */
+html[data-theme='dark'] .litlab-account-head span,
+html[data-theme='dark'] .litlab-account-status small,
+html[data-theme='dark'] .litlab-account-center-head p,
+html[data-theme='dark'] .litlab-account-center-stats span,
+html[data-theme='dark'] .litlab-account-center-explain,
+html[data-theme='dark'] .litlab-account-center-cloud-head p,
+html[data-theme='dark'] .litlab-account-center-cloud>small,
+html[data-theme='dark'] .litlab-auth-dialog>p,
+html[data-theme='dark'] .litlab-auth-dialog>small{
+  color:var(--muted)!important;
+}
+
+/* Form controls can otherwise retain browser-default black text in dark mode. */
+html[data-theme='dark'] input:not([type='radio']):not([type='checkbox']),
+html[data-theme='dark'] textarea,
+html[data-theme='dark'] select,
+html[data-theme='dark'] option{
+  color:var(--ink);
+  caret-color:var(--violet);
+}
+
+html[data-theme='dark'] input::placeholder,
+html[data-theme='dark'] textarea::placeholder{
+  color:color-mix(in srgb,var(--muted) 82%,transparent);
+  opacity:1;
+}
+
+html[data-theme='dark'] option{
+  background:var(--surface);
+}
+
+html[data-theme='dark'] input:-webkit-autofill,
+html[data-theme='dark'] input:-webkit-autofill:hover,
+html[data-theme='dark'] input:-webkit-autofill:focus{
+  -webkit-text-fill-color:var(--ink);
+  caret-color:var(--ink);
+  box-shadow:0 0 0 1000px var(--surface) inset;
+  transition:background-color 9999s ease-out 0s;
+}
+
+/* Developer feedback/report surfaces are injected after page render; force their base text token too. */
+html[data-theme='dark'] .admin-feedback-shell,
+html[data-theme='dark'] .admin-feedback-item,
+html[data-theme='dark'] .admin-feedback-comment,
+html[data-theme='dark'] .admin-tech-context,
+html[data-theme='dark'] .ll-feedback-modal{
+  color:var(--ink);
+}
