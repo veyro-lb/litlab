@@ -1,27 +1,31 @@
 import './logo-refresh.css';
+import {createLitLabMark} from './brand-mark';
 
-const FULL_LOGO='./litlab-logo.svg?v=6';
-const ICON_LOGO='./favicon.svg?v=6';
-
-function makeImage(src:string,className:string,alt:string){
-  const img=document.createElement('img');
-  img.src=src;
-  img.className=className;
-  img.alt=alt;
-  img.decoding='async';
-  return img;
+function makeWordmark(){
+  const word=document.createElement('span');
+  word.className='litlab-brand-wordmark';
+  const lit=document.createElement('span');
+  lit.className='litlab-brand-lit';
+  lit.textContent='Lit';
+  const lab=document.createElement('span');
+  lab.className='litlab-brand-lab';
+  lab.textContent='Lab';
+  word.append(lit,lab);
+  return word;
 }
 
 function refreshLogos(){
   document.querySelectorAll<HTMLElement>('.logo').forEach(logo=>{
     const compact=Boolean(logo.closest('.compass-center,.maker-core'));
-    const variant=compact?'icon':'full';
-    if(logo.dataset.litlabLogoVariant===variant&&logo.querySelector('img'))return;
+    const variant=compact?'icon-v7':'full-v7';
+    if(logo.dataset.litlabLogoVariant===variant)return;
     logo.dataset.litlabLogoVariant=variant;
+    const mark=createLitLabMark(compact?'litlab-brand-icon':'litlab-brand-mark',!compact);
     if(compact){
-      logo.replaceChildren(makeImage(ICON_LOGO,'litlab-brand-icon','LitLab'));
+      logo.replaceChildren(mark);
+      logo.setAttribute('aria-label','LitLab');
     }else{
-      logo.replaceChildren(makeImage(FULL_LOGO,'litlab-brand-full','LitLab'));
+      logo.replaceChildren(mark,makeWordmark());
     }
   });
 }
