@@ -1,0 +1,106 @@
+/* Final viewport/framing hardening loaded after the feature styles. */
+
+/* Keep major overlays inside the usable viewport, including phone safe areas. */
+.litlab-auth-modal,
+.litlab-account-center-overlay{
+  padding-top:max(10px,env(safe-area-inset-top));
+  padding-right:max(10px,env(safe-area-inset-right));
+  padding-bottom:max(10px,env(safe-area-inset-bottom));
+  padding-left:max(10px,env(safe-area-inset-left));
+  overflow:hidden;
+}
+
+.litlab-auth-dialog{
+  width:min(430px,100%);
+  max-height:calc(100vh - 20px);
+  max-height:calc(100dvh - max(20px,env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+
+.litlab-account-center-card{
+  max-height:calc(100vh - 20px);
+  max-height:calc(100dvh - max(20px,env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+
+/* Keep the account dropdown completely on-screen. */
+.litlab-account-menu{
+  max-height:calc(100dvh - 84px - env(safe-area-inset-bottom));
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+
+/* The two lower-right utilities remain separated on every viewport. */
+.ll-feedback-trigger{bottom:max(14px,env(safe-area-inset-bottom))!important}
+@media(max-width:900px){
+  .litlab-tutor{bottom:74px!important}
+}
+@media(max-width:430px){
+  .litlab-tutor{bottom:68px!important}
+}
+
+@media(max-width:700px){
+  /* Compact the top-bar account control without shrinking the tap target too far. */
+  .litlab-auth-root{flex:0 0 auto;min-width:0}
+  .litlab-auth-signin,
+  .litlab-account-trigger{
+    width:38px;
+    min-width:38px;
+    height:38px;
+    padding:0!important;
+    justify-content:center;
+    border-radius:11px;
+    gap:0;
+  }
+  .litlab-auth-signin .litlab-google-g.small{width:20px;height:20px;font-size:11px}
+  .litlab-account-trigger img,
+  .litlab-account-initials{width:24px;height:24px}
+
+  /* Give the sign-in card more breathing room around the screen, not inside the card. */
+  .litlab-auth-modal{place-items:center}
+  .litlab-auth-dialog{
+    width:min(390px,100%);
+    padding:22px 18px 19px;
+    border-radius:20px;
+  }
+  .litlab-auth-close{top:10px;right:10px;width:32px;height:32px;border-radius:9px}
+  .litlab-auth-mark{width:48px;height:48px;margin:0 auto 12px;border-radius:15px;font-size:.88rem}
+  .litlab-auth-eyebrow{font-size:.61rem;letter-spacing:.14em}
+  .litlab-auth-dialog h2{font-size:clamp(1.35rem,7vw,1.72rem);margin:6px 0 7px}
+  .litlab-auth-dialog>p{max-width:315px;margin:0 auto 15px;font-size:.78rem;line-height:1.48}
+  .litlab-google-button{min-height:46px;border-radius:12px;gap:9px}
+  .litlab-google-button .litlab-google-g{width:22px;height:22px;font-size:12px}
+  .litlab-google-button b{font-size:.82rem}
+  .litlab-auth-dialog>small{margin-top:9px;font-size:.64rem}
+  .litlab-auth-error{margin-top:10px;padding:8px 10px;font-size:.69rem}
+
+  .litlab-account-menu{
+    top:max(58px,calc(env(safe-area-inset-top) + 48px));
+    right:max(8px,env(safe-area-inset-right));
+    left:max(8px,env(safe-area-inset-left));
+    width:auto;
+    max-height:calc(100dvh - max(74px,env(safe-area-inset-top) + 58px) - max(8px,env(safe-area-inset-bottom)));
+  }
+
+  .litlab-account-center-overlay{place-items:center}
+  .litlab-account-center-card{width:100%;padding:18px 15px 16px;border-radius:19px}
+}
+
+/* Short phones and landscape phones need vertical compression more than width compression. */
+@media(max-height:640px){
+  .litlab-auth-dialog{padding-top:16px;padding-bottom:15px}
+  .litlab-auth-mark{width:42px;height:42px;margin-bottom:8px;border-radius:13px}
+  .litlab-auth-eyebrow{font-size:.58rem}
+  .litlab-auth-dialog h2{font-size:1.28rem;margin:4px 0 5px}
+  .litlab-auth-dialog>p{margin-bottom:11px;font-size:.74rem;line-height:1.4}
+  .litlab-google-button{min-height:43px}
+  .litlab-auth-dialog>small{margin-top:7px}
+}
+
+@media(max-width:390px){
+  .litlab-auth-modal{padding-left:max(6px,env(safe-area-inset-left));padding-right:max(6px,env(safe-area-inset-right))}
+  .litlab-auth-dialog{padding-left:15px;padding-right:15px;border-radius:17px}
+}
