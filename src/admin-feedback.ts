@@ -28,7 +28,6 @@ type FeedbackData={
   items:FeedbackItem[];
 };
 
-let cachedData:FeedbackData|null=null;
 let renderTimer=0;
 
 function readSession():StoredSession|null{
@@ -58,7 +57,7 @@ async function loadFeedback():Promise<FeedbackData>{
 }
 
 function escapeHTML(value:unknown){
-  return String(value??'').replace(/[&<>'\"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[ch]||ch));
+  return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch));
 }
 
 function fmt(value?:string|null){
@@ -93,7 +92,8 @@ function commentBlock(label:string,value:string|null){
 function feedbackCard(item:FeedbackItem){
   const school=item.school?.trim()||'School not provided';
   const rating=Math.max(1,Math.min(5,Number(item.rating)||1));
-  return `<details class="admin-feedback-item" data-feedback-item data-section="${escapeHTML(item.section)}" data-rating="${rating}" data-search="${escapeHTML(`${school} ${roleLabel(item.respondent_role)} ${item.section} ${item.useful||''} ${item.improve||''} ${item.unclear||''} ${item.feature_request||''}`.toLowerCase())}">
+  const searchText=`${school} ${roleLabel(item.respondent_role)} ${item.section} ${item.useful||''} ${item.improve||''} ${item.unclear||''} ${item.feature_request||''}`.toLowerCase();
+  return `<details class="admin-feedback-item" data-feedback-item data-section="${escapeHTML(item.section)}" data-rating="${rating}" data-search="${escapeHTML(searchText)}">
     <summary>
       <div class="admin-feedback-who"><span class="admin-feedback-role">${escapeHTML(roleLabel(item.respondent_role))}</span><div><b>${escapeHTML(school)}</b><small>${escapeHTML(item.section)} • ${escapeHTML(fmt(item.created_at))}</small></div></div>
       <div class="admin-feedback-score"><strong>${rating}/5</strong><span>${escapeHTML(recommendLabel(item.recommend))}</span></div>
@@ -109,7 +109,6 @@ function feedbackCard(item:FeedbackItem){
 }
 
 function renderFeedback(container:HTMLElement,data:FeedbackData){
-  cachedData=data;
   const sections=Array.from(new Set((data.items||[]).map(item=>item.section).filter(Boolean))).sort((a,b)=>a.localeCompare(b));
   container.innerHTML=`
     <section class="admin-feedback-shell">
@@ -165,8 +164,11 @@ async function refreshFeedback(container:HTMLElement){
     renderFeedback(container,data);
   }catch{
     if(button){button.disabled=false;button.textContent='Refresh feedback'}
-    const head=container.querySelector('.admin-feedback-head');
-    head?.insertAdjacentHTML('afterend','<div class="admin-feedback-error">Feedback could not be refreshed. Your session may have expired; sign in again and retry.</div>');
+    const existing=container.querySelector('.admin-feedback-error');
+    if(!existing){
+      const head=container.querySelector('.admin-feedback-head');
+      head?.insertAdjacentHTML('afterend','<div class="admin-feedback-error">Feedback could not be refreshed. Your session may have expired; sign in again and retry.</div>');
+    }
   }
 }
 
@@ -196,5 +198,3 @@ const main=document.querySelector('main#main');
 if(main)new MutationObserver(scheduleMount).observe(main,{childList:true,subtree:true});
 window.addEventListener('hashchange',scheduleMount);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scheduleMount,{once:true});else scheduleMount();
-
-void cachedData;
