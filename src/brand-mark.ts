@@ -32,23 +32,44 @@ function prepareHorizontalLogo(svg:string){
 
     const style=documentSvg.createElementNS(ns,'style');
     style.textContent=`
-      .litlab-live-bulb{transform-box:fill-box;transform-origin:center;animation:litlabLiveBulbFlicker 4.2s linear infinite}
-      .litlab-live-glow{transform-box:fill-box;transform-origin:center;animation:litlabLiveBulbGlow 4.2s ease-in-out infinite}
-      .litlab-live-rays{animation:litlabLiveBulbRays 4.2s linear infinite}
+      .litlab-live-bulb{
+        transform-box:view-box;
+        transform-origin:938px 133px;
+        animation:litlabLiveBulbPulse 5.8s cubic-bezier(.4,0,.2,1) infinite,litlabLiveBulbFlicker 7.2s ease-in-out infinite;
+      }
+      .litlab-live-glow{
+        transform-box:fill-box;
+        transform-origin:center;
+        animation:litlabLiveBulbGlow 5.8s cubic-bezier(.4,0,.2,1) infinite;
+      }
+      .litlab-live-rays{animation:litlabLiveBulbRays 5.8s ease-in-out infinite}
+      @keyframes litlabLiveBulbPulse{
+        0%,100%{transform:scale(1)}
+        48%{transform:scale(1.012)}
+        58%{transform:scale(1.018)}
+        68%{transform:scale(1.008)}
+      }
       @keyframes litlabLiveBulbFlicker{
-        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1}
-        14.5%,15.8%,64%,65.6%{opacity:.56}
-        15.1%,16.5%,64.7%,66.3%{opacity:.86}
+        0%,46%,50%,56%,72%,78%,100%{opacity:1}
+        48%{opacity:.92}
+        52%{opacity:.84}
+        54%{opacity:.96}
+        75%{opacity:.91}
+        77%{opacity:.98}
       }
       @keyframes litlabLiveBulbGlow{
-        0%,100%{opacity:.085;transform:scale(.96)}
-        36%,50%,84%{opacity:.2;transform:scale(1.06)}
-        14.5%,15.8%,64%,65.6%{opacity:.025;transform:scale(.92)}
+        0%,100%{opacity:.095;transform:scale(.97)}
+        42%{opacity:.16;transform:scale(1.025)}
+        56%{opacity:.23;transform:scale(1.08)}
+        68%{opacity:.17;transform:scale(1.035)}
+        76%{opacity:.11;transform:scale(.99)}
       }
       @keyframes litlabLiveBulbRays{
-        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.9}
-        14.5%,15.8%,64%,65.6%{opacity:.14}
-        36%,50%,84%{opacity:1}
+        0%,100%{opacity:.78}
+        42%{opacity:.91}
+        56%{opacity:1}
+        68%{opacity:.9}
+        76%{opacity:.72}
       }
       @media(prefers-reduced-motion:reduce){
         .litlab-live-bulb,.litlab-live-glow,.litlab-live-rays{animation:none!important}
@@ -60,15 +81,15 @@ function prepareHorizontalLogo(svg:string){
     bulb.setAttribute('class','litlab-live-bulb');
     bulb.setAttribute('aria-hidden','true');
     bulb.innerHTML=`
-      <circle class="litlab-live-glow" cx="938" cy="86" r="61" fill="#facc15" opacity=".095"/>
-      <g class="litlab-live-rays" fill="none" stroke="#f6c537" stroke-width="8.5" stroke-linecap="round">
-        <path d="M938 29V11"/>
-        <path d="M894 46l-14-14"/>
-        <path d="M982 46l14-14"/>
+      <circle class="litlab-live-glow" cx="938" cy="83" r="66" fill="#facc15" opacity=".10"/>
+      <g class="litlab-live-rays" fill="none" stroke="#f6c537" stroke-width="9" stroke-linecap="round">
+        <path d="M938 21V2"/>
+        <path d="M890 42l-15-15"/>
+        <path d="M986 42l15-15"/>
       </g>
-      <path d="M938 39c-28 0-47 20-47 46 0 17 9 31 23 40 5 4 8 9 8 15h32c0-6 3-11 8-15 14-9 23-23 23-40 0-26-19-46-47-46Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="7.8" stroke-linejoin="round"/>
-      <path d="M921 80l17 17 17-17M938 97v32" fill="none" stroke="#dfa719" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M938 121v12" fill="none" stroke="#dfa719" stroke-width="11" stroke-linecap="round"/>
+      <path d="M938 31c-31 0-52 22-52 51 0 19 10 34 25 44 6 4 9 10 9 16h36c0-6 3-12 9-16 15-10 25-25 25-44 0-29-21-51-52-51Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="8.4" stroke-linejoin="round"/>
+      <path d="M919 76l19 19 19-19M938 95v34" fill="none" stroke="#dfa719" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M938 120v13" fill="none" stroke="#dfa719" stroke-width="12" stroke-linecap="round"/>
     `;
     root.appendChild(bulb);
 
@@ -193,7 +214,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=19',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=20',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
