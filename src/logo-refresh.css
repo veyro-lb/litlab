@@ -1,30 +1,18 @@
-.logo{display:inline-flex;align-items:center;gap:12px;line-height:1;min-width:0}
-.logo svg{overflow:visible;flex:0 0 auto}
-.ll-purple{fill:var(--violet)}
-.ll-ink{fill:var(--ink)}
-.ll-page-line{fill:none;stroke:var(--violet-2);stroke-width:2.1;stroke-linecap:round;opacity:.72}
-.ll-page-cut{fill:none;stroke:var(--bg);stroke-width:2.1;stroke-linecap:round;opacity:.98}
-.litlab-brand-mark{width:44px!important;height:44px!important;filter:drop-shadow(0 5px 10px rgba(124,92,252,.10))}
-.litlab-brand-wordmark{display:inline-flex;align-items:baseline;font-family:var(--display);font-size:24px;font-weight:700;letter-spacing:-.045em;white-space:nowrap}
-.logo .litlab-brand-lit{color:var(--ink)!important}
-.logo .litlab-brand-lab{color:var(--violet)!important}
-.litlab-brand-icon{width:62px!important;height:62px!important;filter:drop-shadow(0 7px 16px rgba(124,92,252,.13))}
-.compass-center .litlab-brand-icon{width:63px!important;height:63px!important}
-.maker-core .litlab-brand-icon{width:66px!important;height:66px!important}
+.logo{display:inline-flex;align-items:center;line-height:1;min-width:0}
+.logo img{display:block;flex:0 0 auto;object-fit:contain}
+.litlab-brand-horizontal{width:150px!important;height:auto!important;max-height:46px}
+.litlab-brand-icon{width:82px!important;height:auto!important}
+.compass-center .litlab-brand-icon{width:88px!important}
+.maker-core .litlab-brand-icon{width:92px!important}
 .brand-btn{display:flex;align-items:center;min-width:max-content}
 
 @media(max-width:1100px){
-  .logo{gap:10px}
-  .litlab-brand-mark{width:41px!important;height:41px!important}
-  .litlab-brand-wordmark{font-size:22px}
+  .litlab-brand-horizontal{width:142px!important;max-height:43px}
 }
 @media(max-width:900px){
-  .litlab-brand-mark{width:38px!important;height:38px!important}
-  .litlab-brand-wordmark{font-size:20px}
+  .litlab-brand-horizontal{width:134px!important;max-height:40px}
 }
 @media(max-width:520px){
-  .logo{gap:8px}
-  .litlab-brand-mark{width:35px!important;height:35px!important}
-  .litlab-brand-wordmark{font-size:19px;letter-spacing:-.035em}
-  .litlab-brand-icon{width:52px!important;height:52px!important}
+  .litlab-brand-horizontal{width:122px!important;max-height:37px}
+  .litlab-brand-icon{width:72px!important}
 }
