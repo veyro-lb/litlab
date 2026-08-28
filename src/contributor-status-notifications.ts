@@ -21,6 +21,7 @@ let noticeKind:NoticeKind=null;
 let loading=false;
 let lastLoad=0;
 let pollTimer=0;
+let developerAccess:boolean|null=null;
 
 function session():StoredSession|null{try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null}catch{return null}}
 function token(){return session()?.access_token||''}
@@ -69,6 +70,7 @@ function closeNotice(mark=true){
 }
 
 function showStatusNotice(app:Application){
+  if(developerAccess===true)return;
   latest=app;
   noticeKind='status';
   document.getElementById('ll-contributor-status-notice')?.remove();
@@ -85,6 +87,7 @@ function showStatusNotice(app:Application){
 }
 
 function showChatNotice(message:UnreadChatMessage){
+  if(developerAccess===true)return;
   latestUnread=message;
   noticeKind='chat';
   document.getElementById('ll-contributor-status-notice')?.remove();
@@ -109,7 +112,10 @@ function removeAccountStatus(){document.querySelector('[data-contributor-account
 function injectAccountStatus(){
   const menu=document.querySelector<HTMLElement>('.litlab-account-menu');
   if(!menu)return;
-  if(!signedIn()){removeAccountStatus();return}
+
+  // Developer/admin accounts use the developer tools instead. Keep the normal
+  // contributor-application entry exclusive to regular signed-in accounts.
+  if(!signedIn()||developerAccess!==false){removeAccountStatus();return}
 
   let button=menu.querySelector<HTMLButtonElement>('[data-contributor-account-status]');
   if(!button){
@@ -130,19 +136,41 @@ function injectAccountStatus(){
   button.innerHTML=`<span>${unreadCount?'●':approved?'✓':'✦'}</span><div><b>Contributor application</b><small>${subtitle}</small></div><i>›</i>`;
 }
 
+function clearContributorUi(){
+  latest=null;
+  latestUnread=null;
+  unreadCount=0;
+  lastLoad=0;
+  noticeKind=null;
+  removeAccountStatus();
+  document.getElementById('ll-contributor-status-notice')?.remove();
+}
+
 async function loadStatus(force=false){
   if(!signedIn()){
-    latest=null;latestUnread=null;unreadCount=0;lastLoad=0;removeAccountStatus();
+    developerAccess=null;
+    clearContributorUi();
     return;
   }
 
-  // Keep the My LitLab entry available even while account data is loading or
-  // temporarily unavailable. It is a permanent signed-in navigation entry.
-  injectAccountStatus();
+  if(developerAccess===true){
+    clearContributorUi();
+    return;
+  }
+
   if(loading)return;
-  if(!force&&Date.now()-lastLoad<12_000){injectAccountStatus();return}
+  if(!force&&developerAccess===false&&Date.now()-lastLoad<12_000){injectAccountStatus();return}
   loading=true;
   try{
+    if(developerAccess===null){
+      developerAccess=Boolean(await rpc<boolean>('is_litlab_admin'));
+      if(developerAccess){
+        clearContributorUi();
+        return;
+      }
+      injectAccountStatus();
+    }
+
     const [appsResult,unreadResult]=await Promise.all([
       rpc<Application[]>('get_my_litlab_contributor_applications'),
       rpc<UnreadChatMessage[]>('get_my_litlab_contributor_unread_messages')
@@ -159,7 +187,7 @@ async function loadStatus(force=false){
     injectAccountStatus();
   }catch(error){
     console.debug('Contributor status unavailable',error);
-    injectAccountStatus();
+    if(developerAccess===false)injectAccountStatus();
   }finally{loading=false}
 }
 
@@ -174,19 +202,20 @@ function schedulePoll(delay=STATUS_POLL_MS){
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
-  if(target?.closest('.litlab-account-trigger'))window.setTimeout(()=>{injectAccountStatus();void loadStatus(true)},40);
+  if(target?.closest('.litlab-account-trigger'))window.setTimeout(()=>{if(developerAccess===false)injectAccountStatus();void loadStatus(true)},40);
 },true);
 window.addEventListener('hashchange',()=>void loadStatus(true));
-window.addEventListener('focus',()=>{injectAccountStatus();void loadStatus(true);schedulePoll()});
+window.addEventListener('focus',()=>{if(developerAccess===false)injectAccountStatus();void loadStatus(true);schedulePoll()});
 document.addEventListener('visibilitychange',()=>{
   if(document.hidden){clearPoll();return}
-  injectAccountStatus();void loadStatus(true);schedulePoll();
+  if(developerAccess===false)injectAccountStatus();
+  void loadStatus(true);schedulePoll();
 });
 window.addEventListener('online',()=>void loadStatus(true));
 window.addEventListener('litlab:contributor-submitted',()=>setTimeout(()=>void loadStatus(true),350) as unknown as void);
 window.addEventListener('storage',event=>{
-  if(event.key===SESSION_KEY){latest=null;latestUnread=null;unreadCount=0;lastLoad=0;injectAccountStatus();void loadStatus(true)}
+  if(event.key===SESSION_KEY){developerAccess=null;clearContributorUi();void loadStatus(true)}
 });
 
-function start(){window.setTimeout(()=>{injectAccountStatus();void loadStatus(true)},500);schedulePoll()}
+function start(){window.setTimeout(()=>void loadStatus(true),500);schedulePoll()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
