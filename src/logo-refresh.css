@@ -34,45 +34,45 @@
   will-change:transform;
 }
 
-/* Small compact bulb positioned clearly above the i; its bottom circle reads as the i-dot/base. */
+/* Compact bulb: its yellow circular foot lands exactly on the normal i-dot position and becomes the bulb base. */
 .litlab-bulb-overlay{
   position:absolute;
   left:51.15%;
-  top:18.5%;
-  width:3.9%;
-  min-width:6px;
+  top:24.7%;
+  width:3%;
+  min-width:5px;
   height:auto;
   overflow:visible;
   transform:translate(-50%,-50%);
-  filter:drop-shadow(0 0 1.5px rgba(255,205,55,.22));
+  filter:drop-shadow(0 0 1.2px rgba(255,205,55,.2));
   animation:litlabBulbFlicker 4.2s linear infinite;
 }
 
 .litlab-bulb-halo{
   fill:#ffd84d;
-  opacity:.08;
-  transform-origin:22px 16px;
+  opacity:.07;
+  transform-origin:20px 14px;
   animation:litlabBulbHalo 4.2s ease-in-out infinite;
 }
 
 .litlab-bulb-rays{
   stroke:#f4c53e;
-  stroke-width:2.1;
-  opacity:.84;
+  stroke-width:1.9;
+  opacity:.82;
   animation:litlabBulbRays 4.2s linear infinite;
 }
 
 .litlab-bulb-glass{
   fill:#fff8ca;
   stroke:#f1bf2d;
-  stroke-width:2.2;
+  stroke-width:2;
   stroke-linejoin:round;
 }
 
 .litlab-bulb-filament{
   fill:none;
   stroke:#dca51d;
-  stroke-width:1.6;
+  stroke-width:1.45;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
@@ -80,7 +80,7 @@
 .litlab-bulb-base{
   fill:none;
   stroke:#dca51d;
-  stroke-width:1.8;
+  stroke-width:1.6;
   stroke-linecap:round;
 }
 
@@ -89,7 +89,6 @@
   stroke:none;
 }
 
-/* Slightly larger star above the final b in Lab. */
 .litlab-floating-star{
   position:absolute;
   left:94.3%;
@@ -130,21 +129,21 @@ html[data-theme=dark] .logo::after{background:rgba(0,0,0,.45);opacity:.34}
 }
 
 @keyframes litlabBulbFlicker{
-  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1;filter:drop-shadow(0 0 1.5px rgba(255,205,55,.24))}
-  14.5%,15.8%,64%,65.6%{opacity:.5;filter:drop-shadow(0 0 .5px rgba(255,205,55,.1))}
+  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1;filter:drop-shadow(0 0 1.2px rgba(255,205,55,.22))}
+  14.5%,15.8%,64%,65.6%{opacity:.52;filter:drop-shadow(0 0 .4px rgba(255,205,55,.09))}
   15.1%,16.5%,64.7%,66.3%{opacity:.84}
-  36%,50%,84%{opacity:1;filter:drop-shadow(0 0 3px rgba(255,205,55,.38))}
+  36%,50%,84%{opacity:1;filter:drop-shadow(0 0 2.5px rgba(255,205,55,.34))}
 }
 
 @keyframes litlabBulbHalo{
-  0%,100%{opacity:.07;transform:scale(.96)}
-  36%,50%,84%{opacity:.15;transform:scale(1.06)}
-  14.5%,15.8%,64%,65.6%{opacity:.02;transform:scale(.9)}
+  0%,100%{opacity:.06;transform:scale(.97)}
+  36%,50%,84%{opacity:.13;transform:scale(1.05)}
+  14.5%,15.8%,64%,65.6%{opacity:.015;transform:scale(.91)}
 }
 
 @keyframes litlabBulbRays{
-  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.8}
-  14.5%,15.8%,64%,65.6%{opacity:.12}
+  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.78}
+  14.5%,15.8%,64%,65.6%{opacity:.1}
   36%,50%,84%{opacity:1}
 }
 
