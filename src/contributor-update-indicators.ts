@@ -141,9 +141,13 @@ function showAdminNotice(){
   try{if(sessionStorage.getItem(key)===eventKey)return}catch{}
   document.getElementById('ll-admin-contributor-update-notice')?.remove();
   const name=String(item.full_name||'Contributor').trim()||'Contributor';
+  const applicationId=kind==='message'?(item as AdminUnread).application_id:(item as App).id;
   const notice=document.createElement('aside');
   notice.id='ll-admin-contributor-update-notice';
   notice.className='ll-admin-contributor-update-notice';
+  notice.dataset.applicationId=applicationId;
+  notice.dataset.updateKind=kind;
+  notice.dataset.title=kind==='message'?`${name} — contributor conversation`:`${name} — contributor application`;
   notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');
   notice.innerHTML=`<button type="button" data-admin-update-close aria-label="Dismiss">×</button><span>LITLAB • CONTRIBUTOR UPDATE</span><div><i>●</i><section><b>${kind==='message'?'New contributor message':'New contributor application'}</b><p>${esc(name)}${kind==='message'&&item.topics?` • ${esc(item.topics)}`:''}</p></section></div><button type="button" data-admin-update-open>Open contributor dashboard →</button>`;
   const dismiss=()=>{try{sessionStorage.setItem(key,eventKey)}catch{}notice.classList.add('is-closing');setTimeout(()=>notice.remove(),220)};
