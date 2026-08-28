@@ -1,5 +1,5 @@
 .logo{display:inline-flex;align-items:center;line-height:1;min-width:0;position:relative;isolation:isolate}
-.logo img{display:block;flex:0 0 auto;object-fit:contain;position:relative;z-index:2;transition:filter .22s ease;transform-origin:50% 50%;animation:litlabLogoFloat 4.8s ease-in-out infinite;will-change:transform}
+.logo img{display:block;flex:0 0 auto;object-fit:contain;position:relative;z-index:2;transition:filter .22s ease;transform-origin:50% 50%;animation:litlabLogoFloat 6.2s cubic-bezier(.4,0,.2,1) infinite;will-change:transform}
 .litlab-brand-horizontal{width:150px!important;height:auto!important;max-height:46px}
 .litlab-brand-icon{width:82px!important;height:auto!important}
 .compass-center .litlab-brand-icon{width:88px!important}
@@ -21,7 +21,7 @@
   transform:scaleX(.94);
   transform-origin:center;
   pointer-events:none;
-  animation:litlabLogoShadow 4.8s ease-in-out infinite;
+  animation:litlabLogoShadow 6.2s cubic-bezier(.4,0,.2,1) infinite;
 }
 
 .litlab-logo-decorations{
@@ -30,57 +30,72 @@
   z-index:4;
   pointer-events:none;
   transform-origin:50% 50%;
-  animation:litlabLogoFloat 4.8s ease-in-out infinite;
+  animation:litlabLogoFloat 6.2s cubic-bezier(.4,0,.2,1) infinite;
   will-change:transform;
 }
 
 .litlab-floating-star{
   position:absolute;
-  left:94.1%;
-  top:5.2%;
-  width:5.9%;
+  left:94%;
+  top:5%;
+  width:6.15%;
   min-width:10px;
   aspect-ratio:1;
   background:linear-gradient(135deg,#ffe36b,#f6bf2f);
   clip-path:polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%);
-  filter:drop-shadow(0 0 2px rgba(246,191,47,.24));
+  filter:drop-shadow(0 0 2.5px rgba(246,191,47,.26));
   transform-origin:center;
-  animation:litlabStarFloat 4.8s ease-in-out infinite;
+  animation:litlabStarFloat 6.6s cubic-bezier(.4,0,.2,1) infinite,litlabStarTwinkle 5.4s ease-in-out infinite;
 }
 
 .litlab-floating-star::after{
   content:'';
   position:absolute;
-  width:26%;
+  width:27%;
   aspect-ratio:1;
-  left:-32%;
-  bottom:-6%;
+  left:-31%;
+  bottom:-5%;
   background:#ffd84d;
   clip-path:polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%);
-  opacity:.42;
-  animation:litlabMiniStar 3.4s ease-in-out infinite;
+  opacity:.38;
+  animation:litlabMiniStar 5.1s ease-in-out infinite;
 }
 
 html[data-theme=dark] .logo::after{background:rgba(0,0,0,.45);opacity:.34}
 
 @keyframes litlabLogoFloat{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-3px)}
+  42%{transform:translateY(-2px)}
+  58%{transform:translateY(-2.7px)}
+  72%{transform:translateY(-1.6px)}
 }
 
 @keyframes litlabLogoShadow{
   0%,100%{opacity:.28;transform:scaleX(.94)}
-  50%{opacity:.17;transform:scaleX(.82)}
+  42%{opacity:.21;transform:scaleX(.88)}
+  58%{opacity:.17;transform:scaleX(.84)}
+  72%{opacity:.22;transform:scaleX(.89)}
 }
 
 @keyframes litlabStarFloat{
-  0%,100%{opacity:.84;transform:translateY(0) rotate(0deg) scale(.96)}
-  50%{opacity:1;transform:translateY(-3px) rotate(6deg) scale(1.08)}
+  0%,100%{opacity:.9;transform:translateY(0) rotate(0deg) scale(1)}
+  44%{opacity:1;transform:translateY(-1.6px) rotate(2.5deg) scale(1.045)}
+  58%{opacity:1;transform:translateY(-2.5px) rotate(4deg) scale(1.08)}
+  72%{opacity:.96;transform:translateY(-1.4px) rotate(2deg) scale(1.035)}
+}
+
+@keyframes litlabStarTwinkle{
+  0%,100%{filter:drop-shadow(0 0 2.5px rgba(246,191,47,.24))}
+  48%{filter:drop-shadow(0 0 4px rgba(246,191,47,.34))}
+  58%{filter:drop-shadow(0 0 5.5px rgba(246,191,47,.44))}
+  70%{filter:drop-shadow(0 0 3.5px rgba(246,191,47,.3))}
 }
 
 @keyframes litlabMiniStar{
-  0%,100%{opacity:.18;transform:scale(.76)}
-  50%{opacity:.54;transform:scale(1.04)}
+  0%,100%{opacity:.18;transform:scale(.8)}
+  48%{opacity:.42;transform:scale(.98)}
+  58%{opacity:.56;transform:scale(1.07)}
+  72%{opacity:.34;transform:scale(.94)}
 }
 
 @media(prefers-reduced-motion:reduce){
