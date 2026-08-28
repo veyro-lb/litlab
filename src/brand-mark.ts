@@ -1,11 +1,55 @@
-type BrandAsset={src:string;darkInk:string[]};
+type BrandAsset={src:string;darkInk:string[];prepare?:'horizontal'};
 
 const themedBrandImages=new Set<HTMLImageElement>();
+const brandAssets=new WeakMap<HTMLImageElement,BrandAsset>();
 const darkAssetCache=new Map<string,Promise<string>>();
+const preparedAssetCache=new Map<string,Promise<string>>();
 let themeObserverStarted=false;
 
 function isDarkMode(){
   return document.documentElement.dataset.theme==='dark';
+}
+
+function prepareHorizontalLogo(svg:string){
+  try{
+    const documentSvg=new DOMParser().parseFromString(svg,'image/svg+xml');
+    const root=documentSvg.documentElement;
+
+    // Remove the old oversized bulb that was previously baked directly into
+    // litlab-logo.svg. The original i-dot is deliberately kept: it is now the
+    // visual base for the much smaller decorative bulb added by logo-refresh.
+    root.querySelector('style')?.remove();
+    root.querySelectorAll('.litlab-bulb-glow,.litlab-bulb').forEach(node=>node.remove());
+
+    return new XMLSerializer().serializeToString(root);
+  }catch{
+    return svg;
+  }
+}
+
+function makePreparedAsset(asset:BrandAsset,dark:boolean){
+  const key=`${asset.src}|${asset.prepare||''}|${dark?'dark':'light'}|${asset.darkInk.join(',')}`;
+  const cached=preparedAssetCache.get(key);
+  if(cached)return cached;
+
+  const promise=fetch(asset.src,{cache:'no-store'})
+    .then(response=>{
+      if(!response.ok)throw new Error(`Unable to load ${asset.src}`);
+      return response.text();
+    })
+    .then(svg=>{
+      let prepared=asset.prepare==='horizontal'?prepareHorizontalLogo(svg):svg;
+      if(dark){
+        asset.darkInk.forEach(ink=>{
+          prepared=prepared.replace(new RegExp(ink.replace('#','\\#'),'gi'),'#ffffff');
+        });
+      }
+      return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(prepared)}`;
+    })
+    .catch(()=>asset.src);
+
+  preparedAssetCache.set(key,promise);
+  return promise;
 }
 
 function makeDarkAsset(asset:BrandAsset){
@@ -32,16 +76,26 @@ function makeDarkAsset(asset:BrandAsset){
 }
 
 function syncBrandImage(image:HTMLImageElement){
-  const src=image.dataset.litlabLightSrc;
-  const darkInk=(image.dataset.litlabDarkInk||'').split(',').filter(Boolean);
-  if(!src)return;
+  const asset=brandAssets.get(image);
+  if(!asset)return;
 
-  if(!isDarkMode()){
-    image.src=src;
+  if(asset.prepare){
+    const dark=isDarkMode();
+    if(!image.src)image.style.visibility='hidden';
+    void makePreparedAsset(asset,dark).then(src=>{
+      if(!image.isConnected||isDarkMode()!==dark)return;
+      image.src=src;
+      image.style.visibility='';
+    });
     return;
   }
 
-  void makeDarkAsset({src,darkInk}).then(darkSrc=>{
+  if(!isDarkMode()){
+    image.src=asset.src;
+    return;
+  }
+
+  void makeDarkAsset(asset).then(darkSrc=>{
     if(image.isConnected&&isDarkMode())image.src=darkSrc;
   });
 }
@@ -76,6 +130,7 @@ function createBrandImage(asset:BrandAsset,className:string,labelled:boolean){
     image.setAttribute('aria-hidden','true');
   }
 
+  brandAssets.set(image,asset);
   themedBrandImages.add(image);
   ensureThemeObserver();
   syncBrandImage(image);
@@ -87,7 +142,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg',darkInk:['#141a23']},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=14',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
