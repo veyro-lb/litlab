@@ -15,10 +15,10 @@ type Doc={storage_path:string;original_name:string;file_size:number;version_labe
 type Review={accuracy:number;clarity:number;dp_relevance:number;originality:number;sources:number;recommendation:string;summary:string;created_at:string;reviewer_name?:string|null};
 type Activity={activity_date:string;minutes:number;description:string};
 type Workspace={id:string;created_at:string;status:string;status_updated_at?:string|null;applicant_type:string;full_name?:string|null;dp_year?:string|null;contribution_type:string;topics?:string|null;contribution_idea?:string|null;motivation?:string|null;experience?:string|null;availability?:string|null;cas_intent?:string|null;cas_goal?:string|null;cas_impact?:string|null;cas_success?:string|null;student_supervision?:string|null;mentor_email?:string|null;credit_preference?:string|null;brief?:Brief|null;tasks:Task[];revisions:Revision[];documents:Doc[];reviewer?:{name?:string|null}|null;reviews:Review[];activities:Activity[]};
-type Certificate=CertificatePdfData&{id:string;application_id:string;updated_at:string};
+type CertificateRecord={id:string;application_id:string;certificate_code:string;contributor_name:string;contributor_role:string;contribution_title:string;contribution_type:string;contribution_description:string;completed_at:string;issued_at:string;verified_minutes?:number|null;issuer_name:string;issuer_title:string;updated_at:string};
 
 let apps=new Map<string,Workspace>();
-let certs=new Map<string,Certificate|null>();
+let certs=new Map<string,CertificateRecord|null>();
 let loading=new Map<string,Promise<void>>();
 let scanTimer=0;
 let scanAttempts=0;
@@ -35,6 +35,7 @@ function fmtDate(value?:string|null){if(!value)return 'Not recorded';const d=new
 function bytes(value:number){if(value<1024)return `${value} B`;if(value<1024*1024)return `${Math.round(value/1024)} KB`;return `${(value/1024/1024).toFixed(1)} MB`}
 function duration(minutes:number){const h=minutes/60;return Number.isInteger(h)?`${h} hour${h===1?'':'s'}`:`${h.toFixed(1)} hours`}
 function checklist(value:unknown){return Array.isArray(value)?value.map(String).filter(Boolean):[]}
+function toPdf(cert:CertificateRecord):CertificatePdfData{return {certificateCode:cert.certificate_code,contributorName:cert.contributor_name,contributorRole:cert.contributor_role,contributionTitle:cert.contribution_title,contributionType:label(cert.contribution_type),contributionDescription:cert.contribution_description,completedAt:cert.completed_at,issuedAt:cert.issued_at,verifiedMinutes:cert.verified_minutes,issuerName:cert.issuer_name,issuerTitle:cert.issuer_title}}
 
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const auth=token();if(!auth)throw new Error('Sign in required');
@@ -47,16 +48,16 @@ async function load(applicationId:string,force=false){
   if(!force&&apps.has(applicationId)&&certs.has(applicationId))return;
   if(loading.has(applicationId)){await loading.get(applicationId);return}
   const promise=(async()=>{
-    const [rows,cert]=await Promise.all([rpc<Workspace[]>('get_my_litlab_contributor_workspace'),rpc<Certificate|null>('get_my_litlab_contributor_certificate',{p_application_id:applicationId})]);
+    const [rows,cert]=await Promise.all([rpc<Workspace[]>('get_my_litlab_contributor_workspace'),rpc<CertificateRecord|null>('get_my_litlab_contributor_certificate',{p_application_id:applicationId})]);
     const app=(Array.isArray(rows)?rows:[]).find(item=>item.id===applicationId);if(app)apps.set(applicationId,app);certs.set(applicationId,cert||null);
     window.dispatchEvent(new CustomEvent('litlab:contributor-workspace-updated'));
   })().catch(error=>console.debug('Contributor PDF delivery unavailable',error)).finally(()=>loading.delete(applicationId));
   loading.set(applicationId,promise);await promise;
 }
 
-function certificateMarkup(cert:Certificate){
-  const verified=cert.verifiedMinutes==null?'No verified time stated':`${duration(Number(cert.verifiedMinutes))} verified`;
-  return `<div class="ll-issued-certificate" data-issued-certificate="${esc(cert.certificateCode)}"><div class="ll-issued-certificate-mark">LL</div><div><span>CERTIFICATE READY</span><h3>Your LitLab Contributor Certificate is ready.</h3><p>Issued ${esc(fmtDate(cert.issuedAt))} for <strong>${esc(cert.contributionTitle)}</strong>. ${esc(verified)}.</p><small>Certificate ID: ${esc(cert.certificateCode)} • This is a LitLab contribution certificate, not an IB or CAS certificate.</small></div><button type="button" data-download-contributor-certificate>Download certificate PDF</button></div>`;
+function certificateMarkup(cert:CertificateRecord){
+  const verified=cert.verified_minutes==null?'No verified time stated':`${duration(Number(cert.verified_minutes))} verified`;
+  return `<div class="ll-issued-certificate" data-issued-certificate="${esc(cert.certificate_code)}"><div class="ll-issued-certificate-mark">LL</div><div><span>CERTIFICATE READY</span><h3>Your LitLab Contributor Certificate is ready.</h3><p>Issued ${esc(fmtDate(cert.issued_at))} for <strong>${esc(cert.contribution_title)}</strong>. ${esc(verified)}.</p><small>Certificate ID: ${esc(cert.certificate_code)} • This is a LitLab contribution certificate, not an IB or CAS certificate.</small></div><button type="button" data-download-contributor-certificate>Download certificate PDF</button></div>`;
 }
 
 function updateArchive(archive:HTMLElement){
@@ -65,7 +66,7 @@ function updateArchive(archive:HTMLElement){
   const pdfButton=archive.querySelector<HTMLButtonElement>('[data-completion-print]');
   if(pdfButton){pdfButton.textContent=app?.applicant_type==='teacher'?'Save contribution evidence as PDF':'Save CAS evidence as PDF';pdfButton.dataset.saveEvidencePdf='true';pdfButton.setAttribute('aria-label',pdfButton.textContent)}
   const certificateArea=archive.querySelector<HTMLElement>('.ll-certificate-pending');
-  if(cert&&certificateArea&&!certificateArea.querySelector(`[data-issued-certificate="${CSS.escape(cert.certificateCode)}"]`))certificateArea.innerHTML=certificateMarkup(cert);
+  if(cert&&certificateArea&&!certificateArea.querySelector(`[data-issued-certificate="${CSS.escape(cert.certificate_code)}"]`))certificateArea.innerHTML=certificateMarkup(cert);
 }
 
 function queueSync(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;document.querySelectorAll<HTMLElement>('[data-contributor-completion-archive]').forEach(archive=>{updateArchive(archive);const id=archive.dataset.applicationId||'';if(id&&!certs.has(id))void load(id).then(()=>updateArchive(archive))})})}
@@ -106,7 +107,7 @@ async function saveEvidence(archive:HTMLElement,button:HTMLButtonElement){
 }
 
 async function saveCertificate(archive:HTMLElement,button:HTMLButtonElement){
-  const id=archive.dataset.applicationId||'';if(!id)return;await load(id,true);const cert=certs.get(id);if(!cert)throw new Error('Certificate is not available yet.');const original=button.textContent||'Download certificate PDF';button.disabled=true;button.textContent='Creating PDF…';try{await saveCertificatePdf(cert)}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}
+  const id=archive.dataset.applicationId||'';if(!id)return;await load(id,true);const cert=certs.get(id);if(!cert)throw new Error('Certificate is not available yet.');const original=button.textContent||'Download certificate PDF';button.disabled=true;button.textContent='Creating PDF…';try{await saveCertificatePdf(toPdf(cert))}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}
 }
 
 async function namedDocDownload(archive:HTMLElement,path:string,button:HTMLButtonElement){
