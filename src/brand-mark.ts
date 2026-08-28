@@ -14,21 +14,64 @@ function prepareHorizontalLogo(svg:string){
   try{
     const documentSvg=new DOMParser().parseFromString(svg,'image/svg+xml');
     const root=documentSvg.documentElement;
+    const ns='http://www.w3.org/2000/svg';
 
-    // Remove the old oversized bulb that is baked into the source asset.
-    root.querySelector('style')?.remove();
-    root.querySelectorAll('.litlab-bulb-glow,.litlab-bulb').forEach(node=>node.remove());
+    // Remove the old oversized bulb baked into the source asset.
+    root.querySelectorAll('style').forEach(node=>node.remove());
+    root.querySelectorAll('.litlab-bulb-glow,.litlab-bulb,.litlab-i-dot,.litlab-live-bulb').forEach(node=>node.remove());
 
-    // Rebuild the i-dot as a compact brand-ink circle above the i stem.
-    // This dot is also the physical base/socket for the animated bulb overlay.
-    root.querySelectorAll('.litlab-i-dot').forEach(node=>node.remove());
-    const dot=documentSvg.createElementNS('http://www.w3.org/2000/svg','circle');
+    // Rebuild the i-dot in the logo's own SVG coordinate system so it always
+    // stays centered above the i stem. The bulb neck touches the top of this
+    // dot exactly, making the dot the actual base of the bulb.
+    const dot=documentSvg.createElementNS(ns,'circle');
     dot.setAttribute('class','litlab-i-dot');
     dot.setAttribute('cx','938');
-    dot.setAttribute('cy','161');
-    dot.setAttribute('r','19');
+    dot.setAttribute('cy','155');
+    dot.setAttribute('r','16');
     dot.setAttribute('fill','#141a23');
     root.appendChild(dot);
+
+    const style=documentSvg.createElementNS(ns,'style');
+    style.textContent=`
+      .litlab-live-bulb{transform-box:fill-box;transform-origin:center;animation:litlabLiveBulbFlicker 4.2s linear infinite}
+      .litlab-live-glow{transform-box:fill-box;transform-origin:center;animation:litlabLiveBulbGlow 4.2s ease-in-out infinite}
+      .litlab-live-rays{animation:litlabLiveBulbRays 4.2s linear infinite}
+      @keyframes litlabLiveBulbFlicker{
+        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1}
+        14.5%,15.8%,64%,65.6%{opacity:.52}
+        15.1%,16.5%,64.7%,66.3%{opacity:.84}
+      }
+      @keyframes litlabLiveBulbGlow{
+        0%,100%{opacity:.07;transform:scale(.96)}
+        36%,50%,84%{opacity:.16;transform:scale(1.06)}
+        14.5%,15.8%,64%,65.6%{opacity:.02;transform:scale(.92)}
+      }
+      @keyframes litlabLiveBulbRays{
+        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.82}
+        14.5%,15.8%,64%,65.6%{opacity:.12}
+        36%,50%,84%{opacity:1}
+      }
+      @media(prefers-reduced-motion:reduce){
+        .litlab-live-bulb,.litlab-live-glow,.litlab-live-rays{animation:none!important}
+      }
+    `;
+    root.appendChild(style);
+
+    const bulb=documentSvg.createElementNS(ns,'g');
+    bulb.setAttribute('class','litlab-live-bulb');
+    bulb.setAttribute('aria-hidden','true');
+    bulb.innerHTML=`
+      <circle class="litlab-live-glow" cx="938" cy="96" r="43" fill="#facc15" opacity=".08"/>
+      <g class="litlab-live-rays" fill="none" stroke="#f6c537" stroke-width="6" stroke-linecap="round">
+        <path d="M938 49V37"/>
+        <path d="M910 60l-9-9"/>
+        <path d="M966 60l9-9"/>
+      </g>
+      <path d="M938 60c-19 0-33 15-33 34 0 13 7 23 17 30 4 3 6 7 6 12h20c0-5 2-9 6-12 10-7 17-17 17-30 0-19-14-34-33-34Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M927 90l11 11 11-11M938 101v30" fill="none" stroke="#dfa719" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M938 129v10" fill="none" stroke="#dfa719" stroke-width="8" stroke-linecap="round"/>
+    `;
+    root.appendChild(bulb);
 
     return new XMLSerializer().serializeToString(root);
   }catch{
@@ -151,7 +194,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=15',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=16',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
