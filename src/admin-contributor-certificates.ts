@@ -11,10 +11,12 @@ type CertificateRecord={id:string;application_id:string;certificate_code:string;
 type Context={application_id:string;status:string;applicant_type:'student'|'teacher';full_name:string;contribution_type:string;topics?:string|null;contribution_idea?:string|null;completed_at?:string|null;self_recorded_minutes:number;document_count:number;project_title?:string|null;project_goal?:string|null;project_deliverable?:string|null;certificate?:CertificateRecord|null};
 
 let listObserver:MutationObserver|null=null;
+let observedList:HTMLElement|null=null;
 let activeAppId='';
 let context:Context|null=null;
 let scanTimer=0;
 let scanAttempts=0;
+let scanQueued=false;
 
 function token(){try{return (JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||''}catch{return ''}}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
@@ -29,28 +31,48 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const controller=new AbortController();const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
   try{
     const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},body:JSON.stringify(body),signal:controller.signal});
-    if(!response.ok){let message=`${name} failed (${response.status})`;try{const body=await response.json() as {message?:string};if(body.message)message=body.message}catch{}throw new Error(message)}
+    if(!response.ok){let message=`${name} failed (${response.status})`;try{const parsed=await response.json() as {message?:string};if(parsed.message)message=parsed.message}catch{}throw new Error(message)}
     const text=await response.text();return (text?JSON.parse(text):null) as T;
   }finally{window.clearTimeout(timeout)}
 }
 
 function cardCompleted(card:HTMLElement){return Boolean(card.querySelector('.admin-contrib-summary-meta .status.completed'))}
+function setButtonContents(button:HTMLButtonElement,completed:boolean){
+  const nextState=completed?'ready':'locked';
+  if(button.dataset.certificateState===nextState)return;
+  button.dataset.certificateState=nextState;
+  const icon=document.createElement('span');icon.textContent=completed?'✦':'○';
+  button.replaceChildren(icon,document.createTextNode(completed?' Certificate':' Certificate after completion'));
+}
 function enhanceCard(card:HTMLElement){
   const strip=card.querySelector<HTMLElement>('.admin-contrib-chat-strip');if(!strip)return;
   let button=card.querySelector<HTMLButtonElement>('[data-admin-certificate-open]');
   if(!button){button=document.createElement('button');button.type='button';button.dataset.adminCertificateOpen='true';button.className='admin-contributor-certificate-button';strip.appendChild(button)}
-  const completed=cardCompleted(card);button.disabled=!completed;button.classList.toggle('is-ready',completed);button.innerHTML=completed?'<span>✦</span> Certificate':'<span>○</span> Certificate after completion';button.title=completed?'Create, update or download this contributor certificate':'Set this contribution to Completed / final approved before issuing a certificate.';
+  const completed=cardCompleted(card);
+  if(button.disabled===completed)button.disabled=!completed;
+  button.classList.toggle('is-ready',completed);
+  setButtonContents(button,completed);
+  const title=completed?'Create, update or download this contributor certificate':'Set this contribution to Completed / final approved before issuing a certificate.';
+  if(button.title!==title)button.title=title;
 }
 function enhanceCards(){if(route()!=='admin-contributors')return;document.querySelectorAll<HTMLElement>('.admin-contrib-card').forEach(enhanceCard)}
+function queueEnhance(){if(scanQueued)return;scanQueued=true;requestAnimationFrame(()=>{scanQueued=false;enhanceCards()})}
 function observeList(){
-  listObserver?.disconnect();listObserver=null;if(route()!=='admin-contributors')return;
-  const list=document.querySelector<HTMLElement>('[data-contrib-list]');if(!list){if(scanAttempts++<35)scanTimer=window.setTimeout(observeList,140);return}scanAttempts=0;enhanceCards();listObserver=new MutationObserver(enhanceCards);listObserver.observe(list,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
+  window.clearTimeout(scanTimer);
+  if(route()!=='admin-contributors'){listObserver?.disconnect();listObserver=null;observedList=null;return}
+  const list=document.querySelector<HTMLElement>('[data-contrib-list]');
+  if(!list){if(scanAttempts++<40)scanTimer=window.setTimeout(observeList,140);return}
+  scanAttempts=0;
+  if(observedList!==list){listObserver?.disconnect();observedList=list;listObserver=new MutationObserver(queueEnhance);listObserver.observe(list,{childList:true,subtree:true})}
+  enhanceCards();
 }
 
 function modal(){return document.getElementById('ll-admin-certificate-modal')}
 function close(){activeAppId='';context=null;modal()?.remove()}
 function shell(){
-  modal()?.remove();const overlay=document.createElement('div');overlay.id='ll-admin-certificate-modal';overlay.className='ll-admin-certificate-overlay';overlay.innerHTML=`<section class="ll-admin-certificate-modal" role="dialog" aria-modal="true" aria-label="Contributor certificate"><header><div><span>LITLAB • CERTIFICATE</span><h2>Contributor certificate</h2></div><button type="button" data-certificate-close aria-label="Close">×</button></header><div data-certificate-body><div class="ll-admin-certificate-loading"><i></i>Loading certificate record…</div></div></section>`;overlay.addEventListener('click',event=>{if(event.target===overlay)close()});overlay.querySelector('[data-certificate-close]')?.addEventListener('click',close);document.body.appendChild(overlay);requestAnimationFrame(()=>overlay.classList.add('is-open'));
+  modal()?.remove();const overlay=document.createElement('div');overlay.id='ll-admin-certificate-modal';overlay.className='ll-admin-certificate-overlay';
+  overlay.innerHTML=`<section class="ll-admin-certificate-modal" role="dialog" aria-modal="true" aria-label="Contributor certificate"><header><div><span>LITLAB • CERTIFICATE</span><h2>Contributor certificate</h2></div><button type="button" data-certificate-close aria-label="Close">×</button></header><div data-certificate-body><div class="ll-admin-certificate-loading"><i></i>Loading certificate record…</div></div></section>`;
+  overlay.addEventListener('click',event=>{if(event.target===overlay)close()});overlay.querySelector('[data-certificate-close]')?.addEventListener('click',close);document.body.appendChild(overlay);requestAnimationFrame(()=>overlay.classList.add('is-open'));
 }
 function role(ctx:Context){return ctx.applicant_type==='teacher'?'Teacher Reviewer / Mentor':'DP Student Contributor'}
 function defaultDescription(ctx:Context){const parts=[ctx.project_goal,ctx.project_deliverable?`Deliverable: ${ctx.project_deliverable}`:''].filter(Boolean);return parts.join(' ')||ctx.contribution_idea||`${role(ctx)} contribution to LitLab.`}
@@ -58,10 +80,10 @@ function certificateDataFromForm(form:HTMLFormElement,preview=false):Certificate
   if(!context)throw new Error('Certificate context is unavailable.');const data=new FormData(form);const hours=String(data.get('verified_hours')||'').trim();
   return {certificateCode:context.certificate?.certificate_code||(preview?'PREVIEW — NOT ISSUED':'PENDING'),contributorName:context.full_name,contributorRole:role(context),contributionTitle:String(data.get('title')||'').trim(),contributionType:label(context.contribution_type),contributionDescription:String(data.get('description')||'').trim(),completedAt:context.completed_at||new Date().toISOString(),issuedAt:context.certificate?.issued_at||new Date().toISOString(),verifiedMinutes:hours?Math.max(0,Math.round(Number(hours)*60)):null,issuerName:String(data.get('issuer_name')||'LitLab').trim()||'LitLab',issuerTitle:String(data.get('issuer_title')||'LitLab Contributor Program').trim()||'LitLab Contributor Program',preview};
 }
-
 function existingBlock(cert:CertificateRecord){return `<div class="ll-existing-certificate"><div><span>ISSUED CERTIFICATE</span><b>${esc(cert.certificate_code)}</b><small>Issued ${esc(fmtDate(cert.issued_at))} • Reissuing updates the same certificate ID and sends a fresh contributor notification.</small></div><button type="button" data-admin-download-issued-certificate>Download issued PDF</button></div>`}
 function render(){
-  const body=modal()?.querySelector<HTMLElement>('[data-certificate-body]');if(!body||!context)return;const cert=context.certificate;const title=cert?.contribution_title||context.project_title||context.topics||label(context.contribution_type);const description=cert?.contribution_description||defaultDescription(context);const verified=cert?.verified_minutes;const issuerName=cert?.issuer_name||'LitLab';const issuerTitle=cert?.issuer_title||'LitLab Contributor Program';const selfHours=context.self_recorded_minutes/60;
+  const body=modal()?.querySelector<HTMLElement>('[data-certificate-body]');if(!body||!context)return;
+  const cert=context.certificate;const title=cert?.contribution_title||context.project_title||context.topics||label(context.contribution_type);const description=cert?.contribution_description||defaultDescription(context);const verified=cert?.verified_minutes;const issuerName=cert?.issuer_name||'LitLab';const issuerTitle=cert?.issuer_title||'LitLab Contributor Program';const selfHours=context.self_recorded_minutes/60;
   body.innerHTML=`<div class="ll-admin-certificate-content">
     <section class="ll-certificate-person-summary"><div class="mark">LL</div><div><span>CONTRIBUTOR</span><h3>${esc(context.full_name)}</h3><p>${esc(role(context))} • ${esc(label(context.contribution_type))}</p></div><aside><b>${esc(fmtDate(context.completed_at))}</b><small>Completed / final approved</small></aside></section>
     ${cert?existingBlock(cert):''}
@@ -75,12 +97,15 @@ function render(){
     </form>
   </div>`;
 }
-
-async function openFor(card:HTMLElement){activeAppId=card.dataset.appId||'';if(!activeAppId)return;shell();try{context=await rpc<Context>('admin_get_litlab_contributor_certificate_context',{p_application_id:activeAppId});render()}catch(error){console.error(error);const body=modal()?.querySelector<HTMLElement>('[data-certificate-body]');if(body)body.innerHTML='<div class="ll-admin-certificate-error"><b>Certificate builder could not load.</b><p>Check your developer session and try again.</p></div>'}}
+async function openFor(card:HTMLElement){activeAppId=card.dataset.appId||'';if(!activeAppId)return;shell();try{context=await rpc<Context>('admin_get_litlab_contributor_certificate_context',{p_application_id:activeAppId});if(context.status!=='completed')throw new Error('Complete this contribution before issuing a certificate.');render()}catch(error){console.error(error);const body=modal()?.querySelector<HTMLElement>('[data-certificate-body]');if(body)body.innerHTML=`<div class="ll-admin-certificate-error"><b>Certificate builder could not load.</b><p>${esc(error instanceof Error?error.message:'Check your developer session and try again.')}</p></div>`}}
 async function preview(form:HTMLFormElement,button:HTMLButtonElement){if(!form.checkValidity()){form.reportValidity();return}const original=button.textContent||'Preview PDF';button.disabled=true;button.textContent='Creating preview…';try{await saveCertificatePdf(certificateDataFromForm(form,true))}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}}
 async function issue(form:HTMLFormElement,button:HTMLButtonElement){
-  if(!context||!form.checkValidity()){form.reportValidity();return}const data=new FormData(form);const hours=String(data.get('verified_hours')||'').trim();const state=form.querySelector<HTMLElement>('[data-certificate-state]');const original=button.textContent||'Issue & send certificate';button.disabled=true;button.textContent='Sending certificate…';if(state){state.textContent='Saving certificate to the contributor account…';state.dataset.state=''}
-  try{const cert=await rpc<CertificateRecord>('admin_issue_litlab_contributor_certificate',{p_application_id:context.application_id,p_contribution_title:String(data.get('title')||'').trim(),p_contribution_description:String(data.get('description')||'').trim(),p_verified_minutes:hours?Math.max(0,Math.round(Number(hours)*60)):null,p_issuer_name:String(data.get('issuer_name')||'LitLab').trim(),p_issuer_title:String(data.get('issuer_title')||'LitLab Contributor Program').trim()});context.certificate=cert;render();const newState=modal()?.querySelector<HTMLElement>('[data-certificate-state]');if(newState){newState.textContent='Certificate issued and sent to the contributor’s LitLab account.';newState.dataset.state='success'}window.dispatchEvent(new CustomEvent('litlab:contributor-admin-updated',{detail:{id:context.application_id,certificate:true}}))}catch(error){console.error(error);if(state){state.textContent=error instanceof Error?error.message:'Certificate could not be issued.';state.dataset.state='error'}}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}
+  if(!context||!form.checkValidity()){form.reportValidity();return}
+  const data=new FormData(form);const hours=String(data.get('verified_hours')||'').trim();const state=form.querySelector<HTMLElement>('[data-certificate-state]');const original=button.textContent||'Issue & send certificate';button.disabled=true;button.textContent='Sending certificate…';if(state){state.textContent='Saving certificate to the contributor account…';state.dataset.state=''}
+  try{
+    const cert=await rpc<CertificateRecord>('admin_issue_litlab_contributor_certificate',{p_application_id:context.application_id,p_contribution_title:String(data.get('title')||'').trim(),p_contribution_description:String(data.get('description')||'').trim(),p_verified_minutes:hours?Math.max(0,Math.round(Number(hours)*60)):null,p_issuer_name:String(data.get('issuer_name')||'LitLab').trim(),p_issuer_title:String(data.get('issuer_title')||'LitLab Contributor Program').trim()});
+    context.certificate=cert;render();const newState=modal()?.querySelector<HTMLElement>('[data-certificate-state]');if(newState){newState.textContent='Certificate issued and sent to the contributor’s LitLab account.';newState.dataset.state='success'}window.dispatchEvent(new CustomEvent('litlab:contributor-admin-updated',{detail:{id:context.application_id,certificate:true}}));
+  }catch(error){console.error(error);if(state){state.textContent=error instanceof Error?error.message:'Certificate could not be issued.';state.dataset.state='error'}}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}
 }
 
 document.addEventListener('click',event=>{
@@ -92,7 +117,8 @@ document.addEventListener('click',event=>{
 },true);
 
 document.addEventListener('submit',event=>{const form=event.target instanceof HTMLFormElement?event.target:null;if(!form?.matches('[data-admin-certificate-form]'))return;event.preventDefault();const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');if(button)void issue(form,button)},true);
-window.addEventListener('hashchange',()=>{close();listObserver?.disconnect();listObserver=null;window.clearTimeout(scanTimer);scanAttempts=0;if(route()==='admin-contributors')setTimeout(observeList,120)});
+document.addEventListener('change',event=>{const target=event.target instanceof Element?event.target:null;if(target?.matches('select[data-contributor-status]'))window.setTimeout(enhanceCards,80)},true);
+window.addEventListener('hashchange',()=>{close();listObserver?.disconnect();listObserver=null;observedList=null;window.clearTimeout(scanTimer);scanAttempts=0;if(route()==='admin-contributors')setTimeout(observeList,120)});
 window.addEventListener('litlab:contributor-admin-updated',()=>{if(route()==='admin-contributors')setTimeout(enhanceCards,80)});
 window.addEventListener('focus',()=>{if(route()==='admin-contributors')enhanceCards()});
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',observeList,{once:true});else observeList();
