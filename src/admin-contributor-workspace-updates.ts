@@ -26,7 +26,20 @@ function badgeLabel(item:Update){return item.kind==='document'?'New DOCX':item.k
 function applyAccountDot(){document.documentElement.toggleAttribute('data-litlab-admin-workspace-update',updates.length>0)}
 function applyMenu(){const button=document.querySelector<HTMLElement>('[data-open-admin-contributors]');if(!button)return;button.classList.toggle('has-admin-workspace-update',updates.length>0);let badge=button.querySelector<HTMLElement>('[data-admin-workspace-menu-badge]');if(updates.length&&!badge){badge=document.createElement('span');badge.dataset.adminWorkspaceMenuBadge='true';badge.className='admin-workspace-menu-badge';button.appendChild(badge)}if(badge){if(updates.length)badge.textContent=String(updates.length);else badge.remove()}}
 function applyCards(){if(route()!=='admin-contributors')return;const byApp=new Map<string,Update>();updates.forEach(u=>{if(!byApp.has(u.application_id))byApp.set(u.application_id,u)});document.querySelectorAll<HTMLElement>('.admin-contrib-card[data-app-id]').forEach(card=>{const item=byApp.get(card.dataset.appId||'');card.classList.toggle('has-admin-workspace-update',Boolean(item));let badge=card.querySelector<HTMLElement>('[data-admin-workspace-update-badge]');if(item&&!badge){badge=document.createElement('span');badge.dataset.adminWorkspaceUpdateBadge='true';badge.className='admin-workspace-update-badge';card.querySelector('summary')?.appendChild(badge)}if(badge){if(item)badge.textContent=badgeLabel(item);else badge.remove()}const manage=card.querySelector<HTMLButtonElement>('[data-admin-manage-workspace]');if(manage)manage.classList.toggle('has-admin-workspace-update',Boolean(item))})}
-function showNotice(){const item=latest();if(!item)return;const key=`${item.kind}:${item.update_id}`;try{if(sessionStorage.getItem(NOTICE_KEY)===key)return}catch{}document.getElementById('ll-admin-workspace-update-notice')?.remove();const n=document.createElement('aside');n.id='ll-admin-workspace-update-notice';n.className='ll-admin-workspace-update-notice';n.innerHTML=`<button type="button" data-close aria-label="Dismiss">×</button><span>NEW CONTRIBUTOR UPDATE</span><div><i>●</i><section><b>${esc(label(item))}</b><p>${esc(item.topics||item.label)}</p></section></div><button type="button" data-open>Open contributor dashboard →</button>`;const dismiss=()=>{try{sessionStorage.setItem(NOTICE_KEY,key)}catch{}n.classList.add('is-closing');setTimeout(()=>n.remove(),220)};n.querySelector('[data-close]')?.addEventListener('click',dismiss);n.querySelector('[data-open]')?.addEventListener('click',()=>{dismiss();location.hash='admin-contributors'});document.body.appendChild(n);requestAnimationFrame(()=>n.classList.add('is-visible'))}
+function showNotice(){
+  const item=latest();if(!item)return;
+  // Application/chat updates use a separate card. Keep the red state while
+  // waiting so the admin sees both updates without overlapping popups.
+  if(document.getElementById('ll-admin-contributor-update-notice'))return;
+  const key=`${item.kind}:${item.update_id}`;
+  try{if(sessionStorage.getItem(NOTICE_KEY)===key)return}catch{}
+  document.getElementById('ll-admin-workspace-update-notice')?.remove();
+  const n=document.createElement('aside');n.id='ll-admin-workspace-update-notice';n.className='ll-admin-workspace-update-notice';n.innerHTML=`<button type="button" data-close aria-label="Dismiss">×</button><span>NEW CONTRIBUTOR UPDATE</span><div><i>●</i><section><b>${esc(label(item))}</b><p>${esc(item.topics||item.label)}</p></section></div><button type="button" data-open>Open contributor dashboard →</button>`;
+  const dismiss=()=>{try{sessionStorage.setItem(NOTICE_KEY,key)}catch{}n.classList.add('is-closing');setTimeout(()=>n.remove(),220)};
+  n.querySelector('[data-close]')?.addEventListener('click',dismiss);
+  n.querySelector('[data-open]')?.addEventListener('click',()=>{dismiss();location.hash='admin-contributors'});
+  document.body.appendChild(n);requestAnimationFrame(()=>n.classList.add('is-visible'));
+}
 function apply(){applyAccountDot();applyMenu();applyCards();if(updates.length)showNotice()}
 function clear(){updates=[];document.documentElement.removeAttribute('data-litlab-admin-workspace-update');document.querySelectorAll('[data-admin-workspace-menu-badge],[data-admin-workspace-update-badge]').forEach(el=>el.remove())}
 
