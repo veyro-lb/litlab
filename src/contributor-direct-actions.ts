@@ -7,7 +7,7 @@ const RETRY_MS=120;
 const MAX_ATTEMPTS=65;
 
 type StoredSession={access_token?:string};
-type IntentKind='user-chat'|'user-workspace'|'admin-chat'|'admin-application'|'admin-workspace';
+type IntentKind='user-chat'|'user-workspace'|'user-history'|'admin-chat'|'admin-application'|'admin-workspace';
 type Intent={kind:IntentKind;applicationId:string;title?:string;createdAt:number};
 type UserUnread={application_id:string;topics?:string;created_at?:string};
 type AdminUnread={application_id:string;full_name?:string;topics?:string;created_at:string};
@@ -52,6 +52,7 @@ function dismissNotice(button:HTMLButtonElement){
   notice.classList.add('is-closing');
   window.setTimeout(()=>notice.remove(),220);
 }
+function noticeApplicationId(button:Element){return button.closest<HTMLElement>('#ll-contributor-status-notice,#ll-user-workspace-update-notice,#ll-admin-contributor-update-notice,#ll-admin-workspace-update-notice')?.dataset.applicationId||''}
 
 function perform(intent:Intent){
   if(route()!==desiredRoute(intent))return false;
@@ -62,11 +63,19 @@ function perform(intent:Intent){
     button.click();
     return true;
   }
+  if(intent.kind==='user-history'){
+    const details=document.querySelector<HTMLDetailsElement>(`[data-history-contribution="${id}"]`);
+    if(!details){window.dispatchEvent(new CustomEvent('litlab:open-contribution-detail',{detail:{applicationId:intent.applicationId,source:'notification'}}));return false}
+    if(!details.open)details.open=true;
+    window.dispatchEvent(new CustomEvent('litlab:open-contribution-detail',{detail:{applicationId:intent.applicationId,source:'notification'}}));
+    scrollTo(details);
+    return true;
+  }
   if(intent.kind==='user-workspace'){
-    const archive=document.querySelector<HTMLElement>(`[data-contributor-completion-archive][data-application-id="${id}"]`);
-    if(archive){scrollTo(archive);return true}
     const tab=document.querySelector<HTMLButtonElement>(`[data-workspace-select="${id}"]`);
     if(tab){tab.click();const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');if(root)scrollTo(root);return true}
+    const archive=document.querySelector<HTMLElement>(`[data-contributor-completion-archive][data-application-id="${id}"]`);
+    if(archive){scrollTo(archive);return true}
     const proof=document.querySelector<HTMLElement>(`[data-chat-open][data-chat-mode="user"][data-application-id="${id}"]`);
     const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
     if(proof&&root){scrollTo(root);return true}
@@ -117,6 +126,9 @@ async function resolveClick(button:HTMLButtonElement,kind:'user-notice'|'user-en
   try{
     if(kind==='user-notice'){
       const notice=button.closest<HTMLElement>('#ll-contributor-status-notice');
+      const exactId=noticeApplicationId(button);
+      const noticeKind=notice?.dataset.noticeKind||'';
+      if(exactId){openIntent({kind:noticeKind==='chat'?'user-chat':'user-workspace',applicationId:exactId,title:notice?.dataset.title||'Contributor update'});return}
       if(notice?.classList.contains('status-chat')){
         const item=await newestUserChat();if(item){openIntent({kind:'user-chat',applicationId:item.application_id,title:item.topics||'Contributor conversation'});return}
       }
@@ -130,14 +142,24 @@ async function resolveClick(button:HTMLButtonElement,kind:'user-notice'|'user-en
       location.hash='contribute';return;
     }
     if(kind==='user-workspace'){
-      const item=await newestUserWorkspaceUpdate();if(item){openIntent({kind:'user-workspace',applicationId:item.application_id,title:item.topics||item.label||'Contributor workspace'});return}
+      const notice=button.closest<HTMLElement>('#ll-user-workspace-update-notice');
+      const exactId=noticeApplicationId(button);
+      const updateKind=notice?.dataset.updateKind||'';
+      if(exactId){openIntent({kind:updateKind==='certificate'?'user-history':'user-workspace',applicationId:exactId,title:notice?.dataset.title||'Contributor update'});return}
+      const item=await newestUserWorkspaceUpdate();if(item){openIntent({kind:item.kind==='certificate'?'user-history':'user-workspace',applicationId:item.application_id,title:item.topics||item.label||'Contributor workspace'});return}
       location.hash='contribute';return;
     }
     if(kind==='admin-workspace'){
+      const notice=button.closest<HTMLElement>('#ll-admin-workspace-update-notice');
+      const exactId=noticeApplicationId(button);
+      if(exactId){openIntent({kind:'admin-workspace',applicationId:exactId,title:notice?.dataset.title||'Contributor workspace'});return}
       const item=await newestAdminWorkspaceUpdate();if(item){openIntent({kind:'admin-workspace',applicationId:item.application_id,title:item.full_name||item.topics||'Contributor workspace'});return}
       location.hash='admin-contributors';return;
     }
     const notice=button.closest<HTMLElement>('#ll-admin-contributor-update-notice');
+    const exactId=noticeApplicationId(button);
+    const updateKind=notice?.dataset.updateKind||'';
+    if(exactId){openIntent({kind:updateKind==='message'?'admin-chat':'admin-application',applicationId:exactId,title:notice?.dataset.title||'Contributor update'});return}
     const isMessage=Boolean(notice?.textContent?.toLowerCase().includes('message'));
     if(isMessage){const item=await newestAdminChat();if(item){openIntent({kind:'admin-chat',applicationId:item.application_id,title:`${item.full_name||'Contributor'} — ${item.topics||'Contributor conversation'}`});return}}
     const app=await newestAdminApp();if(app){openIntent({kind:'admin-application',applicationId:app.id,title:app.full_name||app.topics||'Contributor application'});return}
