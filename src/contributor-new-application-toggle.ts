@@ -7,6 +7,7 @@ const REQUEST_TIMEOUT_MS=12_000;
 
 type StoredSession={access_token?:string};
 type Application={id:string;status?:string;applicant_type?:string};
+type JwtPayload={email?:string;user_metadata?:{full_name?:string;name?:string}};
 
 let loading=false;
 let expanded=false;
@@ -14,9 +15,17 @@ let scanTimer=0;
 let scanAttempts=0;
 let lastCheck=0;
 let hasExisting=false;
+let freshFormHTML='';
 
 function token(){
   try{return (JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||''}catch{return ''}
+}
+function payload():JwtPayload|null{
+  try{
+    const part=token().split('.')[1];if(!part)return null;
+    const normalized=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');
+    return JSON.parse(atob(normalized)) as JwtPayload;
+  }catch{return null}
 }
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
@@ -38,12 +47,33 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
 }
 
 function applySection(){return document.querySelector<HTMLElement>('#contribute-apply')}
+function applicationForm(){return document.querySelector<HTMLFormElement>('#ll-contributor-form')}
 function control(){return document.querySelector<HTMLElement>('[data-new-contribution-control]')}
-
 function removeControl(){control()?.remove()}
+
+function captureFreshForm(){
+  const form=applicationForm();
+  if(!form||form.querySelector('.ll-contrib-thanks')||freshFormHTML)return;
+  freshFormHTML=form.innerHTML;
+}
+function restoreFreshFormIfNeeded(){
+  const form=applicationForm();
+  if(!form||!form.querySelector('.ll-contrib-thanks')||!freshFormHTML)return;
+  form.innerHTML=freshFormHTML;
+  const account=payload();
+  const email=form.querySelector<HTMLInputElement>('input[name="email"]');
+  const name=form.querySelector<HTMLInputElement>('input[name="full_name"]');
+  if(email&&account?.email){email.value=account.email;email.readOnly=true}
+  const fullName=account?.user_metadata?.full_name||account?.user_metadata?.name||'';
+  if(name&&fullName)name.value=fullName;
+  form.dataset.accountState='signed-in';
+  form.dispatchEvent(new Event('change',{bubbles:true}));
+}
+
 function setApplyVisible(visible:boolean,scroll=false){
   const apply=applySection();
   if(!apply)return;
+  if(visible)restoreFreshFormIfNeeded();
   expanded=visible;
   apply.hidden=!visible;
   apply.setAttribute('aria-hidden',visible?'false':'true');
@@ -93,13 +123,14 @@ function applyState(){
 
 async function refresh(force=false){
   if(route()!=='contribute')return;
+  captureFreshForm();
   if(!token()){hasExisting=false;applyState();return}
   if(loading)return;
   if(!force&&Date.now()-lastCheck<15_000){applyState();return}
   loading=true;
   try{
     const isAdmin=Boolean(await rpc<boolean>('is_litlab_admin'));
-    if(isAdmin){hasExisting=false;removeControl();return}
+    if(isAdmin){hasExisting=false;expanded=false;removeControl();applyState();return}
     const apps=await rpc<Application[]>('get_my_litlab_contributor_applications');
     hasExisting=Array.isArray(apps)&&apps.length>0;
     lastCheck=Date.now();
@@ -119,7 +150,7 @@ function scan(){
   if(route()!=='contribute')return;
   if(applySection()){
     scanAttempts=0;
-    void refresh(true);
+    window.setTimeout(()=>{captureFreshForm();void refresh(true)},180);
     return;
   }
   if(scanAttempts++<25)scanTimer=window.setTimeout(scan,120);
@@ -128,6 +159,7 @@ function scan(){
 window.addEventListener('hashchange',()=>{
   expanded=false;
   lastCheck=0;
+  freshFormHTML='';
   removeControl();
   scanAttempts=0;
   window.setTimeout(scan,100);
@@ -136,7 +168,7 @@ window.addEventListener('focus',()=>{if(route()==='contribute')void refresh(fals
 window.addEventListener('online',()=>{if(route()==='contribute')void refresh(true)});
 window.addEventListener('storage',event=>{
   if(event.key!==SESSION_KEY)return;
-  expanded=false;hasExisting=false;lastCheck=0;removeControl();
+  expanded=false;hasExisting=false;lastCheck=0;freshFormHTML='';removeControl();
   window.setTimeout(scan,80);
 });
 window.addEventListener('litlab:contributor-submitted',()=>{
