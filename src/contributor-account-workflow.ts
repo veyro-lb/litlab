@@ -11,6 +11,9 @@ type ApplicantType='student'|'teacher';
 type StoredSession={access_token?:string};
 type JwtPayload={sub?:string;email?:string;user_metadata?:{full_name?:string;name?:string}};
 
+let scanTimer=0;
+let scanAttempts=0;
+
 function session():StoredSession|null{try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null}catch{return null}}
 function accessToken(){return session()?.access_token||''}
 function decodePayload():JwtPayload|null{
@@ -26,6 +29,7 @@ function accountEmail(){return decodePayload()?.email||''}
 function accountName(){const meta=decodePayload()?.user_metadata;return meta?.full_name||meta?.name||''}
 function signedIn(){return Boolean(accessToken()&&userId())}
 function esc(value:string){return value.replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
+function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 
 function signInToApply(){
   sessionStorage.setItem(RETURN_KEY,'#contribute');
@@ -166,13 +170,21 @@ async function submitAccountApplication(form:HTMLFormElement){
 }
 
 function wireForm(form:HTMLFormElement){
-  if(form.dataset.accountWorkflow==='true')return;
-  form.dataset.accountWorkflow='true';
+  const state=signedIn()?'signed-in':'signed-out';
   addRelationshipFields(form);
   syncRelationshipRules(form);
 
+  if(form.dataset.accountListeners!=='true'){
+    form.dataset.accountListeners='true';
+    form.addEventListener('change',()=>syncRelationshipRules(form));
+  }
+
+  if(form.dataset.accountState===state)return;
+  form.dataset.accountState=state;
+
   if(!signedIn()){
     form.hidden=true;
+    document.querySelector('[data-contributor-account-state]')?.remove();
     if(!form.previousElementSibling?.matches('[data-contributor-account-gate]'))form.before(accountGate());
     return;
   }
@@ -181,10 +193,18 @@ function wireForm(form:HTMLFormElement){
   document.querySelector('[data-contributor-account-gate]')?.remove();
   addSignedInBanner(form);
   prefillAccount(form);
-  form.addEventListener('change',()=>syncRelationshipRules(form));
 }
 
-function scan(){document.querySelectorAll<HTMLFormElement>('#ll-contributor-form').forEach(wireForm)}
+function clearScanTimer(){window.clearTimeout(scanTimer);scanTimer=0}
+function scan(){
+  clearScanTimer();
+  if(route()!=='contribute')return;
+  const form=document.querySelector<HTMLFormElement>('#ll-contributor-form');
+  if(form){scanAttempts=0;wireForm(form);return}
+  if(scanAttempts>=20)return;
+  scanAttempts+=1;
+  scanTimer=window.setTimeout(scan,100);
+}
 
 // Own contributor submission flow. Stop the legacy anonymous handler before it can run.
 document.addEventListener('submit',event=>{
@@ -196,6 +216,9 @@ document.addEventListener('submit',event=>{
   void submitAccountApplication(form);
 },true);
 
-new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
-window.addEventListener('hashchange',()=>requestAnimationFrame(scan));
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan,{once:true});else scan();
+window.addEventListener('hashchange',()=>{scanAttempts=0;requestAnimationFrame(scan)});
+window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){scanAttempts=0;requestAnimationFrame(scan)}});
+window.addEventListener('focus',()=>{if(route()==='contribute'){scanAttempts=0;requestAnimationFrame(scan)}});
+
+function start(){scanAttempts=0;scan()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
