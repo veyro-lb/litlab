@@ -35,8 +35,10 @@ function prepareHorizontalLogo(svg:string){
       .litlab-live-bulb{
         transform-box:view-box;
         transform-origin:938px 133px;
-        animation:litlabLiveBulbPulse 6.4s cubic-bezier(.4,0,.2,1) infinite,litlabLiveBulbFlicker 5.8s linear infinite;
+        animation:litlabLiveBulbPulse 6.4s cubic-bezier(.4,0,.2,1) infinite;
       }
+      .litlab-live-glass{animation:litlabLiveBulbGlass 5.8s linear infinite}
+      .litlab-live-filament,.litlab-live-neck{animation:litlabLiveBulbFilament 5.8s linear infinite}
       .litlab-live-glow{
         transform-box:fill-box;
         transform-origin:center;
@@ -49,68 +51,88 @@ function prepareHorizontalLogo(svg:string){
         58%{transform:scale(1.016)}
         72%{transform:scale(1.006)}
       }
-      @keyframes litlabLiveBulbFlicker{
-        0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{opacity:1}
-        17.2%{opacity:.2}
-        17.55%{opacity:.035}
-        17.9%{opacity:.9}
-        18.2%{opacity:.12}
-        18.5%{opacity:1}
-        19%{opacity:.055}
-        19.32%{opacity:1}
-        53.4%{opacity:.32}
-        53.72%{opacity:.045}
-        54.04%{opacity:.92}
-        54.32%{opacity:.1}
-        54.65%{opacity:1}
-        79.38%{opacity:.24}
-        79.7%{opacity:.025}
-        80.02%{opacity:.84}
-        80.3%{opacity:.075}
-        80.62%{opacity:1}
+      @keyframes litlabLiveBulbGlass{
+        0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{fill:#fff8ca;stroke:#f1bf2d}
+        17.2%{fill:#f1f2f4;stroke:#b8bdc6}
+        17.55%{fill:#e3e5e8;stroke:#969da8}
+        17.9%{fill:#fff4b8;stroke:#e5b62d}
+        18.2%{fill:#eceef1;stroke:#a7adb7}
+        18.5%{fill:#fff8ca;stroke:#f1bf2d}
+        19%{fill:#e1e3e7;stroke:#9299a4}
+        19.32%{fill:#fff8ca;stroke:#f1bf2d}
+        53.4%{fill:#f3f4f5;stroke:#c0c4cb}
+        53.72%{fill:#e2e4e7;stroke:#949ba6}
+        54.04%{fill:#fff3b0;stroke:#ddb02b}
+        54.32%{fill:#e8eaed;stroke:#a1a7b1}
+        54.65%{fill:#fff8ca;stroke:#f1bf2d}
+        79.38%{fill:#f0f1f3;stroke:#b4bac3}
+        79.7%{fill:#dfe2e6;stroke:#8f97a2}
+        80.02%{fill:#fff0aa;stroke:#d8aa27}
+        80.3%{fill:#e7e9ec;stroke:#9ca3ad}
+        80.62%{fill:#fff8ca;stroke:#f1bf2d}
+      }
+      @keyframes litlabLiveBulbFilament{
+        0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{stroke:#dfa719}
+        17.2%{stroke:#a6abb3}
+        17.55%{stroke:#858c96}
+        17.9%{stroke:#c8971a}
+        18.2%{stroke:#969da7}
+        18.5%{stroke:#dfa719}
+        19%{stroke:#818892}
+        19.32%{stroke:#dfa719}
+        53.4%{stroke:#aeb3ba}
+        53.72%{stroke:#858c96}
+        54.04%{stroke:#c4941a}
+        54.32%{stroke:#9299a3}
+        54.65%{stroke:#dfa719}
+        79.38%{stroke:#a3a9b1}
+        79.7%{stroke:#808791}
+        80.02%{stroke:#bd8d17}
+        80.3%{stroke:#8f969f}
+        80.62%{stroke:#dfa719}
       }
       @keyframes litlabLiveBulbGlow{
         0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{opacity:.16;transform:scale(1.02)}
-        17.2%{opacity:.035;transform:scale(.95)}
-        17.55%{opacity:.004;transform:scale(.9)}
-        17.9%{opacity:.13;transform:scale(1)}
-        18.2%{opacity:.018;transform:scale(.92)}
+        17.2%{opacity:.025;transform:scale(.95)}
+        17.55%{opacity:0;transform:scale(.9)}
+        17.9%{opacity:.11;transform:scale(1)}
+        18.2%{opacity:.01;transform:scale(.92)}
         18.5%{opacity:.19;transform:scale(1.04)}
-        19%{opacity:.006;transform:scale(.9)}
+        19%{opacity:0;transform:scale(.9)}
         19.32%{opacity:.17;transform:scale(1.03)}
-        53.4%{opacity:.05;transform:scale(.96)}
-        53.72%{opacity:.005;transform:scale(.9)}
-        54.04%{opacity:.14;transform:scale(1)}
-        54.32%{opacity:.014;transform:scale(.92)}
+        53.4%{opacity:.035;transform:scale(.96)}
+        53.72%{opacity:0;transform:scale(.9)}
+        54.04%{opacity:.12;transform:scale(1)}
+        54.32%{opacity:.008;transform:scale(.92)}
         54.65%{opacity:.2;transform:scale(1.05)}
-        79.38%{opacity:.04;transform:scale(.95)}
-        79.7%{opacity:.004;transform:scale(.9)}
-        80.02%{opacity:.12;transform:scale(.99)}
-        80.3%{opacity:.01;transform:scale(.91)}
+        79.38%{opacity:.03;transform:scale(.95)}
+        79.7%{opacity:0;transform:scale(.9)}
+        80.02%{opacity:.1;transform:scale(.99)}
+        80.3%{opacity:.006;transform:scale(.91)}
         80.62%{opacity:.18;transform:scale(1.04)}
       }
       @keyframes litlabLiveBulbRays{
         0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{opacity:.95}
-        17.2%{opacity:.16}
-        17.55%{opacity:.015}
-        17.9%{opacity:.78}
-        18.2%{opacity:.08}
+        17.2%{opacity:.12}
+        17.55%{opacity:0}
+        17.9%{opacity:.72}
+        18.2%{opacity:.05}
         18.5%{opacity:1}
-        19%{opacity:.02}
+        19%{opacity:0}
         19.32%{opacity:1}
-        53.4%{opacity:.24}
-        53.72%{opacity:.015}
-        54.04%{opacity:.8}
-        54.32%{opacity:.07}
+        53.4%{opacity:.18}
+        53.72%{opacity:0}
+        54.04%{opacity:.74}
+        54.32%{opacity:.04}
         54.65%{opacity:1}
-        79.38%{opacity:.18}
-        79.7%{opacity:.012}
-        80.02%{opacity:.74}
-        80.3%{opacity:.05}
+        79.38%{opacity:.14}
+        79.7%{opacity:0}
+        80.02%{opacity:.68}
+        80.3%{opacity:.03}
         80.62%{opacity:1}
       }
       @media(prefers-reduced-motion:reduce){
-        .litlab-live-bulb,.litlab-live-glow,.litlab-live-rays{animation:none!important}
+        .litlab-live-bulb,.litlab-live-glass,.litlab-live-filament,.litlab-live-neck,.litlab-live-glow,.litlab-live-rays{animation:none!important}
       }
     `;
     root.appendChild(style);
@@ -125,9 +147,9 @@ function prepareHorizontalLogo(svg:string){
         <path d="M890 42l-15-15"/>
         <path d="M986 42l15-15"/>
       </g>
-      <path d="M938 31c-31 0-52 22-52 51 0 19 10 34 25 44 6 4 9 10 9 16h36c0-6 3-12 9-16 15-10 25-25 25-44 0-29-21-51-52-51Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="8.4" stroke-linejoin="round"/>
-      <path d="M919 76l19 19 19-19M938 95v34" fill="none" stroke="#dfa719" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M938 120v13" fill="none" stroke="#dfa719" stroke-width="12" stroke-linecap="round"/>
+      <path class="litlab-live-glass" d="M938 31c-31 0-52 22-52 51 0 19 10 34 25 44 6 4 9 10 9 16h36c0-6 3-12 9-16 15-10 25-25 25-44 0-29-21-51-52-51Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="8.4" stroke-linejoin="round"/>
+      <path class="litlab-live-filament" d="M919 76l19 19 19-19M938 95v34" fill="none" stroke="#dfa719" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="litlab-live-neck" d="M938 120v13" fill="none" stroke="#dfa719" stroke-width="12" stroke-linecap="round"/>
     `;
     root.appendChild(bulb);
 
@@ -252,7 +274,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=23',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=24',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
