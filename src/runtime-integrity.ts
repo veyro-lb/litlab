@@ -22,19 +22,21 @@ function activeMain(){
   return document.querySelector<HTMLElement>('main[data-litlab-special-route-host]')||document.querySelector<HTMLElement>('#root main#main');
 }
 
-// LitLab uses the URL hash as its router. A normal href="#main" therefore looks like a route
-// change to React. Keep the accessibility skip link, but focus/scroll the active main surface
-// without mutating the route.
+// LitLab uses the URL hash as its router. Same-page anchors must scroll/focus without
+// mutating the route, otherwise a valid section id can accidentally become a fake page.
 document.addEventListener('click',event=>{
-  const skip=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.skip[href="#main"]'):null;
-  if(!skip)return;
+  const anchor=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('a[href^="#"]'):null;
+  if(!anchor)return;
+  const href=anchor.getAttribute('href')||'';
+  if(href.length<2)return;
+  const id=decodeURIComponent(href.slice(1));
+  const target=document.getElementById(id);
+  if(!target)return;
   event.preventDefault();
   event.stopPropagation();
-  const main=activeMain();
-  if(!main)return;
-  if(!main.hasAttribute('tabindex'))main.setAttribute('tabindex','-1');
-  main.focus({preventScroll:true});
-  main.scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'});
+  if(id==='main'&&!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');
+  if(id==='main')target.focus({preventScroll:true});
+  target.scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'});
 },true);
 
 // Stop the IO practice clock before its route DOM disappears. Without this, every abandoned
