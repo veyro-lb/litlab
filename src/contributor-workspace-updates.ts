@@ -18,7 +18,7 @@ let developerAccess:boolean|null=null;
 
 function token(){try{return (JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||''}catch{return ''}}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{if(!navigator.onLine)throw new Error('offline');const c=new AbortController();const t=setTimeout(()=>c.abort(),REQUEST_TIMEOUT_MS);try{const r=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},body:JSON.stringify(body),signal:c.signal});if(!r.ok)throw new Error(`${name} failed (${r.status})`);const text=await r.text();return (text?JSON.parse(text):null) as T}finally{clearTimeout(t)}}
 function latest(){return updates.slice().sort((a,b)=>Date.parse(b.created_at)-Date.parse(a.created_at))[0]||null}
 function title(item:Update){if(item.kind==='brief')return 'LitLab updated your project brief';if(item.kind==='task')return 'You have a new task or task update';if(item.kind==='revision')return 'LitLab updated a revision request';if(item.kind==='certificate')return 'Your LitLab Contributor Certificate is ready';return 'You have a new teacher review assignment'}
@@ -34,7 +34,6 @@ function focusContribution(item:Update){
 }
 function showNotice(){
   const item=latest();if(!item)return;
-  // Keep the unread state, but do not stack this card over the status/live-chat card.
   if(document.getElementById('ll-contributor-status-notice'))return;
   const key=`${item.kind}:${item.update_id}:${item.created_at}`;
   try{if(sessionStorage.getItem(NOTICE_KEY)===key)return}catch{}
