@@ -6,25 +6,8 @@
 .maker-core .litlab-brand-icon{width:92px!important}
 .brand-btn{display:flex;align-items:center;min-width:max-content}
 
-/* In dark mode every LitLab brand asset is rendered fully white so no dark ink remains. */
-html[data-theme=dark] img[src*="litlab-logo.svg"],
-html[data-theme=dark] img[src*="litlab-mark.svg"],
-html[data-theme=dark] img[src*="litlab-stacked.svg"],
-html[data-theme=dark] .litlab-brand-horizontal,
-html[data-theme=dark] .litlab-brand-icon,
-html[data-theme=dark] .litlab-auth-brand-image,
-html[data-theme=dark] .litlab-auth-mini-brand,
-html[data-theme=dark] .litlab-account-center-loading-logo,
-html[data-theme=dark] .litlab-account-center-avatar-logo{
-  filter:brightness(0) invert(1)!important;
-}
-
-/* Keep the original inline fallback mark/wordmark white during initial render too. */
-html[data-theme=dark] .logo>span,
-html[data-theme=dark] .logo>span>span{color:#fff!important}
-html[data-theme=dark] .logo-page,
-html[data-theme=dark] .logo-flask{stroke:#fff!important}
-html[data-theme=dark] .logo-spark{fill:#fff!important}
+/* Dark mode swaps only the logo's dark ink to white in brand-mark.ts.
+   Purple brand color stays untouched. */
 
 @media(max-width:1100px){
   .litlab-brand-horizontal{width:142px!important;max-height:43px}
