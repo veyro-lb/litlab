@@ -50,6 +50,11 @@ function applySection(){return document.querySelector<HTMLElement>('#contribute-
 function applicationForm(){return document.querySelector<HTMLFormElement>('#ll-contributor-form')}
 function control(){return document.querySelector<HTMLElement>('[data-new-contribution-control]')}
 function removeControl(){control()?.remove()}
+function existingFromLoadedWorkspace(){
+  const workspace=document.querySelector<HTMLElement>('[data-contributor-workspace]');
+  if(!workspace)return false;
+  return Boolean(workspace.querySelector('.ll-workspace-status,.ll-workspace-tabs,.ll-teacher-zone,.ll-recognition'));
+}
 
 function captureFreshForm(){
   const form=applicationForm();
@@ -69,11 +74,18 @@ function restoreFreshFormIfNeeded(){
   form.dataset.accountState='signed-in';
   form.dispatchEvent(new Event('change',{bubbles:true}));
 }
+function selectRole(role:string){
+  const form=applicationForm();if(!form||!['student','teacher'].includes(role))return;
+  const input=form.querySelector<HTMLInputElement>(`input[name="applicant_type"][value="${role}"]`);
+  if(!input)return;
+  input.checked=true;
+  input.dispatchEvent(new Event('change',{bubbles:true}));
+}
 
-function setApplyVisible(visible:boolean,scroll=false){
+function setApplyVisible(visible:boolean,scroll=false,role=''){
   const apply=applySection();
   if(!apply)return;
-  if(visible)restoreFreshFormIfNeeded();
+  if(visible){restoreFreshFormIfNeeded();if(role)selectRole(role)}
   expanded=visible;
   apply.hidden=!visible;
   apply.setAttribute('aria-hidden',visible?'false':'true');
@@ -81,7 +93,9 @@ function setApplyVisible(visible:boolean,scroll=false){
   const button=control()?.querySelector<HTMLButtonElement>('[data-new-contribution-toggle]');
   if(button){
     button.setAttribute('aria-expanded',visible?'true':'false');
-    button.innerHTML=visible?'<span>×</span><div><b>Close new contribution form</b><small>Your existing contributions stay saved.</small></div>':'<span>＋</span><div><b>Make a new contribution</b><small>Start another student contribution or teacher reviewer application.</small></div><i>Open form →</i>';
+    button.innerHTML=visible
+      ?'<span>×</span><div><b>Close new contribution form</b><small>Your existing contributions stay saved.</small></div>'
+      :'<span>＋</span><div><b>Make a new contribution</b><small>Open a fresh student contribution or teacher reviewer application.</small></div><i>Open form →</i>';
   }
   if(visible&&scroll)window.setTimeout(()=>apply.scrollIntoView({behavior:'smooth',block:'start'}),60);
 }
@@ -94,11 +108,12 @@ function ensureControl(){
     box=document.createElement('aside');
     box.className='ll-new-contribution-control';
     box.dataset.newContributionControl='true';
-    box.innerHTML='<button type="button" data-new-contribution-toggle aria-expanded="false"><span>＋</span><div><b>Make a new contribution</b><small>Start another student contribution or teacher reviewer application.</small></div><i>Open form →</i></button>';
-    const workspace=document.querySelector<HTMLElement>('[data-contributor-workspace]');
-    const history=document.querySelector<HTMLElement>('[data-my-contributions]');
-    if(workspace)workspace.before(box);
-    else if(history?.parentElement)history.insertAdjacentElement('afterend',box);
+    box.setAttribute('aria-label','New contributor application');
+    box.innerHTML='<button type="button" data-new-contribution-toggle aria-expanded="false"><span>＋</span><div><b>Make a new contribution</b><small>Open a fresh student contribution or teacher reviewer application.</small></div><i>Open form →</i></button>';
+    const topbar=document.querySelector<HTMLElement>('.ll-contrib-topbar');
+    const hero=document.querySelector<HTMLElement>('.ll-contrib-hero');
+    if(topbar)topbar.insertAdjacentElement('afterend',box);
+    else if(hero)hero.insertAdjacentElement('beforebegin',box);
     else apply.before(box);
     box.querySelector('[data-new-contribution-toggle]')?.addEventListener('click',()=>setApplyVisible(!expanded,!expanded));
   }
@@ -121,26 +136,43 @@ function applyState(){
   setApplyVisible(expanded,false);
 }
 
+async function resolveExisting(){
+  if(existingFromLoadedWorkspace())return true;
+  try{
+    const rows=await rpc<Application[]>('get_my_litlab_contributor_workspace');
+    if(Array.isArray(rows)&&rows.length>0)return true;
+  }catch{}
+  try{
+    const rows=await rpc<Application[]>('get_my_litlab_contributor_applications');
+    return Array.isArray(rows)&&rows.length>0;
+  }catch{return existingFromLoadedWorkspace()}
+}
+
 async function refresh(force=false){
   if(route()!=='contribute')return;
   captureFreshForm();
   if(!token()){hasExisting=false;applyState();return}
   if(loading)return;
-  if(!force&&Date.now()-lastCheck<15_000){applyState();return}
+  if(!force&&Date.now()-lastCheck<12_000){
+    if(existingFromLoadedWorkspace())hasExisting=true;
+    applyState();return;
+  }
   loading=true;
   try{
     const isAdmin=Boolean(await rpc<boolean>('is_litlab_admin'));
     if(isAdmin){hasExisting=false;expanded=false;removeControl();applyState();return}
-    const apps=await rpc<Application[]>('get_my_litlab_contributor_applications');
-    hasExisting=Array.isArray(apps)&&apps.length>0;
+    hasExisting=await resolveExisting();
     lastCheck=Date.now();
     if(!hasExisting)expanded=true;
     else if(!control())expanded=false;
     applyState();
   }catch(error){
     console.debug('New contribution toggle unavailable',error);
-    // Fail open: never hide the application form if account state cannot be verified.
-    hasExisting=false;
+    hasExisting=existingFromLoadedWorkspace();
+    if(!hasExisting){
+      // Fail open for first-time/unknown state: never make the application inaccessible.
+      expanded=true;
+    }
     applyState();
   }finally{loading=false}
 }
@@ -153,7 +185,7 @@ function scan(){
     window.setTimeout(()=>{captureFreshForm();void refresh(true)},180);
     return;
   }
-  if(scanAttempts++<25)scanTimer=window.setTimeout(scan,120);
+  if(scanAttempts++<30)scanTimer=window.setTimeout(scan,120);
 }
 
 window.addEventListener('hashchange',()=>{
@@ -174,17 +206,40 @@ window.addEventListener('storage',event=>{
 window.addEventListener('litlab:contributor-submitted',()=>{
   hasExisting=true;
   expanded=false;
-  lastCheck=0;
+  lastCheck=Date.now();
   window.setTimeout(()=>{applyState();void refresh(true)},350);
+});
+window.addEventListener('litlab:contributor-workspace-updated',()=>{
+  if(route()!=='contribute')return;
+  if(existingFromLoadedWorkspace())hasExisting=true;
+  window.setTimeout(()=>applyState(),100);
+});
+window.addEventListener('litlab:open-contributor-application',(event:Event)=>{
+  if(route()!=='contribute')return;
+  const detail=(event as CustomEvent<{role?:string}>).detail;
+  if(token()&&existingFromLoadedWorkspace())hasExisting=true;
+  setApplyVisible(true,true,detail?.role||'');
 });
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
-  if(!target)return;
-  if(target.closest('[data-workspace-go-apply]')&&hasExisting){
+  if(!target||route()!=='contribute')return;
+
+  const cas=target.closest<HTMLAnchorElement>('a[href="#contribute-cas"]');
+  if(cas){
     event.preventDefault();
     event.stopPropagation();
-    setApplyVisible(true,true);
+    document.querySelector('#contribute-cas')?.scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
+
+  const applyTrigger=target.closest<HTMLElement>('a[href="#contribute-apply"],[data-workspace-go-apply]');
+  if(applyTrigger){
+    event.preventDefault();
+    event.stopPropagation();
+    const role=applyTrigger.dataset.selectRole||'';
+    if(token()&&existingFromLoadedWorkspace())hasExisting=true;
+    setApplyVisible(true,true,role);
   }
 },true);
 
