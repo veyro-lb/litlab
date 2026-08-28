@@ -35,7 +35,7 @@ function prepareHorizontalLogo(svg:string){
       .litlab-live-bulb{
         transform-box:view-box;
         transform-origin:938px 133px;
-        animation:litlabLiveBulbPulse 5.8s cubic-bezier(.4,0,.2,1) infinite,litlabLiveBulbFlicker 7.2s ease-in-out infinite;
+        animation:litlabLiveBulbPulse 5.8s cubic-bezier(.4,0,.2,1) infinite,litlabLiveBulbFlicker 5.2s linear infinite;
       }
       .litlab-live-glow{
         transform-box:fill-box;
@@ -50,12 +50,22 @@ function prepareHorizontalLogo(svg:string){
         68%{transform:scale(1.008)}
       }
       @keyframes litlabLiveBulbFlicker{
-        0%,46%,50%,56%,72%,78%,100%{opacity:1}
-        48%{opacity:.92}
-        52%{opacity:.84}
-        54%{opacity:.96}
-        75%{opacity:.91}
-        77%{opacity:.98}
+        0%,9.8%,14.6%,46%,59.5%,65%,83%,100%{opacity:1}
+        10.5%{opacity:.56}
+        11.2%{opacity:.94}
+        12%{opacity:.34}
+        12.8%{opacity:.82}
+        13.5%{opacity:.48}
+        14.1%{opacity:1}
+        60.3%{opacity:.68}
+        61%{opacity:.38}
+        61.8%{opacity:.9}
+        62.5%{opacity:.5}
+        63.3%{opacity:1}
+        84.1%{opacity:.72}
+        84.8%{opacity:.44}
+        85.5%{opacity:.92}
+        86.2%{opacity:1}
       }
       @keyframes litlabLiveBulbGlow{
         0%,100%{opacity:.095;transform:scale(.97)}
@@ -214,7 +224,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=20',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=21',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
