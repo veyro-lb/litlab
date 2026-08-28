@@ -6,7 +6,6 @@
 .maker-core .litlab-brand-icon{width:92px!important}
 .brand-btn{display:flex;align-items:center;min-width:max-content}
 
-/* Soft grounding shadow under the entire floating logo. */
 .logo::after{
   content:'';
   position:absolute;
@@ -25,7 +24,6 @@
   animation:litlabLogoShadow 4.8s ease-in-out infinite;
 }
 
-/* Full-logo-only decorative layer: compact bulb integrated into the i-dot + star above the final b. */
 .litlab-logo-decorations{
   position:absolute;
   inset:0;
@@ -36,44 +34,45 @@
   will-change:transform;
 }
 
+/* Small compact bulb. Its bottom circle sits exactly where the i-dot belongs and reads as the bulb base. */
 .litlab-bulb-overlay{
   position:absolute;
   left:51.15%;
-  top:26.4%;
-  width:5.2%;
-  min-width:8px;
+  top:24.7%;
+  width:3.9%;
+  min-width:6px;
   height:auto;
   overflow:visible;
   transform:translate(-50%,-50%);
-  filter:drop-shadow(0 0 2px rgba(255,205,55,.24));
+  filter:drop-shadow(0 0 1.5px rgba(255,205,55,.22));
   animation:litlabBulbFlicker 4.2s linear infinite;
 }
 
 .litlab-bulb-halo{
   fill:#ffd84d;
-  opacity:.1;
-  transform-origin:24px 21px;
+  opacity:.08;
+  transform-origin:22px 16px;
   animation:litlabBulbHalo 4.2s ease-in-out infinite;
 }
 
 .litlab-bulb-rays{
   stroke:#f4c53e;
-  stroke-width:2.5;
-  opacity:.86;
+  stroke-width:2.1;
+  opacity:.84;
   animation:litlabBulbRays 4.2s linear infinite;
 }
 
 .litlab-bulb-glass{
   fill:#fff8ca;
   stroke:#f1bf2d;
-  stroke-width:2.4;
+  stroke-width:2.2;
   stroke-linejoin:round;
 }
 
 .litlab-bulb-filament{
   fill:none;
   stroke:#dca51d;
-  stroke-width:1.8;
+  stroke-width:1.6;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
@@ -81,23 +80,22 @@
 .litlab-bulb-base{
   fill:none;
   stroke:#dca51d;
-  stroke-width:2;
+  stroke-width:1.8;
   stroke-linecap:round;
-  stroke-linejoin:round;
 }
 
-/* The tiny circular foot visually replaces the old i-dot and acts as the bulb's base. */
 .litlab-bulb-base circle{
   fill:#f2bf2f;
   stroke:none;
 }
 
+/* Slightly larger star above the final b in Lab. */
 .litlab-floating-star{
   position:absolute;
-  left:94.1%;
-  top:8.5%;
-  width:3.7%;
-  min-width:6px;
+  left:94.3%;
+  top:5.8%;
+  width:5.1%;
+  min-width:8px;
   aspect-ratio:1;
   background:linear-gradient(135deg,#ffe36b,#f6bf2f);
   clip-path:polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%);
@@ -109,13 +107,13 @@
 .litlab-floating-star::after{
   content:'';
   position:absolute;
-  width:28%;
+  width:24%;
   aspect-ratio:1;
-  left:-42%;
-  bottom:-12%;
+  left:-35%;
+  bottom:-8%;
   background:#ffd84d;
   clip-path:polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%);
-  opacity:.46;
+  opacity:.42;
   animation:litlabMiniStar 3.4s ease-in-out infinite;
 }
 
@@ -132,36 +130,33 @@ html[data-theme=dark] .logo::after{background:rgba(0,0,0,.45);opacity:.34}
 }
 
 @keyframes litlabBulbFlicker{
-  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1;filter:drop-shadow(0 0 2px rgba(255,205,55,.26))}
-  14.5%,15.8%,64%,65.6%{opacity:.48;filter:drop-shadow(0 0 1px rgba(255,205,55,.1))}
+  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1;filter:drop-shadow(0 0 1.5px rgba(255,205,55,.24))}
+  14.5%,15.8%,64%,65.6%{opacity:.5;filter:drop-shadow(0 0 .5px rgba(255,205,55,.1))}
   15.1%,16.5%,64.7%,66.3%{opacity:.84}
-  36%,50%,84%{opacity:1;filter:drop-shadow(0 0 4px rgba(255,205,55,.42))}
+  36%,50%,84%{opacity:1;filter:drop-shadow(0 0 3px rgba(255,205,55,.38))}
 }
 
 @keyframes litlabBulbHalo{
-  0%,100%{opacity:.08;transform:scale(.94)}
-  36%,50%,84%{opacity:.18;transform:scale(1.08)}
-  14.5%,15.8%,64%,65.6%{opacity:.02;transform:scale(.88)}
+  0%,100%{opacity:.07;transform:scale(.96)}
+  36%,50%,84%{opacity:.15;transform:scale(1.06)}
+  14.5%,15.8%,64%,65.6%{opacity:.02;transform:scale(.9)}
 }
 
 @keyframes litlabBulbRays{
-  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.82}
+  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.8}
   14.5%,15.8%,64%,65.6%{opacity:.12}
   36%,50%,84%{opacity:1}
 }
 
 @keyframes litlabStarFloat{
-  0%,100%{opacity:.82;transform:translateY(0) rotate(0deg) scale(.95)}
-  50%{opacity:1;transform:translateY(-3px) rotate(6deg) scale(1.06)}
+  0%,100%{opacity:.84;transform:translateY(0) rotate(0deg) scale(.96)}
+  50%{opacity:1;transform:translateY(-3px) rotate(6deg) scale(1.08)}
 }
 
 @keyframes litlabMiniStar{
-  0%,100%{opacity:.2;transform:scale(.74)}
-  50%{opacity:.58;transform:scale(1.04)}
+  0%,100%{opacity:.18;transform:scale(.76)}
+  50%{opacity:.54;transform:scale(1.04)}
 }
-
-/* Dark mode swaps only the logo's dark ink to white in brand-mark.ts.
-   Purple and the yellow decorative elements stay untouched. */
 
 @media(prefers-reduced-motion:reduce){
   .logo img,.logo::after,.litlab-logo-decorations,.litlab-bulb-overlay,.litlab-bulb-halo,.litlab-bulb-rays,.litlab-floating-star,.litlab-floating-star::after{animation:none!important;will-change:auto}
