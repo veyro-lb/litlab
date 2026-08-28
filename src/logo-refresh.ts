@@ -25,6 +25,12 @@ function refreshLogos(){
     logo.replaceChildren(createLitLabLogo('litlab-brand-horizontal',true),createFullLogoDecorations());
     logo.removeAttribute('aria-label');
   });
+
+  document.querySelectorAll<HTMLElement>('.ll-contrib-mark').forEach(mark=>{
+    if(mark.dataset.litlabLogoVariant==='contributor-mark-v1')return;
+    mark.dataset.litlabLogoVariant='contributor-mark-v1';
+    mark.replaceChildren(createLitLabMark('litlab-contributor-brand-icon'));
+  });
 }
 
 function start(){
