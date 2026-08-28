@@ -2,6 +2,7 @@ const USER_REFRESH_DELAY=180;
 const FORM_REFRESH_DELAY=900;
 let userTimer=0;
 let adminTimer=0;
+const historyFingerprints=new Map<string,string>();
 
 type Doc={original_name?:string;file_size?:number;version_label?:string;created_at?:string};
 type Activity={activity_date?:string;minutes?:number;description?:string};
@@ -14,6 +15,7 @@ function fmtDate(value?:string){if(!value)return 'Not recorded';const date=new D
 function bytes(value:number){if(value<1024)return `${value} B`;if(value<1024*1024)return `${Math.round(value/1024)} KB`;return `${(value/1024/1024).toFixed(1)} MB`}
 function duration(minutes:number){const h=minutes/60;return Number.isInteger(h)?`${h} hour${h===1?'':'s'}`:`${h.toFixed(1)} hours`}
 function label(value:unknown){return String(value??'').replace(/[-_]/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase())}
+function fingerprint(app:Workspace){try{return JSON.stringify([app.brief,app.tasks,app.documents,app.revisions,app.reviews,app.activities])}catch{return `${app.documents?.length||0}:${app.revisions?.length||0}:${app.reviews?.length||0}:${app.activities?.length||0}`}}
 
 function scheduleUserRefresh(delay=USER_REFRESH_DELAY){
   window.clearTimeout(userTimer);
@@ -70,6 +72,9 @@ function syncLoadedHistory(rows:Workspace[]){
     const app=byId.get(id);if(!app)return;
     const body=details.querySelector<HTMLElement>('[data-history-detail-body]');
     if(!body||body.dataset.loaded!=='true')return;
+    const nextFingerprint=fingerprint(app);
+    if(historyFingerprints.get(id)===nextFingerprint)return;
+    historyFingerprints.set(id,nextFingerprint);
     replaceRecordBlock(body,'PROJECT BRIEF',makeBrief(app));
     replaceRecordBlock(body,'WORK & EVIDENCE RECORD',makeEvidence(app));
   });
@@ -84,6 +89,7 @@ window.addEventListener('litlab:contributor-submitted',()=>scheduleUserRefresh(1
 window.addEventListener('litlab:contributor-workspace-updated',()=>scheduleUserRefresh());
 window.addEventListener('litlab:contributor-admin-updated',()=>scheduleAdminRefresh());
 window.addEventListener('litlab:certificate-read',()=>scheduleUserRefresh(100));
+window.addEventListener('hashchange',()=>historyFingerprints.clear());
 
 // These forms save asynchronously. Refresh the account summary after the mutation and rely on
 // contributor-workspace-data for the already-open detailed record. This removes the need for a
