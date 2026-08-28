@@ -8,10 +8,10 @@ const SESSION_KEY='litlabSupabaseSession';
 type StoredSession={access_token?:string};
 type ContributorStatus='new'|'reviewing'|'accepted'|'declined'|'completed';
 type Application={
-  id:string;created_at:string;applicant_type:'student'|'teacher';full_name:string;email:string;school:string|null;country:string|null;
-  dp_year:string|null;subject_taught:string|null;cas_intent:string|null;contribution_type:string;topics:string;contribution_idea:string;
-  motivation:string;experience:string|null;availability:string|null;cas_goal:string|null;cas_impact:string|null;cas_success:string|null;
-  credit_preference:string;source_page:string|null;status:ContributorStatus;
+  id:string;created_at:string;status_updated_at?:string|null;applicant_type:'student'|'teacher';full_name:string;email:string;school:string|null;country:string|null;
+  dp_year:string|null;subject_taught:string|null;cas_intent:string|null;student_supervision:string|null;mentor_email:string|null;mentee_email:string|null;
+  contribution_type:string;topics:string;contribution_idea:string;motivation:string;experience:string|null;availability:string|null;
+  cas_goal:string|null;cas_impact:string|null;cas_success:string|null;credit_preference:string;source_page:string|null;status:ContributorStatus;
 };
 
 let applications:Application[]=[];
@@ -21,10 +21,12 @@ let renderScheduled=false;
 
 function session(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null}catch{return null}}
 function headers(){const token=session()?.access_token||'';return {'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,...(token?{Authorization:`Bearer ${token}`}:{})}}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function fmtDate(value:string){const d=new Date(value);return Number.isNaN(d.getTime())?'—':d.toLocaleString([],{dateStyle:'medium',timeStyle:'short'})}
 function label(value:string|null|undefined){if(!value)return '—';return value.replace(/[-_]/g,' ').replace(/\b\w/g,m=>m.toUpperCase())}
+function statusLabel(value:ContributorStatus){return ({new:'Pending',reviewing:'Needs review',accepted:'Accepted',declined:'Rejected',completed:'Completed'} as const)[value]}
+function supervisionLabel(value:string|null){return value==='yes'?'Yes — mentor/coordinator assigned':value==='not_yet'?'Not yet — plans to arrange one':value==='no'?'No — not currently':'—'}
 
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:headers(),body:JSON.stringify(body)});
@@ -45,17 +47,23 @@ function detail(labelText:string,value:unknown,wide=false){const text=String(val
 function applicationCard(app:Application){
   const role=app.applicant_type==='teacher'?'Teacher':'DP student';
   const cas=app.applicant_type==='student'?label(app.cas_intent):'Not applicable';
+  const relationship=app.applicant_type==='student'
+    ?`${detail('Mentor / coordinator oversight',supervisionLabel(app.student_supervision))}${app.mentor_email?detail('Mentor / coordinator email',app.mentor_email):''}`
+    :app.mentee_email?detail('Student being mentored — email',app.mentee_email):'';
+
   return `<details class="admin-contrib-card" data-app-id="${esc(app.id)}">
     <summary>
       <div class="admin-contrib-person"><span class="admin-contrib-avatar">${esc((app.full_name||'?').trim().charAt(0).toUpperCase())}</span><div><b>${esc(app.full_name)}</b><small>${esc(app.email)}</small></div></div>
-      <div class="admin-contrib-summary-meta"><span>${esc(role)}</span><span>${esc(label(app.contribution_type))}</span><span class="status ${esc(app.status)}">${esc(label(app.status))}</span><time>${esc(fmtDate(app.created_at))}</time></div>
+      <div class="admin-contrib-summary-meta"><span>${esc(role)}</span><span>${esc(label(app.contribution_type))}</span><span class="status ${esc(app.status)}">${esc(statusLabel(app.status))}</span><time>${esc(fmtDate(app.created_at))}</time></div>
       <span class="admin-contrib-chevron">⌄</span>
     </summary>
     <div class="admin-contrib-body">
       <div class="admin-contrib-status-row"><div><span>Application status</span><small>Update the application as you review and work with the contributor.</small></div><select data-contributor-status data-id="${esc(app.id)}" aria-label="Application status for ${esc(app.full_name)}">
-        ${(['new','reviewing','accepted','declined','completed'] as ContributorStatus[]).map(s=>`<option value="${s}"${app.status===s?' selected':''}>${esc(label(s))}</option>`).join('')}
+        ${(['new','reviewing','accepted','declined','completed'] as ContributorStatus[]).map(s=>`<option value="${s}"${app.status===s?' selected':''}>${esc(statusLabel(s))}</option>`).join('')}
       </select><span class="admin-contrib-save-state" role="status"></span></div>
+      <small class="admin-contrib-notify-note">Status changes are saved to the applicant’s LitLab account and can appear as an in-site notification while they are signed in.</small>
       <div class="admin-contrib-detail-grid">
+        ${relationship}
         ${detail('Applicant type',role)}${detail('Email',app.email)}${detail('School',app.school)}${detail('Country',app.country)}
         ${app.applicant_type==='student'?detail('DP year',label(app.dp_year)):detail('Subject / teaching role',app.subject_taught)}
         ${detail('CAS intent',cas)}${detail('Contribution type',label(app.contribution_type))}${detail('Credit preference',label(app.credit_preference))}
@@ -73,7 +81,7 @@ function filtered(root:HTMLElement){
   const roleValue=root.querySelector<HTMLSelectElement>('[data-contrib-role-filter]')?.value||'all';
   const statusValue=root.querySelector<HTMLSelectElement>('[data-contrib-status-filter]')?.value||'all';
   return applications.filter(app=>{
-    const hay=[app.full_name,app.email,app.school,app.country,app.topics,app.contribution_idea,app.motivation,app.subject_taught,app.dp_year,app.cas_intent,app.contribution_type].join(' ').toLowerCase();
+    const hay=[app.full_name,app.email,app.school,app.country,app.topics,app.contribution_idea,app.motivation,app.subject_taught,app.dp_year,app.cas_intent,app.contribution_type,app.mentor_email,app.mentee_email].join(' ').toLowerCase();
     return (!q||hay.includes(q))&&(roleValue==='all'||app.applicant_type===roleValue)&&(statusValue==='all'||app.status===statusValue);
   });
 }
@@ -84,7 +92,6 @@ function renderList(root:HTMLElement){
   const rows=filtered(root);
   list.innerHTML=rows.length?rows.map(applicationCard).join(''):'<div class="admin-contrib-empty">No contributor applications match these filters.</div>';
   root.querySelector<HTMLElement>('[data-contrib-result-count]')?.replaceChildren(document.createTextNode(`${rows.length} shown`));
-  list.querySelectorAll<HTMLSelectElement>('[data-contributor-status]').forEach(select=>select.addEventListener('change',()=>void updateStatus(select)));
 }
 
 function renderAccessState(main:HTMLElement,kind:'loading'|'signin'|'denied'|'error'){
@@ -111,10 +118,10 @@ function renderPage(main:HTMLElement){
       <div><span class="admin-kicker">LITLAB • CONTRIBUTOR DASHBOARD</span><h1>Manage the people helping LitLab grow.</h1><p>Developer-only workspace for reviewing DP student contributors and teacher reviewers, including CAS planning details and proposed academic contributions.</p></div>
       <div class="admin-hero-actions"><button type="button" data-contrib-refresh>Refresh applications</button><button type="button" class="quiet" data-contrib-analytics>Developer analytics</button><button type="button" class="quiet" data-contrib-home>Back to site</button></div>
     </header>
-    <section class="admin-contrib-stats">${stat('Total applications',total,'All submitted applications')}${stat('New',fresh,'Waiting for first review')}${stat('DP students',students,'Student contributor applicants')}${stat('Teachers',teachers,'Teacher reviewers / mentors')}${stat('CAS interest',cas,'Yes or maybe')}</section>
+    <section class="admin-contrib-stats">${stat('Total applications',total,'All submitted applications')}${stat('Pending',fresh,'Waiting for first review')}${stat('DP students',students,'Student contributor applicants')}${stat('Teachers',teachers,'Teacher reviewers / mentors')}${stat('CAS interest',cas,'Yes or maybe')}</section>
     <section class="admin-panel admin-contrib-workspace">
       <header class="admin-contrib-head"><div><span>APPLICATIONS</span><h2>Contributor applications</h2><p>Search applications, inspect every submitted answer and move each person through your review workflow.</p></div><small data-contrib-result-count>${total} shown</small></header>
-      <div class="admin-contrib-toolbar"><label><span>Search</span><input data-contrib-search type="search" placeholder="Name, email, school, topic…"/></label><label><span>Role</span><select data-contrib-role-filter><option value="all">All roles</option><option value="student">DP students</option><option value="teacher">Teachers</option></select></label><label><span>Status</span><select data-contrib-status-filter><option value="all">All statuses</option><option value="new">New</option><option value="reviewing">Reviewing</option><option value="accepted">Accepted</option><option value="declined">Declined</option><option value="completed">Completed</option></select></label></div>
+      <div class="admin-contrib-toolbar"><label><span>Search</span><input data-contrib-search type="search" placeholder="Name, email, school, topic…"/></label><label><span>Role</span><select data-contrib-role-filter><option value="all">All roles</option><option value="student">DP students</option><option value="teacher">Teachers</option></select></label><label><span>Status</span><select data-contrib-status-filter><option value="all">All statuses</option><option value="new">Pending</option><option value="reviewing">Needs review</option><option value="accepted">Accepted</option><option value="declined">Rejected</option><option value="completed">Completed</option></select></label></div>
       <div class="admin-contrib-list" data-contrib-list></div>
     </section>
   </section>`;
@@ -122,7 +129,13 @@ function renderPage(main:HTMLElement){
   main.querySelector<HTMLButtonElement>('[data-contrib-refresh]')?.addEventListener('click',()=>void loadPage(true));
   main.querySelector<HTMLButtonElement>('[data-contrib-analytics]')?.addEventListener('click',()=>{location.hash='admin'});
   main.querySelector<HTMLButtonElement>('[data-contrib-home]')?.addEventListener('click',()=>{location.hash='home'});
-  page.querySelectorAll<HTMLInputElement|HTMLSelectElement>('[data-contrib-search],[data-contrib-role-filter],[data-contrib-status-filter]').forEach(control=>control.addEventListener(control instanceof HTMLInputElement?'input':'change',()=>renderList(page)));
+  page.addEventListener('input',event=>{if((event.target as Element|null)?.matches?.('[data-contrib-search]'))renderList(page)});
+  page.addEventListener('change',event=>{
+    const target=event.target;
+    if(!(target instanceof HTMLSelectElement))return;
+    if(target.matches('[data-contrib-role-filter],[data-contrib-status-filter]'))renderList(page);
+    else if(target.matches('[data-contributor-status]'))void updateStatus(target);
+  });
   renderList(page);
 }
 
@@ -134,10 +147,15 @@ async function updateStatus(select:HTMLSelectElement){
   try{
     const updated=await rpc<Application>('set_litlab_contributor_application_status',{p_id:id,p_status:status});
     applications=applications.map(app=>app.id===id?updated:app);
+    const card=select.closest<HTMLElement>('.admin-contrib-card');
+    const badge=card?.querySelector<HTMLElement>('.admin-contrib-summary-meta .status');
+    if(badge){badge.className=`status ${updated.status}`;badge.textContent=statusLabel(updated.status)}
     if(state){state.textContent='Saved';state.dataset.state='ok'}
-    window.setTimeout(()=>{if(state)state.textContent=''},1600);
+    window.setTimeout(()=>{if(state?.isConnected)state.textContent=''},1600);
   }catch(error){
     console.error(error);
+    const current=applications.find(app=>app.id===id)?.status;
+    if(current)select.value=current;
     if(state){state.textContent='Could not save';state.dataset.state='error'}
   }finally{select.disabled=false}
 }
@@ -151,7 +169,8 @@ async function loadPage(forceAccess=false){
   try{
     if(!session()?.access_token){renderAccessState(main,'signin');return}
     if(!(await checkAdmin(forceAccess))){renderAccessState(main,'denied');return}
-    applications=await rpc<Application[]>('get_litlab_contributor_applications')||[];
+    const rows=await rpc<Application[]>('get_litlab_contributor_applications');
+    applications=Array.isArray(rows)?rows:[];
     if(route()==='admin-contributors')renderPage(main);
   }catch(error){
     console.error(error);
@@ -198,7 +217,7 @@ function schedule(){
 }
 
 const main=document.querySelector('main#main');
-if(main)new MutationObserver(schedule).observe(main,{childList:true,subtree:true});
+if(main)new MutationObserver(schedule).observe(main,{childList:true,subtree:false});
 document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(target?.closest('.litlab-account-trigger'))setTimeout(()=>void injectMenuEntry(),45)},true);
 window.addEventListener('hashchange',schedule);
 setTimeout(()=>void injectMenuEntry(),750);
