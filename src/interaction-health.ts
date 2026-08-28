@@ -2,6 +2,7 @@ import './contributor-notification-open-guard';
 import './contributor-live-sync';
 import './contributor-activity-live-sync';
 import './admin-contributor-workspace-form-preserver';
+import './contributor-secure-document-download';
 
 export {};
 
