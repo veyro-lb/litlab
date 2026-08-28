@@ -135,7 +135,7 @@ function showAdminNotice(){
   const event=latestAdminEvent();
   if(!event)return;
   const [,kind,item]=event;
-  const eventKey=kind==='message'?`m:${(item as AdminUnread).message_id}`:`a:${item.id}`;
+  const eventKey=kind==='message'?`m:${(item as AdminUnread).message_id}`:`a:${(item as App).id}`;
   const key=`${ADMIN_NOTICE_PREFIX}${userId()||'developer'}`;
   try{if(sessionStorage.getItem(key)===eventKey)return}catch{}
   document.getElementById('ll-admin-contributor-update-notice')?.remove();
