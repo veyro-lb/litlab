@@ -109,7 +109,8 @@ function removeAccountStatus(){document.querySelector('[data-contributor-account
 function injectAccountStatus(){
   const menu=document.querySelector<HTMLElement>('.litlab-account-menu');
   if(!menu)return;
-  if(!latest){removeAccountStatus();return}
+  if(!signedIn()){removeAccountStatus();return}
+
   let button=menu.querySelector<HTMLButtonElement>('[data-contributor-account-status]');
   if(!button){
     button=document.createElement('button');
@@ -120,12 +121,13 @@ function injectAccountStatus(){
     const signout=menu.querySelector('.litlab-signout');
     if(signout)menu.insertBefore(button,signout);else menu.appendChild(button);
   }
-  const approved=latest.status==='accepted'||latest.status==='completed';
-  const title=approved?'LitLab contributor':'Contributor application';
+
+  const approved=Boolean(latest&&(latest.status==='accepted'||latest.status==='completed'));
   const chatText=unreadCount?` • ${unreadCount} unread chat${unreadCount===1?'':'s'}`:'';
+  const subtitle=latest?`${statusLabel(latest.status)}${chatText}`:`Apply, track status & live chat${chatText}`;
   button.classList.toggle('is-approved',approved);
   button.classList.toggle('has-unread-chat',unreadCount>0);
-  button.innerHTML=`<span>${unreadCount?'●':approved?'✓':'✦'}</span><div><b>${title}</b><small>${statusLabel(latest.status)}${chatText}</small></div><i>›</i>`;
+  button.innerHTML=`<span>${unreadCount?'●':approved?'✓':'✦'}</span><div><b>Contributor application</b><small>${subtitle}</small></div><i>›</i>`;
 }
 
 async function loadStatus(force=false){
@@ -133,6 +135,10 @@ async function loadStatus(force=false){
     latest=null;latestUnread=null;unreadCount=0;lastLoad=0;removeAccountStatus();
     return;
   }
+
+  // Keep the My LitLab entry available even while account data is loading or
+  // temporarily unavailable. It is a permanent signed-in navigation entry.
+  injectAccountStatus();
   if(loading)return;
   if(!force&&Date.now()-lastLoad<12_000){injectAccountStatus();return}
   loading=true;
@@ -153,6 +159,7 @@ async function loadStatus(force=false){
     injectAccountStatus();
   }catch(error){
     console.debug('Contributor status unavailable',error);
+    injectAccountStatus();
   }finally{loading=false}
 }
 
@@ -167,19 +174,19 @@ function schedulePoll(delay=STATUS_POLL_MS){
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
-  if(target?.closest('.litlab-account-trigger'))window.setTimeout(()=>{void loadStatus(true);injectAccountStatus()},40);
+  if(target?.closest('.litlab-account-trigger'))window.setTimeout(()=>{injectAccountStatus();void loadStatus(true)},40);
 },true);
 window.addEventListener('hashchange',()=>void loadStatus(true));
-window.addEventListener('focus',()=>{void loadStatus(true);schedulePoll()});
+window.addEventListener('focus',()=>{injectAccountStatus();void loadStatus(true);schedulePoll()});
 document.addEventListener('visibilitychange',()=>{
   if(document.hidden){clearPoll();return}
-  void loadStatus(true);schedulePoll();
+  injectAccountStatus();void loadStatus(true);schedulePoll();
 });
 window.addEventListener('online',()=>void loadStatus(true));
 window.addEventListener('litlab:contributor-submitted',()=>setTimeout(()=>void loadStatus(true),350) as unknown as void);
 window.addEventListener('storage',event=>{
-  if(event.key===SESSION_KEY){latest=null;latestUnread=null;unreadCount=0;lastLoad=0;void loadStatus(true)}
+  if(event.key===SESSION_KEY){latest=null;latestUnread=null;unreadCount=0;lastLoad=0;injectAccountStatus();void loadStatus(true)}
 });
 
-function start(){window.setTimeout(()=>void loadStatus(true),900);schedulePoll()}
+function start(){window.setTimeout(()=>{injectAccountStatus();void loadStatus(true)},500);schedulePoll()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
