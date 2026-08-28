@@ -1,24 +1,53 @@
 import './contributor-entry-prompt.css';
 
 const PROMPT_SESSION_KEY='litlabContributorPromptDismissed';
+const PROMPT_PREF_KEY='litlabContributorPromptPreference';
 const PROMPT_DELAY_MS=3800;
+const REMIND_LATER_MS=24*60*60*1000;
 let promptTimer:number|undefined;
+
+type PromptPreference={mode:'later';remindAfter:number}|{mode:'never'};
 
 function contributorRoute(){
   return location.hash.replace(/^#/,'').split('#')[0]==='contribute';
 }
 
-function promptDismissed(){
+function sessionDismissed(){
   try{return sessionStorage.getItem(PROMPT_SESSION_KEY)==='1'}catch{return false}
 }
 
-function markPromptDismissed(){
+function markSessionDismissed(){
   try{sessionStorage.setItem(PROMPT_SESSION_KEY,'1')}catch{}
 }
 
-function removePrompt(dismiss=false,immediate=false){
+function readPreference():PromptPreference|null{
+  try{
+    const value=JSON.parse(localStorage.getItem(PROMPT_PREF_KEY)||'null') as PromptPreference|null;
+    if(value?.mode==='never')return value;
+    if(value?.mode==='later'&&Number.isFinite(value.remindAfter))return value;
+  }catch{}
+  return null;
+}
+
+function setPreference(value:PromptPreference|null){
+  try{
+    if(value)localStorage.setItem(PROMPT_PREF_KEY,JSON.stringify(value));
+    else localStorage.removeItem(PROMPT_PREF_KEY);
+  }catch{}
+}
+
+function promptBlocked(){
+  const preference=readPreference();
+  if(preference?.mode==='never')return true;
+  if(preference?.mode==='later'){
+    if(Date.now()<preference.remindAfter)return true;
+    setPreference(null);
+  }
+  return sessionDismissed();
+}
+
+function removePrompt(immediate=false){
   if(promptTimer!==undefined){window.clearTimeout(promptTimer);promptTimer=undefined}
-  if(dismiss)markPromptDismissed();
   const prompt=document.getElementById('ll-contributor-invite');
   if(!prompt)return;
   if(immediate||matchMedia('(prefers-reduced-motion: reduce)').matches){prompt.remove();return}
@@ -27,9 +56,26 @@ function removePrompt(dismiss=false,immediate=false){
   window.setTimeout(()=>prompt.remove(),390);
 }
 
+function closeForSession(){
+  markSessionDismissed();
+  removePrompt();
+}
+
+function remindLater(){
+  setPreference({mode:'later',remindAfter:Date.now()+REMIND_LATER_MS});
+  try{sessionStorage.removeItem(PROMPT_SESSION_KEY)}catch{}
+  removePrompt();
+}
+
+function neverNotify(){
+  setPreference({mode:'never'});
+  try{sessionStorage.removeItem(PROMPT_SESSION_KEY)}catch{}
+  removePrompt();
+}
+
 function openContributorPage(){
-  markPromptDismissed();
-  removePrompt(false);
+  markSessionDismissed();
+  removePrompt();
   if(contributorRoute()){
     scrollTo({top:0,behavior:'smooth'});
     return;
@@ -38,7 +84,7 @@ function openContributorPage(){
 }
 
 function buildPrompt(){
-  if(document.getElementById('ll-contributor-invite')||contributorRoute()||promptDismissed())return;
+  if(document.getElementById('ll-contributor-invite')||contributorRoute()||promptBlocked())return;
   const prompt=document.createElement('aside');
   prompt.id='ll-contributor-invite';
   prompt.className='ll-contributor-invite';
@@ -50,27 +96,32 @@ function buildPrompt(){
       <span class="ll-contributor-invite-copy">
         <span class="ll-contributor-invite-kicker">LitLab Contributor Program</span>
         <b>Want to help build LitLab?</b>
-        <p>DP students can contribute content with CAS evidence support, while teachers can review or mentor academic work.</p>
-        <span class="ll-contributor-invite-cta">See how you can contribute <span aria-hidden="true">→</span></span>
+        <p>DP students can contribute content and original practice material with CAS evidence support. Teachers can review or mentor academic work.</p>
+        <span class="ll-contributor-invite-cta">Explore the contributor program <span aria-hidden="true">→</span></span>
       </span>
     </button>
+    <div class="ll-contributor-invite-actions" aria-label="Contributor invitation options">
+      <button type="button" class="primary" data-contributor-open>Contribute</button>
+      <button type="button" data-contributor-later>Remind me later</button>
+      <button type="button" class="quiet" data-contributor-never>Don’t notify me again</button>
+    </div>
   </div>`;
-  prompt.querySelector<HTMLButtonElement>('.ll-contributor-invite-close')?.addEventListener('click',event=>{
-    event.stopPropagation();
-    removePrompt(true);
-  });
+  prompt.querySelector<HTMLButtonElement>('.ll-contributor-invite-close')?.addEventListener('click',closeForSession);
   prompt.querySelector<HTMLButtonElement>('.ll-contributor-invite-open')?.addEventListener('click',openContributorPage);
+  prompt.querySelector<HTMLButtonElement>('[data-contributor-open]')?.addEventListener('click',openContributorPage);
+  prompt.querySelector<HTMLButtonElement>('[data-contributor-later]')?.addEventListener('click',remindLater);
+  prompt.querySelector<HTMLButtonElement>('[data-contributor-never]')?.addEventListener('click',neverNotify);
   document.body.appendChild(prompt);
   requestAnimationFrame(()=>requestAnimationFrame(()=>prompt.classList.add('is-visible')));
 }
 
 function schedulePrompt(){
   if(contributorRoute()){
-    markPromptDismissed();
-    removePrompt(false,true);
+    markSessionDismissed();
+    removePrompt(true);
     return;
   }
-  if(promptDismissed()||document.getElementById('ll-contributor-invite'))return;
+  if(promptBlocked()||document.getElementById('ll-contributor-invite'))return;
   if(promptTimer!==undefined)window.clearTimeout(promptTimer);
   promptTimer=window.setTimeout(()=>{
     promptTimer=undefined;
@@ -91,8 +142,8 @@ function fixContributorInternalLinks(event:MouseEvent){
 
 function handleRouteChange(){
   if(contributorRoute()){
-    markPromptDismissed();
-    removePrompt(false,true);
+    markSessionDismissed();
+    removePrompt(true);
   }else{
     schedulePrompt();
   }
@@ -102,8 +153,5 @@ document.addEventListener('click',fixContributorInternalLinks,true);
 window.addEventListener('hashchange',handleRouteChange);
 window.addEventListener('popstate',handleRouteChange);
 
-if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded',schedulePrompt,{once:true});
-}else{
-  schedulePrompt();
-}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedulePrompt,{once:true});
+else schedulePrompt();
