@@ -1,6 +1,24 @@
+const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
+const SESSION_KEY='litlabSupabaseSession';
+
+function token(){try{return String(JSON.parse(localStorage.getItem(SESSION_KEY)||'null')?.access_token||'')}catch{return ''}}
 function clickClose(notice:HTMLElement,selector:string){
   const close=notice.querySelector<HTMLButtonElement>(selector);
   if(close&&!close.disabled)close.click();
+}
+
+async function markCertificateRead(applicationId:string){
+  const auth=token();if(!applicationId||!auth)return;
+  try{
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/mark_my_litlab_contributor_certificate_read`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},
+      body:JSON.stringify({p_application_id:applicationId})
+    });
+    if(!response.ok)return;
+    window.dispatchEvent(new CustomEvent('litlab:certificate-read',{detail:{applicationId,source:'certificate-download'}}));
+  }catch{}
 }
 
 // Notification routing is handled on document capture so buttons can open the exact
@@ -10,6 +28,16 @@ function clickClose(notice:HTMLElement,selector:string){
 window.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
   if(!target)return;
+
+  // PDF delivery owns this click later on document capture. Marking the certificate read
+  // from window capture guarantees the unread badge clears even though PDF delivery stops
+  // propagation after starting the download.
+  const certificate=target.closest('[data-download-contributor-certificate],[data-history-download-certificate]');
+  if(certificate){
+    const holder=certificate.closest<HTMLElement>('[data-contributor-completion-archive],[data-history-contribution]');
+    const applicationId=holder?.dataset.applicationId||holder?.dataset.historyContribution||'';
+    if(applicationId)void markCertificateRead(applicationId);
+  }
 
   const userStatus=target.closest<HTMLButtonElement>('#ll-contributor-status-notice .ll-contributor-status-open');
   if(userStatus){
