@@ -3,6 +3,10 @@ import './contributor-form-validation.css';
 type ApplicantType='student'|'teacher';
 type Field=HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement;
 
+let scanTimer=0;
+let scanAttempts=0;
+
+function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function isActive(field:Field){
   return !field.disabled&&!field.closest('[hidden]')&&!field.form?.hidden;
 }
@@ -81,8 +85,6 @@ function updateSubmitState(form:HTMLFormElement){
   if(!button)return;
   const complete=formComplete(form);
 
-  // Never leave the submit button stuck disabled. Invalid forms are blocked
-  // at click/submit time and the exact missing field is highlighted instead.
   if(button.dataset.submitting!=='true')button.disabled=false;
   button.classList.remove('ll-contrib-submit-disabled');
   button.dataset.ready=complete?'true':'false';
@@ -150,6 +152,8 @@ function wire(form:HTMLFormElement){
     showIncomplete(form);
   });
 
+  // This observer is intentionally scoped to the contributor form only. It catches
+  // conditional required/hidden changes without watching the whole application DOM.
   new MutationObserver(()=>scheduleValidation(form)).observe(form,{
     childList:true,
     subtree:true,
@@ -158,7 +162,15 @@ function wire(form:HTMLFormElement){
   });
 }
 
-function scan(){document.querySelectorAll<HTMLFormElement>('#ll-contributor-form').forEach(wire)}
+function scan(){
+  window.clearTimeout(scanTimer);
+  if(route()!=='contribute')return;
+  const form=document.querySelector<HTMLFormElement>('#ll-contributor-form');
+  if(form){scanAttempts=0;wire(form);return}
+  if(scanAttempts>=20)return;
+  scanAttempts+=1;
+  scanTimer=window.setTimeout(scan,100);
+}
 
 // Capture submission before the contributor-program/account handlers so incomplete forms can never be posted.
 document.addEventListener('submit',event=>{
@@ -172,5 +184,8 @@ document.addEventListener('submit',event=>{
   showIncomplete(form);
 },true);
 
-new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan,{once:true});else scan();
+window.addEventListener('hashchange',()=>{scanAttempts=0;requestAnimationFrame(scan)});
+window.addEventListener('focus',()=>{if(route()==='contribute'){scanAttempts=0;requestAnimationFrame(scan)}});
+
+function start(){scanAttempts=0;scan()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
