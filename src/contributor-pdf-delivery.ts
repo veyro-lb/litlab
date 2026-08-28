@@ -43,31 +43,36 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   try{const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},body:JSON.stringify(body),signal:controller.signal});if(!response.ok)throw new Error(`${name} failed (${response.status})`);const text=await response.text();return (text?JSON.parse(text):null) as T}finally{window.clearTimeout(timeout)}
 }
 
-async function load(applicationId:string,force=false){
+async function load(applicationId:string,forceCertificate=false){
   if(!applicationId||!token())return;
-  if(!force&&apps.has(applicationId)&&certs.has(applicationId))return;
+  const needWorkspace=!apps.has(applicationId);
+  const needCertificate=forceCertificate||!certs.has(applicationId);
+  if(!needWorkspace&&!needCertificate)return;
   if(loading.has(applicationId)){await loading.get(applicationId);return}
   const promise=(async()=>{
-    const [rows,cert]=await Promise.all([rpc<Workspace[]>('get_my_litlab_contributor_workspace'),rpc<CertificateRecord|null>('get_my_litlab_contributor_certificate',{p_application_id:applicationId})]);
-    const app=(Array.isArray(rows)?rows:[]).find(item=>item.id===applicationId);if(app)apps.set(applicationId,app);certs.set(applicationId,cert||null);
+    const workspacePromise=needWorkspace?rpc<Workspace[]>('get_my_litlab_contributor_workspace'):Promise.resolve<Workspace[]>([]);
+    const certificatePromise=needCertificate?rpc<CertificateRecord|null>('get_my_litlab_contributor_certificate',{p_application_id:applicationId}):Promise.resolve<CertificateRecord|null>(certs.get(applicationId)||null);
+    const [rows,cert]=await Promise.all([workspacePromise,certificatePromise]);
+    if(needWorkspace){const app=(Array.isArray(rows)?rows:[]).find(item=>item.id===applicationId);if(app)apps.set(applicationId,app)}
+    if(needCertificate)certs.set(applicationId,cert||null);
   })().catch(error=>console.debug('Contributor PDF delivery unavailable',error)).finally(()=>loading.delete(applicationId));
   loading.set(applicationId,promise);await promise;
 }
 
 function certificateMarkup(cert:CertificateRecord){
   const verified=cert.verified_minutes==null?'No verified time stated':`${duration(Number(cert.verified_minutes))} verified`;
-  return `<div class="ll-issued-certificate" data-issued-certificate="${esc(cert.certificate_code)}"><div class="ll-issued-certificate-mark">LL</div><div><span>CERTIFICATE READY</span><h3>Your LitLab Contributor Certificate is ready.</h3><p>Issued ${esc(fmtDate(cert.issued_at))} for <strong>${esc(cert.contribution_title)}</strong>. ${esc(verified)}.</p><small>Certificate ID: ${esc(cert.certificate_code)} • This is a LitLab contribution certificate, not an IB or CAS certificate.</small></div><button type="button" data-download-contributor-certificate>Download certificate PDF</button></div>`;
+  return `<div class="ll-issued-certificate" data-issued-certificate="${esc(cert.certificate_code)}"><div class="ll-issued-certificate-mark"><img src="./favicon.svg" alt="" aria-hidden="true"/></div><div><span>CERTIFICATE READY</span><h3>Your LitLab Contributor Certificate is ready.</h3><p>Issued ${esc(fmtDate(cert.issued_at))} for <strong>${esc(cert.contribution_title)}</strong>. ${esc(verified)}.</p><small>Certificate ID: ${esc(cert.certificate_code)} • This is a LitLab contribution certificate, not an IB or CAS certificate.</small></div><button type="button" data-download-contributor-certificate>Download certificate PDF</button></div>`;
 }
 function updateArchive(archive:HTMLElement){
   const applicationId=archive.dataset.applicationId||'';if(!applicationId)return;
   const app=apps.get(applicationId);const cert=certs.get(applicationId);
   const pdfButton=archive.querySelector<HTMLButtonElement>('[data-completion-print]');
-  if(pdfButton){const next=app?.applicant_type==='teacher'?'Save contribution evidence as PDF':'Save CAS evidence as PDF';if(pdfButton.textContent!==next)pdfButton.textContent=next;if(pdfButton.dataset.saveEvidencePdf!=='true')pdfButton.dataset.saveEvidencePdf='true';if(pdfButton.getAttribute('aria-label')!==next)pdfButton.setAttribute('aria-label',next)}
+  if(pdfButton){const type=archive.dataset.applicantType||app?.applicant_type;const next=type==='teacher'?'Save contribution evidence as PDF':'Save CAS evidence as PDF';if(pdfButton.textContent!==next)pdfButton.textContent=next;if(pdfButton.dataset.saveEvidencePdf!=='true')pdfButton.dataset.saveEvidencePdf='true';if(pdfButton.getAttribute('aria-label')!==next)pdfButton.setAttribute('aria-label',next)}
   const certificateArea=archive.querySelector<HTMLElement>('.ll-certificate-pending');
   if(cert&&certificateArea){const fingerprint=`${cert.certificate_code}:${cert.updated_at||cert.issued_at}`;if(certificateArea.dataset.certificateFingerprint!==fingerprint){certificateArea.dataset.certificateFingerprint=fingerprint;certificateArea.innerHTML=certificateMarkup(cert)}}
 }
-async function syncArchive(archive:HTMLElement,force=false){const id=archive.dataset.applicationId||'';if(!id)return;updateArchive(archive);await load(id,force);if(archive.isConnected)updateArchive(archive)}
-function syncVisible(force=false){document.querySelectorAll<HTMLElement>('[data-contributor-completion-archive]').forEach(archive=>void syncArchive(archive,force))}
+async function syncArchive(archive:HTMLElement,forceCertificate=false){const id=archive.dataset.applicationId||'';if(!id)return;updateArchive(archive);await load(id,forceCertificate);if(archive.isConnected)updateArchive(archive)}
+function syncVisible(forceCertificate=false){document.querySelectorAll<HTMLElement>('[data-contributor-completion-archive]').forEach(archive=>void syncArchive(archive,forceCertificate))}
 function queueSync(){if(syncQueued)return;syncQueued=true;requestAnimationFrame(()=>{syncQueued=false;syncVisible(false)})}
 function attachRootObserver(){
   if(route()!=='contribute'){rootObserver?.disconnect();rootObserver=null;observedRoot=null;return}
@@ -96,12 +101,12 @@ function evidenceSections(app:Workspace):EvidenceSection[]{
   return sections;
 }
 async function saveEvidence(archive:HTMLElement,button:HTMLButtonElement){
-  const id=archive.dataset.applicationId||'';if(!id)return;await load(id,true);const app=apps.get(id);if(!app)throw new Error('Contribution evidence could not be loaded.');const original=button.textContent||'Save evidence as PDF';button.disabled=true;button.textContent='Creating PDF…';
+  const id=archive.dataset.applicationId||'';if(!id)return;await load(id,false);const app=apps.get(id);if(!app)throw new Error('Contribution evidence could not be loaded.');const original=button.textContent||'Save evidence as PDF';button.disabled=true;button.textContent='Creating PDF…';
   try{const total=(app.activities||[]).reduce((sum,row)=>sum+Number(row.minutes||0),0);await saveEvidencePdf({contributorName:app.full_name||'LitLab Contributor',contributionTitle:app.brief?.project_title||app.topics||label(app.contribution_type),contributionType:label(app.contribution_type),submittedAt:app.created_at,completedAt:app.status_updated_at,wordVersions:app.documents?.length||0,selfRecordedMinutes:total,studentCas:app.applicant_type==='student',sections:evidenceSections(app)})}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}
 }
 async function saveCertificate(archive:HTMLElement,button:HTMLButtonElement){const id=archive.dataset.applicationId||'';if(!id)return;await load(id,true);const cert=certs.get(id);if(!cert)throw new Error('Certificate is not available yet.');const original=button.textContent||'Download certificate PDF';button.disabled=true;button.textContent='Creating PDF…';try{await saveCertificatePdf(toPdf(cert))}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}}
 async function namedDocDownload(archive:HTMLElement,path:string,button:HTMLButtonElement){
-  const id=archive.dataset.applicationId||'';if(!id)return;await load(id);const app=apps.get(id);const doc=app?.documents?.find(item=>item.storage_path===path);if(!doc)return;const original=button.textContent||'Open securely';button.disabled=true;button.textContent='Downloading…';
+  const id=archive.dataset.applicationId||'';if(!id)return;await load(id,false);const app=apps.get(id);const doc=app?.documents?.find(item=>item.storage_path===path);if(!doc)return;const original=button.textContent||'Open securely';button.disabled=true;button.textContent='Downloading…';
   try{const sign=await fetch(`${SUPABASE_URL}/storage/v1/object/sign/contributor-documents/${path.split('/').map(encodeURIComponent).join('/')}`,{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},body:JSON.stringify({expiresIn:300})});if(!sign.ok)throw new Error(`Document download failed (${sign.status})`);const data=await sign.json() as {signedURL?:string;signedUrl?:string};const signed=data.signedURL||data.signedUrl;if(!signed)throw new Error('No secure document URL returned.');const response=await fetch(`${SUPABASE_URL}/storage/v1${signed}`);if(!response.ok)throw new Error(`Document download failed (${response.status})`);const blob=await response.blob();const url=URL.createObjectURL(blob);const a=document.createElement('a');const base=doc.original_name.replace(/\.docx$/i,'');a.href=url;a.download=`LitLab_${safeFilePart(doc.version_label,'Document',24)}_${safeFilePart(base,'Contribution',64)}.docx`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30_000)}finally{if(button.isConnected){button.disabled=false;button.textContent=original}}
 }
 
@@ -120,6 +125,7 @@ window.addEventListener('hashchange',()=>{rootObserver?.disconnect();rootObserve
 window.addEventListener('focus',()=>{if(route()==='contribute'){scanAttempts=0;scan();syncVisible(true);schedulePoll()}});
 window.addEventListener('online',()=>{if(route()==='contribute'){scanAttempts=0;scan();syncVisible(true);schedulePoll()}});
 window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){apps.clear();certs.clear();loading.clear();if(route()==='contribute')start()}});
+window.addEventListener('litlab:contributor-workspace-data',event=>{const rows=event instanceof CustomEvent&&Array.isArray(event.detail?.workspaces)?event.detail.workspaces as Workspace[]:[];if(rows.length){rows.forEach(row=>apps.set(row.id,row));if(route()==='contribute')queueSync()}});
 window.addEventListener('litlab:contributor-workspace-updated',()=>{if(route()==='contribute')setTimeout(()=>{scanAttempts=0;scan()},160)});
 window.addEventListener('litlab:contributor-admin-updated',()=>{if(route()==='contribute'){certs.clear();setTimeout(()=>syncVisible(true),160)}});
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
