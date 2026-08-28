@@ -35,7 +35,6 @@ function userId(){
   try{const part=token().split('.')[1];if(!part)return '';const normalized=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');return String(JSON.parse(atob(normalized))?.sub||'')}catch{return ''}
 }
 function revision(app:App){return `${app.status}|${app.status_updated_at||app.created_at}`}
-function appTime(app:App){const n=Date.parse(app.status_updated_at||app.created_at);return Number.isFinite(n)?n:0}
 
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   if(!navigator.onLine)throw new Error('offline');
@@ -59,12 +58,13 @@ function ensureUserStatusBaseline(app:App){
     const initKey=`${USER_OPENED_INIT_PREFIX}${app.id}`;
     if(localStorage.getItem(initKey)==='1')return;
     const rev=revision(app);
-    if(localStorage.getItem(`${LEGACY_SEEN_PREFIX}${app.id}`)===rev)localStorage.setItem(`${USER_OPENED_PREFIX}${app.id}`,rev);
+    if(app.status==='new'||localStorage.getItem(`${LEGACY_SEEN_PREFIX}${app.id}`)===rev)localStorage.setItem(`${USER_OPENED_PREFIX}${app.id}`,rev);
     localStorage.setItem(initKey,'1');
   }catch{}
 }
 function userStatusUnopened(app:App){
   ensureUserStatusBaseline(app);
+  if(app.status==='new')return false;
   try{return localStorage.getItem(`${USER_OPENED_PREFIX}${app.id}`)!==revision(app)}catch{return true}
 }
 function markUserStatusesOpened(){
@@ -90,7 +90,8 @@ function readAdminSeen():Set<string>{
 }
 function saveAdminSeen(set:Set<string>){try{localStorage.setItem(adminSeenKey(),JSON.stringify([...set]))}catch{}}
 function computeAdminNewApps(){
-  const storageExists=localStorage.getItem(adminSeenKey())!==null;
+  let storageExists=false;
+  try{storageExists=localStorage.getItem(adminSeenKey())!==null}catch{}
   const seen=readAdminSeen();
   if(!storageExists){adminApps.forEach(app=>seen.add(app.id));saveAdminSeen(seen);adminNewApps=[];return}
   adminNewApps=adminApps.filter(app=>!seen.has(app.id));
@@ -177,7 +178,7 @@ function clearUi(){
 
 async function load(force=false){
   if(!token()){mode='none';userApps=[];userUnread=[];adminApps=[];adminUnread=[];adminNewApps=[];clearUi();return}
-  if(loading&&!force)return;
+  if(loading)return;
   loading=true;
   try{
     const isAdmin=Boolean(await rpc<boolean>('is_litlab_admin'));
