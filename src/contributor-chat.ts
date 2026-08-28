@@ -6,12 +6,13 @@ const SESSION_KEY='litlabSupabaseSession';
 const REQUEST_TIMEOUT_MS=12_000;
 const CHAT_POLL_MS=3_500;
 const CHAT_RETRY_MS=7_500;
-const HUB_POLL_MS=15_000;
+const HUB_POLL_MS=20_000;
 
 type StoredSession={access_token?:string};
 type ChatMode='user'|'admin';
 type Message={id:string;sender_role:'contributor'|'admin';body:string;created_at:string};
 type Application={id:string;topics:string;contribution_type:string;status:'new'|'reviewing'|'accepted'|'declined'|'completed';created_at:string};
+type UnreadChatMessage={message_id:string;application_id:string};
 type ActiveChat={applicationId:string;mode:ChatMode;title:string};
 
 let activeChat:ActiveChat|null=null;
@@ -24,10 +25,12 @@ let lastSignature='';
 let hubLoading=false;
 let hubLoadedAt=0;
 let hubApps:Application[]=[];
+let hubUnreadCount=0;
 let hubRenderKey='';
 let hubMountTimer=0;
 let hubMountAttempts=0;
 let hubPollTimer=0;
+let developerAccess:boolean|null=null;
 
 function token(){
   try{return (JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||''}catch{return ''}
@@ -162,8 +165,6 @@ async function loadMessages(force=false){
   const chat=activeChat;
   if(!chat||!token())return false;
 
-  // A forced load (opening/switching/focus/reconnect) cancels an older refresh so
-  // the newly selected conversation never waits behind a stale request.
   if(force)cancelChatLoad();
   else if(chatLoadAbort)return true;
 
@@ -225,19 +226,87 @@ async function sendMessage(){
   }
 }
 
+function scrollToApplication(){
+  document.querySelector<HTMLElement>('#contribute-apply')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
 function openChat(applicationId:string,mode:ChatMode,title:string){
   if(!token())return;
+  if(mode==='user'&&!hubApps.some(app=>app.id===applicationId)){
+    scrollToApplication();
+    return;
+  }
   clearChatPoll();
   cancelChatLoad();
   activeChat={applicationId,mode,title:title||'Contributor conversation'};
   lastSignature='';
   chatShell(activeChat);
-  void loadMessages(true).finally(()=>scheduleChatPoll());
+  void loadMessages(true).finally(()=>{
+    scheduleChatPoll();
+    if(mode==='user')window.setTimeout(()=>void loadUserHub(true,true),120);
+  });
 }
 
 function userHubRoot(){return document.querySelector<HTMLElement>('[data-contributor-chat-hub]')}
+function shortcutRoot(){return document.querySelector<HTMLButtonElement>('[data-contributor-shortcut]')}
+function removeUserUi(){
+  userHubRoot()?.remove();
+  shortcutRoot()?.remove();
+  hubRenderKey='';
+  hubApps=[];
+  hubUnreadCount=0;
+}
+
+async function resolveDeveloperAccess(){
+  if(!token()){developerAccess=null;return null}
+  if(developerAccess!==null)return developerAccess;
+  try{
+    developerAccess=Boolean(await rpc<boolean>('is_litlab_admin'));
+    return developerAccess;
+  }catch(error){
+    console.debug('Contributor account type could not be verified',error);
+    return null;
+  }
+}
+
+function mountShortcut(){
+  if(route()!=='contribute'||!token()||developerAccess!==false)return null;
+  const topbar=document.querySelector<HTMLElement>('.ll-contrib-topbar');
+  if(!topbar)return null;
+  let button=shortcutRoot();
+  if(button)return button;
+  button=document.createElement('button');
+  button.type='button';
+  button.className='ll-contrib-shortcut';
+  button.dataset.contributorShortcut='true';
+  button.addEventListener('click',()=>{
+    const target=hubApps.length?(userHubRoot()||document.querySelector<HTMLElement>('[data-my-contributions]')):document.querySelector<HTMLElement>('#contribute-apply');
+    target?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  const back=topbar.querySelector('.ll-contrib-back');
+  if(back)topbar.insertBefore(button,back);else topbar.appendChild(button);
+  return button;
+}
+
+function latestApplication(){
+  return hubApps.slice().sort((a,b)=>Date.parse(b.created_at)-Date.parse(a.created_at))[0]||null;
+}
+
+function renderShortcut(){
+  const button=mountShortcut();
+  if(!button)return;
+  const latest=latestApplication();
+  const hasApplication=Boolean(latest);
+  const hasUnread=hubUnreadCount>0;
+  const subtitle=!latest?'Apply first to unlock live chat':`${statusLabel(latest.status)}${hasUnread?` • ${hubUnreadCount} unread`:''}`;
+  button.classList.toggle('has-unread',hasUnread);
+  button.classList.toggle('is-locked',!hasApplication);
+  button.setAttribute('aria-label',hasUnread?`My contributions, ${hubUnreadCount} unread message${hubUnreadCount===1?'':'s'}`:'My contributions');
+  button.innerHTML=`<span class="ll-contrib-shortcut-icon">${hasUnread?'●':hasApplication?'✦':'🔒'}</span><span class="ll-contrib-shortcut-copy"><b>My contributions</b><small>${esc(subtitle)}</small></span>${hasUnread?`<span class="ll-contrib-shortcut-badge">${hubUnreadCount}</span>`:''}`;
+}
+
 function mountUserHub(){
-  if(route()!=='contribute')return null;
+  if(route()!=='contribute'||developerAccess===true)return null;
   let hub=userHubRoot();
   if(hub)return hub;
   const page=document.querySelector<HTMLElement>('.ll-contrib-page');
@@ -262,13 +331,16 @@ function setHubMarkup(key:string,markup:string){
 }
 
 function renderUserHub(){
+  if(developerAccess===true){removeUserUi();return}
   if(!token()){
-    setHubMarkup('signed-out','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Sign in to use contributor chat. Conversations are saved to your LitLab account.</p></div><div class="ll-chat-hub-empty">Sign in to view your contributor conversations.</div>');
+    shortcutRoot()?.remove();
+    setHubMarkup('signed-out','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Sign in and submit a contributor application before live chat becomes available.</p></div><div class="ll-chat-hub-empty ll-chat-hub-locked"><span>🔒</span><div><b>Live chat is locked.</b><p>You need a signed-in LitLab account and at least one submitted contributor application before you can message the LitLab team here.</p></div></div>');
     return;
   }
   const signature=hubApps.map(app=>`${app.id}:${app.status}:${app.topics}:${app.contribution_type}`).join('|');
-  setHubMarkup(`apps:${signature}`,`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Ask questions, receive feedback and discuss revisions with the LitLab team. This list and open chats refresh automatically.</p></div>
-    ${hubApps.length?`<div class="ll-chat-thread-list">${hubApps.map(app=>`<button type="button" class="ll-chat-thread" data-chat-open data-chat-mode="user" data-application-id="${esc(app.id)}" data-chat-title="${esc(app.topics||'Contributor conversation')}"><div><span>${esc(label(app.contribution_type))}</span><b>${esc(app.topics||'Untitled contribution')}</b><small>${esc(statusLabel(app.status))}</small></div><i>Chat with LitLab →</i></button>`).join('')}</div>`:'<div class="ll-chat-hub-empty">Your contributor conversations will appear here after you submit an application.</div>'}`);
+  renderShortcut();
+  setHubMarkup(`apps:${signature}:unread:${hubUnreadCount}`,`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>${hubApps.length?'Ask questions, receive feedback and discuss revisions with the LitLab team. Chats refresh automatically.':'Live chat unlocks only after you submit your first contributor application.'}</p></div>
+    ${hubApps.length?`<div class="ll-chat-thread-list">${hubApps.map(app=>`<button type="button" class="ll-chat-thread" data-chat-open data-chat-mode="user" data-application-id="${esc(app.id)}" data-chat-title="${esc(app.topics||'Contributor conversation')}"><div><span>${esc(label(app.contribution_type))}</span><b>${esc(app.topics||'Untitled contribution')}</b><small>${esc(statusLabel(app.status))}</small></div><i>Chat with LitLab →</i></button>`).join('')}</div>`:`<div class="ll-chat-hub-empty ll-chat-hub-locked"><span>🔒</span><div><b>Submit an application to unlock live chat.</b><p>Once your first application is submitted, this private chat becomes available for questions, review feedback, revision requests, approval details and next steps.</p><button type="button" data-chat-locked-apply>Go to application form</button></div></div>`}`);
 }
 
 function scheduleHubMountRetry(force:boolean){
@@ -289,26 +361,41 @@ function scheduleHubPoll(delay=HUB_POLL_MS){
 
 async function loadUserHub(force=false,quiet=false){
   if(route()!=='contribute')return;
-  if(!mountUserHub()){
-    scheduleHubMountRetry(force);
+  const page=document.querySelector<HTMLElement>('.ll-contrib-page');
+  if(!page){scheduleHubMountRetry(force);return}
+  if(!token()){
+    developerAccess=null;
+    hubApps=[];hubUnreadCount=0;hubLoadedAt=0;
+    renderUserHub();
     return;
   }
-  hubMountAttempts=0;
-  clearMountRetry();
-  if(!token()){hubApps=[];hubLoadedAt=0;renderUserHub();return}
   if(hubLoading)return;
-  if(!force&&hubLoadedAt&&Date.now()-hubLoadedAt<10_000){renderUserHub();return}
+  if(!force&&hubLoadedAt&&Date.now()-hubLoadedAt<12_000){renderUserHub();return}
   hubLoading=true;
-  if(!quiet&&!hubLoadedAt)setHubMarkup('loading','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">Loading your contributor conversations…</div>');
   try{
-    const rows=await rpc<Application[]>('get_my_litlab_contributor_applications');
+    const isDeveloper=await resolveDeveloperAccess();
+    if(isDeveloper===true){removeUserUi();hubLoadedAt=Date.now();return}
+    if(isDeveloper===null){
+      if(!quiet)setHubMarkup('verify-error','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">We could not verify your contributor account right now. This section will retry automatically.</div>');
+      return;
+    }
+    if(!mountUserHub()){scheduleHubMountRetry(force);return}
+    hubMountAttempts=0;
+    clearMountRetry();
+    if(!quiet&&!hubLoadedAt)setHubMarkup('loading','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">Loading your contributor area…</div>');
+    const [rows,unread]=await Promise.all([
+      rpc<Application[]>('get_my_litlab_contributor_applications'),
+      rpc<UnreadChatMessage[]>('get_my_litlab_contributor_unread_messages')
+    ]);
     if(route()!=='contribute')return;
     hubApps=Array.isArray(rows)?rows:[];
+    hubUnreadCount=Array.isArray(unread)?unread.length:0;
     hubLoadedAt=Date.now();
     renderUserHub();
   }catch(err){
     console.error(err);
-    if(!quiet||!hubLoadedAt)setHubMarkup('error',`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">${navigator.onLine?'Chat could not load right now. It will retry automatically.':'You are offline. Chat will reconnect automatically.'}</div>`);
+    if(!quiet||!hubLoadedAt)setHubMarkup('error',`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">${navigator.onLine?'Contributor chat could not load right now. It will retry automatically.':'You are offline. Contributor chat will reconnect automatically.'}</div>`);
+    renderShortcut();
   }finally{
     hubLoading=false;
   }
@@ -323,10 +410,14 @@ function scheduleRouteWork(){
     hubRenderKey='';
     window.setTimeout(()=>void loadUserHub(true),60);
     scheduleHubPoll();
+  }else{
+    shortcutRoot()?.remove();
   }
 }
 
 document.addEventListener('click',event=>{
+  const apply=event.target instanceof Element?event.target.closest<HTMLElement>('[data-chat-locked-apply]'):null;
+  if(apply){event.preventDefault();scrollToApplication();return}
   const target=event.target instanceof Element?event.target.closest<HTMLElement>('[data-chat-open]'):null;
   if(!target)return;
   event.preventDefault();
@@ -359,6 +450,14 @@ window.addEventListener('offline',()=>{
 window.addEventListener('litlab:contributor-submitted',()=>{
   hubLoadedAt=0;hubRenderKey='';
   setTimeout(()=>void loadUserHub(true),300);
+});
+window.addEventListener('storage',event=>{
+  if(event.key!==SESSION_KEY)return;
+  closeChat();
+  developerAccess=null;
+  hubApps=[];hubUnreadCount=0;hubLoadedAt=0;hubRenderKey='';
+  removeUserUi();
+  scheduleRouteWork();
 });
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scheduleRouteWork,{once:true});else scheduleRouteWork();
