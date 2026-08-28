@@ -56,7 +56,9 @@ async function workspaces(force=false){
   if(!force&&Date.now()-cacheAt<CACHE_MS&&cache.length)return cache;
   if(loading)return loading;
   loading=rpc<Workspace[]>('get_my_litlab_contributor_workspace').then(rows=>{
-    cache=Array.isArray(rows)?rows:[];cacheAt=Date.now();return cache;
+    cache=Array.isArray(rows)?rows:[];cacheAt=Date.now();
+    window.dispatchEvent(new CustomEvent('litlab:contributor-workspace-data',{detail:{workspaces:cache,source:'completion-archive'}}));
+    return cache;
   }).finally(()=>{loading=null});
   return loading;
 }
@@ -122,11 +124,11 @@ function activities(app:Workspace){
 function archiveMarkup(app:Workspace){
   const totalMinutes=(app.activities||[]).reduce((sum,row)=>sum+Number(row.minutes||0),0);
   const title=app.brief?.project_title||app.topics||label(app.contribution_type);
-  return `<section class="ll-contributor-completion-archive" data-contributor-completion-archive data-application-id="${esc(app.id)}">
+  return `<section class="ll-contributor-completion-archive" data-contributor-completion-archive data-application-id="${esc(app.id)}" data-applicant-type="${esc(app.applicant_type)}">
     <header class="ll-completion-hero">
       <div class="ll-completion-icon">✓</div>
       <div class="ll-completion-copy"><span>CONTRIBUTION COMPLETED</span><h2>Your work is submitted and this contribution is now closed.</h2><p>LitLab has marked <strong>${esc(title)}</strong> as completed. Active editing and new Word uploads are closed for this contribution, but your evidence, documents, feedback and chat remain saved in your account.</p></div>
-      <div class="ll-completion-actions"><button type="button" data-completion-print>Print / save CAS evidence</button><button type="button" class="secondary" data-chat-open data-chat-mode="user" data-application-id="${esc(app.id)}" data-chat-title="${esc(title)}">Live chat with LitLab</button></div>
+      <div class="ll-completion-actions"><button type="button" data-completion-print aria-label="Save CAS evidence as PDF">Save CAS evidence as PDF</button><button type="button" class="secondary" data-chat-open data-chat-mode="user" data-application-id="${esc(app.id)}" data-chat-title="${esc(title)}">Live chat with LitLab</button></div>
     </header>
 
     <section class="ll-certificate-pending">
@@ -195,7 +197,6 @@ function scan(){
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;if(!target)return;
-  if(target.closest('[data-completion-print]')){window.print();return}
   if(target.closest('[data-workspace-select]'))window.setTimeout(()=>queueSync(false),0);
 },true);
 
