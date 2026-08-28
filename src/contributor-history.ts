@@ -5,6 +5,8 @@ const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
 const RETURN_KEY='litlabAuthReturnHash';
+const REQUEST_TIMEOUT_MS=12_000;
+const HISTORY_POLL_MS=20_000;
 
 type StoredSession={access_token?:string};
 type ContributionStatus='new'|'reviewing'|'accepted'|'declined'|'completed';
@@ -25,6 +27,7 @@ let cached:Contribution[]=[];
 let scanQueued=false;
 let retryTimer=0;
 let mountAttempts=0;
+let pollTimer=0;
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function token(){try{return (JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||''}catch{return ''}}
@@ -70,25 +73,39 @@ function setMarkup(root:HTMLElement,key:string,markup:string){
   root.innerHTML=markup;
 }
 
-async function loadMine(force=false){
-  if(route()!=='contribute'||!signedIn()||loading)return;
-  if(!force&&lastLoaded&&Date.now()-lastLoaded<15_000){render();return}
-  loading=true;
-  renderLoading();
+async function fetchMine(){
+  if(!navigator.onLine)throw new Error('offline');
+  const controller=new AbortController();
+  const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
   try{
     const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_my_litlab_contributor_applications`,{
       method:'POST',
       headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},
-      body:'{}'
+      body:'{}',
+      signal:controller.signal
     });
     if(!response.ok)throw new Error(`Contributor history failed (${response.status})`);
     const rows=await response.json() as Contribution[];
-    cached=Array.isArray(rows)?rows:[];
+    return Array.isArray(rows)?rows:[];
+  }finally{
+    window.clearTimeout(timeout);
+  }
+}
+
+async function loadMine(force=false,quiet=false){
+  if(route()!=='contribute'||!signedIn()||loading)return;
+  if(!force&&lastLoaded&&Date.now()-lastLoaded<15_000){render();return}
+  loading=true;
+  if(!quiet&&!lastLoaded)renderLoading();
+  try{
+    const rows=await fetchMine();
+    if(route()!=='contribute')return;
+    cached=rows;
     lastLoaded=Date.now();
     render();
   }catch(error){
     console.error(error);
-    renderError();
+    if(!cached.length&&!lastLoaded)renderError();
   }finally{loading=false}
 }
 
@@ -140,12 +157,12 @@ function render(){
 function renderError(){
   const root=mount();
   if(!root)return;
-  setMarkup(root,'error',`<div class="ll-contrib-section-head"><span>Your LitLab account</span><h2>My contributions</h2></div><div class="ll-my-contrib-error"><h3>Could not load your contribution history.</h3><p>Your submissions are still saved. Try refreshing the list.</p><button type="button" data-my-contrib-retry>Try again</button></div>`);
+  setMarkup(root,'error',`<div class="ll-contrib-section-head"><span>Your LitLab account</span><h2>My contributions</h2></div><div class="ll-my-contrib-error"><h3>Could not load your contribution history.</h3><p>${navigator.onLine?'Your submissions are still saved. Try again in a moment.':'You are offline. Your saved contribution history will return when you reconnect.'}</p><button type="button" data-my-contrib-retry>Try again</button></div>`);
   root.querySelector<HTMLButtonElement>('[data-my-contrib-retry]')?.addEventListener('click',()=>void loadMine(true));
 }
 
 function retryMount(){
-  if(route()!=='contribute'||section()||mountAttempts>=12)return;
+  if(route()!=='contribute'||section()||mountAttempts>=20)return;
   mountAttempts+=1;
   window.clearTimeout(retryTimer);
   retryTimer=window.setTimeout(scheduleScan,100);
@@ -156,7 +173,7 @@ function scan(){
   if(route()!=='contribute')return;
   if(!mount()){retryMount();return}
   mountAttempts=0;
-  if(!signedIn()){renderSignedOut();return}
+  if(!signedIn()){cached=[];lastLoaded=0;renderSignedOut();return}
   void loadMine();
 }
 function scheduleScan(){
@@ -165,23 +182,30 @@ function scheduleScan(){
   requestAnimationFrame(scan);
 }
 
-const appRoot=document.getElementById('root');
-if(appRoot)new MutationObserver(records=>{
-  // Ignore mutations caused by this module's own history section. This prevents
-  // accepted/updated contributions from recursively re-rendering themselves.
-  const external=records.some(record=>{
-    const target=record.target instanceof Element?record.target:record.target.parentElement;
-    return !target?.closest('[data-my-contributions]');
-  });
-  if(external)scheduleScan();
-}).observe(appRoot,{childList:true,subtree:true});
+function clearPoll(){window.clearTimeout(pollTimer);pollTimer=0}
+function schedulePoll(delay=HISTORY_POLL_MS){
+  clearPoll();
+  if(route()!=='contribute')return;
+  pollTimer=window.setTimeout(async()=>{
+    if(route()==='contribute'&&signedIn()&&!document.hidden&&navigator.onLine)await loadMine(true,true);
+    if(route()==='contribute')schedulePoll();
+  },delay);
+}
 
 window.addEventListener('hashchange',()=>{
   cached=[];lastLoaded=0;mountAttempts=0;
   window.clearTimeout(retryTimer);
+  clearPoll();
   scheduleScan();
+  if(route()==='contribute')schedulePoll();
 });
-window.addEventListener('litlab:contributor-submitted',()=>{cached=[];lastLoaded=0;setTimeout(()=>void loadMine(true),350)});
-window.addEventListener('focus',()=>{if(route()==='contribute'&&signedIn())void loadMine(true)});
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&route()==='contribute'&&signedIn())void loadMine(true)});
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scheduleScan,{once:true});else scheduleScan();
+window.addEventListener('litlab:contributor-submitted',()=>{cached=[];lastLoaded=0;setTimeout(()=>void loadMine(true),300)});
+window.addEventListener('focus',()=>{if(route()==='contribute'&&signedIn()){void loadMine(true,true);schedulePoll()}});
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){clearPoll();return}
+  if(route()==='contribute'&&signedIn()){void loadMine(true,true);schedulePoll()}
+});
+window.addEventListener('online',()=>{if(route()==='contribute'&&signedIn())void loadMine(true,true)});
+
+function start(){scheduleScan();if(route()==='contribute')schedulePoll()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
