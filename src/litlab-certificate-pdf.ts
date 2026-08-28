@@ -64,11 +64,20 @@ function drawSeal(ctx:CanvasRenderingContext2D,x:number,y:number,code:string,ico
 function drawSignature(ctx:CanvasRenderingContext2D,x:number,y:number,data:CertificatePdfData){
   ctx.save();ctx.textAlign='center';
   font(ctx,11,900);ctx.fillStyle=PURPLE;ctx.fillText('AUTHORIZED BY LITLAB',x,y-61);
-  ctx.fillStyle=INK;ctx.font='italic 58px "Snell Roundhand", "Segoe Script", "Lucida Handwriting", "Brush Script MT", cursive';ctx.fillText('LitLab',x,y);
-  ctx.strokeStyle=PURPLE_DARK;ctx.lineWidth=2.2;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x-126,y+13);ctx.bezierCurveTo(x-35,y+36,x+55,y-8,x+145,y+14);ctx.stroke();
-  ctx.strokeStyle='#a9a3c9';ctx.lineWidth=1.6;ctx.beginPath();ctx.moveTo(x-172,y+28);ctx.lineTo(x+172,y+28);ctx.stroke();
-  font(ctx,16,850);ctx.fillStyle=INK;ctx.fillText(data.issuerName||'LitLab',x,y+61);font(ctx,13,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle||'LitLab Contributor Program',x,y+86);
-  font(ctx,10,800);ctx.fillStyle=PURPLE;ctx.fillText('DIGITALLY ISSUED • CERTIFICATE ID VERIFIABLE',x,y+108);ctx.restore();
+
+  ctx.fillStyle='#182033';
+  ctx.font='italic 62px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Lucida Handwriting", "Brush Script MT", cursive';
+  ctx.fillText('LitLab',x,y);
+  ctx.globalAlpha=.18;ctx.fillText('LitLab',x+1.2,y+.8);ctx.globalAlpha=1;
+
+  ctx.strokeStyle='#182033';ctx.lineWidth=2.25;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.beginPath();ctx.moveTo(x-142,y+11);ctx.bezierCurveTo(x-111,y+30,x-68,y+35,x-31,y+24);ctx.bezierCurveTo(x+5,y+13,x+42,y+3,x+79,y+18);ctx.bezierCurveTo(x+112,y+31,x+145,y+32,x+171,y+13);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(x+157,y+14);ctx.bezierCurveTo(x+188,y+5,x+205,y+19,x+192,y+38);ctx.bezierCurveTo(x+181,y+55,x+151,y+48,x+154,y+29);ctx.bezierCurveTo(x+158,y+12,x+186,y+1,x+215,y+8);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(x-111,y+2);ctx.bezierCurveTo(x-146,y-16,x-169,y-5,x-159,y+12);ctx.bezierCurveTo(x-151,y+25,x-124,y+23,x-110,y+10);ctx.stroke();
+
+  ctx.strokeStyle='#a9a3c9';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x-178,y+39);ctx.lineTo(x+178,y+39);ctx.stroke();
+  font(ctx,16,850);ctx.fillStyle=INK;ctx.fillText(data.issuerName||'LitLab',x,y+70);font(ctx,13,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle||'LitLab Contributor Program',x,y+94);
+  font(ctx,10,800);ctx.fillStyle=PURPLE;ctx.fillText('DIGITALLY ISSUED • CERTIFICATE ID VERIFIABLE',x,y+115);ctx.restore();
 }
 
 async function jpegBytes(canvas:HTMLCanvasElement){const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Could not create certificate image.')),'image/jpeg',0.96));return new Uint8Array(await blob.arrayBuffer())}
