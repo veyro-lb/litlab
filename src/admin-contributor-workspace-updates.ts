@@ -34,7 +34,7 @@ function showNotice(){
   const key=`${item.kind}:${item.update_id}`;
   try{if(sessionStorage.getItem(NOTICE_KEY)===key)return}catch{}
   document.getElementById('ll-admin-workspace-update-notice')?.remove();
-  const n=document.createElement('aside');n.id='ll-admin-workspace-update-notice';n.className='ll-admin-workspace-update-notice';n.innerHTML=`<button type="button" data-close aria-label="Dismiss">×</button><span>NEW CONTRIBUTOR UPDATE</span><div><i>●</i><section><b>${esc(label(item))}</b><p>${esc(item.topics||item.label)}</p></section></div><button type="button" data-open>Open contributor dashboard →</button>`;
+  const n=document.createElement('aside');n.id='ll-admin-workspace-update-notice';n.className='ll-admin-workspace-update-notice';n.dataset.applicationId=item.application_id;n.dataset.updateKind=item.kind;n.innerHTML=`<button type="button" data-close aria-label="Dismiss">×</button><span>NEW CONTRIBUTOR UPDATE</span><div><i>●</i><section><b>${esc(label(item))}</b><p>${esc(item.topics||item.label)}</p></section></div><button type="button" data-open>Open contributor dashboard →</button>`;
   const dismiss=()=>{try{sessionStorage.setItem(NOTICE_KEY,key)}catch{}n.classList.add('is-closing');setTimeout(()=>n.remove(),220)};
   n.querySelector('[data-close]')?.addEventListener('click',dismiss);
   n.querySelector('[data-open]')?.addEventListener('click',()=>{dismiss();location.hash='admin-contributors'});
