@@ -1,3 +1,5 @@
+import './contributor-live-sync';
+
 let queued=false;
 
 function syncCertificateUnreadSummary(){
