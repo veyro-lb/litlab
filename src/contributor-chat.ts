@@ -4,8 +4,9 @@ const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
 const REQUEST_TIMEOUT_MS=12_000;
-const CHAT_POLL_MS=4_500;
-const HUB_POLL_MS=20_000;
+const CHAT_POLL_MS=3_500;
+const CHAT_RETRY_MS=7_500;
+const HUB_POLL_MS=15_000;
 
 type StoredSession={access_token?:string};
 type ChatMode='user'|'admin';
@@ -15,9 +16,11 @@ type ActiveChat={applicationId:string;mode:ChatMode;title:string};
 
 let activeChat:ActiveChat|null=null;
 let chatPollTimer=0;
-let chatLoading=false;
-let chatSending=false;
+let chatLoadAbort:AbortController|null=null;
+let chatLoadSequence=0;
+let sendingChatKey='';
 let lastSignature='';
+
 let hubLoading=false;
 let hubLoadedAt=0;
 let hubApps:Application[]=[];
@@ -25,8 +28,6 @@ let hubRenderKey='';
 let hubMountTimer=0;
 let hubMountAttempts=0;
 let hubPollTimer=0;
-let adminInjectTimer=0;
-let adminInjectAttempts=0;
 
 function token(){
   try{return (JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||''}catch{return ''}
@@ -36,36 +37,47 @@ function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&
 function label(value:string){return value.replace(/[-_]/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase())}
 function statusLabel(status:Application['status']){return ({new:'Pending',reviewing:'Needs review',accepted:'Approved',declined:'Not approved',completed:'Completed'} as const)[status]}
 function fmtTime(value:string){const d=new Date(value);return Number.isNaN(d.getTime())?'':d.toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}
-function sameChat(a:ActiveChat|null,b:ActiveChat){return Boolean(a&&a.applicationId===b.applicationId&&a.mode===b.mode)}
+function chatKey(chat:ActiveChat){return `${chat.mode}:${chat.applicationId}`}
+function sameChat(a:ActiveChat|null,b:ActiveChat){return Boolean(a&&chatKey(a)===chatKey(b))}
+function isAbort(error:unknown){return error instanceof DOMException&&error.name==='AbortError'}
 
 function authHeaders(){
   const access=token();
   return {'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,...(access?{Authorization:`Bearer ${access}`}:{})};
 }
 
-async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
+async function rpc<T>(name:string,body:Record<string,unknown>={},externalSignal?:AbortSignal):Promise<T>{
   if(!navigator.onLine)throw new Error('offline');
   const controller=new AbortController();
+  const abortFromExternal=()=>controller.abort();
+  if(externalSignal){
+    if(externalSignal.aborted)controller.abort();
+    else externalSignal.addEventListener('abort',abortFromExternal,{once:true});
+  }
   const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
   try{
-    const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:authHeaders(),body:JSON.stringify(body),signal:controller.signal});
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{
+      method:'POST',headers:authHeaders(),body:JSON.stringify(body),signal:controller.signal
+    });
     if(!response.ok)throw new Error(`${name} failed (${response.status})`);
     const text=await response.text();
     return (text?JSON.parse(text):null) as T;
   }finally{
     window.clearTimeout(timeout);
+    externalSignal?.removeEventListener('abort',abortFromExternal);
   }
 }
 
 function clearChatPoll(){window.clearTimeout(chatPollTimer);chatPollTimer=0}
 function clearHubPoll(){window.clearTimeout(hubPollTimer);hubPollTimer=0}
 function clearMountRetry(){window.clearTimeout(hubMountTimer);hubMountTimer=0}
-function clearAdminRetry(){window.clearTimeout(adminInjectTimer);adminInjectTimer=0}
+function cancelChatLoad(){chatLoadSequence+=1;chatLoadAbort?.abort();chatLoadAbort=null}
 
 function closeChat(){
   activeChat=null;
   lastSignature='';
   clearChatPoll();
+  cancelChatLoad();
   const modal=document.getElementById('ll-contributor-chat-modal');
   if(!modal)return;
   modal.classList.add('is-closing');
@@ -80,9 +92,9 @@ function chatShell(chat:ActiveChat){
   overlay.innerHTML=`<section class="ll-contributor-chat" role="dialog" aria-modal="true" aria-label="Contributor live chat">
     <header class="ll-contributor-chat-head">
       <div class="ll-contributor-chat-brand"><span>LL</span><div><small>${chat.mode==='admin'?'CONTRIBUTOR CHAT':'LITLAB CHAT'}</small><h2>${esc(chat.title)}</h2></div></div>
-      <div class="ll-contributor-chat-head-actions"><span class="ll-chat-live"><i></i>Live</span><button type="button" data-chat-close aria-label="Close chat">×</button></div>
+      <div class="ll-contributor-chat-head-actions"><span class="ll-chat-live" data-chat-live><i></i><span>Live</span></span><button type="button" data-chat-close aria-label="Close chat">×</button></div>
     </header>
-    <p class="ll-contributor-chat-private">${chat.mode==='admin'?'Private thread with this contributor.':'Private thread between you and the LitLab team.'} Messages stay attached to this contribution.</p>
+    <p class="ll-contributor-chat-private">${chat.mode==='admin'?'Private thread with this contributor.':'Private thread between you and the LitLab team.'} Messages refresh automatically and stay attached to this contribution.</p>
     <div class="ll-contributor-chat-messages" data-chat-messages><div class="ll-chat-loading"><span></span>Loading conversation…</div></div>
     <form class="ll-contributor-chat-compose" data-chat-form>
       <textarea name="message" maxlength="4000" rows="3" placeholder="Write a message…" aria-label="Chat message"></textarea>
@@ -91,6 +103,7 @@ function chatShell(chat:ActiveChat){
     <p class="ll-contributor-chat-error" data-chat-error role="status" aria-live="polite"></p>
   </section>`;
   document.body.appendChild(overlay);
+  updateConnectionState();
   requestAnimationFrame(()=>overlay.classList.add('is-open'));
 
   overlay.addEventListener('click',event=>{if(event.target===overlay)closeChat()});
@@ -105,6 +118,14 @@ function chatShell(chat:ActiveChat){
     }
   });
   textarea?.focus();
+}
+
+function updateConnectionState(){
+  const live=document.querySelector<HTMLElement>('#ll-contributor-chat-modal [data-chat-live]');
+  if(!live)return;
+  live.classList.toggle('is-offline',!navigator.onLine);
+  const text=live.querySelector('span');
+  if(text)text.textContent=navigator.onLine?'Live':'Offline';
 }
 
 function renderMessages(messages:Message[],chat:ActiveChat){
@@ -125,42 +146,65 @@ function renderMessages(messages:Message[],chat:ActiveChat){
 
 function scheduleChatPoll(delay=CHAT_POLL_MS){
   clearChatPoll();
-  if(!activeChat)return;
+  const chat=activeChat;
+  if(!chat)return;
   chatPollTimer=window.setTimeout(async()=>{
-    if(activeChat&&!document.hidden&&navigator.onLine)await loadMessages();
-    if(activeChat)scheduleChatPoll();
+    let nextDelay=CHAT_POLL_MS;
+    if(activeChat&&sameChat(activeChat,chat)&&!document.hidden&&navigator.onLine){
+      const ok=await loadMessages();
+      if(!ok)nextDelay=CHAT_RETRY_MS;
+    }
+    if(activeChat&&sameChat(activeChat,chat))scheduleChatPoll(nextDelay);
   },delay);
 }
 
 async function loadMessages(force=false){
   const chat=activeChat;
-  if(!chat||chatLoading||!token())return;
-  chatLoading=true;
+  if(!chat||!token())return false;
+
+  // A forced load (opening/switching/focus/reconnect) cancels an older refresh so
+  // the newly selected conversation never waits behind a stale request.
+  if(force)cancelChatLoad();
+  else if(chatLoadAbort)return true;
+
+  const sequence=++chatLoadSequence;
+  const controller=new AbortController();
+  chatLoadAbort=controller;
   const error=document.querySelector<HTMLElement>('#ll-contributor-chat-modal [data-chat-error]');
   if(force&&error)error.textContent='';
+
   try{
     const name=chat.mode==='admin'?'admin_get_litlab_contributor_messages':'get_my_litlab_contributor_messages';
-    const rows=await rpc<Message[]>(name,{p_application_id:chat.applicationId});
+    const rows=await rpc<Message[]>(name,{p_application_id:chat.applicationId},controller.signal);
+    if(sequence!==chatLoadSequence||!sameChat(activeChat,chat))return true;
     renderMessages(Array.isArray(rows)?rows:[],chat);
+    if(error?.isConnected)error.textContent='';
+    return true;
   }catch(err){
-    if(!sameChat(activeChat,chat))return;
+    if(isAbort(err)||sequence!==chatLoadSequence||!sameChat(activeChat,chat))return true;
     console.error(err);
-    if(error)error.textContent=navigator.onLine?'Could not refresh this chat. It will retry automatically.':'You are offline. Messages will refresh when your connection returns.';
+    if(error?.isConnected)error.textContent=navigator.onLine?'Could not refresh this chat. It will retry automatically.':'You are offline. Messages will refresh automatically when your connection returns.';
+    return false;
   }finally{
-    chatLoading=false;
+    if(sequence===chatLoadSequence)chatLoadAbort=null;
   }
 }
 
 async function sendMessage(){
   const chat=activeChat;
-  if(!chat||chatSending)return;
+  if(!chat)return;
+  const key=chatKey(chat);
+  if(sendingChatKey===key)return;
+
   const form=document.querySelector<HTMLFormElement>('#ll-contributor-chat-modal [data-chat-form]');
   const textarea=form?.querySelector<HTMLTextAreaElement>('textarea');
   const button=form?.querySelector<HTMLButtonElement>('button[type="submit"]');
   const error=document.querySelector<HTMLElement>('#ll-contributor-chat-modal [data-chat-error]');
   const body=textarea?.value.trim()||'';
   if(!body){textarea?.focus();return}
-  chatSending=true;
+  if(!navigator.onLine){if(error)error.textContent='You are offline. Reconnect before sending.';return}
+
+  sendingChatKey=key;
   if(button){button.disabled=true;button.textContent='Sending…'}
   if(error)error.textContent='';
   try{
@@ -174,15 +218,17 @@ async function sendMessage(){
     scheduleChatPoll();
   }catch(err){
     console.error(err);
-    if(error)error.textContent=navigator.onLine?'Message could not be sent. Please try again.':'You are offline. Reconnect before sending.';
+    if(error?.isConnected&&sameChat(activeChat,chat))error.textContent=navigator.onLine?'Message could not be sent. Please try again.':'You are offline. Reconnect before sending.';
   }finally{
-    chatSending=false;
-    if(button?.isConnected){button.disabled=false;button.textContent='Send message'}
+    if(sendingChatKey===key)sendingChatKey='';
+    if(button?.isConnected&&sameChat(activeChat,chat)){button.disabled=false;button.textContent='Send message'}
   }
 }
 
 function openChat(applicationId:string,mode:ChatMode,title:string){
   if(!token())return;
+  clearChatPoll();
+  cancelChatLoad();
   activeChat={applicationId,mode,title:title||'Contributor conversation'};
   lastSignature='';
   chatShell(activeChat);
@@ -221,7 +267,7 @@ function renderUserHub(){
     return;
   }
   const signature=hubApps.map(app=>`${app.id}:${app.status}:${app.topics}:${app.contribution_type}`).join('|');
-  setHubMarkup(`apps:${signature}`,`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Ask questions, receive feedback and discuss revisions with the LitLab team. Chats stay attached to each contribution.</p></div>
+  setHubMarkup(`apps:${signature}`,`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Ask questions, receive feedback and discuss revisions with the LitLab team. This list and open chats refresh automatically.</p></div>
     ${hubApps.length?`<div class="ll-chat-thread-list">${hubApps.map(app=>`<button type="button" class="ll-chat-thread" data-chat-open data-chat-mode="user" data-application-id="${esc(app.id)}" data-chat-title="${esc(app.topics||'Contributor conversation')}"><div><span>${esc(label(app.contribution_type))}</span><b>${esc(app.topics||'Untitled contribution')}</b><small>${esc(statusLabel(app.status))}</small></div><i>Chat with LitLab →</i></button>`).join('')}</div>`:'<div class="ll-chat-hub-empty">Your contributor conversations will appear here after you submit an application.</div>'}`);
 }
 
@@ -251,7 +297,7 @@ async function loadUserHub(force=false,quiet=false){
   clearMountRetry();
   if(!token()){hubApps=[];hubLoadedAt=0;renderUserHub();return}
   if(hubLoading)return;
-  if(!force&&hubLoadedAt&&Date.now()-hubLoadedAt<12_000){renderUserHub();return}
+  if(!force&&hubLoadedAt&&Date.now()-hubLoadedAt<10_000){renderUserHub();return}
   hubLoading=true;
   if(!quiet&&!hubLoadedAt)setHubMarkup('loading','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">Loading your contributor conversations…</div>');
   try{
@@ -268,92 +314,51 @@ async function loadUserHub(force=false,quiet=false){
   }
 }
 
-function injectAdminChatButtons(){
-  if(route()!=='admin-contributors')return 0;
-  let added=0;
-  document.querySelectorAll<HTMLElement>('.admin-contrib-card[data-app-id]').forEach(card=>{
-    if(card.querySelector('[data-admin-contrib-chat-open]'))return;
-    const id=card.dataset.appId||'';
-    if(!id)return;
-    const name=card.querySelector<HTMLElement>('.admin-contrib-person b')?.textContent?.trim()||'Contributor';
-    const topic=card.querySelectorAll<HTMLElement>('.admin-contrib-detail.wide p')[0]?.textContent?.trim()||name;
-    const strip=document.createElement('div');
-    strip.className='admin-contrib-chat-strip';
-    strip.innerHTML=`<div><span>PRIVATE CHAT</span><p>Message ${esc(name)} about feedback, revisions or next steps.</p></div><button type="button" data-admin-contrib-chat-open data-chat-open data-chat-mode="admin" data-application-id="${esc(id)}" data-chat-title="${esc(`${name} — ${topic}`)}">Open live chat</button>`;
-    const grid=card.querySelector('.admin-contrib-detail-grid');
-    grid?.before(strip);
-    if(strip.isConnected)added+=1;
-  });
-  return added;
-}
-
-function scheduleAdminInjection(reset=false){
-  if(reset)adminInjectAttempts=0;
-  clearAdminRetry();
-  if(route()!=='admin-contributors'||adminInjectAttempts>=24)return;
-  const cards=document.querySelectorAll('.admin-contrib-card[data-app-id]');
-  const missing=Array.from(cards).some(card=>!card.querySelector('[data-admin-contrib-chat-open]'));
-  if(cards.length&&!missing){adminInjectAttempts=0;return}
-  injectAdminChatButtons();
-  const remaining=Array.from(document.querySelectorAll('.admin-contrib-card[data-app-id]')).some(card=>!card.querySelector('[data-admin-contrib-chat-open]'));
-  if(!remaining&&document.querySelector('.admin-contrib-card[data-app-id]')){adminInjectAttempts=0;return}
-  adminInjectAttempts+=1;
-  adminInjectTimer=window.setTimeout(()=>scheduleAdminInjection(false),150);
-}
-
 function scheduleRouteWork(){
   clearMountRetry();
   clearHubPoll();
-  clearAdminRetry();
   hubMountAttempts=0;
-  adminInjectAttempts=0;
   if(route()==='contribute'){
     hubLoadedAt=0;
     hubRenderKey='';
     window.setTimeout(()=>void loadUserHub(true),60);
     scheduleHubPoll();
   }
-  if(route()==='admin-contributors')scheduleAdminInjection(true);
 }
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target.closest<HTMLElement>('[data-chat-open]'):null;
-  if(target){
-    event.preventDefault();
-    event.stopPropagation();
-    const applicationId=target.dataset.applicationId||'';
-    const mode=(target.dataset.chatMode==='admin'?'admin':'user') as ChatMode;
-    if(applicationId)openChat(applicationId,mode,target.dataset.chatTitle||'Contributor conversation');
-    return;
-  }
-  const refresh=event.target instanceof Element?event.target.closest('[data-contrib-refresh]'):null;
-  if(refresh)window.setTimeout(()=>scheduleAdminInjection(true),300);
-},true);
-
-document.addEventListener('input',event=>{
-  const target=event.target instanceof Element?event.target:null;
-  if(target?.matches('[data-contrib-search]'))window.setTimeout(()=>scheduleAdminInjection(true),40);
-},true);
-document.addEventListener('change',event=>{
-  const target=event.target instanceof Element?event.target:null;
-  if(target?.matches('[data-contrib-role-filter],[data-contrib-status-filter]'))window.setTimeout(()=>scheduleAdminInjection(true),40);
+  if(!target)return;
+  event.preventDefault();
+  event.stopPropagation();
+  const applicationId=target.dataset.applicationId||'';
+  const mode=(target.dataset.chatMode==='admin'?'admin':'user') as ChatMode;
+  if(applicationId)openChat(applicationId,mode,target.dataset.chatTitle||'Contributor conversation');
 },true);
 
 window.addEventListener('hashchange',()=>{closeChat();scheduleRouteWork()});
 window.addEventListener('focus',()=>{
-  if(activeChat){void loadMessages(true);scheduleChatPoll()}
+  if(activeChat){void loadMessages(true).finally(()=>scheduleChatPoll())}
   if(route()==='contribute'){void loadUserHub(true,true);scheduleHubPoll()}
-  if(route()==='admin-contributors')scheduleAdminInjection(true);
 });
 document.addEventListener('visibilitychange',()=>{
-  if(document.hidden){clearChatPoll();return}
-  if(activeChat){void loadMessages(true);scheduleChatPoll()}
+  if(document.hidden){clearChatPoll();clearHubPoll();return}
+  if(activeChat){void loadMessages(true).finally(()=>scheduleChatPoll())}
   if(route()==='contribute'){void loadUserHub(true,true);scheduleHubPoll()}
 });
 window.addEventListener('online',()=>{
-  if(activeChat){void loadMessages(true);scheduleChatPoll(800)}
-  if(route()==='contribute')void loadUserHub(true,true);
+  updateConnectionState();
+  if(activeChat){void loadMessages(true).finally(()=>scheduleChatPoll(500))}
+  if(route()==='contribute'){void loadUserHub(true,true);scheduleHubPoll()}
 });
-window.addEventListener('litlab:contributor-submitted',()=>{hubLoadedAt=0;hubRenderKey='';setTimeout(()=>void loadUserHub(true),350)});
+window.addEventListener('offline',()=>{
+  updateConnectionState();
+  clearChatPoll();
+  clearHubPoll();
+});
+window.addEventListener('litlab:contributor-submitted',()=>{
+  hubLoadedAt=0;hubRenderKey='';
+  setTimeout(()=>void loadUserHub(true),300);
+});
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scheduleRouteWork,{once:true});else scheduleRouteWork();
