@@ -16,13 +16,13 @@ let lastLoad=0;
 function session():StoredSession|null{try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null}catch{return null}}
 function token(){return session()?.access_token||''}
 function signedIn(){return Boolean(token())}
-function statusLabel(status:ApplicationStatus){return ({new:'Pending',reviewing:'Needs review',accepted:'Accepted',declined:'Rejected',completed:'Completed'} as const)[status]}
+function statusLabel(status:ApplicationStatus){return ({new:'Pending',reviewing:'Needs review',accepted:'Approved contributor',declined:'Not approved',completed:'Completed contributor'} as const)[status]}
 function statusCopy(status:ApplicationStatus){
   if(status==='new')return 'Your application has been received and is waiting for the LitLab team to review it.';
   if(status==='reviewing')return 'The LitLab team marked your application as needing review. We may contact you using the email saved with your application.';
-  if(status==='accepted')return 'Your LitLab contributor application has been accepted. Watch your email for the next steps and contribution details.';
+  if(status==='accepted')return 'Your LitLab contributor application has been accepted. Your approved contribution remains saved to your account.';
   if(status==='declined')return 'Your LitLab contributor application was not accepted this time. You can still use LitLab normally and may apply again later.';
-  return 'Your contribution has been marked completed. If applicable, LitLab can now prepare your contributor recognition or certificate.';
+  return 'Your contribution has been marked completed. Your contributor history and recognition remain saved to your account.';
 }
 function revision(app:Application){return `${app.status}|${app.status_updated_at||app.created_at}`}
 function seen(app:Application){try{return localStorage.getItem(`${SEEN_PREFIX}${app.id}`)===revision(app)}catch{return false}}
@@ -61,15 +61,20 @@ function showNotice(app:Application){
 
 function injectAccountStatus(){
   const menu=document.querySelector<HTMLElement>('.litlab-account-menu');
-  if(!menu||!latest||menu.querySelector('[data-contributor-account-status]'))return;
-  const button=document.createElement('button');
-  button.type='button';
-  button.className='litlab-admin-menu-entry ll-contributor-account-status';
-  button.dataset.contributorAccountStatus='true';
-  button.innerHTML=`<span>✦</span><div><b>Contributor application</b><small>${statusLabel(latest.status)}</small></div><i>›</i>`;
-  button.addEventListener('click',event=>{event.stopPropagation();location.hash='contribute'});
-  const signout=menu.querySelector('.litlab-signout');
-  if(signout)menu.insertBefore(button,signout);else menu.appendChild(button);
+  if(!menu||!latest)return;
+  let button=menu.querySelector<HTMLButtonElement>('[data-contributor-account-status]');
+  if(!button){
+    button=document.createElement('button');
+    button.type='button';
+    button.className='litlab-admin-menu-entry ll-contributor-account-status';
+    button.dataset.contributorAccountStatus='true';
+    button.addEventListener('click',event=>{event.stopPropagation();location.hash='contribute'});
+    const signout=menu.querySelector('.litlab-signout');
+    if(signout)menu.insertBefore(button,signout);else menu.appendChild(button);
+  }
+  const title=latest.status==='accepted'||latest.status==='completed'?'LitLab contributor':'Contributor application';
+  button.classList.toggle('is-approved',latest.status==='accepted'||latest.status==='completed');
+  button.innerHTML=`<span>${latest.status==='accepted'||latest.status==='completed'?'✓':'✦'}</span><div><b>${title}</b><small>${statusLabel(latest.status)}</small></div><i>›</i>`;
 }
 
 async function loadStatus(force=false){
@@ -85,9 +90,18 @@ async function loadStatus(force=false){
   }catch(error){console.debug('Contributor status unavailable',error)}finally{loading=false}
 }
 
-new MutationObserver(()=>injectAccountStatus()).observe(document.body,{childList:true,subtree:true});
-document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(target?.closest('.litlab-account-trigger'))setTimeout(injectAccountStatus,50)},true);
-window.addEventListener('hashchange',()=>void loadStatus());
+new MutationObserver(records=>{
+  const relevant=records.some(record=>{
+    const target=record.target instanceof Element?record.target:record.target.parentElement;
+    return !target?.closest('[data-contributor-account-status]');
+  });
+  if(relevant)injectAccountStatus();
+}).observe(document.body,{childList:true,subtree:true});
+
+document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(target?.closest('.litlab-account-trigger'))setTimeout(()=>{void loadStatus(true);injectAccountStatus()},50)},true);
+window.addEventListener('hashchange',()=>void loadStatus(true));
+window.addEventListener('focus',()=>void loadStatus(true));
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)void loadStatus(true)});
 window.addEventListener('litlab:contributor-submitted',()=>setTimeout(()=>void loadStatus(true),500) as unknown as void);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>void loadStatus(true),1200),{once:true});
 else setTimeout(()=>void loadStatus(true),1200);
