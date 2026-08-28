@@ -34,24 +34,24 @@
   will-change:transform;
 }
 
-/* Compact bulb: its yellow circular foot lands exactly on the normal i-dot position and becomes the bulb base. */
+/* The original i-dot remains visible and is the bulb's base. This small bulb sits directly on top of that dot. */
 .litlab-bulb-overlay{
   position:absolute;
-  left:51.15%;
-  top:24.7%;
-  width:3%;
-  min-width:5px;
+  left:51.23%;
+  top:12%;
+  width:6%;
+  min-width:8px;
   height:auto;
   overflow:visible;
   transform:translate(-50%,-50%);
-  filter:drop-shadow(0 0 1.2px rgba(255,205,55,.2));
+  filter:drop-shadow(0 0 1.5px rgba(255,205,55,.22));
   animation:litlabBulbFlicker 4.2s linear infinite;
 }
 
 .litlab-bulb-halo{
   fill:#ffd84d;
   opacity:.07;
-  transform-origin:20px 14px;
+  transform-origin:20px 12.5px;
   animation:litlabBulbHalo 4.2s ease-in-out infinite;
 }
 
@@ -82,11 +82,6 @@
   stroke:#dca51d;
   stroke-width:1.6;
   stroke-linecap:round;
-}
-
-.litlab-bulb-base circle{
-  fill:#f2bf2f;
-  stroke:none;
 }
 
 .litlab-floating-star{
@@ -129,10 +124,10 @@ html[data-theme=dark] .logo::after{background:rgba(0,0,0,.45);opacity:.34}
 }
 
 @keyframes litlabBulbFlicker{
-  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1;filter:drop-shadow(0 0 1.2px rgba(255,205,55,.22))}
-  14.5%,15.8%,64%,65.6%{opacity:.52;filter:drop-shadow(0 0 .4px rgba(255,205,55,.09))}
+  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1;filter:drop-shadow(0 0 1.5px rgba(255,205,55,.24))}
+  14.5%,15.8%,64%,65.6%{opacity:.5;filter:drop-shadow(0 0 .5px rgba(255,205,55,.1))}
   15.1%,16.5%,64.7%,66.3%{opacity:.84}
-  36%,50%,84%{opacity:1;filter:drop-shadow(0 0 2.5px rgba(255,205,55,.34))}
+  36%,50%,84%{opacity:1;filter:drop-shadow(0 0 3px rgba(255,205,55,.38))}
 }
 
 @keyframes litlabBulbHalo{
