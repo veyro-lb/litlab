@@ -1,4 +1,5 @@
 import './contributor-workspace-updates.css';
+import './contributor-certificate-read-ui';
 
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
