@@ -46,6 +46,12 @@ function saveIntent(intent:Intent){try{sessionStorage.setItem(INTENT_KEY,JSON.st
 function clearIntent(){try{sessionStorage.removeItem(INTENT_KEY)}catch{}}
 function stopAttempts(){window.clearTimeout(attemptTimer);attemptTimer=0;attemptCount=0}
 function scrollTo(el:Element){requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth',block:'center'}))}
+function dismissNotice(button:HTMLButtonElement){
+  const notice=button.closest<HTMLElement>('#ll-contributor-status-notice,#ll-user-workspace-update-notice,#ll-admin-contributor-update-notice,#ll-admin-workspace-update-notice');
+  if(!notice)return;
+  notice.classList.add('is-closing');
+  window.setTimeout(()=>notice.remove(),220);
+}
 
 function perform(intent:Intent){
   if(route()!==desiredRoute(intent))return false;
@@ -54,7 +60,7 @@ function perform(intent:Intent){
     const button=document.querySelector<HTMLButtonElement>(`[data-chat-open][data-chat-mode="user"][data-application-id="${id}"]`);
     if(!button)return false;
     button.click();
-    return Boolean(document.getElementById('ll-contributor-chat-modal'))||true;
+    return true;
   }
   if(intent.kind==='user-workspace'){
     const archive=document.querySelector<HTMLElement>(`[data-contributor-completion-archive][data-application-id="${id}"]`);
@@ -103,11 +109,11 @@ async function newestAdminChat(){const rows=await rpc<AdminUnread[]>('admin_get_
 async function newestAdminApp(){const rows=await rpc<App[]>('get_litlab_contributor_applications');return (Array.isArray(rows)?rows:[]).slice().sort((a,b)=>Date.parse(b.created_at)-Date.parse(a.created_at))[0]||null}
 async function newestAdminWorkspaceUpdate(){const rows=await rpc<WorkspaceUpdate[]>('admin_get_litlab_contributor_unread_workspace_updates');return (Array.isArray(rows)?rows:[]).slice().sort((a,b)=>Date.parse(b.created_at)-Date.parse(a.created_at))[0]||null}
 
-function setOpening(button:HTMLButtonElement,text:string){button.dataset.directOriginalText=button.textContent||'';button.disabled=true;button.textContent=text}
+function setOpening(button:HTMLButtonElement){button.dataset.directOriginalText=button.textContent||'';button.disabled=true;button.textContent='Opening…'}
 function restore(button:HTMLButtonElement){if(!button.isConnected)return;button.disabled=false;if(button.dataset.directOriginalText!==undefined){button.textContent=button.dataset.directOriginalText;delete button.dataset.directOriginalText}}
 
 async function resolveClick(button:HTMLButtonElement,kind:'user-notice'|'user-entry'|'user-workspace'|'admin-notice'|'admin-workspace'){
-  if(resolving)return;resolving=true;setOpening(button,kind.startsWith('admin')?'Opening…':'Opening…');
+  if(resolving)return;resolving=true;setOpening(button);
   try{
     if(kind==='user-notice'){
       const notice=button.closest<HTMLElement>('#ll-contributor-status-notice');
@@ -143,13 +149,13 @@ async function resolveClick(button:HTMLButtonElement,kind:'user-notice'|'user-en
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;if(!target)return;
   const userNotice=target.closest<HTMLButtonElement>('#ll-contributor-status-notice .ll-contributor-status-open');
-  if(userNotice){event.preventDefault();event.stopImmediatePropagation();void resolveClick(userNotice,'user-notice');return}
+  if(userNotice){event.preventDefault();event.stopImmediatePropagation();dismissNotice(userNotice);void resolveClick(userNotice,'user-notice');return}
   const userWorkspace=target.closest<HTMLButtonElement>('#ll-user-workspace-update-notice [data-open]');
-  if(userWorkspace){event.preventDefault();event.stopImmediatePropagation();void resolveClick(userWorkspace,'user-workspace');return}
+  if(userWorkspace){event.preventDefault();event.stopImmediatePropagation();dismissNotice(userWorkspace);void resolveClick(userWorkspace,'user-workspace');return}
   const adminNotice=target.closest<HTMLButtonElement>('#ll-admin-contributor-update-notice [data-admin-update-open]');
-  if(adminNotice){event.preventDefault();event.stopImmediatePropagation();void resolveClick(adminNotice,'admin-notice');return}
+  if(adminNotice){event.preventDefault();event.stopImmediatePropagation();dismissNotice(adminNotice);void resolveClick(adminNotice,'admin-notice');return}
   const adminWorkspace=target.closest<HTMLButtonElement>('#ll-admin-workspace-update-notice [data-open]');
-  if(adminWorkspace){event.preventDefault();event.stopImmediatePropagation();void resolveClick(adminWorkspace,'admin-workspace');return}
+  if(adminWorkspace){event.preventDefault();event.stopImmediatePropagation();dismissNotice(adminWorkspace);void resolveClick(adminWorkspace,'admin-workspace');return}
   const accountEntry=target.closest<HTMLButtonElement>('[data-contributor-account-status]');
   if(accountEntry){event.preventDefault();event.stopImmediatePropagation();void resolveClick(accountEntry,'user-entry');return}
   const shortcut=target.closest<HTMLButtonElement>('[data-contributor-shortcut].has-unread');
