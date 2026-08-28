@@ -85,7 +85,7 @@ function render(){
   const body=modal()?.querySelector<HTMLElement>('[data-certificate-body]');if(!body||!context)return;
   const cert=context.certificate;const title=cert?.contribution_title||context.project_title||context.topics||label(context.contribution_type);const description=cert?.contribution_description||defaultDescription(context);const verified=cert?.verified_minutes;const issuerName=cert?.issuer_name||'LitLab';const issuerTitle=cert?.issuer_title||'LitLab Contributor Program';const selfHours=context.self_recorded_minutes/60;
   body.innerHTML=`<div class="ll-admin-certificate-content">
-    <section class="ll-certificate-person-summary"><div class="mark">LL</div><div><span>CONTRIBUTOR</span><h3>${esc(context.full_name)}</h3><p>${esc(role(context))} • ${esc(label(context.contribution_type))}</p></div><aside><b>${esc(fmtDate(context.completed_at))}</b><small>Completed / final approved</small></aside></section>
+    <section class="ll-certificate-person-summary"><div class="mark"><img src="./favicon.svg" alt="" aria-hidden="true"/></div><div><span>CONTRIBUTOR</span><h3>${esc(context.full_name)}</h3><p>${esc(role(context))} • ${esc(label(context.contribution_type))}</p></div><aside><b>${esc(fmtDate(context.completed_at))}</b><small>Completed / final approved</small></aside></section>
     ${cert?existingBlock(cert):''}
     <section class="ll-certificate-record-facts"><article><span>Word submissions</span><b>${context.document_count}</b></article><article><span>Self-recorded activity</span><b>${context.self_recorded_minutes?esc(duration(context.self_recorded_minutes)):'None'}</b></article><article><span>Certificate status</span><b>${cert?'Issued':'Not issued'}</b></article></section>
     <form data-admin-certificate-form>
