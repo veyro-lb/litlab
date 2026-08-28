@@ -70,7 +70,7 @@ function addPromotionOption(form:HTMLFormElement){
 function addPromotionCard(){
   const host=document.querySelector<HTMLElement>('.ll-contrib-hero-card');if(!host||host.querySelector('[data-promotion-contribution]'))return;
   const card=document.createElement('div');card.dataset.promotionContribution='true';card.className='ll-promotion-card';card.innerHTML='<b>Promotion</b><small>Social media, awareness posters, outreach materials and campaigns that help more students discover LitLab. Keep links, drafts and results as evidence.</small>';
-  host.querySelector('p')?.before(card)||host.appendChild(card);
+  const note=host.querySelector('p');if(note)note.before(card);else host.appendChild(card);
 }
 
 function enhanceApplication(){
@@ -132,7 +132,7 @@ function renderUserPipeline(data:Pipeline){
   const head=root.querySelector('.ll-workspace-head');const panel=document.createElement('section');panel.dataset.mentorPipeline='true';panel.className='ll-mentor-pipeline';
   const status=data.stage==='complete'?'Complete':data.stage==='admin_review'?'Admin review':data.stage==='mentor_review'||data.stage==='mentor_link'?'Teacher review':data.stage==='student_revision'?'Revision needed':'Student work';
   panel.innerHTML=`<div class="ll-mentor-pipeline-head"><div><span>REVIEW PATH</span><h3>${data.mentor_required?'Student → teacher → LitLab admin':'Student → LitLab admin'}</h3><p>The latest submission controls the path. Every evidence item, review decision and workflow event stays attached to this LitLab account.</p></div><div class="ll-mentor-pill">${esc(status)}</div></div>${pipelineSteps(data)}${stageNote(data)}${evidenceMarkup(data)}${activityMarkup(data)}`;
-  head?.after(panel)||root.prepend(panel);
+  if(head)head.after(panel);else root.prepend(panel);
 }
 
 async function refreshUserPipeline(id:string){if(!id||!token())return;try{const data=await rpc<Pipeline>('get_my_litlab_contributor_pipeline',{p_application_id:id});renderUserPipeline(data)}catch(error){console.debug('Mentor pipeline unavailable',error)}}
