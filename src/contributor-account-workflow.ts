@@ -43,7 +43,7 @@ function accountGate(){
   const gate=document.createElement('div');
   gate.className='ll-contrib-account-gate';
   gate.dataset.contributorAccountGate='true';
-  gate.innerHTML=`<span>ACCOUNT REQUIRED</span><h3>Sign in before you apply.</h3><p>Your contributor application, review status and future updates are saved to your LitLab account. This lets LitLab show you when your application is pending, needs review, is accepted or is rejected.</p><button type="button">Sign in with Google to apply</button><small>Your Google password is never shared with LitLab.</small>`;
+  gate.innerHTML=`<span>ACCOUNT REQUIRED</span><h3>Sign in before you apply.</h3><p>Your contributor application, review status, private live chat and future updates are saved to your LitLab account. This lets LitLab notify you about review decisions and new messages when you sign in.</p><button type="button">Sign in with Google to apply</button><small>Your Google password is never shared with LitLab.</small>`;
   gate.querySelector('button')?.addEventListener('click',signInToApply);
   return gate;
 }
@@ -87,7 +87,7 @@ function addSignedInBanner(form:HTMLFormElement){
   state.dataset.contributorAccountState='true';
   state.className='ll-contrib-account-state';
   const email=accountEmail();
-  state.innerHTML=`<span>✓</span><div><b>Signed in${email?` as ${esc(email)}`:''}</b><small>Your application and its review result will be saved to this LitLab account.</small></div>`;
+  state.innerHTML=`<span>✓</span><div><b>Signed in${email?` as ${esc(email)}`:''}</b><small>Your application, review result and private contributor chat will stay saved to this LitLab account.</small></div>`;
   form.before(state);
 }
 
@@ -159,7 +159,7 @@ async function submitAccountApplication(form:HTMLFormElement){
     });
     if(!response.ok)throw new Error(`Contributor application failed (${response.status})`);
     localStorage.setItem(SUBMIT_COOLDOWN_KEY,String(Date.now()));
-    form.innerHTML=`<div class="ll-contrib-thanks ll-contrib-pending"><span>✓</span><div class="ll-contrib-pending-badge">PENDING REVIEW</div><h3>Your application has been submitted.</h3><p>LitLab will review your application before anything is approved. Your application is now saved to your signed-in account.</p><p class="ll-contrib-thanks-note">When the LitLab team marks it as <b>Needs review</b>, <b>Accepted</b> or <b>Rejected</b>, you’ll see an update on LitLab while signed in.</p><button type="button" data-contrib-home>Back to LitLab</button></div>`;
+    form.innerHTML=`<div class="ll-contrib-thanks ll-contrib-pending"><span>✓</span><div class="ll-contrib-pending-badge">PENDING REVIEW</div><h3>Your application has been submitted.</h3><p>LitLab will review your application before anything is approved. Your application is now saved to your signed-in account.</p><p class="ll-contrib-thanks-note"><b>What happens next:</b> if LitLab needs more information, requests revisions, accepts your application or has next-step instructions, those details can be discussed in your private <b>Live chat with LitLab</b>. If the LitLab team sends you a new message, you’ll receive an in-site notification while signed in, including when you sign back in later.</p><button type="button" data-contrib-home>Back to LitLab</button></div>`;
     form.querySelector<HTMLButtonElement>('[data-contrib-home]')?.addEventListener('click',()=>{location.hash='home'});
     window.dispatchEvent(new CustomEvent('litlab:contributor-submitted'));
   }catch(error){
