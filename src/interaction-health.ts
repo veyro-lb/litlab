@@ -9,12 +9,30 @@ function closeEvidenceModal(){
   document.querySelector<HTMLElement>('[data-evidence-modal]')?.remove();
 }
 
-function syncTransientUI(){
-  // Evidence Bank is tied to the Books context. Never leave its body-level overlay covering a
-  // different route after navigation.
-  if(location.hash.replace(/^#/,'').split('?')[0].split('#')[0]!=='books')closeEvidenceModal();
+function legacyContributorTarget(){
+  const hash=location.hash.toLowerCase();
+  return hash==='#contribute-apply'?'contribute-apply':hash==='#contribute-cas'?'contribute-cas':'';
+}
+function recoverLegacyContributorLink(){
+  const target=legacyContributorTarget();if(!target)return false;
+  try{sessionStorage.setItem('litlabContributorLegacyAnchor',target)}catch{}
+  location.hash='contribute';
+  return true;
+}
+function scrollRecoveredContributorLink(){
+  let target='';try{target=sessionStorage.getItem('litlabContributorLegacyAnchor')||'';if(target)sessionStorage.removeItem('litlabContributorLegacyAnchor')}catch{}
+  if(!target)return;
+  let attempts=0;
+  const find=()=>{
+    const section=document.getElementById(target);
+    if(section){section.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return}
+    if(attempts++<30)window.setTimeout(find,100);
+  };
+  window.setTimeout(find,80);
+}
 
-  // A hidden workspace should never retain focus after auth state or route changes.
+function syncTransientUI(){
+  if(location.hash.replace(/^#/,'').split('?')[0].split('#')[0]!=='books')closeEvidenceModal();
   const active=document.activeElement;
   if(active instanceof HTMLElement){
     const hidden=active.closest<HTMLElement>('[hidden],[aria-hidden="true"]');
@@ -32,7 +50,12 @@ document.addEventListener('keydown',event=>{
   if(certificate){event.preventDefault();certificate.click()}
 });
 
-window.addEventListener('hashchange',()=>requestAnimationFrame(syncTransientUI));
-window.addEventListener('pageshow',syncTransientUI);
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',syncTransientUI,{once:true});
-else syncTransientUI();
+window.addEventListener('hashchange',()=>{
+  if(recoverLegacyContributorLink())return;
+  requestAnimationFrame(syncTransientUI);
+  if(location.hash.replace(/^#/,'').split('?')[0].split('#')[0]==='contribute')scrollRecoveredContributorLink();
+});
+window.addEventListener('pageshow',()=>{if(!recoverLegacyContributorLink()){syncTransientUI();scrollRecoveredContributorLink()}});
+function start(){if(!recoverLegacyContributorLink()){syncTransientUI();scrollRecoveredContributorLink()}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
+else start();
