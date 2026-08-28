@@ -1,178 +1,41 @@
 export type EvidenceRow={label:string;value:string};
 export type EvidenceSection={title:string;subtitle?:string;rows?:EvidenceRow[];paragraphs?:string[];items?:string[]};
-export type EvidencePdfData={
-  contributorName:string;
-  contributionTitle:string;
-  contributionType:string;
-  submittedAt?:string|null;
-  completedAt?:string|null;
-  wordVersions:number;
-  selfRecordedMinutes:number;
-  sections:EvidenceSection[];
-  studentCas:boolean;
-};
-export type CertificatePdfData={
-  certificateCode:string;
-  contributorName:string;
-  contributorRole:string;
-  contributionTitle:string;
-  contributionType:string;
-  contributionDescription:string;
-  completedAt:string;
-  issuedAt:string;
-  verifiedMinutes?:number|null;
-  issuerName:string;
-  issuerTitle:string;
-  preview?:boolean;
-};
-
+export type EvidencePdfData={contributorName:string;contributionTitle:string;contributionType:string;submittedAt?:string|null;completedAt?:string|null;wordVersions:number;selfRecordedMinutes:number;sections:EvidenceSection[];studentCas:boolean};
+export type CertificatePdfData={certificateCode:string;contributorName:string;contributorRole:string;contributionTitle:string;contributionType:string;contributionDescription:string;completedAt:string;issuedAt:string;verifiedMinutes?:number|null;issuerName:string;issuerTitle:string;preview?:boolean};
 type CanvasPage={canvas:HTMLCanvasElement;ctx:CanvasRenderingContext2D;pointWidth:number;pointHeight:number};
 
 const PORTRAIT={pxWidth:1240,pxHeight:1754,pointWidth:595.28,pointHeight:841.89};
 const LANDSCAPE={pxWidth:1754,pxHeight:1240,pointWidth:841.89,pointHeight:595.28};
-const INK='#172033';
-const MUTED='#657083';
-const PURPLE='#6f55e8';
-const PALE='#f6f4ff';
-const LINE='#e2e6ef';
-const GREEN='#258653';
+const INK='#172033',MUTED='#657083',PURPLE='#6f55e8',PALE='#f6f4ff',LINE='#e2e6ef',GREEN='#258653';
 
-export function safeFilePart(value:string,fallback='LitLab',max=72){
-  const normalized=String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
-  const cleaned=normalized.replace(/[^a-zA-Z0-9]+/g,'_').replace(/^_+|_+$/g,'').replace(/_+/g,'_');
-  return (cleaned||fallback).slice(0,max).replace(/_+$/,'')||fallback;
-}
-
-function dateLabel(value?:string|null){
-  if(!value)return 'Not recorded';
-  const d=new Date(value);return Number.isNaN(d.getTime())?'Not recorded':d.toLocaleDateString([],{month:'long',day:'numeric',year:'numeric'});
-}
-function duration(minutes?:number|null){
-  if(minutes==null)return '';
-  const h=minutes/60;
-  return Number.isInteger(h)?`${h} hour${h===1?'':'s'}`:`${h.toFixed(1)} hours`;
-}
-function makeCanvas(spec:typeof PORTRAIT):CanvasPage{
-  const canvas=document.createElement('canvas');canvas.width=spec.pxWidth;canvas.height=spec.pxHeight;
-  const ctx=canvas.getContext('2d');if(!ctx)throw new Error('PDF canvas is unavailable in this browser.');
-  ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
-  return {canvas,ctx,pointWidth:spec.pointWidth,pointHeight:spec.pointHeight};
-}
-function rr(ctx:CanvasRenderingContext2D,x:number,y:number,w:number,h:number,r:number){
-  const radius=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+radius,y);ctx.arcTo(x+w,y,x+w,y+h,radius);ctx.arcTo(x+w,y+h,x,y+h,radius);ctx.arcTo(x,y+h,x,y,radius);ctx.arcTo(x,y,x+w,y,radius);ctx.closePath();
-}
+export function safeFilePart(value:string,fallback='LitLab',max=72){const normalized=String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'');const cleaned=normalized.replace(/[^a-zA-Z0-9]+/g,'_').replace(/^_+|_+$/g,'').replace(/_+/g,'_');return (cleaned||fallback).slice(0,max).replace(/_+$/,'')||fallback}
+function dateLabel(value?:string|null){if(!value)return 'Not recorded';const d=new Date(value);return Number.isNaN(d.getTime())?'Not recorded':d.toLocaleDateString([],{month:'long',day:'numeric',year:'numeric'})}
+function duration(minutes?:number|null){if(minutes==null)return '';const h=minutes/60;return Number.isInteger(h)?`${h} hour${h===1?'':'s'}`:`${h.toFixed(1)} hours`}
+function makeCanvas(spec:typeof PORTRAIT):CanvasPage{const canvas=document.createElement('canvas');canvas.width=spec.pxWidth;canvas.height=spec.pxHeight;const ctx=canvas.getContext('2d');if(!ctx)throw new Error('PDF canvas is unavailable in this browser.');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);return {canvas,ctx,pointWidth:spec.pointWidth,pointHeight:spec.pointHeight}}
+function rr(ctx:CanvasRenderingContext2D,x:number,y:number,w:number,h:number,r:number){const radius=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+radius,y);ctx.arcTo(x+w,y,x+w,y+h,radius);ctx.arcTo(x+w,y+h,x,y+h,radius);ctx.arcTo(x,y+h,x,y,radius);ctx.arcTo(x,y,x+w,y,radius);ctx.closePath()}
 function font(ctx:CanvasRenderingContext2D,size:number,weight=500,family='Inter, Arial, sans-serif'){ctx.font=`${weight} ${size}px ${family}`}
-function wrap(ctx:CanvasRenderingContext2D,text:string,maxWidth:number){
-  const clean=String(text??'').replace(/\s+/g,' ').trim();if(!clean)return [''];
-  const words=clean.split(' ');const lines:string[]=[];let line='';
-  for(const word of words){
-    const test=line?`${line} ${word}`:word;
-    if(ctx.measureText(test).width<=maxWidth){line=test;continue}
-    if(line)lines.push(line);
-    if(ctx.measureText(word).width<=maxWidth){line=word;continue}
-    let chunk='';
-    for(const char of Array.from(word)){
-      const t=chunk+char;if(ctx.measureText(t).width>maxWidth&&chunk){lines.push(chunk);chunk=char}else chunk=t;
-    }
-    line=chunk;
-  }
-  if(line)lines.push(line);return lines.length?lines:[''];
-}
-function drawWrapped(ctx:CanvasRenderingContext2D,text:string,x:number,y:number,maxWidth:number,lineHeight:number,color=INK){
-  ctx.fillStyle=color;const lines=String(text??'').split(/\n/).flatMap(part=>wrap(ctx,part,maxWidth));
-  lines.forEach((line,index)=>ctx.fillText(line,x,y+index*lineHeight));
-  return lines.length*lineHeight;
-}
+function wrap(ctx:CanvasRenderingContext2D,text:string,maxWidth:number){const clean=String(text??'').replace(/\s+/g,' ').trim();if(!clean)return [''];const words=clean.split(' '),lines:string[]=[];let line='';for(const word of words){const test=line?`${line} ${word}`:word;if(ctx.measureText(test).width<=maxWidth){line=test;continue}if(line)lines.push(line);if(ctx.measureText(word).width<=maxWidth){line=word;continue}let chunk='';for(const char of Array.from(word)){const t=chunk+char;if(ctx.measureText(t).width>maxWidth&&chunk){lines.push(chunk);chunk=char}else chunk=t}line=chunk}if(line)lines.push(line);return lines.length?lines:['']}
+function drawWrapped(ctx:CanvasRenderingContext2D,text:string,x:number,y:number,maxWidth:number,lineHeight:number,color=INK){ctx.fillStyle=color;const lines=String(text??'').split(/\n/).flatMap(part=>wrap(ctx,part,maxWidth));lines.forEach((line,index)=>ctx.fillText(line,x,y+index*lineHeight));return lines.length*lineHeight}
 
 class EvidenceRenderer{
-  pages:CanvasPage[]=[];page!:CanvasPage;y=0;pageNo=0;
-  readonly margin=78;readonly contentWidth=PORTRAIT.pxWidth-156;
+  pages:CanvasPage[]=[];page!:CanvasPage;y=0;readonly margin=78;readonly contentWidth=PORTRAIT.pxWidth-156;readonly bottom=PORTRAIT.pxHeight-112;
   constructor(private data:EvidencePdfData){this.newPage(true)}
-  private newPage(first=false){
-    this.page=makeCanvas(PORTRAIT);this.pages.push(this.page);this.pageNo=this.pages.length;const {ctx}=this.page;
-    ctx.fillStyle=PURPLE;rr(ctx,64,58,58,58,15);ctx.fill();font(ctx,21,900);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText('LL',93,96);ctx.textAlign='left';
-    font(ctx,24,900);ctx.fillStyle=INK;ctx.fillText('LitLab',138,84);font(ctx,13,800);ctx.fillStyle=PURPLE;ctx.fillText(this.data.studentCas?'CAS / CONTRIBUTION EVIDENCE':'CONTRIBUTION EVIDENCE',138,108);
-    ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(64,132);ctx.lineTo(PORTRAIT.pxWidth-64,132);ctx.stroke();
-    this.y=172;
-    if(first)this.coverIntro();
-  }
-  private coverIntro(){const {ctx}=this.page;
-    font(ctx,44,900);ctx.fillStyle=INK;this.y+=drawWrapped(ctx,this.data.contributionTitle,this.margin,this.y,this.contentWidth,51,INK)+18;
-    font(ctx,18,650);ctx.fillStyle=MUTED;ctx.fillText(this.data.contributorName,this.margin,this.y);this.y+=34;
-    font(ctx,13,700);ctx.fillStyle=PURPLE;ctx.fillText(this.data.contributionType.toUpperCase(),this.margin,this.y);this.y+=38;
-    const cards=[['Submitted',dateLabel(this.data.submittedAt)],['Completed',dateLabel(this.data.completedAt)],['Word versions',String(this.data.wordVersions)],['Activity record',this.data.selfRecordedMinutes?duration(this.data.selfRecordedMinutes):'None added']];
-    const gap=12,w=(this.contentWidth-gap)/2,h=104;
-    cards.forEach(([a,b],i)=>{const x=this.margin+(i%2)*(w+gap),y=this.y+Math.floor(i/2)*(h+gap);ctx.fillStyle='#fafbfe';ctx.strokeStyle=LINE;ctx.lineWidth=2;rr(ctx,x,y,w,h,16);ctx.fill();ctx.stroke();font(ctx,11,800);ctx.fillStyle=MUTED;ctx.fillText(a.toUpperCase(),x+18,y+30);font(ctx,18,850);ctx.fillStyle=INK;ctx.fillText(b,x+18,y+63)});
-    this.y+=2*(h+gap)+24;
-    ctx.fillStyle=PALE;rr(ctx,this.margin,this.y,this.contentWidth,96,16);ctx.fill();font(ctx,13,650);const note=this.data.studentCas?'This PDF organizes evidence already saved in your LitLab contributor record. It can support your own CAS documentation, but LitLab does not approve CAS and your school decides what evidence it accepts.':'This PDF organizes evidence already saved in your LitLab contributor record. It confirms the contribution record but is not an IB certificate.';drawWrapped(ctx,note,this.margin+20,this.y+30,this.contentWidth-40,22,MUTED);this.y+=124;
-  }
-  ensure(height:number){if(this.y+height>PORTRAIT.pxHeight-112)this.newPage(false)}
-  section(section:EvidenceSection){
-    const {ctx}=this.page;this.ensure(100);font(ctx,12,900);ctx.fillStyle=PURPLE;ctx.fillText(section.title.toUpperCase(),this.margin,this.y);this.y+=25;
-    if(section.subtitle){font(ctx,23,850);this.y+=drawWrapped(ctx,section.subtitle,this.margin,this.y,this.contentWidth,30,INK)+10}
-    ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(this.margin,this.y);ctx.lineTo(this.margin+this.contentWidth,this.y);ctx.stroke();this.y+=18;
-    for(const row of section.rows||[])this.row(row);
-    for(const paragraph of section.paragraphs||[])this.paragraph(paragraph);
-    for(const item of section.items||[])this.item(item);
-    this.y+=22;
-  }
-  private row(row:EvidenceRow){const {ctx}=this.page;const labelW=260,valueW=this.contentWidth-labelW-22;font(ctx,11,850);const valueLines=wrap(ctx,row.value,valueW);const height=Math.max(48,valueLines.length*23+22);this.ensure(height+8);font(ctx,11,850);ctx.fillStyle=MUTED;ctx.fillText(row.label.toUpperCase(),this.margin,this.y+19);font(ctx,14,550);ctx.fillStyle=INK;valueLines.forEach((line,i)=>ctx.fillText(line,this.margin+labelW+22,this.y+19+i*23));ctx.strokeStyle='#edf0f5';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(this.margin,this.y+height);ctx.lineTo(this.margin+this.contentWidth,this.y+height);ctx.stroke();this.y+=height+6}
-  private paragraph(text:string){const {ctx}=this.page;font(ctx,14,550);const lines=wrap(ctx,text,this.contentWidth);const h=lines.length*24+12;this.ensure(h);ctx.fillStyle=MUTED;lines.forEach((line,i)=>ctx.fillText(line,this.margin,this.y+i*24));this.y+=h}
-  private item(text:string){const {ctx}=this.page;font(ctx,14,600);const lines=wrap(ctx,text,this.contentWidth-36);const h=lines.length*23+13;this.ensure(h);ctx.fillStyle=GREEN;ctx.beginPath();ctx.arc(this.margin+7,this.y+8,5,0,Math.PI*2);ctx.fill();ctx.fillStyle=INK;lines.forEach((line,i)=>ctx.fillText(line,this.margin+27,this.y+12+i*23));this.y+=h}
-  finish(){
-    this.pages.forEach((p,index)=>{const {ctx}=p;ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(64,PORTRAIT.pxHeight-78);ctx.lineTo(PORTRAIT.pxWidth-64,PORTRAIT.pxHeight-78);ctx.stroke();font(ctx,10,650);ctx.fillStyle=MUTED;ctx.fillText('LitLab contributor record',64,PORTRAIT.pxHeight-48);ctx.textAlign='right';ctx.fillText(`Page ${index+1} of ${this.pages.length}`,PORTRAIT.pxWidth-64,PORTRAIT.pxHeight-48);ctx.textAlign='left'});
-    return this.pages;
-  }
+  private newPage(first=false){this.page=makeCanvas(PORTRAIT);this.pages.push(this.page);const {ctx}=this.page;ctx.fillStyle=PURPLE;rr(ctx,64,58,58,58,15);ctx.fill();font(ctx,21,900);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText('LL',93,96);ctx.textAlign='left';font(ctx,24,900);ctx.fillStyle=INK;ctx.fillText('LitLab',138,84);font(ctx,13,800);ctx.fillStyle=PURPLE;ctx.fillText(this.data.studentCas?'CAS / CONTRIBUTION EVIDENCE':'CONTRIBUTION EVIDENCE',138,108);ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(64,132);ctx.lineTo(PORTRAIT.pxWidth-64,132);ctx.stroke();this.y=172;if(first)this.coverIntro()}
+  private coverIntro(){const {ctx}=this.page;font(ctx,44,900);ctx.fillStyle=INK;this.y+=drawWrapped(ctx,this.data.contributionTitle,this.margin,this.y,this.contentWidth,51,INK)+18;font(ctx,18,650);ctx.fillStyle=MUTED;ctx.fillText(this.data.contributorName,this.margin,this.y);this.y+=34;font(ctx,13,700);ctx.fillStyle=PURPLE;ctx.fillText(this.data.contributionType.toUpperCase(),this.margin,this.y);this.y+=38;const cards=[['Submitted',dateLabel(this.data.submittedAt)],['Completed',dateLabel(this.data.completedAt)],['Word versions',String(this.data.wordVersions)],['Activity record',this.data.selfRecordedMinutes?duration(this.data.selfRecordedMinutes):'None added']];const gap=12,w=(this.contentWidth-gap)/2,h=104;cards.forEach(([a,b],i)=>{const x=this.margin+(i%2)*(w+gap),y=this.y+Math.floor(i/2)*(h+gap);ctx.fillStyle='#fafbfe';ctx.strokeStyle=LINE;ctx.lineWidth=2;rr(ctx,x,y,w,h,16);ctx.fill();ctx.stroke();font(ctx,11,800);ctx.fillStyle=MUTED;ctx.fillText(a.toUpperCase(),x+18,y+30);font(ctx,18,850);ctx.fillStyle=INK;ctx.fillText(b,x+18,y+63)});this.y+=2*(h+gap)+24;ctx.fillStyle=PALE;rr(ctx,this.margin,this.y,this.contentWidth,96,16);ctx.fill();font(ctx,13,650);const note=this.data.studentCas?'This PDF organizes evidence already saved in your LitLab contributor record. It can support your own CAS documentation, but LitLab does not approve CAS and your school decides what evidence it accepts.':'This PDF organizes evidence already saved in your LitLab contributor record. It confirms the contribution record but is not an IB certificate.';drawWrapped(ctx,note,this.margin+20,this.y+30,this.contentWidth-40,22,MUTED);this.y+=124}
+  private ensure(height:number){if(this.y+height>this.bottom)this.newPage(false)}
+  section(section:EvidenceSection){this.ensure(130);let ctx=this.page.ctx;font(ctx,12,900);ctx.fillStyle=PURPLE;ctx.fillText(section.title.toUpperCase(),this.margin,this.y);this.y+=25;if(section.subtitle){font(ctx,23,850);const lines=wrap(ctx,section.subtitle,this.contentWidth).slice(0,5);const needed=lines.length*30+12;this.ensure(needed);ctx=this.page.ctx;font(ctx,23,850);ctx.fillStyle=INK;lines.forEach((line,i)=>ctx.fillText(line,this.margin,this.y+i*30));this.y+=needed}ctx=this.page.ctx;ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(this.margin,this.y);ctx.lineTo(this.margin+this.contentWidth,this.y);ctx.stroke();this.y+=18;for(const row of section.rows||[])this.row(row);for(const paragraph of section.paragraphs||[])this.paragraph(paragraph);for(const item of section.items||[])this.item(item);this.y+=22}
+  private row(row:EvidenceRow){let ctx=this.page.ctx;font(ctx,14,550);let remaining=wrap(ctx,row.value,this.contentWidth-282);let first=true;while(remaining.length){this.ensure(70);ctx=this.page.ctx;font(ctx,14,550);const available=Math.max(1,Math.floor((this.bottom-this.y-24)/23));const chunk=remaining.splice(0,available);const height=Math.max(48,chunk.length*23+22);font(ctx,11,850);ctx.fillStyle=MUTED;ctx.fillText(`${row.label.toUpperCase()}${first?'':' (CONTINUED)'}`,this.margin,this.y+19);font(ctx,14,550);ctx.fillStyle=INK;chunk.forEach((line,i)=>ctx.fillText(line,this.margin+282,this.y+19+i*23));ctx.strokeStyle='#edf0f5';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(this.margin,this.y+height);ctx.lineTo(this.margin+this.contentWidth,this.y+height);ctx.stroke();this.y+=height+6;first=false;if(remaining.length)this.newPage(false)}}
+  private paragraph(text:string){let ctx=this.page.ctx;font(ctx,14,550);let remaining=wrap(ctx,text,this.contentWidth);while(remaining.length){this.ensure(46);ctx=this.page.ctx;font(ctx,14,550);const available=Math.max(1,Math.floor((this.bottom-this.y-10)/24));const chunk=remaining.splice(0,available);ctx.fillStyle=MUTED;chunk.forEach((line,i)=>ctx.fillText(line,this.margin,this.y+i*24));this.y+=chunk.length*24+12;if(remaining.length)this.newPage(false)}}
+  private item(text:string){let ctx=this.page.ctx;font(ctx,14,600);let remaining=wrap(ctx,text,this.contentWidth-36);let first=true;while(remaining.length){this.ensure(48);ctx=this.page.ctx;font(ctx,14,600);const available=Math.max(1,Math.floor((this.bottom-this.y-12)/23));const chunk=remaining.splice(0,available);if(first){ctx.fillStyle=GREEN;ctx.beginPath();ctx.arc(this.margin+7,this.y+8,5,0,Math.PI*2);ctx.fill()}ctx.fillStyle=INK;chunk.forEach((line,i)=>ctx.fillText(line,this.margin+27,this.y+12+i*23));this.y+=chunk.length*23+13;first=false;if(remaining.length)this.newPage(false)}}
+  finish(){this.pages.forEach((p,index)=>{const {ctx}=p;ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(64,PORTRAIT.pxHeight-78);ctx.lineTo(PORTRAIT.pxWidth-64,PORTRAIT.pxHeight-78);ctx.stroke();font(ctx,10,650);ctx.fillStyle=MUTED;ctx.fillText('LitLab contributor record',64,PORTRAIT.pxHeight-48);ctx.textAlign='right';ctx.fillText(`Page ${index+1} of ${this.pages.length}`,PORTRAIT.pxWidth-64,PORTRAIT.pxHeight-48);ctx.textAlign='left'});return this.pages}
 }
 
-async function jpegBytes(canvas:HTMLCanvasElement){
-  const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Could not create PDF page image.')),'image/jpeg',0.94));
-  return new Uint8Array(await blob.arrayBuffer());
-}
+async function jpegBytes(canvas:HTMLCanvasElement){const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Could not create PDF page image.')),'image/jpeg',0.94));return new Uint8Array(await blob.arrayBuffer())}
 function enc(text:string){return new TextEncoder().encode(text)}
-function concat(parts:Uint8Array[]){const length=parts.reduce((sum,p)=>sum+p.length,0);const out=new Uint8Array(length);let offset=0;for(const p of parts){out.set(p,offset);offset+=p.length}return out}
-async function imagePdf(pages:CanvasPage[]){
-  const jpegs=await Promise.all(pages.map(page=>jpegBytes(page.canvas)));
-  const objectCount=2+pages.length*3;const objects:Uint8Array[][]=Array.from({length:objectCount+1},()=>[]);
-  objects[1]=[enc('<< /Type /Catalog /Pages 2 0 R >>')];
-  const kids=pages.map((_,i)=>`${3+i*3} 0 R`).join(' ');objects[2]=[enc(`<< /Type /Pages /Count ${pages.length} /Kids [${kids}] >>`)];
-  pages.forEach((page,i)=>{
-    const pageNo=3+i*3,contentNo=pageNo+1,imageNo=pageNo+2;
-    const draw=`q\n${page.pointWidth} 0 0 ${page.pointHeight} 0 0 cm\n/Im0 Do\nQ\n`;const drawBytes=enc(draw);
-    objects[pageNo]=[enc(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${page.pointWidth} ${page.pointHeight}] /Resources << /XObject << /Im0 ${imageNo} 0 R >> >> /Contents ${contentNo} 0 R >>`)];
-    objects[contentNo]=[enc(`<< /Length ${drawBytes.length} >>\nstream\n`),drawBytes,enc('endstream')];
-    const jpg=jpegs[i];objects[imageNo]=[enc(`<< /Type /XObject /Subtype /Image /Width ${page.canvas.width} /Height ${page.canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`),jpg,enc('\nendstream')];
-  });
-  const chunks:Uint8Array[]=[enc('%PDF-1.4\n% LitLab PDF\n')];const offsets:number[]=[0];let byteOffset=chunks[0].length;
-  for(let i=1;i<=objectCount;i++){offsets[i]=byteOffset;const body=concat(objects[i]);const obj=concat([enc(`${i} 0 obj\n`),body,enc('\nendobj\n')]);chunks.push(obj);byteOffset+=obj.length}
-  const xrefOffset=byteOffset;let xref=`xref\n0 ${objectCount+1}\n0000000000 65535 f \n`;for(let i=1;i<=objectCount;i++)xref+=`${String(offsets[i]).padStart(10,'0')} 00000 n \n`;xref+=`trailer\n<< /Size ${objectCount+1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
-  chunks.push(enc(xref));return concat(chunks);
-}
-function downloadBytes(bytes:Uint8Array,filename:string){
-  const blob=new Blob([bytes],{type:'application/pdf'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30_000);
-}
+function concat(parts:Uint8Array[]){const length=parts.reduce((sum,p)=>sum+p.length,0),out=new Uint8Array(length);let offset=0;for(const p of parts){out.set(p,offset);offset+=p.length}return out}
+async function imagePdf(pages:CanvasPage[]){const jpegs=await Promise.all(pages.map(page=>jpegBytes(page.canvas)));const objectCount=2+pages.length*3,objects:Uint8Array[][]=Array.from({length:objectCount+1},()=>[]);objects[1]=[enc('<< /Type /Catalog /Pages 2 0 R >>')];const kids=pages.map((_,i)=>`${3+i*3} 0 R`).join(' ');objects[2]=[enc(`<< /Type /Pages /Count ${pages.length} /Kids [${kids}] >>`)];pages.forEach((page,i)=>{const pageNo=3+i*3,contentNo=pageNo+1,imageNo=pageNo+2,draw=`q\n${page.pointWidth} 0 0 ${page.pointHeight} 0 0 cm\n/Im0 Do\nQ\n`,drawBytes=enc(draw);objects[pageNo]=[enc(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${page.pointWidth} ${page.pointHeight}] /Resources << /XObject << /Im0 ${imageNo} 0 R >> >> /Contents ${contentNo} 0 R >>`)];objects[contentNo]=[enc(`<< /Length ${drawBytes.length} >>\nstream\n`),drawBytes,enc('endstream')];const jpg=jpegs[i];objects[imageNo]=[enc(`<< /Type /XObject /Subtype /Image /Width ${page.canvas.width} /Height ${page.canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`),jpg,enc('\nendstream')]});const chunks:Uint8Array[]=[enc('%PDF-1.4\n% LitLab PDF\n')],offsets:number[]=[0];let byteOffset=chunks[0].length;for(let i=1;i<=objectCount;i++){offsets[i]=byteOffset;const body=concat(objects[i]),obj=concat([enc(`${i} 0 obj\n`),body,enc('\nendobj\n')]);chunks.push(obj);byteOffset+=obj.length}const xrefOffset=byteOffset;let xref=`xref\n0 ${objectCount+1}\n0000000000 65535 f \n`;for(let i=1;i<=objectCount;i++)xref+=`${String(offsets[i]).padStart(10,'0')} 00000 n \n`;xref+=`trailer\n<< /Size ${objectCount+1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;chunks.push(enc(xref));return concat(chunks)}
+function downloadBytes(bytes:Uint8Array,filename:string){const blob=new Blob([bytes],{type:'application/pdf'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30_000)}
 
-export async function saveEvidencePdf(data:EvidencePdfData){
-  const renderer=new EvidenceRenderer(data);for(const section of data.sections)renderer.section(section);const bytes=await imagePdf(renderer.finish());
-  const kind=data.studentCas?'CAS_Evidence':'Contribution_Evidence';const filename=`LitLab_${kind}_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.contributionTitle,'Contribution',54)}.pdf`;
-  downloadBytes(bytes,filename);
-}
+export async function saveEvidencePdf(data:EvidencePdfData){const renderer=new EvidenceRenderer(data);for(const section of data.sections)renderer.section(section);const bytes=await imagePdf(renderer.finish()),kind=data.studentCas?'CAS_Evidence':'Contribution_Evidence',filename=`LitLab_${kind}_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.contributionTitle,'Contribution',54)}.pdf`;downloadBytes(bytes,filename)}
 
-export async function saveCertificatePdf(data:CertificatePdfData){
-  const page=makeCanvas(LANDSCAPE);const {ctx,canvas}=page;const W=LANDSCAPE.pxWidth,H=LANDSCAPE.pxHeight;
-  ctx.fillStyle='#fcfcff';ctx.fillRect(0,0,W,H);ctx.strokeStyle='#d8d2fa';ctx.lineWidth=7;rr(ctx,42,42,W-84,H-84,22);ctx.stroke();ctx.strokeStyle='#ede9ff';ctx.lineWidth=2;rr(ctx,60,60,W-120,H-120,18);ctx.stroke();
-  ctx.fillStyle=PURPLE;rr(ctx,95,88,72,72,18);ctx.fill();font(ctx,25,900);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText('LL',131,135);font(ctx,25,900);ctx.fillStyle=INK;ctx.fillText('LITLAB',W/2,120);font(ctx,13,800);ctx.fillStyle=PURPLE;ctx.fillText('CERTIFICATE OF CONTRIBUTION',W/2,154);
-  font(ctx,17,600);ctx.fillStyle=MUTED;ctx.fillText('This certificate recognises',W/2,246);
-  font(ctx,58,900,'Georgia, Times New Roman, serif');ctx.fillStyle=INK;const nameLines=wrap(ctx,data.contributorName,W-340);nameLines.slice(0,2).forEach((line,i)=>ctx.fillText(line,W/2,328+i*66));let y=328+Math.max(1,nameLines.slice(0,2).length)*66;
-  font(ctx,17,700);ctx.fillStyle=PURPLE;ctx.fillText(data.contributorRole.toUpperCase(),W/2,y+8);y+=64;
-  font(ctx,18,600);ctx.fillStyle=MUTED;ctx.fillText('for completing an approved LitLab contribution',W/2,y);y+=48;
-  font(ctx,31,850);ctx.fillStyle=INK;const titleLines=wrap(ctx,data.contributionTitle,W-370).slice(0,3);titleLines.forEach((line,i)=>ctx.fillText(line,W/2,y+i*39));y+=titleLines.length*39+28;
-  font(ctx,15,550);ctx.fillStyle=MUTED;const desc=wrap(ctx,data.contributionDescription,W-430).slice(0,5);desc.forEach((line,i)=>ctx.fillText(line,W/2,y+i*25));y+=desc.length*25+38;
-  const facts:string[]=[`Completed ${dateLabel(data.completedAt)}`,`Issued ${dateLabel(data.issuedAt)}`];if(data.verifiedMinutes!=null)facts.push(`Verified contribution time ${duration(data.verifiedMinutes)}`);font(ctx,13,750);ctx.fillStyle=INK;ctx.fillText(facts.join('   •   '),W/2,y);y+=50;
-  ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(180,y);ctx.lineTo(W-180,y);ctx.stroke();y+=42;
-  font(ctx,17,850);ctx.fillStyle=INK;ctx.fillText(data.issuerName,W/2-235,y);ctx.fillText(data.certificateCode,W/2+235,y);font(ctx,11,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle,W/2-235,y+22);ctx.fillText('Certificate ID',W/2+235,y+22);
-  font(ctx,11,600);ctx.fillStyle=MUTED;ctx.fillText('LitLab Contributor Certificate • This is not an IB certificate and does not itself approve CAS.',W/2,H-92);
-  if(data.preview){ctx.save();ctx.translate(W/2,H/2);ctx.rotate(-0.35);font(ctx,88,900);ctx.fillStyle='rgba(111,85,232,.11)';ctx.fillText('PREVIEW — NOT ISSUED',0,0);ctx.restore()}
-  ctx.textAlign='left';
-  const bytes=await imagePdf([page]);const filename=`LitLab_Contributor_Certificate_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.certificateCode,'Certificate',38)}.pdf`;downloadBytes(bytes,filename);
-}
+export async function saveCertificatePdf(data:CertificatePdfData){const page=makeCanvas(LANDSCAPE),{ctx}=page,W=LANDSCAPE.pxWidth,H=LANDSCAPE.pxHeight;ctx.fillStyle='#fcfcff';ctx.fillRect(0,0,W,H);ctx.strokeStyle='#d8d2fa';ctx.lineWidth=7;rr(ctx,42,42,W-84,H-84,22);ctx.stroke();ctx.strokeStyle='#ede9ff';ctx.lineWidth=2;rr(ctx,60,60,W-120,H-120,18);ctx.stroke();ctx.fillStyle=PURPLE;rr(ctx,95,88,72,72,18);ctx.fill();font(ctx,25,900);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText('LL',131,135);font(ctx,25,900);ctx.fillStyle=INK;ctx.fillText('LITLAB',W/2,120);font(ctx,13,800);ctx.fillStyle=PURPLE;ctx.fillText('CERTIFICATE OF CONTRIBUTION',W/2,154);font(ctx,17,600);ctx.fillStyle=MUTED;ctx.fillText('This certificate recognises',W/2,246);font(ctx,58,900,'Georgia, Times New Roman, serif');ctx.fillStyle=INK;const nameLines=wrap(ctx,data.contributorName,W-340).slice(0,2);nameLines.forEach((line,i)=>ctx.fillText(line,W/2,328+i*66));let y=328+Math.max(1,nameLines.length)*66;font(ctx,17,700);ctx.fillStyle=PURPLE;ctx.fillText(data.contributorRole.toUpperCase(),W/2,y+8);y+=64;font(ctx,18,600);ctx.fillStyle=MUTED;ctx.fillText('for completing an approved LitLab contribution',W/2,y);y+=48;font(ctx,31,850);ctx.fillStyle=INK;const titleLines=wrap(ctx,data.contributionTitle,W-370).slice(0,3);titleLines.forEach((line,i)=>ctx.fillText(line,W/2,y+i*39));y+=titleLines.length*39+28;font(ctx,15,550);ctx.fillStyle=MUTED;const desc=wrap(ctx,data.contributionDescription,W-430).slice(0,5);desc.forEach((line,i)=>ctx.fillText(line,W/2,y+i*25));y+=desc.length*25+38;const facts=[`Completed ${dateLabel(data.completedAt)}`,`Issued ${dateLabel(data.issuedAt)}`];if(data.verifiedMinutes!=null)facts.push(`Verified contribution time ${duration(data.verifiedMinutes)}`);font(ctx,13,750);ctx.fillStyle=INK;ctx.fillText(facts.join('   •   '),W/2,y);y+=50;ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(180,y);ctx.lineTo(W-180,y);ctx.stroke();y+=42;font(ctx,17,850);ctx.fillStyle=INK;ctx.fillText(data.issuerName,W/2-235,y);ctx.fillText(data.certificateCode,W/2+235,y);font(ctx,11,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle,W/2-235,y+22);ctx.fillText('Certificate ID',W/2+235,y+22);font(ctx,11,600);ctx.fillStyle=MUTED;ctx.fillText('LitLab Contributor Certificate • This is not an IB certificate and does not itself approve CAS.',W/2,H-92);if(data.preview){ctx.save();ctx.translate(W/2,H/2);ctx.rotate(-0.35);font(ctx,88,900);ctx.fillStyle='rgba(111,85,232,.11)';ctx.fillText('PREVIEW — NOT ISSUED',0,0);ctx.restore()}ctx.textAlign='left';const bytes=await imagePdf([page]),filename=`LitLab_Contributor_Certificate_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.certificateCode,'Certificate',38)}.pdf`;downloadBytes(bytes,filename)}
