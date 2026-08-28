@@ -35,101 +35,73 @@ function prepareHorizontalLogo(svg:string){
       .litlab-live-bulb{
         transform-box:view-box;
         transform-origin:938px 133px;
-        animation:litlabLiveBulbPulse 6.4s cubic-bezier(.4,0,.2,1) infinite;
+        animation:litlabLiveBulbPulse 7.2s cubic-bezier(.4,0,.2,1) infinite;
       }
-      .litlab-live-glass{animation:litlabLiveBulbGlass 5.8s linear infinite}
-      .litlab-live-filament,.litlab-live-neck{animation:litlabLiveBulbFilament 5.8s linear infinite}
+      .litlab-live-glass{animation:litlabLiveBulbGlass 8.8s steps(1,end) infinite}
+      .litlab-live-filament,.litlab-live-neck{animation:litlabLiveBulbFilament 8.8s steps(1,end) infinite}
       .litlab-live-glow{
         transform-box:fill-box;
         transform-origin:center;
-        animation:litlabLiveBulbGlow 5.8s linear infinite;
+        animation:litlabLiveBulbGlow 8.8s linear infinite;
       }
-      .litlab-live-rays{animation:litlabLiveBulbRays 5.8s linear infinite}
+      .litlab-live-rays{animation:litlabLiveBulbRays 8.8s steps(1,end) infinite}
       @keyframes litlabLiveBulbPulse{
         0%,100%{transform:scale(1)}
-        45%{transform:scale(1.008)}
-        58%{transform:scale(1.016)}
+        46%{transform:scale(1.008)}
+        58%{transform:scale(1.014)}
         72%{transform:scale(1.006)}
       }
       @keyframes litlabLiveBulbGlass{
-        0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{fill:#fff8ca;stroke:#f1bf2d}
-        17.2%{fill:#f1f2f4;stroke:#b8bdc6}
-        17.55%{fill:#e3e5e8;stroke:#969da8}
-        17.9%{fill:#fff4b8;stroke:#e5b62d}
-        18.2%{fill:#eceef1;stroke:#a7adb7}
-        18.5%{fill:#fff8ca;stroke:#f1bf2d}
-        19%{fill:#e1e3e7;stroke:#9299a4}
-        19.32%{fill:#fff8ca;stroke:#f1bf2d}
-        53.4%{fill:#f3f4f5;stroke:#c0c4cb}
-        53.72%{fill:#e2e4e7;stroke:#949ba6}
-        54.04%{fill:#fff3b0;stroke:#ddb02b}
-        54.32%{fill:#e8eaed;stroke:#a1a7b1}
-        54.65%{fill:#fff8ca;stroke:#f1bf2d}
-        79.38%{fill:#f0f1f3;stroke:#b4bac3}
-        79.7%{fill:#dfe2e6;stroke:#8f97a2}
-        80.02%{fill:#fff0aa;stroke:#d8aa27}
-        80.3%{fill:#e7e9ec;stroke:#9ca3ad}
-        80.62%{fill:#fff8ca;stroke:#f1bf2d}
+        0%,19.5%,26.5%,62%,68%,100%{fill:#fff8ca;stroke:#f1bf2d}
+        20.4%{fill:#f0f1f3;stroke:#b4bac3}
+        21.6%{fill:#dfe2e6;stroke:#8f97a2}
+        23%{fill:#fff0aa;stroke:#d8aa27}
+        24.1%{fill:#e7e9ec;stroke:#9ca3ad}
+        25.3%{fill:#fff8ca;stroke:#f1bf2d}
+        62.8%{fill:#f1f2f4;stroke:#b8bdc6}
+        64.2%{fill:#e1e4e8;stroke:#9299a4}
+        65.5%{fill:#fff2af;stroke:#ddaf2a}
+        66.6%{fill:#e8eaed;stroke:#a1a7b1}
+        67.4%{fill:#fff8ca;stroke:#f1bf2d}
       }
       @keyframes litlabLiveBulbFilament{
-        0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{stroke:#dfa719}
-        17.2%{stroke:#a6abb3}
-        17.55%{stroke:#858c96}
-        17.9%{stroke:#c8971a}
-        18.2%{stroke:#969da7}
-        18.5%{stroke:#dfa719}
-        19%{stroke:#818892}
-        19.32%{stroke:#dfa719}
-        53.4%{stroke:#aeb3ba}
-        53.72%{stroke:#858c96}
-        54.04%{stroke:#c4941a}
-        54.32%{stroke:#9299a3}
-        54.65%{stroke:#dfa719}
-        79.38%{stroke:#a3a9b1}
-        79.7%{stroke:#808791}
-        80.02%{stroke:#bd8d17}
-        80.3%{stroke:#8f969f}
-        80.62%{stroke:#dfa719}
+        0%,19.5%,26.5%,62%,68%,100%{stroke:#dfa719}
+        20.4%{stroke:#a3a9b1}
+        21.6%{stroke:#808791}
+        23%{stroke:#bd8d17}
+        24.1%{stroke:#8f969f}
+        25.3%{stroke:#dfa719}
+        62.8%{stroke:#a6abb3}
+        64.2%{stroke:#838a94}
+        65.5%{stroke:#c49319}
+        66.6%{stroke:#9299a3}
+        67.4%{stroke:#dfa719}
       }
       @keyframes litlabLiveBulbGlow{
-        0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{opacity:.16;transform:scale(1.02)}
-        17.2%{opacity:.025;transform:scale(.95)}
-        17.55%{opacity:0;transform:scale(.9)}
-        17.9%{opacity:.11;transform:scale(1)}
-        18.2%{opacity:.01;transform:scale(.92)}
-        18.5%{opacity:.19;transform:scale(1.04)}
-        19%{opacity:0;transform:scale(.9)}
-        19.32%{opacity:.17;transform:scale(1.03)}
-        53.4%{opacity:.035;transform:scale(.96)}
-        53.72%{opacity:0;transform:scale(.9)}
-        54.04%{opacity:.12;transform:scale(1)}
-        54.32%{opacity:.008;transform:scale(.92)}
-        54.65%{opacity:.2;transform:scale(1.05)}
-        79.38%{opacity:.03;transform:scale(.95)}
-        79.7%{opacity:0;transform:scale(.9)}
-        80.02%{opacity:.1;transform:scale(.99)}
-        80.3%{opacity:.006;transform:scale(.91)}
-        80.62%{opacity:.18;transform:scale(1.04)}
+        0%,19.5%,26.5%,62%,68%,100%{opacity:.16;transform:scale(1.02)}
+        20.4%{opacity:.055;transform:scale(.97)}
+        21.6%{opacity:0;transform:scale(.91)}
+        23%{opacity:.11;transform:scale(.99)}
+        24.1%{opacity:.008;transform:scale(.92)}
+        25.3%{opacity:.19;transform:scale(1.04)}
+        62.8%{opacity:.05;transform:scale(.97)}
+        64.2%{opacity:0;transform:scale(.91)}
+        65.5%{opacity:.12;transform:scale(1)}
+        66.6%{opacity:.01;transform:scale(.93)}
+        67.4%{opacity:.18;transform:scale(1.035)}
       }
       @keyframes litlabLiveBulbRays{
-        0%,16.8%,19.8%,53%,55.4%,79%,81.4%,100%{opacity:.95}
-        17.2%{opacity:.12}
-        17.55%{opacity:0}
-        17.9%{opacity:.72}
-        18.2%{opacity:.05}
-        18.5%{opacity:1}
-        19%{opacity:0}
-        19.32%{opacity:1}
-        53.4%{opacity:.18}
-        53.72%{opacity:0}
-        54.04%{opacity:.74}
-        54.32%{opacity:.04}
-        54.65%{opacity:1}
-        79.38%{opacity:.14}
-        79.7%{opacity:0}
-        80.02%{opacity:.68}
-        80.3%{opacity:.03}
-        80.62%{opacity:1}
+        0%,19.5%,26.5%,62%,68%,100%{opacity:.95}
+        20.4%{opacity:.24}
+        21.6%{opacity:0}
+        23%{opacity:.72}
+        24.1%{opacity:.05}
+        25.3%{opacity:1}
+        62.8%{opacity:.2}
+        64.2%{opacity:0}
+        65.5%{opacity:.74}
+        66.6%{opacity:.05}
+        67.4%{opacity:1}
       }
       @media(prefers-reduced-motion:reduce){
         .litlab-live-bulb,.litlab-live-glass,.litlab-live-filament,.litlab-live-neck,.litlab-live-glow,.litlab-live-rays{animation:none!important}
@@ -274,7 +246,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=24',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=25',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
