@@ -17,7 +17,7 @@ function makeWordmark(){
 function refreshLogos(){
   document.querySelectorAll<HTMLElement>('.logo').forEach(logo=>{
     const compact=Boolean(logo.closest('.compass-center,.maker-core'));
-    const variant=compact?'icon-v7':'full-v7';
+    const variant=compact?'icon-v8':'full-v8';
     if(logo.dataset.litlabLogoVariant===variant)return;
     logo.dataset.litlabLogoVariant=variant;
     const mark=createLitLabMark(compact?'litlab-brand-icon':'litlab-brand-mark',!compact);
