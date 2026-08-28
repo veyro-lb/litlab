@@ -31,13 +31,28 @@ function refreshContributorMark(mark:HTMLElement){
   mark.replaceChildren(createLitLabMark('litlab-contributor-brand-icon'));
 }
 
+function refreshChatMark(brand:HTMLElement){
+  if(brand.dataset.litlabChatBrand==='icon-v1')return;
+  const legacy=brand.querySelector<HTMLElement>(':scope > span');
+  if(!legacy||(legacy.textContent||'').trim()!=='LL')return;
+  const image=createLitLabMark('litlab-contributor-chat-brand-icon');
+  image.style.width='38px';
+  image.style.height='38px';
+  image.style.objectFit='contain';
+  image.style.flex='0 0 auto';
+  legacy.replaceWith(image);
+  brand.dataset.litlabChatBrand='icon-v1';
+}
+
 function refreshWithin(root:ParentNode){
   if(root instanceof HTMLElement){
     if(root.matches('.logo'))refreshLogo(root);
     if(root.matches('.ll-contrib-mark'))refreshContributorMark(root);
+    if(root.matches('.ll-contributor-chat-brand'))refreshChatMark(root);
   }
   root.querySelectorAll<HTMLElement>('.logo').forEach(refreshLogo);
   root.querySelectorAll<HTMLElement>('.ll-contrib-mark').forEach(refreshContributorMark);
+  root.querySelectorAll<HTMLElement>('.ll-contributor-chat-brand').forEach(refreshChatMark);
 }
 
 function start(){
