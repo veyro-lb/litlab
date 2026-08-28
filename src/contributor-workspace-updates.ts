@@ -24,7 +24,19 @@ function latest(){return updates.slice().sort((a,b)=>Date.parse(b.created_at)-Da
 function title(item:Update){if(item.kind==='brief')return 'LitLab updated your project brief';if(item.kind==='task')return 'You have a new task or task update';if(item.kind==='revision')return 'LitLab updated a revision request';if(item.kind==='certificate')return 'Your LitLab Contributor Certificate is ready';return 'You have a new teacher review assignment'}
 
 function apply(){const active=updates.length>0;document.documentElement.toggleAttribute('data-litlab-user-workspace-update',active);document.querySelectorAll<HTMLElement>('[data-contributor-account-status]').forEach(el=>el.classList.toggle('has-workspace-update',active));if(active)showNotice();else document.getElementById('ll-user-workspace-update-notice')?.remove()}
-function clear(){updates=[];document.documentElement.removeAttribute('data-litlab-user-workspace-update');document.querySelectorAll<HTMLElement>('[data-contributor-account-status]').forEach(el=>el.classList.remove('has-workspace-update'))}
+function clear(){updates=[];document.documentElement.removeAttribute('data-litlab-user-workspace-update');document.querySelectorAll<HTMLElement>('[data-contributor-account-status]').forEach(el=>el.classList.remove('has-workspace-update'));document.getElementById('ll-user-workspace-update-notice')?.remove()}
+function acknowledgeCertificateLocally(applicationId:string){
+  if(!applicationId)return;
+  updates=updates.filter(item=>!(item.kind==='certificate'&&item.application_id===applicationId));
+  const notice=document.getElementById('ll-user-workspace-update-notice');
+  if(notice?.dataset.updateKind==='certificate'&&notice.dataset.applicationId===applicationId)notice.remove();
+  apply();
+}
+async function markCertificateRead(applicationId:string){
+  if(!applicationId)return;
+  acknowledgeCertificateLocally(applicationId);
+  try{await rpc<boolean>('mark_my_litlab_contributor_certificate_read',{p_application_id:applicationId});window.dispatchEvent(new CustomEvent('litlab:certificate-read',{detail:{applicationId,source:'workspace-update'}}));await load(true)}catch(error){console.debug('Certificate read state unavailable',error);window.setTimeout(()=>void load(true),500)}
+}
 function focusContribution(item:Update){
   try{sessionStorage.setItem(FOCUS_KEY,item.application_id)}catch{}
   const fire=()=>window.dispatchEvent(new CustomEvent('litlab:open-contribution-detail',{detail:{applicationId:item.application_id,kind:item.kind}}));
@@ -38,11 +50,11 @@ function showNotice(){
   const key=`${item.kind}:${item.update_id}:${item.created_at}`;
   try{if(sessionStorage.getItem(NOTICE_KEY)===key)return}catch{}
   document.getElementById('ll-user-workspace-update-notice')?.remove();
-  const n=document.createElement('aside');n.id='ll-user-workspace-update-notice';n.className='ll-user-workspace-update-notice';n.setAttribute('role','status');n.setAttribute('aria-live','polite');
+  const n=document.createElement('aside');n.id='ll-user-workspace-update-notice';n.className='ll-user-workspace-update-notice';n.dataset.updateKind=item.kind;n.dataset.applicationId=item.application_id;n.setAttribute('role','status');n.setAttribute('aria-live','polite');
   n.innerHTML=`<button type="button" data-close aria-label="Dismiss">×</button><span>${item.kind==='certificate'?'CERTIFICATE READY':'NEW CONTRIBUTOR UPDATE'}</span><div><i>${item.kind==='certificate'?'✓':'●'}</i><section><b>${esc(title(item))}</b><p>${esc(item.topics||item.label)}${item.label&&item.label!==(item.topics||'')?` • ${esc(item.label)}`:''}</p></section></div><button type="button" data-open>${item.kind==='certificate'?'View this contribution & certificate →':'Open this contribution →'}</button>`;
-  const dismiss=()=>{try{sessionStorage.setItem(NOTICE_KEY,key)}catch{}n.classList.add('is-closing');setTimeout(()=>n.remove(),220)};
-  n.querySelector('[data-close]')?.addEventListener('click',dismiss);
-  n.querySelector('[data-open]')?.addEventListener('click',()=>{dismiss();focusContribution(item)});
+  const hide=(remember:boolean)=>{if(remember){try{sessionStorage.setItem(NOTICE_KEY,key)}catch{}}n.classList.add('is-closing');setTimeout(()=>n.remove(),220)};
+  n.querySelector('[data-close]')?.addEventListener('click',()=>hide(true));
+  n.querySelector('[data-open]')?.addEventListener('click',()=>{hide(false);if(item.kind==='certificate')void markCertificateRead(item.application_id);focusContribution(item)});
   document.body.appendChild(n);requestAnimationFrame(()=>n.classList.add('is-visible'));
 }
 
@@ -60,8 +72,7 @@ function schedule(){clearTimeout(timer);timer=window.setTimeout(async()=>{if(!do
 function markCertificateReadFromButton(button:Element){
   const holder=button.closest<HTMLElement>('[data-contributor-completion-archive],[data-history-contribution]');
   const applicationId=holder?.dataset.applicationId||holder?.dataset.historyContribution||'';
-  if(!applicationId)return;
-  void rpc<boolean>('mark_my_litlab_contributor_certificate_read',{p_application_id:applicationId}).then(()=>{window.dispatchEvent(new CustomEvent('litlab:certificate-read',{detail:{applicationId}}));return load(true)}).catch(error=>console.debug('Certificate read state unavailable',error));
+  if(applicationId)void markCertificateRead(applicationId);
 }
 
 document.addEventListener('click',event=>{
@@ -75,6 +86,6 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeo
 window.addEventListener('online',()=>void load(true));
 window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){developerAccess=null;clear();void load(true)}});
 window.addEventListener('litlab:contributor-workspace-updated',()=>setTimeout(()=>void load(true),250));
-window.addEventListener('litlab:certificate-read',()=>setTimeout(()=>void load(true),120));
+window.addEventListener('litlab:certificate-read',event=>{const applicationId=event instanceof CustomEvent?String(event.detail?.applicationId||''):'';if(applicationId)acknowledgeCertificateLocally(applicationId);setTimeout(()=>void load(true),120)});
 
 setTimeout(()=>void load(true),1100);schedule();
