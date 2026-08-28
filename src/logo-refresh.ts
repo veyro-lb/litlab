@@ -7,18 +7,15 @@ function createFullLogoDecorations(){
   decorations.setAttribute('aria-hidden','true');
   decorations.innerHTML=`
     <svg class="litlab-bulb-overlay" viewBox="0 0 40 32" aria-hidden="true">
-      <circle class="litlab-bulb-halo" cx="20" cy="12.5" r="10.5"/>
+      <circle class="litlab-bulb-halo" cx="20" cy="12.2" r="10.2"/>
       <g class="litlab-bulb-rays" fill="none" stroke-linecap="round">
-        <path d="M20 1.5v3"/>
-        <path d="M9.8 5.6 12 7.8"/>
-        <path d="M30.2 5.6 28 7.8"/>
+        <path d="M20 1.4v3"/>
+        <path d="M10 5.5 12.1 7.6"/>
+        <path d="M30 5.5 27.9 7.6"/>
       </g>
-      <path class="litlab-bulb-glass" d="M13.7 13c0-4 2.8-7.2 6.3-7.2s6.3 3.2 6.3 7.2c0 2.8-1.3 4.6-3.3 6.4-.9.8-1.4 1.7-1.5 2.8h-3c-.1-1.1-.6-2-1.5-2.8-2-1.8-3.3-3.6-3.3-6.4Z"/>
-      <path class="litlab-bulb-filament" d="m17.8 14.1 2.2 2.2 2.2-2.2M20 16.3v5.8"/>
-      <g class="litlab-bulb-base">
-        <path d="M17.4 24.9h5.2"/>
-        <path d="M18.3 27.8h3.4"/>
-      </g>
+      <path class="litlab-bulb-glass" d="M13.9 12.8c0-3.8 2.7-6.9 6.1-6.9s6.1 3.1 6.1 6.9c0 2.65-1.2 4.35-3.15 6.1-.86.8-1.34 1.66-1.44 2.7h-3.02c-.1-1.04-.58-1.9-1.44-2.7-1.95-1.75-3.15-3.45-3.15-6.1Z"/>
+      <path class="litlab-bulb-filament" d="m17.9 14 2.1 2.1 2.1-2.1M20 16.1v5.4"/>
+      <path class="litlab-bulb-socket" d="M17.6 24.3h4.8M18.5 27h3M20 27v3.7"/>
     </svg>
     <span class="litlab-floating-star"></span>
   `;
