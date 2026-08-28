@@ -41,7 +41,7 @@ function fmt(value?:string|null){if(!value)return '';const d=new Date(value);ret
 function initial(value?:string|null){return String(value||'?').trim().charAt(0).toUpperCase()||'?'}
 function stageLabel(stage:string){return ({student_work:'Waiting for student DOCX',mentor_link:'Teacher link needed',mentor_review:'Under teacher review',student_revision:'Teacher requested changes',admin_review:'Ready for LitLab admin',complete:'Completed'} as Record<string,string>)[stage]||'Review in progress'}
 function stageTone(stage:string){if(stage==='admin_review'||stage==='complete')return 'success';if(stage==='mentor_review')return 'teacher';if(stage==='student_revision')return 'revision';if(stage==='mentor_link')return 'waiting';return 'neutral'}
-function average(review?:Testimony|null){if(!review)return '';const values=[review.accuracy,review.clarity,review.dp_relevance,review.originality,review.sources].map(Number).filter(Number.isFinite);return values.length===5?(values.reduce((a,b)=>a+b,0)/5).toFixed(1):''}
+function average(review?:Testimony|null){if(!review)return '';const values=[review.accuracy,review.clarity,review.dp_relevance,review.originality,review.sources].map(Number).filter(value=>Number.isFinite(value));return values.length===5?(values.reduce((a,b)=>a+b,0)/5).toFixed(1):''}
 
 async function rpc<T>(name:string,body:Record<string,unknown>):Promise<T>{
   const access=token();if(!access)throw new Error('Sign in required');
@@ -75,7 +75,8 @@ function markTeacherDocuments(card:HTMLElement,data:Pipeline){
     button.classList.toggle('ll-previous-review-doc',index>0);
     let tag=button.querySelector<HTMLElement>('[data-review-doc-tag]');
     if(!tag){tag=document.createElement('span');tag.dataset.reviewDocTag='true';tag.className='ll-review-doc-tag';button.appendChild(tag)}
-    if(index===0){tag.textContent=data.stage==='mentor_review'?'CURRENT DOCX · REVIEW THIS':data.stage==='student_revision'?'CURRENT DOCX · CHANGES REQUESTED':data.stage==='admin_review'?'CURRENT DOCX · APPROVED':'CURRENT DOCX'}else tag.textContent='Previous version';
+    const text=index===0?(data.stage==='mentor_review'?'CURRENT DOCX · REVIEW THIS':data.stage==='student_revision'?'CURRENT DOCX · CHANGES REQUESTED':data.stage==='admin_review'?'CURRENT DOCX · APPROVED':'CURRENT DOCX'):'Previous version';
+    if(tag.textContent!==text)tag.textContent=text;
   });
 }
 
@@ -83,7 +84,8 @@ function applyTeacherCard(card:HTMLElement,data:Pipeline){
   card.dataset.reviewStage=stageTone(data.stage);
   let summary=card.querySelector<HTMLElement>('[data-teacher-action-summary]');
   if(!summary){summary=document.createElement('div');summary.dataset.teacherActionSummary='true';summary.className='ll-teacher-action-summary';const guide=card.querySelector('[data-teacher-decision-guide]');const title=card.querySelector('.ll-card-title');(guide||title)?.after(summary)}
-  const action=teacherAction(data);summary.dataset.stage=stageTone(data.stage);summary.innerHTML=`<div><span>NEXT ACTION</span><b>${esc(action.title)}</b><p>${esc(action.body)}</p></div><strong>${esc(stageLabel(data.stage))}</strong>`;
+  const renderKey=`${data.stage}:${data.latest_document?.id||''}`;
+  if(summary.dataset.renderKey!==renderKey){const action=teacherAction(data);summary.dataset.stage=stageTone(data.stage);summary.dataset.renderKey=renderKey;summary.innerHTML=`<div><span>NEXT ACTION</span><b>${esc(action.title)}</b><p>${esc(action.body)}</p></div><strong>${esc(stageLabel(data.stage))}</strong>`}
   markTeacherDocuments(card,data);
 }
 
@@ -97,6 +99,7 @@ function renderTeacherQueue(){
   const student=rows.filter(r=>r.stage==='student_revision'||r.stage==='student_work').length;
   const admin=rows.filter(r=>r.stage==='admin_review').length;
   const done=rows.filter(r=>r.stage==='complete').length;
+  const renderKey=`${action}:${student}:${admin}:${done}`;if(panel.dataset.renderKey===renderKey)return;panel.dataset.renderKey=renderKey;
   panel.innerHTML=`<div><span>YOUR REVIEW QUEUE</span><b>${action?`${action} student${action===1?'':'s'} need your review`:'No teacher action is waiting'}</b><p>Only cards marked <strong>Under teacher review</strong> need a decision. Everything else is waiting on the student or LitLab admin.</p></div><div class="ll-teacher-queue-counts"><i><b>${action}</b>Needs review</i><i><b>${student}</b>Waiting student</i><i><b>${admin}</b>With admin</i><i><b>${done}</b>Complete</i></div>`;
 }
 
@@ -131,9 +134,11 @@ function relationshipMarkup(data:Pipeline,compact=false){
 function applyAdminCard(card:HTMLElement,data:Pipeline){
   if(data.applicant_type!=='student')return;
   card.classList.add('ll-admin-student-linked-view');
-  const manage=card.querySelector<HTMLButtonElement>('[data-admin-manage-workspace]');if(manage)manage.textContent='Open review center';
+  const manage=card.querySelector<HTMLButtonElement>('[data-admin-manage-workspace]');if(manage&&manage.textContent!=='Open review center')manage.textContent='Open review center';
   let panel=card.querySelector<HTMLElement>('[data-admin-student-review-owner]');
   if(!panel){panel=document.createElement('section');panel.dataset.adminStudentReviewOwner='true';panel.className='ll-admin-student-review-owner';const status=card.querySelector('.admin-contrib-status-row');const chat=card.querySelector('.admin-contrib-chat-strip');if(status)status.after(panel);else if(chat)chat.before(panel);else card.querySelector('.admin-contrib-body')?.prepend(panel)}
+  const renderKey=[data.stage,data.assignment?.teacher_application_id||'',data.assignment?.teacher_name||'',data.matching_teacher?.id||'',data.teacher_testimony?.recommendation||'',data.teacher_testimony?.created_at||'',data.teacher_testimony?.summary||''].join('|');
+  if(panel.dataset.renderKey===renderKey)return;panel.dataset.renderKey=renderKey;
   panel.innerHTML=`${relationshipMarkup(data,true)}<div class="ll-review-owner-card-foot"><span>${esc(adminAction(data).body)}</span><button type="button" data-open-review-center-proxy>Open review center</button></div>`;
 }
 
