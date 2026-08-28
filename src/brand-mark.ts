@@ -20,14 +20,13 @@ function prepareHorizontalLogo(svg:string){
     root.querySelectorAll('style').forEach(node=>node.remove());
     root.querySelectorAll('.litlab-bulb-glow,.litlab-bulb,.litlab-i-dot,.litlab-live-bulb').forEach(node=>node.remove());
 
-    // Rebuild the i-dot in the logo's own SVG coordinate system so it always
-    // stays centered above the i stem. The bulb neck touches the top of this
-    // dot exactly, making the dot the actual base of the bulb.
+    // Rebuild a fuller, proportional i-dot above the stem. The animated bulb
+    // lands directly on the top of this dot so the dot is also its base.
     const dot=documentSvg.createElementNS(ns,'circle');
     dot.setAttribute('class','litlab-i-dot');
     dot.setAttribute('cx','938');
     dot.setAttribute('cy','155');
-    dot.setAttribute('r','16');
+    dot.setAttribute('r','22');
     dot.setAttribute('fill','#141a23');
     root.appendChild(dot);
 
@@ -42,12 +41,12 @@ function prepareHorizontalLogo(svg:string){
         15.1%,16.5%,64.7%,66.3%{opacity:.86}
       }
       @keyframes litlabLiveBulbGlow{
-        0%,100%{opacity:.075;transform:scale(.96)}
-        36%,50%,84%{opacity:.18;transform:scale(1.06)}
+        0%,100%{opacity:.08;transform:scale(.96)}
+        36%,50%,84%{opacity:.19;transform:scale(1.06)}
         14.5%,15.8%,64%,65.6%{opacity:.025;transform:scale(.92)}
       }
       @keyframes litlabLiveBulbRays{
-        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.86}
+        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.88}
         14.5%,15.8%,64%,65.6%{opacity:.14}
         36%,50%,84%{opacity:1}
       }
@@ -61,15 +60,15 @@ function prepareHorizontalLogo(svg:string){
     bulb.setAttribute('class','litlab-live-bulb');
     bulb.setAttribute('aria-hidden','true');
     bulb.innerHTML=`
-      <circle class="litlab-live-glow" cx="938" cy="94" r="49" fill="#facc15" opacity=".085"/>
-      <g class="litlab-live-rays" fill="none" stroke="#f6c537" stroke-width="7" stroke-linecap="round">
-        <path d="M938 43V28"/>
-        <path d="M904 56l-11-11"/>
-        <path d="M972 56l11-11"/>
+      <circle class="litlab-live-glow" cx="938" cy="88" r="57" fill="#facc15" opacity=".09"/>
+      <g class="litlab-live-rays" fill="none" stroke="#f6c537" stroke-width="8" stroke-linecap="round">
+        <path d="M938 34V17"/>
+        <path d="M898 50l-13-13"/>
+        <path d="M978 50l13-13"/>
       </g>
-      <path d="M938 54c-22 0-38 17-38 38 0 14 7 25 19 33 5 3 7 7 7 13h24c0-6 2-10 7-13 12-8 19-19 19-33 0-21-16-38-38-38Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="6.5" stroke-linejoin="round"/>
-      <path d="M925 88l13 13 13-13M938 101v30" fill="none" stroke="#dfa719" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M938 128v11" fill="none" stroke="#dfa719" stroke-width="9" stroke-linecap="round"/>
+      <path d="M938 43c-25 0-43 19-43 43 0 16 8 29 21 38 5 4 8 9 8 15h28c0-6 3-11 8-15 13-9 21-22 21-38 0-24-18-43-43-43Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="7.5" stroke-linejoin="round"/>
+      <path d="M923 82l15 15 15-15M938 97v31" fill="none" stroke="#dfa719" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M938 122v11" fill="none" stroke="#dfa719" stroke-width="10" stroke-linecap="round"/>
     `;
     root.appendChild(bulb);
 
@@ -194,7 +193,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=17',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=18',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
