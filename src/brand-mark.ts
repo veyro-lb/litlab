@@ -15,11 +15,20 @@ function prepareHorizontalLogo(svg:string){
     const documentSvg=new DOMParser().parseFromString(svg,'image/svg+xml');
     const root=documentSvg.documentElement;
 
-    // Remove the old oversized bulb that was previously baked directly into
-    // litlab-logo.svg. The original i-dot is deliberately kept: it is now the
-    // visual base for the much smaller decorative bulb added by logo-refresh.
+    // Remove the old oversized bulb that is baked into the source asset.
     root.querySelector('style')?.remove();
     root.querySelectorAll('.litlab-bulb-glow,.litlab-bulb').forEach(node=>node.remove());
+
+    // Rebuild the i-dot as a compact brand-ink circle above the i stem.
+    // This dot is also the physical base/socket for the animated bulb overlay.
+    root.querySelectorAll('.litlab-i-dot').forEach(node=>node.remove());
+    const dot=documentSvg.createElementNS('http://www.w3.org/2000/svg','circle');
+    dot.setAttribute('class','litlab-i-dot');
+    dot.setAttribute('cx','938');
+    dot.setAttribute('cy','161');
+    dot.setAttribute('r','19');
+    dot.setAttribute('fill','#141a23');
+    root.appendChild(dot);
 
     return new XMLSerializer().serializeToString(root);
   }catch{
@@ -142,7 +151,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=14',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=15',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
