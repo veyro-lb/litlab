@@ -15,8 +15,11 @@ function enhanceBrand(root:HTMLElement){
 function enhanceResearchCopy(root:HTMLElement){
   const cards=Array.from(root.querySelectorAll<HTMLElement>('.ll-contrib-hero-card>div'));
   const research=cards.find(card=>card.querySelector('b')?.textContent?.trim()==='Research');
-  const copy=research?.querySelector('small');
-  if(copy)copy.textContent='Reliable source-based notes, original DP-style practice questions, mock exam prompts, practice tasks and sample responses.';
+  const copy=research?.querySelector<HTMLElement>('small');
+  if(copy&&copy.dataset.practiceEnhanced!=='true'){
+    copy.dataset.practiceEnhanced='true';
+    copy.textContent='Reliable source-based notes, original DP-style practice questions, mock exam prompts, practice tasks and sample responses.';
+  }
 
   const studentCard=Array.from(root.querySelectorAll<HTMLElement>('.ll-contrib-role-grid article')).find(card=>card.querySelector('h3')?.textContent?.includes('DP Student'));
   if(studentCard&&!studentCard.querySelector('[data-practice-note]')){
