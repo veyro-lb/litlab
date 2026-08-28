@@ -22,6 +22,7 @@ type Activity={id:string;activity_date:string;minutes:number;description:string;
 let workspaces:Workspace[]=[];
 let assignments:TeacherAssignment[]=[];
 let selectedId='';
+let renderFingerprint='';
 let loading=false;
 let pollTimer=0;
 let mountTimer=0;
@@ -38,6 +39,8 @@ function bytes(value:number){if(value<1024)return `${value} B`;if(value<1024*102
 function statusLabel(status:Status){return ({new:'Pending review',reviewing:'Needs review',accepted:'Accepted',declined:'Not accepted',completed:'Completed'} as const)[status]}
 function taskLabel(status:Task['status']){return ({pending:'To do',in_progress:'In progress',submitted:'Submitted',needs_revision:'Revision needed',approved:'Approved'} as const)[status]}
 function userId(){try{const p=token().split('.')[1];if(!p)return '';const n=p.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(p.length/4)*4,'=');return String(JSON.parse(atob(n))?.sub||'')}catch{return ''}}
+function dataFingerprint(){try{return JSON.stringify([selectedId,workspaces,assignments])}catch{return `${selectedId}:${workspaces.length}:${assignments.length}`}}
+function publishWorkspaceData(){window.dispatchEvent(new CustomEvent('litlab:contributor-workspace-data',{detail:{workspaces,assignments,selectedId,source:'workspace'}}))}
 
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   if(!navigator.onLine)throw new Error('offline');
@@ -157,20 +160,22 @@ function render(){
 
 async function resolveDeveloper(){if(!token()){developerAccess=null;return false}if(developerAccess!==null)return developerAccess;try{developerAccess=Boolean(await rpc<boolean>('is_litlab_admin'));return developerAccess}catch{return false}}
 
-async function load(force=false){
+async function load(_force=false){
   if(route()!=='contribute')return;
   renderApplicationGuide();
-  if(!mount()){if(mountAttempts<20){clearTimeout(mountTimer);mountAttempts++;mountTimer=window.setTimeout(()=>void load(force),120)}return}
+  if(!mount()){if(mountAttempts<20){clearTimeout(mountTimer);mountAttempts++;mountTimer=window.setTimeout(()=>void load(_force),120)}return}
   mountAttempts=0;
-  if(!token()){workspaces=[];assignments=[];render();return}
+  if(!token()){workspaces=[];assignments=[];selectedId='';renderFingerprint='';render();return}
   if(await resolveDeveloper()){workspaceRoot()?.remove();return}
-  if(loading&&!force)return;loading=true;
+  if(loading)return;loading=true;
   try{
     const [workspaceResult,assignmentResult]=await Promise.all([rpc<Workspace[]>('get_my_litlab_contributor_workspace'),rpc<TeacherAssignment[]>('get_my_litlab_teacher_assignments')]);
     workspaces=Array.isArray(workspaceResult)?workspaceResult:[];
     assignments=Array.isArray(assignmentResult)?assignmentResult:[];
     if(!selectedId||!workspaces.some(w=>w.id===selectedId))selectedId=workspaces[0]?.id||'';
-    render();
+    const nextFingerprint=dataFingerprint();
+    if(nextFingerprint!==renderFingerprint){renderFingerprint=nextFingerprint;render()}
+    publishWorkspaceData();
   }catch(error){console.error(error);const root=mount();if(root&&!workspaces.length)root.innerHTML='<div class="ll-workspace-empty"><b>Workspace could not load right now.</b><p>It will retry automatically. Your saved contribution data is unchanged.</p></div>'}finally{loading=false}
 }
 
@@ -213,18 +218,18 @@ async function showActivity(appId:string){const host=document.querySelector<HTML
 
 async function submitTeacherReview(form:HTMLFormElement,appId:string){if(!form.checkValidity()){form.reportValidity();return}const state=form.querySelector<HTMLElement>('[data-form-state]');const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');const data=new FormData(form);if(button){button.disabled=true;button.textContent='Submitting…'}try{await rpc('submit_my_litlab_teacher_review',{p_application_id:appId,p_accuracy:Number(data.get('accuracy')),p_clarity:Number(data.get('clarity')),p_dp_relevance:Number(data.get('dp_relevance')),p_originality:Number(data.get('originality')),p_sources:Number(data.get('sources')),p_recommendation:String(data.get('recommendation')||''),p_summary:String(data.get('summary')||'')});if(state){state.textContent='Teacher review submitted to LitLab.';state.dataset.state='success'}form.reset();await load(true)}catch(error){console.error(error);if(state){state.textContent='Could not submit this review.';state.dataset.state='error'}}finally{if(button?.isConnected){button.disabled=false;button.textContent='Submit teacher review'}}}
 
-document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(!target)return;const select=target.closest<HTMLElement>('[data-workspace-select]');if(select){selectedId=select.dataset.workspaceSelect||'';render();return}if(target.closest('[data-workspace-go-apply]')){document.querySelector('#contribute-apply')?.scrollIntoView({behavior:'smooth',block:'start'});return}const download=target.closest<HTMLElement>('[data-download-doc]');if(download){void downloadDocument(download.dataset.downloadDoc||'');return}const activity=target.closest<HTMLElement>('[data-load-activity]');if(activity){void showActivity(activity.dataset.loadActivity||'')}},true);
+document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(!target)return;const select=target.closest<HTMLElement>('[data-workspace-select]');if(select){selectedId=select.dataset.workspaceSelect||'';renderFingerprint=dataFingerprint();render();publishWorkspaceData();return}if(target.closest('[data-workspace-go-apply]')){document.querySelector('#contribute-apply')?.scrollIntoView({behavior:'smooth',block:'start'});return}const download=target.closest<HTMLElement>('[data-download-doc]');if(download){void downloadDocument(download.dataset.downloadDoc||'');return}const activity=target.closest<HTMLElement>('[data-load-activity]');if(activity){void showActivity(activity.dataset.loadActivity||'')}},true);
 
 document.addEventListener('submit',event=>{const form=event.target instanceof HTMLFormElement?event.target:null;if(!form)return;const upload=form.dataset.docxUpload;if(upload){event.preventDefault();event.stopPropagation();void uploadDocx(form,upload);return}const revision=form.dataset.revisionResponse;if(revision){event.preventDefault();void sendRevision(form,revision);return}const activity=form.dataset.activityForm;if(activity){event.preventDefault();void addActivity(form,activity);return}const review=form.dataset.teacherReview;if(review){event.preventDefault();void submitTeacherReview(form,review)}},true);
 
 function clearPoll(){clearTimeout(pollTimer);pollTimer=0}
 function schedulePoll(){clearPoll();if(route()!=='contribute')return;pollTimer=window.setTimeout(async()=>{if(!document.hidden&&navigator.onLine)await load();schedulePoll()},POLL_MS)}
-function routeWork(){clearPoll();mountAttempts=0;developerAccess=null;if(route()==='contribute'){setTimeout(()=>void load(true),80);schedulePoll()}else workspaceRoot()?.remove()}
+function routeWork(){clearPoll();mountAttempts=0;developerAccess=null;if(route()==='contribute'){setTimeout(()=>void load(true),80);schedulePoll()}else{renderFingerprint='';workspaceRoot()?.remove()}}
 window.addEventListener('hashchange',routeWork);
 window.addEventListener('focus',()=>{if(route()==='contribute'){void load(true);schedulePoll()}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearPoll();return}if(route()==='contribute'){void load(true);schedulePoll()}});
 window.addEventListener('online',()=>{if(route()==='contribute')void load(true)});
-window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){developerAccess=null;workspaces=[];assignments=[];selectedId='';void load(true)}});
+window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){developerAccess=null;workspaces=[];assignments=[];selectedId='';renderFingerprint='';void load(true)}});
 window.addEventListener('litlab:contributor-submitted',()=>setTimeout(()=>void load(true),400));
 window.addEventListener('litlab:contributor-workspace-updated',()=>setTimeout(()=>void load(true),180));
 
