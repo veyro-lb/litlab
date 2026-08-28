@@ -1,6 +1,9 @@
 import './contributor-program-enhancements.css';
 import {createLitLabLogo} from './brand-mark';
 
+let scanTimer=0;
+let scanAttempts=0;
+
 function isContributorPage(){return location.hash.replace(/^#/,'').split('#')[0]==='contribute'}
 
 function enhanceBrand(root:HTMLElement){
@@ -57,15 +60,21 @@ function enhance(root:HTMLElement){
 }
 
 function scan(){
+  window.clearTimeout(scanTimer);
   if(!isContributorPage())return;
   const root=document.getElementById('ll-contributor-root');
-  if(root)enhance(root);
+  if(root){scanAttempts=0;enhance(root);return}
+  if(scanAttempts>=20)return;
+  scanAttempts+=1;
+  scanTimer=window.setTimeout(scan,100);
 }
 
-new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
 document.addEventListener('change',event=>{
   const target=event.target;
   if(target instanceof HTMLInputElement&&target.name==='applicant_type')requestAnimationFrame(scan);
 });
-window.addEventListener('hashchange',()=>requestAnimationFrame(scan));
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan,{once:true});else scan();
+window.addEventListener('hashchange',()=>{scanAttempts=0;requestAnimationFrame(scan)});
+window.addEventListener('focus',()=>{if(isContributorPage()){scanAttempts=0;requestAnimationFrame(scan)}});
+
+function start(){scanAttempts=0;scan()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
