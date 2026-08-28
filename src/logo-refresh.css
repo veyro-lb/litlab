@@ -34,58 +34,6 @@
   will-change:transform;
 }
 
-/* Small bulb sitting directly on the rebuilt black i-dot. */
-.litlab-bulb-overlay{
-  position:absolute;
-  left:51.23%;
-  top:23%;
-  width:4.1%;
-  min-width:6px;
-  height:auto;
-  overflow:visible;
-  transform:translate(-50%,-50%);
-  filter:drop-shadow(0 0 1.3px rgba(255,205,55,.2));
-  animation:litlabBulbFlicker 4.2s linear infinite;
-}
-
-.litlab-bulb-halo{
-  fill:#ffd84d;
-  opacity:.06;
-  transform-origin:20px 12.2px;
-  animation:litlabBulbHalo 4.2s ease-in-out infinite;
-}
-
-.litlab-bulb-rays{
-  stroke:#f4c53e;
-  stroke-width:1.8;
-  opacity:.82;
-  animation:litlabBulbRays 4.2s linear infinite;
-}
-
-.litlab-bulb-glass{
-  fill:#fff8ca;
-  stroke:#f1bf2d;
-  stroke-width:1.9;
-  stroke-linejoin:round;
-}
-
-.litlab-bulb-filament{
-  fill:none;
-  stroke:#dca51d;
-  stroke-width:1.4;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-/* Socket is brand ink, visually joining the bulb to the black i-dot below it. */
-.litlab-bulb-socket{
-  fill:none;
-  stroke:#141a23;
-  stroke-width:1.7;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
 .litlab-floating-star{
   position:absolute;
   left:94.3%;
@@ -114,7 +62,6 @@
 }
 
 html[data-theme=dark] .logo::after{background:rgba(0,0,0,.45);opacity:.34}
-html[data-theme=dark] .litlab-bulb-socket{stroke:#fff}
 
 @keyframes litlabLogoFloat{
   0%,100%{transform:translateY(0)}
@@ -124,25 +71,6 @@ html[data-theme=dark] .litlab-bulb-socket{stroke:#fff}
 @keyframes litlabLogoShadow{
   0%,100%{opacity:.28;transform:scaleX(.94)}
   50%{opacity:.17;transform:scaleX(.82)}
-}
-
-@keyframes litlabBulbFlicker{
-  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:1;filter:drop-shadow(0 0 1.3px rgba(255,205,55,.22))}
-  14.5%,15.8%,64%,65.6%{opacity:.52;filter:drop-shadow(0 0 .4px rgba(255,205,55,.09))}
-  15.1%,16.5%,64.7%,66.3%{opacity:.84}
-  36%,50%,84%{opacity:1;filter:drop-shadow(0 0 2.7px rgba(255,205,55,.34))}
-}
-
-@keyframes litlabBulbHalo{
-  0%,100%{opacity:.055;transform:scale(.97)}
-  36%,50%,84%{opacity:.12;transform:scale(1.05)}
-  14.5%,15.8%,64%,65.6%{opacity:.015;transform:scale(.92)}
-}
-
-@keyframes litlabBulbRays{
-  0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.78}
-  14.5%,15.8%,64%,65.6%{opacity:.1}
-  36%,50%,84%{opacity:1}
 }
 
 @keyframes litlabStarFloat{
@@ -156,7 +84,7 @@ html[data-theme=dark] .litlab-bulb-socket{stroke:#fff}
 }
 
 @media(prefers-reduced-motion:reduce){
-  .logo img,.logo::after,.litlab-logo-decorations,.litlab-bulb-overlay,.litlab-bulb-halo,.litlab-bulb-rays,.litlab-floating-star,.litlab-floating-star::after{animation:none!important;will-change:auto}
+  .logo img,.logo::after,.litlab-logo-decorations,.litlab-floating-star,.litlab-floating-star::after{animation:none!important;will-change:auto}
 }
 
 @media(max-width:1100px){
