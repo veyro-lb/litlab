@@ -2,11 +2,12 @@ import './contributor-promotion-focus.css';
 
 const FORM_ID='ll-contributor-form';
 const PLAN_MARKER='--- PROMOTION PLAN ---';
+let enhanceTimer=0;
 
 function applicantRole(form:HTMLFormElement){return form.querySelector<HTMLInputElement>('input[name="applicant_type"]:checked')?.value||'student'}
 function contributionType(form:HTMLFormElement){return form.querySelector<HTMLSelectElement>('select[name="contribution_type"]')?.value||''}
 function promotionActive(form:HTMLFormElement){return applicantRole(form)==='student'&&contributionType(form)==='promotion'}
-function fieldLabel(control:Element|null,text:string){const span=control?.closest('label')?.querySelector<HTMLElement>(':scope > span');if(span)span.textContent=text}
+function fieldLabel(control:Element|null,text:string){const span=control?.closest('label')?.querySelector<HTMLElement>(':scope > span');if(span&&span.textContent!==text)span.textContent=text}
 
 function promotionBriefMarkup(){
   return `<fieldset class="ll-promotion-brief" data-promotion-brief hidden>
@@ -72,24 +73,25 @@ function syncGeneralQuestions(form:HTMLFormElement,active:boolean){
     fieldLabel(topics,'What part of LitLab would you promote?');
     fieldLabel(idea,'Describe the promotion concept you have in mind');
     fieldLabel(motivation,'Why do you think this approach could reach students?');
-    if(topics)topics.placeholder='For example: the overall site, Paper 1 resources, IO help, study tools, contributor program…';
-    if(idea){idea.placeholder='Describe the campaign idea, creative direction or awareness concept in your own words.';idea.maxLength=900}
-    if(motivation)motivation.placeholder='Explain why the chosen channel and approach fit the students you want to reach.';
+    if(topics&&topics.placeholder!=='For example: the overall site, Paper 1 resources, IO help, study tools, contributor program…')topics.placeholder='For example: the overall site, Paper 1 resources, IO help, study tools, contributor program…';
+    if(idea){if(idea.placeholder!=='Describe the campaign idea, creative direction or awareness concept in your own words.')idea.placeholder='Describe the campaign idea, creative direction or awareness concept in your own words.';if(idea.maxLength!==900)idea.maxLength=900}
+    if(motivation&&motivation.placeholder!=='Explain why the chosen channel and approach fit the students you want to reach.')motivation.placeholder='Explain why the chosen channel and approach fit the students you want to reach.';
   }else{
     fieldLabel(topics,'Topics you are interested in');
     fieldLabel(idea,'What would you like to contribute?');
     fieldLabel(motivation,'Why do you want to contribute?');
-    if(topics)topics.placeholder='Paper 1, Paper 2, IO, EE, a literary work, authorial choices, glossary terms…';
-    if(idea){idea.placeholder='Describe the resource, topic, review or improvement you have in mind.';idea.maxLength=3000}
-    if(motivation)motivation.placeholder='';
+    if(topics&&topics.placeholder!=='Paper 1, Paper 2, IO, EE, a literary work, authorial choices, glossary terms…')topics.placeholder='Paper 1, Paper 2, IO, EE, a literary work, authorial choices, glossary terms…';
+    if(idea){if(idea.placeholder!=='Describe the resource, topic, review or improvement you have in mind.')idea.placeholder='Describe the resource, topic, review or improvement you have in mind.';if(idea.maxLength!==3000)idea.maxLength=3000}
+    if(motivation&&motivation.placeholder)motivation.placeholder='';
   }
 }
 
 function syncPromotionForm(form:HTMLFormElement){
   const brief=ensureBrief(form);if(!brief)return;
-  const active=promotionActive(form);brief.hidden=!active;
-  brief.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[data-promotion-required]').forEach(control=>{control.required=active;control.disabled=!active});
-  brief.querySelectorAll<HTMLInputElement>('input[name="promotion_channel"]').forEach(control=>{control.disabled=!active});
+  const active=promotionActive(form);
+  if(brief.hidden===active)brief.hidden=!active;
+  brief.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[data-promotion-required]').forEach(control=>{if(control.required!==active)control.required=active;if(control.disabled===active)control.disabled=!active});
+  brief.querySelectorAll<HTMLInputElement>('input[name="promotion_channel"]').forEach(control=>{if(control.disabled===active)control.disabled=!active});
   syncGeneralQuestions(form,active);
 }
 
@@ -145,9 +147,14 @@ function enhance(){
   syncPromotionForm(form);
 }
 
+function scheduleEnhance(delay=80){
+  window.clearTimeout(enhanceTimer);
+  enhanceTimer=window.setTimeout(enhance,delay);
+}
+
 document.addEventListener('change',event=>{
   const form=(event.target as Element|null)?.closest<HTMLFormElement>(`#${FORM_ID}`);if(!form)return;
-  setTimeout(()=>syncPromotionForm(form),30);
+  scheduleEnhance(20);
 },true);
 
 document.addEventListener('submit',event=>{
@@ -156,9 +163,10 @@ document.addEventListener('submit',event=>{
   validateAndAttachPlan(event as SubmitEvent,form);
 },true);
 
-window.addEventListener('hashchange',()=>setTimeout(enhance,100));
-window.addEventListener('focus',enhance);
-new MutationObserver(()=>enhance()).observe(document.documentElement,{childList:true,subtree:true});
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance,{once:true});else enhance();
+window.addEventListener('hashchange',()=>scheduleEnhance(120));
+window.addEventListener('focus',()=>scheduleEnhance(60));
+window.addEventListener('litlab:contributor-workspace-data',()=>scheduleEnhance(40));
+window.addEventListener('litlab:open-contributor-application',()=>scheduleEnhance(40));
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>scheduleEnhance(0),{once:true});else scheduleEnhance(0);
 
 export {};
