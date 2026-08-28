@@ -1,5 +1,6 @@
 import './contributor-notification-open-guard';
 import './contributor-live-sync';
+import './contributor-activity-live-sync';
 
 export {};
 
