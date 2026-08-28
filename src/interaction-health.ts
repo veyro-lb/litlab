@@ -1,3 +1,5 @@
+import './contributor-notification-open-guard';
+
 export {};
 
 function closeEvidenceModal(){
