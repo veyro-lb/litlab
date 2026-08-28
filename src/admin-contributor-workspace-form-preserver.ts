@@ -5,12 +5,8 @@ let observedModal:HTMLElement|null=null;
 let attachQueued=false;
 
 function formKey(form:HTMLFormElement){
-  const modal=form.closest<HTMLElement>('#ll-admin-contributor-workspace');
-  if(!modal)return '';
-  const card=document.querySelector<HTMLElement>('.admin-contrib-card[data-app-id] [data-admin-manage-workspace]')?.closest<HTMLElement>('.admin-contrib-card');
-  const id=card?.dataset.appId||document.querySelector<HTMLElement>('#ll-admin-contributor-workspace')?.dataset.applicationId||'active';
-  const kind=form.matches('[data-admin-brief]')?'brief':form.matches('[data-admin-add-task]')?'task':form.matches('[data-admin-add-revision]')?'revision':form.matches('[data-admin-assign-teacher]')?'teacher':'';
-  return kind?`${id}:${kind}`:'';
+  if(!form.closest('#ll-admin-contributor-workspace'))return '';
+  return form.matches('[data-admin-brief]')?'brief':form.matches('[data-admin-add-task]')?'task':form.matches('[data-admin-add-revision]')?'revision':form.matches('[data-admin-assign-teacher]')?'teacher':'';
 }
 
 function controls(form:HTMLFormElement){return Array.from(form.querySelectorAll<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>('[name]'))}
@@ -44,23 +40,24 @@ function restoreAll(){
 function attach(){
   attachQueued=false;
   const modal=document.getElementById('ll-admin-contributor-workspace');
-  if(!modal){modalObserver?.disconnect();modalObserver=null;observedModal=null;return}
+  if(!modal){modalObserver?.disconnect();modalObserver=null;observedModal=null;drafts.clear();return}
   if(observedModal===modal)return;
-  modalObserver?.disconnect();observedModal=modal;
+  modalObserver?.disconnect();
+  drafts.clear();
+  observedModal=modal;
   modalObserver=new MutationObserver(()=>restoreAll());
   modalObserver.observe(modal,{childList:true,subtree:true});
-  restoreAll();
 }
 function queueAttach(){if(attachQueued)return;attachQueued=true;requestAnimationFrame(attach)}
 
 // Save draft fields locally as the admin types. This is browser-session state only and is
-// cleared as soon as a form is deliberately submitted.
+// cleared as soon as a form is deliberately submitted or a different contributor modal opens.
 document.addEventListener('input',event=>{const form=(event.target as Element|null)?.closest<HTMLFormElement>('#ll-admin-contributor-workspace form');if(form)snapshot(form)},true);
 document.addEventListener('change',event=>{const form=(event.target as Element|null)?.closest<HTMLFormElement>('#ll-admin-contributor-workspace form');if(form)snapshot(form)},true);
 document.addEventListener('submit',event=>{const form=event.target instanceof HTMLFormElement?event.target:null;if(!form?.closest('#ll-admin-contributor-workspace'))return;const key=formKey(form);if(key)drafts.delete(key)},true);
 
 const bodyObserver=new MutationObserver(mutations=>{
-  if(mutations.some(mutation=>Array.from(mutation.addedNodes).some(node=>node instanceof HTMLElement&&(node.id==='ll-admin-contributor-workspace'||Boolean(node.querySelector?.('#ll-admin-contributor-workspace'))))))queueAttach();
+  if(mutations.some(mutation=>Array.from(mutation.addedNodes).some(node=>node instanceof HTMLElement&&(node.id==='ll-admin-contributor-workspace'||Boolean(node.querySelector('#ll-admin-contributor-workspace'))))))queueAttach();
   if(observedModal&&!observedModal.isConnected)queueAttach();
 });
 bodyObserver.observe(document.body,{childList:true});
