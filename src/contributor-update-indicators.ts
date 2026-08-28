@@ -19,6 +19,7 @@ type AdminUnread={message_id:string;application_id:string;body:string;created_at
 
 type Mode='user'|'admin'|'none';
 let mode:Mode='none';
+let roleToken='';
 let loading=false;
 let timer=0;
 let userApps:App[]=[];
@@ -176,14 +177,15 @@ function clearUi(){
   document.documentElement.removeAttribute('data-litlab-admin-contributor-update');
 }
 
-async function load(force=false){
-  if(!token()){mode='none';userApps=[];userUnread=[];adminApps=[];adminUnread=[];adminNewApps=[];clearUi();return}
+async function load(_force=false){
+  const auth=token();
+  if(!auth){mode='none';roleToken='';userApps=[];userUnread=[];adminApps=[];adminUnread=[];adminNewApps=[];clearUi();return}
   if(loading)return;
   loading=true;
   try{
-    const isAdmin=Boolean(await rpc<boolean>('is_litlab_admin'));
-    mode=isAdmin?'admin':'user';
-    if(isAdmin){
+    if(roleToken!==auth){roleToken=auth;mode='none'}
+    if(mode==='none')mode=Boolean(await rpc<boolean>('is_litlab_admin'))?'admin':'user';
+    if(mode==='admin'){
       const [apps,unread]=await Promise.all([rpc<App[]>('get_litlab_contributor_applications'),rpc<AdminUnread[]>('admin_get_litlab_contributor_unread_messages')]);
       adminApps=Array.isArray(apps)?apps:[];adminUnread=Array.isArray(unread)?unread:[];computeAdminNewApps();applyAdminUi();
     }else{
@@ -211,7 +213,7 @@ window.addEventListener('hashchange',()=>{if(mode==='user'&&route()==='contribut
 window.addEventListener('focus',()=>{void load(true);schedule()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(timer);return}void load(true);schedule()});
 window.addEventListener('online',()=>void load(true));
-window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){mode='none';clearUi();void load(true)}});
+window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){mode='none';roleToken='';clearUi();void load(true)}});
 window.addEventListener('litlab:contributor-submitted',()=>setTimeout(()=>void load(true),350));
 
 setTimeout(()=>void load(true),850);schedule();
