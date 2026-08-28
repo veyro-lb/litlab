@@ -63,21 +63,83 @@ function drawSeal(ctx:CanvasRenderingContext2D,x:number,y:number,code:string,ico
 
 function drawSignature(ctx:CanvasRenderingContext2D,x:number,y:number,data:CertificatePdfData){
   ctx.save();ctx.textAlign='center';
-  font(ctx,11,900);ctx.fillStyle=PURPLE;ctx.fillText('AUTHORIZED BY LITLAB',x,y-61);
+  font(ctx,11,900);ctx.fillStyle=PURPLE;ctx.fillText('AUTHORIZED BY LITLAB',x,y-66);
 
-  ctx.fillStyle='#182033';
-  ctx.font='italic 62px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Lucida Handwriting", "Brush Script MT", cursive';
-  ctx.fillText('LitLab',x,y);
-  ctx.globalAlpha=.18;ctx.fillText('LitLab',x+1.2,y+.8);ctx.globalAlpha=1;
+  const ink='#151b2d';
+  ctx.save();
+  ctx.translate(x,y-2);
+  ctx.transform(1,-.045,-.16,1,0,0);
+  ctx.textAlign='center';
+  ctx.fillStyle=ink;
+  ctx.font='italic 68px "Snell Roundhand", "Apple Chancery", "URW Chancery L", "Segoe Script", "Lucida Handwriting", "Brush Script MT", cursive';
+  ctx.fillText('LitLab',0,0);
+  ctx.globalAlpha=.12;ctx.fillText('LitLab',1.5,1);ctx.globalAlpha=1;
+  ctx.restore();
 
-  ctx.strokeStyle='#182033';ctx.lineWidth=2.25;ctx.lineCap='round';ctx.lineJoin='round';
-  ctx.beginPath();ctx.moveTo(x-142,y+11);ctx.bezierCurveTo(x-111,y+30,x-68,y+35,x-31,y+24);ctx.bezierCurveTo(x+5,y+13,x+42,y+3,x+79,y+18);ctx.bezierCurveTo(x+112,y+31,x+145,y+32,x+171,y+13);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(x+157,y+14);ctx.bezierCurveTo(x+188,y+5,x+205,y+19,x+192,y+38);ctx.bezierCurveTo(x+181,y+55,x+151,y+48,x+154,y+29);ctx.bezierCurveTo(x+158,y+12,x+186,y+1,x+215,y+8);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(x-111,y+2);ctx.bezierCurveTo(x-146,y-16,x-169,y-5,x-159,y+12);ctx.bezierCurveTo(x-151,y+25,x-124,y+23,x-110,y+10);ctx.stroke();
+  ctx.strokeStyle=ink;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
 
-  ctx.strokeStyle='#a9a3c9';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x-178,y+39);ctx.lineTo(x+178,y+39);ctx.stroke();
-  font(ctx,16,850);ctx.fillStyle=INK;ctx.fillText(data.issuerName||'LitLab',x,y+70);font(ctx,13,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle||'LitLab Contributor Program',x,y+94);
-  font(ctx,10,800);ctx.fillStyle=PURPLE;ctx.fillText('DIGITALLY ISSUED • CERTIFICATE ID VERIFIABLE',x,y+115);ctx.restore();
+  // Large old-fashioned opening flourish around the initial L.
+  ctx.lineWidth=2.45;
+  ctx.beginPath();
+  ctx.moveTo(x-112,y-8);
+  ctx.bezierCurveTo(x-164,y-47,x-205,y-30,x-192,y+2);
+  ctx.bezierCurveTo(x-180,y+31,x-133,y+23,x-113,y-2);
+  ctx.bezierCurveTo(x-96,y-24,x-111,y-43,x-139,y-35);
+  ctx.bezierCurveTo(x-161,y-29,x-163,y-7,x-145,y+3);
+  ctx.stroke();
+
+  // Fine upper loop gives the mark the engraved-diploma character.
+  ctx.lineWidth=1.65;
+  ctx.beginPath();
+  ctx.moveTo(x-91,y-31);
+  ctx.bezierCurveTo(x-69,y-54,x-38,y-53,x-28,y-34);
+  ctx.bezierCurveTo(x-18,y-15,x-48,y-10,x-64,y-24);
+  ctx.stroke();
+
+  // Main sweeping underline, intentionally crossing itself like a real signature.
+  ctx.lineWidth=2.65;
+  ctx.beginPath();
+  ctx.moveTo(x-156,y+10);
+  ctx.bezierCurveTo(x-116,y+35,x-60,y+39,x-8,y+25);
+  ctx.bezierCurveTo(x+44,y+11,x+84,y+2,x+123,y+18);
+  ctx.bezierCurveTo(x+157,y+32,x+191,y+35,x+214,y+14);
+  ctx.bezierCurveTo(x+230,y-1,x+226,y-16,x+207,y-15);
+  ctx.bezierCurveTo(x+185,y-14,x+174,y+8,x+190,y+24);
+  ctx.bezierCurveTo(x+210,y+44,x+248,y+35,x+260,y+10);
+  ctx.stroke();
+
+  // Long return stroke and oversized tail loop.
+  ctx.lineWidth=2.05;
+  ctx.beginPath();
+  ctx.moveTo(x+250,y+10);
+  ctx.bezierCurveTo(x+287,y-7,x+304,y+10,x+287,y+31);
+  ctx.bezierCurveTo(x+269,y+54,x+227,y+51,x+211,y+34);
+  ctx.bezierCurveTo(x+195,y+18,x+219,y+8,x+245,y+21);
+  ctx.bezierCurveTo(x+266,y+31,x+284,y+48,x+318,y+39);
+  ctx.stroke();
+
+  // Thin counter-swoosh underneath for a quill-pen finish.
+  ctx.lineWidth=1.35;
+  ctx.globalAlpha=.82;
+  ctx.beginPath();
+  ctx.moveTo(x-133,y+29);
+  ctx.bezierCurveTo(x-62,y+53,x+31,y+46,x+95,y+29);
+  ctx.bezierCurveTo(x+137,y+17,x+168,y+19,x+197,y+31);
+  ctx.stroke();
+  ctx.globalAlpha=1;
+
+  // Small crossing stroke near the centre makes it feel hand-signed, not typeset.
+  ctx.lineWidth=1.55;
+  ctx.beginPath();
+  ctx.moveTo(x-7,y-18);
+  ctx.bezierCurveTo(x+15,y-7,x+34,y-4,x+53,y-15);
+  ctx.stroke();
+
+  ctx.strokeStyle='#a9a3c9';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x-178,y+47);ctx.lineTo(x+178,y+47);ctx.stroke();
+  font(ctx,16,850);ctx.fillStyle=INK;ctx.fillText(data.issuerName||'LitLab',x,y+76);font(ctx,13,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle||'LitLab Contributor Program',x,y+100);
+  font(ctx,10,800);ctx.fillStyle=PURPLE;ctx.fillText('DIGITALLY ISSUED • CERTIFICATE ID VERIFIABLE',x,y+121);ctx.restore();
 }
 
 async function jpegBytes(canvas:HTMLCanvasElement){const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Could not create certificate image.')),'image/jpeg',0.96));return new Uint8Array(await blob.arrayBuffer())}
