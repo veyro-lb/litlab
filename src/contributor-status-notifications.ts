@@ -77,6 +77,9 @@ function showStatusNotice(app:Application){
   const notice=document.createElement('aside');
   notice.id='ll-contributor-status-notice';
   notice.className=`ll-contributor-status-notice status-${app.status}`;
+  notice.dataset.applicationId=app.id;
+  notice.dataset.noticeKind='status';
+  notice.dataset.title='Contributor status update';
   notice.setAttribute('role','status');
   notice.setAttribute('aria-live','polite');
   notice.innerHTML=`<button type="button" class="ll-contributor-status-close" aria-label="Dismiss contributor status update">×</button><span class="ll-contributor-status-kicker">CONTRIBUTOR APPLICATION</span><div class="ll-contributor-status-row"><span class="ll-contributor-status-icon">${app.status==='accepted'||app.status==='completed'?'✓':app.status==='declined'?'×':app.status==='reviewing'?'!':'•'}</span><div><b>${statusLabel(app.status)}</b><p>${esc(statusCopy(app.status))}</p></div></div><button type="button" class="ll-contributor-status-open">Open contributor page →</button>`;
@@ -94,6 +97,9 @@ function showChatNotice(message:UnreadChatMessage){
   const notice=document.createElement('aside');
   notice.id='ll-contributor-status-notice';
   notice.className='ll-contributor-status-notice status-chat';
+  notice.dataset.applicationId=message.application_id;
+  notice.dataset.noticeKind='chat';
+  notice.dataset.title=message.topics?.trim()||'Contributor conversation';
   notice.setAttribute('role','status');
   notice.setAttribute('aria-live','polite');
   const topic=message.topics?.trim()||'your contribution';
@@ -113,8 +119,6 @@ function injectAccountStatus(){
   const menu=document.querySelector<HTMLElement>('.litlab-account-menu');
   if(!menu)return;
 
-  // Developer/admin accounts use the developer tools instead. Keep the normal
-  // contributor-application entry exclusive to regular signed-in accounts.
   if(!signedIn()||developerAccess!==false){removeAccountStatus();return}
 
   let button=menu.querySelector<HTMLButtonElement>('[data-contributor-account-status]');
