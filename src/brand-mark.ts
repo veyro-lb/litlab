@@ -41,12 +41,12 @@ function prepareHorizontalLogo(svg:string){
         15.1%,16.5%,64.7%,66.3%{opacity:.86}
       }
       @keyframes litlabLiveBulbGlow{
-        0%,100%{opacity:.08;transform:scale(.96)}
-        36%,50%,84%{opacity:.19;transform:scale(1.06)}
+        0%,100%{opacity:.085;transform:scale(.96)}
+        36%,50%,84%{opacity:.2;transform:scale(1.06)}
         14.5%,15.8%,64%,65.6%{opacity:.025;transform:scale(.92)}
       }
       @keyframes litlabLiveBulbRays{
-        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.88}
+        0%,13%,17.2%,22%,62%,67.2%,72%,100%{opacity:.9}
         14.5%,15.8%,64%,65.6%{opacity:.14}
         36%,50%,84%{opacity:1}
       }
@@ -60,15 +60,15 @@ function prepareHorizontalLogo(svg:string){
     bulb.setAttribute('class','litlab-live-bulb');
     bulb.setAttribute('aria-hidden','true');
     bulb.innerHTML=`
-      <circle class="litlab-live-glow" cx="938" cy="88" r="57" fill="#facc15" opacity=".09"/>
-      <g class="litlab-live-rays" fill="none" stroke="#f6c537" stroke-width="8" stroke-linecap="round">
-        <path d="M938 34V17"/>
-        <path d="M898 50l-13-13"/>
-        <path d="M978 50l13-13"/>
+      <circle class="litlab-live-glow" cx="938" cy="86" r="61" fill="#facc15" opacity=".095"/>
+      <g class="litlab-live-rays" fill="none" stroke="#f6c537" stroke-width="8.5" stroke-linecap="round">
+        <path d="M938 29V11"/>
+        <path d="M894 46l-14-14"/>
+        <path d="M982 46l14-14"/>
       </g>
-      <path d="M938 43c-25 0-43 19-43 43 0 16 8 29 21 38 5 4 8 9 8 15h28c0-6 3-11 8-15 13-9 21-22 21-38 0-24-18-43-43-43Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="7.5" stroke-linejoin="round"/>
-      <path d="M923 82l15 15 15-15M938 97v31" fill="none" stroke="#dfa719" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M938 122v11" fill="none" stroke="#dfa719" stroke-width="10" stroke-linecap="round"/>
+      <path d="M938 39c-28 0-47 20-47 46 0 17 9 31 23 40 5 4 8 9 8 15h32c0-6 3-11 8-15 14-9 23-23 23-40 0-26-19-46-47-46Z" fill="#fff8ca" stroke="#f1bf2d" stroke-width="7.8" stroke-linejoin="round"/>
+      <path d="M921 80l17 17 17-17M938 97v32" fill="none" stroke="#dfa719" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M938 121v12" fill="none" stroke="#dfa719" stroke-width="11" stroke-linecap="round"/>
     `;
     root.appendChild(bulb);
 
@@ -193,7 +193,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=18',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=19',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
