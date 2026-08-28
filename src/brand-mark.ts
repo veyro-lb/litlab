@@ -35,51 +35,80 @@ function prepareHorizontalLogo(svg:string){
       .litlab-live-bulb{
         transform-box:view-box;
         transform-origin:938px 133px;
-        animation:litlabLiveBulbPulse 5.8s cubic-bezier(.4,0,.2,1) infinite,litlabLiveBulbFlicker 5.2s linear infinite;
+        animation:litlabLiveBulbPulse 5.6s cubic-bezier(.4,0,.2,1) infinite,litlabLiveBulbFlicker 4.6s linear infinite;
       }
       .litlab-live-glow{
         transform-box:fill-box;
         transform-origin:center;
-        animation:litlabLiveBulbGlow 5.8s cubic-bezier(.4,0,.2,1) infinite;
+        animation:litlabLiveBulbGlow 4.6s linear infinite;
       }
-      .litlab-live-rays{animation:litlabLiveBulbRays 5.8s ease-in-out infinite}
+      .litlab-live-rays{animation:litlabLiveBulbRays 4.6s linear infinite}
       @keyframes litlabLiveBulbPulse{
         0%,100%{transform:scale(1)}
-        48%{transform:scale(1.012)}
+        46%{transform:scale(1.008)}
         58%{transform:scale(1.018)}
-        68%{transform:scale(1.008)}
+        72%{transform:scale(1.006)}
       }
       @keyframes litlabLiveBulbFlicker{
-        0%,9.8%,14.6%,46%,59.5%,65%,83%,100%{opacity:1}
-        10.5%{opacity:.56}
-        11.2%{opacity:.94}
-        12%{opacity:.34}
-        12.8%{opacity:.82}
-        13.5%{opacity:.48}
-        14.1%{opacity:1}
-        60.3%{opacity:.68}
-        61%{opacity:.38}
-        61.8%{opacity:.9}
-        62.5%{opacity:.5}
-        63.3%{opacity:1}
-        84.1%{opacity:.72}
-        84.8%{opacity:.44}
-        85.5%{opacity:.92}
+        0%,8%,15.2%,34%,40.5%,58%,65.5%,82%,88.5%,100%{opacity:1}
+        9%{opacity:.68}
+        9.8%{opacity:.96}
+        10.6%{opacity:.42}
+        11.4%{opacity:.88}
+        12.2%{opacity:.58}
+        13%{opacity:1}
+        35%{opacity:.78}
+        35.8%{opacity:.48}
+        36.6%{opacity:.93}
+        37.4%{opacity:.66}
+        38.2%{opacity:1}
+        59%{opacity:.62}
+        59.8%{opacity:.34}
+        60.6%{opacity:.9}
+        61.4%{opacity:.5}
+        62.2%{opacity:.97}
+        63%{opacity:1}
+        83%{opacity:.76}
+        83.8%{opacity:.46}
+        84.6%{opacity:.92}
+        85.4%{opacity:.6}
         86.2%{opacity:1}
       }
       @keyframes litlabLiveBulbGlow{
-        0%,100%{opacity:.095;transform:scale(.97)}
-        42%{opacity:.16;transform:scale(1.025)}
-        56%{opacity:.23;transform:scale(1.08)}
-        68%{opacity:.17;transform:scale(1.035)}
-        76%{opacity:.11;transform:scale(.99)}
+        0%,8%,15.2%,34%,40.5%,58%,65.5%,82%,88.5%,100%{opacity:.14;transform:scale(1)}
+        9%{opacity:.07;transform:scale(.96)}
+        10.6%{opacity:.025;transform:scale(.91)}
+        11.4%{opacity:.11;transform:scale(.98)}
+        12.2%{opacity:.045;transform:scale(.94)}
+        13%{opacity:.16;transform:scale(1.025)}
+        35.8%{opacity:.035;transform:scale(.92)}
+        36.6%{opacity:.13;transform:scale(1)}
+        38.2%{opacity:.18;transform:scale(1.04)}
+        59.8%{opacity:.018;transform:scale(.9)}
+        60.6%{opacity:.12;transform:scale(.99)}
+        61.4%{opacity:.04;transform:scale(.93)}
+        63%{opacity:.2;transform:scale(1.055)}
+        83.8%{opacity:.035;transform:scale(.92)}
+        84.6%{opacity:.13;transform:scale(1)}
+        86.2%{opacity:.17;transform:scale(1.035)}
       }
       @keyframes litlabLiveBulbRays{
-        0%,100%{opacity:.78}
-        42%{opacity:.91}
-        56%{opacity:1}
-        68%{opacity:.9}
-        76%{opacity:.72}
+        0%,8%,15.2%,34%,40.5%,58%,65.5%,82%,88.5%,100%{opacity:.9}
+        9%{opacity:.5}
+        10.6%{opacity:.08}
+        11.4%{opacity:.7}
+        12.2%{opacity:.25}
+        13%{opacity:1}
+        35.8%{opacity:.14}
+        36.6%{opacity:.78}
+        38.2%{opacity:1}
+        59.8%{opacity:.05}
+        60.6%{opacity:.72}
+        61.4%{opacity:.18}
+        63%{opacity:1}
+        83.8%{opacity:.13}
+        84.6%{opacity:.76}
+        86.2%{opacity:1}
       }
       @media(prefers-reduced-motion:reduce){
         .litlab-live-bulb,.litlab-live-glow,.litlab-live-rays{animation:none!important}
@@ -224,7 +253,7 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=21',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  return createBrandImage({src:'./litlab-logo.svg?v=22',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
