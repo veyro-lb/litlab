@@ -1,3 +1,5 @@
+const AUTO_REFRESH_MS=5000;
+
 let refreshTimer=0;
 let retryTimer=0;
 let retryCount=0;
@@ -8,7 +10,7 @@ function isAdminRoute(){
 }
 
 function tryRefreshFeedback(){
-  if(!isAdminRoute())return;
+  if(!isAdminRoute()||document.visibilityState!=='visible')return;
   const button=document.querySelector<HTMLButtonElement>('#litlab-admin-feedback [data-feedback-refresh]');
   if(button&&!button.disabled){
     const now=Date.now();
@@ -25,7 +27,7 @@ function tryRefreshFeedback(){
 }
 
 function scheduleFeedbackRefresh(delay=160){
-  if(!isAdminRoute())return;
+  if(!isAdminRoute()||document.visibilityState!=='visible')return;
   retryCount=0;
   window.clearTimeout(refreshTimer);
   window.clearTimeout(retryTimer);
@@ -46,14 +48,23 @@ if(main){
 
 window.addEventListener('hashchange',()=>scheduleFeedbackRefresh(260));
 window.addEventListener('focus',()=>scheduleFeedbackRefresh(180));
+window.addEventListener('litlab:submission-sent',()=>scheduleFeedbackRefresh(40));
+window.addEventListener('storage',event=>{
+  if(event.key==='litlabFeedbackLastSentAt'||event.key==='litlabTechnicalLastSentAt')scheduleFeedbackRefresh(40);
+});
+
 document.addEventListener('visibilitychange',()=>{
-  if(document.visibilityState==='visible')scheduleFeedbackRefresh(180);
+  if(document.visibilityState==='visible')scheduleFeedbackRefresh(80);
 });
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
   if(target?.closest('[data-open-admin-analytics],[data-admin-refresh]'))scheduleFeedbackRefresh(320);
 },true);
+
+window.setInterval(()=>{
+  if(document.visibilityState==='visible'&&isAdminRoute())scheduleFeedbackRefresh(0);
+},AUTO_REFRESH_MS);
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>scheduleFeedbackRefresh(320),{once:true});
 else scheduleFeedbackRefresh(320);
