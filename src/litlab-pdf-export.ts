@@ -41,6 +41,15 @@ function wrap(ctx:CanvasRenderingContext2D,text:string,maxWidth:number){
   for(const word of words){const test=line?`${line} ${word}`:word;if(ctx.measureText(test).width<=maxWidth){line=test;continue}if(line)lines.push(line);if(ctx.measureText(word).width<=maxWidth){line=word;continue}let chunk='';for(const char of Array.from(word)){const t=chunk+char;if(ctx.measureText(t).width>maxWidth&&chunk){lines.push(chunk);chunk=char}else chunk=t}line=chunk}
   if(line)lines.push(line);return lines;
 }
+async function loadAsset(path:string){
+  const src=new URL(path,document.baseURI).href;
+  return await new Promise<HTMLImageElement|null>(resolve=>{const image=new Image();const timer=window.setTimeout(()=>resolve(null),3500);image.onload=()=>{window.clearTimeout(timer);resolve(image)};image.onerror=()=>{window.clearTimeout(timer);resolve(null)};image.src=src});
+}
+function drawEvidenceIcon(ctx:CanvasRenderingContext2D,icon:HTMLImageElement|null){
+  const x=64,y=58,size=58;ctx.fillStyle='#fff';ctx.strokeStyle=LINE;ctx.lineWidth=2;rr(ctx,x,y,size,size,15);ctx.fill();ctx.stroke();
+  if(icon){ctx.drawImage(icon,x+4,y+4,size-8,size-8);return}
+  ctx.fillStyle=PURPLE;ctx.beginPath();ctx.arc(x+size/2,y+size/2,18,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x+20,y+30);ctx.lineTo(x+27,y+37);ctx.lineTo(x+40,y+23);ctx.stroke();ctx.lineCap='butt';
+}
 
 class EvidenceRenderer{
   pages:CanvasPage[]=[];
@@ -50,12 +59,12 @@ class EvidenceRenderer{
   readonly contentWidth=PORTRAIT.pxWidth-156;
   readonly bodyTop=172;
   readonly bottom=PORTRAIT.pxHeight-112;
-  constructor(private data:EvidencePdfData){this.newPage(true)}
+  constructor(private data:EvidencePdfData,private icon:HTMLImageElement|null){this.newPage(true)}
   private markBody(){this.page.bodyMarks+=1}
   private newPage(first=false){
     if(!first&&this.page&&this.page.bodyMarks===0){this.y=this.bodyTop;return}
     this.page=makeCanvas();this.pages.push(this.page);const {ctx}=this.page;
-    ctx.fillStyle=PURPLE;rr(ctx,64,58,58,58,15);ctx.fill();font(ctx,21,900);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText('LL',93,96);ctx.textAlign='left';
+    drawEvidenceIcon(ctx,this.icon);ctx.textAlign='left';
     font(ctx,24,900);ctx.fillStyle=INK;ctx.fillText('LitLab',138,84);font(ctx,13,800);ctx.fillStyle=PURPLE;ctx.fillText(this.data.studentCas?'CAS / CONTRIBUTION EVIDENCE':'CONTRIBUTION EVIDENCE',138,108);
     ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(64,132);ctx.lineTo(PORTRAIT.pxWidth-64,132);ctx.stroke();this.y=this.bodyTop;if(first)this.coverIntro();
   }
@@ -113,4 +122,4 @@ async function imagePdf(pages:CanvasPage[]){
 }
 function downloadBytes(bytes:Uint8Array,filename:string){const blob=new Blob([bytes],{type:'application/pdf'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30_000)}
 
-export async function saveEvidencePdf(data:EvidencePdfData){const renderer=new EvidenceRenderer(data);for(const section of data.sections)renderer.section(section);const pages=renderer.finish();if(!pages.length)throw new Error('No evidence pages were generated.');const bytes=await imagePdf(pages),kind=data.studentCas?'CAS_Evidence':'Contribution_Evidence',filename=`LitLab_${kind}_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.contributionTitle,'Contribution',54)}.pdf`;downloadBytes(bytes,filename)}
+export async function saveEvidencePdf(data:EvidencePdfData){const icon=await loadAsset('./favicon.svg');const renderer=new EvidenceRenderer(data,icon);for(const section of data.sections)renderer.section(section);const pages=renderer.finish();if(!pages.length)throw new Error('No evidence pages were generated.');const bytes=await imagePdf(pages),kind=data.studentCas?'CAS_Evidence':'Contribution_Evidence',filename=`LitLab_${kind}_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.contributionTitle,'Contribution',54)}.pdf`;downloadBytes(bytes,filename)}
