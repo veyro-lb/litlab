@@ -25,10 +25,11 @@ function syncTransientUI(){
 document.addEventListener('keydown',event=>{
   if(event.key!=='Escape')return;
   const evidence=document.querySelector<HTMLElement>('[data-evidence-modal]');
-  if(evidence){
-    event.preventDefault();
-    evidence.remove();
-  }
+  if(evidence){event.preventDefault();evidence.remove();return}
+  const chat=document.querySelector<HTMLButtonElement>('#ll-contributor-chat-modal [data-chat-close]');
+  if(chat){event.preventDefault();chat.click();return}
+  const certificate=document.querySelector<HTMLButtonElement>('#ll-admin-certificate-modal [data-certificate-close]');
+  if(certificate){event.preventDefault();certificate.click()}
 });
 
 window.addEventListener('hashchange',()=>requestAnimationFrame(syncTransientUI));
