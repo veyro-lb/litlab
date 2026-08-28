@@ -12,43 +12,36 @@ function fieldLabel(control:Element|null,text:string){const span=control?.closes
 function promotionBriefMarkup(){
   return `<fieldset class="ll-promotion-brief" data-promotion-brief hidden>
     <legend>Promotion plan</legend>
-    <p class="ll-promotion-brief-intro">Give us enough detail to judge whether the idea is realistic, useful and measurable. You can refine the campaign later if the contribution is accepted.</p>
+    <p class="ll-promotion-brief-intro">Keep this practical. Your main application already explains your idea, so here we only need the details needed to understand how you would carry it out.</p>
 
     <div class="ll-promotion-question">
-      <span class="ll-promotion-question-title">Where would you promote LitLab? <b>Choose all that apply.</b></span>
+      <span class="ll-promotion-question-title">Where would you promote LitLab? <b>Required — choose at least one.</b></span>
       <div class="ll-promotion-channels" data-promotion-channels>
         <label><input type="checkbox" name="promotion_channel" value="Instagram"/><span>Instagram</span></label>
         <label><input type="checkbox" name="promotion_channel" value="TikTok"/><span>TikTok</span></label>
         <label><input type="checkbox" name="promotion_channel" value="Facebook"/><span>Facebook</span></label>
         <label><input type="checkbox" name="promotion_channel" value="Poster / flyer"/><span>Poster / flyer</span></label>
         <label><input type="checkbox" name="promotion_channel" value="School / community outreach"/><span>School / community</span></label>
-        <label><input type="checkbox" name="promotion_channel" value="Other"/><span>Other</span></label>
+        <label><input type="checkbox" name="promotion_channel" value="Other" data-promotion-other-toggle/><span>Other</span></label>
       </div>
+      <label class="ll-promotion-other" data-promotion-other-wrap hidden>
+        <span>Where else would you promote it?</span>
+        <input type="text" name="promotion_channel_other" data-promotion-other minlength="2" maxlength="120" placeholder="For example: school newsletter, class group, local library…"/>
+      </label>
       <small data-channel-error role="status"></small>
     </div>
 
     <div class="ll-contrib-grid two ll-promotion-grid">
-      <label><span>What would you create?</span><select name="promotion_format" data-promotion-required>
+      <label><span>What would you make?</span><select name="promotion_format" data-promotion-required>
         <option value="">Choose a format</option><option>Social post / carousel</option><option>Short video / Reel / TikTok</option><option>Story series</option><option>Awareness poster / flyer</option><option>Campaign series</option><option>Presentation / outreach material</option><option>Other</option>
       </select></label>
-      <label><span>Who are you trying to reach?</span><select name="promotion_audience" data-promotion-required>
+      <label><span>Who is it for?</span><select name="promotion_audience" data-promotion-required>
         <option value="">Choose an audience</option><option>DP English students</option><option>DP students generally</option><option>Pre-DP / MYP students</option><option>Teachers / schools</option><option>Wider student community</option><option>Other</option>
       </select></label>
     </div>
 
-    <div class="ll-contrib-grid two ll-promotion-grid">
-      <label><span>Where would it be published or displayed?</span><select name="promotion_distribution" data-promotion-required>
-        <option value="">Choose one</option><option>My own social account</option><option>School / club social account</option><option>School physical space</option><option>Student group / community channel</option><option>A mix of online and physical promotion</option><option>Not decided yet</option><option>Other</option>
-      </select></label>
-      <label><span>What action should someone take after seeing it?</span><select name="promotion_action" data-promotion-required>
-        <option value="">Choose the main action</option><option>Visit LitLab</option><option>Use a specific LitLab resource</option><option>Share LitLab with another student</option><option>Follow LitLab updates</option><option>Give feedback / respond</option><option>Other</option>
-      </select></label>
-    </div>
-
-    <label><span>What is the main message or angle?</span><textarea name="promotion_message" data-promotion-required minlength="15" maxlength="320" rows="3" placeholder="What would you actually say or show? Explain the problem for students, why LitLab helps, and the idea you want the audience to remember."></textarea></label>
-    <label><span>How would you carry it out?</span><textarea name="promotion_execution" data-promotion-required minlength="15" maxlength="380" rows="3" placeholder="Be practical: how many posts/posters, roughly when, where they would appear, and whether you already have access or permission to publish there."></textarea></label>
-    <label><span>What evidence will you keep?</span><textarea name="promotion_evidence" data-promotion-required minlength="10" maxlength="320" rows="3" placeholder="For example: final files, screenshots, live links, poster photos, post dates, reach/engagement screenshots, QR scans or feedback received."></textarea></label>
-    <label><span>How would you judge whether it worked?</span><textarea name="promotion_success" data-promotion-required minlength="10" maxlength="320" rows="3" placeholder="Choose realistic signs of impact: views/reach, saves/shares, clicks, QR scans, website visits, student feedback, or another measurable result."></textarea></label>
+    <label><span>How would you carry it out?</span><textarea name="promotion_execution" data-promotion-required minlength="15" maxlength="420" rows="3" placeholder="Briefly explain what you would make, roughly how much, when you would post or display it, and whether you already have access or permission."></textarea></label>
+    <label><span>How would you show that it happened or worked?</span><textarea name="promotion_success" data-promotion-required minlength="10" maxlength="360" rows="3" placeholder="For example: final files, links, screenshots, poster photos, views, clicks, QR scans or student feedback."></textarea></label>
   </fieldset>`;
 }
 
@@ -71,11 +64,11 @@ function syncGeneralQuestions(form:HTMLFormElement,active:boolean){
   if(applicantRole(form)==='teacher')return;
   if(active){
     fieldLabel(topics,'What part of LitLab would you promote?');
-    fieldLabel(idea,'Describe the promotion concept you have in mind');
-    fieldLabel(motivation,'Why do you think this approach could reach students?');
+    fieldLabel(idea,'What is your promotion idea?');
+    fieldLabel(motivation,'Why would this reach the right students?');
     if(topics&&topics.placeholder!=='For example: the overall site, Paper 1 resources, IO help, study tools, contributor program…')topics.placeholder='For example: the overall site, Paper 1 resources, IO help, study tools, contributor program…';
-    if(idea){if(idea.placeholder!=='Describe the campaign idea, creative direction or awareness concept in your own words.')idea.placeholder='Describe the campaign idea, creative direction or awareness concept in your own words.';if(idea.maxLength!==900)idea.maxLength=900}
-    if(motivation&&motivation.placeholder!=='Explain why the chosen channel and approach fit the students you want to reach.')motivation.placeholder='Explain why the chosen channel and approach fit the students you want to reach.';
+    if(idea){if(idea.placeholder!=='Describe the campaign or awareness idea in your own words.')idea.placeholder='Describe the campaign or awareness idea in your own words.';if(idea.maxLength!==900)idea.maxLength=900}
+    if(motivation&&motivation.placeholder!=='Briefly explain why this approach fits the students you want to reach.')motivation.placeholder='Briefly explain why this approach fits the students you want to reach.';
   }else{
     fieldLabel(topics,'Topics you are interested in');
     fieldLabel(idea,'What would you like to contribute?');
@@ -86,31 +79,40 @@ function syncGeneralQuestions(form:HTMLFormElement,active:boolean){
   }
 }
 
+function syncOtherChannel(form:HTMLFormElement,active:boolean){
+  const toggle=form.querySelector<HTMLInputElement>('[data-promotion-other-toggle]');
+  const wrap=form.querySelector<HTMLElement>('[data-promotion-other-wrap]');
+  const input=form.querySelector<HTMLInputElement>('[data-promotion-other]');
+  const show=active&&Boolean(toggle?.checked);
+  if(wrap)wrap.hidden=!show;
+  if(input){input.disabled=!show;input.required=show}
+}
+
 function syncPromotionForm(form:HTMLFormElement){
   const brief=ensureBrief(form);if(!brief)return;
   const active=promotionActive(form);
   if(brief.hidden===active)brief.hidden=!active;
   brief.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[data-promotion-required]').forEach(control=>{if(control.required!==active)control.required=active;if(control.disabled===active)control.disabled=!active});
   brief.querySelectorAll<HTMLInputElement>('input[name="promotion_channel"]').forEach(control=>{if(control.disabled===active)control.disabled=!active});
+  syncOtherChannel(form,active);
   syncGeneralQuestions(form,active);
 }
 
-function checkedChannels(form:HTMLFormElement){return Array.from(form.querySelectorAll<HTMLInputElement>('input[name="promotion_channel"]:checked')).map(input=>input.value)}
+function checkedChannels(form:HTMLFormElement){
+  const other=clean(form.querySelector<HTMLInputElement>('[data-promotion-other]')?.value||'');
+  return Array.from(form.querySelectorAll<HTMLInputElement>('input[name="promotion_channel"]:checked')).map(input=>input.value==='Other'&&other?`Other: ${other}`:input.value);
+}
 function clean(value:string){return value.trim().replace(/\s+/g,' ')}
 
 function buildPromotionPlan(form:HTMLFormElement){
   const get=(name:string)=>clean((form.elements.namedItem(name) as HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement|null)?.value||'');
   return [
     PLAN_MARKER,
-    `Channels: ${checkedChannels(form).join(', ')}`,
+    `Promotion location / channel: ${checkedChannels(form).join(', ')}`,
     `Format: ${get('promotion_format')}`,
-    `Target audience: ${get('promotion_audience')}`,
-    `Distribution: ${get('promotion_distribution')}`,
-    `Call to action: ${get('promotion_action')}`,
-    `Main message / angle: ${get('promotion_message')}`,
-    `Execution plan: ${get('promotion_execution')}`,
-    `Evidence plan: ${get('promotion_evidence')}`,
-    `Success measure: ${get('promotion_success')}`
+    `Audience: ${get('promotion_audience')}`,
+    `Execution: ${get('promotion_execution')}`,
+    `Evidence / result: ${get('promotion_success')}`
   ].join('\n');
 }
 
@@ -121,7 +123,7 @@ function validateAndAttachPlan(event:SubmitEvent,form:HTMLFormElement){
   const channels=checkedChannels(form);
   if(!channels.length){
     event.preventDefault();event.stopImmediatePropagation();
-    if(channelError){channelError.textContent='Choose at least one promotion channel.';channelError.dataset.state='error'}
+    if(channelError){channelError.textContent='Choose at least one place or channel where you would promote LitLab.';channelError.dataset.state='error'}
     form.querySelector<HTMLElement>('[data-promotion-channels]')?.scrollIntoView({behavior:'smooth',block:'center'});
     return false;
   }
@@ -134,7 +136,7 @@ function validateAndAttachPlan(event:SubmitEvent,form:HTMLFormElement){
   const combined=`${original}\n\n${buildPromotionPlan(form)}`.trim();
   if(combined.length>3000){
     event.preventDefault();event.stopImmediatePropagation();
-    const status=form.querySelector<HTMLElement>('#ll-contributor-status');if(status){status.textContent='Your promotion plan is detailed, but the full proposal is too long. Shorten the campaign description slightly and submit again.';status.dataset.state='error'}
+    const status=form.querySelector<HTMLElement>('#ll-contributor-status');if(status){status.textContent='Your promotion plan is a little too long. Shorten one of the answers slightly and submit again.';status.dataset.state='error'}
     idea.focus();return false;
   }
   idea.value=combined;
