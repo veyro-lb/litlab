@@ -43,7 +43,20 @@ function sync(form:HTMLFormElement){
   }
 }
 
-function scan(){clearTimeout(timer);if(route()!=='contribute')return;const form=document.querySelector<HTMLFormElement>('#ll-contributor-form');if(form){attempts=0;sync(form);return}if(attempts++<20)timer=window.setTimeout(scan,100)}
+function scan(){
+  clearTimeout(timer);
+  if(route()!=='contribute')return;
+  const form=document.querySelector<HTMLFormElement>('#ll-contributor-form');
+  if(form){
+    attempts=0;
+    sync(form);
+    // The account workflow may add relationship fields just after this module.
+    // One bounded follow-up keeps the teacher field optional without an observer.
+    setTimeout(()=>{const current=document.querySelector<HTMLFormElement>('#ll-contributor-form');if(current)sync(current)},260);
+    return;
+  }
+  if(attempts++<20)timer=window.setTimeout(scan,100);
+}
 
 document.addEventListener('change',event=>{const form=(event.target as Element|null)?.closest<HTMLFormElement>('#ll-contributor-form');if(form)setTimeout(()=>sync(form),0)},true);
 
