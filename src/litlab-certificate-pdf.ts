@@ -37,24 +37,38 @@ function duration(minutes?:number|null){if(minutes==null)return '';const h=minut
 function safeFilePart(value:string,fallback='LitLab',max=72){const normalized=String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'');const cleaned=normalized.replace(/[^a-zA-Z0-9]+/g,'_').replace(/^_+|_+$/g,'').replace(/_+/g,'_');return (cleaned||fallback).slice(0,max).replace(/_+$/,'')||fallback}
 function makeCanvas():CanvasPage{const canvas=document.createElement('canvas');canvas.width=LANDSCAPE.pxWidth;canvas.height=LANDSCAPE.pxHeight;const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Certificate canvas is unavailable in this browser.');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);return {canvas,ctx,pointWidth:LANDSCAPE.pointWidth,pointHeight:LANDSCAPE.pointHeight}}
 
-async function loadLogo(){
-  const src=new URL('./litlab-logo.svg',document.baseURI).href;
+async function loadAsset(path:string){
+  const src=new URL(path,document.baseURI).href;
   return await new Promise<HTMLImageElement|null>(resolve=>{const image=new Image();const timer=window.setTimeout(()=>resolve(null),3500);image.onload=()=>{window.clearTimeout(timer);resolve(image)};image.onerror=()=>{window.clearTimeout(timer);resolve(null)};image.src=src});
 }
 
 function drawLogoFallback(ctx:CanvasRenderingContext2D,cx:number,y:number){
-  ctx.textAlign='center';font(ctx,36,900);ctx.fillStyle=INK;ctx.fillText('LitLab',cx,y+35);font(ctx,11,800);ctx.fillStyle=PURPLE;ctx.fillText('EXPLORE • ANALYZE • UNDERSTAND',cx,y+58);
+  ctx.textAlign='center';font(ctx,40,900);ctx.fillStyle=INK;ctx.fillText('LitLab',cx,y+38);font(ctx,13,800);ctx.fillStyle=PURPLE;ctx.fillText('EXPLORE • ANALYZE • UNDERSTAND',cx,y+64);
 }
 
-function drawSeal(ctx:CanvasRenderingContext2D,x:number,y:number,code:string){
-  ctx.save();ctx.translate(x,y);ctx.strokeStyle=PURPLE;ctx.lineWidth=5;ctx.beginPath();ctx.arc(0,0,72,0,Math.PI*2);ctx.stroke();ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,59,0,Math.PI*2);ctx.stroke();
-  ctx.fillStyle=PURPLE;ctx.beginPath();ctx.arc(0,0,47,0,Math.PI*2);ctx.fill();ctx.textAlign='center';font(ctx,20,900);ctx.fillStyle='#fff';ctx.fillText('LL',0,7);font(ctx,9,900);ctx.fillStyle=PURPLE_DARK;ctx.fillText('LITLAB',0,-88);font(ctx,8,800);ctx.fillStyle=MUTED;ctx.fillText(code.slice(0,18),0,92);ctx.restore();
+function drawIconFallback(ctx:CanvasRenderingContext2D,size:number){
+  const s=size;ctx.fillStyle='#fff';ctx.strokeStyle=LINE;ctx.lineWidth=3;rr(ctx,-s/2,-s/2,s,s,s*.22);ctx.fill();ctx.stroke();
+  ctx.fillStyle=PURPLE;ctx.beginPath();ctx.arc(0,0,s*.22,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='#fff';ctx.lineWidth=Math.max(3,s*.05);ctx.lineCap='round';ctx.beginPath();ctx.moveTo(-s*.09,0);ctx.lineTo(-s*.025,s*.07);ctx.lineTo(s*.11,-s*.09);ctx.stroke();ctx.lineCap='butt';
+}
+
+function drawSeal(ctx:CanvasRenderingContext2D,x:number,y:number,code:string,icon:HTMLImageElement|null){
+  ctx.save();ctx.translate(x,y);
+  ctx.strokeStyle=PURPLE;ctx.lineWidth=5;ctx.beginPath();ctx.arc(0,0,78,0,Math.PI*2);ctx.stroke();
+  ctx.strokeStyle=GOLD;ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,64,0,Math.PI*2);ctx.stroke();
+  ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(0,0,53,0,Math.PI*2);ctx.fill();
+  if(icon){const s=78;ctx.save();ctx.beginPath();ctx.arc(0,0,42,0,Math.PI*2);ctx.clip();ctx.drawImage(icon,-s/2,-s/2,s,s);ctx.restore()}else drawIconFallback(ctx,78);
+  ctx.textAlign='center';font(ctx,10,900);ctx.fillStyle=PURPLE_DARK;ctx.fillText('LITLAB',0,-96);font(ctx,9,800);ctx.fillStyle=MUTED;ctx.fillText('OFFICIAL CONTRIBUTOR',0,102);font(ctx,8,800);ctx.fillStyle=MUTED;ctx.fillText(code.slice(0,19),0,118);ctx.restore();
 }
 
 function drawSignature(ctx:CanvasRenderingContext2D,x:number,y:number,data:CertificatePdfData){
-  ctx.textAlign='center';ctx.fillStyle=INK;ctx.font='italic 48px "Segoe Script", "Brush Script MT", cursive';ctx.fillText('LitLab',x,y);
-  ctx.strokeStyle='#a9a3c9';ctx.lineWidth=1.6;ctx.beginPath();ctx.moveTo(x-155,y+18);ctx.lineTo(x+155,y+18);ctx.stroke();
-  font(ctx,13,800);ctx.fillStyle=INK;ctx.fillText(data.issuerName||'LitLab',x,y+47);font(ctx,10,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle||'LitLab Contributor Program',x,y+67);font(ctx,9,800);ctx.fillStyle=PURPLE;ctx.fillText('AUTHORIZED LITLAB SIGNATURE',x,y+87);
+  ctx.save();ctx.textAlign='center';
+  font(ctx,11,900);ctx.fillStyle=PURPLE;ctx.fillText('AUTHORIZED BY LITLAB',x,y-61);
+  ctx.fillStyle=INK;ctx.font='italic 58px "Snell Roundhand", "Segoe Script", "Lucida Handwriting", "Brush Script MT", cursive';ctx.fillText('LitLab',x,y);
+  ctx.strokeStyle=PURPLE_DARK;ctx.lineWidth=2.2;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x-126,y+13);ctx.bezierCurveTo(x-35,y+36,x+55,y-8,x+145,y+14);ctx.stroke();
+  ctx.strokeStyle='#a9a3c9';ctx.lineWidth=1.6;ctx.beginPath();ctx.moveTo(x-172,y+28);ctx.lineTo(x+172,y+28);ctx.stroke();
+  font(ctx,16,850);ctx.fillStyle=INK;ctx.fillText(data.issuerName||'LitLab',x,y+61);font(ctx,13,650);ctx.fillStyle=MUTED;ctx.fillText(data.issuerTitle||'LitLab Contributor Program',x,y+86);
+  font(ctx,10,800);ctx.fillStyle=PURPLE;ctx.fillText('DIGITALLY ISSUED • CERTIFICATE ID VERIFIABLE',x,y+108);ctx.restore();
 }
 
 async function jpegBytes(canvas:HTMLCanvasElement){const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Could not create certificate image.')),'image/jpeg',0.96));return new Uint8Array(await blob.arrayBuffer())}
@@ -77,25 +91,26 @@ export async function saveCertificatePdf(data:CertificatePdfData){
   ctx.strokeStyle=PURPLE;ctx.lineWidth=8;rr(ctx,38,38,W-76,H-76,24);ctx.stroke();ctx.strokeStyle='#d9d2ff';ctx.lineWidth=2;rr(ctx,59,59,W-118,H-118,18);ctx.stroke();
   ctx.fillStyle=PURPLE;rr(ctx,78,76,14,H-152,7);ctx.fill();
 
-  const logo=await loadLogo();ctx.textAlign='center';
-  if(logo){const logoW=382,logoH=100;ctx.drawImage(logo,W/2-logoW/2,84,logoW,logoH)}else drawLogoFallback(ctx,W/2,90);
-  font(ctx,12,900);ctx.fillStyle=PURPLE;ctx.fillText('OFFICIAL LITLAB CONTRIBUTOR PROGRAM',W/2,205);
-  font(ctx,35,900,'Georgia, Times New Roman, serif');ctx.fillStyle=INK;ctx.fillText('Certificate of Contribution',W/2,259);
-  ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(W/2-205,286);ctx.lineTo(W/2+205,286);ctx.stroke();
+  const [logo,icon]=await Promise.all([loadAsset('./litlab-logo.svg'),loadAsset('./favicon.svg')]);ctx.textAlign='center';
+  if(logo){const logoW=410,logoH=108;ctx.drawImage(logo,W/2-logoW/2,76,logoW,logoH)}else drawLogoFallback(ctx,W/2,82);
+  font(ctx,15,900);ctx.fillStyle=PURPLE;ctx.fillText('OFFICIAL LITLAB CONTRIBUTOR PROGRAM',W/2,211);
+  font(ctx,43,900,'Georgia, Times New Roman, serif');ctx.fillStyle=INK;ctx.fillText('Certificate of Contribution',W/2,270);
+  ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(W/2-230,302);ctx.lineTo(W/2+230,302);ctx.stroke();
 
-  font(ctx,16,600);ctx.fillStyle=MUTED;ctx.fillText('This certificate is proudly presented to',W/2,338);
-  font(ctx,64,900,'Georgia, Times New Roman, serif');ctx.fillStyle=INK;const nameLines=wrap(ctx,data.contributorName,W-470).slice(0,2);nameLines.forEach((line,i)=>ctx.fillText(line,W/2,418+i*68));let y=418+Math.max(1,nameLines.length)*68;
-  font(ctx,14,900);ctx.fillStyle=PURPLE;ctx.fillText(data.contributorRole.toUpperCase(),W/2,y+4);y+=54;
-  font(ctx,17,600);ctx.fillStyle=MUTED;ctx.fillText('in recognition of the successful completion of',W/2,y);y+=46;
-  font(ctx,30,850);ctx.fillStyle=INK;const titleLines=wrap(ctx,data.contributionTitle,W-500).slice(0,2);titleLines.forEach((line,i)=>ctx.fillText(line,W/2,y+i*38));y+=titleLines.length*38+24;
-  font(ctx,14,550);ctx.fillStyle=MUTED;const desc=wrap(ctx,data.contributionDescription,W-590).slice(0,4);desc.forEach((line,i)=>ctx.fillText(line,W/2,y+i*23));y+=desc.length*23+34;
+  font(ctx,20,600);ctx.fillStyle=MUTED;ctx.fillText('This certificate is proudly presented to',W/2,353);
+  font(ctx,72,900,'Georgia, Times New Roman, serif');ctx.fillStyle=INK;const nameLines=wrap(ctx,data.contributorName,W-440).slice(0,2);nameLines.forEach((line,i)=>ctx.fillText(line,W/2,439+i*75));let y=439+Math.max(1,nameLines.length)*75;
+  font(ctx,17,900);ctx.fillStyle=PURPLE;ctx.fillText(data.contributorRole.toUpperCase(),W/2,y+2);y+=55;
+  font(ctx,20,600);ctx.fillStyle=MUTED;ctx.fillText('in recognition of the successful completion of',W/2,y);y+=48;
+  font(ctx,35,850);ctx.fillStyle=INK;const titleLines=wrap(ctx,data.contributionTitle,W-470).slice(0,2);titleLines.forEach((line,i)=>ctx.fillText(line,W/2,y+i*43));y+=Math.max(1,titleLines.length)*43+20;
+  font(ctx,17,550);ctx.fillStyle=MUTED;const desc=wrap(ctx,data.contributionDescription,W-520).slice(0,4);desc.forEach((line,i)=>ctx.fillText(line,W/2,y+i*27));y+=Math.max(1,desc.length)*27+27;
 
-  ctx.fillStyle=PALE;rr(ctx,W/2-430,y-20,860,76,20);ctx.fill();font(ctx,12,800);ctx.fillStyle=INK;const facts=[`Completed ${dateLabel(data.completedAt)}`,`Issued ${dateLabel(data.issuedAt)}`];if(data.verifiedMinutes!=null)facts.push(`Verified time ${duration(data.verifiedMinutes)}`);ctx.fillText(facts.join('   •   '),W/2,y+14);font(ctx,10,650);ctx.fillStyle=MUTED;ctx.fillText(data.contributionType.toUpperCase(),W/2,y+39);y+=118;
+  ctx.fillStyle=PALE;rr(ctx,W/2-455,y-16,910,86,20);ctx.fill();font(ctx,15,800);ctx.fillStyle=INK;const facts=[`Completed ${dateLabel(data.completedAt)}`,`Issued ${dateLabel(data.issuedAt)}`];if(data.verifiedMinutes!=null)facts.push(`Verified time ${duration(data.verifiedMinutes)}`);ctx.fillText(facts.join('   •   '),W/2,y+19);font(ctx,12,700);ctx.fillStyle=MUTED;ctx.fillText(data.contributionType.toUpperCase(),W/2,y+49);y+=124;
 
-  drawSignature(ctx,W/2-320,y+48,data);drawSeal(ctx,W/2+338,y+20,data.certificateCode);
-  ctx.textAlign='center';font(ctx,11,850);ctx.fillStyle=INK;ctx.fillText(data.certificateCode,W/2+338,y+124);font(ctx,9,700);ctx.fillStyle=MUTED;ctx.fillText('CERTIFICATE ID',W/2+338,y+143);
+  const lowerY=Math.min(y+48,H-330);
+  drawSignature(ctx,W/2-325,lowerY,data);drawSeal(ctx,W/2+342,lowerY-18,data.certificateCode,icon);
+  ctx.textAlign='center';font(ctx,14,850);ctx.fillStyle=INK;ctx.fillText(data.certificateCode,W/2+342,lowerY+116);font(ctx,11,700);ctx.fillStyle=MUTED;ctx.fillText('CERTIFICATE ID',W/2+342,lowerY+140);
 
-  ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(150,H-132);ctx.lineTo(W-150,H-132);ctx.stroke();font(ctx,9,650);ctx.fillStyle=MUTED;ctx.textAlign='left';ctx.fillText('Issued by LitLab • Verify using the certificate ID shown above.',150,H-99);ctx.textAlign='right';ctx.fillText('LitLab Contributor Certificate • Not an IB certificate • Does not itself approve CAS.',W-150,H-99);
-  if(data.preview){ctx.save();ctx.translate(W/2,H/2);ctx.rotate(-0.34);ctx.textAlign='center';font(ctx,92,900);ctx.fillStyle='rgba(111,85,232,.11)';ctx.fillText('PREVIEW — NOT ISSUED',0,0);ctx.restore()}
+  ctx.strokeStyle=LINE;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(150,H-132);ctx.lineTo(W-150,H-132);ctx.stroke();font(ctx,11,650);ctx.fillStyle=MUTED;ctx.textAlign='left';ctx.fillText('Issued by LitLab • Verify using the certificate ID shown above.',150,H-96);ctx.textAlign='right';ctx.fillText('LitLab Contributor Certificate • Not an IB certificate • Does not itself approve CAS.',W-150,H-96);
+  if(data.preview){ctx.save();ctx.translate(W/2,H/2);ctx.rotate(-0.34);ctx.textAlign='center';font(ctx,98,900);ctx.fillStyle='rgba(111,85,232,.11)';ctx.fillText('PREVIEW — NOT ISSUED',0,0);ctx.restore()}
   ctx.textAlign='left';const bytes=await imagePdf(page),filename=`LitLab_Contributor_Certificate_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.certificateCode,'Certificate',38)}.pdf`;download(bytes,filename);
 }
