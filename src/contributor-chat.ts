@@ -3,23 +3,30 @@ import './contributor-chat.css';
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
+const REQUEST_TIMEOUT_MS=12_000;
+const CHAT_POLL_MS=4_500;
+const HUB_POLL_MS=20_000;
 
 type StoredSession={access_token?:string};
 type ChatMode='user'|'admin';
 type Message={id:string;sender_role:'contributor'|'admin';body:string;created_at:string};
 type Application={id:string;topics:string;contribution_type:string;status:'new'|'reviewing'|'accepted'|'declined'|'completed';created_at:string};
-
 type ActiveChat={applicationId:string;mode:ChatMode;title:string};
 
 let activeChat:ActiveChat|null=null;
-let chatTimer=0;
+let chatPollTimer=0;
 let chatLoading=false;
 let chatSending=false;
 let lastSignature='';
 let hubLoading=false;
 let hubLoadedAt=0;
 let hubApps:Application[]=[];
-let hubRetry=0;
+let hubRenderKey='';
+let hubMountTimer=0;
+let hubMountAttempts=0;
+let hubPollTimer=0;
+let adminInjectTimer=0;
+let adminInjectAttempts=0;
 
 function token(){
   try{return (JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||''}catch{return ''}
@@ -29,6 +36,7 @@ function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&
 function label(value:string){return value.replace(/[-_]/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase())}
 function statusLabel(status:Application['status']){return ({new:'Pending',reviewing:'Needs review',accepted:'Approved',declined:'Not approved',completed:'Completed'} as const)[status]}
 function fmtTime(value:string){const d=new Date(value);return Number.isNaN(d.getTime())?'':d.toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}
+function sameChat(a:ActiveChat|null,b:ActiveChat){return Boolean(a&&a.applicationId===b.applicationId&&a.mode===b.mode)}
 
 function authHeaders(){
   const access=token();
@@ -36,17 +44,28 @@ function authHeaders(){
 }
 
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
-  const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:authHeaders(),body:JSON.stringify(body)});
-  if(!response.ok)throw new Error(`${name} failed (${response.status})`);
-  const text=await response.text();
-  return (text?JSON.parse(text):null) as T;
+  if(!navigator.onLine)throw new Error('offline');
+  const controller=new AbortController();
+  const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
+  try{
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:authHeaders(),body:JSON.stringify(body),signal:controller.signal});
+    if(!response.ok)throw new Error(`${name} failed (${response.status})`);
+    const text=await response.text();
+    return (text?JSON.parse(text):null) as T;
+  }finally{
+    window.clearTimeout(timeout);
+  }
 }
+
+function clearChatPoll(){window.clearTimeout(chatPollTimer);chatPollTimer=0}
+function clearHubPoll(){window.clearTimeout(hubPollTimer);hubPollTimer=0}
+function clearMountRetry(){window.clearTimeout(hubMountTimer);hubMountTimer=0}
+function clearAdminRetry(){window.clearTimeout(adminInjectTimer);adminInjectTimer=0}
 
 function closeChat(){
   activeChat=null;
   lastSignature='';
-  window.clearInterval(chatTimer);
-  chatTimer=0;
+  clearChatPoll();
   const modal=document.getElementById('ll-contributor-chat-modal');
   if(!modal)return;
   modal.classList.add('is-closing');
@@ -88,38 +107,53 @@ function chatShell(chat:ActiveChat){
   textarea?.focus();
 }
 
-function renderMessages(messages:Message[]){
+function renderMessages(messages:Message[],chat:ActiveChat){
+  if(!sameChat(activeChat,chat))return;
   const container=document.querySelector<HTMLElement>('#ll-contributor-chat-modal [data-chat-messages]');
-  if(!container||!activeChat)return;
+  if(!container)return;
   const signature=messages.map(message=>`${message.id}:${message.created_at}:${message.body}`).join('|');
   if(signature===lastSignature)return;
   const wasNearBottom=container.scrollHeight-container.scrollTop-container.clientHeight<90||!lastSignature;
   lastSignature=signature;
-  const myRole=activeChat.mode==='admin'?'admin':'contributor';
+  const myRole=chat.mode==='admin'?'admin':'contributor';
   container.innerHTML=messages.length?messages.map(message=>{
     const mine=message.sender_role===myRole;
     return `<article class="ll-chat-bubble ${mine?'mine':'theirs'}"><span>${esc(mine?'You':message.sender_role==='admin'?'LitLab':'Contributor')}</span><p>${esc(message.body)}</p><time>${esc(fmtTime(message.created_at))}</time></article>`;
   }).join(''):`<div class="ll-chat-empty"><span>✦</span><h3>No messages yet.</h3><p>Start the conversation here. Replies will appear automatically while this chat is open.</p></div>`;
-  if(wasNearBottom)requestAnimationFrame(()=>{container.scrollTop=container.scrollHeight});
+  if(wasNearBottom)requestAnimationFrame(()=>{if(container.isConnected)container.scrollTop=container.scrollHeight});
+}
+
+function scheduleChatPoll(delay=CHAT_POLL_MS){
+  clearChatPoll();
+  if(!activeChat)return;
+  chatPollTimer=window.setTimeout(async()=>{
+    if(activeChat&&!document.hidden&&navigator.onLine)await loadMessages();
+    if(activeChat)scheduleChatPoll();
+  },delay);
 }
 
 async function loadMessages(force=false){
-  if(!activeChat||chatLoading||!token())return;
+  const chat=activeChat;
+  if(!chat||chatLoading||!token())return;
   chatLoading=true;
   const error=document.querySelector<HTMLElement>('#ll-contributor-chat-modal [data-chat-error]');
   if(force&&error)error.textContent='';
   try{
-    const name=activeChat.mode==='admin'?'admin_get_litlab_contributor_messages':'get_my_litlab_contributor_messages';
-    const rows=await rpc<Message[]>(name,{p_application_id:activeChat.applicationId});
-    renderMessages(Array.isArray(rows)?rows:[]);
+    const name=chat.mode==='admin'?'admin_get_litlab_contributor_messages':'get_my_litlab_contributor_messages';
+    const rows=await rpc<Message[]>(name,{p_application_id:chat.applicationId});
+    renderMessages(Array.isArray(rows)?rows:[],chat);
   }catch(err){
+    if(!sameChat(activeChat,chat))return;
     console.error(err);
-    if(error)error.textContent='Could not refresh this chat. Check your connection and try again.';
-  }finally{chatLoading=false}
+    if(error)error.textContent=navigator.onLine?'Could not refresh this chat. It will retry automatically.':'You are offline. Messages will refresh when your connection returns.';
+  }finally{
+    chatLoading=false;
+  }
 }
 
 async function sendMessage(){
-  if(!activeChat||chatSending)return;
+  const chat=activeChat;
+  if(!chat||chatSending)return;
   const form=document.querySelector<HTMLFormElement>('#ll-contributor-chat-modal [data-chat-form]');
   const textarea=form?.querySelector<HTMLTextAreaElement>('textarea');
   const button=form?.querySelector<HTMLButtonElement>('button[type="submit"]');
@@ -130,18 +164,20 @@ async function sendMessage(){
   if(button){button.disabled=true;button.textContent='Sending…'}
   if(error)error.textContent='';
   try{
-    const name=activeChat.mode==='admin'?'admin_send_litlab_contributor_message':'send_my_litlab_contributor_message';
-    await rpc<Message>(name,{p_application_id:activeChat.applicationId,p_body:body});
+    const name=chat.mode==='admin'?'admin_send_litlab_contributor_message':'send_my_litlab_contributor_message';
+    await rpc<Message>(name,{p_application_id:chat.applicationId,p_body:body});
+    if(!sameChat(activeChat,chat))return;
     if(textarea)textarea.value='';
     lastSignature='';
     await loadMessages(true);
     textarea?.focus();
+    scheduleChatPoll();
   }catch(err){
     console.error(err);
-    if(error)error.textContent='Message could not be sent. Please try again.';
+    if(error)error.textContent=navigator.onLine?'Message could not be sent. Please try again.':'You are offline. Reconnect before sending.';
   }finally{
     chatSending=false;
-    if(button){button.disabled=false;button.textContent='Send message'}
+    if(button?.isConnected){button.disabled=false;button.textContent='Send message'}
   }
 }
 
@@ -150,9 +186,7 @@ function openChat(applicationId:string,mode:ChatMode,title:string){
   activeChat={applicationId,mode,title:title||'Contributor conversation'};
   lastSignature='';
   chatShell(activeChat);
-  void loadMessages(true);
-  window.clearInterval(chatTimer);
-  chatTimer=window.setInterval(()=>{if(!document.hidden)void loadMessages()},3500);
+  void loadMessages(true).finally(()=>scheduleChatPoll());
 }
 
 function userHubRoot(){return document.querySelector<HTMLElement>('[data-contributor-chat-hub]')}
@@ -172,42 +206,71 @@ function mountUserHub(){
   return hub;
 }
 
-function renderUserHub(){
+function setHubMarkup(key:string,markup:string){
   const hub=mountUserHub();
   if(!hub)return;
-  if(!token()){
-    hub.innerHTML='<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Sign in to use contributor chat. Conversations are saved to your LitLab account.</p></div><div class="ll-chat-hub-empty">Sign in to view your contributor conversations.</div>';
-    return;
-  }
-  hub.innerHTML=`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Ask questions, receive feedback and discuss revisions with the LitLab team. Chats stay attached to each contribution.</p></div>
-    ${hubApps.length?`<div class="ll-chat-thread-list">${hubApps.map(app=>`<button type="button" class="ll-chat-thread" data-chat-open data-chat-mode="user" data-application-id="${esc(app.id)}" data-chat-title="${esc(app.topics||'Contributor conversation')}"><div><span>${esc(label(app.contribution_type))}</span><b>${esc(app.topics||'Untitled contribution')}</b><small>${esc(statusLabel(app.status))}</small></div><i>Chat with LitLab →</i></button>`).join('')}</div>`:'<div class="ll-chat-hub-empty">Your contributor conversations will appear here after you submit an application.</div>'}`;
+  if(hubRenderKey===key&&hub.dataset.renderKey===key)return;
+  hubRenderKey=key;
+  hub.dataset.renderKey=key;
+  hub.innerHTML=markup;
 }
 
-async function loadUserHub(force=false){
-  if(route()!=='contribute')return;
-  if(!mountUserHub()){
-    window.clearTimeout(hubRetry);
-    hubRetry=window.setTimeout(()=>void loadUserHub(force),140);
+function renderUserHub(){
+  if(!token()){
+    setHubMarkup('signed-out','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Sign in to use contributor chat. Conversations are saved to your LitLab account.</p></div><div class="ll-chat-hub-empty">Sign in to view your contributor conversations.</div>');
     return;
   }
-  if(!token()){hubApps=[];renderUserHub();return}
+  const signature=hubApps.map(app=>`${app.id}:${app.status}:${app.topics}:${app.contribution_type}`).join('|');
+  setHubMarkup(`apps:${signature}`,`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Ask questions, receive feedback and discuss revisions with the LitLab team. Chats stay attached to each contribution.</p></div>
+    ${hubApps.length?`<div class="ll-chat-thread-list">${hubApps.map(app=>`<button type="button" class="ll-chat-thread" data-chat-open data-chat-mode="user" data-application-id="${esc(app.id)}" data-chat-title="${esc(app.topics||'Contributor conversation')}"><div><span>${esc(label(app.contribution_type))}</span><b>${esc(app.topics||'Untitled contribution')}</b><small>${esc(statusLabel(app.status))}</small></div><i>Chat with LitLab →</i></button>`).join('')}</div>`:'<div class="ll-chat-hub-empty">Your contributor conversations will appear here after you submit an application.</div>'}`);
+}
+
+function scheduleHubMountRetry(force:boolean){
+  if(route()!=='contribute'||hubMountAttempts>=20)return;
+  clearMountRetry();
+  hubMountAttempts+=1;
+  hubMountTimer=window.setTimeout(()=>void loadUserHub(force,true),120);
+}
+
+function scheduleHubPoll(delay=HUB_POLL_MS){
+  clearHubPoll();
+  if(route()!=='contribute')return;
+  hubPollTimer=window.setTimeout(async()=>{
+    if(route()==='contribute'&&!document.hidden&&navigator.onLine)await loadUserHub(true,true);
+    if(route()==='contribute')scheduleHubPoll();
+  },delay);
+}
+
+async function loadUserHub(force=false,quiet=false){
+  if(route()!=='contribute')return;
+  if(!mountUserHub()){
+    scheduleHubMountRetry(force);
+    return;
+  }
+  hubMountAttempts=0;
+  clearMountRetry();
+  if(!token()){hubApps=[];hubLoadedAt=0;renderUserHub();return}
   if(hubLoading)return;
-  if(!force&&hubLoadedAt&&Date.now()-hubLoadedAt<12000){renderUserHub();return}
+  if(!force&&hubLoadedAt&&Date.now()-hubLoadedAt<12_000){renderUserHub();return}
   hubLoading=true;
+  if(!quiet&&!hubLoadedAt)setHubMarkup('loading','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">Loading your contributor conversations…</div>');
   try{
     const rows=await rpc<Application[]>('get_my_litlab_contributor_applications');
+    if(route()!=='contribute')return;
     hubApps=Array.isArray(rows)?rows:[];
     hubLoadedAt=Date.now();
     renderUserHub();
   }catch(err){
     console.error(err);
-    const hub=mountUserHub();
-    if(hub)hub.innerHTML='<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">Chat could not load right now. Reload the page and try again.</div>';
-  }finally{hubLoading=false}
+    if(!quiet||!hubLoadedAt)setHubMarkup('error',`<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2></div><div class="ll-chat-hub-empty">${navigator.onLine?'Chat could not load right now. It will retry automatically.':'You are offline. Chat will reconnect automatically.'}</div>`);
+  }finally{
+    hubLoading=false;
+  }
 }
 
-function scanAdminOpeners(){
-  if(route()!=='admin-contributors')return;
+function injectAdminChatButtons(){
+  if(route()!=='admin-contributors')return 0;
+  let added=0;
   document.querySelectorAll<HTMLElement>('.admin-contrib-card[data-app-id]').forEach(card=>{
     if(card.querySelector('[data-admin-contrib-chat-open]'))return;
     const id=card.dataset.appId||'';
@@ -219,18 +282,38 @@ function scanAdminOpeners(){
     strip.innerHTML=`<div><span>PRIVATE CHAT</span><p>Message ${esc(name)} about feedback, revisions or next steps.</p></div><button type="button" data-admin-contrib-chat-open data-chat-open data-chat-mode="admin" data-application-id="${esc(id)}" data-chat-title="${esc(`${name} — ${topic}`)}">Open live chat</button>`;
     const grid=card.querySelector('.admin-contrib-detail-grid');
     grid?.before(strip);
+    if(strip.isConnected)added+=1;
   });
+  return added;
+}
+
+function scheduleAdminInjection(reset=false){
+  if(reset)adminInjectAttempts=0;
+  clearAdminRetry();
+  if(route()!=='admin-contributors'||adminInjectAttempts>=24)return;
+  const cards=document.querySelectorAll('.admin-contrib-card[data-app-id]');
+  const missing=Array.from(cards).some(card=>!card.querySelector('[data-admin-contrib-chat-open]'));
+  if(cards.length&&!missing){adminInjectAttempts=0;return}
+  injectAdminChatButtons();
+  const remaining=Array.from(document.querySelectorAll('.admin-contrib-card[data-app-id]')).some(card=>!card.querySelector('[data-admin-contrib-chat-open]'));
+  if(!remaining&&document.querySelector('.admin-contrib-card[data-app-id]')){adminInjectAttempts=0;return}
+  adminInjectAttempts+=1;
+  adminInjectTimer=window.setTimeout(()=>scheduleAdminInjection(false),150);
 }
 
 function scheduleRouteWork(){
-  window.clearTimeout(hubRetry);
+  clearMountRetry();
+  clearHubPoll();
+  clearAdminRetry();
+  hubMountAttempts=0;
+  adminInjectAttempts=0;
   if(route()==='contribute'){
     hubLoadedAt=0;
-    window.setTimeout(()=>void loadUserHub(true),80);
+    hubRenderKey='';
+    window.setTimeout(()=>void loadUserHub(true),60);
+    scheduleHubPoll();
   }
-  if(route()==='admin-contributors'){
-    [100,350,800,1500].forEach(delay=>window.setTimeout(scanAdminOpeners,delay));
-  }
+  if(route()==='admin-contributors')scheduleAdminInjection(true);
 }
 
 document.addEventListener('click',event=>{
@@ -244,22 +327,33 @@ document.addEventListener('click',event=>{
     return;
   }
   const refresh=event.target instanceof Element?event.target.closest('[data-contrib-refresh]'):null;
-  if(refresh)window.setTimeout(scanAdminOpeners,500);
+  if(refresh)window.setTimeout(()=>scheduleAdminInjection(true),300);
 },true);
 
 document.addEventListener('input',event=>{
   const target=event.target instanceof Element?event.target:null;
-  if(target?.matches('[data-contrib-search]'))window.setTimeout(scanAdminOpeners,30);
+  if(target?.matches('[data-contrib-search]'))window.setTimeout(()=>scheduleAdminInjection(true),40);
 },true);
 document.addEventListener('change',event=>{
   const target=event.target instanceof Element?event.target:null;
-  if(target?.matches('[data-contrib-role-filter],[data-contrib-status-filter]'))window.setTimeout(scanAdminOpeners,30);
+  if(target?.matches('[data-contrib-role-filter],[data-contrib-status-filter]'))window.setTimeout(()=>scheduleAdminInjection(true),40);
 },true);
 
 window.addEventListener('hashchange',()=>{closeChat();scheduleRouteWork()});
-window.addEventListener('focus',()=>{if(activeChat)void loadMessages(true);if(route()==='contribute')void loadUserHub(true)});
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&activeChat)void loadMessages(true)});
-window.addEventListener('litlab:contributor-submitted',()=>{hubLoadedAt=0;setTimeout(()=>void loadUserHub(true),450)});
+window.addEventListener('focus',()=>{
+  if(activeChat){void loadMessages(true);scheduleChatPoll()}
+  if(route()==='contribute'){void loadUserHub(true,true);scheduleHubPoll()}
+  if(route()==='admin-contributors')scheduleAdminInjection(true);
+});
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){clearChatPoll();return}
+  if(activeChat){void loadMessages(true);scheduleChatPoll()}
+  if(route()==='contribute'){void loadUserHub(true,true);scheduleHubPoll()}
+});
+window.addEventListener('online',()=>{
+  if(activeChat){void loadMessages(true);scheduleChatPoll(800)}
+  if(route()==='contribute')void loadUserHub(true,true);
+});
+window.addEventListener('litlab:contributor-submitted',()=>{hubLoadedAt=0;hubRenderKey='';setTimeout(()=>void loadUserHub(true),350)});
 
-window.setInterval(()=>{if(route()==='admin-contributors')scanAdminOpeners()},1800);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scheduleRouteWork,{once:true});else scheduleRouteWork();
