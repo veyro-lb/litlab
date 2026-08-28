@@ -2,7 +2,7 @@ import './special-route-host.css';
 
 // Large enhancement-driven guides render in a separate surface so their renderers never replace
 // React's own page children. This prevents one guide's DOM from leaking into the next route.
-const SPECIAL_ROUTES=new Set(['books','essays','ee','hl-essay','admin']);
+const SPECIAL_ROUTES=new Set(['books','essays','ee','hl-essay','admin','admin-contributors']);
 let lastRoute='';
 let restoreFrame=0;
 let isolateFrame=0;
