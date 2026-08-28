@@ -24,7 +24,20 @@ function title(item:Update){if(item.kind==='brief')return 'LitLab updated your p
 
 function apply(){const active=updates.length>0;document.documentElement.toggleAttribute('data-litlab-user-workspace-update',active);document.querySelectorAll<HTMLElement>('[data-contributor-account-status]').forEach(el=>el.classList.toggle('has-workspace-update',active));if(active)showNotice()}
 function clear(){updates=[];document.documentElement.removeAttribute('data-litlab-user-workspace-update')}
-function showNotice(){const item=latest();if(!item)return;const key=`${item.kind}:${item.update_id}:${item.created_at}`;try{if(sessionStorage.getItem(NOTICE_KEY)===key)return}catch{}document.getElementById('ll-user-workspace-update-notice')?.remove();const n=document.createElement('aside');n.id='ll-user-workspace-update-notice';n.className='ll-user-workspace-update-notice';n.innerHTML=`<button type="button" data-close aria-label="Dismiss">×</button><span>NEW CONTRIBUTOR UPDATE</span><div><i>●</i><section><b>${esc(title(item))}</b><p>${esc(item.topics||item.label)}${item.label?` • ${esc(item.label)}`:''}</p></section></div><button type="button" data-open>Open my contributor workspace →</button>`;const dismiss=()=>{try{sessionStorage.setItem(NOTICE_KEY,key)}catch{}n.classList.add('is-closing');setTimeout(()=>n.remove(),220)};n.querySelector('[data-close]')?.addEventListener('click',dismiss);n.querySelector('[data-open]')?.addEventListener('click',()=>{dismiss();location.hash='contribute'});document.body.appendChild(n);requestAnimationFrame(()=>n.classList.add('is-visible'))}
+function showNotice(){
+  const item=latest();if(!item)return;
+  // Keep the red update state, but do not stack this card over the existing
+  // status/live-chat notification. The next refresh will show it after that card closes.
+  if(document.getElementById('ll-contributor-status-notice'))return;
+  const key=`${item.kind}:${item.update_id}:${item.created_at}`;
+  try{if(sessionStorage.getItem(NOTICE_KEY)===key)return}catch{}
+  document.getElementById('ll-user-workspace-update-notice')?.remove();
+  const n=document.createElement('aside');n.id='ll-user-workspace-update-notice';n.className='ll-user-workspace-update-notice';n.innerHTML=`<button type="button" data-close aria-label="Dismiss">×</button><span>NEW CONTRIBUTOR UPDATE</span><div><i>●</i><section><b>${esc(title(item))}</b><p>${esc(item.topics||item.label)}${item.label?` • ${esc(item.label)}`:''}</p></section></div><button type="button" data-open>Open my contributor workspace →</button>`;
+  const dismiss=()=>{try{sessionStorage.setItem(NOTICE_KEY,key)}catch{}n.classList.add('is-closing');setTimeout(()=>n.remove(),220)};
+  n.querySelector('[data-close]')?.addEventListener('click',dismiss);
+  n.querySelector('[data-open]')?.addEventListener('click',()=>{dismiss();location.hash='contribute'});
+  document.body.appendChild(n);requestAnimationFrame(()=>n.classList.add('is-visible'));
+}
 
 async function load(force=false){if(!token()){developerAccess=null;clear();return}if(route()==='contribute'){clear();return}if(loading&&!force)return;loading=true;try{if(developerAccess===null)developerAccess=Boolean(await rpc<boolean>('is_litlab_admin'));if(developerAccess){clear();return}const rows=await rpc<Update[]>('get_my_litlab_contributor_unread_workspace_updates');updates=Array.isArray(rows)?rows:[];apply()}catch(error){console.debug('Contributor workspace updates unavailable',error)}finally{loading=false}}
 function schedule(){clearTimeout(timer);timer=window.setTimeout(async()=>{if(!document.hidden&&navigator.onLine)await load();schedule()},POLL_MS)}
