@@ -1,3 +1,4 @@
+import './admin-analytics.css';
 import './admin-contributors.css';
 
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
@@ -15,6 +16,8 @@ type Application={
 
 let applications:Application[]=[];
 let loading=false;
+let adminAccess:boolean|null=null;
+let renderScheduled=false;
 
 function session(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null}catch{return null}}
 function headers(){const token=session()?.access_token||'';return {'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,...(token?{Authorization:`Bearer ${token}`}:{})}}
@@ -30,6 +33,12 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   return (text?JSON.parse(text):null) as T;
 }
 
+async function checkAdmin(force=false){
+  if(!session()?.access_token){adminAccess=false;return false}
+  if(adminAccess!==null&&!force)return adminAccess;
+  try{adminAccess=Boolean(await rpc<boolean>('is_litlab_admin'));return adminAccess}catch{adminAccess=false;return false}
+}
+
 function stat(labelText:string,value:number,note:string){return `<article><span>${esc(labelText)}</span><strong>${value}</strong><small>${esc(note)}</small></article>`}
 function detail(labelText:string,value:unknown,wide=false){const text=String(value??'').trim();if(!text)return '';return `<div class="admin-contrib-detail${wide?' wide':''}"><span>${esc(labelText)}</span><p>${esc(text)}</p></div>`}
 
@@ -43,7 +52,7 @@ function applicationCard(app:Application){
       <span class="admin-contrib-chevron">⌄</span>
     </summary>
     <div class="admin-contrib-body">
-      <div class="admin-contrib-status-row"><div><span>Application status</span><small>Keep your review workflow organised.</small></div><select data-contributor-status data-id="${esc(app.id)}" aria-label="Application status for ${esc(app.full_name)}">
+      <div class="admin-contrib-status-row"><div><span>Application status</span><small>Update the application as you review and work with the contributor.</small></div><select data-contributor-status data-id="${esc(app.id)}" aria-label="Application status for ${esc(app.full_name)}">
         ${(['new','reviewing','accepted','declined','completed'] as ContributorStatus[]).map(s=>`<option value="${s}"${app.status===s?' selected':''}>${esc(label(s))}</option>`).join('')}
       </select><span class="admin-contrib-save-state" role="status"></span></div>
       <div class="admin-contrib-detail-grid">
@@ -59,51 +68,69 @@ function applicationCard(app:Application){
   </details>`;
 }
 
-function filtered(){
-  const root=document.getElementById('admin-contributors-section');
-  const q=(root?.querySelector<HTMLInputElement>('[data-contrib-search]')?.value||'').trim().toLowerCase();
-  const roleValue=root?.querySelector<HTMLSelectElement>('[data-contrib-role-filter]')?.value||'all';
-  const statusValue=root?.querySelector<HTMLSelectElement>('[data-contrib-status-filter]')?.value||'all';
+function filtered(root:HTMLElement){
+  const q=(root.querySelector<HTMLInputElement>('[data-contrib-search]')?.value||'').trim().toLowerCase();
+  const roleValue=root.querySelector<HTMLSelectElement>('[data-contrib-role-filter]')?.value||'all';
+  const statusValue=root.querySelector<HTMLSelectElement>('[data-contrib-status-filter]')?.value||'all';
   return applications.filter(app=>{
-    const hay=[app.full_name,app.email,app.school,app.country,app.topics,app.contribution_idea,app.motivation,app.subject_taught,app.dp_year,app.cas_intent].join(' ').toLowerCase();
+    const hay=[app.full_name,app.email,app.school,app.country,app.topics,app.contribution_idea,app.motivation,app.subject_taught,app.dp_year,app.cas_intent,app.contribution_type].join(' ').toLowerCase();
     return (!q||hay.includes(q))&&(roleValue==='all'||app.applicant_type===roleValue)&&(statusValue==='all'||app.status===statusValue);
   });
 }
 
-function renderList(){
-  const root=document.getElementById('admin-contributors-section');
-  const list=root?.querySelector<HTMLElement>('[data-contrib-list]');
+function renderList(root:HTMLElement){
+  const list=root.querySelector<HTMLElement>('[data-contrib-list]');
   if(!list)return;
-  const rows=filtered();
+  const rows=filtered(root);
   list.innerHTML=rows.length?rows.map(applicationCard).join(''):'<div class="admin-contrib-empty">No contributor applications match these filters.</div>';
-  root?.querySelector<HTMLElement>('[data-contrib-result-count]')?.replaceChildren(document.createTextNode(`${rows.length} shown`));
+  root.querySelector<HTMLElement>('[data-contrib-result-count]')?.replaceChildren(document.createTextNode(`${rows.length} shown`));
   list.querySelectorAll<HTMLSelectElement>('[data-contributor-status]').forEach(select=>select.addEventListener('change',()=>void updateStatus(select)));
 }
 
-function renderSection(host:HTMLElement){
+function renderAccessState(main:HTMLElement,kind:'loading'|'signin'|'denied'|'error'){
+  const copy=kind==='loading'
+    ?'<h1>Opening contributor dashboard…</h1><p>Checking developer access and loading applications.</p>'
+    :kind==='signin'
+      ?'<h1>Developer sign-in required.</h1><p>Sign in with an approved LitLab developer account to review contributor applications.</p>'
+      :kind==='denied'
+        ?'<h1>Developer access only.</h1><p>This account can use LitLab normally, but it cannot access contributor applications.</p>'
+        :'<h1>Contributor dashboard could not load.</h1><p>Your developer session may need to be refreshed. Try again or return to Developer Analytics.</p>';
+  main.innerHTML=`<section class="admin-gate" data-litlab-admin-contributors-page><div class="admin-gate-card"><span class="admin-kicker">LITLAB • CONTRIBUTORS</span>${copy}<div class="admin-contrib-gate-actions"><button type="button" data-admin-contrib-retry>${kind==='error'?'Try again':'Back to LitLab'}</button>${kind==='error'?'<button type="button" class="quiet" data-admin-contrib-analytics>Developer analytics</button>':''}</div></div></section>`;
+  main.querySelector<HTMLButtonElement>('[data-admin-contrib-retry]')?.addEventListener('click',()=>{if(kind==='error')void loadPage(true);else location.hash='home'});
+  main.querySelector<HTMLButtonElement>('[data-admin-contrib-analytics]')?.addEventListener('click',()=>{location.hash='admin'});
+}
+
+function renderPage(main:HTMLElement){
   const total=applications.length;
   const students=applications.filter(a=>a.applicant_type==='student').length;
   const teachers=applications.filter(a=>a.applicant_type==='teacher').length;
   const cas=applications.filter(a=>a.applicant_type==='student'&&(a.cas_intent==='yes'||a.cas_intent==='maybe')).length;
   const fresh=applications.filter(a=>a.status==='new').length;
-  const section=document.createElement('section');
-  section.id='admin-contributors-section';
-  section.className='admin-contributors-section';
-  section.innerHTML=`<header class="admin-contrib-head"><div><span>CONTRIBUTOR PROGRAM</span><h2>Contributor applications</h2><p>Review DP student and teacher applications, CAS planning information, proposed contributions and contact details.</p></div><button type="button" data-contrib-refresh>Refresh applications</button></header>
-    <div class="admin-contrib-stats">${stat('Total applications',total,'All submitted applications')}${stat('New',fresh,'Waiting for first review')}${stat('DP students',students,'Student contributor applicants')}${stat('Teachers',teachers,'Teacher reviewers / mentors')}${stat('CAS interest',cas,'Yes or maybe')}</div>
-    <div class="admin-contrib-toolbar"><label><span>Search</span><input data-contrib-search type="search" placeholder="Name, email, school, topic…"/></label><label><span>Role</span><select data-contrib-role-filter><option value="all">All roles</option><option value="student">DP students</option><option value="teacher">Teachers</option></select></label><label><span>Status</span><select data-contrib-status-filter><option value="all">All statuses</option><option value="new">New</option><option value="reviewing">Reviewing</option><option value="accepted">Accepted</option><option value="declined">Declined</option><option value="completed">Completed</option></select></label><small data-contrib-result-count>${total} shown</small></div>
-    <div class="admin-contrib-list" data-contrib-list></div>`;
-  host.appendChild(section);
-  section.querySelector<HTMLButtonElement>('[data-contrib-refresh]')?.addEventListener('click',()=>void loadApplications(true));
-  section.querySelectorAll<HTMLInputElement|HTMLSelectElement>('[data-contrib-search],[data-contrib-role-filter],[data-contrib-status-filter]').forEach(control=>control.addEventListener(control instanceof HTMLInputElement?'input':'change',renderList));
-  renderList();
+  main.innerHTML=`<section class="admin-page admin-contributors-page" data-litlab-admin-contributors-page>
+    <header class="admin-hero admin-contrib-page-hero">
+      <div><span class="admin-kicker">LITLAB • CONTRIBUTOR DASHBOARD</span><h1>Manage the people helping LitLab grow.</h1><p>Developer-only workspace for reviewing DP student contributors and teacher reviewers, including CAS planning details and proposed academic contributions.</p></div>
+      <div class="admin-hero-actions"><button type="button" data-contrib-refresh>Refresh applications</button><button type="button" class="quiet" data-contrib-analytics>Developer analytics</button><button type="button" class="quiet" data-contrib-home>Back to site</button></div>
+    </header>
+    <section class="admin-contrib-stats">${stat('Total applications',total,'All submitted applications')}${stat('New',fresh,'Waiting for first review')}${stat('DP students',students,'Student contributor applicants')}${stat('Teachers',teachers,'Teacher reviewers / mentors')}${stat('CAS interest',cas,'Yes or maybe')}</section>
+    <section class="admin-panel admin-contrib-workspace">
+      <header class="admin-contrib-head"><div><span>APPLICATIONS</span><h2>Contributor applications</h2><p>Search applications, inspect every submitted answer and move each person through your review workflow.</p></div><small data-contrib-result-count>${total} shown</small></header>
+      <div class="admin-contrib-toolbar"><label><span>Search</span><input data-contrib-search type="search" placeholder="Name, email, school, topic…"/></label><label><span>Role</span><select data-contrib-role-filter><option value="all">All roles</option><option value="student">DP students</option><option value="teacher">Teachers</option></select></label><label><span>Status</span><select data-contrib-status-filter><option value="all">All statuses</option><option value="new">New</option><option value="reviewing">Reviewing</option><option value="accepted">Accepted</option><option value="declined">Declined</option><option value="completed">Completed</option></select></label></div>
+      <div class="admin-contrib-list" data-contrib-list></div>
+    </section>
+  </section>`;
+  const page=main.querySelector<HTMLElement>('[data-litlab-admin-contributors-page]')!;
+  main.querySelector<HTMLButtonElement>('[data-contrib-refresh]')?.addEventListener('click',()=>void loadPage(true));
+  main.querySelector<HTMLButtonElement>('[data-contrib-analytics]')?.addEventListener('click',()=>{location.hash='admin'});
+  main.querySelector<HTMLButtonElement>('[data-contrib-home]')?.addEventListener('click',()=>{location.hash='home'});
+  page.querySelectorAll<HTMLInputElement|HTMLSelectElement>('[data-contrib-search],[data-contrib-role-filter],[data-contrib-status-filter]').forEach(control=>control.addEventListener(control instanceof HTMLInputElement?'input':'change',()=>renderList(page)));
+  renderList(page);
 }
 
 async function updateStatus(select:HTMLSelectElement){
   const id=select.dataset.id||'';
   const status=select.value as ContributorStatus;
   const state=select.parentElement?.querySelector<HTMLElement>('.admin-contrib-save-state');
-  select.disabled=true;if(state)state.textContent='Saving…';
+  select.disabled=true;if(state){state.textContent='Saving…';state.dataset.state=''}
   try{
     const updated=await rpc<Application>('set_litlab_contributor_application_status',{p_id:id,p_status:status});
     applications=applications.map(app=>app.id===id?updated:app);
@@ -115,30 +142,64 @@ async function updateStatus(select:HTMLSelectElement){
   }finally{select.disabled=false}
 }
 
-async function loadApplications(force=false){
-  if(route()!=='admin'||loading)return;
-  const dashboard=document.querySelector<HTMLElement>('.admin-page[data-litlab-admin-page]');
-  if(!dashboard)return;
-  if(!force&&document.getElementById('admin-contributors-section'))return;
+async function loadPage(forceAccess=false){
+  if(route()!=='admin-contributors'||loading)return;
+  const main=document.querySelector<HTMLElement>('main#main');
+  if(!main)return;
   loading=true;
-  document.getElementById('admin-contributors-section')?.remove();
-  const loadingSection=document.createElement('section');
-  loadingSection.id='admin-contributors-section';loadingSection.className='admin-contributors-section admin-contrib-loading';
-  loadingSection.innerHTML='<span>CONTRIBUTOR PROGRAM</span><h2>Loading contributor applications…</h2>';
-  dashboard.appendChild(loadingSection);
+  renderAccessState(main,'loading');
   try{
+    if(!session()?.access_token){renderAccessState(main,'signin');return}
+    if(!(await checkAdmin(forceAccess))){renderAccessState(main,'denied');return}
     applications=await rpc<Application[]>('get_litlab_contributor_applications')||[];
-    loadingSection.remove();
-    const latest=document.querySelector<HTMLElement>('.admin-page[data-litlab-admin-page]');
-    if(latest)renderSection(latest);
+    if(route()==='admin-contributors')renderPage(main);
   }catch(error){
     console.error(error);
-    loadingSection.innerHTML='<span>CONTRIBUTOR PROGRAM</span><h2>Contributor applications could not load.</h2><p>This section is available only to approved LitLab developers.</p>';
+    if(route()==='admin-contributors')renderAccessState(main,'error');
   }finally{loading=false}
 }
 
-function schedule(){if(route()!=='admin')return;window.setTimeout(()=>void loadApplications(),120)}
+async function injectMenuEntry(){
+  const menu=document.querySelector<HTMLElement>('.litlab-account-menu');
+  if(!menu||menu.querySelector('[data-open-admin-contributors]'))return;
+  if(!(await checkAdmin()))return;
+  if(!document.body.contains(menu))return;
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='litlab-admin-menu-entry';
+  button.dataset.openAdminContributors='true';
+  button.innerHTML='<span>✦</span><div><b>Contributor dashboard</b><small>Applications, CAS & reviewers</small></div><i>›</i>';
+  button.addEventListener('click',event=>{event.stopPropagation();location.hash='admin-contributors'});
+  const analytics=menu.querySelector('[data-open-admin-analytics]');
+  const signout=menu.querySelector('.litlab-signout');
+  if(analytics?.nextSibling)menu.insertBefore(button,analytics.nextSibling);
+  else if(signout)menu.insertBefore(button,signout);
+  else menu.append(button);
+}
+
+function injectAnalyticsLink(){
+  if(route()!=='admin')return;
+  const actions=document.querySelector<HTMLElement>('.admin-page[data-litlab-admin-page] .admin-hero-actions');
+  if(!actions||actions.querySelector('[data-open-contributors-from-analytics]'))return;
+  const button=document.createElement('button');
+  button.type='button';button.className='quiet';button.dataset.openContributorsFromAnalytics='true';button.textContent='Contributor dashboard';
+  button.addEventListener('click',()=>{location.hash='admin-contributors'});
+  actions.insertBefore(button,actions.lastElementChild);
+}
+
+function schedule(){
+  if(renderScheduled)return;
+  renderScheduled=true;
+  window.setTimeout(()=>{
+    renderScheduled=false;
+    if(route()==='admin-contributors'&&!document.querySelector('[data-litlab-admin-contributors-page]'))void loadPage();
+    injectAnalyticsLink();
+  },90);
+}
+
 const main=document.querySelector('main#main');
 if(main)new MutationObserver(schedule).observe(main,{childList:true,subtree:true});
+document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(target?.closest('.litlab-account-trigger'))setTimeout(()=>void injectMenuEntry(),45)},true);
 window.addEventListener('hashchange',schedule);
+setTimeout(()=>void injectMenuEntry(),750);
 schedule();
