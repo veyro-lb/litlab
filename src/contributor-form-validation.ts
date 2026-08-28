@@ -70,6 +70,7 @@ function syncFieldLabels(form:HTMLFormElement){
 }
 
 function formComplete(form:HTMLFormElement){
+  applyRules(form);
   const fields=Array.from(form.querySelectorAll<Field>('input,textarea,select'));
   return fields.every(trimmedValid);
 }
@@ -78,24 +79,45 @@ function updateSubmitState(form:HTMLFormElement){
   const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');
   const status=form.querySelector<HTMLElement>('#ll-contributor-status');
   if(!button)return;
-  applyRules(form);
   const complete=formComplete(form);
-  if(button.dataset.submitting==='true')return;
-  button.disabled=!complete;
-  button.classList.toggle('ll-contrib-submit-disabled',!complete);
+
+  // Never leave the submit button stuck disabled. Invalid forms are blocked
+  // at click/submit time and the exact missing field is highlighted instead.
+  if(button.dataset.submitting!=='true')button.disabled=false;
+  button.classList.remove('ll-contrib-submit-disabled');
+  button.dataset.ready=complete?'true':'false';
+
   if(status&&status.dataset.state!=='success'){
     status.textContent=complete?'All required fields are complete — ready to submit.':'Complete all required fields to submit.';
     status.dataset.state=complete?'ready':'incomplete';
   }
 }
 
-function markInvalid(form:HTMLFormElement){
+function invalidFields(form:HTMLFormElement){
   applyRules(form);
-  const fields=Array.from(form.querySelectorAll<Field>('input,textarea,select'));
-  fields.forEach(field=>field.classList.toggle('ll-contrib-invalid',isActive(field)&&!trimmedValid(field)));
-  const first=fields.find(field=>field.classList.contains('ll-contrib-invalid'));
-  first?.focus({preventScroll:true});
-  first?.scrollIntoView({behavior:'smooth',block:'center'});
+  return Array.from(form.querySelectorAll<Field>('input,textarea,select')).filter(field=>isActive(field)&&!trimmedValid(field));
+}
+
+function markInvalid(form:HTMLFormElement){
+  const invalid=invalidFields(form);
+  const all=Array.from(form.querySelectorAll<Field>('input,textarea,select'));
+  all.forEach(field=>field.classList.toggle('ll-contrib-invalid',invalid.includes(field)));
+  const first=invalid[0];
+  if(first){
+    first.focus({preventScroll:true});
+    first.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  return invalid;
+}
+
+function showIncomplete(form:HTMLFormElement){
+  const invalid=markInvalid(form);
+  const status=form.querySelector<HTMLElement>('#ll-contributor-status');
+  if(status){
+    status.textContent=invalid.length===1?'1 required field still needs attention.':`${invalid.length} required fields still need attention.`;
+    status.dataset.state='incomplete';
+  }
+  form.reportValidity();
 }
 
 function scheduleValidation(form:HTMLFormElement){
@@ -119,6 +141,15 @@ function wire(form:HTMLFormElement){
   });
   form.addEventListener('change',()=>scheduleValidation(form));
 
+  form.addEventListener('click',event=>{
+    const target=event.target instanceof Element?event.target.closest<HTMLButtonElement>('button[type="submit"]'):null;
+    if(!target||target.dataset.submitting==='true')return;
+    applyRules(form);
+    if(formComplete(form))return;
+    event.preventDefault();
+    showIncomplete(form);
+  });
+
   new MutationObserver(()=>scheduleValidation(form)).observe(form,{
     childList:true,
     subtree:true,
@@ -138,9 +169,7 @@ document.addEventListener('submit',event=>{
   event.preventDefault();
   event.stopPropagation();
   event.stopImmediatePropagation();
-  markInvalid(form);
-  const status=form.querySelector<HTMLElement>('#ll-contributor-status');
-  if(status){status.textContent='Please complete every required field before submitting.';status.dataset.state='incomplete'}
+  showIncomplete(form);
 },true);
 
 new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
