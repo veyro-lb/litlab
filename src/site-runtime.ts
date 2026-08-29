@@ -11,6 +11,7 @@ import './tutor-smart-layer';
 import './tutor-topbar-trigger';
 import './google-auth';
 import './account-role-auth';
+import './admin-menu-launcher';
 import './contributor-status-notifications';
 import './auth-logo-refresh';
 import './microsoft-auth';
