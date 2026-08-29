@@ -11,9 +11,9 @@ type OpenEvent={applicationId?:string};
 
 let activeApplicationId='';
 let currentPipeline:Pipeline|null=null;
-let observer:MutationObserver|null=null;
 let normalizeTimer=0;
 let loading=false;
+let requestVersion=0;
 
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
@@ -29,74 +29,59 @@ async function rpc<T>(name:string,body:Record<string,unknown>):Promise<T>{
 }
 
 function clearRow(row:HTMLElement){
-  if(row.classList.contains('ll-admin-final-doc-row'))row.classList.remove('ll-admin-final-doc-row');
+  row.classList.remove('ll-admin-final-doc-row');
   row.querySelectorAll('[data-admin-final-row-badge]').forEach(badge=>badge.remove());
   delete row.dataset.finalDocumentId;
 }
 
 function normalize(){
+  if(route()!=='admin-contributors'||!activeApplicationId)return;
   const modal=document.getElementById('ll-admin-contributor-workspace');
   const rows=Array.from(modal?.querySelectorAll<HTMLElement>('.ll-admin-doc-list > div')||[]);
   if(!rows.length)return;
-
   const doc=currentPipeline?.latest_document;
   const shouldHighlight=Boolean(currentPipeline?.applicant_type==='student'&&doc?.id&&doc.is_final_submission===true);
   const finalRow=shouldHighlight?rows[0]:null;
-
   rows.forEach(row=>{
-    if(row!==finalRow){clearRow(row);return}
+    if(row!==finalRow){if(row.classList.contains('ll-admin-final-doc-row')||row.querySelector('[data-admin-final-row-badge]'))clearRow(row);return}
     row.classList.add('ll-admin-final-doc-row');
     row.dataset.finalDocumentId=String(doc?.id||'');
-    const section=row.querySelector<HTMLElement>('section');
-    if(!section)return;
-    let badge=section.querySelector<HTMLElement>('[data-admin-final-row-badge]');
-    section.querySelectorAll<HTMLElement>('[data-admin-final-row-badge]').forEach((item,index)=>{if(index>0)item.remove()});
+    const section=row.querySelector<HTMLElement>('section');if(!section)return;
+    const badges=Array.from(section.querySelectorAll<HTMLElement>('[data-admin-final-row-badge]'));
+    badges.slice(1).forEach(item=>item.remove());
+    let badge=badges[0];
     if(!badge){badge=document.createElement('strong');badge.dataset.adminFinalRowBadge='true';badge.className='ll-admin-final-row-badge';section.appendChild(badge)}
-    badge.textContent='FINAL DOC • REVIEW THIS';
+    if(badge.textContent!=='FINAL DOC • REVIEW THIS')badge.textContent='FINAL DOC • REVIEW THIS';
   });
 }
-
-function scheduleNormalize(){window.clearTimeout(normalizeTimer);normalizeTimer=window.setTimeout(normalize,0)}
-
-function watchModal(){
-  observer?.disconnect();observer=null;
-  if(route()!=='admin-contributors')return;
-  observer=new MutationObserver(()=>scheduleNormalize());
-  observer.observe(document.body,{childList:true,subtree:true});
-}
+function scheduleNormalize(delay=0){window.clearTimeout(normalizeTimer);normalizeTimer=window.setTimeout(normalize,delay)}
 
 async function refresh(applicationId:string){
   if(!applicationId||loading||!token())return;
-  loading=true;
+  const version=++requestVersion;loading=true;
   try{
     const data=await rpc<Pipeline>('admin_get_litlab_contributor_pipeline',{p_application_id:applicationId});
-    if(applicationId!==activeApplicationId)return;
-    currentPipeline=data;
-    scheduleNormalize();
-  }catch(error){console.debug('Final document highlight guard unavailable',error)}finally{loading=false}
+    if(version!==requestVersion||applicationId!==activeApplicationId)return;
+    currentPipeline=data;scheduleNormalize();
+  }catch(error){if(applicationId===activeApplicationId)console.debug('Final document highlight unavailable',error)}finally{loading=false}
 }
 
 window.addEventListener('litlab:admin-contributor-workspace-opened',event=>{
-  const detail=(event as CustomEvent<OpenEvent>).detail||{};
-  activeApplicationId=String(detail.applicationId||'');
-  currentPipeline=null;
-  watchModal();
+  const detail=(event as CustomEvent<OpenEvent>).detail||{};const nextId=String(detail.applicationId||'');if(!nextId)return;
+  const changed=nextId!==activeApplicationId;activeApplicationId=nextId;if(changed){currentPipeline=null;requestVersion++}
+  if(currentPipeline)scheduleNormalize();
   void refresh(activeApplicationId);
 });
+window.addEventListener('litlab:admin-contributor-workspace-updated',()=>{if(activeApplicationId)void refresh(activeApplicationId)});
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
-  const openFinal=target?.closest<HTMLButtonElement>('[data-open-final-admin-doc]');
-  if(!openFinal)return;
-  const finalButton=document.querySelector<HTMLButtonElement>('#ll-admin-contributor-workspace .ll-admin-doc-list > div.ll-admin-final-doc-row [data-admin-download-doc]');
-  if(!finalButton)return;
+  const openFinal=target?.closest<HTMLButtonElement>('[data-open-final-admin-doc]');if(!openFinal)return;
+  const finalButton=document.querySelector<HTMLButtonElement>('#ll-admin-contributor-workspace .ll-admin-doc-list > div.ll-admin-final-doc-row [data-admin-download-doc]');if(!finalButton)return;
   event.preventDefault();event.stopImmediatePropagation();finalButton.click();
 },true);
 
-window.addEventListener('hashchange',()=>{
-  activeApplicationId='';currentPipeline=null;observer?.disconnect();observer=null;window.clearTimeout(normalizeTimer);
-});
-
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watchModal,{once:true});else watchModal();
+window.addEventListener('hashchange',()=>{if(route()==='admin-contributors')return;activeApplicationId='';currentPipeline=null;requestVersion++;window.clearTimeout(normalizeTimer)});
+window.addEventListener('focus',()=>{if(activeApplicationId&&route()==='admin-contributors')scheduleNormalize()});
 
 export {};
