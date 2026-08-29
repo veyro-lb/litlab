@@ -6,7 +6,21 @@
 
 :where(h1,h2,h3,h4,p,li,dd,dt,button,a,label,small,strong,b){overflow-wrap:break-word}
 
+/* Grid/flex descendants with intrinsically wide tools (for example the Start Here note table)
+   must shrink to the viewport rather than widening the whole document. */
+.learning-page,.content-section,.section-body{min-width:0}
+.section-body{max-width:100%}
+.note-table{max-width:100%}
+
+/* Authentication is a global signed-out surface, so it must remain independently contained. */
+.litlab-auth-modal{max-width:100vw;overflow-x:hidden;overflow-y:auto}
+.litlab-auth-dialog{max-width:100%;min-width:0}
+
 [data-site-scroll-lock="true"]{overflow:hidden!important}
+
+@media(max-width:520px){
+  .learning-page .toc{max-width:calc(100% + 40px);overscroll-behavior-inline:contain}
+}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto!important}
