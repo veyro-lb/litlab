@@ -55,7 +55,7 @@ import '../contributor-secure-document-download';
 
 // Final contributor QA layer: responsive containment, duplicate-render protection,
 // visual normalization, task-first dashboard experience, action reliability,
-// revision submission shortcut, then stage-aware guide ordering/visibility.
+// then the revision submission shortcut when changes are requested.
 import '../contributor-qa-polish.css';
 import '../contributor-qa-runtime';
 import '../contributor-visual-pass.css';
@@ -63,6 +63,5 @@ import '../contributor-guide-visibility.css';
 import '../contributor-dashboard-experience';
 import '../contributor-dashboard-action-guard';
 import '../contributor-revision-submit-guide';
-import '../contributor-guide-stage-order';
 
 export {};
