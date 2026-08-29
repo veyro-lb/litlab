@@ -27,7 +27,7 @@ function ensureAtEnd(){
     box.className='ll-contrib-section ll-teacher-application-launcher';
     box.dataset.teacherApplicationLauncher='true';
     box.id='teacher-reviewer-apply';
-    box.innerHTML='<div><span>TEACHER REVIEWER APPLICATION</span><h2>Want to review or mentor LitLab students?</h2><p>Open the application only when you are ready. One accepted teacher account can mentor multiple assigned students, so you do not need a separate application for every student.</p></div><button type="button" data-teacher-application-toggle aria-expanded="false"><span>＋</span><b>Apply as a Teacher Reviewer</b><small>Open application</small></button>';
+    box.innerHTML='<div data-teacher-launcher-copy></div><button type="button" data-teacher-application-toggle aria-expanded="false"></button>';
     box.querySelector<HTMLButtonElement>('[data-teacher-application-toggle]')?.addEventListener('click',()=>setOpen(!open,true));
   }
   if(box.parentElement!==p||box.nextElementSibling!==apply)p.insertBefore(box,apply);
@@ -36,25 +36,29 @@ function ensureAtEnd(){
 
 function updateLauncher(){
   const box=launcher();if(!box)return;
+  const state=hasTeacherApplication?'submitted':open?'open':'closed';
+  if(box.dataset.launcherState===state)return;
+  box.dataset.launcherState=state;
+  const copy=box.querySelector<HTMLElement>('[data-teacher-launcher-copy]');
   const button=box.querySelector<HTMLButtonElement>('[data-teacher-application-toggle]');
+  box.classList.toggle('is-submitted',hasTeacherApplication);
   if(hasTeacherApplication){
-    box.classList.add('is-submitted');
-    box.querySelector('div')!.innerHTML='<span>TEACHER REVIEWER ACCOUNT</span><h2>Your teacher application is already on this account.</h2><p>You do not need to apply again for each student. Assigned students will appear in your Teacher dashboard and you can mentor more than one student from the same accepted account.</p>';
+    if(copy)copy.innerHTML='<span>TEACHER REVIEWER ACCOUNT</span><h2>Your teacher application is already on this account.</h2><p>You do not need to apply again for each student. Assigned students appear in your Teacher dashboard, and one accepted teacher account can mentor multiple students.</p>';
     if(button)button.hidden=true;
     return;
   }
-  box.classList.remove('is-submitted');
+  if(copy)copy.innerHTML='<span>TEACHER REVIEWER APPLICATION</span><h2>Want to review or mentor LitLab students?</h2><p>Keep the page clean until you are ready. Open the application below, complete it once, then use the same Teacher account for every student assigned to you.</p>';
   if(button){
     button.hidden=false;
     button.setAttribute('aria-expanded',open?'true':'false');
-    button.innerHTML=open?'<span>×</span><b>Close teacher application</b><small>Hide form</small>':'<span>＋</span><b>Apply as a Teacher Reviewer</b><small>Open application</small>';
+    button.innerHTML=open?'<span>×</span><b>Close teacher application</b><small>Hide form</small>':'<span>＋</span><b>Apply as a Teacher Reviewer</b><small>Open full application</small>';
   }
 }
 
 function setOpen(next:boolean,scroll=false){
   const apply=applySection();if(!apply||hasTeacherApplication)return;
   open=next;
-  apply.hidden=!open;
+  if(apply.hidden===open)apply.hidden=!open;
   apply.setAttribute('aria-hidden',open?'false':'true');
   apply.dataset.teacherApplicationOpen=open?'true':'false';
   document.documentElement.toggleAttribute('data-litlab-teacher-application-open',open);
@@ -71,8 +75,12 @@ function apply(){
   }
   removeGenericTeacherControl();
   ensureAtEnd();
-  if(hasTeacherApplication){open=false;const apply=applySection();if(apply){apply.hidden=true;apply.setAttribute('aria-hidden','true');delete apply.dataset.teacherApplicationOpen}}
-  else setOpen(open,false);
+  if(hasTeacherApplication){
+    open=false;
+    const section=applySection();
+    if(section){section.hidden=true;section.setAttribute('aria-hidden','true');delete section.dataset.teacherApplicationOpen}
+    document.documentElement.removeAttribute('data-litlab-teacher-application-open');
+  }else setOpen(open,false);
   updateLauncher();
 }
 function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(apply)}
