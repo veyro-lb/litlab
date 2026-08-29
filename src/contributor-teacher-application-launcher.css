@@ -1,0 +1,22 @@
+.ll-teacher-application-launcher{padding-top:34px!important;padding-bottom:34px!important;display:flex;align-items:center;justify-content:space-between;gap:28px;border-top:1px solid rgba(20,26,35,.08)}
+.ll-teacher-application-launcher>div{max-width:720px}
+.ll-teacher-application-launcher>div>span{display:block;font-size:11px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;color:var(--llc-purple,#7357f6)}
+.ll-teacher-application-launcher h2{margin:8px 0 8px;font-size:clamp(25px,3vw,38px);line-height:1.08;letter-spacing:-.035em}
+.ll-teacher-application-launcher p{margin:0;color:#68707c;line-height:1.6;font-size:14px}
+.ll-teacher-application-launcher button{flex:0 0 auto;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:9px 14px;border:1px solid rgba(115,87,246,.22);border-radius:15px;background:linear-gradient(135deg,#7357f6,#6248e4);color:#fff;font:inherit;cursor:pointer;box-shadow:0 10px 26px rgba(98,72,228,.2);transition:transform .18s ease,box-shadow .18s ease}
+.ll-teacher-application-launcher button:hover{transform:translateY(-1px);box-shadow:0 13px 32px rgba(98,72,228,.27)}
+.ll-teacher-application-launcher button:focus-visible{outline:3px solid rgba(115,87,246,.3);outline-offset:3px}
+.ll-teacher-application-launcher button>span{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:rgba(255,255,255,.16);font-size:18px;font-weight:900}
+.ll-teacher-application-launcher button>b{font-size:12px;font-weight:900;white-space:nowrap}
+.ll-teacher-application-launcher button>small{font-size:9px;font-weight:800;color:rgba(255,255,255,.78);white-space:nowrap}
+.ll-teacher-application-launcher button[aria-expanded="true"]{background:#fff;color:#252a34;border-color:#e1e4eb;box-shadow:0 8px 22px rgba(22,27,38,.08)}
+.ll-teacher-application-launcher button[aria-expanded="true"]>span{background:rgba(20,26,35,.06)}
+.ll-teacher-application-launcher button[aria-expanded="true"]>small{color:#727986}
+.ll-teacher-application-launcher.is-submitted{background:rgba(32,167,90,.045);border:1px solid rgba(32,167,90,.15);border-radius:22px;margin-bottom:44px;padding-left:24px!important;padding-right:24px!important}
+#ll-contributor-root[data-contributor-account-role="teacher"] #contribute-apply{scroll-margin-top:92px}
+html[data-theme="dark"] .ll-teacher-application-launcher{border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .ll-teacher-application-launcher p{color:#aeb5c0}
+html[data-theme="dark"] .ll-teacher-application-launcher button[aria-expanded="true"]{background:#171b24;color:#f4f6fb;border-color:#303746}
+html[data-theme="dark"] .ll-teacher-application-launcher.is-submitted{background:rgba(32,167,90,.07);border-color:rgba(50,190,105,.18)}
+@media(max-width:760px){.ll-teacher-application-launcher{align-items:stretch;flex-direction:column;gap:18px}.ll-teacher-application-launcher button{width:100%;justify-content:center}.ll-teacher-application-launcher button>b{white-space:normal}.ll-teacher-application-launcher button>small{display:none}}
+@media(prefers-reduced-motion:reduce){.ll-teacher-application-launcher button{transition:none!important}}
