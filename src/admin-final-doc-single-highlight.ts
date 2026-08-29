@@ -6,7 +6,7 @@ const SESSION_KEY='litlabSupabaseSession';
 const REQUEST_TIMEOUT_MS=12_000;
 
 type StoredSession={access_token?:string};
-type Pipeline={application_id:string;applicant_type?:string;latest_document?:{id?:string;is_final_submission?:boolean}|null};
+type Pipeline={application_id:string;applicant_type?:string;stage?:string;mentor_required?:boolean;latest_document?:{id?:string;is_final_submission?:boolean;mentor_review_status?:string}|null};
 type OpenEvent={applicationId?:string};
 
 let activeApplicationId='';
@@ -17,6 +17,7 @@ let requestVersion=0;
 
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
+function teacherApprovedHandoff(data:Pipeline|null){return Boolean(data?.applicant_type==='student'&&data.mentor_required&&data.stage==='admin_review'&&data.latest_document?.id)}
 
 async function rpc<T>(name:string,body:Record<string,unknown>):Promise<T>{
   const access=token();if(!access)throw new Error('Sign in required');
@@ -40,7 +41,8 @@ function normalize(){
   const rows=Array.from(modal?.querySelectorAll<HTMLElement>('.ll-admin-doc-list > div')||[]);
   if(!rows.length)return;
   const doc=currentPipeline?.latest_document;
-  const shouldHighlight=Boolean(currentPipeline?.applicant_type==='student'&&doc?.id&&doc.is_final_submission===true);
+  const approvedByTeacher=teacherApprovedHandoff(currentPipeline);
+  const shouldHighlight=Boolean(currentPipeline?.applicant_type==='student'&&doc?.id&&(doc.is_final_submission===true||approvedByTeacher));
   const finalRow=shouldHighlight?rows[0]:null;
   rows.forEach(row=>{
     if(row!==finalRow){if(row.classList.contains('ll-admin-final-doc-row')||row.querySelector('[data-admin-final-row-badge]'))clearRow(row);return}
@@ -51,7 +53,8 @@ function normalize(){
     badges.slice(1).forEach(item=>item.remove());
     let badge=badges[0];
     if(!badge){badge=document.createElement('strong');badge.dataset.adminFinalRowBadge='true';badge.className='ll-admin-final-row-badge';section.appendChild(badge)}
-    if(badge.textContent!=='FINAL DOC • REVIEW THIS')badge.textContent='FINAL DOC • REVIEW THIS';
+    const label=approvedByTeacher&&!doc?.is_final_submission?'TEACHER-APPROVED DOC • REVIEW THIS':'FINAL DOC • REVIEW THIS';
+    if(badge.textContent!==label)badge.textContent=label;
   });
 }
 function scheduleNormalize(delay=0){window.clearTimeout(normalizeTimer);normalizeTimer=window.setTimeout(normalize,delay)}
