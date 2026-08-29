@@ -4,8 +4,10 @@ import './special-route-host.css';
 // React's own page children. This prevents one guide's DOM from leaking into the next route.
 const SPECIAL_ROUTES=new Set(['books','essays','ee','hl-essay','admin','admin-contributors']);
 let lastRoute='';
-let restoreFrame=0;
+let previousNavigationRoute='';
 let isolateFrame=0;
+let scrollFrame=0;
+let scrollFrameTwo=0;
 
 function currentRoute(){
   return location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
@@ -60,30 +62,23 @@ function seedEnhancementRoute(host:HTMLElement,route:string){
 }
 
 function restoreSurface(){
-  restoreFrame=0;
   if(isolateFrame){cancelAnimationFrame(isolateFrame);isolateFrame=0}
   document.querySelector<HTMLElement>('main[data-litlab-special-route-host]')?.remove();
   restoreReactMain();
   document.body.classList.remove('litlab-special-route-active');
+  document.querySelectorAll<HTMLElement>('.litlab-special-route-hidden').forEach(el=>el.classList.remove('litlab-special-route-hidden'));
   lastRoute='';
-}
-
-function scheduleRestore(){
-  if(restoreFrame)return;
-  restoreFrame=requestAnimationFrame(()=>{
-    if(!SPECIAL_ROUTES.has(currentRoute()))restoreSurface();
-    else restoreFrame=0;
-  });
 }
 
 function ensureSpecialSurface(){
   const route=currentRoute();
   if(!SPECIAL_ROUTES.has(route)){
-    if(document.body.classList.contains('litlab-special-route-active'))scheduleRestore();
+    // Important: remove the old isolated route immediately. Delaying this by a frame allowed the
+    // next renderer to find the stale main#main and append a new page underneath the previous one.
+    restoreSurface();
     return null;
   }
 
-  if(restoreFrame){cancelAnimationFrame(restoreFrame);restoreFrame=0}
   const root=document.getElementById('root');
   if(!root)return null;
 
@@ -114,13 +109,43 @@ function ensureSpecialSurface(){
   return host;
 }
 
+function resetRouteScroll(route:string){
+  if(scrollFrame){cancelAnimationFrame(scrollFrame);scrollFrame=0}
+  if(scrollFrameTwo){cancelAnimationFrame(scrollFrameTwo);scrollFrameTwo=0}
+  window.scrollTo({top:0,left:0,behavior:'auto'});
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+
+  // React and the enhancement modules can finish rendering over the next two frames. Re-assert
+  // the top position after layout settles, but only if the user is still on the same route.
+  scrollFrame=requestAnimationFrame(()=>{
+    scrollFrame=0;
+    if(currentRoute()!==route)return;
+    window.scrollTo({top:0,left:0,behavior:'auto'});
+    scrollFrameTwo=requestAnimationFrame(()=>{
+      scrollFrameTwo=0;
+      if(currentRoute()===route)window.scrollTo({top:0,left:0,behavior:'auto'});
+    });
+  });
+}
+
+function handleRouteChange(){
+  const route=currentRoute();
+  const routeChanged=route!==previousNavigationRoute;
+  ensureSpecialSurface();
+  if(routeChanged)resetRouteScroll(route);
+  previousNavigationRoute=route;
+}
+
 // React can remount its <main> while an isolated route is open. Re-apply the id isolation without
 // touching React's children so skip links and main#main lookups always resolve to one surface.
 const root=document.getElementById('root');
 if(root)new MutationObserver(scheduleIsolation).observe(root,{childList:true,subtree:true});
 
-window.addEventListener('hashchange',ensureSpecialSurface);
-window.addEventListener('pageshow',ensureSpecialSurface);
+try{history.scrollRestoration='manual'}catch{}
+previousNavigationRoute=currentRoute();
+window.addEventListener('hashchange',handleRouteChange);
+window.addEventListener('pageshow',()=>{ensureSpecialSurface();if(currentRoute()!==previousNavigationRoute){previousNavigationRoute=currentRoute();resetRouteScroll(previousNavigationRoute)}});
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensureSpecialSurface,{once:true});
 else ensureSpecialSurface();
