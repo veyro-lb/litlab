@@ -57,6 +57,29 @@ function restoreAll(){
 
 function clearDraft(key:string){if(!key)return;drafts.delete(key);syncDirtyState()}
 function clearAll(){drafts.clear();syncDirtyState()}
+function wasConfirmedSave(form:HTMLFormElement,key:string){
+  if(form.querySelector<HTMLElement>('[data-admin-state][data-state="success"],[data-admin-v3-state][data-state="success"]'))return true;
+  if(key==='task'||key==='revision'){
+    const title=form.querySelector<HTMLInputElement>('input[name="title"]');
+    return Boolean(title&&title.value.trim()==='');
+  }
+  return false;
+}
+function removedForms(node:Node){
+  if(!(node instanceof HTMLElement))return [] as HTMLFormElement[];
+  const forms:HTMLFormElement[]=[];
+  if(node instanceof HTMLFormElement)forms.push(node);
+  node.querySelectorAll<HTMLFormElement>('form').forEach(form=>forms.push(form));
+  return forms;
+}
+function handleModalMutations(mutations:MutationRecord[]){
+  // A successful save redraws the workspace from the server. Clear only the form that
+  // was actually confirmed/reset; ordinary background redraws keep the draft intact.
+  mutations.forEach(mutation=>mutation.removedNodes.forEach(node=>removedForms(node).forEach(form=>{
+    const key=formKey(form);if(key&&wasConfirmedSave(form,key))clearDraft(key);
+  })));
+  restoreAll();
+}
 
 function attach(){
   attachQueued=false;
@@ -64,13 +87,13 @@ function attach(){
   if(!host){modalObserver?.disconnect();modalObserver=null;observedModal=null;clearAll();return}
   if(observedModal===host){restoreAll();return}
   modalObserver?.disconnect();clearAll();observedModal=host;
-  modalObserver=new MutationObserver(()=>restoreAll());
+  modalObserver=new MutationObserver(handleModalMutations);
   modalObserver.observe(host,{childList:true,subtree:true});
 }
 function queueAttach(){if(attachQueued)return;attachQueued=true;requestAnimationFrame(attach)}
 
 // Keep unsaved admin input stable across any workspace redraw. Drafts live only in memory
-// for the currently-open contributor and are cleared after a confirmed successful save.
+// for the currently-open contributor and disappear when that form is successfully saved.
 document.addEventListener('input',event=>{const form=(event.target as Element|null)?.closest<HTMLFormElement>('#ll-admin-contributor-workspace form');if(form)snapshot(form)},true);
 document.addEventListener('change',event=>{const form=(event.target as Element|null)?.closest<HTMLFormElement>('#ll-admin-contributor-workspace form');if(form)snapshot(form)},true);
 window.addEventListener('litlab:admin-contributor-form-saved',event=>{const detail=(event as CustomEvent<{formKey?:string}>).detail||{};clearDraft(String(detail.formKey||''))});
