@@ -32,6 +32,7 @@ import './mobile-framing';
 import './feedback-framing-fix';
 import './dark-mode-audit';
 import './special-route-framing-fix';
+import './topbar-layout-stability.css';
 
 type Feature='assessments'|'books'|'essays'|'toolkit'|'contributor';
 
