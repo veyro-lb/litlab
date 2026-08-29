@@ -1,4 +1,5 @@
 import './contributor-workspace.css';
+import {encodeStoragePath,normalizeDocxFileName,signedDocumentUrl} from './contributor-file-names';
 
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
@@ -179,18 +180,23 @@ async function load(_force=false){
   }catch(error){console.error(error);const root=mount();if(root&&!workspaces.length)root.innerHTML='<div class="ll-workspace-empty"><b>Workspace could not load right now.</b><p>It will retry automatically. Your saved contribution data is unchanged.</p></div>'}finally{loading=false}
 }
 
-function encodedPath(path:string){return path.split('/').map(encodeURIComponent).join('/')}
+function documentForPath(path:string){
+  for(const app of workspaces){const doc=(app.documents||[]).find(item=>item.storage_path===path);if(doc)return doc}
+  for(const assignment of assignments){const doc=(assignment.documents||[]).find(item=>item.storage_path===path);if(doc)return doc}
+  return null;
+}
 async function downloadDocument(path:string){
   try{
-    const response=await fetch(`${SUPABASE_URL}/storage/v1/object/sign/contributor-documents/${encodedPath(path)}`,{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},body:JSON.stringify({expiresIn:300})});
+    const response=await fetch(`${SUPABASE_URL}/storage/v1/object/sign/contributor-documents/${encodeStoragePath(path)}`,{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},body:JSON.stringify({expiresIn:300})});
     if(!response.ok)throw new Error(`Download failed (${response.status})`);
     const data=await response.json() as {signedURL?:string;signedUrl?:string};
     const signed=data.signedURL||data.signedUrl;if(!signed)throw new Error('No signed URL returned');
-    window.open(`${SUPABASE_URL}/storage/v1${signed}`,'_blank','noopener,noreferrer');
+    const name=documentForPath(path)?.original_name||'LitLab-contribution.docx';
+    window.open(signedDocumentUrl(SUPABASE_URL,signed,name),'_blank','noopener,noreferrer');
   }catch(error){console.error(error);window.alert('This document could not be opened securely right now. Please try again.')}
 }
 
-async function cleanupUpload(path:string){try{await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodedPath(path)}`,{method:'DELETE',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`}})}catch{}}
+async function cleanupUpload(path:string){try{await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodeStoragePath(path)}`,{method:'DELETE',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`}})}catch{}}
 
 async function uploadDocx(form:HTMLFormElement,appId:string){
   const state=form.querySelector<HTMLElement>('[data-upload-state]');const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');
@@ -199,13 +205,13 @@ async function uploadDocx(form:HTMLFormElement,appId:string){
   const goodName=file.name.toLowerCase().endsWith('.docx');const goodMime=!file.type||file.type===DOCX_MIME;
   if(!goodName||!goodMime){if(state){state.textContent='Only a Microsoft Word .docx file is accepted. .doc and .docm are not allowed.';state.dataset.state='error'}return}
   if(file.size>MAX_DOCX_BYTES){if(state){state.textContent='The DOCX must be 15 MB or smaller.';state.dataset.state='error'}return}
-  const id=crypto.randomUUID();const path=`${appId}/${userId()}/${id}.docx`;
-  if(button){button.disabled=true;button.textContent='Uploading…'}if(state){state.textContent='Uploading privately to LitLab…';state.dataset.state=''}
+  const id=crypto.randomUUID();const path=`${appId}/${userId()}/${id}.docx`;const originalName=normalizeDocxFileName(file.name);
+  if(button){button.disabled=true;button.textContent='Uploading…'}if(state){state.textContent=`Uploading ${originalName} privately to LitLab…`;state.dataset.state=''}
   try{
-    const upload=await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodedPath(path)}`,{method:'POST',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`,'Content-Type':DOCX_MIME,'x-upsert':'false'},body:file});
+    const upload=await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodeStoragePath(path)}`,{method:'POST',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`,'Content-Type':DOCX_MIME,'x-upsert':'false'},body:file});
     if(!upload.ok)throw new Error(`Storage upload failed (${upload.status})`);
-    try{await rpc('register_my_litlab_contributor_document',{p_application_id:appId,p_storage_path:path,p_original_name:file.name,p_file_size:file.size,p_version_label:String(data.get('version')||'Draft'),p_note:String(data.get('note')||'').trim()||null})}catch(error){await cleanupUpload(path);throw error}
-    if(state){state.textContent='Word document submitted. LitLab can now review this version.';state.dataset.state='success'}
+    try{await rpc('register_my_litlab_contributor_document',{p_application_id:appId,p_storage_path:path,p_original_name:originalName,p_file_size:file.size,p_version_label:String(data.get('version')||'Draft'),p_note:String(data.get('note')||'').trim()||null})}catch(error){await cleanupUpload(path);throw error}
+    if(state){state.textContent=`${originalName} submitted. LitLab can now review this version.`;state.dataset.state='success'}
     form.reset();window.dispatchEvent(new CustomEvent('litlab:contributor-workspace-updated'));await load(true);
   }catch(error){console.error(error);if(state){state.textContent=navigator.onLine?'Upload failed. Check that this is a .docx file and try again.':'You are offline. Reconnect before uploading.';state.dataset.state='error'}}finally{if(button?.isConnected){button.disabled=false;button.textContent='Submit Word document'}}
 }
