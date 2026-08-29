@@ -9,11 +9,13 @@
 [data-contributor-workspace]:has([data-teacher-student-browser])>[data-teacher-student-center],
 [data-contributor-workspace]:has([data-teacher-student-browser])>[data-teacher-hard-review-center]{display:none!important}
 
-/* Teacher accounts use the bottom reviewer-application launcher, never the
-   generic student-style “Make a new contribution” strip. */
+/* Student and Teacher accounts now share one role-specific application launcher.
+   Never let the older generic strip reappear beside it. */
+body:has([data-contributor-application-launcher]) [data-new-contribution-control],
 #ll-contributor-root[data-contributor-account-role="teacher"]~[data-new-contribution-control],
+#ll-contributor-root[data-contributor-account-role="student"]~[data-new-contribution-control],
 #ll-contributor-root[data-contributor-account-role="teacher"] [data-new-contribution-control],
-body:has(#ll-contributor-root[data-contributor-account-role="teacher"]) [data-new-contribution-control]{display:none!important}
+#ll-contributor-root[data-contributor-account-role="student"] [data-new-contribution-control]{display:none!important}
 
 /* Defensive role separation: evidence/activity UI must never reappear in a
    Teacher workspace even if an older renderer inserts it after initial load. */
