@@ -1,0 +1,27 @@
+/* The application step is an entry point, not an always-on workspace action.
+   Once a Student has an active contribution, remove it from the guide bar so
+   the visible navigation only reflects the current contribution. */
+#ll-contributor-root[data-contributor-account-role="student"] .ll-contributor-state-guide[data-flow="loading"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="student"] .ll-contributor-state-guide[data-flow="pending"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="student"] .ll-contributor-state-guide[data-flow="working"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="student"] .ll-contributor-state-guide[data-flow="submitted"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="student"] .ll-contributor-state-guide[data-flow="revision"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="student"] .ll-contributor-state-guide[data-flow="waiting-teacher"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="student"] .ll-contributor-state-guide[data-flow="waiting-admin"] [data-section-key="application"]{
+  display:none!important;
+}
+
+/* A Teacher applies once. After submission, the guide should focus on status,
+   orientation, assigned students, reviews and messages instead of re-showing
+   an application control that cannot be used. */
+#ll-contributor-root[data-contributor-account-role="teacher"] .ll-contributor-state-guide[data-flow="loading"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="teacher"] .ll-contributor-state-guide[data-flow="pending"] [data-section-key="application"],
+#ll-contributor-root[data-contributor-account-role="teacher"] .ll-contributor-state-guide[data-flow="closed"] [data-section-key="application"]{
+  display:none!important;
+}
+
+/* Keep the remaining guide actions evenly spaced after a state-specific item
+   disappears, on both desktop and horizontally scrolling mobile layouts. */
+.ll-contributor-state-guide .ll-contributor-toc-links{
+  align-items:center;
+}
