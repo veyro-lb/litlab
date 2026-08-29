@@ -6,6 +6,7 @@ import './contributor-final-review-handoff';
 import './contributor-program-v3';
 import './admin-contributor-program-v3';
 import './contributor-qa-polish.css';
+import './contributor-mobile-frame.css';
 
 let scheduled=false;
 let scanTimer=0;

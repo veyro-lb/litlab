@@ -1,0 +1,268 @@
+/* Final mobile containment pass for student, teacher, and admin contributor surfaces. */
+
+@media (max-width:760px){
+  .ll-contrib-page{
+    width:100%;
+    max-width:100%;
+    overflow-x:clip;
+  }
+
+  .ll-contrib-topbar{
+    width:100%;
+    max-width:100%;
+    min-height:72px;
+    height:calc(72px + env(safe-area-inset-top));
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top);
+    padding-left:max(12px,env(safe-area-inset-left));
+    padding-right:max(12px,env(safe-area-inset-right));
+  }
+  .ll-contrib-brand{min-width:0;flex:0 1 auto}
+  .ll-contrib-brand b{min-width:0}
+  .ll-contrib-back{
+    flex:0 0 auto;
+    min-height:44px;
+    padding-inline:8px;
+  }
+
+  .ll-contrib-hero,
+  .ll-contrib-section,
+  [data-contributor-workspace],
+  [data-contributor-workspace] > *{
+    width:auto;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .ll-contrib-hero h1,
+  .ll-contrib-section-head h2,
+  .ll-workspace-card h2,
+  .ll-workspace-card h3,
+  .ll-workspace-card p,
+  .ll-docx-row b,
+  .ll-docx-row span,
+  .ll-revision p,
+  .ll-review-row p{
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  /* Avoid iOS focus zoom and keep form controls inside their cards. */
+  .ll-contrib-page input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+  .ll-contrib-page select,
+  .ll-contrib-page textarea,
+  .ll-admin-contrib-page input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+  .ll-admin-contrib-page select,
+  .ll-admin-contrib-page textarea,
+  .ll-admin-workspace input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+  .ll-admin-workspace select,
+  .ll-admin-workspace textarea{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
+    font-size:16px;
+  }
+  .ll-contrib-page input[type="file"],
+  .ll-admin-workspace input[type="file"]{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  /* The guide sits below the safe-area-aware contributor header. */
+  .ll-contributor-state-guide{
+    top:calc(72px + env(safe-area-inset-top));
+    width:100%;
+    max-width:100vw;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .ll-contributor-toc-state{
+    min-width:0;
+    max-width:min(132px,40vw);
+  }
+  .ll-contributor-toc-links{
+    min-width:0;
+    max-width:100%;
+  }
+  .ll-contributor-toc-toast{
+    left:max(10px,env(safe-area-inset-left));
+    right:max(10px,env(safe-area-inset-right));
+    width:auto;
+    max-width:none;
+  }
+
+  [data-contributor-toc-target],
+  [data-v3-journey],
+  [data-v3-standard],
+  [data-v3-reflections],
+  [data-v3-evidence],
+  [data-v3-history],
+  [data-v3-impact],
+  [data-review-lifecycle-path],
+  [data-contributor-feedback-section]{
+    scroll-margin-top:calc(144px + env(safe-area-inset-top));
+  }
+
+  /* Forms that are useful as columns on desktop must become a single readable track on phones. */
+  .ll-workspace-brief dl,
+  .ll-docx-fields,
+  .ll-activity-form,
+  .ll-quality-check,
+  .ll-review-grid,
+  .ll-v3-form-grid.two,
+  .ll-v3-reflection-form .ll-v3-form-grid,
+  .ll-v3-evidence-form .ll-v3-form-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .ll-docx-submit,
+  .ll-v3-form-actions{
+    align-items:stretch;
+  }
+  .ll-docx-submit button,
+  .ll-v3-form-actions button,
+  .ll-teacher-review-submit button,
+  .ll-admin-workspace button{
+    min-height:44px;
+  }
+
+  /* Fixed lifecycle notice stays clear of the notch/home indicator. */
+  .ll-review-lifecycle-notice{
+    left:max(10px,env(safe-area-inset-left));
+    right:max(10px,env(safe-area-inset-right));
+    bottom:max(10px,env(safe-area-inset-bottom));
+    width:auto;
+    max-width:none;
+    box-sizing:border-box;
+  }
+
+  /* Fix the 320px overflow case: 94vw panel + padded overlay could exceed the available content box. */
+  .ll-v3-notification-overlay{
+    width:100%;
+    height:100dvh;
+    box-sizing:border-box;
+    padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));
+    align-items:stretch;
+    justify-content:flex-start;
+  }
+  .ll-v3-notification-panel{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    max-height:100%;
+    box-sizing:border-box;
+  }
+  .ll-v3-notification-tab{
+    right:max(12px,env(safe-area-inset-right));
+    bottom:max(12px,env(safe-area-inset-bottom));
+    max-width:calc(100vw - 24px);
+    min-height:44px;
+    box-sizing:border-box;
+  }
+
+  /* Admin workspace uses the dynamic viewport and keeps its close control reachable. */
+  .ll-admin-workspace-overlay{
+    width:100%;
+    height:100dvh;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .ll-admin-workspace{
+    max-width:100%;
+    max-height:100dvh;
+    box-sizing:border-box;
+  }
+  .ll-admin-workspace-header{
+    padding-top:calc(14px + env(safe-area-inset-top));
+    padding-left:max(14px,env(safe-area-inset-left));
+    padding-right:max(14px,env(safe-area-inset-right));
+  }
+  .ll-admin-workspace-header > div{min-width:0}
+  .ll-admin-workspace-header h2{overflow-wrap:anywhere}
+  .ll-admin-workspace-close{
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
+  }
+  .ll-admin-workspace-body{
+    padding-bottom:calc(18px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width:520px){
+  .ll-contrib-hero{padding-inline:14px}
+  .ll-contrib-section{padding-inline:14px}
+  .ll-contrib-hero h1{
+    font-size:clamp(36px,12vw,44px);
+    letter-spacing:-1.8px;
+  }
+
+  .ll-contrib-actions,
+  .ll-contrib-actions > a{
+    width:100%;
+    max-width:100%;
+  }
+  .ll-contrib-actions > a{
+    min-height:46px;
+    justify-content:center;
+  }
+
+  .ll-docx-row,
+  .ll-workspace-status,
+  .ll-task-head,
+  .ll-revision header,
+  .ll-card-title,
+  .ll-v3-next,
+  .ll-v3-form-actions{
+    min-width:0;
+  }
+  .ll-docx-row button,
+  .ll-docx-row a,
+  .ll-revision button,
+  .ll-task button{
+    max-width:100%;
+  }
+
+  .ll-review-lifecycle-notice{border-radius:14px}
+  .ll-v3-notification-panel{border-radius:16px}
+
+  .ll-admin-workspace-overlay{padding:0}
+  .ll-admin-workspace{
+    width:100%;
+    min-height:100dvh;
+    height:100dvh;
+    max-height:100dvh;
+    border-radius:0;
+  }
+}
+
+@media (max-width:380px){
+  /* Preserve both navigation actions without making a 320px header overflow. */
+  .ll-contrib-brand b em{display:none}
+  .ll-contrib-back{font-size:0}
+  .ll-contrib-back::after{
+    content:"← Back";
+    font-size:12px;
+  }
+
+  .ll-contributor-state-guide{
+    gap:5px;
+    padding-inline:8px;
+  }
+  .ll-contributor-toc-state{
+    max-width:105px;
+    padding-inline:7px;
+    font-size:9px;
+  }
+  .ll-contributor-toc-links{gap:5px}
+  .ll-contributor-toc-links button{
+    min-height:40px;
+    padding:7px 9px;
+  }
+
+  .ll-contrib-hero h1{
+    font-size:clamp(34px,11.5vw,40px);
+    letter-spacing:-1.4px;
+  }
+  .ll-admin-workspace-header h2{font-size:16px}
+}
