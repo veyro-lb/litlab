@@ -3,11 +3,14 @@ import './contributor-role-hard-guard.css';
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
+const REQUEST_TIMEOUT_MS=12_000;
 
 type StoredSession={access_token?:string};
 type RoleState={role?:'student'|'teacher'|null;is_admin?:boolean};
 type WorkspaceRow={id:string;status?:string;applicant_type?:string};
 type WorkspaceEvent={selectedId?:string;workspaces?:WorkspaceRow[]};
+
+type BusyCopy={label:string;state:string};
 
 let accountRole:''|'student'|'teacher'|'admin'='';
 let roleLoadedAt=0;
@@ -72,6 +75,8 @@ function removeTeacherHistoryEvidence(){
 
 function teacherWorkspace(host:HTMLElement){
   if(accountRole==='teacher')return true;
+  const accountRoot=document.getElementById('ll-contributor-root');
+  if(accountRoot?.dataset.contributorAccountRole==='teacher')return true;
   const current=selected();
   if(current?.applicant_type)return current.applicant_type==='teacher';
   return host.classList.contains('ll-teacher-reviewer-mode')||host.classList.contains('ll-role-clarity-teacher')||Boolean(host.querySelector('.ll-teacher-zone,.ll-teacher-assignment'));
@@ -82,6 +87,14 @@ function evidenceWorkspaceCard(card:HTMLElement){
   const kicker=upper(card.querySelector<HTMLElement>('.ll-card-title span,:scope > span')?.textContent||'');
   const title=upper(card.querySelector<HTMLElement>('.ll-card-title h3,:scope > h3')?.textContent||'');
   return kicker.includes('EVIDENCE')||kicker.includes('CAS')||kicker.includes('ACTIVITY')||title.includes('EVIDENCE LEDGER')||title.includes('CAS EVIDENCE')||title==='ACTIVITY LOG';
+}
+
+function studentOnlyTeacherCard(card:HTMLElement){
+  if(card.closest('.ll-teacher-zone')||card.matches('[data-teacher-reviewer-role-card]'))return false;
+  const kicker=upper(card.querySelector<HTMLElement>('.ll-card-title span,:scope > span')?.textContent||'');
+  const title=upper(card.querySelector<HTMLElement>('.ll-card-title h3,:scope > h3')?.textContent||'');
+  const text=`${kicker} ${title}`;
+  return ['PROJECT BRIEF','CURRENT WORK','DELIVERABLES','STARTER STRUCTURE','OPTIONAL STUDENT RECORD','COMPLETED CONTRIBUTION'].some(key=>text.includes(key));
 }
 
 function ensureTeacherFallback(host:HTMLElement){
@@ -104,7 +117,8 @@ function ensureTeacherFallback(host:HTMLElement){
 function stripTeacherWorkspaceEvidence(host:HTMLElement){
   host.classList.add('ll-hard-teacher-no-evidence');
   host.querySelectorAll<HTMLElement>('[data-mentor-pipeline],.ll-mentor-pipeline').forEach(el=>el.remove());
-  host.querySelectorAll<HTMLElement>('.ll-workspace-card').forEach(card=>{if(evidenceWorkspaceCard(card))card.remove()});
+  host.querySelector('.ll-workspace-timeline')?.remove();
+  host.querySelectorAll<HTMLElement>('.ll-workspace-card').forEach(card=>{if(evidenceWorkspaceCard(card)||studentOnlyTeacherCard(card))card.remove()});
   host.querySelectorAll<HTMLElement>('.ll-workspace-cas,.ll-evidence-ledger,[data-cas-evidence],[data-history-save-evidence],.ll-activity-evidence,[data-evidence-form],[data-evidence-list],[data-activity-form],[data-activity-list],[data-mentor-evidence-form],.ll-mentor-evidence').forEach(el=>el.remove());
   ensureTeacherFallback(host);
 }
@@ -136,9 +150,180 @@ function syncPathButton(host:HTMLElement){
   button.setAttribute('aria-label',open?'Minimize completed review path':'Show completed review path');
 }
 
+function syncTeacherReviewForms(){
+  document.querySelectorAll<HTMLFormElement>('.ll-teacher-assignment form[data-teacher-review],.ll-teacher-assignment form.ll-review-form').forEach(form=>{
+    let note=form.querySelector<HTMLElement>('[data-review-submit-note]');
+    if(!note){
+      note=document.createElement('p');
+      note.dataset.reviewSubmitNote='true';
+      note.className='ll-review-submit-note';
+      note.textContent='Your decision applies to the current DOCX. Once submitted, this version is locked until the workflow moves forward.';
+      const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if(button)button.before(note);else form.append(note);
+    }
+    if(form.dataset.usabilityReviewWired!=='true'){
+      form.dataset.usabilityReviewWired='true';
+      form.addEventListener('change',()=>syncTeacherReviewForms());
+    }
+    if(form.dataset.reviewFlowLocked==='true')return;
+    const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if(!button||button.getAttribute('aria-busy')==='true')return;
+    const recommendation=form.querySelector<HTMLSelectElement>('select[name="recommendation"]')?.value||'';
+    button.textContent=recommendation==='approve'?'Approve & send to LitLab admin':recommendation==='request_changes'?'Request changes from student':'Submit teacher review';
+  });
+}
+
+function cleanAdminTeacherWorkspaceButtons(){
+  if(route()!=='admin-contributors')return;
+  document.querySelectorAll<HTMLElement>('.admin-contrib-card').forEach(card=>{
+    const role=(card.querySelector<HTMLElement>('.admin-contrib-summary-meta > span')?.textContent||'').trim().toLowerCase();
+    const manage=card.querySelector<HTMLButtonElement>('[data-admin-manage-workspace]');
+    if(!manage)return;
+    const teacher=role.includes('teacher');
+    manage.hidden=teacher;
+    manage.disabled=teacher;
+    if(teacher){manage.setAttribute('aria-hidden','true');manage.title='Teacher applications use status, chat and mentoring records rather than the student workspace manager.'}
+    else{manage.removeAttribute('aria-hidden');manage.removeAttribute('title')}
+  });
+}
+
+function syncAdminCompletionGate(){
+  if(route()!=='admin-contributors')return;
+  document.querySelectorAll<HTMLElement>('.admin-contrib-card[data-app-id]').forEach(card=>{
+    const role=(card.querySelector<HTMLElement>('.admin-contrib-summary-meta > span')?.textContent||'').trim().toLowerCase();
+    if(role.includes('teacher'))return;
+    const select=card.querySelector<HTMLSelectElement>('select[data-contributor-status]');
+    const option=select?.querySelector<HTMLOptionElement>('option[value="completed"]');
+    if(!select||!option)return;
+    const tone=card.querySelector<HTMLElement>('[data-admin-final-doc-clarity]')?.dataset.tone||'';
+    const allowed=select.value==='completed'||tone==='final'||tone==='done';
+    option.disabled=!allowed;
+    if(!allowed){select.title='Completion unlocks when the exact Final submission DOCX reaches LitLab admin review.'}
+    else select.removeAttribute('title');
+    let note=card.querySelector<HTMLElement>('[data-admin-completion-gate-note]');
+    if(!allowed){
+      if(!note){note=document.createElement('small');note.dataset.adminCompletionGateNote='true';note.className='ll-admin-completion-gate-note';const notify=card.querySelector('.admin-contrib-notify-note');if(notify)notify.before(note);else select.parentElement?.after(note)}
+      note.textContent='Completion is locked until the intended DOCX is marked “Final submission” and reaches LitLab admin review.';
+    }else note?.remove();
+  });
+}
+
+function makeStatesAccessible(){
+  document.querySelectorAll<HTMLElement>('[data-form-state],[data-admin-state],[data-upload-state],[data-evidence-state],.admin-contrib-save-state').forEach(state=>{
+    state.setAttribute('role','status');
+    state.setAttribute('aria-live','polite');
+  });
+  document.querySelectorAll<HTMLButtonElement>('[data-life-notice-close],[data-close],[data-admin-workspace-close]').forEach(button=>{button.type='button'});
+}
+
+function busyCopy(form:HTMLFormElement):BusyCopy|null{
+  if(form.matches('[data-revision-response]'))return {label:'Sending…',state:'Sending your revision response…'};
+  if(form.matches('[data-activity-form]'))return {label:'Saving…',state:'Saving activity…'};
+  if(!form.closest('#ll-admin-contributor-workspace'))return null;
+  if(form.matches('[data-admin-brief]'))return {label:'Saving…',state:'Saving project brief…'};
+  if(form.matches('[data-admin-add-task]'))return {label:'Adding…',state:'Adding task…'};
+  if(form.matches('[data-admin-add-revision]'))return {label:'Sending…',state:'Sending revision request…'};
+  if(form.matches('[data-admin-assign-teacher]'))return {label:'Assigning…',state:'Assigning teacher reviewer…'};
+  return null;
+}
+
+function startFormBusy(form:HTMLFormElement){
+  const copy=busyCopy(form);if(!copy)return;
+  const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');if(!button||button.disabled)return;
+  const state=form.querySelector<HTMLElement>('[data-form-state],[data-admin-state]');
+  const original=button.textContent||'';
+  button.disabled=true;button.setAttribute('aria-busy','true');button.textContent=copy.label;
+  if(state){state.textContent=copy.state;state.dataset.state='';state.setAttribute('role','status');state.setAttribute('aria-live','polite')}
+  let released=false;
+  let observer:MutationObserver|null=null;
+  const release=()=>{
+    if(released)return;released=true;observer?.disconnect();observer=null;
+    if(button.isConnected){button.disabled=false;button.removeAttribute('aria-busy');button.textContent=original}
+  };
+  if(state){
+    observer=new MutationObserver(()=>{
+      const text=(state.textContent||'').trim().toLowerCase();
+      if(text&&!/(saving|sending|adding|assigning|submitting|loading)/.test(text))release();
+    });
+    observer.observe(state,{childList:true,subtree:true,characterData:true});
+  }
+  window.setTimeout(release,REQUEST_TIMEOUT_MS+3000);
+}
+
+function docPath(button:HTMLButtonElement){return button.dataset.downloadDoc||button.dataset.adminDownloadDoc||''}
+function docTail(button:HTMLButtonElement){return button.querySelector<HTMLElement>('i')}
+function setDocFeedback(button:HTMLButtonElement,text:string){
+  const tail=docTail(button);
+  if(tail){if(button.dataset.usabilityOriginalTail===undefined)button.dataset.usabilityOriginalTail=tail.textContent||'';tail.textContent=text;return}
+  if(button.dataset.usabilityOriginalText===undefined)button.dataset.usabilityOriginalText=button.textContent||'';
+  button.textContent=text;
+}
+function restoreDocFeedback(button:HTMLButtonElement){
+  const tail=docTail(button);
+  if(tail&&button.dataset.usabilityOriginalTail!==undefined){tail.textContent=button.dataset.usabilityOriginalTail;delete button.dataset.usabilityOriginalTail}
+  if(!tail&&button.dataset.usabilityOriginalText!==undefined){button.textContent=button.dataset.usabilityOriginalText;delete button.dataset.usabilityOriginalText}
+}
+function clearReadyDoc(button:HTMLButtonElement){delete button.dataset.secureReadyUrl;delete button.dataset.secureReadyAt;button.removeAttribute('title')}
+function placeholderWindow(){
+  try{
+    const popup=window.open('about:blank','_blank');
+    if(popup){popup.opener=null;try{popup.document.title='Opening LitLab DOCX';popup.document.body.innerHTML='<main style="font:16px system-ui;padding:32px;color:#20242c"><b>Opening secure LitLab DOCX…</b><p>Please keep this tab open for a moment.</p></main>'}catch{}}
+    return popup;
+  }catch{return null}
+}
+
+async function openSecureDocument(button:HTMLButtonElement){
+  const ready=button.dataset.secureReadyUrl||'';const readyAt=Number(button.dataset.secureReadyAt||0);
+  if(ready&&Date.now()-readyAt<240_000){
+    const popup=window.open(ready,'_blank');
+    if(popup){popup.opener=null;clearReadyDoc(button);restoreDocFeedback(button);return}
+    setDocFeedback(button,'Allow pop-ups, then click again');button.title='Your browser blocked the new tab. Allow pop-ups for LitLab, then click this button again.';return;
+  }
+  clearReadyDoc(button);
+  const path=docPath(button);if(!path)return;
+  const popup=placeholderWindow();
+  button.disabled=true;button.setAttribute('aria-busy','true');setDocFeedback(button,'Opening…');
+  const controller=new AbortController();const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
+  try{
+    const encoded=path.split('/').map(encodeURIComponent).join('/');
+    const response=await fetch(`${SUPABASE_URL}/storage/v1/object/sign/contributor-documents/${encoded}`,{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},body:JSON.stringify({expiresIn:300}),signal:controller.signal});
+    if(!response.ok)throw new Error(`Secure document link failed (${response.status})`);
+    const data=await response.json() as {signedURL?:string;signedUrl?:string};
+    const signed=data.signedURL||data.signedUrl;if(!signed)throw new Error('No secure document link returned');
+    const href=/^https?:\/\//i.test(signed)?signed:`${SUPABASE_URL}/storage/v1${signed}`;
+    if(popup&&!popup.closed){popup.location.replace(href);restoreDocFeedback(button)}
+    else{button.dataset.secureReadyUrl=href;button.dataset.secureReadyAt=String(Date.now());setDocFeedback(button,'Ready — click again');button.title='The secure link is ready. Click again to open the DOCX.'}
+  }catch(error){
+    console.error(error);try{popup?.close()}catch{}
+    setDocFeedback(button,navigator.onLine?'Couldn’t open — try again':'Offline — reconnect');
+    window.setTimeout(()=>{if(button.isConnected&&!button.dataset.secureReadyUrl)restoreDocFeedback(button)},2400);
+  }finally{
+    window.clearTimeout(timeout);
+    if(button.isConnected){button.disabled=false;button.removeAttribute('aria-busy')}
+  }
+}
+
+function repairRetryControls(){
+  const host=document.querySelector<HTMLElement>('[data-contributor-workspace]');
+  const error=host?.querySelector<HTMLElement>('.ll-workspace-empty');
+  if(error&&/could not load/i.test(error.textContent||'')&&!error.querySelector('[data-workspace-retry]')){
+    const button=document.createElement('button');button.type='button';button.dataset.workspaceRetry='true';button.textContent='Try loading again';error.appendChild(button);
+  }
+  document.querySelectorAll<HTMLElement>('[data-activity-list]').forEach(list=>{
+    if(!/could not load/i.test(list.textContent||'')||list.querySelector('[data-load-activity]'))return;
+    const id=list.dataset.activityList||'';if(!id)return;
+    const button=document.createElement('button');button.type='button';button.className='ll-quiet-button';button.dataset.loadActivity=id;button.textContent='Try activity log again';list.appendChild(button);
+  });
+}
+
 function apply(){
   scheduled=false;
   removeTeacherHistoryEvidence();
+  makeStatesAccessible();
+  cleanAdminTeacherWorkspaceButtons();
+  syncAdminCompletionGate();
+  repairRetryControls();
+  syncTeacherReviewForms();
   if(route()!=='contribute')return;
   const host=document.querySelector<HTMLElement>('[data-contributor-workspace]');
   if(!host)return;
@@ -150,6 +335,25 @@ function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(app
 
 const observer=new MutationObserver(()=>schedule());
 observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class','hidden']});
+
+window.addEventListener('click',event=>{
+  const target=event.target instanceof Element?event.target:null;if(!target)return;
+  const finalButton=target.closest<HTMLButtonElement>('[data-open-final-admin-doc]');
+  if(finalButton){
+    event.preventDefault();event.stopImmediatePropagation();
+    const body=finalButton.closest<HTMLElement>('[data-admin-workspace-body]');
+    const row=body?.querySelector<HTMLElement>('.ll-admin-final-doc-row');
+    const download=row?.querySelector<HTMLButtonElement>('[data-admin-download-doc]');
+    if(download){download.click();return}
+    const original=finalButton.textContent||'Open final DOCX →';finalButton.textContent='Final DOCX not ready — refresh';finalButton.disabled=true;window.setTimeout(()=>{if(finalButton.isConnected){finalButton.disabled=false;finalButton.textContent=original}},2200);return;
+  }
+  const doc=target.closest<HTMLButtonElement>('[data-download-doc],[data-admin-download-doc]');
+  if(doc&&!doc.disabled){event.preventDefault();event.stopImmediatePropagation();void openSecureDocument(doc);return}
+  const retry=target.closest<HTMLButtonElement>('[data-workspace-retry]');
+  if(retry){event.preventDefault();retry.disabled=true;retry.textContent='Retrying…';window.dispatchEvent(new Event('online'));window.setTimeout(()=>{if(retry.isConnected){retry.disabled=false;retry.textContent='Try loading again'}},2500)}
+},true);
+
+window.addEventListener('submit',event=>{const form=event.target instanceof HTMLFormElement?event.target:null;if(form)startFormBusy(form)},true);
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;if(!target)return;
@@ -172,6 +376,8 @@ window.addEventListener('litlab:contributor-workspace-data',event=>{
   schedule();
 });
 window.addEventListener('litlab:contributor-account-role',()=>{void loadRole(true).then(schedule)});
+window.addEventListener('litlab:admin-contributor-workspace-opened',()=>schedule());
+window.addEventListener('litlab:contributor-admin-updated',()=>schedule());
 window.addEventListener('hashchange',()=>{selectedId='';workspaces=[];void loadRole().then(schedule)});
 window.addEventListener('focus',()=>void loadRole().then(schedule));
 
