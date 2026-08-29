@@ -63,8 +63,9 @@ function decorateCard(card:HTMLElement,a:Assignment,active:boolean){
   if(form)form.hidden=!state.action;
   let notice=card.querySelector<HTMLElement>('[data-teacher-student-state-note]');
   if(!state.action){
-    if(!notice){notice=document.createElement('div');notice.dataset.teacherStudentStateNote='true';notice.className='ll-teacher-student-state-note';(form||card.querySelector('.ll-review-history'))?.before(notice)||card.appendChild(notice)}
-    notice.className=`ll-teacher-student-state-note is-${state.key}`;notice.innerHTML=`<b>${esc(state.label)}</b><span>${esc(state.detail)}</span>`;
+    if(!notice){notice=document.createElement('div');notice.dataset.teacherStudentStateNote='true';notice.className='ll-teacher-student-state-note';const anchor=form||card.querySelector('.ll-review-history');if(anchor)anchor.before(notice);else card.appendChild(notice)}
+    const signature=`${state.key}|${state.detail}`;
+    if(notice.dataset.signature!==signature){notice.dataset.signature=signature;notice.className=`ll-teacher-student-state-note is-${state.key}`;notice.innerHTML=`<b>${esc(state.label)}</b><span>${esc(state.detail)}</span>`}
   }else notice?.remove();
 }
 function ensureBrowser(host:HTMLElement){
@@ -88,7 +89,7 @@ function ensureBrowser(host:HTMLElement){
   }
   const signature=assignments.map(a=>`${a.application_id}:${a.student_name}:${a.topics||''}:${assignmentState(a).key}`).join('|')+`|selected:${selectedStudentId}`;
   if(nav.dataset.signature!==signature){nav.dataset.signature=signature;nav.innerHTML=rosterMarkup()}
-  const selected=selectedAssignment();if(selected){selectedHead.innerHTML=selectedHeaderMarkup(selected)}
+  const selected=selectedAssignment();if(selected){const headSignature=`${selected.application_id}|${assignmentState(selected).key}|${selected.topics||selected.contribution_type||''}`;if(selectedHead.dataset.signature!==headSignature){selectedHead.dataset.signature=headSignature;selectedHead.innerHTML=selectedHeaderMarkup(selected)}}
   list.forEach((card,index)=>{const a=assignments[index];if(a)decorateCard(card,a,a.application_id===selectedStudentId)});
   zone.classList.add('ll-teacher-zone-roster-mode');
 }
