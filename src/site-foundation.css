@@ -1,0 +1,20 @@
+/* Cross-site guardrails loaded after the base shell and before route-specific feature bundles. */
+:where(button,a,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:3px solid color-mix(in srgb,var(--violet,#7c5cfc) 72%,white);
+  outline-offset:3px;
+}
+
+:where(h1,h2,h3,h4,p,li,dd,dt,button,a,label,small,strong,b){overflow-wrap:break-word}
+
+[data-site-scroll-lock="true"]{overflow:hidden!important}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    transition-delay:0s!important;
+  }
+}
