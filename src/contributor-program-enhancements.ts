@@ -1,4 +1,5 @@
 import './contributor-program-enhancements.css';
+import './contributor-dashboard-updates';
 import {createLitLabLogo} from './brand-mark';
 
 let scanTimer=0;
