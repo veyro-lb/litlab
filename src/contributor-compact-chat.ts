@@ -10,11 +10,31 @@ let scheduled=false;
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function current(){return workspaces.find(row=>row.id===selectedId)||workspaces[0]||null}
 function root(){return document.querySelector<HTMLElement>('[data-contributor-workspace]')}
+function topbar(){return document.querySelector<HTMLElement>('.ll-contrib-topbar')}
 
 function removeCompact(){
   document.querySelector('[data-contributor-compact-chat]')?.remove();
   document.body.classList.remove('ll-compact-contributor-chat');
   root()?.classList.remove('ll-compact-chat-enabled');
+}
+
+function ensureButton(){
+  let button=document.querySelector<HTMLButtonElement>('[data-contributor-compact-chat]');
+  if(!button){
+    button=document.createElement('button');
+    button.type='button';
+    button.dataset.contributorCompactChat='true';
+    button.className='ll-contributor-compact-chat';
+  }
+  const bar=topbar();
+  if(bar&&button.parentElement!==bar){
+    const back=bar.querySelector('.ll-contrib-back');
+    if(back)bar.insertBefore(button,back);else bar.appendChild(button);
+  }else if(!bar){
+    const host=root();
+    if(host&&button.parentElement!==host){const head=host.querySelector<HTMLElement>(':scope > .ll-workspace-head');if(head)head.before(button);else host.prepend(button)}
+  }
+  return button;
 }
 
 function apply(){
@@ -26,16 +46,7 @@ function apply(){
   document.body.classList.add('ll-compact-contributor-chat');
   host.classList.add('ll-compact-chat-enabled');
 
-  let button=host.querySelector<HTMLButtonElement>('[data-contributor-compact-chat]');
-  if(!button){
-    button=document.createElement('button');
-    button.type='button';
-    button.dataset.contributorCompactChat='true';
-    button.className='ll-contributor-compact-chat';
-    const head=host.querySelector<HTMLElement>(':scope > .ll-workspace-head');
-    if(head)head.before(button);else host.prepend(button);
-  }
-
+  const button=ensureButton();
   const teacher=app.applicant_type==='teacher';
   const title=teacher?'Teacher reviewer support':app.topics||'Contributor conversation';
   button.dataset.chatOpen='true';
@@ -43,6 +54,7 @@ function apply(){
   button.dataset.applicationId=app.id;
   button.dataset.chatTitle=title;
   button.setAttribute('aria-label',teacher?'Open private live chat with LitLab for teacher support':'Open private live chat with LitLab for this contribution');
+  button.title=teacher?'Private teacher support with LitLab':'Private contributor chat with LitLab';
   button.innerHTML='<span aria-hidden="true"><i></i></span><b>Chat with LitLab</b>';
 }
 
