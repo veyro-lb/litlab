@@ -42,6 +42,7 @@ import '../contributor-page-experience';
 import '../contributor-system-audit';
 import '../contributor-guide-action-bridge';
 import '../contributor-journey-coherence';
+import '../contributor-guide-navigation-stability';
 import '../admin-feedback';
 import '../admin-feedback-refresh-fix';
 
