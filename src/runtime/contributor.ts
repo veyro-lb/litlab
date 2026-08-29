@@ -54,11 +54,12 @@ import '../contributor-activity-live-sync';
 import '../contributor-secure-document-download';
 
 // Final contributor QA layer: responsive containment, duplicate-render protection,
-// visual normalization, then the task-first dashboard experience.
+// visual normalization, task-first dashboard experience, then action reliability.
 import '../contributor-qa-polish.css';
 import '../contributor-qa-runtime';
 import '../contributor-visual-pass.css';
 import '../contributor-guide-visibility.css';
 import '../contributor-dashboard-experience';
+import '../contributor-dashboard-action-guard';
 
 export {};
