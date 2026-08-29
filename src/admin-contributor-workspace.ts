@@ -1,4 +1,5 @@
 import './admin-contributor-workspace.css';
+import {encodeStoragePath,signedDocumentUrl} from './contributor-file-names';
 
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
@@ -88,8 +89,8 @@ async function load(force=false){if(!activeAppId||loading&&!force)return;loading
 function schedulePoll(){clearTimeout(pollTimer);if(!activeAppId)return;pollTimer=window.setTimeout(async()=>{if(!document.hidden&&navigator.onLine)await load();schedulePoll()},REFRESH_MS)}
 function openWorkspace(card:HTMLElement){activeAppId=card.dataset.appId||'';const name=card.querySelector('.admin-contrib-person b')?.textContent||'Contributor';const topic=card.querySelector('.admin-contrib-summary-meta span:nth-child(2)')?.textContent||'';activeTitle=`${name}${topic?` — ${topic}`:''}`;if(!activeAppId)return;shell();void load(true);schedulePoll()}
 
-function encodedPath(path:string){return path.split('/').map(encodeURIComponent).join('/')}
-async function download(path:string){try{const response=await fetch(`${SUPABASE_URL}/storage/v1/object/sign/contributor-documents/${encodedPath(path)}`,{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},body:JSON.stringify({expiresIn:300})});if(!response.ok)throw new Error('sign failed');const data=await response.json() as {signedURL?:string;signedUrl?:string};const url=data.signedURL||data.signedUrl;if(!url)throw new Error('missing signed url');window.open(`${SUPABASE_URL}/storage/v1${url}`,'_blank','noopener,noreferrer')}catch(error){console.error(error);window.alert('This DOCX could not be opened securely right now.')}}
+function adminDocumentName(path:string){return workspace?.documents?.find(doc=>doc.storage_path===path)?.original_name||'LitLab-contribution.docx'}
+async function download(path:string){try{const response=await fetch(`${SUPABASE_URL}/storage/v1/object/sign/contributor-documents/${encodeStoragePath(path)}`,{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`},body:JSON.stringify({expiresIn:300})});if(!response.ok)throw new Error('sign failed');const data=await response.json() as {signedURL?:string;signedUrl?:string};const url=data.signedURL||data.signedUrl;if(!url)throw new Error('missing signed url');window.open(signedDocumentUrl(SUPABASE_URL,url,adminDocumentName(path)),'_blank','noopener,noreferrer')}catch(error){console.error(error);window.alert('This DOCX could not be opened securely right now.')}}
 
 function state(form:HTMLFormElement,text:string,kind=''){const el=form.querySelector<HTMLElement>('[data-admin-state]');if(el){el.textContent=text;el.dataset.state=kind}}
 function due(value:FormDataEntryValue|null){const text=String(value||'').trim();return text?`${text}T23:59:00`:null}
