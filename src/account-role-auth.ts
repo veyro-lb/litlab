@@ -4,6 +4,7 @@ const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
 const REQUEST_TIMEOUT_MS=12_000;
+const TOKEN_WATCH_MS=750;
 
 type ContributorRole='student'|'teacher';
 type StoredSession={access_token?:string};
@@ -12,6 +13,7 @@ type RoleState={role:ContributorRole|null;is_admin?:boolean;needs_choice?:boolea
 let roleState:RoleState|null=null;
 let loading=false;
 let lastToken='';
+let tokenWatch=0;
 
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 
@@ -44,7 +46,7 @@ function decorateAccountMenu(){
     const signature=`${icon}|${name}|${detail}|${unselected?'choose':'fixed'}`;
     if(row.dataset.accountTypeSignature===signature)return;
     row.dataset.accountTypeSignature=signature;
-    row.innerHTML=`<div class="ll-account-type-icon">${icon}</div><div><small>ACCOUNT TYPE</small><b>${name}</b><span>${detail}</span></div>${unselected?'<button type="button" data-open-account-role>Choose</button>':''}`;
+    row.innerHTML=`<div class="ll-account-type-icon">${icon}</div><div><small>ACCOUNT TYPE</small><b>${name}</b><span>${detail}</span></div>${unselected?'<button type="button" data-open-account-role aria-label="Choose Student or Teacher account type">Choose</button>':''}`;
     row.querySelector<HTMLButtonElement>('[data-open-account-role]')?.addEventListener('click',()=>openRoleChooser(roleState||{role:null,needs_choice:true}));
   });
 }
@@ -53,7 +55,7 @@ function closeRoleChooser(){document.querySelector('[data-auth-role-setup]')?.re
 
 function chooserMarkup(state:RoleState){
   if(state.has_conflict)return `<div class="ll-auth-role-overlay" data-auth-role-setup role="dialog" aria-modal="true" aria-labelledby="ll-auth-role-title"><section class="ll-auth-role-dialog is-conflict"><div class="ll-auth-role-mark">LL</div><span>ACCOUNT TYPE</span><h2 id="ll-auth-role-title">This account needs LitLab review.</h2><p>Older contributor records on this account include both Student and Teacher activity. LitLab will not guess which account type should own it.</p><div class="ll-auth-role-warning">Contributor tools stay locked until LitLab admin resolves the account type. Your normal LitLab study tools are still available.</div><button type="button" class="ll-auth-role-secondary" data-close-role-review>Continue to LitLab</button></section></div>`;
-  return `<div class="ll-auth-role-overlay" data-auth-role-setup role="dialog" aria-modal="true" aria-labelledby="ll-auth-role-title"><section class="ll-auth-role-dialog"><div class="ll-auth-role-mark">LL</div><span>ONE-TIME ACCOUNT SETUP</span><h2 id="ll-auth-role-title">Are you a Student or a Teacher?</h2><p class="ll-auth-role-lead">Choose the account type that matches how you use LitLab. This keeps student contribution work and teacher review work completely separate.</p><div class="ll-auth-role-choice-grid"><button type="button" data-auth-choose-role="student"><i>✦</i><div><strong>Student account</strong><p>I use LitLab as a student and submit my own contributor work.</p><small>Student application • DOCX submissions • revisions • feedback • evidence • student recognition</small></div><b>Choose Student →</b></button><button type="button" data-auth-choose-role="teacher"><i>✓</i><div><strong>Teacher / mentor account</strong><p>I use LitLab as an educator and review or mentor assigned student work.</p><small>Teacher application • assigned students • academic rubric • notes • testimony • mentoring history</small></div><b>Choose Teacher →</b></button></div><div class="ll-auth-role-note"><b>One account, one type.</b><span>This choice is saved to your LitLab account. It is not a switch you change between projects. If you choose incorrectly, contact LitLab.</span></div><p class="ll-auth-role-status" data-auth-role-status role="status" aria-live="polite"></p></section></div>`;
+  return `<div class="ll-auth-role-overlay" data-auth-role-setup role="dialog" aria-modal="true" aria-labelledby="ll-auth-role-title"><section class="ll-auth-role-dialog"><div class="ll-auth-role-mark">LL</div><span>ONE-TIME ACCOUNT SETUP</span><h2 id="ll-auth-role-title">Are you a Student or a Teacher?</h2><p class="ll-auth-role-lead">Choose the account type that matches how you use LitLab. This keeps student contribution work and teacher review work completely separate.</p><div class="ll-auth-role-choice-grid"><button type="button" data-auth-choose-role="student" aria-label="Choose Student account"><i>✦</i><div><strong>Student account</strong><p>I use LitLab as a student and submit my own contributor work.</p><small>Student application • DOCX submissions • revisions • feedback • evidence • student recognition</small></div><b>Choose Student →</b></button><button type="button" data-auth-choose-role="teacher" aria-label="Choose Teacher or mentor account"><i>✓</i><div><strong>Teacher / mentor account</strong><p>I use LitLab as an educator and review or mentor assigned student work.</p><small>Teacher application • assigned students • academic rubric • notes • testimony • mentoring history</small></div><b>Choose Teacher →</b></button></div><div class="ll-auth-role-note"><b>One account, one type.</b><span>This choice is saved to your LitLab account. It is not a switch you change between projects. If you choose incorrectly, contact LitLab.</span></div><p class="ll-auth-role-status" data-auth-role-status role="status" aria-live="polite"></p></section></div>`;
 }
 
 function openRoleChooser(state:RoleState){
@@ -68,22 +70,43 @@ function openRoleChooser(state:RoleState){
 
 async function chooseRole(role:ContributorRole,button:HTMLButtonElement){
   const overlay=document.querySelector<HTMLElement>('[data-auth-role-setup]');const status=overlay?.querySelector<HTMLElement>('[data-auth-role-status]');
-  overlay?.querySelectorAll<HTMLButtonElement>('[data-auth-choose-role]').forEach(item=>item.disabled=true);button.dataset.loading='true';if(status)status.textContent=`Saving ${role==='teacher'?'Teacher / mentor':'Student'} as your account type…`;
-  try{const next=await rpc<RoleState>('set_my_litlab_contributor_account_role',{p_role:role});roleState=next;closeRoleChooser();decorateAccountMenu();window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:next}))}
-  catch(error){const message=error instanceof Error?error.message:'Could not save your account type.';if(status)status.textContent=message;overlay?.querySelectorAll<HTMLButtonElement>('[data-auth-choose-role]').forEach(item=>item.disabled=false);delete button.dataset.loading}
+  overlay?.querySelectorAll<HTMLButtonElement>('[data-auth-choose-role]').forEach(item=>item.disabled=true);overlay?.setAttribute('aria-busy','true');button.dataset.loading='true';if(status)status.textContent=`Saving ${role==='teacher'?'Teacher / mentor':'Student'} as your account type…`;
+  try{
+    const next=await rpc<RoleState>('set_my_litlab_contributor_account_role',{p_role:role});
+    if(!next?.is_admin&&next?.role!==role)throw new Error('LitLab could not confirm the selected account type. Please try again.');
+    roleState=next;closeRoleChooser();decorateAccountMenu();window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:next}));
+  }catch(error){
+    const message=error instanceof Error?error.message:'Could not save your account type.';if(status)status.textContent=message;overlay?.querySelectorAll<HTMLButtonElement>('[data-auth-choose-role]').forEach(item=>item.disabled=false);overlay?.removeAttribute('aria-busy');delete button.dataset.loading;
+  }
 }
 
 function applyRoleState(state:RoleState){roleState=state;decorateAccountMenu();if(state.is_admin||state.role){closeRoleChooser();return}if(state.needs_choice||state.has_conflict||!state.role)openRoleChooser(state)}
 
 async function refreshRoleState(force=false){
-  const current=token();if(!current){lastToken='';roleState=null;closeRoleChooser();decorateAccountMenu();return}if(loading)return;if(!force&&roleState&&lastToken===current){decorateAccountMenu();return}
+  const current=token();
+  if(!current){lastToken='';roleState=null;closeRoleChooser();decorateAccountMenu();return}
+  if(loading)return;
+  if(!force&&roleState&&lastToken===current){decorateAccountMenu();return}
   loading=true;lastToken=current;
-  try{const state=await rpc<RoleState>('get_my_litlab_contributor_account_role');applyRoleState(state);window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:state}))}catch(error){console.error('LitLab account type unavailable',error)}finally{loading=false}
+  try{
+    const state=await rpc<RoleState>('get_my_litlab_contributor_account_role');
+    if(token()!==current)return;
+    applyRoleState(state);window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:state}));
+  }catch(error){console.error('LitLab account type unavailable',error)}finally{loading=false}
 }
 
-function decorateAuthUi(){decorateSignInModal();decorateAccountMenu()}
-const uiObserver=new MutationObserver(()=>decorateAuthUi());
-function start(){decorateAuthUi();uiObserver.observe(document.body,{childList:true,subtree:true});void refreshRoleState(true)}
+function syncAuthUi(){
+  decorateSignInModal();decorateAccountMenu();
+  const current=token();
+  if(current!==lastToken&&!loading)void refreshRoleState(true);
+}
+
+const uiObserver=new MutationObserver(()=>syncAuthUi());
+function start(){
+  syncAuthUi();uiObserver.observe(document.body,{childList:true,subtree:true});
+  window.clearInterval(tokenWatch);tokenWatch=window.setInterval(()=>{const current=token();if(current!==lastToken&&!loading)void refreshRoleState(true)},TOKEN_WATCH_MS);
+  void refreshRoleState(true);
+}
 
 window.addEventListener('storage',event=>{if(event.key===SESSION_KEY)void refreshRoleState(true)});
 window.addEventListener('focus',()=>void refreshRoleState(false));
