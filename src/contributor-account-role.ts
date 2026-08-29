@@ -78,7 +78,7 @@ function personalizePage(role:ContributorRole|null,blocked=false){
   const host=root();const f=form();if(!host)return;
   host.dataset.contributorAccountRole=role||'unselected';
   host.classList.toggle('ll-account-role-blocked',blocked||!role);
-  const roleSection=host.querySelector<HTMLElement>('.ll-contrib-role-grid')?.closest('.ll-contrib-section');if(roleSection)roleSection.hidden=true;
+  const roleSection=host.querySelector<HTMLElement>('.ll-contrib-role-grid')?.closest('.ll-contrib-section') as HTMLElement|null;if(roleSection)roleSection.hidden=true;
   const cas=host.querySelector<HTMLElement>('.ll-contrib-cas');if(cas)cas.hidden=role==='teacher';
   const cert=host.querySelector<HTMLElement>('.ll-contrib-certificate');if(cert)cert.hidden=role==='teacher';
   const hero=host.querySelector<HTMLElement>('.ll-contrib-hero-copy');
