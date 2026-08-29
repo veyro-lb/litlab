@@ -1,0 +1,78 @@
+/* Final contributor-system coherence fixes. Keep this layer narrow: it resolves
+   cross-module layout conflicts without changing the underlying workflow. */
+
+/* The Teacher roster is sticky, but the contributor header is sticky too. Keep
+   the roster visibly below the header instead of letting it slide underneath. */
+#ll-contributor-root[data-contributor-account-role="teacher"] .ll-teacher-student-roster{top:90px!important}
+
+/* The focused student browser supersedes older summary/fallback dashboards. */
+[data-contributor-workspace]:has([data-teacher-student-browser])>[data-teacher-student-center],
+[data-contributor-workspace]:has([data-teacher-student-browser])>[data-teacher-hard-review-center]{display:none!important}
+
+/* Teacher accounts use the bottom reviewer-application launcher, never the
+   generic student-style “Make a new contribution” strip. */
+#ll-contributor-root[data-contributor-account-role="teacher"]~[data-new-contribution-control],
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-new-contribution-control],
+body:has(#ll-contributor-root[data-contributor-account-role="teacher"]) [data-new-contribution-control]{display:none!important}
+
+/* Defensive role separation: evidence/activity UI must never reappear in a
+   Teacher workspace even if an older renderer inserts it after initial load. */
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] .ll-evidence-ledger,
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] [data-evidence-form],
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] [data-evidence-list],
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] [data-activity-form],
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] [data-activity-list],
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] [data-cas-evidence],
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] .ll-workspace-cas,
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] .ll-activity-evidence,
+#ll-contributor-root[data-contributor-account-role="teacher"] [data-contributor-workspace] .ll-mentor-evidence{display:none!important}
+
+/* Smooth navigation should land below the sticky top bar. */
+.ll-contrib-page #contribute-apply,
+.ll-contrib-page #contribute-cas,
+.ll-contrib-page [data-contributor-workspace],
+.ll-contrib-page [data-teacher-student-browser]{scroll-margin-top:92px}
+
+/* Make busy/disabled controls unmistakable without making them look broken. */
+.ll-contrib-page button[aria-disabled="true"],
+.ll-contrib-page button[aria-busy="true"]{cursor:not-allowed!important;opacity:.62}
+.ll-contrib-page button:focus-visible,
+.ll-contrib-page a:focus-visible,
+.ll-contrib-page input:focus-visible,
+.ll-contrib-page select:focus-visible,
+.ll-contrib-page textarea:focus-visible{outline:3px solid rgba(115,87,246,.28)!important;outline-offset:2px!important}
+
+/* Compact but usable top-bar layout. */
+.ll-contrib-topbar{gap:8px}
+.ll-contrib-topbar .ll-contrib-brand{margin-right:auto;flex:0 1 auto;min-width:0}
+.ll-contrib-topbar .ll-contrib-shortcut,
+.ll-contrib-topbar .ll-contributor-compact-chat,
+.ll-contrib-topbar .ll-contrib-back{flex:0 0 auto}
+
+@media(max-width:720px){
+  .ll-contrib-topbar{height:66px!important;padding:0 12px!important;gap:6px!important}
+  .ll-contrib-topbar .ll-contrib-shortcut-copy small{display:none!important}
+  .ll-contrib-topbar .ll-contrib-shortcut{min-height:40px!important;margin-right:2px!important}
+  .ll-contrib-topbar .ll-contributor-compact-chat{min-width:40px;min-height:40px;margin-right:2px!important}
+  .ll-contrib-topbar .ll-contrib-back{min-height:40px;white-space:nowrap}
+  #ll-contributor-root[data-contributor-account-role="teacher"] .ll-teacher-student-roster{top:auto!important}
+}
+
+@media(max-width:480px){
+  .ll-contrib-topbar{padding:0 9px!important;gap:4px!important}
+  .ll-contrib-topbar .ll-contrib-logo{width:108px!important;max-width:108px!important}
+  .ll-contrib-topbar .ll-contrib-brand[data-logo-enhanced="true"]{min-width:108px!important}
+  .ll-contrib-topbar .ll-contrib-shortcut{width:40px!important;min-width:40px!important;max-width:40px!important;padding:0!important;justify-content:center!important}
+  .ll-contrib-topbar .ll-contrib-shortcut-copy{display:none!important}
+  .ll-contrib-topbar .ll-contrib-back{font-size:0!important;padding:0 7px!important}
+  .ll-contrib-topbar .ll-contrib-back::after{content:'← Back';font-size:11px;font-weight:800}
+}
+
+@media(max-width:380px){
+  .ll-contrib-topbar .ll-contrib-logo{width:96px!important;max-width:96px!important}
+  .ll-contrib-topbar .ll-contrib-brand[data-logo-enhanced="true"]{min-width:96px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ll-contrib-page *{scroll-behavior:auto!important}
+}
