@@ -1,3 +1,5 @@
+import './contributor-review-lifecycle';
+
 let timer=0;
 let attempts=0;
 let observer:MutationObserver|null=null;
