@@ -38,6 +38,17 @@ function syncCompletedPath(host:HTMLElement){
   button.setAttribute('aria-label',open?'Minimize completed review path':'Show completed review path');
 }
 
+function syncAccountGate(){
+  const gate=document.querySelector<HTMLElement>('[data-contributor-account-gate]');
+  if(!gate)return;
+  const button=gate.querySelector<HTMLButtonElement>('button');
+  const note=gate.querySelector<HTMLElement>('small');
+  const copy=gate.querySelector<HTMLElement>('p');
+  if(button)button.textContent='Sign in to apply';
+  if(note)note.textContent='Your Google or Microsoft password is never shared with LitLab.';
+  if(copy)copy.textContent='Sign in with Google or Microsoft so your application, review status, private chat and future updates stay attached to your LitLab account.';
+}
+
 function syncInteractiveStates(){
   document.querySelectorAll<HTMLButtonElement>('.ll-contrib-page button').forEach(button=>{
     if(button.disabled)button.setAttribute('aria-disabled','true');
@@ -52,10 +63,12 @@ function syncInteractiveStates(){
 function apply(){
   scheduled=false;
   if(route()!=='contribute')return;
+  syncAccountGate();
   const host=workspace();
-  if(!host)return;
-  cleanTeacherUi(host);
-  syncCompletedPath(host);
+  if(host){
+    cleanTeacherUi(host);
+    syncCompletedPath(host);
+  }
   syncInteractiveStates();
   document.documentElement.classList.add('ll-contributor-audited');
 }
@@ -69,7 +82,7 @@ function schedule(){
 function scan(){
   window.clearTimeout(scanTimer);
   if(route()!=='contribute')return;
-  if(root()&&workspace()){
+  if(root()){
     scanAttempts=0;
     schedule();
     return;
@@ -88,6 +101,19 @@ document.addEventListener('keydown',event=>{
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
   if(!target||route()!=='contribute')return;
+
+  const gateButton=target.closest<HTMLButtonElement>('[data-contributor-account-gate] button');
+  if(gateButton){
+    const sharedAuth=document.querySelector<HTMLButtonElement>('[data-auth-open]');
+    if(sharedAuth){
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      sharedAuth.click();
+      return;
+    }
+  }
+
   if(target.closest('[data-toggle-completed-review-path],[data-hard-completed-path-toggle],[data-teacher-roster-student],[data-teacher-roster-mobile]'))window.setTimeout(schedule,0);
 },true);
 
