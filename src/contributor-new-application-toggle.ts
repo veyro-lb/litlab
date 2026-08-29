@@ -28,6 +28,8 @@ function payload():JwtPayload|null{
   }catch{return null}
 }
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
+function accountRole(){return document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole||''}
+function roleLauncherOwnsForm(){return accountRole()==='student'||accountRole()==='teacher'}
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const auth=token();
   if(!auth||!navigator.onLine)throw new Error('unavailable');
@@ -89,7 +91,7 @@ function setApplyVisible(visible:boolean,scroll=false,role=''){
   expanded=visible;
   apply.hidden=!visible;
   apply.setAttribute('aria-hidden',visible?'false':'true');
-  document.documentElement.toggleAttribute('data-litlab-new-contribution-open',visible&&hasExisting);
+  document.documentElement.toggleAttribute('data-litlab-new-contribution-open',visible&&hasExisting&&!roleLauncherOwnsForm());
   const button=control()?.querySelector<HTMLButtonElement>('[data-new-contribution-toggle]');
   if(button){
     button.setAttribute('aria-expanded',visible?'true':'false');
@@ -102,7 +104,7 @@ function setApplyVisible(visible:boolean,scroll=false,role=''){
 
 function ensureControl(){
   const apply=applySection();
-  if(!apply||!hasExisting)return null;
+  if(!apply||!hasExisting||roleLauncherOwnsForm())return null;
   let box=control();
   if(!box){
     box=document.createElement('aside');
@@ -124,6 +126,11 @@ function applyState(){
   if(route()!=='contribute')return;
   const apply=applySection();
   if(!apply)return;
+  if(roleLauncherOwnsForm()){
+    removeControl();
+    document.documentElement.removeAttribute('data-litlab-new-contribution-open');
+    return;
+  }
   if(!token()||!hasExisting){
     removeControl();
     expanded=false;
@@ -163,16 +170,13 @@ async function refresh(force=false){
     if(isAdmin){hasExisting=false;expanded=false;removeControl();applyState();return}
     hasExisting=await resolveExisting();
     lastCheck=Date.now();
-    if(!hasExisting)expanded=true;
+    if(!hasExisting&&!roleLauncherOwnsForm())expanded=true;
     else if(!control())expanded=false;
     applyState();
   }catch(error){
     console.debug('New contribution toggle unavailable',error);
     hasExisting=existingFromLoadedWorkspace();
-    if(!hasExisting){
-      // Fail open for first-time/unknown state: never make the application inaccessible.
-      expanded=true;
-    }
+    if(!hasExisting&&!roleLauncherOwnsForm())expanded=true;
     applyState();
   }finally{loading=false}
 }
@@ -203,6 +207,7 @@ window.addEventListener('storage',event=>{
   expanded=false;hasExisting=false;lastCheck=0;freshFormHTML='';removeControl();
   window.setTimeout(scan,80);
 });
+window.addEventListener('litlab:contributor-account-role',()=>{removeControl();window.setTimeout(()=>void refresh(true),80)});
 window.addEventListener('litlab:contributor-submitted',()=>{
   hasExisting=true;
   expanded=false;
@@ -234,7 +239,7 @@ document.addEventListener('click',event=>{
   }
 
   const applyTrigger=target.closest<HTMLElement>('a[href="#contribute-apply"],[data-workspace-go-apply]');
-  if(applyTrigger){
+  if(applyTrigger&& !roleLauncherOwnsForm()){
     event.preventDefault();
     event.stopPropagation();
     const role=applyTrigger.dataset.selectRole||'';
