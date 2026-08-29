@@ -103,8 +103,9 @@ function ensureTeacherFallback(host:HTMLElement){
 
 function stripTeacherWorkspaceEvidence(host:HTMLElement){
   host.classList.add('ll-hard-teacher-no-evidence');
+  host.querySelectorAll<HTMLElement>('[data-mentor-pipeline],.ll-mentor-pipeline').forEach(el=>el.remove());
   host.querySelectorAll<HTMLElement>('.ll-workspace-card').forEach(card=>{if(evidenceWorkspaceCard(card))card.remove()});
-  host.querySelectorAll<HTMLElement>('.ll-workspace-cas,.ll-evidence-ledger,[data-cas-evidence],[data-history-save-evidence],.ll-activity-evidence,[data-evidence-form],[data-evidence-list],[data-activity-form],[data-activity-list]').forEach(el=>el.remove());
+  host.querySelectorAll<HTMLElement>('.ll-workspace-cas,.ll-evidence-ledger,[data-cas-evidence],[data-history-save-evidence],.ll-activity-evidence,[data-evidence-form],[data-evidence-list],[data-activity-form],[data-activity-list],[data-mentor-evidence-form],.ll-mentor-evidence').forEach(el=>el.remove());
   ensureTeacherFallback(host);
 }
 
