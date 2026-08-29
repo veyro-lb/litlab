@@ -1,4 +1,6 @@
 import './contributor-system-audit.css';
+import './contributor-program-v3';
+import './admin-contributor-program-v3';
 
 let scheduled=false;
 let scanTimer=0;
