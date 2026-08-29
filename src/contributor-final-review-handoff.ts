@@ -22,7 +22,7 @@ let observer:MutationObserver|null=null;
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
 function fmt(value?:string){if(!value)return '';const date=new Date(value);return Number.isNaN(date.getTime())?'':date.toLocaleString([],{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'})}
 function bytes(value?:number){const n=Number(value||0);if(!n)return '';if(n<1024)return `${n} B`;if(n<1024*1024)return `${Math.round(n/1024)} KB`;return `${(n/1024/1024).toFixed(1)} MB`}
 function role(){const value=document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole||'';return value==='student'||value==='teacher'?value:''}
