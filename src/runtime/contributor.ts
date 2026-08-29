@@ -40,7 +40,8 @@ import '../contributor-compact-chat';
 import '../contributor-application-launcher';
 import '../contributor-page-experience';
 import '../contributor-system-audit';
-import '../contributor-application-guide-persistence';
+import '../contributor-guide-action-bridge';
+import '../contributor-journey-coherence';
 import '../admin-feedback';
 import '../admin-feedback-refresh-fix';
 
