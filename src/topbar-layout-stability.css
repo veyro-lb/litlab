@@ -1,0 +1,66 @@
+/* Keep the global header readable as navigation/account features grow. */
+.topbar{
+  gap:12px;
+}
+.topbar>.brand-btn,
+.topbar>.top-actions{
+  flex:0 0 auto;
+  min-width:0;
+}
+.topbar nav{
+  flex:0 1 auto;
+  min-width:0;
+  flex-wrap:nowrap;
+}
+.topbar nav button{
+  flex:0 0 auto!important;
+  min-width:max-content;
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  line-height:1.15;
+}
+.top-actions{
+  align-items:center;
+}
+.litlab-auth-root{
+  min-width:0;
+}
+.litlab-auth-signin,
+.litlab-account-trigger{
+  flex:0 0 auto;
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+.litlab-account-trigger{
+  max-width:190px;
+  min-width:0;
+}
+.litlab-account-trigger .litlab-auth-label{
+  display:block;
+  min-width:0;
+  max-width:118px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* Compact the full desktop shell before resorting to the menu. */
+@media (min-width:1241px) and (max-width:1380px){
+  .topbar{padding-inline:18px;gap:8px}
+  .topbar nav{gap:2px;padding:4px}
+  .topbar nav button{padding:8px 9px;font-size:12px}
+  .search-trigger{padding-inline:9px}
+  .search-trigger kbd{display:none}
+  .litlab-account-trigger{max-width:160px;padding-inline:9px}
+  .litlab-account-trigger .litlab-auth-label{max-width:92px}
+}
+
+/* With the signed-in account control and eight navigation destinations, the
+   old 1100px breakpoint was too late. Switch modes before labels can squeeze. */
+@media(max-width:1240px){
+  .topbar nav{display:none!important}
+  .mobile-only{display:flex!important}
+  .topbar{padding-inline:max(14px,2.5vw)}
+}
