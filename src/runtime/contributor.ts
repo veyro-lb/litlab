@@ -57,5 +57,6 @@ import '../contributor-secure-document-download';
 import '../contributor-qa-polish.css';
 import '../contributor-qa-runtime';
 import '../contributor-visual-pass.css';
+import '../contributor-guide-visibility.css';
 
 export {};
