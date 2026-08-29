@@ -9,13 +9,14 @@ const NOTICE_PREFIX='litlabReviewLifecycleSeen:';
 
 type StoredSession={access_token?:string};
 type Pipeline={application_id:string;applicant_type?:string;stage:string;mentor_required?:boolean;mentor_email?:string|null;assignment?:{teacher_name?:string|null;teacher_email?:string|null}|null;latest_document?:{id?:string;original_name?:string;version_label?:string;mentor_review_status?:string}|null};
-type WorkspaceRow={id:string;status?:string;applicant_type?:string;topics?:string};
+type WorkspaceRow={id:string;status?:string;applicant_type?:string;topics?:string;[key:string]:unknown};
 type WorkspaceEvent={selectedId?:string;workspaces?:WorkspaceRow[]};
 type ReviewNotice={id:string;application_id:string;event_type:string;actor_role:string;detail?:Record<string,unknown>;created_at:string;role_context?:string;applicant_type?:string;full_name?:string;topics?:string};
 
 let selectedId='';
 let selectedWorkspace:WorkspaceRow|null=null;
 let currentPipeline:Pipeline|null=null;
+let workspaceSignal='';
 let timer=0;
 let scanTimer=0;
 let noticeLoading=false;
@@ -47,33 +48,44 @@ function ensureStudentPath(data:Pipeline){
   const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');if(!root||selectedWorkspace?.applicant_type!=='student')return;
   let panel=root.querySelector<HTMLElement>('[data-review-lifecycle-path]');
   if(!panel){panel=document.createElement('section');panel.dataset.reviewLifecyclePath='true';panel.className='ll-review-lifecycle-path';const status=root.querySelector('.ll-workspace-status');const timeline=root.querySelector('.ll-workspace-timeline');(timeline||status||root.querySelector('.ll-workspace-head'))?.after(panel)}
-  panel.dataset.stage=tone(data.stage);panel.innerHTML=studentPathMarkup(data);
+  const markup=studentPathMarkup(data);const signature=`${data.stage}|${Boolean(data.mentor_required)}|${teacherName(data)}`;
+  panel.dataset.stage=tone(data.stage);
+  if(panel.dataset.lifecycleSignature!==signature||panel.innerHTML!==markup){panel.dataset.lifecycleSignature=signature;panel.innerHTML=markup}
 }
 
 function updateFinalControl(form:HTMLFormElement,data:Pipeline){
   const select=form.querySelector<HTMLSelectElement>('select[name="version"]');const submit=form.querySelector<HTMLButtonElement>('button[type="submit"]');if(!select||!submit)return;
+  if(data.mentor_required){
+    if(!submit.disabled&&submit.textContent!=='Submit DOCX to teacher')submit.textContent='Submit DOCX to teacher';
+    return;
+  }
   let helper=form.querySelector<HTMLElement>('[data-final-submission-helper]');
   if(!helper){helper=document.createElement('div');helper.dataset.finalSubmissionHelper='true';helper.className='ll-final-submission-helper';select.closest('label')?.after(helper);helper.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(!target?.closest('[data-mark-final]'))return;select.value='Final submission';select.dispatchEvent(new Event('change',{bubbles:true}));updateFinalControl(form,data)})}
   const final=select.value==='Final submission';
-  helper.innerHTML=`<div><b>${final?'✓ Marked as FINAL submission':'Is this the version you want LitLab to judge as final?'}</b><span>${final?'Admin completion will use this DOCX after the required review path finishes.':'Choose Final submission only when this is the version you want carried through teacher/admin review for completion.'}</span></div>${final?'<button type="button" data-mark-final class="is-final">FINAL selected</button>':'<button type="button" data-mark-final>Mark as FINAL</button>'}`;
-  if(!submit.disabled)submit.textContent=final?(data.mentor_required?'Submit FINAL DOCX to teacher':'Submit FINAL DOCX to LitLab'):(data.mentor_required?'Submit DOCX to teacher':'Submit DOCX to LitLab');
+  const markup=`<div><b>${final?'✓ Marked as FINAL submission':'Is this the version you want LitLab to judge as final?'}</b><span>${final?'Admin completion will use this DOCX after the required review path finishes.':'Choose Final submission only when this is the version you want carried through admin review for completion.'}</span></div>${final?'<button type="button" data-mark-final class="is-final">FINAL selected</button>':'<button type="button" data-mark-final>Mark as FINAL</button>'}`;
+  const signature=`direct|${final}`;
+  if(helper.dataset.lifecycleSignature!==signature||helper.innerHTML!==markup){helper.dataset.lifecycleSignature=signature;helper.innerHTML=markup}
+  const text=final?'Submit FINAL DOCX to LitLab':'Submit DOCX to LitLab';if(!submit.disabled&&submit.textContent!==text)submit.textContent=text;
 }
 
 function decorateUpload(data:Pipeline){
   const form=document.querySelector<HTMLFormElement>(`.ll-docx-form[data-docx-upload="${CSS.escape(data.application_id)}"]`);if(!form)return;
   let routeBox=form.querySelector<HTMLElement>('[data-upload-route-box]');
   if(!routeBox){routeBox=document.createElement('div');routeBox.dataset.uploadRouteBox='true';routeBox.className='ll-upload-route-box';form.prepend(routeBox)}
-  if(data.mentor_required){const name=teacherName(data);routeBox.innerHTML=`<b>Where will this DOCX go?</b><span><strong>First:</strong> ${esc(name)}. <strong>Then:</strong> either back to you for revisions, or to LitLab admin if the teacher approves it.</span>`}else routeBox.innerHTML='<b>Where will this DOCX go?</b><span>No teacher is selected, so this document goes directly to LitLab admin for review.</span>';
+  const routeMarkup=data.mentor_required?`<b>Where will this DOCX go?</b><span><strong>First:</strong> ${esc(teacherName(data))}. <strong>Then:</strong> either back to you for revisions, or to LitLab admin if the teacher approves it.</span>`:'<b>Where will this DOCX go?</b><span>No teacher is selected, so this document goes directly to LitLab admin for review.</span>';
+  const routeSignature=`${Boolean(data.mentor_required)}|${teacherName(data)}`;
+  if(routeBox.dataset.lifecycleSignature!==routeSignature||routeBox.innerHTML!==routeMarkup){routeBox.dataset.lifecycleSignature=routeSignature;routeBox.innerHTML=routeMarkup}
   updateFinalControl(form,data);
   const locked=['mentor_link','mentor_review','admin_review','complete'].includes(data.stage);
-  form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement|HTMLButtonElement>('input,select,textarea,button[type="submit"]').forEach(control=>{if(control.closest('[data-final-submission-helper]'))return;control.disabled=locked});
+  form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement|HTMLButtonElement>('input,select,textarea,button[type="submit"]').forEach(control=>{if(control.closest('[data-final-submission-helper]'))return;if(control.disabled!==locked)control.disabled=locked});
   form.classList.toggle('is-lifecycle-locked',locked);
-  if(locked){let lock=form.querySelector<HTMLElement>('[data-lifecycle-lock]');if(!lock){lock=document.createElement('div');lock.dataset.lifecycleLock='true';lock.className='ll-lifecycle-lock';form.appendChild(lock)}const message=data.stage==='mentor_review'?`Your DOCX is with ${teacherName(data)}. Wait for the teacher response: it will either return to you for revision or move to LitLab admin.`:data.stage==='mentor_link'?'Your DOCX is saved. LitLab is waiting to link the teacher account before review can begin.':data.stage==='admin_review'?'The reviewed DOCX is with LitLab admin. No new upload is needed unless LitLab asks for a revision.':'This contribution is complete. The record is archived.';lock.textContent=message}else form.querySelector('[data-lifecycle-lock]')?.remove();
+  if(locked){let lock=form.querySelector<HTMLElement>('[data-lifecycle-lock]');if(!lock){lock=document.createElement('div');lock.dataset.lifecycleLock='true';lock.className='ll-lifecycle-lock';form.appendChild(lock)}const message=data.stage==='mentor_review'?`Your DOCX is with ${teacherName(data)}. Wait for the teacher response: it will either return to you for revision or move to LitLab admin.`:data.stage==='mentor_link'?'Your DOCX is saved. LitLab is waiting to link the teacher account before review can begin.':data.stage==='admin_review'?'The reviewed DOCX is with LitLab admin. No new upload is needed unless LitLab asks for a revision.':'This contribution is complete. The record is archived.';if(lock.textContent!==message)lock.textContent=message}else form.querySelector('[data-lifecycle-lock]')?.remove();
 }
 
 function completionCard(kind:'student'|'teacher'){
   const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');if(!root)return;
   let card=root.querySelector<HTMLElement>('[data-lifecycle-complete-card]');if(!card){card=document.createElement('section');card.dataset.lifecycleCompleteCard='true';card.className='ll-lifecycle-complete-card';root.querySelector('.ll-workspace-head')?.after(card)}
+  if(card.dataset.lifecycleKind===kind)return;card.dataset.lifecycleKind=kind;
   if(kind==='teacher')card.innerHTML='<span>MENTORING COMPLETE</span><h2>Thank you for helping make LitLab better.</h2><p>Your student’s contribution is complete. Your academic testimony and review remain attached to the student’s record and can support their contributor certificate. Teachers do not need a separate LitLab certificate.</p><small>Your previous review evidence is saved. If you want to mentor another contribution later, start a new teacher reviewer application.</small>';
   else card.innerHTML='<span>CONTRIBUTION COMPLETE</span><h2>Thank you — your work is now archived.</h2><p>Your DOCX versions, evidence, teacher feedback, activity record and review history remain saved to your account. LitLab will update the site soon.</p><small>The active workspace is closed. Use “Make a new contribution” above whenever you want to start another contribution.</small>';
 }
@@ -89,7 +101,7 @@ function applyTeacherPolish(){
   const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');if(!root||selectedWorkspace?.applicant_type!=='teacher')return;
   root.classList.add('ll-teacher-dashboard-clean');
   const head=root.querySelector<HTMLElement>(':scope > .ll-workspace-head');
-  if(head){const h=head.querySelector('h2');const p=head.querySelector('p');if(h)h.textContent='Teacher review dashboard';if(p)p.textContent='Only assigned student reviews that need your academic input appear here. Open the current DOCX, score it, write notes, then approve it or request changes.'}
+  if(head){const h=head.querySelector('h2');const p=head.querySelector('p');const title='Teacher review dashboard';const copy='Only assigned student reviews that need your academic input appear here. Open the current DOCX, score it, write notes, then approve it or request changes.';if(h&&h.textContent!==title)h.textContent=title;if(p&&p.textContent!==copy)p.textContent=copy}
 }
 
 async function refreshPipeline(force=false){
@@ -127,17 +139,22 @@ function scan(force=false){
 function scheduleScan(force=false){clearTimeout(scanTimer);scanTimer=window.setTimeout(()=>scan(force),80)}
 function schedulePoll(){clearTimeout(timer);timer=window.setTimeout(async()=>{if(!document.hidden&&navigator.onLine){await refreshNotices();if(route()==='contribute')await refreshPipeline(true)}schedulePoll()},POLL_MS)}
 
-window.addEventListener('litlab:contributor-workspace-data',event=>{const detail=(event as CustomEvent<WorkspaceEvent>).detail||{};selectedId=detail.selectedId||'';const rows=detail.workspaces||[];selectedWorkspace=rows.find(row=>row.id===selectedId)||rows[0]||null;currentPipeline=null;scheduleScan(true)});
-window.addEventListener('litlab:contributor-workspace-updated',()=>{setTimeout(()=>{void refreshNotices();scheduleScan(true)},300)});
+window.addEventListener('litlab:contributor-workspace-data',event=>{const detail=(event as CustomEvent<WorkspaceEvent>).detail||{};const nextSelected=detail.selectedId||'';const rows=detail.workspaces||[];const nextWorkspace=rows.find(row=>row.id===nextSelected)||rows[0]||null;let nextSignal='';try{nextSignal=JSON.stringify([nextSelected,nextWorkspace])}catch{nextSignal=`${nextSelected}|${nextWorkspace?.status||''}|${nextWorkspace?.applicant_type||''}`};const changed=nextSignal!==workspaceSignal;selectedId=nextSelected;selectedWorkspace=nextWorkspace;if(changed){workspaceSignal=nextSignal;currentPipeline=null}scheduleScan(changed)});
+window.addEventListener('litlab:contributor-workspace-updated',()=>{setTimeout(()=>{void refreshNotices();currentPipeline=null;scheduleScan(true)},300)});
 window.addEventListener('litlab:contributor-admin-updated',()=>setTimeout(()=>void refreshNotices(),300));
-window.addEventListener('hashchange',()=>{currentPipeline=null;scheduleScan(true);setTimeout(()=>void refreshNotices(),200)});
+window.addEventListener('hashchange',()=>{workspaceSignal='';currentPipeline=null;scheduleScan(true);setTimeout(()=>void refreshNotices(),200)});
 window.addEventListener('focus',()=>{void refreshNotices();scheduleScan(true);schedulePoll()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(timer);return}void refreshNotices();scheduleScan(true);schedulePoll()});
 window.addEventListener('online',()=>{void refreshNotices();scheduleScan(true)});
-window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){initializedNotices=false;currentPipeline=null;void refreshNotices();scheduleScan(true)}});
+window.addEventListener('storage',event=>{if(event.key===SESSION_KEY){initializedNotices=false;workspaceSignal='';currentPipeline=null;void refreshNotices();scheduleScan(true)}});
 document.addEventListener('change',event=>{const target=event.target;if(target instanceof HTMLSelectElement&&target.name==='version'){const form=target.closest<HTMLFormElement>('.ll-docx-form');if(form&&currentPipeline)updateFinalControl(form,currentPipeline)}},true);
 
-const observer=new MutationObserver(()=>scheduleScan(false));
+function mutationTouchesWorkspace(mutation:MutationRecord){
+  const host=document.querySelector<HTMLElement>('[data-contributor-workspace]');
+  if(host&&(mutation.target===host||host.contains(mutation.target)))return true;
+  return Array.from(mutation.addedNodes).some(node=>node instanceof Element&&(node.matches('[data-contributor-workspace]')||Boolean(node.querySelector('[data-contributor-workspace]'))||(host?host.contains(node):false)));
+}
+const observer=new MutationObserver(mutations=>{if(route()==='contribute'&&mutations.some(mutationTouchesWorkspace))scheduleScan(false)});
 function start(){observer.observe(document.body,{childList:true,subtree:true});void refreshNotices();scheduleScan(true);schedulePoll()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 
