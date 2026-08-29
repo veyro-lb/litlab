@@ -1,14 +1,18 @@
-/* Keep the global header readable as navigation/account features grow. */
+/* Preserve the original roomy desktop navigation while keeping account names from squeezing it. */
 .topbar{
   gap:12px;
 }
-.topbar>.brand-btn,
-.topbar>.top-actions{
+.topbar>.brand-btn{
   flex:0 0 auto;
   min-width:0;
 }
-.topbar nav{
+.topbar>.top-actions{
   flex:0 1 auto;
+  min-width:0;
+  align-items:center;
+}
+.topbar nav{
+  flex:0 0 auto;
   min-width:0;
   flex-wrap:nowrap;
 }
@@ -20,47 +24,50 @@
   word-break:normal!important;
   line-height:1.15;
 }
-.top-actions{
-  align-items:center;
-}
+
+/* Keep short names at their natural size. Long names give up space first and
+   truncate cleanly, so the navigation can stay at its normal desktop size. */
 .litlab-auth-root{
+  flex:0 1 auto;
   min-width:0;
 }
 .litlab-auth-signin,
 .litlab-account-trigger{
-  flex:0 0 auto;
   white-space:nowrap!important;
   overflow-wrap:normal!important;
   word-break:normal!important;
 }
+.litlab-auth-signin{
+  flex:0 0 auto;
+}
 .litlab-account-trigger{
-  max-width:190px;
-  min-width:0;
+  flex:0 1 auto;
+  min-width:44px;
+  max-width:min(210px,16vw);
+}
+.litlab-account-trigger img,
+.litlab-account-trigger .litlab-account-initials,
+.litlab-account-trigger .litlab-account-chevron{
+  flex:0 0 auto;
 }
 .litlab-account-trigger .litlab-auth-label{
   display:block;
+  flex:1 1 auto;
   min-width:0;
-  max-width:118px;
+  max-width:150px;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
 
-/* Compact the full desktop shell before resorting to the menu. */
-@media (min-width:1241px) and (max-width:1380px){
-  .topbar{padding-inline:18px;gap:8px}
+/* Only compact slightly in the very narrow desktop band before the existing
+   mobile-menu breakpoint. Normal laptop/desktop widths keep the original sizing. */
+@media (min-width:1101px) and (max-width:1180px){
+  .topbar{padding-inline:14px;gap:8px}
   .topbar nav{gap:2px;padding:4px}
-  .topbar nav button{padding:8px 9px;font-size:12px}
+  .topbar nav button{padding:8px 10px;font-size:12.5px}
   .search-trigger{padding-inline:9px}
   .search-trigger kbd{display:none}
-  .litlab-account-trigger{max-width:160px;padding-inline:9px}
-  .litlab-account-trigger .litlab-auth-label{max-width:92px}
-}
-
-/* With the signed-in account control and eight navigation destinations, the
-   old 1100px breakpoint was too late. Switch modes before labels can squeeze. */
-@media(max-width:1240px){
-  .topbar nav{display:none!important}
-  .mobile-only{display:flex!important}
-  .topbar{padding-inline:max(14px,2.5vw)}
+  .litlab-account-trigger{max-width:150px;padding-inline:9px}
+  .litlab-account-trigger .litlab-auth-label{max-width:90px}
 }
