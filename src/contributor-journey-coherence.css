@@ -1,0 +1,16 @@
+.ll-v3-journey[data-journey-managed="true"]{scroll-margin-top:150px}
+.ll-v3-journey[data-journey-role="student"] .ll-v3-milestones{grid-template-columns:repeat(7,minmax(0,1fr))}
+.ll-v3-journey[data-journey-role="teacher"] .ll-v3-milestones{grid-template-columns:repeat(6,minmax(0,1fr))}
+.ll-v3-journey[data-journey-role="teacher"] .ll-v3-journey-head>div>span{color:var(--green,#38a775)}
+.ll-v3-journey[data-journey-role="teacher"] .ll-v3-next.is-action{border-color:color-mix(in srgb,var(--green,#38a775) 45%,var(--line));box-shadow:inset 4px 0 var(--green,#38a775)}
+.ll-v3-journey[data-journey-role="teacher"] .ll-v3-milestones .is-current{background:color-mix(in srgb,var(--green,#38a775) 8%,transparent);border-color:color-mix(in srgb,var(--green,#38a775) 25%,var(--line))}
+.ll-v3-journey[data-journey-role="teacher"] .ll-v3-milestones .is-current i{border-color:var(--green,#38a775);color:var(--green,#38a775);box-shadow:0 0 0 4px color-mix(in srgb,var(--green,#38a775) 10%,transparent)}
+@media(max-width:900px){
+  .ll-v3-journey[data-journey-role="student"] .ll-v3-milestones,
+  .ll-v3-journey[data-journey-role="teacher"] .ll-v3-milestones{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+  .ll-v3-journey[data-journey-role="student"] .ll-v3-milestones,
+  .ll-v3-journey[data-journey-role="teacher"] .ll-v3-milestones{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ll-v3-journey[data-journey-managed="true"]{scroll-margin-top:138px}
+}
