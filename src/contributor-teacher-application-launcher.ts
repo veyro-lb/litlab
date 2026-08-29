@@ -16,7 +16,8 @@ function launcher(){return document.querySelector<HTMLElement>('[data-teacher-ap
 
 function removeGenericTeacherControl(){
   if(!teacherAccount())return;
-  document.querySelector('[data-new-contribution-control]')?.remove();
+  const generic=document.querySelector('[data-new-contribution-control]');
+  if(generic){hasTeacherApplication=true;generic.remove()}
 }
 
 function ensureAtEnd(){
