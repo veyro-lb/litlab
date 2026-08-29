@@ -7,7 +7,7 @@ const REQUEST_TIMEOUT_MS=12_000;
 
 type ContributorRole='student'|'teacher';
 type StoredSession={access_token?:string};
-type RoleState={role:ContributorRole|null;needs_choice?:boolean;has_conflict?:boolean;existing_roles?:string[]};
+type RoleState={role:ContributorRole|null;is_admin?:boolean;needs_choice?:boolean;has_conflict?:boolean;existing_roles?:string[]};
 
 let cached:RoleState|null=null;
 let loading=false;
@@ -18,7 +18,6 @@ let observer:MutationObserver|null=null;
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 function signedIn(){return Boolean(token())}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
 
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const auth=token();if(!auth)throw new Error('Sign in required');
@@ -61,6 +60,7 @@ function roleSummary(role:ContributorRole){
 }
 
 function roleCard(role:ContributorRole){const c=roleSummary(role);return `<section class="ll-account-role-summary is-${role}" data-account-role-summary><div class="ll-account-role-icon">${role==='teacher'?'✓':'✦'}</div><div><span>${c.kicker}</span><h2>${c.title}</h2><p>${c.body}</p><small>Account role: <b>${c.badge}</b> • This role stays attached to this LitLab account. Contact LitLab if it was selected incorrectly.</small></div></section>`}
+function adminCard(){return `<section class="ll-account-role-summary is-admin" data-account-role-summary><div class="ll-account-role-icon">A</div><div><span>LITLAB ADMIN ACCOUNT</span><h2>No contributor role setup needed.</h2><p>This account manages contributor applications and review workflows. It is not treated as a Student or Teacher contributor account, so LitLab will never ask this account to choose between those roles.</p><small>Account role: <b>Admin</b></small></div></section>`}
 
 function choiceMarkup(){return `<section class="ll-account-role-choice" data-account-role-choice><div class="ll-account-role-choice-head"><span>ONE-TIME CONTRIBUTOR SETUP</span><h2>How will you use LitLab Contributors?</h2><p>Choose the role that matches this account. Keeping one contributor role per account prevents student work and teacher reviews from getting mixed together.</p></div><div class="ll-account-role-options"><button type="button" data-choose-contributor-role="student"><i>✦</i><span><b>Student contributor</b><small>I will submit my own LitLab contributions, DOCX work and revisions.</small><em>Student application • evidence • feedback • certificate</em></span></button><button type="button" data-choose-contributor-role="teacher"><i>✓</i><span><b>Teacher / mentor</b><small>I will review or mentor student contributions assigned to me.</small><em>Teacher application • assigned students • rubric • testimony</em></span></button></div><div class="ll-account-role-lock-note"><b>Choose carefully.</b><span>Your contributor role stays with this account so the two workflows do not interfere with each other. If you choose the wrong role, contact LitLab instead of creating mixed student/teacher records.</span></div><p data-account-role-status role="status" aria-live="polite"></p></section>`}
 
@@ -69,13 +69,26 @@ function conflictMarkup(){return `<section class="ll-account-role-choice is-conf
 function ensureRolePanel(state:RoleState){
   const host=root();const apply=applySection();if(!host||!apply)return;
   host.querySelector('[data-account-role-choice]')?.remove();host.querySelector('[data-account-role-summary]')?.remove();
+  if(state.is_admin){apply.before(document.createRange().createContextualFragment(adminCard()));return}
   if(state.has_conflict){apply.before(document.createRange().createContextualFragment(conflictMarkup()));return}
   if(state.needs_choice||!state.role){apply.before(document.createRange().createContextualFragment(choiceMarkup()));wireChoice();return}
   apply.before(document.createRange().createContextualFragment(roleCard(state.role)));
 }
 
+function personalizeAdminPage(){
+  const host=root();const f=form();const apply=applySection();if(!host)return;
+  host.dataset.contributorAccountRole='admin';
+  host.classList.remove('ll-account-role-blocked');
+  const roleSection=host.querySelector<HTMLElement>('.ll-contrib-role-grid')?.closest('.ll-contrib-section') as HTMLElement|null;if(roleSection)roleSection.hidden=true;
+  if(apply)apply.hidden=true;
+  if(f)f.hidden=true;
+  const hero=host.querySelector<HTMLElement>('.ll-contrib-hero-copy');
+  const primary=hero?.querySelector<HTMLAnchorElement>('.ll-contrib-primary');if(primary)primary.hidden=true;
+}
+
 function personalizePage(role:ContributorRole|null,blocked=false){
-  const host=root();const f=form();if(!host)return;
+  const host=root();const f=form();const apply=applySection();if(!host)return;
+  if(apply)apply.hidden=false;
   host.dataset.contributorAccountRole=role||'unselected';
   host.classList.toggle('ll-account-role-blocked',blocked||!role);
   const roleSection=host.querySelector<HTMLElement>('.ll-contrib-role-grid')?.closest('.ll-contrib-section') as HTMLElement|null;if(roleSection)roleSection.hidden=true;
@@ -84,9 +97,9 @@ function personalizePage(role:ContributorRole|null,blocked=false){
   const hero=host.querySelector<HTMLElement>('.ll-contrib-hero-copy');
   const primary=hero?.querySelector<HTMLAnchorElement>('.ll-contrib-primary');
   const secondary=hero?.querySelector<HTMLAnchorElement>('.ll-contrib-secondary');
-  if(primary&&role)primary.textContent=roleSummary(role).action;
+  if(primary){primary.hidden=false;if(role)primary.textContent=roleSummary(role).action}
   if(secondary)secondary.hidden=role==='teacher';
-  const applyHead=applySection()?.querySelector<HTMLElement>('.ll-contrib-section-head');
+  const applyHead=apply?.querySelector<HTMLElement>('.ll-contrib-section-head');
   if(applyHead&&role){
     const span=applyHead.querySelector('span');const h2=applyHead.querySelector('h2');const p=applyHead.querySelector('p');
     if(span)span.textContent=role==='teacher'?'Teacher reviewer application':'Student contributor application';
@@ -98,6 +111,7 @@ function personalizePage(role:ContributorRole|null,blocked=false){
 
 function applyState(state:RoleState){
   ensureRolePanel(state);
+  if(state.is_admin){personalizeAdminPage();return}
   const blocked=Boolean(state.has_conflict||state.needs_choice||!state.role);
   personalizePage(state.role,blocked);
   if(state.needs_choice){requestAnimationFrame(()=>document.querySelector('[data-account-role-choice]')?.scrollIntoView({block:'center',behavior:'smooth'}))}
@@ -144,6 +158,7 @@ function scan(){
 // Defensive UI guard. The database also enforces that application.applicant_type equals the account role.
 document.addEventListener('submit',event=>{
   const f=event.target instanceof HTMLFormElement?event.target:null;if(!f||f.id!=='ll-contributor-form'||!signedIn())return;
+  if(cached?.is_admin){event.preventDefault();event.stopImmediatePropagation();return}
   if(!cached?.role){event.preventDefault();event.stopImmediatePropagation();applyState(cached||{role:null,needs_choice:true});return}
   forceFormRole(cached.role);
 },true);
