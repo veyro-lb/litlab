@@ -52,4 +52,10 @@ import '../contributor-live-sync';
 import '../contributor-activity-live-sync';
 import '../contributor-secure-document-download';
 
+// Final contributor QA layer: responsive containment, duplicate-render protection,
+// then the visual override sheet so no stale dark surfaces win the cascade.
+import '../contributor-qa-polish.css';
+import '../contributor-qa-runtime';
+import '../contributor-visual-pass.css';
+
 export {};
