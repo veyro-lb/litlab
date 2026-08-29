@@ -1,4 +1,5 @@
 import './contributor-docx-upload.css';
+import {encodeStoragePath,normalizeDocxFileName} from './contributor-file-names';
 
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
@@ -8,7 +9,6 @@ const MAX_DOCX_BYTES=15*1024*1024;
 const REQUEST_TIMEOUT_MS=30_000;
 
 type StoredSession={access_token?:string};
-
 type RpcErrorBody={message?:string;error?:string;error_description?:string;hint?:string;details?:string};
 
 let uploading=false;
@@ -22,7 +22,6 @@ function userId(){
     return String(JSON.parse(atob(normalized))?.sub||'');
   }catch{return ''}
 }
-function encodedPath(path:string){return path.split('/').map(encodeURIComponent).join('/')}
 function randomId(){
   if(typeof crypto.randomUUID==='function')return crypto.randomUUID();
   const bytes=new Uint8Array(16);crypto.getRandomValues(bytes);bytes[6]=(bytes[6]&15)|64;bytes[8]=(bytes[8]&63)|128;
@@ -74,7 +73,7 @@ function ensurePortal(form:HTMLFormElement){
 }
 
 async function cleanup(path:string){
-  try{await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodedPath(path)}`,{method:'DELETE',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`}})}catch{}
+  try{await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodeStoragePath(path)}`,{method:'DELETE',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${token()}`}})}catch{}
 }
 function friendlyUploadFailure(status:number,message:string){
   const lower=message.toLowerCase();
@@ -103,22 +102,23 @@ async function submitDocx(form:HTMLFormElement,applicationId:string){
   ensurePortal(form);
   const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');const cancel=activePortal?.querySelector<HTMLButtonElement>('[data-docx-session-cancel]');
   const path=`${applicationId}/${uid}/${randomId()}.docx`;
+  const originalName=normalizeDocxFileName(file.name);
   uploading=true;if(button){button.disabled=true;button.textContent='Uploading Word document…'}if(cancel)cancel.disabled=true;
-  setState(form,'Uploading privately to LitLab…');
+  setState(form,`Uploading ${originalName} privately to LitLab…`);
   try{
     const controller=new AbortController();const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
     let upload:Response;
     try{
-      upload=await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodedPath(path)}`,{method:'POST',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`,'Content-Type':DOCX_MIME,'x-upsert':'false','Cache-Control':'no-store'},body:file,signal:controller.signal});
+      upload=await fetch(`${SUPABASE_URL}/storage/v1/object/contributor-documents/${encodeStoragePath(path)}`,{method:'POST',headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`,'Content-Type':DOCX_MIME,'x-upsert':'false','Cache-Control':'no-store'},body:file,signal:controller.signal});
     }catch(error){if(error instanceof DOMException&&error.name==='AbortError')throw new Error('The file upload timed out. Please retry on a stable connection.');throw error}
     finally{window.clearTimeout(timeout)}
     if(!upload.ok){const message=await responseMessage(upload);throw new Error(friendlyUploadFailure(upload.status,message))}
 
     try{
-      await rpc('register_my_litlab_contributor_document',{p_application_id:applicationId,p_storage_path:path,p_original_name:file.name,p_file_size:file.size,p_version_label:String(data.get('version')||'Draft'),p_note:String(data.get('note')||'').trim()||null});
+      await rpc('register_my_litlab_contributor_document',{p_application_id:applicationId,p_storage_path:path,p_original_name:originalName,p_file_size:file.size,p_version_label:String(data.get('version')||'Draft'),p_note:String(data.get('note')||'').trim()||null});
     }catch(error){await cleanup(path);throw error}
 
-    setState(form,'Word document submitted successfully. LitLab can now review this version.','success');
+    setState(form,`${originalName} submitted successfully. LitLab can now review this version.`,'success');
     form.reset();
     window.setTimeout(()=>{endPortal();window.dispatchEvent(new CustomEvent('litlab:contributor-workspace-updated'))},650);
   }catch(error){
@@ -130,17 +130,15 @@ async function submitDocx(form:HTMLFormElement,applicationId:string){
   }
 }
 
-// Preserve a selected FileList outside the auto-refreshed workspace before the
-// 20-second workspace refresh can replace the input element.
 document.addEventListener('change',event=>{
   const input=event.target instanceof HTMLInputElement?event.target:null;
   if(!input||input.type!=='file'||input.name!=='docx'||!input.files?.length)return;
   const form=input.closest<HTMLFormElement>('form[data-docx-upload]');if(!form)return;
-  ensurePortal(form);setState(form,`${input.files[0].name} selected. Complete the checklist, then submit.`);
+  const file=input.files[0];const safeName=normalizeDocxFileName(file.name);
+  const renamed=safeName!==file.name?` LitLab will save the filename as ${safeName}.`:'';
+  ensurePortal(form);setState(form,`${file.name} selected.${renamed} Complete the checklist, then submit.`);
 },true);
 
-// Registered before contributor-workspace.ts. Own DOCX submissions so generic
-// browser MIME reporting cannot reject a valid Word file before Storage sees it.
 document.addEventListener('submit',event=>{
   const form=event.target instanceof HTMLFormElement?event.target:null;
   const applicationId=form?.dataset.docxUpload||'';
