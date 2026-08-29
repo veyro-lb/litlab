@@ -1,0 +1,8 @@
+.ll-docx-turn-notice{display:flex;align-items:flex-start;gap:12px;margin:12px 0 14px;padding:13px 14px;border:1px solid rgba(20,26,35,.09);border-radius:14px;background:rgba(20,26,35,.025)}
+.ll-docx-turn-notice>span{width:32px;height:32px;flex:0 0 auto;display:grid;place-items:center;border-radius:10px;background:rgba(20,26,35,.055);font-size:14px}
+.ll-docx-turn-notice b{display:block;font-size:12px;font-weight:950}.ll-docx-turn-notice p{margin:4px 0 0;color:#68717d;font-size:10px;line-height:1.55}
+.ll-docx-turn-notice.is-locked{border-color:rgba(116,125,144,.18);background:rgba(116,125,144,.055)}
+.ll-docx-turn-notice.is-open{border-color:rgba(54,190,134,.24);background:rgba(54,190,134,.065)}.ll-docx-turn-notice.is-open>span{background:rgba(54,190,134,.12)}.ll-docx-turn-notice.is-open b{color:#167647}
+.ll-docx-turn-locked [data-final-submission-helper],.ll-docx-turn-locked [data-upload-route-box]{display:none!important}
+html[data-theme="dark"] .ll-docx-turn-notice{background:rgba(255,255,255,.04);border-color:#303744}html[data-theme="dark"] .ll-docx-turn-notice p{color:#b5bdc8}html[data-theme="dark"] .ll-docx-turn-notice.is-open{background:rgba(54,190,134,.08);border-color:rgba(54,190,134,.22)}html[data-theme="dark"] .ll-docx-turn-notice.is-open b{color:#72d6a6}
+@media(max-width:620px){.ll-docx-turn-notice{padding:12px}.ll-docx-turn-notice p{font-size:11px}}
