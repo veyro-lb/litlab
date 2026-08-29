@@ -7,6 +7,7 @@ import './contributor-program-v3';
 import './admin-contributor-program-v3';
 import './contributor-qa-polish.css';
 import './contributor-mobile-frame.css';
+import './contributor-guide-start-here.css';
 
 let scheduled=false;
 let scanTimer=0;
