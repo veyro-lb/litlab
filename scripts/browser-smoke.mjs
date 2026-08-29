@@ -17,89 +17,125 @@ if(!chromePath)throw new Error(`No Chrome/Chromium binary found. Checked: ${chro
 const outputDir=join(process.cwd(),'qa-artifacts');
 await mkdir(outputDir,{recursive:true});
 const profileDir=await mkdtemp(join(tmpdir(),'litlab-chrome-'));
-const port=9229;
 const chrome=spawn(chromePath,[
-  '--headless=new','--no-sandbox','--disable-gpu','--disable-dev-shm-usage',
-  `--remote-debugging-port=${port}`,`--user-data-dir=${profileDir}`,'about:blank'
+  '--headless',
+  '--no-sandbox',
+  '--disable-gpu',
+  '--disable-dev-shm-usage',
+  '--disable-background-networking',
+  '--disable-component-update',
+  '--disable-default-apps',
+  '--disable-extensions',
+  '--disable-sync',
+  '--metrics-recording-only',
+  '--mute-audio',
+  '--no-first-run',
+  '--no-default-browser-check',
+  '--remote-allow-origins=*',
+  '--remote-debugging-address=127.0.0.1',
+  '--remote-debugging-port=0',
+  `--user-data-dir=${profileDir}`,
+  'about:blank'
 ],{stdio:['ignore','ignore','pipe']});
 let chromeStderr='';
-chrome.stderr.on('data',chunk=>{chromeStderr+=String(chunk);if(chromeStderr.length>12000)chromeStderr=chromeStderr.slice(-12000)});
+let browserDebuggerUrl='';
+chrome.stderr.on('data',chunk=>{
+  const text=String(chunk);
+  chromeStderr+=text;
+  if(chromeStderr.length>24000)chromeStderr=chromeStderr.slice(-24000);
+  const match=text.match(/DevTools listening on (ws:\/\/[^\s]+)/);
+  if(match)browserDebuggerUrl=match[1];
+});
 
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function waitForDebugger(){
-  for(let attempt=0;attempt<50;attempt++){
-    try{const response=await fetch(`http://127.0.0.1:${port}/json/list`);if(response.ok){const targets=await response.json();if(targets[0]?.webSocketDebuggerUrl)return targets[0].webSocketDebuggerUrl}}catch{}
-    await sleep(100);
-  }
-  throw new Error(`Chrome DevTools endpoint did not become ready. ${chromeStderr}`);
-}
-
-const websocketUrl=await waitForDebugger();
-const ws=new WebSocket(websocketUrl);
-await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true})});
-let nextId=0;
-const pending=new Map();
-const runtimeErrors=[];
-ws.addEventListener('message',event=>{
-  const message=JSON.parse(String(event.data));
-  if(message.id){
-    const item=pending.get(message.id);if(!item)return;
-    pending.delete(message.id);
-    if(message.error)item.reject(new Error(`${item.method}: ${message.error.message}`));else item.resolve(message.result||{});
-    return;
-  }
-  if(message.method==='Runtime.exceptionThrown'){
-    const detail=message.params?.exceptionDetails;
-    runtimeErrors.push(detail?.exception?.description||detail?.text||'Uncaught browser exception');
-  }
-});
-function command(method,params={}){
-  return new Promise((resolve,reject)=>{
-    const id=++nextId;pending.set(id,{resolve,reject,method});ws.send(JSON.stringify({id,method,params}));
-  });
-}
-
-await command('Page.enable');
-await command('Runtime.enable');
-await command('Network.enable');
-const report=[];
-const failures=[];
-
-const auditExpression=`(()=>{
-  const html=document.documentElement;
-  const body=document.body;
-  const viewportWidth=html.clientWidth;
-  const scrollWidth=Math.max(html.scrollWidth,body?.scrollWidth||0);
-  const overflow=scrollWidth>viewportWidth+2;
-  const offenders=[];
-  if(overflow){
-    for(const el of document.querySelectorAll('body *')){
-      if(offenders.length>=12)break;
-      const style=getComputedStyle(el);
-      if(style.display==='none'||style.visibility==='hidden')continue;
-      const rect=el.getBoundingClientRect();
-      if(rect.width<=0||rect.height<=0)continue;
-      if(rect.right>viewportWidth+2||rect.left<-2){
-        offenders.push({tag:el.tagName.toLowerCase(),className:String(el.className||'').slice(0,100),left:Math.round(rect.left),right:Math.round(rect.right),width:Math.round(rect.width)});
+  for(let attempt=0;attempt<200;attempt++){
+    if(chrome.exitCode!==null)throw new Error(`Chrome exited before DevTools became ready (code ${chrome.exitCode}). ${chromeStderr}`);
+    if(browserDebuggerUrl){
+      const endpoint=new URL(browserDebuggerUrl);
+      const hosts=[endpoint.hostname,'127.0.0.1','localhost'];
+      for(const host of [...new Set(hosts)]){
+        try{
+          const response=await fetch(`http://${host}:${endpoint.port}/json/list`);
+          if(!response.ok)continue;
+          const targets=await response.json();
+          const page=targets.find(target=>target.type==='page'&&target.webSocketDebuggerUrl)||targets.find(target=>target.webSocketDebuggerUrl);
+          if(page?.webSocketDebuggerUrl)return page.webSocketDebuggerUrl;
+        }catch{}
       }
     }
+    await sleep(100);
   }
-  const main=document.querySelector('main#main,main[data-litlab-special-route-host],main[data-litlab-react-main]');
-  return {
-    title:document.title,
-    viewportWidth,
-    scrollWidth,
-    overflow,
-    offenders,
-    hasMain:Boolean(main),
-    mainTextLength:(main?.textContent||'').trim().length,
-    featureLoading:html.dataset.litlabFeatureLoading||'',
-    featureReady:html.dataset.litlabFeatureReady||'',
-    bodyHeight:Math.round(body?.getBoundingClientRect().height||0)
-  };
-})()`;
+  throw new Error(`Chrome DevTools endpoint did not become ready after 20 seconds. ${chromeStderr}`);
+}
 
+let ws;
 try{
+  const websocketUrl=await waitForDebugger();
+  ws=new WebSocket(websocketUrl);
+  await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true})});
+  let nextId=0;
+  const pending=new Map();
+  const runtimeErrors=[];
+  ws.addEventListener('message',event=>{
+    const message=JSON.parse(String(event.data));
+    if(message.id){
+      const item=pending.get(message.id);if(!item)return;
+      pending.delete(message.id);
+      if(message.error)item.reject(new Error(`${item.method}: ${message.error.message}`));else item.resolve(message.result||{});
+      return;
+    }
+    if(message.method==='Runtime.exceptionThrown'){
+      const detail=message.params?.exceptionDetails;
+      runtimeErrors.push(detail?.exception?.description||detail?.text||'Uncaught browser exception');
+    }
+  });
+  function command(method,params={}){
+    return new Promise((resolve,reject)=>{
+      const id=++nextId;pending.set(id,{resolve,reject,method});ws.send(JSON.stringify({id,method,params}));
+    });
+  }
+
+  await command('Page.enable');
+  await command('Runtime.enable');
+  await command('Network.enable');
+  const report=[];
+  const failures=[];
+
+  const auditExpression=`(()=>{
+    const html=document.documentElement;
+    const body=document.body;
+    const viewportWidth=html.clientWidth;
+    const scrollWidth=Math.max(html.scrollWidth,body?.scrollWidth||0);
+    const overflow=scrollWidth>viewportWidth+2;
+    const offenders=[];
+    if(overflow){
+      for(const el of document.querySelectorAll('body *')){
+        if(offenders.length>=12)break;
+        const style=getComputedStyle(el);
+        if(style.display==='none'||style.visibility==='hidden')continue;
+        const rect=el.getBoundingClientRect();
+        if(rect.width<=0||rect.height<=0)continue;
+        if(rect.right>viewportWidth+2||rect.left<-2){
+          offenders.push({tag:el.tagName.toLowerCase(),className:String(el.className||'').slice(0,100),left:Math.round(rect.left),right:Math.round(rect.right),width:Math.round(rect.width)});
+        }
+      }
+    }
+    const main=document.querySelector('main#main,main[data-litlab-special-route-host],main[data-litlab-react-main]');
+    return {
+      title:document.title,
+      viewportWidth,
+      scrollWidth,
+      overflow,
+      offenders,
+      hasMain:Boolean(main),
+      mainTextLength:(main?.textContent||'').trim().length,
+      featureLoading:html.dataset.litlabFeatureLoading||'',
+      featureReady:html.dataset.litlabFeatureReady||'',
+      bodyHeight:Math.round(body?.getBoundingClientRect().height||0)
+    };
+  })()`;
+
   for(const viewport of viewports){
     await command('Emulation.setDeviceMetricsOverride',{width:viewport.width,height:viewport.height,deviceScaleFactor:viewport.deviceScaleFactor,mobile:viewport.mobile,screenWidth:viewport.width,screenHeight:viewport.height});
     for(const route of routes){
@@ -121,15 +157,15 @@ try{
       console.log(`${viewport.name.padEnd(7)} ${route.padEnd(19)} width ${audit.viewportWidth}/${audit.scrollWidth} main ${audit.mainTextLength} chars${audit.overflow?' OVERFLOW':''}`);
     }
   }
-}finally{
+
   await writeFile(join(outputDir,'browser-smoke-report.json'),JSON.stringify({generatedAt:new Date().toISOString(),base,report,failures},null,2));
-  ws.close();
-  chrome.kill('SIGTERM');
+  if(failures.length){
+    console.error('\nBrowser smoke audit failed:\n');
+    failures.forEach(failure=>console.error(`- ${failure}`));
+    process.exitCode=1;
+  }else console.log(`\nBrowser smoke audit passed: ${report.length} desktop/mobile route renders checked.`);
+}finally{
+  try{ws?.close()}catch{}
+  if(chrome.exitCode===null)chrome.kill('SIGTERM');
   await rm(profileDir,{recursive:true,force:true});
 }
-
-if(failures.length){
-  console.error('\nBrowser smoke audit failed:\n');
-  failures.forEach(failure=>console.error(`- ${failure}`));
-  process.exitCode=1;
-}else console.log(`\nBrowser smoke audit passed: ${report.length} desktop/mobile route renders checked.`);
