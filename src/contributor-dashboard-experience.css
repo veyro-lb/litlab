@@ -1,0 +1,108 @@
+/* Contributor dashboard experience: a calm, task-first layer for Student and Teacher workspaces. */
+.ll-dashboard-experience{display:grid;gap:16px;margin:0 0 24px;scroll-margin-top:150px}
+.ll-dashboard-hero{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:18px;padding:22px;border:1px solid rgba(115,87,246,.16);border-radius:26px;background:linear-gradient(145deg,#fff 0%,#fbfaff 55%,#f4f0ff 100%);box-shadow:0 18px 48px rgba(64,48,139,.08)}
+.ll-dashboard-hero:after{content:"";position:absolute;width:260px;height:260px;right:-100px;top:-130px;border-radius:50%;background:radial-gradient(circle,rgba(115,87,246,.16),rgba(115,87,246,0) 68%);pointer-events:none}
+.ll-dashboard-summary,.ll-dashboard-next{position:relative;z-index:1;min-width:0}
+.ll-dashboard-eyebrow,.ll-dashboard-card-label{display:block;font-size:9px;font-weight:950;letter-spacing:.13em;text-transform:uppercase;color:#7357f6}
+.ll-dashboard-summary h2{margin:7px 0 7px;font-size:clamp(28px,3.4vw,42px);line-height:1.02;letter-spacing:-.045em}
+.ll-dashboard-summary>p{max-width:720px;margin:0;color:#687083;line-height:1.58}
+.ll-dashboard-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.ll-dashboard-badge{display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:5px 9px;border:1px solid rgba(107,116,137,.14);border-radius:999px;background:rgba(255,255,255,.72);color:#596174;font-size:10px;font-weight:850}
+.ll-dashboard-badge:before{content:"";width:7px;height:7px;border-radius:50%;background:#8b93a3;box-shadow:0 0 0 3px rgba(139,147,163,.1)}
+.ll-dashboard-badge.is-action:before{background:#7357f6;box-shadow:0 0 0 3px rgba(115,87,246,.11)}
+.ll-dashboard-badge.is-waiting:before{background:#d69725;box-shadow:0 0 0 3px rgba(214,151,37,.12)}
+.ll-dashboard-badge.is-success:before{background:#2d9b68;box-shadow:0 0 0 3px rgba(45,155,104,.12)}
+.ll-dashboard-badge.is-danger:before{background:#c34b42;box-shadow:0 0 0 3px rgba(195,75,66,.11)}
+.ll-dashboard-next{align-self:stretch;padding:17px;border:1px solid rgba(115,87,246,.17);border-radius:20px;background:rgba(255,255,255,.78);box-shadow:0 10px 26px rgba(63,49,133,.055)}
+.ll-dashboard-next h3{margin:5px 0 6px;font-size:20px;letter-spacing:-.025em}
+.ll-dashboard-next p{margin:0;color:#697183;font-size:12px;line-height:1.5}
+.ll-dashboard-next button{margin-top:13px;border:0;border-radius:12px;padding:10px 13px;background:linear-gradient(135deg,#7357f6,#6048df);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(115,87,246,.18);transition:transform .18s ease,box-shadow .18s ease}
+.ll-dashboard-next button:hover{transform:translateY(-1px);box-shadow:0 11px 22px rgba(115,87,246,.22)}
+
+.ll-dashboard-command-strip{position:sticky;top:84px;z-index:17;display:flex;align-items:center;gap:7px;overflow-x:auto;padding:8px;border:1px solid rgba(81,69,136,.11);border-radius:16px;background:rgba(250,250,255,.9);backdrop-filter:blur(16px);box-shadow:0 8px 24px rgba(42,36,76,.045);scrollbar-width:none}
+.ll-dashboard-command-strip::-webkit-scrollbar{display:none}
+.ll-dashboard-command-strip button{flex:0 0 auto;border:1px solid transparent;border-radius:10px;background:transparent;color:#646c7e;padding:8px 10px;font-size:10px;font-weight:850;cursor:pointer;transition:background .16s ease,color .16s ease,border-color .16s ease}
+.ll-dashboard-command-strip button:hover,.ll-dashboard-command-strip button:focus-visible{background:#f1edff;color:#6549e5;border-color:rgba(115,87,246,.11)}
+
+.ll-dashboard-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ll-dashboard-stat{padding:14px 15px;border:1px solid rgba(72,78,98,.09);border-radius:17px;background:#fff;box-shadow:0 7px 22px rgba(31,35,48,.035)}
+.ll-dashboard-stat span{display:block;color:#7b8291;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.075em}
+.ll-dashboard-stat strong{display:block;margin-top:5px;color:#252b3b;font-size:22px;line-height:1;letter-spacing:-.035em}
+.ll-dashboard-stat small{display:block;margin-top:5px;color:#838a98;font-size:9px;line-height:1.35}
+
+.ll-dashboard-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:12px}
+.ll-dashboard-card{min-width:0;padding:17px;border:1px solid rgba(77,70,113,.11);border-radius:20px;background:#fff;box-shadow:0 9px 28px rgba(39,34,70,.04)}
+.ll-dashboard-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.ll-dashboard-card-head h3{margin:4px 0 0;font-size:19px;letter-spacing:-.02em}
+.ll-dashboard-card-head em{font-style:normal;color:#777f8e;font-size:9px;font-weight:800;text-align:right}
+
+.ll-dashboard-current-doc{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:11px;align-items:center;padding:13px;border:1px solid rgba(115,87,246,.11);border-radius:15px;background:linear-gradient(135deg,#faf8ff,#fff)}
+.ll-dashboard-doc-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#ece7ff;color:#6549e5;font-weight:950}
+.ll-dashboard-current-doc b,.ll-dashboard-current-doc small{display:block}
+.ll-dashboard-current-doc b{font-size:12px;overflow-wrap:anywhere}
+.ll-dashboard-current-doc small{margin-top:3px;color:#7a8291;font-size:9px;line-height:1.4}
+.ll-dashboard-current-doc button{border:1px solid rgba(115,87,246,.16);border-radius:11px;background:#f4f1ff;color:#6549e5;padding:8px 10px;font-size:9px;font-weight:900;cursor:pointer}
+.ll-dashboard-empty{padding:14px;border:1px dashed rgba(115,87,246,.2);border-radius:14px;background:rgba(115,87,246,.025);color:#70788a;font-size:11px;line-height:1.5}
+
+.ll-dashboard-feedback{display:grid;gap:10px}
+.ll-dashboard-feedback-lead{padding:12px 13px;border:1px solid rgba(84,130,255,.14);border-radius:14px;background:rgba(84,130,255,.045)}
+.ll-dashboard-feedback-lead strong{display:block;font-size:12px}
+.ll-dashboard-feedback-lead p{margin:5px 0 0;color:#60697a;font-size:11px;line-height:1.52;white-space:pre-wrap}
+.ll-dashboard-feedback-meta{display:flex;flex-wrap:wrap;gap:6px}
+.ll-dashboard-feedback-meta span{padding:5px 7px;border-radius:999px;background:#f4f5f8;color:#626a78;font-size:8px;font-weight:850}
+.ll-dashboard-feedback-meta span.good{background:#edf8f1;color:#247a55}
+.ll-dashboard-feedback-meta span.attention{background:#fff0ee;color:#a44139}
+
+.ll-dashboard-timeline{display:grid;gap:0}
+.ll-dashboard-event{position:relative;display:grid;grid-template-columns:18px minmax(0,1fr);gap:9px;padding:0 0 13px}
+.ll-dashboard-event:last-child{padding-bottom:0}
+.ll-dashboard-event>i{position:relative;width:9px;height:9px;margin:5px 0 0 3px;border-radius:50%;background:#7357f6;box-shadow:0 0 0 4px rgba(115,87,246,.09)}
+.ll-dashboard-event:not(:last-child)>i:after{content:"";position:absolute;top:12px;bottom:-17px;left:4px;width:1px;background:rgba(115,87,246,.14)}
+.ll-dashboard-event b{display:block;color:#343b4d;font-size:11px}
+.ll-dashboard-event p{margin:2px 0 0;color:#727a89;font-size:9.5px;line-height:1.4}
+
+.ll-dashboard-queue{display:grid;gap:8px}
+.ll-dashboard-queue-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 12px;border:1px solid rgba(78,83,99,.09);border-radius:13px;background:#fafbfe}
+.ll-dashboard-queue-item b,.ll-dashboard-queue-item small{display:block}
+.ll-dashboard-queue-item b{font-size:11px}
+.ll-dashboard-queue-item small{margin-top:3px;color:#7a8290;font-size:8.5px}
+.ll-dashboard-queue-item button{border:0;border-radius:10px;background:#eeeaff;color:#6549e5;padding:8px 9px;font-size:8.5px;font-weight:900;cursor:pointer}
+.ll-dashboard-queue-item.is-review{border-color:rgba(115,87,246,.16);background:#faf8ff}
+.ll-dashboard-queue-item.is-waiting{border-color:rgba(214,151,37,.16);background:#fffaf1}
+.ll-dashboard-queue-item.is-done{border-color:rgba(45,155,104,.13);background:#f7fcf9}
+
+/* Submission history: keep the current file visible and collapse older versions. */
+.ll-doc-list[data-dashboard-versioned="true"]>h4{margin-bottom:10px}
+.ll-doc-list .ll-dashboard-current-version{padding:11px;border:1px solid rgba(115,87,246,.13);border-radius:13px;background:#faf8ff}
+.ll-dashboard-old-versions{margin-top:9px;border:1px solid rgba(79,84,101,.09);border-radius:13px;background:#fafbfc;overflow:hidden}
+.ll-dashboard-old-versions summary{cursor:pointer;list-style:none;padding:10px 12px;color:#666f80;font-size:9px;font-weight:900}
+.ll-dashboard-old-versions summary::-webkit-details-marker{display:none}
+.ll-dashboard-old-versions summary:after{content:"+";float:right;color:#7357f6;font-size:14px;line-height:.8}
+.ll-dashboard-old-versions[open] summary:after{content:"–"}
+.ll-dashboard-old-versions>div{padding:0 11px 6px}
+
+/* Secondary information remains available without dominating the workspace. */
+.ll-dashboard-secondary{border-style:dashed!important;background:linear-gradient(145deg,#fcfcfe,#faf9ff)!important}
+.ll-dashboard-secondary .ll-card-title{margin-bottom:10px}
+.ll-dashboard-secondary-toggle{border:1px solid rgba(115,87,246,.12);border-radius:10px;background:#f5f2ff;color:#6549e5;padding:7px 9px;font-size:8.5px;font-weight:900;cursor:pointer}
+.ll-dashboard-secondary[data-collapsed="true"]>:not(.ll-card-title){display:none!important}
+
+html[data-theme="dark"] .ll-dashboard-hero{background:linear-gradient(145deg,#292a45,#24253e 58%,#2c294d);border-color:rgba(183,169,255,.17);box-shadow:0 18px 48px rgba(0,0,0,.16)}
+html[data-theme="dark"] .ll-dashboard-summary>p,html[data-theme="dark"] .ll-dashboard-next p{color:#b8b7c8}
+html[data-theme="dark"] .ll-dashboard-next,html[data-theme="dark"] .ll-dashboard-stat,html[data-theme="dark"] .ll-dashboard-card{background:#272942;border-color:rgba(183,169,255,.13)}
+html[data-theme="dark"] .ll-dashboard-command-strip{background:rgba(34,35,57,.92);border-color:rgba(183,169,255,.12)}
+html[data-theme="dark"] .ll-dashboard-command-strip button{color:#b9b8c8}
+html[data-theme="dark"] .ll-dashboard-command-strip button:hover{background:#343055;color:#d0c7ff}
+html[data-theme="dark"] .ll-dashboard-stat strong,html[data-theme="dark"] .ll-dashboard-event b{color:#f2efff}
+html[data-theme="dark"] .ll-dashboard-stat span,html[data-theme="dark"] .ll-dashboard-stat small,html[data-theme="dark"] .ll-dashboard-card-head em,html[data-theme="dark"] .ll-dashboard-event p{color:#aaa9ba}
+html[data-theme="dark"] .ll-dashboard-current-doc,html[data-theme="dark"] .ll-dashboard-queue-item{background:#2e304c;border-color:rgba(183,169,255,.12)}
+html[data-theme="dark"] .ll-dashboard-current-doc small,html[data-theme="dark"] .ll-dashboard-queue-item small{color:#aaa9bb}
+html[data-theme="dark"] .ll-dashboard-feedback-lead{background:rgba(84,130,255,.08);border-color:rgba(120,155,255,.17)}
+html[data-theme="dark"] .ll-dashboard-feedback-lead p{color:#c2c0d0}
+html[data-theme="dark"] .ll-dashboard-feedback-meta span{background:#34364f;color:#c0bfce}
+html[data-theme="dark"] .ll-dashboard-old-versions,html[data-theme="dark"] .ll-dashboard-secondary{background:#292b45!important;border-color:rgba(183,169,255,.12)!important}
+html[data-theme="dark"] .ll-doc-list .ll-dashboard-current-version{background:#302d50;border-color:rgba(183,169,255,.16)}
+
+@media(max-width:900px){.ll-dashboard-hero{grid-template-columns:1fr}.ll-dashboard-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ll-dashboard-grid{grid-template-columns:1fr}.ll-dashboard-command-strip{top:76px}}
+@media(max-width:560px){.ll-dashboard-experience{scroll-margin-top:138px}.ll-dashboard-hero{padding:17px;border-radius:21px}.ll-dashboard-summary h2{font-size:30px}.ll-dashboard-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.ll-dashboard-stat{padding:12px}.ll-dashboard-stat strong{font-size:19px}.ll-dashboard-command-strip{top:70px;margin-left:-4px;margin-right:-4px}.ll-dashboard-current-doc{grid-template-columns:36px minmax(0,1fr)}.ll-dashboard-doc-icon{width:36px;height:36px}.ll-dashboard-current-doc button{grid-column:1/-1;width:100%}.ll-dashboard-card{padding:14px;border-radius:17px}}
+@media(prefers-reduced-motion:reduce){.ll-dashboard-next button,.ll-dashboard-command-strip button{transition:none!important}.ll-dashboard-next button:hover{transform:none!important}}
