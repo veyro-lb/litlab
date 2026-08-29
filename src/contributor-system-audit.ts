@@ -1,6 +1,7 @@
 import './contributor-system-audit.css';
 import './contributor-role-ui-clarity';
 import './contributor-state-guide';
+import './contributor-final-review-handoff';
 import './contributor-program-v3';
 import './admin-contributor-program-v3';
 
