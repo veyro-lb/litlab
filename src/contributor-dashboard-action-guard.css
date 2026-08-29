@@ -1,0 +1,7 @@
+.ll-dashboard-action-notice{margin-top:-8px;padding:9px 12px;border:1px solid rgba(115,87,246,.14);border-radius:12px;background:#f7f4ff;color:#625879;font-size:10px;font-weight:800;line-height:1.4}
+.ll-dashboard-action-notice[data-tone="locked"]{border-color:rgba(201,142,42,.2);background:#fff9ec;color:#8b641f}
+.ll-dashboard-action-notice[data-tone="success"]{border-color:rgba(45,155,104,.18);background:#f2fbf6;color:#277654}
+.ll-dashboard-action-target{outline:2px solid rgba(115,87,246,.28);outline-offset:4px;transition:outline-color .3s ease}
+html[data-theme="dark"] .ll-dashboard-action-notice{background:#302d50;border-color:rgba(183,169,255,.15);color:#d2caff}
+html[data-theme="dark"] .ll-dashboard-action-notice[data-tone="locked"]{background:#40361f;border-color:rgba(232,181,82,.22);color:#f0d08d}
+@media(prefers-reduced-motion:reduce){.ll-dashboard-action-target{transition:none}}
