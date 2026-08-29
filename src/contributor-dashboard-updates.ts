@@ -29,7 +29,7 @@ function token(){
   try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}
 }
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
 function label(value:unknown){return String(value??'update').replace(/[-_]/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase())}
 function stamp(value:string){const d=new Date(value);return Number.isNaN(d.getTime())?'':d.toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}
 
@@ -50,8 +50,7 @@ function unique(input:ProgramNotification[]){
 function visibleRows(){
   const all=unique(rows);
   if(!selectedApplicationId)return all;
-  const scoped=all.filter(item=>!item.application_id||item.application_id===selectedApplicationId);
-  return scoped.length?scoped:all;
+  return all.filter(item=>!item.application_id||item.application_id===selectedApplicationId);
 }
 
 function removeStandaloneUi(){
@@ -122,7 +121,7 @@ document.addEventListener('click',event=>{
   if(target.closest('[data-dashboard-mark-read]')){void markVisible();return}
   if(target.closest('[data-dashboard-updates-toggle]')){expanded=!expanded;schedule(0)}
 },true);
-window.addEventListener('litlab:contributor-workspace-data',event=>{const detail=(event as CustomEvent<{selectedId?:string}>).detail||{};selectedApplicationId=detail.selectedId||selectedApplicationId;expanded=false;schedule(140);void load()});
+window.addEventListener('litlab:contributor-workspace-data',event=>{const detail=(event as CustomEvent<{selectedId?:string}>).detail||{};if(Object.prototype.hasOwnProperty.call(detail,'selectedId'))selectedApplicationId=detail.selectedId||'';expanded=false;schedule(140);void load()});
 window.addEventListener('litlab:contributor-workspace-updated',()=>{schedule(180);void load()});
 window.addEventListener('hashchange',()=>{expanded=false;schedule(140);if(route()==='contribute')void load()});
 window.addEventListener('focus',()=>{removeStandaloneUi();if(route()==='contribute')void load()});
