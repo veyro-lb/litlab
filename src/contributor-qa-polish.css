@@ -1,0 +1,210 @@
+.ll-contrib-page,
+#ll-admin-contributor-workspace,
+.admin-contributors-page{--ll-qa-sticky-offset:148px}
+
+.ll-contrib-page *,
+#ll-admin-contributor-workspace *,
+.admin-contributors-page *{box-sizing:border-box}
+
+.ll-contrib-page{overflow-x:clip}
+.ll-contrib-page input,
+.ll-contrib-page select,
+.ll-contrib-page textarea,
+.ll-contrib-page button,
+#ll-admin-contributor-workspace input,
+#ll-admin-contributor-workspace select,
+#ll-admin-contributor-workspace textarea,
+#ll-admin-contributor-workspace button{max-width:100%}
+
+.ll-workspace-card,
+.ll-workspace-card>*,
+.ll-card-title>*,
+.ll-workspace-status>*,
+.ll-workspace-head>*,
+.ll-doc-list section,
+.ll-assigned-docs section,
+.ll-teacher-assignment>*,
+.ll-teacher-selected-head>*,
+.ll-teacher-selected-head>div,
+.ll-teacher-roster-head,
+.ll-teacher-student-detail,
+.ll-admin-workspace-card,
+.ll-admin-workspace-card>*,
+.ll-admin-workspace-title>*,
+.ll-admin-doc-list section,
+.ll-admin-final-review-file>*,
+.admin-contrib-card summary>*,
+.admin-contrib-detail,
+.admin-contrib-detail-grid>*,
+.ll-v3-journey-card,
+.ll-v3-next>*,
+.ll-v3-standard,
+.ll-v3-reflections,
+.ll-v3-evidence,
+.ll-v3-recognition-item{min-width:0}
+
+.ll-workspace-card p,
+.ll-workspace-card b,
+.ll-workspace-card small,
+.ll-workspace-card dd,
+.ll-workspace-card blockquote,
+.ll-workspace-status,
+.ll-workspace-head p,
+.ll-doc-list b,
+.ll-doc-list p,
+.ll-assigned-docs b,
+.ll-assigned-docs p,
+.ll-teacher-assignment p,
+.ll-teacher-selected-head p,
+.ll-teacher-student-state-note,
+.ll-admin-workspace-card p,
+.ll-admin-workspace-card b,
+.ll-admin-workspace-card small,
+.ll-admin-doc-list b,
+.admin-contrib-card p,
+.admin-contrib-card small,
+.admin-contrib-detail p,
+.ll-final-review-handoff-note,
+.ll-teacher-final-handoff-note,
+.ll-v3-journey p,
+.ll-v3-standard-list span,
+.ll-v3-reflection-list,
+.ll-v3-evidence-list{overflow-wrap:anywhere;word-break:normal}
+
+.ll-doc-list>div,
+.ll-assigned-docs>div{grid-template-columns:34px minmax(0,1fr) auto}
+.ll-admin-doc-list>div{grid-template-columns:42px minmax(0,1fr) auto}
+.ll-admin-final-review-file{grid-template-columns:auto minmax(0,1fr) auto}
+
+.ll-doc-list section,
+.ll-assigned-docs section,
+.ll-admin-doc-list section{overflow:hidden}
+.ll-doc-list b,
+.ll-assigned-docs b,
+.ll-admin-doc-list b{white-space:normal}
+
+.ll-teacher-student-roster{top:var(--ll-qa-sticky-offset)}
+
+[data-contributor-toc-target],
+[data-v3-section],
+.ll-v3-journey,
+.ll-v3-reflections,
+.ll-v3-evidence,
+.ll-v3-certificate,
+.ll-v3-recognition,
+.ll-v3-standard,
+.ll-workspace-card,
+.ll-review-lifecycle-path,
+[data-student-teacher-feedback]{scroll-margin-top:var(--ll-qa-sticky-offset)}
+
+.ll-contributor-state-guide button,
+.ll-workspace-card button,
+.ll-teacher-student-browser button,
+#ll-admin-contributor-workspace button{line-height:1.25}
+
+.ll-workspace-grid,
+.ll-admin-workspace-grid,
+.ll-v3-form-grid,
+.ll-v3-auto-evidence,
+.ll-teacher-student-browser{min-width:0}
+
+.ll-workspace-status>button,
+.ll-card-title>em,
+.ll-admin-workspace-title>em{flex-shrink:0}
+
+.ll-review-lifecycle-path,
+.ll-final-review-handoff-note,
+.ll-teacher-final-handoff-note,
+.ll-admin-final-review-document{max-width:100%}
+
+#ll-admin-contributor-workspace .ll-admin-workspace{max-height:min(92dvh,980px)}
+#ll-admin-contributor-workspace .ll-admin-workspace-body{overscroll-behavior:contain}
+
+@media(max-width:900px){
+  .ll-teacher-student-roster{top:auto}
+}
+
+@media(max-width:700px){
+  .ll-contrib-page,
+  #ll-admin-contributor-workspace,
+  .admin-contributors-page{--ll-qa-sticky-offset:138px}
+
+  .ll-workspace-status,
+  .ll-card-title,
+  .ll-admin-workspace-title,
+  .ll-teacher-selected-head{align-items:flex-start;flex-direction:column;gap:9px}
+
+  .ll-workspace-status>button,
+  .ll-workspace-status>a,
+  .ll-teacher-selected-actions,
+  .ll-teacher-selected-actions>button{width:100%}
+
+  .ll-teacher-selected-actions{display:flex;align-items:stretch;flex-direction:column}
+  .ll-card-title>em,
+  .ll-admin-workspace-title>em{align-self:flex-start;white-space:normal}
+
+  .ll-doc-list>div,
+  .ll-assigned-docs>div,
+  .ll-admin-doc-list>div,
+  .ll-admin-final-review-file{grid-template-columns:34px minmax(0,1fr)}
+
+  .ll-doc-list>div>button,
+  .ll-assigned-docs>div>button,
+  .ll-admin-doc-list>div>button,
+  .ll-admin-final-review-file>button{grid-column:1/-1;width:100%;white-space:normal}
+
+  .ll-activity-list p{align-items:flex-start;flex-direction:column;gap:4px}
+  .ll-activity-list p b{min-width:0}
+
+  .ll-workspace-tabs{grid-template-columns:1fr}
+  .ll-workspace-tabs button{text-align:left}
+
+  .ll-v3-next{align-items:flex-start;flex-direction:column}
+  .ll-v3-next>button{width:100%}
+
+  .admin-contrib-status-row{align-items:flex-start;flex-direction:column}
+  .admin-contrib-status-row select{width:100%}
+}
+
+@media(max-width:520px){
+  .ll-contrib-section,
+  .ll-contributor-workspace{padding-left:16px;padding-right:16px}
+
+  .ll-workspace-card,
+  .ll-review-lifecycle-path,
+  .ll-v3-journey,
+  .ll-teacher-student-roster,
+  .ll-teacher-student-detail{border-radius:16px}
+
+  .ll-workspace-card,
+  .ll-v3-standard,
+  .ll-v3-reflections,
+  .ll-v3-evidence{padding-left:15px;padding-right:15px}
+
+  .ll-lifecycle-path-head,
+  .ll-v3-journey-head{align-items:flex-start;flex-direction:column;gap:8px}
+
+  .ll-lifecycle-steps{overflow-x:auto;overscroll-behavior-inline:contain;padding-bottom:4px}
+  .ll-lifecycle-steps>div{min-width:138px}
+
+  .ll-contributor-state-guide{padding-left:14px;padding-right:14px}
+  .ll-contributor-toc-links button{min-height:36px}
+
+  #ll-admin-contributor-workspace .ll-admin-workspace{width:100%;height:100dvh;max-height:100dvh;border-radius:0}
+  #ll-admin-contributor-workspace .ll-admin-workspace-body{padding:14px}
+  #ll-admin-contributor-workspace .ll-admin-workspace-card{padding:15px}
+
+  .admin-contrib-summary-meta{min-width:0}
+  .admin-contrib-summary-meta span,
+  .admin-contrib-person small{overflow-wrap:anywhere}
+}
+
+@media(max-width:380px){
+  .ll-contrib-section,
+  .ll-contributor-workspace{padding-left:12px;padding-right:12px}
+  .ll-workspace-card,
+  .ll-v3-standard,
+  .ll-v3-reflections,
+  .ll-v3-evidence{padding-left:13px;padding-right:13px}
+  .ll-contributor-state-guide{padding-left:10px;padding-right:10px}
+}
