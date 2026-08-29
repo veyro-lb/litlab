@@ -5,7 +5,7 @@ const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
 const REQUEST_TIMEOUT_MS=12_000;
-const REFRESH_MS=15_000;
+const REFRESH_MS=25_000;
 
 type StoredSession={access_token?:string};
 type Task={id:string;title:string;instructions:string;status:'pending'|'in_progress'|'submitted'|'needs_revision'|'approved';due_at?:string|null};
@@ -23,6 +23,7 @@ let activeTitle='Contributor workspace';
 let workspace:Workspace|null=null;
 let teachers:Teacher[]=[];
 let loading=false;
+let pendingReload=false;
 let pollTimer=0;
 let listObserver:MutationObserver|null=null;
 
@@ -43,10 +44,8 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
 
 function ensureButton(card:HTMLElement){
   if(card.querySelector('[data-admin-manage-workspace]'))return;
-  const strip=card.querySelector<HTMLElement>('.admin-contrib-chat-strip');
-  if(!strip)return;
-  const button=document.createElement('button');button.type='button';button.dataset.adminManageWorkspace='true';button.className='admin-manage-workspace';button.textContent='Manage workspace';
-  strip.appendChild(button);
+  const strip=card.querySelector<HTMLElement>('.admin-contrib-chat-strip');if(!strip)return;
+  const button=document.createElement('button');button.type='button';button.dataset.adminManageWorkspace='true';button.className='admin-manage-workspace';button.textContent='Manage workspace';strip.appendChild(button);
 }
 function ensureButtons(){if(route()!=='admin-contributors')return;document.querySelectorAll<HTMLElement>('.admin-contrib-card').forEach(ensureButton)}
 function observeList(){
@@ -54,13 +53,11 @@ function observeList(){
   if(route()!=='admin-contributors')return;
   const list=document.querySelector<HTMLElement>('[data-contrib-list]');
   if(!list){setTimeout(observeList,180);return}
-  ensureButtons();
-  listObserver=new MutationObserver(()=>ensureButtons());
-  listObserver.observe(list,{childList:true,subtree:true});
+  ensureButtons();listObserver=new MutationObserver(()=>ensureButtons());listObserver.observe(list,{childList:true,subtree:true});
 }
 
 function modal(){return document.getElementById('ll-admin-contributor-workspace')}
-function close(){activeAppId='';workspace=null;clearTimeout(pollTimer);modal()?.remove()}
+function close(){activeAppId='';workspace=null;pendingReload=false;clearTimeout(pollTimer);modal()?.remove()}
 function shell(){
   modal()?.remove();
   const overlay=document.createElement('div');overlay.id='ll-admin-contributor-workspace';overlay.className='ll-admin-workspace-overlay';
@@ -69,24 +66,33 @@ function shell(){
 }
 
 function briefForm(){const b=workspace?.brief;return `<section class="ll-admin-workspace-card wide"><div class="ll-admin-workspace-title"><div><span>PROJECT BRIEF</span><h3>Tell the contributor exactly what to make.</h3></div><em>Visible to contributor</em></div><form data-admin-brief><div class="ll-admin-form-grid two"><label><span>Project title</span><input name="project_title" maxlength="240" value="${esc(b?.project_title||'')}" placeholder="Paper 1 visual-text analysis guide"/></label><label><span>Deadline <small>(optional)</small></span><input type="date" name="due_at" value="${esc(b?.due_at?String(b.due_at).slice(0,10):'')}"/></label></div><label><span>Goal</span><textarea name="goal" maxlength="3000" rows="3" placeholder="What should this contribution achieve?">${esc(b?.goal||'')}</textarea></label><div class="ll-admin-form-grid two"><label><span>Audience</span><input name="audience" maxlength="800" value="${esc(b?.audience||'DP English students')}"/></label><label><span>Deliverable</span><input name="deliverable" maxlength="1200" value="${esc(b?.deliverable||'A polished Microsoft Word (.docx) contribution ready for LitLab review.')}"/></label></div><button type="submit">Save project brief</button><small data-admin-state></small></form></section>`}
-
 function tasks(){const rows=workspace?.tasks||[];return `<section class="ll-admin-workspace-card"><div class="ll-admin-workspace-title"><div><span>TASKS</span><h3>Current work</h3></div><em>${rows.length} task${rows.length===1?'':'s'}</em></div><div class="ll-admin-task-list">${rows.length?rows.map(t=>`<div><section><b>${esc(t.title)}</b>${t.instructions?`<p>${esc(t.instructions)}</p>`:''}<small>${t.due_at?`Due ${esc(fmtDate(t.due_at))}`:'No deadline'}</small></section><select data-admin-task-status="${esc(t.id)}"><option value="pending"${t.status==='pending'?' selected':''}>To do</option><option value="in_progress"${t.status==='in_progress'?' selected':''}>In progress</option><option value="submitted"${t.status==='submitted'?' selected':''}>Submitted</option><option value="needs_revision"${t.status==='needs_revision'?' selected':''}>Revision needed</option><option value="approved"${t.status==='approved'?' selected':''}>Approved</option></select></div>`).join(''):'<p class="muted">No tasks yet.</p>'}</div><form data-admin-add-task><label><span>New task</span><input name="title" maxlength="180" required placeholder="Submit first DOCX draft"/></label><label><span>Instructions</span><textarea name="instructions" maxlength="4000" rows="2" placeholder="What exactly should they do?"></textarea></label><label><span>Deadline <small>(optional)</small></span><input type="date" name="due_at"/></label><button type="submit">Add task</button><small data-admin-state></small></form></section>`}
-
 function revisions(){const rows=workspace?.revisions||[];return `<section class="ll-admin-workspace-card"><div class="ll-admin-workspace-title"><div><span>REVISION REQUESTS</span><h3>Specific feedback</h3></div><em>${rows.filter(r=>r.status!=='resolved').length} open</em></div><div class="ll-admin-revision-list">${rows.map(r=>`<article class="${esc(r.status)}"><header><b>${esc(r.title)}</b><span>${esc(label(r.status))}</span></header>${r.details?`<p>${esc(r.details)}</p>`:''}${checklist(r.checklist).length?`<ul>${checklist(r.checklist).map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`:''}${r.contributor_response?`<blockquote><b>Contributor response</b><p>${esc(r.contributor_response)}</p></blockquote>`:''}${r.status!=='resolved'?`<button type="button" data-admin-resolve-revision="${esc(r.id)}">Mark resolved</button>`:''}</article>`).join('')||'<p class="muted">No revision requests yet.</p>'}</div><form data-admin-add-revision><label><span>Revision title</span><input name="title" maxlength="180" required placeholder="Strengthen the examples"/></label><label><span>What needs changing?</span><textarea name="details" maxlength="5000" rows="3" placeholder="Explain the issue clearly and constructively."></textarea></label><label><span>Checklist <small>one item per line</small></span><textarea name="checklist" rows="4" placeholder="Add two original examples&#10;Correct DP terminology&#10;List research sources"></textarea></label><button type="submit">Send revision request</button><small data-admin-state></small></form></section>`}
-
 function documents(){const rows=workspace?.documents||[];return `<section class="ll-admin-workspace-card wide"><div class="ll-admin-workspace-title"><div><span>WORD DOCUMENTS</span><h3>Submitted DOCX versions</h3></div><em>${rows.length} file${rows.length===1?'':'s'}</em></div>${rows.length?`<div class="ll-admin-doc-list">${rows.map(d=>`<div><span>W</span><section><b>${esc(d.version_label)} — ${esc(d.original_name)}</b><small>${esc(bytes(Number(d.file_size)||0))} • ${esc(fmtTime(d.created_at))}</small>${d.note?`<p>${esc(d.note)}</p>`:''}</section><button type="button" data-admin-download-doc="${esc(d.storage_path)}">Open securely</button></div>`).join('')}</div>`:'<p class="muted">No Word documents submitted yet. Contributors can upload .docx files after acceptance or when a revision is requested.</p>'}</section>`}
-
 function teacherAssignment(){const assigned=workspace?.assignment;return `<section class="ll-admin-workspace-card"><div class="ll-admin-workspace-title"><div><span>TEACHER REVIEWER</span><h3>Assign an accepted teacher</h3></div><em>${assigned?esc(assigned.teacher_name):'Not assigned'}</em></div><p class="muted">Assigned teachers can securely open this student’s DOCX and submit an academic review. They cannot access other contributor applications.</p><form data-admin-assign-teacher><select name="teacher"><option value="">Select an accepted teacher</option>${teachers.map(t=>`<option value="${esc(t.id)}"${assigned?.teacher_application_id===t.id?' selected':''}>${esc(t.full_name)} — ${esc(t.subject_taught||t.email)}</option>`).join('')}</select><button type="submit">Assign reviewer</button><small data-admin-state></small></form></section>`}
-
 function reviews(){const rows=workspace?.reviews||[];return `<section class="ll-admin-workspace-card"><div class="ll-admin-workspace-title"><div><span>TEACHER REVIEWS</span><h3>Academic review history</h3></div><em>${rows.length} review${rows.length===1?'':'s'}</em></div>${rows.length?`<div class="ll-admin-review-list">${rows.map(r=>`<article><header><b>${esc(r.reviewer_name||'Teacher reviewer')}</b><span>${r.recommendation==='approve'?'Approve':'Request changes'}</span></header><div><i>Accuracy ${r.accuracy}/5</i><i>Clarity ${r.clarity}/5</i><i>DP relevance ${r.dp_relevance}/5</i><i>Originality ${r.originality}/5</i><i>Sources ${r.sources}/5</i></div><p>${esc(r.summary)}</p><small>${esc(fmtTime(r.created_at))}</small></article>`).join('')}</div>`:'<p class="muted">No teacher reviews submitted yet.</p>'}</section>`}
-
 function activity(){const rows=workspace?.activity||[];const total=rows.reduce((sum,row)=>sum+Number(row.minutes||0),0);return `<section class="ll-admin-workspace-card wide"><div class="ll-admin-workspace-title"><div><span>STUDENT ACTIVITY</span><h3>Self-recorded contribution activity</h3></div><em>${(total/60).toFixed(1)} hours logged</em></div><p class="muted">This is student-recorded evidence, not automatically verified time. Use drafts, timestamps, feedback and completed work when deciding what LitLab can verify.</p>${rows.length?`<div class="ll-admin-activity-list">${rows.map(a=>`<div><b>${esc(fmtDate(a.activity_date))} • ${a.minutes} min</b><p>${esc(a.description)}</p></div>`).join('')}</div>`:''}</section>`}
 
 function render(){const body=document.querySelector<HTMLElement>('#ll-admin-contributor-workspace [data-admin-workspace-body]');if(!body||!workspace)return;body.innerHTML=`<div class="ll-admin-workspace-grid">${briefForm()}${tasks()}${revisions()}${documents()}${teacherAssignment()}${reviews()}${activity()}</div>`}
 
-async function load(force=false){if(!activeAppId||loading&&!force)return;loading=true;try{const [w,t]=await Promise.all([rpc<Workspace>('admin_get_litlab_contributor_workspace',{p_application_id:activeAppId}),rpc<Teacher[]>('admin_get_litlab_accepted_teachers')]);workspace=w;teachers=Array.isArray(t)?t:[];render();window.dispatchEvent(new CustomEvent('litlab:admin-contributor-workspace-opened',{detail:{applicationId:activeAppId}}))}catch(error){console.error(error);const body=document.querySelector<HTMLElement>('#ll-admin-contributor-workspace [data-admin-workspace-body]');if(body)body.innerHTML='<div class="ll-admin-workspace-error"><b>Workspace could not load.</b><p>Check the connection and try again.</p><button type="button" data-admin-workspace-retry>Try again</button></div>'}finally{loading=false}}
+async function load(force=false){
+  const appId=activeAppId;if(!appId)return;
+  if(loading){if(force)pendingReload=true;return}
+  loading=true;
+  try{
+    const [w,t]=await Promise.all([rpc<Workspace>('admin_get_litlab_contributor_workspace',{p_application_id:appId}),rpc<Teacher[]>('admin_get_litlab_accepted_teachers')]);
+    if(appId!==activeAppId||!modal())return;
+    workspace=w;teachers=Array.isArray(t)?t:[];render();window.dispatchEvent(new CustomEvent('litlab:admin-contributor-workspace-opened',{detail:{applicationId:appId}}));
+  }catch(error){
+    if(appId!==activeAppId)return;
+    console.error(error);const body=document.querySelector<HTMLElement>('#ll-admin-contributor-workspace [data-admin-workspace-body]');if(body)body.innerHTML='<div class="ll-admin-workspace-error"><b>Workspace could not load.</b><p>Your current data is safe. Check the connection and try again.</p><button type="button" data-admin-workspace-retry>Try again</button></div>';
+  }finally{
+    loading=false;
+    if(pendingReload&&activeAppId){pendingReload=false;window.setTimeout(()=>void load(false),0)}
+  }
+}
 
-function schedulePoll(){clearTimeout(pollTimer);if(!activeAppId)return;pollTimer=window.setTimeout(async()=>{if(!document.hidden&&navigator.onLine)await load();schedulePoll()},REFRESH_MS)}
+function schedulePoll(){clearTimeout(pollTimer);if(!activeAppId)return;pollTimer=window.setTimeout(async()=>{if(!document.hidden&&navigator.onLine)await load(false);schedulePoll()},REFRESH_MS)}
 function openWorkspace(card:HTMLElement){activeAppId=card.dataset.appId||'';const name=card.querySelector('.admin-contrib-person b')?.textContent||'Contributor';const topic=card.querySelector('.admin-contrib-summary-meta span:nth-child(2)')?.textContent||'';activeTitle=`${name}${topic?` — ${topic}`:''}`;if(!activeAppId)return;shell();void load(true);schedulePoll()}
 
 function adminDocumentName(path:string){return workspace?.documents?.find(doc=>doc.storage_path===path)?.original_name||'LitLab-contribution.docx'}
@@ -103,14 +109,13 @@ async function resolveRevision(id:string){try{await rpc('admin_resolve_litlab_co
 async function assignTeacher(form:HTMLFormElement){const id=String(new FormData(form).get('teacher')||'');if(!id)return;state(form,'Assigning…');try{await rpc('admin_assign_litlab_contributor_teacher',{p_application_id:activeAppId,p_teacher_application_id:id});state(form,'Teacher assigned.','success');await load(true)}catch(error){console.error(error);state(form,'Could not assign this teacher.','error')}}
 
 document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(!target)return;const card=target.closest<HTMLElement>('.admin-contrib-card');if(card)ensureButton(card);if(target.closest('[data-admin-manage-workspace]')&&card){event.preventDefault();event.stopPropagation();openWorkspace(card);return}if(target.closest('[data-admin-workspace-close]')){close();return}if(target.closest('[data-admin-workspace-retry]')){void load(true);return}const doc=target.closest<HTMLElement>('[data-admin-download-doc]');if(doc){void download(doc.dataset.adminDownloadDoc||'');return}const resolve=target.closest<HTMLElement>('[data-admin-resolve-revision]');if(resolve){void resolveRevision(resolve.dataset.adminResolveRevision||'')}},true);
-
 document.addEventListener('change',event=>{const target=event.target;if(target instanceof HTMLSelectElement&&target.dataset.adminTaskStatus)void setTask(target.dataset.adminTaskStatus,target.value)},true);
 document.addEventListener('submit',event=>{const form=event.target instanceof HTMLFormElement?event.target:null;if(!form||!form.closest('#ll-admin-contributor-workspace'))return;event.preventDefault();if(form.matches('[data-admin-brief]'))void saveBrief(form);else if(form.matches('[data-admin-add-task]'))void addTask(form);else if(form.matches('[data-admin-add-revision]'))void addRevision(form);else if(form.matches('[data-admin-assign-teacher]'))void assignTeacher(form)},true);
 
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&activeAppId)close()});
 window.addEventListener('hashchange',()=>{if(route()!=='admin-contributors')close();setTimeout(observeList,100)});
-window.addEventListener('focus',()=>{if(activeAppId){void load(true);schedulePoll()}});
-document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(pollTimer);return}if(activeAppId){void load(true);schedulePoll()}});
-window.addEventListener('online',()=>{if(activeAppId)void load(true)});
+window.addEventListener('focus',()=>{if(activeAppId){void load(false);schedulePoll()}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(pollTimer);return}if(activeAppId){void load(false);schedulePoll()}});
+window.addEventListener('online',()=>{if(activeAppId)void load(false)});
 
 setTimeout(observeList,500);
