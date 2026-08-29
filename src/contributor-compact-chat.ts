@@ -1,5 +1,5 @@
 import './contributor-compact-chat.css';
-import './contributor-teacher-application-launcher';
+import './contributor-application-launcher';
 
 type WorkspaceRow={id:string;applicant_type?:'student'|'teacher';topics?:string;contribution_type?:string;status?:string};
 type WorkspaceEvent={selectedId?:string;workspaces?:WorkspaceRow[]};
