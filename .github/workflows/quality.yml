@@ -15,4 +15,16 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - name: Run static site checks
+        run: npm run quality
+      - name: Build without CSS syntax warnings
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
+          if grep -Eq 'css-syntax-error|warnings when minifying css' build.log; then
+            echo 'Build emitted a CSS syntax warning.'
+            exit 1
+          fi
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
