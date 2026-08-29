@@ -1,8 +1,10 @@
 import './contributor-application-launcher.css';
 
 type ContributorRole='student'|'teacher';
-type WorkspaceRow={id?:string;applicant_type?:string;status?:string};
+type WorkspaceStatus='new'|'reviewing'|'accepted'|'declined'|'completed'|string;
+type WorkspaceRow={id?:string;applicant_type?:string;status?:WorkspaceStatus};
 type WorkspaceEvent={workspaces?:WorkspaceRow[]};
+type ApplicationRequest={role?:string;source?:string};
 
 let open=false;
 let workspaces:WorkspaceRow[]=[];
@@ -18,6 +20,9 @@ function applySection(){return document.getElementById('contribute-apply') as HT
 function launcher(){return document.querySelector<HTMLElement>('[data-contributor-application-launcher]')}
 function rowsForRole(accountRole:ContributorRole){return workspaces.filter(row=>row.applicant_type===accountRole)}
 function hasApplication(accountRole:ContributorRole){return submittedNow||rowsForRole(accountRole).length>0}
+function isTerminalStudent(row:WorkspaceRow){const status=String(row.status||'').toLowerCase();return status==='completed'||status==='declined'}
+function activeStudentContribution(){return rowsForRole('student').find(row=>!isTerminalStudent(row))||null}
+function studentApplicationLocked(){return (submittedNow&&contributorRole()==='student')||Boolean(activeStudentContribution())}
 
 function removeGenericControl(){
   if(!contributorAccount())return;
@@ -29,7 +34,7 @@ function launcherCopy(accountRole:ContributorRole){
   if(accountRole==='teacher'){
     if(existing)return {
       state:'submitted',
-      html:'<span>TEACHER REVIEWER ACCOUNT</span><h2>Your teacher application is already on this account.</h2><p>You do not need to apply again for each student. Assigned students appear in your Teacher dashboard, and one accepted Teacher account can mentor multiple students.</p>',
+      html:'<span>TEACHER REVIEWER ACCOUNT</span><h2>Your Teacher application is already on this account.</h2><p>You do not need to apply again for each student. Assigned students appear in your Teacher dashboard, and one accepted Teacher account can mentor multiple students.</p>',
       closed:'',
       opened:''
     };
@@ -40,10 +45,19 @@ function launcherCopy(accountRole:ContributorRole){
       opened:'<span>×</span><b>Close teacher application</b><small>Hide form</small>'
     };
   }
+
+  const blocked=studentApplicationLocked();
+  if(blocked)return {
+    state:'locked',
+    html:'<span>ONE ACTIVE CONTRIBUTION AT A TIME</span><h2>Finish your current contribution before starting another.</h2><p>Your current Student contribution stays active until LitLab marks it completed. A new Student application unlocks automatically after completion, so your work does not split across overlapping projects.</p>',
+    closed:'<span>🔒</span><b>New contribution locked</b><small>Complete the current contribution first</small>',
+    opened:''
+  };
+
   return {
     state:open?'open':existing?'returning':'closed',
     html:existing
-      ?'<span>STUDENT CONTRIBUTOR</span><h2>Want to make another LitLab contribution?</h2><p>Your previous work stays saved. Open a fresh Student application here whenever you have another useful contribution idea.</p>'
+      ?'<span>STUDENT CONTRIBUTOR</span><h2>Your previous contribution is closed. Ready for another?</h2><p>Completed or closed work stays saved to your account. You can open a fresh Student application here when you are ready for a new contribution.</p>'
       :'<span>STUDENT CONTRIBUTOR APPLICATION</span><h2>Ready to contribute as a DP student?</h2><p>Open the application below and tell LitLab what you want to create, research or improve. Your application and future work stay attached to this Student account.</p>',
     closed:existing
       ?'<span>＋</span><b>Start another Student contribution</b><small>Open fresh application</small>'
@@ -78,16 +92,18 @@ function updateLauncher(){
   box.dataset.launcherState=copyState.state;
   const copy=box.querySelector<HTMLElement>('[data-role-launcher-copy]');
   const button=box.querySelector<HTMLButtonElement>('[data-role-application-toggle]');
-  const locked=accountRole==='teacher'&&hasApplication(accountRole);
-  box.classList.toggle('is-submitted',locked);
-  box.classList.toggle('is-returning',accountRole==='student'&&hasApplication(accountRole));
+  const teacherLocked=accountRole==='teacher'&&hasApplication(accountRole);
+  const studentLocked=accountRole==='student'&&studentApplicationLocked();
+  box.classList.toggle('is-submitted',teacherLocked);
+  box.classList.toggle('is-returning',accountRole==='student'&&hasApplication(accountRole)&&!studentLocked);
+  box.classList.toggle('is-locked',studentLocked);
   if(copy)copy.innerHTML=copyState.html;
   if(button){
-    button.hidden=locked;
-    if(!locked){
-      button.setAttribute('aria-expanded',open?'true':'false');
-      button.innerHTML=open?copyState.opened:copyState.closed;
-    }
+    button.hidden=teacherLocked;
+    button.disabled=studentLocked;
+    button.setAttribute('aria-disabled',studentLocked?'true':'false');
+    button.setAttribute('aria-expanded',studentLocked?'false':open?'true':'false');
+    if(!teacherLocked)button.innerHTML=studentLocked?copyState.closed:(open?copyState.opened:copyState.closed);
   }
 }
 
@@ -97,7 +113,15 @@ function requestFreshForm(accountRole:ContributorRole){
 
 function setOpen(next:boolean,scroll=false){
   const apply=applySection();const accountRole=contributorRole();if(!apply||!accountRole)return;
-  if(accountRole==='teacher'&&hasApplication(accountRole))return;
+  const teacherLocked=accountRole==='teacher'&&hasApplication(accountRole);
+  const studentLocked=accountRole==='student'&&studentApplicationLocked();
+  if(teacherLocked||studentLocked){
+    open=false;
+    hideApplication();
+    updateLauncher();
+    if(scroll)launcher()?.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
   open=next;
   if(open)requestFreshForm(accountRole);
   apply.hidden=!open;
@@ -130,7 +154,9 @@ function apply(){
   }
   removeGenericControl();
   ensureAtEnd();
-  if(accountRole==='teacher'&&hasApplication(accountRole)){
+  const teacherLocked=accountRole==='teacher'&&hasApplication(accountRole);
+  const studentLocked=accountRole==='student'&&studentApplicationLocked();
+  if(teacherLocked||studentLocked){
     open=false;
     hideApplication();
   }else{
@@ -152,6 +178,14 @@ window.addEventListener('litlab:contributor-submitted',()=>{
   if(!contributorAccount())return;
   submittedNow=true;open=false;hideApplication();schedule();
 });
+window.addEventListener('litlab:request-contributor-application',event=>{
+  if(route()!=='contribute')return;
+  const detail=(event as CustomEvent<ApplicationRequest>).detail||{};
+  const accountRole=contributorRole();if(!accountRole)return;
+  if(detail.role&&detail.role!==accountRole)return;
+  ensureAtEnd();
+  setOpen(true,true);
+});
 window.addEventListener('hashchange',()=>{open=false;workspaces=[];submittedNow=false;schedule()});
 window.addEventListener('focus',schedule);
 
@@ -162,15 +196,16 @@ document.addEventListener('click',event=>{
   if(!applyLink)return;
   event.preventDefault();
   ensureAtEnd();
-  if(accountRole==='teacher'&&hasApplication(accountRole)){
-    setOpen(false,false);
-    launcher()?.scrollIntoView({behavior:'smooth',block:'center'});
-    return;
-  }
   setOpen(true,true);
 },true);
 
-const observer=new MutationObserver(()=>schedule());
+const observer=new MutationObserver(records=>{
+  const external=records.some(record=>{
+    const target=record.target instanceof Element?record.target:record.target.parentElement;
+    return !target?.closest('[data-contributor-application-launcher]');
+  });
+  if(external)schedule();
+});
 observer.observe(document.body,{childList:true,subtree:true});
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
