@@ -9,8 +9,6 @@ function role():Role{const value=document.getElementById('ll-contributor-root')?
 function key(button:HTMLButtonElement){if(button.matches('[data-revision-submit-guide]'))return 'submit-revision';return button.dataset.sectionKey||''}
 function buttons(){return Array.from(strip()?.querySelectorAll<HTMLButtonElement>(':scope > button')||[])}
 function isUsable(button:HTMLButtonElement){return !button.matches('[data-contributor-locked],[aria-disabled="true"]')}
-function has(keyName:string){return buttons().some(button=>key(button)===keyName)}
-function usable(keyName:string){return buttons().some(button=>key(button)===keyName&&isUsable(button))}
 
 function orderForStudent(flow:string){
   if(flow==='not-applied')return ['overview','cas','application'];
@@ -63,10 +61,14 @@ function apply(){
     if(show)button.removeAttribute('tabindex');else button.tabIndex=-1;
   });
 
-  desired.forEach(name=>{
-    const button=all.find(item=>key(item)===name&&!item.hidden);
-    if(button)links.append(button);
-  });
+  const targetOrder=desired.filter(name=>all.some(item=>key(item)===name&&!item.hidden));
+  const currentOrder=all.filter(item=>!item.hidden).map(key);
+  if(currentOrder.join('|')!==targetOrder.join('|')){
+    targetOrder.forEach(name=>{
+      const button=all.find(item=>key(item)===name&&!item.hidden);
+      if(button)links.append(button);
+    });
+  }
 
   const revision=all.find(button=>key(button)==='submit-revision'&&!button.hidden);
   if(revision){
