@@ -1,0 +1,220 @@
+/* Final contributor/admin visual QA layer.
+   Keeps contribution surfaces on-brand, removes accidental black UI, and normalizes motion. */
+
+.ll-contrib-page,
+[data-contributor-workspace],
+#ll-admin-contributor-workspace,
+.admin-contributors-page{
+  --ll-contrib-polish-ink:#23283a;
+  --ll-contrib-polish-muted:#687083;
+  --ll-contrib-polish-purple:#7357f6;
+  --ll-contrib-polish-purple-2:#8b73fa;
+  --ll-contrib-polish-soft:#f6f3ff;
+  --ll-contrib-polish-soft-2:#fbfaff;
+  --ll-contrib-polish-line:rgba(86,70,156,.14);
+  --ll-contrib-polish-shadow:0 14px 38px rgba(63,49,133,.08);
+}
+
+/* Brand marks should read purple, never almost-black. */
+.ll-contrib-mark{
+  background:linear-gradient(135deg,var(--ll-contrib-polish-purple),var(--ll-contrib-polish-purple-2));
+  box-shadow:0 8px 22px rgba(115,87,246,.2);
+}
+
+/* The CAS checklist was the most visible hard-coded black block on the public page. */
+.ll-contrib-cas-kit,
+.ll-cas-kit-compact details{
+  color:var(--ll-contrib-polish-ink)!important;
+  background:linear-gradient(145deg,#f3efff 0%,#fbfaff 54%,#f7f8ff 100%)!important;
+  border:1px solid rgba(115,87,246,.16)!important;
+  box-shadow:var(--ll-contrib-polish-shadow);
+}
+.ll-contrib-cas-kit span,
+.ll-cas-kit-compact summary span{color:var(--ll-contrib-polish-purple)!important}
+.ll-contrib-cas-kit li,
+.ll-cas-kit-body li{color:#535b6d!important}
+.ll-cas-kit-compact summary small{color:#737b8d!important}
+.ll-cas-kit-compact summary>i{
+  background:rgba(115,87,246,.1)!important;
+  color:var(--ll-contrib-polish-purple);
+  border:1px solid rgba(115,87,246,.12);
+}
+.ll-cas-kit-compact details[open] summary>i{
+  background:rgba(115,87,246,.16)!important;
+  transform:rotate(45deg);
+}
+.ll-cas-kit-compact details[open] .ll-cas-kit-body{
+  animation:llContribDetailsIn .24s cubic-bezier(.2,.75,.2,1) both;
+}
+
+/* Document/code previews should feel like a designed document surface, not a terminal. */
+.ll-doc-structure{
+  background:linear-gradient(145deg,#f4f2fb,#fafaff)!important;
+  color:#34394b!important;
+  border:1px solid rgba(92,78,157,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+/* V3 used the global ink token as a fill, which becomes visually black in light mode. */
+.ll-v3-journey-head>strong,
+.ll-v3-next button,
+.ll-v3-primary,
+.ll-v3-public-tools button{
+  background:linear-gradient(135deg,var(--ll-contrib-polish-purple),#6048df)!important;
+  color:#fff!important;
+  box-shadow:0 8px 20px rgba(115,87,246,.18);
+}
+.ll-v3-journey-head>strong small{color:rgba(255,255,255,.78)}
+.ll-v3-next button:hover,
+.ll-v3-primary:hover,
+.ll-v3-public-tools button:hover{transform:translateY(-1px)!important}
+
+/* More coherent card rhythm and focus across the contribution journey. */
+.ll-contrib-role-grid article,
+.ll-contrib-steps article,
+.ll-work-options-grid article,
+.ll-workspace-card,
+.ll-v3-journey,
+.ll-v3-standard,
+.ll-v3-reflections,
+.ll-v3-evidence,
+.ll-v3-history,
+.ll-v3-impact,
+.ll-teacher-student-roster,
+.ll-teacher-student-detail{
+  border-color:var(--ll-contrib-polish-line);
+}
+
+@media(hover:hover) and (pointer:fine){
+  .ll-contrib-role-grid article,
+  .ll-contrib-steps article,
+  .ll-work-options-grid article,
+  .ll-workspace-card{
+    transition:transform .2s cubic-bezier(.2,.75,.2,1),border-color .2s ease,box-shadow .2s ease,background-color .2s ease;
+  }
+  .ll-contrib-role-grid article:hover,
+  .ll-contrib-steps article:hover{
+    transform:translateY(-2px);
+    border-color:rgba(115,87,246,.24);
+    box-shadow:0 14px 32px rgba(63,49,133,.07);
+  }
+}
+
+/* Reveal motion: shorter distance, no scale snap, faster stagger. */
+.ll-exp-reveal{
+  opacity:0;
+  transform:translateY(9px)!important;
+  transition:opacity .34s ease,transform .38s cubic-bezier(.2,.75,.2,1)!important;
+  will-change:opacity,transform;
+}
+.ll-exp-reveal.ll-exp-visible{
+  opacity:1;
+  transform:none!important;
+  will-change:auto;
+}
+.ll-work-options.ll-exp-reveal .ll-work-options-grid article{
+  opacity:0;
+  transform:translateY(7px)!important;
+}
+.ll-work-options.ll-exp-visible .ll-work-options-grid article{
+  opacity:1;
+  transform:none!important;
+  transition:opacity .32s ease calc(var(--ll-work-index)*45ms + 45ms),transform .34s cubic-bezier(.2,.75,.2,1) calc(var(--ll-work-index)*45ms + 45ms),border-color .18s ease,box-shadow .18s ease,background-color .18s ease!important;
+}
+.ll-work-options.ll-exp-visible .ll-work-options-grid article:hover{transform:translateY(-2px)!important}
+.ll-contrib-hero-card.ll-work-options:before{animation-duration:8s!important;opacity:.82}
+
+/* Notification panels now animate as a panel instead of only fading the whole screen. */
+.ll-v3-notification-overlay{background:rgba(50,40,94,.34)!important;transition:opacity .18s ease!important}
+.ll-v3-notification-panel{
+  transform:translateY(-6px) scale(.992);
+  opacity:.96;
+  transition:transform .22s cubic-bezier(.2,.75,.2,1),opacity .18s ease;
+}
+.ll-v3-notification-overlay.is-open .ll-v3-notification-panel{transform:none;opacity:1}
+
+/* Dark theme remains dark, but avoids near-black contributor panels. */
+html[data-theme="dark"] .ll-contrib-page{
+  --llc-ink:#f5f2ff;
+  background:linear-gradient(180deg,#191a2d 0%,#1e2035 56%,#191b2e 100%)!important;
+}
+html[data-theme="dark"] .ll-contrib-topbar{
+  background:rgba(29,30,50,.9)!important;
+  border-color:rgba(184,169,255,.12)!important;
+}
+html[data-theme="dark"] .ll-contrib-hero-card,
+html[data-theme="dark"] .ll-contrib-role-grid article,
+html[data-theme="dark"] .ll-contrib-steps article,
+html[data-theme="dark"] .ll-contributor-form,
+html[data-theme="dark"] .ll-contrib-cert-preview,
+html[data-theme="dark"] .ll-workspace-card,
+html[data-theme="dark"] .ll-workspace-tabs button,
+html[data-theme="dark"] .ll-application-guide-grid article{
+  background:#23253d!important;
+  border-color:rgba(184,169,255,.14)!important;
+}
+html[data-theme="dark"] .ll-contrib-hero-card.ll-work-options{
+  background:linear-gradient(145deg,#252640,#202239)!important;
+  border-color:rgba(184,169,255,.15)!important;
+}
+html[data-theme="dark"] .ll-work-options-grid article,
+html[data-theme="dark"] .ll-workspace-brief dl>div,
+html[data-theme="dark"] .ll-task,
+html[data-theme="dark"] .ll-review-history,
+html[data-theme="dark"] .ll-assigned-docs button,
+html[data-theme="dark"] .ll-workspace-locked{
+  background:#2a2b45!important;
+  border-color:rgba(184,169,255,.12)!important;
+}
+html[data-theme="dark"] .ll-contributor-form input,
+html[data-theme="dark"] .ll-contributor-form textarea,
+html[data-theme="dark"] .ll-contributor-form select,
+html[data-theme="dark"] .ll-docx-form textarea,
+html[data-theme="dark"] .ll-docx-form input,
+html[data-theme="dark"] .ll-docx-form select,
+html[data-theme="dark"] .ll-activity-form input,
+html[data-theme="dark"] .ll-review-form select,
+html[data-theme="dark"] .ll-review-form textarea,
+html[data-theme="dark"] .ll-revision textarea{
+  background:#292b46!important;
+  border-color:rgba(184,169,255,.18)!important;
+  color:#f5f2ff!important;
+}
+html[data-theme="dark"] .ll-contrib-cas-kit,
+html[data-theme="dark"] .ll-cas-kit-compact details{
+  background:linear-gradient(145deg,#292646,#24243d)!important;
+  border-color:rgba(184,169,255,.18)!important;
+  color:#f5f2ff!important;
+}
+html[data-theme="dark"] .ll-contrib-cas-kit li,
+html[data-theme="dark"] .ll-cas-kit-body li{color:#d9d6e8!important}
+html[data-theme="dark"] .ll-cas-kit-compact summary small{color:#aaa9bd!important}
+html[data-theme="dark"] .ll-doc-structure{
+  background:linear-gradient(145deg,#2b2c48,#242640)!important;
+  color:#ebe8fa!important;
+  border-color:rgba(184,169,255,.14)!important;
+}
+html[data-theme="dark"] .ll-v3-notification-overlay{background:rgba(41,34,78,.5)!important}
+
+@keyframes llContribDetailsIn{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ll-contrib-page *,
+  [data-contributor-workspace] *,
+  #ll-admin-contributor-workspace *{
+    scroll-behavior:auto!important;
+  }
+  .ll-exp-reveal,
+  .ll-work-options-grid article,
+  .ll-cas-kit-body,
+  .ll-v3-notification-panel,
+  .ll-v3-notification-overlay{
+    animation:none!important;
+    transition:none!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+}
