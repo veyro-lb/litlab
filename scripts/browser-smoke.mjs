@@ -37,6 +37,7 @@ const chrome=spawn(chromePath,[
   `--user-data-dir=${profileDir}`,
   'about:blank'
 ],{stdio:['ignore','ignore','pipe']});
+const chromeExited=new Promise(resolve=>chrome.once('exit',resolve));
 let chromeStderr='';
 let browserDebuggerUrl='';
 chrome.stderr.on('data',chunk=>{
@@ -136,6 +137,17 @@ try{
     };
   })()`;
 
+  const authExpression=`(()=>{
+    const modal=document.querySelector('[data-auth-modal],.litlab-auth-modal');
+    if(!modal)return {present:false};
+    const dialog=modal.querySelector('.litlab-auth-dialog,[role="dialog"]')||modal;
+    const r=dialog.getBoundingClientRect();
+    const viewportWidth=document.documentElement.clientWidth;
+    const viewportHeight=window.innerHeight;
+    return {present:true,left:Math.round(r.left),right:Math.round(r.right),top:Math.round(r.top),bottom:Math.round(r.bottom),width:Math.round(r.width),height:Math.round(r.height),viewportWidth,viewportHeight,inFrame:r.left>=-2&&r.right<=viewportWidth+2&&r.top>=-2&&r.bottom<=viewportHeight+2};
+  })()`;
+  const closeAuthExpression=`(()=>{const modal=document.querySelector('[data-auth-modal],.litlab-auth-modal');if(!modal)return false;const close=modal.querySelector('[data-auth-close],.litlab-auth-close,button[aria-label*="Close" i]');if(close){close.click();return true}modal.remove();return true})()`;
+
   for(const viewport of viewports){
     await command('Emulation.setDeviceMetricsOverride',{width:viewport.width,height:viewport.height,deviceScaleFactor:viewport.deviceScaleFactor,mobile:viewport.mobile,screenWidth:viewport.width,screenHeight:viewport.height});
     for(const route of routes){
@@ -143,18 +155,30 @@ try{
       const url=new URL(`#${route}`,base).toString();
       await command('Page.navigate',{url});
       await sleep(route==='contribute'||route.startsWith('admin')?1800:1200);
+
+      const authResult=await command('Runtime.evaluate',{expression:authExpression,returnByValue:true});
+      const auth=authResult.result?.value||{present:false};
+      if(auth.present){
+        const authShot=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
+        const authFilename=`${route.replace(/[^a-z0-9-]/gi,'-')}-${viewport.name}-auth.png`;
+        await writeFile(join(outputDir,authFilename),Buffer.from(authShot.data,'base64'));
+        if(!auth.inFrame)failures.push(`${route} (${viewport.name}) sign-in dialog is outside the viewport: ${JSON.stringify(auth)}`);
+        await command('Runtime.evaluate',{expression:closeAuthExpression,returnByValue:true});
+        await sleep(120);
+      }
+
       const evaluated=await command('Runtime.evaluate',{expression:auditExpression,returnByValue:true,awaitPromise:true});
       const audit=evaluated.result?.value||{};
       const screenshot=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
       const filename=`${route.replace(/[^a-z0-9-]/gi,'-')}-${viewport.name}.png`;
       await writeFile(join(outputDir,filename),Buffer.from(screenshot.data,'base64'));
-      const row={route,viewport:viewport.name,url,...audit,runtimeErrors:[...runtimeErrors],screenshot:filename};
+      const row={route,viewport:viewport.name,url,auth,...audit,runtimeErrors:[...runtimeErrors],screenshot:filename};
       report.push(row);
       if(audit.overflow)failures.push(`${route} (${viewport.name}) has horizontal document overflow: ${audit.scrollWidth}px > ${audit.viewportWidth}px`);
       if(!audit.hasMain||audit.mainTextLength<20)failures.push(`${route} (${viewport.name}) did not render a usable main surface`);
       if(audit.featureLoading)failures.push(`${route} (${viewport.name}) still reports feature bundle "${audit.featureLoading}" as loading`);
       for(const error of runtimeErrors)failures.push(`${route} (${viewport.name}) browser exception: ${error}`);
-      console.log(`${viewport.name.padEnd(7)} ${route.padEnd(19)} width ${audit.viewportWidth}/${audit.scrollWidth} main ${audit.mainTextLength} chars${audit.overflow?' OVERFLOW':''}`);
+      console.log(`${viewport.name.padEnd(7)} ${route.padEnd(19)} width ${audit.viewportWidth}/${audit.scrollWidth} main ${audit.mainTextLength} chars${auth.present?' auth-ok':''}${audit.overflow?' OVERFLOW':''}`);
     }
   }
 
@@ -166,6 +190,13 @@ try{
   }else console.log(`\nBrowser smoke audit passed: ${report.length} desktop/mobile route renders checked.`);
 }finally{
   try{ws?.close()}catch{}
-  if(chrome.exitCode===null)chrome.kill('SIGTERM');
-  await rm(profileDir,{recursive:true,force:true});
+  if(chrome.exitCode===null){
+    chrome.kill('SIGTERM');
+    await Promise.race([chromeExited,sleep(2000)]);
+  }
+  try{
+    await rm(profileDir,{recursive:true,force:true,maxRetries:6,retryDelay:150});
+  }catch(error){
+    console.warn(`Visual QA completed, but Chrome profile cleanup was skipped: ${error instanceof Error?error.message:String(error)}`);
+  }
 }
