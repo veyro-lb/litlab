@@ -142,7 +142,7 @@ new MutationObserver(syncThemeColor).observe(document.documentElement,{attribute
 syncThemeColor();
 syncCurrentNavigation();
 syncSearchDialog();
-await loadCurrentFeature();
+void loadCurrentFeature();
 
 window.addEventListener('hashchange',()=>{
   requestAnimationFrame(syncCurrentNavigation);
