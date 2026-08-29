@@ -6,7 +6,14 @@ const SESSION_KEY='litlabSupabaseSession';
 const REQUEST_TIMEOUT_MS=12_000;
 
 type StoredSession={access_token?:string};
-type Pipeline={application_id:string;applicant_type?:string;stage?:string;mentor_required?:boolean;latest_document?:{id?:string;is_final_submission?:boolean;mentor_review_status?:string}|null};
+type Pipeline={
+  application_id:string;
+  applicant_type?:string;
+  stage?:string;
+  mentor_required?:boolean;
+  assignment?:{teacher_name?:string|null}|null;
+  latest_document?:{id?:string;original_name?:string;version_label?:string;is_final_submission?:boolean;mentor_review_status?:string}|null
+};
 type OpenEvent={applicationId?:string};
 
 let activeApplicationId='';
@@ -17,6 +24,7 @@ let requestVersion=0;
 
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
 function teacherApprovedHandoff(data:Pipeline|null){return Boolean(data?.applicant_type==='student'&&data.mentor_required&&data.stage==='admin_review'&&data.latest_document?.id)}
 
 async function rpc<T>(name:string,body:Record<string,unknown>):Promise<T>{
@@ -35,13 +43,42 @@ function clearRow(row:HTMLElement){
   delete row.dataset.finalDocumentId;
 }
 
+function syncTeacherApprovedBanner(modal:HTMLElement,approved:boolean){
+  const body=modal.querySelector<HTMLElement>('[data-admin-workspace-body]');if(!body)return;
+  const clarity=body.querySelector<HTMLElement>('[data-admin-final-doc-banner]');
+  let banner=body.querySelector<HTMLElement>('[data-teacher-approved-final-banner]');
+  if(!approved){
+    if(clarity)clarity.hidden=false;
+    banner?.remove();
+    modal.classList.remove('ll-admin-teacher-approved-handoff');
+    return;
+  }
+  if(clarity)clarity.hidden=true;
+  modal.classList.add('ll-admin-teacher-approved-handoff');
+  if(!banner){
+    banner=document.createElement('section');
+    banner.dataset.teacherApprovedFinalBanner='true';
+    banner.className='ll-admin-final-doc-banner';
+    body.prepend(banner);
+  }
+  const doc=currentPipeline?.latest_document;
+  const teacher=currentPipeline?.assignment?.teacher_name||'The assigned teacher';
+  const version=doc?.version_label||'Current version';
+  const name=doc?.original_name||'Word document';
+  const signature=`${doc?.id||''}|${teacher}|${version}|${name}`;
+  if(banner.dataset.signature===signature)return;
+  banner.dataset.signature=signature;banner.dataset.tone='final';
+  banner.innerHTML=`<div><span>TEACHER-APPROVED DOCX FOR LITLAB REVIEW</span><h3>Review the DOCX the teacher approved</h3><p>${esc(teacher)} approved ${esc(version)} — ${esc(name)}. This teacher approval is the handoff to LitLab admin, so the student does not need to mark or resubmit it as “Final”.</p></div><button type="button" data-open-final-admin-doc>Open approved DOCX →</button>`;
+}
+
 function normalize(){
   if(route()!=='admin-contributors'||!activeApplicationId)return;
-  const modal=document.getElementById('ll-admin-contributor-workspace');
-  const rows=Array.from(modal?.querySelectorAll<HTMLElement>('.ll-admin-doc-list > div')||[]);
-  if(!rows.length)return;
+  const modal=document.getElementById('ll-admin-contributor-workspace');if(!modal)return;
+  const rows=Array.from(modal.querySelectorAll<HTMLElement>('.ll-admin-doc-list > div'));
   const doc=currentPipeline?.latest_document;
   const approvedByTeacher=teacherApprovedHandoff(currentPipeline);
+  syncTeacherApprovedBanner(modal,approvedByTeacher);
+  if(!rows.length)return;
   const shouldHighlight=Boolean(currentPipeline?.applicant_type==='student'&&doc?.id&&(doc.is_final_submission===true||approvedByTeacher));
   const finalRow=shouldHighlight?rows[0]:null;
   rows.forEach(row=>{
@@ -76,6 +113,7 @@ window.addEventListener('litlab:admin-contributor-workspace-opened',event=>{
   void refresh(activeApplicationId);
 });
 window.addEventListener('litlab:admin-contributor-workspace-updated',()=>{if(activeApplicationId)void refresh(activeApplicationId)});
+window.addEventListener('litlab:contributor-admin-updated',()=>{if(activeApplicationId)void refresh(activeApplicationId)});
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
@@ -85,6 +123,6 @@ document.addEventListener('click',event=>{
 },true);
 
 window.addEventListener('hashchange',()=>{if(route()==='admin-contributors')return;activeApplicationId='';currentPipeline=null;requestVersion++;window.clearTimeout(normalizeTimer)});
-window.addEventListener('focus',()=>{if(activeApplicationId&&route()==='admin-contributors')scheduleNormalize()});
+window.addEventListener('focus',()=>{if(activeApplicationId&&route()==='admin-contributors'){void refresh(activeApplicationId);scheduleNormalize()}});
 
 export {};
