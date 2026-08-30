@@ -5,6 +5,7 @@ import './enhancements';
 import './hotfix';
 import './motion-styles';
 import './special-route-host';
+import './contributor-route-handoff';
 import './toolkit-shell';
 import './litlab-tutor';
 import './tutor-smart-layer';
@@ -57,6 +58,9 @@ function loadFeature(feature:Feature){
     :feature==='toolkit'?import('./runtime/toolkit')
     :import('./runtime/contributor');
   featureLoads.set(feature,promise);
+  // A transient chunk/network failure must not poison this feature for the rest of the session.
+  // Removing the rejected promise lets the next navigation retry without requiring a full reload.
+  void promise.catch(()=>{if(featureLoads.get(feature)===promise)featureLoads.delete(feature)});
   return promise;
 }
 
