@@ -10,6 +10,7 @@ type StoredSession={access_token?:string};
 type JwtPayload={sub?:string;email?:string};
 type RoleState={role?:ApplicantType|null;is_admin?:boolean;needs_choice?:boolean;has_conflict?:boolean};
 type ApiError={message?:string;details?:string;hint?:string};
+type Field=HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement;
 
 let submitting=false;
 
@@ -83,10 +84,27 @@ async function resolveOrSetRole(form:HTMLFormElement):Promise<ApplicantType>{
   return role;
 }
 
-function invalidField(form:HTMLFormElement){
-  const control=Array.from(form.elements).find(item=>(item instanceof HTMLInputElement||item instanceof HTMLTextAreaElement||item instanceof HTMLSelectElement)&&!item.checkValidity());
-  if(!(control instanceof HTMLInputElement||control instanceof HTMLTextAreaElement||control instanceof HTMLSelectElement))return '';
-  return control.closest('label')?.querySelector<HTMLElement>(':scope > span')?.textContent?.replace(/\s+/g,' ').trim()||control.name.replace(/_/g,' ');
+function isActive(field:Field){return !field.disabled&&!field.closest('[hidden]')&&!field.form?.hidden}
+function fieldValid(field:Field){
+  if(!isActive(field))return true;
+  if(field instanceof HTMLInputElement&&(field.type==='checkbox'||field.type==='radio')){
+    if(!field.required)return true;
+    if(field.type==='radio')return Boolean(field.form?.querySelector<HTMLInputElement>(`input[name="${CSS.escape(field.name)}"]:checked`));
+    return field.checked;
+  }
+  const value=field.value.trim();
+  if(field.required&&!value)return false;
+  const min=Number(field.getAttribute('minlength')||0);
+  if(field.required&&min&&value.length<min)return false;
+  return field.checkValidity();
+}
+function activeFields(form:HTMLFormElement){
+  return Array.from(form.querySelectorAll<Field>('input,textarea,select')).filter(isActive);
+}
+function activeInvalidFields(form:HTMLFormElement){return activeFields(form).filter(field=>!fieldValid(field))}
+function invalidFieldName(field:Field|null){
+  if(!field)return '';
+  return field.closest('label')?.querySelector<HTMLElement>(':scope > span')?.textContent?.replace(/\s+/g,' ').trim()||field.name.replace(/_/g,' ');
 }
 
 function renderPending(form:HTMLFormElement){
@@ -106,11 +124,15 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
   try{
     const role=await resolveOrSetRole(form);
 
-    // Role changes can alter required Student/Teacher fields. Let those modules settle before checking validity.
+    // Role changes alter which controls are relevant. Match the form UI's validation semantics:
+    // required controls inside hidden Student/Teacher/CAS sections must not block submission.
     await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
-    if(!form.checkValidity()){
-      const field=invalidField(form);form.reportValidity();
-      throw new Error(field?`Please complete the required field: ${field}.`:'Please complete every required field before submitting.');
+    const invalid=activeInvalidFields(form);
+    if(invalid.length){
+      const first=invalid[0];
+      first.focus({preventScroll:true});
+      first.scrollIntoView({behavior:'smooth',block:'center'});
+      throw new Error(`Please complete the required field: ${invalidFieldName(first)}.`);
     }
 
     const last=Number(localStorage.getItem(SUBMIT_COOLDOWN_KEY)||0);
@@ -166,7 +188,6 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
   }
 }
 
-// Single capture-phase owner for the visible submit button.
 document.addEventListener('click',event=>{
   const button=event.target instanceof Element?event.target.closest<HTMLButtonElement>('#ll-contributor-form button[type="submit"]'):null;
   if(!button)return;
@@ -175,7 +196,6 @@ document.addEventListener('click',event=>{
   void directSubmit(form,button);
 },true);
 
-// Keyboard/assistive form submission uses the same single owner.
 document.addEventListener('submit',event=>{
   const form=event.target instanceof HTMLFormElement?event.target:null;
   if(!form||form.id!=='ll-contributor-form')return;
