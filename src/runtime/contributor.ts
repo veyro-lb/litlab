@@ -76,5 +76,8 @@ import '../contributor-reviewer-scope-sync';
 // Final workspace adapter: the selected reviewer role/perspective controls the actual
 // rubric language, feedback prompts, approval meaning, declaration and submit action.
 import '../contributor-review-role-workspace';
+// Account-level reviewer specialization is the final authority. Existing Teacher accounts
+// are asked once, and the persisted choice drives the application and review workspace.
+import '../contributor-reviewer-specialization';
 
 export {};
