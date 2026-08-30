@@ -184,4 +184,6 @@ document.addEventListener('submit',event=>{
   void directSubmit(form,button);
 },true);
 
+document.documentElement.dataset.contributorSubmitOwnerReady='true';
+
 export {};
