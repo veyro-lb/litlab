@@ -108,6 +108,11 @@ function beginLock(button:HTMLButtonElement,duration=260){
   },duration+20);
 }
 function enforceLock(){
+  if(role()==='student'){
+    window.clearTimeout(lockTimer);
+    lock=null;
+    return;
+  }
   const current=lock;if(!current)return;
   if(Date.now()>current.until||!current.button.isConnected){lock=null;return}
   requestAnimationFrame(()=>{if(lock===current)markCurrent(current.button)});
@@ -132,6 +137,9 @@ function openApplication(button:HTMLButtonElement){
 
 window.addEventListener('click',event=>{
   if(route()!=='contribute')return;
+  // Student highlighting and scrolling are owned entirely by contributor-state-guide.
+  // Do not create a second click lock here or it can pin the active chip on Orientation.
+  if(role()==='student')return;
   const target=event.target instanceof Element?event.target:null;if(!target)return;
   const button=target.closest<HTMLButtonElement>('[data-contributor-state-guide] button');
   if(!button||button.matches('[data-contributor-locked]'))return;
@@ -146,7 +154,7 @@ window.addEventListener('click',event=>{
   instantJump(button,destination);
 },{capture:true});
 window.addEventListener('scroll',enforceLock,{passive:true});
-window.addEventListener('hashchange',()=>{lock=null;schedule()});
+window.addEventListener('hashchange',()=>{window.clearTimeout(lockTimer);lock=null;schedule()});
 window.addEventListener('resize',schedule);
 for(const name of ['litlab:contributor-account-role','litlab:contributor-workspace-data','litlab:contributor-workspace-updated','litlab:contributor-submitted','litlab:contributor-admin-updated'])window.addEventListener(name,schedule);
 
