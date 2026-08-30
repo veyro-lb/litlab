@@ -81,5 +81,7 @@ import '../contributor-review-role-workspace';
 import '../contributor-reviewer-specialization';
 // Role cards are selection-only; a separate confirmation step performs the permanent save.
 import '../contributor-reviewer-specialization-confirm';
+// Final reviewer UX layer: spacious rubric cards, guided steps, progress and subtle motion.
+import '../contributor-review-workspace-experience';
 
 export {};
