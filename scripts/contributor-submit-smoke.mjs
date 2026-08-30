@@ -76,6 +76,7 @@ try{
     localStorage.setItem('litlabSupabaseSession',JSON.stringify({access_token:token,refresh_token:'smoke-refresh'}));
     localStorage.removeItem('litlabContributorLastSentAt');
     window.__litlabApplicationPost=null;
+    window.__litlabRoleChecks=0;
     const nativeFetch=window.fetch.bind(window);
     window.fetch=async(input,init={})=>{
       const url=typeof input==='string'?input:input instanceof Request?input.url:String(input);
@@ -86,7 +87,7 @@ try{
         try{window.__litlabApplicationPost=JSON.parse(String(init.body||'{}'))}catch{window.__litlabApplicationPost={parse_error:true}}
         return new Response('',{status:201});
       }
-      if(url.includes('/rest/v1/rpc/get_my_litlab_contributor_account_role'))return json({role,is_admin:false,needs_choice:false,has_conflict:false,existing_roles:[role]});
+      if(url.includes('/rest/v1/rpc/get_my_litlab_contributor_account_role')){window.__litlabRoleChecks+=1;return json({role,is_admin:false,needs_choice:false,has_conflict:false,existing_roles:[role]})}
       if(url.includes('/rest/v1/rpc/is_litlab_admin'))return json(false);
       if(url.includes('/rest/v1/rpc/touch_litlab_session'))return new Response('',{status:204});
       if(url.includes('/rest/v1/rpc/'))return json([]);
@@ -98,8 +99,13 @@ try{
     const url=new URL(`?submitSmokeRole=${role}#contribute`,base).toString();
     await command('Page.navigate',{url});
     await waitFor(`Boolean(document.querySelector('#ll-contributor-form'))`,`${role} contributor form`);
-    await waitFor(`document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole==='${role}'`,`${role} account role`);
-    await evaluate(`(()=>{const apply=document.getElementById('contribute-apply');const form=document.querySelector('#ll-contributor-form');if(apply){apply.hidden=false;apply.setAttribute('aria-hidden','false')}if(form)form.hidden=false;return true})()`);
+    await evaluate(`(()=>{
+      const root=document.getElementById('ll-contributor-root');if(root)root.dataset.contributorAccountRole='${role}';
+      const apply=document.getElementById('contribute-apply');const form=document.querySelector('#ll-contributor-form');
+      if(apply){apply.hidden=false;apply.setAttribute('aria-hidden','false')}
+      if(form){form.hidden=false;const input=form.querySelector('input[name="applicant_type"][value="${role}"]');if(input){input.checked=true;input.dispatchEvent(new Event('change',{bubbles:true}))}}
+      return true;
+    })()`);
     await waitFor(role==='student'?`Boolean(document.querySelector('select[name="student_supervision"]'))`:`Boolean(document.querySelector('input[name="mentee_email"]'))`,`${role} relationship fields`);
 
     const fillResult=await evaluate(`(()=>{
@@ -123,9 +129,11 @@ try{
     const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');return {valid:f?.checkValidity(),status:f?.querySelector('#ll-contributor-status')?.textContent,invalid:Array.from(f?.elements||[]).filter(x=>x instanceof HTMLInputElement||x instanceof HTMLTextAreaElement||x instanceof HTMLSelectElement).filter(x=>!x.checkValidity()).map(x=>x.name)}})()`);
     if(!before?.valid)throw new Error(`${role} form is invalid before click: ${JSON.stringify(before)}`);
 
+    const roleChecksBefore=await evaluate(`window.__litlabRoleChecks`);
     await evaluate(`document.querySelector('#ll-contributor-form button[type="submit"]')?.click()`);
     await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`);
-    const result=await evaluate(`({payload:window.__litlabApplicationPost,thanks:Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks'))})`);
+    const result=await evaluate(`({payload:window.__litlabApplicationPost,thanks:Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks')),roleChecks:window.__litlabRoleChecks})`);
+    if(!(result?.roleChecks>roleChecksBefore))throw new Error(`${role} submit did not re-check the authoritative account role: ${JSON.stringify(result)}`);
     if(result?.payload?.applicant_type!==role)throw new Error(`${role} submitted wrong applicant_type: ${JSON.stringify(result)}`);
     if(!result?.thanks)throw new Error(`${role} did not render submission confirmation: ${JSON.stringify(result)}`);
     console.log(`Contributor submit smoke passed for ${role}.`);
