@@ -74,4 +74,8 @@ import '../contributor-role-aware-review';
 import '../contributor-reviewer-role-form-polish';
 import '../contributor-reviewer-scope-sync';
 
+// Loaded last as a safety net. It binds the rendered Submit application button directly and only
+// runs when an earlier submission owner has not already marked the button as submitting.
+import '../contributor-submit-direct';
+
 export {};
