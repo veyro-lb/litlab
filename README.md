@@ -1,6 +1,6 @@
 # LitLab
 
-**Explore. Analyse. Understand.**
+**Explore. Analyze. Understand.**
 
 LitLab is an independent student-made DP English learning guide created by **Rayan Sayed Ahmad** and **Elena Bizri**. It is designed to help students starting DP English understand how the main parts of the subject connect, learn the basics of analysis, and quickly reach the section they need.
 
