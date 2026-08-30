@@ -51,10 +51,36 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const text=await response.text();return (text?JSON.parse(text):null) as T;
 }
 
+function selectedRole(form:HTMLFormElement):ApplicantType|null{
+  const value=form.querySelector<HTMLInputElement>('input[name="applicant_type"]:checked')?.value;
+  return value==='student'||value==='teacher'?value:null;
+}
+
 function forceRole(form:HTMLFormElement,role:ApplicantType){
   const input=form.querySelector<HTMLInputElement>(`input[name="applicant_type"][value="${role}"]`);
   if(input&&!input.checked){input.checked=true;input.dispatchEvent(new Event('change',{bubbles:true}))}
+  form.dataset.accountContributorRole=role;
   const root=document.getElementById('ll-contributor-root');if(root)root.dataset.contributorAccountRole=role;
+}
+
+async function resolveOrSetRole(form:HTMLFormElement):Promise<ApplicantType>{
+  let state=await rpc<RoleState>('get_my_litlab_contributor_account_role');
+  if(state?.is_admin)throw new Error('Admin accounts do not submit contributor applications.');
+  if(state?.has_conflict)throw new Error('This account has a contributor-role conflict. LitLab admin must resolve it before you can apply.');
+
+  let role=state?.role;
+  if(role!=='student'&&role!=='teacher'){
+    const chosen=selectedRole(form);
+    if(!chosen)throw new Error('Choose Student contributor or Teacher / mentor before submitting.');
+    setStatus(form,`Saving this account as ${chosen==='teacher'?'Teacher / mentor':'Student contributor'}…`,'ready');
+    state=await rpc<RoleState>('set_my_litlab_contributor_account_role',{p_role:chosen});
+    role=state?.role;
+    if(role!=='student'&&role!=='teacher')throw new Error('LitLab could not save your contributor account type. Please try again.');
+    window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:state}));
+  }
+
+  forceRole(form,role);
+  return role;
 }
 
 function invalidField(form:HTMLFormElement){
@@ -78,14 +104,10 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
   button.disabled=true;button.dataset.submitting='true';button.textContent='Checking…';
   setStatus(form,'Checking your contributor account…','ready');
   try{
-    const roleState=await rpc<RoleState>('get_my_litlab_contributor_account_role');
-    if(roleState?.is_admin)throw new Error('Admin accounts do not submit contributor applications.');
-    if(roleState?.has_conflict)throw new Error('This account has a contributor-role conflict. LitLab admin must resolve it before you can apply.');
-    const role=roleState?.role;
-    if(role!=='student'&&role!=='teacher')throw new Error('Choose Student contributor or Teacher / mentor for this account before submitting.');
-    forceRole(form,role);
+    const role=await resolveOrSetRole(form);
 
-    await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));
+    // Role changes can alter required Student/Teacher fields. Let those modules settle before checking validity.
+    await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
     if(!form.checkValidity()){
       const field=invalidField(form);form.reportValidity();
       throw new Error(field?`Please complete the required field: ${field}.`:'Please complete every required field before submitting.');
@@ -137,16 +159,14 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
   }catch(error){
     const message=error instanceof Error?error.message:'We could not submit your application.';
     console.error('Direct contributor submission failed',error);
-    setStatus(form,message.length<240?message:'We could not submit your application. Make sure you are signed in and try again.','error');
+    setStatus(form,message.length<240?`Could not submit: ${message}`:'We could not submit your application. Make sure you are signed in and try again.','error');
   }finally{
     submitting=false;
     if(button.isConnected){button.disabled=false;button.dataset.submitting='false';button.textContent='Submit application'}
   }
 }
 
-// This module is imported before the older account-workflow submit interception. Owning the
-// capture-phase click here guarantees the visible button cannot fall into a stale handler or native
-// form navigation. Account-role and validation guards are registered before this module.
+// Single capture-phase owner for the visible submit button.
 document.addEventListener('click',event=>{
   const button=event.target instanceof Element?event.target.closest<HTMLButtonElement>('#ll-contributor-form button[type="submit"]'):null;
   if(!button)return;
