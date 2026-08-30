@@ -48,6 +48,7 @@ import '../contributor-guide-action-bridge';
 import '../contributor-journey-coherence';
 import '../contributor-journey-live-sync';
 import '../contributor-guide-navigation-stability';
+import '../contributor-guide-scroll-hotfix';
 import '../admin-feedback';
 import '../admin-feedback-refresh-fix';
 
