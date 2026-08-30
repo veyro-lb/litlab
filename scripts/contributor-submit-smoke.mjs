@@ -77,6 +77,8 @@ try{
     localStorage.removeItem('litlabContributorLastSentAt');
     window.__litlabApplicationPost=null;
     window.__litlabRoleChecks=0;
+    window.__litlabClickSeen=0;
+    document.addEventListener('click',event=>{if(event.target instanceof Element&&event.target.closest('#ll-contributor-form button[type="submit"]'))window.__litlabClickSeen+=1},true);
     const nativeFetch=window.fetch.bind(window);
     window.fetch=async(input,init={})=>{
       const url=typeof input==='string'?input:input instanceof Request?input.url:String(input);
@@ -127,12 +129,15 @@ try{
     if(!fillResult?.ok)throw new Error(`${role} form fill failed: ${JSON.stringify(fillResult)}`);
     await sleep(100);
 
-    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');return {valid:f?.checkValidity(),status:f?.querySelector('#ll-contributor-status')?.textContent,invalid:Array.from(f?.elements||[]).filter(x=>x instanceof HTMLInputElement||x instanceof HTMLTextAreaElement||x instanceof HTMLSelectElement).filter(x=>!x.checkValidity()).map(x=>({name:x.name,type:x.type||x.tagName,value:x.value,required:x.required}))}})()`);
+    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {valid:f?.checkValidity(),status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting,ready:b?.dataset.ready},invalid:Array.from(f?.elements||[]).filter(x=>x instanceof HTMLInputElement||x instanceof HTMLTextAreaElement||x instanceof HTMLSelectElement).filter(x=>!x.checkValidity()).map(x=>({name:x.name,type:x.type||x.tagName,value:x.value,required:x.required}))}})()`);
     if(!before?.valid)throw new Error(`${role} form is invalid before click: ${JSON.stringify(before)}`);
+    if(before?.button?.disabled)throw new Error(`${role} submit button is disabled despite a valid form: ${JSON.stringify(before)}`);
 
     const roleChecksBefore=await evaluate(`window.__litlabRoleChecks`);
     await evaluate(`document.querySelector('#ll-contributor-form button[type="submit"]')?.click()`);
-    await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`);
+    await sleep(800);
+    const afterClick=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {post:window.__litlabApplicationPost,roleChecks:window.__litlabRoleChecks,clickSeen:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting}}})()`);
+    if(!afterClick?.post)throw new Error(`${role} click produced no application POST: ${JSON.stringify({before,roleChecksBefore,afterClick})}`);
     const result=await evaluate(`({payload:window.__litlabApplicationPost,thanks:Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks')),roleChecks:window.__litlabRoleChecks})`);
     if(!(result?.roleChecks>roleChecksBefore))throw new Error(`${role} submit did not re-check the authoritative account role: ${JSON.stringify(result)}`);
     if(result?.payload?.applicant_type!==role)throw new Error(`${role} submitted wrong applicant_type: ${JSON.stringify(result)}`);
