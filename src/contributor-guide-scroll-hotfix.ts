@@ -3,6 +3,7 @@ type GuideEntry={button:HTMLButtonElement;target:HTMLElement};
 let frame=0;
 let settleTimer=0;
 let refreshTimer=0;
+let guideObserver:MutationObserver|null=null;
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function role(){
@@ -13,14 +14,34 @@ function guide(){return document.querySelector<HTMLElement>('[data-contributor-s
 function usable(target:HTMLElement|null):target is HTMLElement{
   return Boolean(target&&target.isConnected&&!target.hidden&&!target.closest('[hidden]')&&target.getClientRects().length);
 }
+function lockButton(button:HTMLButtonElement,reason:string){
+  button.dataset.contributorLocked=reason;
+  button.classList.add('locked');
+  button.classList.remove('current');
+  button.setAttribute('aria-disabled','true');
+  button.setAttribute('title',reason);
+  button.removeAttribute('aria-current');
+  button.removeAttribute('data-contributor-section-jump');
+}
+function lockEmptyCompletedButtons(host:HTMLElement){
+  if(role()!=='student'||host.dataset.flow!=='completed')return;
+  const rules=[
+    {key:'tasks',selector:'.ll-task-list .ll-task',reason:'No task records are available for this completed contribution.'},
+    {key:'revisions',selector:'.ll-revision-list .ll-revision',reason:'No revision requests were recorded for this completed contribution.'}
+  ];
+  for(const rule of rules){
+    const button=host.querySelector<HTMLButtonElement>(`[data-section-key="${rule.key}"][data-contributor-section-jump]`);
+    if(button&&!document.querySelector(rule.selector))lockButton(button,rule.reason);
+  }
+}
 function guideEntries(host:HTMLElement){
   const entries:GuideEntry[]=[];
-  host.querySelectorAll<HTMLButtonElement>('[data-contributor-section-jump]').forEach(button=>{
+  host.querySelectorAll<HTMLButtonElement>('[data-contributor-section-jump]:not([data-contributor-locked])').forEach(button=>{
     const id=button.dataset.contributorSectionJump||'';
     const target=id?document.getElementById(id):null;
     if(usable(target))entries.push({button,target});
   });
-  const applicationButton=host.querySelector<HTMLButtonElement>('[data-contributor-action="application"]');
+  const applicationButton=host.querySelector<HTMLButtonElement>('[data-contributor-action="application"]:not([data-contributor-locked])');
   const application=document.getElementById('contribute-apply');
   if(applicationButton&&usable(application))entries.push({button:applicationButton,target:application});
   return entries;
@@ -36,38 +57,37 @@ function reveal(button:HTMLButtonElement,host:HTMLElement){
 }
 function setCurrent(button:HTMLButtonElement|null){
   const host=guide();if(!host)return;
-  const buttons=Array.from(host.querySelectorAll<HTMLButtonElement>('[data-contributor-section-jump],[data-contributor-action]'));
+  const buttons=Array.from(host.querySelectorAll<HTMLButtonElement>('[data-contributor-section-jump],[data-contributor-action]')).filter(item=>!item.matches('[data-contributor-locked]'));
   const previous=buttons.find(item=>item.classList.contains('current'))||null;
   if(previous===button)return;
-  buttons.forEach(item=>{
-    const active=item===button;
-    item.classList.toggle('current',active);
-    if(active)item.setAttribute('aria-current','location');else item.removeAttribute('aria-current');
-  });
-  if(button)reveal(button,host);
+  host.querySelectorAll<HTMLButtonElement>('.current').forEach(item=>{item.classList.remove('current');item.removeAttribute('aria-current')});
+  if(!button||button.matches('[data-contributor-locked]'))return;
+  button.classList.add('current');
+  button.setAttribute('aria-current','location');
+  reveal(button,host);
 }
 function chooseActive(entries:GuideEntry[],host:HTMLElement){
-  const guideBottom=host.getBoundingClientRect().bottom;
-  const viewportHeight=Math.max(document.documentElement.clientHeight,window.innerHeight||0);
-  const probe=Math.min(viewportHeight-72,Math.max(guideBottom+96,viewportHeight*.42));
-  let active=entries[0];
-  let bestDistance=Infinity;
+  const anchor=Math.max(110,Math.round(host.getBoundingClientRect().bottom+28));
+  let active:GuideEntry|null=null;
   let bestTop=-Infinity;
+  let upcoming:GuideEntry|null=null;
+  let upcomingTop=Infinity;
   for(const entry of entries){
     const rect=entry.target.getBoundingClientRect();
     if(rect.width===0&&rect.height===0)continue;
-    const distance=probe<rect.top?rect.top-probe:probe>rect.bottom?probe-rect.bottom:0;
-    if(distance<bestDistance||(distance===bestDistance&&rect.top<=probe&&rect.top>bestTop)){
-      bestDistance=distance;
-      bestTop=rect.top;
-      active=entry;
+    const top=rect.top;
+    if(top<=anchor){
+      if(top>bestTop+1){bestTop=top;active=entry}
+      continue;
     }
+    if(top<upcomingTop-1){upcomingTop=top;upcoming=entry}
   }
-  return active;
+  return active||upcoming||entries[0];
 }
 function sync(){
-  if(route()!=='contribute')return;
+  if(route()!=='contribute'||role()!=='student')return;
   const host=guide();if(!host)return;
+  lockEmptyCompletedButtons(host);
   const entries=guideEntries(host);
   if(!entries.length){setCurrent(null);return}
   setCurrent(chooseActive(entries,host).button);
@@ -78,41 +98,46 @@ function scheduleSync(){
     frame=0;
     sync();
     window.clearTimeout(settleTimer);
-    settleTimer=window.setTimeout(sync,0);
+    settleTimer=window.setTimeout(sync,90);
   });
+}
+function observeGuide(){
+  guideObserver?.disconnect();
+  const host=guide();if(!host)return;
+  guideObserver=new MutationObserver(()=>refreshSoon());
+  guideObserver.observe(host,{childList:true,subtree:true});
 }
 function refreshSoon(){
   window.clearTimeout(refreshTimer);
-  refreshTimer=window.setTimeout(scheduleSync,110);
+  refreshTimer=window.setTimeout(()=>{observeGuide();scheduleSync()},70);
 }
 
-// Scroll does not reliably originate on window in the contributor workspace.
-// Capture descendant scroll events as well, then do one lightweight geometry pass.
+// Contributor workspaces contain nested scrolling and dynamically re-rendered sections.
+// Capture every scroll source, then do one section-boundary geometry pass per frame.
 document.addEventListener('scroll',scheduleSync,{capture:true,passive:true});
 window.addEventListener('scroll',scheduleSync,{passive:true});
-window.addEventListener('resize',scheduleSync,{passive:true});
+window.addEventListener('resize',refreshSoon,{passive:true});
 window.addEventListener('hashchange',refreshSoon);
 for(const name of ['litlab:contributor-account-role','litlab:contributor-workspace-data','litlab:contributor-workspace-updated','litlab:contributor-submitted','litlab:contributor-admin-updated'])window.addEventListener(name,refreshSoon);
 
-// Student guide clicks previously started a smooth-scroll animation while another
-// tracker was changing the current chip. Own the jump at the window capture phase so
-// the destination and highlight update in the same frame without the Orientation pin.
+// Student guide navigation has one owner. Locked chips are inert; usable chips jump
+// immediately so a second smooth-scroll tracker cannot race the active highlight.
 window.addEventListener('click',event=>{
   if(route()!=='contribute'||role()!=='student')return;
   const target=event.target instanceof Element?event.target:null;if(!target)return;
   const button=target.closest<HTMLButtonElement>('[data-contributor-state-guide] [data-contributor-section-jump]');
-  if(!button)return;
+  if(!button||button.matches('[data-contributor-locked]'))return;
   const id=button.dataset.contributorSectionJump||'';
   const destination=id?document.getElementById(id):null;
   if(!usable(destination))return;
   event.preventDefault();
-  event.stopPropagation();
+  event.stopImmediatePropagation();
   setCurrent(button);
   destination.scrollIntoView({behavior:'auto',block:'start'});
-  scheduleSync();
+  requestAnimationFrame(()=>scheduleSync());
 },{capture:true});
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',refreshSoon,{once:true});else refreshSoon();
-window.setTimeout(scheduleSync,320);
+window.setTimeout(refreshSoon,320);
 
 export {};
