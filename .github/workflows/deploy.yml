@@ -21,6 +21,21 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Start production preview
+        shell: bash
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > preview.log 2>&1 &
+          echo $! > preview.pid
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat preview.log
+          exit 1
+      - name: Verify Student and Teacher application submission
+        run: node scripts/contributor-submit-smoke.mjs
       - uses: actions/configure-pages@v5
         with:
           enablement: true
