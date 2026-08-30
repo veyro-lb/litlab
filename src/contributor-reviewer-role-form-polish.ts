@@ -44,7 +44,7 @@ function polish(){
   input.required=true;
   input.minLength=8;
   input.maxLength=Math.min(input.maxLength||160,160);
-  input.autocomplete='organization-title';
+  input.autocomplete='organization';
 
   // The original implementation placed the entire role chooser inside the old field label.
   // Move it out so role selection and written background are visually and semantically separate.
