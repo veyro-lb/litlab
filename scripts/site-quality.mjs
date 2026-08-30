@@ -49,6 +49,22 @@ if(moduleScripts.length>2)problems.push(`index.html has ${moduleScripts.length} 
 if(!moduleScripts.includes('/src/main.tsx'))problems.push('index.html is missing the React main entry /src/main.tsx');
 if(!moduleScripts.includes('/src/site-runtime.ts'))problems.push('index.html is missing the route-aware /src/site-runtime.ts entry');
 
+// Contributor application submission uses capture-phase listeners. Keep the ordering explicit:
+// incomplete forms are blocked first, the signed-in account role is enforced second, and only
+// then may the account workflow stop propagation and send the network request.
+const contributorRuntime=await readFile(join(src,'runtime','contributor.ts'),'utf8');
+const submitImports=[
+  "import '../contributor-form-validation';",
+  "import '../contributor-account-role';",
+  "import '../contributor-account-workflow';"
+];
+const submitPositions=submitImports.map(statement=>contributorRuntime.indexOf(statement));
+if(submitPositions.some(position=>position<0)){
+  problems.push('src/runtime/contributor.ts is missing a required contributor application submission layer');
+}else if(!(submitPositions[0]<submitPositions[1]&&submitPositions[1]<submitPositions[2])){
+  problems.push('src/runtime/contributor.ts must load form validation, then account role guard, then account workflow so Student/Teacher submissions use the correct handler');
+}
+
 if(problems.length){
   console.error('\nSite quality checks failed:\n');
   for(const problem of problems)console.error(`- ${problem}`);
