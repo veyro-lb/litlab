@@ -65,4 +65,8 @@ import '../contributor-dashboard-action-guard';
 import '../contributor-revision-submit-guide';
 import '../contributor-teacher-guide-sanity';
 
+// Role-aware reviewer layer: separates academic English review from CAS supervision,
+// adds structured feedback and optional private annotated DOCX handoff.
+import '../contributor-role-aware-review';
+
 export {};
