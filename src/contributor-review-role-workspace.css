@@ -1,0 +1,16 @@
+.ll-role-review-intro[data-review-context]{position:relative;overflow:hidden}
+.ll-role-review-intro [data-role-workspace-badge]{display:inline-flex;align-items:center;width:max-content;margin:0 0 .55rem;padding:.3rem .55rem;border-radius:999px;font-size:.72rem;font-style:normal;font-weight:800;letter-spacing:.09em;text-transform:uppercase;background:color-mix(in srgb,var(--accent,#0f766e) 13%,transparent);color:var(--accent,#0f766e)}
+.ll-role-review-intro[data-review-context="cas"]{border-left:4px solid #0f766e}
+.ll-role-review-intro[data-review-context="academic"]{border-left:4px solid #3157a4}
+.ll-role-review-intro[data-review-context="combined"]{border-left:4px solid #7c3aed}
+.ll-role-review-grid label>small[data-role-field-help]{display:block;margin-top:.42rem;color:var(--muted,#667085);font-size:.78rem;line-height:1.45}
+.ll-role-specific-declaration{margin:1rem 0;padding:1rem 1.05rem;border:1px solid color-mix(in srgb,currentColor 16%,transparent);border-radius:14px;background:color-mix(in srgb,var(--card,#fff) 94%,var(--accent,#0f766e) 6%)}
+.ll-role-specific-declaration>span{display:block;margin-bottom:.32rem;font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#667085)}
+.ll-role-specific-declaration>p{margin:.2rem 0 .8rem;line-height:1.5}
+.ll-role-specific-declaration>label{display:flex;gap:.7rem;align-items:flex-start;margin:0;padding:.8rem;border-radius:10px;background:color-mix(in srgb,currentColor 4%,transparent);cursor:pointer}
+.ll-role-specific-declaration input{flex:0 0 auto;margin-top:.18rem}
+.ll-role-specific-declaration b{font-size:.86rem;line-height:1.5}
+.ll-role-specific-declaration[data-review-context="cas"]{border-color:color-mix(in srgb,#0f766e 36%,transparent);background:color-mix(in srgb,#0f766e 7%,var(--card,#fff))}
+.ll-role-specific-declaration[data-review-context="academic"]{border-color:color-mix(in srgb,#3157a4 32%,transparent);background:color-mix(in srgb,#3157a4 6%,var(--card,#fff))}
+.ll-role-specific-declaration[data-review-context="combined"]{border-color:color-mix(in srgb,#7c3aed 30%,transparent);background:color-mix(in srgb,#7c3aed 6%,var(--card,#fff))}
+@media(max-width:720px){.ll-role-specific-declaration{padding:.9rem}.ll-role-specific-declaration>label{padding:.7rem}.ll-role-review-grid label>small[data-role-field-help]{font-size:.76rem}}
