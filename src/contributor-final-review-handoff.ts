@@ -43,16 +43,12 @@ function teacherSupervisedUpload(data:Pipeline){
   const select=form.querySelector<HTMLSelectElement>('select[name="version"]');
   if(select){
     const finalOption=Array.from(select.options).find(option=>option.value==='Final submission');
-    if(finalOption)finalOption.hidden=true;
-    if(select.value==='Final submission'){
-      const replacement=Array.from(select.options).find(option=>!option.hidden&&option.value!=='Final submission');
-      if(replacement)select.value=replacement.value;
-    }
+    if(finalOption)finalOption.hidden=false;
   }
   let helper=form.querySelector<HTMLElement>('[data-final-submission-helper]');
   if(!helper){helper=document.createElement('div');helper.dataset.finalSubmissionHelper='true';helper.className='ll-final-submission-helper';select?.closest('label')?.after(helper)}
   helper.dataset.teacherHandoff='true';
-  const markup='<div><b>Teacher approval chooses the final admin-review version</b><span>Submit the version you want your teacher to review. If the teacher approves it, that exact DOCX becomes the version LitLab admin reviews next. You do not need a separate “final” upload.</span></div>';
+  const markup='<div><b>Mark the DOCX you want LitLab to accept as “Final submission”</b><span>If this is your intended final version, choose “Final submission” before sending it to your teacher. When your teacher approves it, that exact DOCX becomes the final handoff to LitLab admin.</span></div>';
   if(helper.innerHTML!==markup)helper.innerHTML=markup;
 }
 
