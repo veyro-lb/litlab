@@ -73,7 +73,7 @@ try{
     const userId=role==='student'?'11111111-1111-4111-8111-111111111111':'22222222-2222-4222-8222-222222222222';
     const enc=value=>btoa(unescape(encodeURIComponent(JSON.stringify(value)))).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_');
     const token=enc({alg:'none',typ:'JWT'})+'.'+enc({sub:userId,email,role:'authenticated',user_metadata:{full_name:role==='student'?'Student Smoke':'Teacher Smoke'}})+'.x';
-    localStorage.setItem('litlabSupabaseSession',JSON.stringify({access_token:token,refresh_token:'smoke-refresh'}));
+    localStorage.setItem('litlabSupabaseSession',JSON.stringify({access_token:token,refresh_token:'smoke-refresh',expires_at:Math.floor(Date.now()/1000)+3600,token_type:'bearer'}));
     localStorage.removeItem('litlabContributorLastSentAt');
     window.__litlabApplicationPost=null;
     window.__litlabRoleChecks=0;
