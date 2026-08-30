@@ -118,6 +118,7 @@ function finalDocCopy(data:Pipeline){
   const name=d.original_name||'Word document';const version=d.version_label||'Current version';const teacher=data.assignment?.teacher_name||'the assigned teacher';
   if(data.stage==='complete')return {title:`Final DOCX reviewed: ${version}`,body:`${name} is the completed, archived document for this contribution.`,tone:'done'};
   if(data.stage==='admin_review'&&d.is_final_submission){return {title:'FINAL DOCX — REVIEW THIS EXACT FILE',body:`${version} — ${name}${data.mentor_required?` • approved by ${teacher}`:''}. This is the document LitLab admin should judge for completion.`,tone:'final'}}
+  if(data.stage==='admin_review'&&data.mentor_required){return {title:'TEACHER-APPROVED DOCX — FINAL ADMIN HANDOFF',body:`${version} — ${name} • approved by ${teacher}. Teacher approval makes this the document LitLab admin should judge for completion, even if the student's “Final submission” label was not set.`,tone:'final'}}
   if(data.stage==='admin_review')return {title:'Latest DOCX is NOT marked Final submission',body:`${version} — ${name}. Do not complete this contribution until the student marks the intended version as Final submission.`,tone:'warning'};
   if(d.is_final_submission&&data.stage==='mentor_review')return {title:'Final submission is with the teacher',body:`${version} — ${name} is currently being reviewed by ${teacher}. Admin should wait for the teacher decision.`,tone:'teacher'};
   return {title:`Current DOCX: ${version}`,body:`${name} is not yet at the final LitLab review stage.`,tone:'waiting'};
@@ -141,7 +142,7 @@ function decorateAdminModal(data:Pipeline){
     const text=row.textContent||'';const isFinal=Boolean(doc&&((doc.original_name&&text.includes(doc.original_name))||(doc.version_label&&text.includes(doc.version_label))));
     row.classList.toggle('ll-admin-final-doc-row',isFinal);
     row.querySelector('[data-admin-final-row-badge]')?.remove();
-    if(isFinal){const badge=document.createElement('strong');badge.dataset.adminFinalRowBadge='true';badge.className='ll-admin-final-row-badge';badge.textContent=doc?.is_final_submission?'FINAL DOC • REVIEW THIS':'LATEST DOC';row.querySelector('section')?.appendChild(badge)}
+    if(isFinal){const badge=document.createElement('strong');badge.dataset.adminFinalRowBadge='true';badge.className='ll-admin-final-row-badge';badge.textContent=doc?.is_final_submission?'FINAL DOC • REVIEW THIS':data.mentor_required&&data.stage==='admin_review'?'FINAL DOC • TEACHER APPROVED':'LATEST DOC';row.querySelector('section')?.appendChild(badge)}
   });
 }
 
