@@ -65,7 +65,7 @@ function compareDocumentOrder(a:HTMLElement,b:HTMLElement){
 }
 function reorderButtons(){
   scheduled=false;
-  if(route()!=='contribute')return;
+  if(route()!=='contribute'||role()==='student')return;
   const bar=strip();if(!bar)return;
   const buttons=Array.from(bar.querySelectorAll<HTMLButtonElement>(':scope > button[data-section-key]'));
   if(buttons.length<2)return;
@@ -137,7 +137,7 @@ function openApplication(button:HTMLButtonElement){
 
 window.addEventListener('click',event=>{
   if(route()!=='contribute')return;
-  // Student highlighting and scrolling are owned entirely by contributor-state-guide.
+  // Student highlighting and scrolling are owned entirely by the Student guide controller.
   // Do not create a second click lock here or it can pin the active chip on Orientation.
   if(role()==='student')return;
   const target=event.target instanceof Element?event.target:null;if(!target)return;
