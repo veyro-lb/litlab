@@ -105,6 +105,10 @@ function refreshSoon(){
   window.clearTimeout(refreshTimer);
   refreshTimer=window.setTimeout(()=>{observeGuide();scheduleSync()},70);
 }
+function guideRendered(){
+  observeGuide();
+  scheduleSync();
+}
 
 // Student guide state has exactly one scroll owner. Capture nested workspace scrolling,
 // then resolve the active chip from section-top boundary crossings only.
@@ -112,7 +116,8 @@ document.addEventListener('scroll',scheduleSync,{capture:true,passive:true});
 window.addEventListener('scroll',scheduleSync,{passive:true});
 window.addEventListener('resize',refreshSoon,{passive:true});
 window.addEventListener('hashchange',refreshSoon);
-for(const name of ['litlab:contributor-account-role','litlab:contributor-workspace-data','litlab:contributor-workspace-updated','litlab:contributor-submitted','litlab:contributor-admin-updated','litlab:contributor-guide-rendered'])window.addEventListener(name,refreshSoon);
+for(const name of ['litlab:contributor-account-role','litlab:contributor-workspace-data','litlab:contributor-workspace-updated','litlab:contributor-submitted','litlab:contributor-admin-updated'])window.addEventListener(name,refreshSoon);
+window.addEventListener('litlab:contributor-guide-rendered',guideRendered);
 
 // Locked chips are inert. Usable Student chips jump immediately and this controller
 // alone owns the active highlight, avoiding the old smooth-scroll/current-class race.
