@@ -46,6 +46,7 @@ import '../contributor-system-audit';
 import '../contributor-state-guide';
 import '../contributor-guide-action-bridge';
 import '../contributor-journey-coherence';
+import '../contributor-journey-live-sync';
 import '../contributor-guide-navigation-stability';
 import '../admin-feedback';
 import '../admin-feedback-refresh-fix';
