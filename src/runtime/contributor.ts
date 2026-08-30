@@ -73,5 +73,8 @@ import '../contributor-teacher-guide-sanity';
 import '../contributor-role-aware-review';
 import '../contributor-reviewer-role-form-polish';
 import '../contributor-reviewer-scope-sync';
+// Final workspace adapter: the selected reviewer role/perspective controls the actual
+// rubric language, feedback prompts, approval meaning, declaration and submit action.
+import '../contributor-review-role-workspace';
 
 export {};
