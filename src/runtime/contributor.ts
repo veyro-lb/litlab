@@ -3,8 +3,11 @@ import '../contributor-program-enhancements';
 import '../contributor-form-validation';
 import '../contributor-teacher-application';
 import '../contributor-promotion-focus';
-import '../contributor-account-workflow';
+// Submission capture order matters: validate first, enforce the signed-in account role second,
+// then let the account workflow own the network request. The workflow stops propagation once it
+// accepts a submission, so the role guard must be registered before it.
 import '../contributor-account-role';
+import '../contributor-account-workflow';
 import '../contributor-history';
 import '../contributor-chat';
 import '../contributor-docx-upload';
