@@ -128,8 +128,8 @@ try{
     })()`);
     await sleep(500);
 
-    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');const r=b?.getBoundingClientRect();return {valid:f?.checkValidity(),hidden:f?.hidden,button:{disabled:b?.disabled,text:b?.textContent,connected:b?.isConnected,width:r?.width,height:r?.height},status:f?.querySelector('#ll-contributor-status')?.textContent}})()`);
-    if(!before?.valid||before?.hidden||before?.button?.disabled||!before?.button?.connected||!(before?.button?.width>0)||!(before?.button?.height>0))throw new Error(`${role} submit is not interactable: ${JSON.stringify(before)}`);
+    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');const r=b?.getBoundingClientRect();return {nativeValid:f?.checkValidity(),hidden:f?.hidden,button:{disabled:b?.disabled,text:b?.textContent,connected:b?.isConnected,width:r?.width,height:r?.height,ready:b?.dataset.ready},status:f?.querySelector('#ll-contributor-status')?.textContent}})()`);
+    if(before?.button?.ready!=='true'||before?.hidden||before?.button?.disabled||!before?.button?.connected||!(before?.button?.width>0)||!(before?.button?.height>0))throw new Error(`${role} submit is not interactable: ${JSON.stringify(before)}`);
 
     const countersBefore=await evaluate(`({checks:window.__litlabRoleChecks,sets:window.__litlabRoleSets})`);
     const point=await evaluate(`(()=>{const b=document.querySelector('#ll-contributor-form button[type="submit"]');b.scrollIntoView({block:'center'});const r=b.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2}})()`);
@@ -137,7 +137,7 @@ try{
     await command('Input.dispatchMouseEvent',{type:'mouseReleased',x:point.x,y:point.y,button:'left',buttons:0,clickCount:1});
 
     try{await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`)}catch(error){
-      const state=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {href:location.href,ready:document.documentElement.dataset.contributorSubmitOwnerReady,post:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,roleChecks:window.__litlabRoleChecks,roleSets:window.__litlabRoleSets,clickSeen:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting},formHidden:f?.hidden,rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);
+      const state=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {href:location.href,ready:document.documentElement.dataset.contributorSubmitOwnerReady,post:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,roleChecks:window.__litlabRoleChecks,roleSets:window.__litlabRoleSets,clickSeen:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting,ready:b?.dataset.ready},formHidden:f?.hidden,rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);
       throw new Error(`${role} application POST did not occur: ${JSON.stringify(state)}; ${error instanceof Error?error.message:String(error)}`);
     }
     await waitFor(`Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks'))`,`${role} pending-review confirmation`);
