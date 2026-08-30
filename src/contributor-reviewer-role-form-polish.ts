@@ -18,14 +18,35 @@ function selectedRole(form:HTMLFormElement){
   return (form.querySelector<HTMLInputElement>('input[name="reviewer_role_choice"]:checked')?.value||'') as ReviewerRole|'';
 }
 
+function removeLiteralRequired(node:HTMLElement|null){
+  if(!node)return;
+  node.childNodes.forEach(child=>{
+    if(child.nodeType===Node.TEXT_NODE&&child.textContent){
+      child.textContent=child.textContent.replace(/\s*\(required\)/gi,'').replace(/\brequired\b\s*$/i,'').trimEnd();
+    }
+  });
+}
+
+function cleanDuplicateRequiredCopy(teacher:HTMLElement){
+  const mentee=teacher.querySelector<HTMLInputElement>('input[name="mentee_email"]');
+  const menteeLabel=mentee?.closest('label')?.querySelector<HTMLElement>('span')||null;
+  removeLiteralRequired(menteeLabel);
+}
+
 function polish(){
   if(route()!=='contribute')return;
   const form=document.querySelector<HTMLFormElement>('#ll-contributor-form');
   if(!form)return;
   const teacher=form.querySelector<HTMLElement>('[data-teacher-fields]');
-  const section=teacher?.querySelector<HTMLElement>('[data-reviewer-role-section]');
-  const input=teacher?.querySelector<HTMLInputElement>('input[name="reviewer_details"]');
-  if(!teacher||!section||!input||section.dataset.requiredPolish==='true')return;
+  if(!teacher)return;
+
+  // Other validation layers already render a single Required indicator.
+  // Keep the field labels themselves clean so users do not see the word twice.
+  cleanDuplicateRequiredCopy(teacher);
+
+  const section=teacher.querySelector<HTMLElement>('[data-reviewer-role-section]');
+  const input=teacher.querySelector<HTMLInputElement>('input[name="reviewer_details"]');
+  if(!section||!input||section.dataset.requiredPolish==='true')return;
 
   const fieldLabel=input.closest<HTMLLabelElement>('label');
   if(!fieldLabel)return;
@@ -54,7 +75,7 @@ function polish(){
   const oldLabel=Array.from(fieldLabel.children).find(child=>child.tagName==='SPAN') as HTMLElement|undefined;
   if(oldLabel){
     oldLabel.classList.add('ll-reviewer-background-label');
-    oldLabel.innerHTML='<b>Reviewer background</b><small>Required</small>';
+    oldLabel.innerHTML='<b>Reviewer background</b>';
   }
 
   const detailCopy=section.querySelector<HTMLElement>('[data-role-detail-copy]');
