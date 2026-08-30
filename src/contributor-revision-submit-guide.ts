@@ -32,14 +32,37 @@ function revisionSource(app:Workspace|null){
 }
 
 function guide(){return document.querySelector<HTMLElement>('[data-contributor-state-guide]')}
-function links(){return guide()?.querySelector<HTMLElement>('.ll-contributor-toc-links')||null}
 function nativeSubmissionButton(){return guide()?.querySelector<HTMLButtonElement>('[data-section-key="submission"]')||null}
 function activeUpload(){
   const host=document.querySelector<HTMLElement>('[data-contributor-workspace]');if(!host)return null;
   return Array.from(host.querySelectorAll<HTMLFormElement>('.ll-docx-form,form[data-docx-upload]')).find(form=>visible(form)&&!form.classList.contains('is-lifecycle-locked')&&!Array.from(form.querySelectorAll<HTMLInputElement|HTMLButtonElement|HTMLSelectElement|HTMLTextAreaElement>('input,button,select,textarea')).every(control=>control.disabled))||null;
 }
 function submissionCard(){return document.querySelector<HTMLElement>('[data-contributor-workspace] .ll-workspace-docs')}
+function legacyRevisionButton(){return guide()?.querySelector<HTMLButtonElement>('.ll-revision-submit-guide:not([data-section-key="submission"])')||null}
+function nativeLocked(button:HTMLButtonElement){return button.classList.contains('locked')||button.hasAttribute('data-contributor-locked')||button.getAttribute('aria-disabled')==='true'}
 
+function rememberNative(button:HTMLButtonElement){
+  if(button.dataset.revisionSubmissionOwned==='true')return;
+  button.dataset.revisionSubmissionOwned='true';
+  button.dataset.revisionSubmissionLabel=button.textContent||'Submission';
+  button.dataset.revisionSubmissionAria=button.getAttribute('aria-label')||'';
+  button.dataset.revisionSubmissionTitle=button.getAttribute('title')||'';
+}
+function restoreNative(button:HTMLButtonElement|null){
+  if(!button||button.dataset.revisionSubmissionOwned!=='true')return;
+  button.textContent=button.dataset.revisionSubmissionLabel||'Submission';
+  const aria=button.dataset.revisionSubmissionAria||'';
+  const title=button.dataset.revisionSubmissionTitle||'';
+  if(aria)button.setAttribute('aria-label',aria);else button.removeAttribute('aria-label');
+  if(title)button.setAttribute('title',title);else button.removeAttribute('title');
+  button.classList.remove('ll-revision-native-submission');
+  button.removeAttribute('data-revision-submit-guide');
+  button.removeAttribute('data-revision-source');
+  delete button.dataset.revisionSubmissionOwned;
+  delete button.dataset.revisionSubmissionLabel;
+  delete button.dataset.revisionSubmissionAria;
+  delete button.dataset.revisionSubmissionTitle;
+}
 function showToast(message:string){
   const bar=guide();if(!bar)return;
   let toast=bar.querySelector<HTMLElement>('[data-revision-submit-toast]');
@@ -72,26 +95,26 @@ function openRevisionSubmission(){
 
 function render(){
   scheduled=false;
-  const bar=guide();const strip=links();const app=current();const source=revisionSource(app);
-  const existing=bar?.querySelector<HTMLButtonElement>('[data-revision-submit-guide]')||null;
-  if(route()!=='contribute'||!bar||!strip||!source){existing?.remove();return}
+  legacyRevisionButton()?.remove();
+  const bar=guide();const app=current();const source=revisionSource(app);const native=nativeSubmissionButton();
+  if(route()!=='contribute'||!bar||!source){restoreNative(native);return}
+  if(!native||nativeLocked(native)){restoreNative(native);return}
 
-  let button=existing;
-  if(!button){button=document.createElement('button');button.type='button';button.dataset.revisionSubmitGuide='true';button.className='ll-revision-submit-guide';strip.append(button)}
-  button.dataset.revisionSource=source;
-  button.innerHTML=`<span aria-hidden="true">↻</span><b>Submit revision</b>`;
-  button.title=source==='teacher'?'Your teacher requested changes. Go directly to the reopened DOCX upload.':'LitLab requested changes. Go directly to the reopened DOCX upload.';
-
-  const native=nativeSubmissionButton();
-  if(native){native.classList.add('ll-revision-native-submission');native.setAttribute('aria-label','Submission history and revision upload')}
+  rememberNative(native);
+  native.dataset.revisionSubmitGuide='true';
+  native.dataset.revisionSource=source;
+  native.classList.add('ll-revision-native-submission');
+  native.textContent='Submit revision';
+  native.setAttribute('aria-label',source==='teacher'?'Submit revision requested by your teacher':'Submit revision requested by LitLab');
+  native.title=source==='teacher'?'Your teacher requested changes. Open the reopened DOCX upload.':'LitLab requested changes. Open the reopened DOCX upload.';
 }
 function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(render)}
 
 window.addEventListener('click',event=>{
   if(route()!=='contribute')return;
   const target=event.target instanceof Element?event.target:null;
-  const button=target?.closest<HTMLButtonElement>('[data-revision-submit-guide]');
-  if(!button)return;
+  const button=target?.closest<HTMLButtonElement>('[data-section-key="submission"][data-revision-submit-guide="true"]');
+  if(!button||nativeLocked(button))return;
   event.preventDefault();event.stopImmediatePropagation();
   openRevisionSubmission();
 },true);
@@ -105,7 +128,8 @@ window.addEventListener('litlab:contributor-workspace-data',event=>{
 for(const name of ['litlab:contributor-workspace-updated','litlab:contributor-admin-updated','litlab:contributor-submitted','litlab:contributor-account-role'])window.addEventListener(name,schedule);
 window.addEventListener('hashchange',schedule);window.addEventListener('focus',schedule);
 
-const observer=new MutationObserver(records=>{if(route()!=='contribute')return;if(records.some(record=>Array.from(record.addedNodes).some(node=>node instanceof Element&&(node.matches('[data-contributor-state-guide],.ll-docx-form,.ll-workspace-docs')||Boolean(node.querySelector('[data-contributor-state-guide],.ll-docx-form,.ll-workspace-docs'))))))schedule()});
+const guideTargets='[data-contributor-state-guide],[data-section-key="submission"],.ll-docx-form,.ll-workspace-docs';
+const observer=new MutationObserver(records=>{if(route()!=='contribute')return;if(records.some(record=>Array.from(record.addedNodes).some(node=>node instanceof Element&&(node.matches(guideTargets)||Boolean(node.querySelector(guideTargets))))))schedule()});
 function start(){observer.observe(document.body,{childList:true,subtree:true});schedule()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 
