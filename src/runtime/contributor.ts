@@ -43,6 +43,7 @@ import '../contributor-compact-chat';
 import '../contributor-application-launcher';
 import '../contributor-page-experience';
 import '../contributor-system-audit';
+import '../contributor-state-guide';
 import '../contributor-guide-action-bridge';
 import '../contributor-journey-coherence';
 import '../contributor-guide-navigation-stability';
