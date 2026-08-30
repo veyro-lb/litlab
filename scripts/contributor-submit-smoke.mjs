@@ -76,7 +76,11 @@ try{
     const token=enc({alg:'none',typ:'JWT'})+'.'+enc({sub:userId,email,role:'authenticated',user_metadata:{full_name:intendedRole==='student'?'Student Smoke':'Teacher Smoke'}})+'.x';
     localStorage.setItem('litlabSupabaseSession',JSON.stringify({access_token:token,refresh_token:'smoke-refresh',expires_at:Math.floor(Date.now()/1000)+3600,token_type:'bearer'}));
     localStorage.removeItem('litlabContributorLastSentAt');
-    window.__litlabApplicationPost=null;window.__litlabSavedRole=null;window.__litlabRoleChecks=0;window.__litlabRoleSets=0;window.__litlabClickSeen=0;
+    window.__litlabApplicationPost=null;
+    window.__litlabSavedRole=intendedRole;
+    window.__litlabRoleChecks=0;
+    window.__litlabRoleSets=0;
+    window.__litlabClickSeen=0;
     document.addEventListener('click',event=>{if(event.target instanceof Element&&event.target.closest('#ll-contributor-form button[type="submit"]'))window.__litlabClickSeen+=1},true);
     const nativeFetch=window.fetch.bind(window);
     window.fetch=async(input,init={})=>{
@@ -89,13 +93,14 @@ try{
         return new Response('',{status:201});
       }
       if(url.includes('/rest/v1/rpc/get_my_litlab_contributor_account_role')){
-        window.__litlabRoleChecks+=1;const saved=window.__litlabSavedRole;
-        return json({role:saved,is_admin:false,needs_choice:!saved,has_conflict:false,existing_roles:saved?[saved]:[]});
+        window.__litlabRoleChecks+=1;
+        return json({role:window.__litlabSavedRole,is_admin:false,needs_choice:false,has_conflict:false,existing_roles:[window.__litlabSavedRole]});
       }
       if(url.includes('/rest/v1/rpc/set_my_litlab_contributor_account_role')){
-        window.__litlabRoleSets+=1;let requested='';try{requested=JSON.parse(String(init.body||'{}')).p_role||''}catch{}
-        if(requested!=='student'&&requested!=='teacher')return json({message:'Choose Student or Teacher'},400);
-        window.__litlabSavedRole=requested;return json({role:requested,is_admin:false,needs_choice:false,has_conflict:false,changed:true});
+        window.__litlabRoleSets+=1;
+        let requested='';try{requested=JSON.parse(String(init.body||'{}')).p_role||''}catch{}
+        window.__litlabSavedRole=requested;
+        return json({role:requested,is_admin:false,needs_choice:false,has_conflict:false,changed:true});
       }
       if(url.includes('/rest/v1/rpc/is_litlab_admin'))return json(false);
       if(url.includes('/rest/v1/rpc/touch_litlab_session'))return new Response('',{status:204});
@@ -106,15 +111,9 @@ try{
 
   for(const role of ['student','teacher']){
     await command('Page.navigate',{url:new URL(`?submitSmokeRole=${role}#contribute`,base).toString()});
-    await waitFor(`Boolean(document.querySelector('#ll-contributor-form'))`,`${role} contributor form`);
     await waitFor(`document.documentElement.dataset.contributorSubmitOwnerReady==='true'`,`${role} submit owner readiness`);
-
-    await evaluate(`(()=>{
-      const root=document.getElementById('ll-contributor-root');if(root)root.dataset.contributorAccountRole='unselected';
-      const apply=document.getElementById('contribute-apply');const form=document.querySelector('#ll-contributor-form');
-      if(apply){apply.hidden=false;apply.setAttribute('aria-hidden','false')}
-      if(form){form.hidden=false;const radio=form.querySelector('input[name="applicant_type"][value="${role}"]');if(radio){radio.checked=true;radio.dispatchEvent(new Event('change',{bubbles:true}))}}
-    })()`);
+    await waitFor(`document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole==='${role}'`,`${role} authoritative account role`);
+    await waitFor(`Boolean(document.querySelector('#ll-contributor-form'))&&!document.querySelector('#ll-contributor-form').hidden`,`${role} visible contributor form`);
     await waitFor(role==='student'?`Boolean(document.querySelector('select[name="student_supervision"]'))`:`Boolean(document.querySelector('input[name="mentee_email"]'))`,`${role} relationship fields`);
 
     await evaluate(`(()=>{
@@ -126,9 +125,10 @@ try{
       else{set('subject_taught','DP English A');set('mentee_email','student-linked@example.test');set('contribution_type','teacher-review')}
       form.querySelectorAll('input[type="checkbox"]').forEach(box=>{box.checked=true;box.dispatchEvent(new Event('change',{bubbles:true}))});
     })()`);
-    await sleep(500);
+    await waitFor(`document.querySelector('#ll-contributor-form button[type="submit"]')?.dataset.ready==='true'`,`${role} active-field readiness`);
+    await sleep(250);
 
-    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');const r=b?.getBoundingClientRect();return {nativeValid:f?.checkValidity(),hidden:f?.hidden,button:{disabled:b?.disabled,text:b?.textContent,connected:b?.isConnected,width:r?.width,height:r?.height,ready:b?.dataset.ready},status:f?.querySelector('#ll-contributor-status')?.textContent}})()`);
+    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');const r=b?.getBoundingClientRect();return {nativeValid:f?.checkValidity(),hidden:f?.hidden,button:{disabled:b?.disabled,text:b?.textContent,connected:b?.isConnected,width:r?.width,height:r?.height,ready:b?.dataset.ready},status:f?.querySelector('#ll-contributor-status')?.textContent,rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);
     if(before?.button?.ready!=='true'||before?.hidden||before?.button?.disabled||!before?.button?.connected||!(before?.button?.width>0)||!(before?.button?.height>0))throw new Error(`${role} submit is not interactable: ${JSON.stringify(before)}`);
 
     const countersBefore=await evaluate(`({checks:window.__litlabRoleChecks,sets:window.__litlabRoleSets})`);
@@ -137,17 +137,17 @@ try{
     await command('Input.dispatchMouseEvent',{type:'mouseReleased',x:point.x,y:point.y,button:'left',buttons:0,clickCount:1});
 
     try{await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`)}catch(error){
-      const state=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {href:location.href,ready:document.documentElement.dataset.contributorSubmitOwnerReady,post:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,roleChecks:window.__litlabRoleChecks,roleSets:window.__litlabRoleSets,clickSeen:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting,ready:b?.dataset.ready},formHidden:f?.hidden,rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);
+      const state=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {href:location.href,post:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,roleChecks:window.__litlabRoleChecks,roleSets:window.__litlabRoleSets,clickSeen:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting,ready:b?.dataset.ready},formHidden:f?.hidden,rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);
       throw new Error(`${role} application POST did not occur: ${JSON.stringify(state)}; ${error instanceof Error?error.message:String(error)}`);
     }
-    await waitFor(`Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks'))`,`${role} pending-review confirmation`);
+    await waitFor(`document.querySelector('#ll-contributor-form .ll-contrib-pending-badge')?.textContent==='PENDING ADMIN REVIEW'`,`${role} pending-admin-review confirmation`);
 
     const result=await evaluate(`({payload:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,roleChecks:window.__litlabRoleChecks,roleSets:window.__litlabRoleSets,clickSeen:window.__litlabClickSeen,pendingText:document.querySelector('#ll-contributor-form .ll-contrib-pending-badge')?.textContent||'',thanks:Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks'))})`);
-    if(!(result.roleChecks>countersBefore.checks))throw new Error(`${role} did not re-check account role: ${JSON.stringify(result)}`);
-    if(!(result.roleSets>countersBefore.sets))throw new Error(`${role} did not save missing account role: ${JSON.stringify(result)}`);
+    if(!(result.roleChecks>countersBefore.checks))throw new Error(`${role} did not re-check account role at submit time: ${JSON.stringify(result)}`);
+    if(result.roleSets!==countersBefore.sets)throw new Error(`${role} unexpectedly changed an already-saved account role: ${JSON.stringify(result)}`);
     if(result.savedRole!==role||result.payload?.applicant_type!==role)throw new Error(`${role} role/payload mismatch: ${JSON.stringify(result)}`);
     if(result.pendingText!=='PENDING ADMIN REVIEW'||!result.thanks)throw new Error(`${role} missing pending confirmation: ${JSON.stringify(result)}`);
-    console.log(`Contributor submit smoke passed for ${role}: real click -> role saved -> application POST -> pending admin review.`);
+    console.log(`Contributor submit smoke passed for ${role}: real click -> application POST -> PENDING ADMIN REVIEW (nativeValid=${before.nativeValid}).`);
   }
 }finally{
   try{ws?.close()}catch{}
