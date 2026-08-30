@@ -128,7 +128,8 @@ window.addEventListener('litlab:contributor-workspace-data',event=>{
 for(const name of ['litlab:contributor-workspace-updated','litlab:contributor-admin-updated','litlab:contributor-submitted','litlab:contributor-account-role'])window.addEventListener(name,schedule);
 window.addEventListener('hashchange',schedule);window.addEventListener('focus',schedule);
 
-const observer=new MutationObserver(records=>{if(route()!=='contribute')return;if(records.some(record=>Array.from(record.addedNodes).some(node=>node instanceof Element&&(node.matches('[data-contributor-state-guide],.ll-docx-form,.ll-workspace-docs')||Boolean(node.querySelector('[data-contributor-state-guide],.ll-docx-form,.ll-workspace-docs'))))))schedule()});
+const guideTargets='[data-contributor-state-guide],[data-section-key="submission"],.ll-docx-form,.ll-workspace-docs';
+const observer=new MutationObserver(records=>{if(route()!=='contribute')return;if(records.some(record=>Array.from(record.addedNodes).some(node=>node instanceof Element&&(node.matches(guideTargets)||Boolean(node.querySelector(guideTargets))))))schedule()});
 function start(){observer.observe(document.body,{childList:true,subtree:true});schedule()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 
