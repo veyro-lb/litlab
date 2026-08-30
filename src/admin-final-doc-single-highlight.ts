@@ -24,7 +24,7 @@ let requestVersion=0;
 
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
 function teacherApprovedHandoff(data:Pipeline|null){return Boolean(data?.applicant_type==='student'&&data.mentor_required&&data.stage==='admin_review'&&data.latest_document?.id)}
 
 async function rpc<T>(name:string,body:Record<string,unknown>):Promise<T>{
