@@ -1,12 +1,12 @@
 import '../contributor-program';
+// The submit owner must register immediately after the form renderer, before any enhancement,
+// validation, role, or promotion capture listeners can intercept the button click.
+import '../contributor-submit-direct';
 import '../contributor-program-enhancements';
 import '../contributor-form-validation';
 import '../contributor-teacher-application';
 import '../contributor-promotion-focus';
-// Submission capture order matters: validate first, enforce the signed-in account role second,
-// then let the direct submission owner run before the older account workflow interception.
 import '../contributor-account-role';
-import '../contributor-submit-direct';
 import '../contributor-account-workflow';
 import '../contributor-history';
 import '../contributor-chat';
