@@ -114,6 +114,7 @@ try{
     const url=new URL(`?submitSmokeRole=${role}#contribute`,base).toString();
     await command('Page.navigate',{url});
     await waitFor(`Boolean(document.querySelector('#ll-contributor-form'))`,`${role} contributor form`);
+    await waitFor(`document.documentElement.dataset.contributorSubmitOwnerReady==='true'`,`${role} submit owner readiness`);
     await evaluate(`(()=>{
       const root=document.getElementById('ll-contributor-root');if(root)root.dataset.contributorAccountRole='unselected';
       const apply=document.getElementById('contribute-apply');const form=document.querySelector('#ll-contributor-form');
@@ -148,7 +149,12 @@ try{
 
     const countersBefore=await evaluate(`({checks:window.__litlabRoleChecks,sets:window.__litlabRoleSets})`);
     await evaluate(`document.querySelector('#ll-contributor-form button[type="submit"]')?.click()`);
-    await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`);
+    try{
+      await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`);
+    }catch(error){
+      const state=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {ready:document.documentElement.dataset.contributorSubmitOwnerReady,post:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,roleChecks:window.__litlabRoleChecks,roleSets:window.__litlabRoleSets,clickSeen:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting},rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);
+      throw new Error(`${role} application POST did not occur: ${JSON.stringify(state)}; ${error instanceof Error?error.message:String(error)}`);
+    }
     await waitFor(`Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks'))`,`${role} pending-review confirmation`);
 
     const result=await evaluate(`({payload:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,roleChecks:window.__litlabRoleChecks,roleSets:window.__litlabRoleSets,clickSeen:window.__litlabClickSeen,pendingText:document.querySelector('#ll-contributor-form .ll-contrib-pending-badge')?.textContent||'',thanks:Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks'))})`);
