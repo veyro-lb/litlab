@@ -11,10 +11,8 @@ type JwtPayload={sub?:string;email?:string};
 type RoleState={role?:ApplicantType|null;is_admin?:boolean;needs_choice?:boolean;has_conflict?:boolean};
 type ApiError={message?:string;details?:string;hint?:string};
 
-let scheduled=false;
 let submitting=false;
 
-function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 function jwt():JwtPayload|null{
   try{
@@ -29,21 +27,28 @@ function clean(data:FormData,key:string){return String(data.get(key)||'').trim()
 function status(form:HTMLFormElement){return form.querySelector<HTMLElement>('#ll-contributor-status')}
 function setStatus(form:HTMLFormElement,text:string,state=''){const box=status(form);if(box){box.textContent=text;box.dataset.state=state}}
 
+async function requestWithTimeout(input:string,init:RequestInit){
+  const controller=new AbortController();
+  const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
+  try{return await fetch(input,{...init,signal:controller.signal})}
+  catch(error){
+    if(error instanceof DOMException&&error.name==='AbortError')throw new Error('LitLab did not receive a response in time. Please try submitting again.');
+    throw error;
+  }finally{window.clearTimeout(timeout)}
+}
+
 async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const auth=token();if(!auth)throw new Error('Sign in required');
-  const controller=new AbortController();const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
-  try{
-    const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{
-      method:'POST',
-      headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},
-      body:JSON.stringify(body),signal:controller.signal
-    });
-    if(!response.ok){
-      let message='';try{const data=await response.json() as ApiError;message=data.message||data.details||data.hint||''}catch{}
-      throw new Error(message||`${name} failed (${response.status})`);
-    }
-    const text=await response.text();return (text?JSON.parse(text):null) as T;
-  }finally{window.clearTimeout(timeout)}
+  const response=await requestWithTimeout(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},
+    body:JSON.stringify(body)
+  });
+  if(!response.ok){
+    let message='';try{const data=await response.json() as ApiError;message=data.message||data.details||data.hint||''}catch{}
+    throw new Error(message||`${name} failed (${response.status})`);
+  }
+  const text=await response.text();return (text?JSON.parse(text):null) as T;
 }
 
 function forceRole(form:HTMLFormElement,role:ApplicantType){
@@ -56,6 +61,12 @@ function invalidField(form:HTMLFormElement){
   const control=Array.from(form.elements).find(item=>(item instanceof HTMLInputElement||item instanceof HTMLTextAreaElement||item instanceof HTMLSelectElement)&&!item.checkValidity());
   if(!(control instanceof HTMLInputElement||control instanceof HTMLTextAreaElement||control instanceof HTMLSelectElement))return '';
   return control.closest('label')?.querySelector<HTMLElement>(':scope > span')?.textContent?.replace(/\s+/g,' ').trim()||control.name.replace(/_/g,' ');
+}
+
+function renderPending(form:HTMLFormElement){
+  form.innerHTML='<div class="ll-contrib-thanks ll-contrib-pending"><span>✓</span><div class="ll-contrib-pending-badge">PENDING ADMIN REVIEW</div><h3>Your application has been submitted.</h3><p>Your application is saved to your LitLab account and is now waiting for LitLab admin review.</p><p class="ll-contrib-thanks-note"><b>What happens next:</b> review decisions, revision requests and next-step instructions stay attached to your LitLab account.</p><button type="button" data-contrib-home>Back to LitLab</button></div>';
+  form.querySelector<HTMLButtonElement>('[data-contrib-home]')?.addEventListener('click',()=>{location.hash='home'});
+  window.dispatchEvent(new CustomEvent('litlab:contributor-submitted'));
 }
 
 async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
@@ -74,7 +85,6 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
     if(role!=='student'&&role!=='teacher')throw new Error('Choose Student contributor or Teacher / mentor for this account before submitting.');
     forceRole(form,role);
 
-    // Let the existing role/validation modules apply their conditional fields before the final check.
     await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));
     if(!form.checkValidity()){
       const field=invalidField(form);form.reportValidity();
@@ -82,10 +92,10 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
     }
 
     const last=Number(localStorage.getItem(SUBMIT_COOLDOWN_KEY)||0);
-    if(Date.now()-last<COOLDOWN_MS){setStatus(form,'Your application was already submitted. It is pending review.','success');return}
+    if(Date.now()-last<COOLDOWN_MS){renderPending(form);return}
 
     const data=new FormData(form);
-    if(String(data.get('website')||'').trim())return;
+    if(String(data.get('website')||'').trim())throw new Error('This application could not be submitted. Please reload the page and try again.');
     const payload={
       applicant_type:role,
       full_name:String(data.get('full_name')||'').trim(),
@@ -110,8 +120,9 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
       user_id:uid
     };
 
-    button.textContent='Submitting…';setStatus(form,'Saving your application to your LitLab account…','ready');
-    const response=await fetch(`${SUPABASE_URL}/rest/v1/litlab_contributor_applications`,{
+    button.textContent='Submitting…';
+    setStatus(form,'Saving your application to your LitLab account…','ready');
+    const response=await requestWithTimeout(`${SUPABASE_URL}/rest/v1/litlab_contributor_applications`,{
       method:'POST',
       headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`,Prefer:'return=minimal'},
       body:JSON.stringify(payload)
@@ -122,9 +133,7 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
     }
 
     localStorage.setItem(SUBMIT_COOLDOWN_KEY,String(Date.now()));
-    form.innerHTML='<div class="ll-contrib-thanks ll-contrib-pending"><span>✓</span><div class="ll-contrib-pending-badge">PENDING REVIEW</div><h3>Your application has been submitted.</h3><p>LitLab will review your application before anything is approved. Your application is now saved to your signed-in account.</p><p class="ll-contrib-thanks-note"><b>What happens next:</b> review decisions and next-step instructions stay attached to your LitLab account.</p><button type="button" data-contrib-home>Back to LitLab</button></div>';
-    form.querySelector<HTMLButtonElement>('[data-contrib-home]')?.addEventListener('click',()=>{location.hash='home'});
-    window.dispatchEvent(new CustomEvent('litlab:contributor-submitted'));
+    renderPending(form);
   }catch(error){
     const message=error instanceof Error?error.message:'We could not submit your application.';
     console.error('Direct contributor submission failed',error);
@@ -135,25 +144,24 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
   }
 }
 
-function wire(){
-  scheduled=false;if(route()!=='contribute')return;
-  const form=document.querySelector<HTMLFormElement>('#ll-contributor-form');
-  const button=form?.querySelector<HTMLButtonElement>('button[type="submit"]');
-  if(!form||!button||button.dataset.directSubmitWired==='true')return;
-  button.dataset.directSubmitWired='true';
-  button.addEventListener('click',event=>{
-    if(button.dataset.submitting==='true')return;
-    event.preventDefault();event.stopPropagation();
-    void directSubmit(form,button);
-  });
-}
-function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(wire)}
+// This module is imported before the older account-workflow submit interception. Owning the
+// capture-phase click here guarantees the visible button cannot fall into a stale handler or native
+// form navigation. Account-role and validation guards are registered before this module.
+document.addEventListener('click',event=>{
+  const button=event.target instanceof Element?event.target.closest<HTMLButtonElement>('#ll-contributor-form button[type="submit"]'):null;
+  if(!button)return;
+  const form=button.form;if(!form||form.id!=='ll-contributor-form')return;
+  event.preventDefault();event.stopPropagation();event.stopImmediatePropagation();
+  void directSubmit(form,button);
+},true);
 
-new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
-window.addEventListener('hashchange',schedule);
-window.addEventListener('focus',schedule);
-window.addEventListener('litlab:contributor-account-role',schedule);
-window.addEventListener('litlab:open-contributor-application',schedule);
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
+// Keyboard/assistive form submission uses the same single owner.
+document.addEventListener('submit',event=>{
+  const form=event.target instanceof HTMLFormElement?event.target:null;
+  if(!form||form.id!=='ll-contributor-form')return;
+  const button=form.querySelector<HTMLButtonElement>('button[type="submit"]');if(!button)return;
+  event.preventDefault();event.stopPropagation();event.stopImmediatePropagation();
+  void directSubmit(form,button);
+},true);
 
 export {};
