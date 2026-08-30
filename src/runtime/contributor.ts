@@ -69,5 +69,6 @@ import '../contributor-teacher-guide-sanity';
 // adds structured feedback and optional private annotated DOCX handoff.
 import '../contributor-role-aware-review';
 import '../contributor-reviewer-role-form-polish';
+import '../contributor-reviewer-scope-sync';
 
 export {};
