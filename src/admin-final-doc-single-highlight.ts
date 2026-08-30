@@ -24,7 +24,7 @@ let requestVersion=0;
 
 function token(){try{return String((JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as StoredSession|null)?.access_token||'')}catch{return ''}}
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
 function teacherApprovedHandoff(data:Pipeline|null){return Boolean(data?.applicant_type==='student'&&data.mentor_required&&data.stage==='admin_review'&&data.latest_document?.id)}
 
 async function rpc<T>(name:string,body:Record<string,unknown>):Promise<T>{
@@ -68,7 +68,7 @@ function syncTeacherApprovedBanner(modal:HTMLElement,approved:boolean){
   const signature=`${doc?.id||''}|${teacher}|${version}|${name}`;
   if(banner.dataset.signature===signature)return;
   banner.dataset.signature=signature;banner.dataset.tone='final';
-  banner.innerHTML=`<div><span>TEACHER-APPROVED DOCX FOR LITLAB REVIEW</span><h3>Review the DOCX the teacher approved</h3><p>${esc(teacher)} approved ${esc(version)} — ${esc(name)}. This teacher approval is the handoff to LitLab admin, so the student does not need to mark or resubmit it as “Final”.</p></div><button type="button" data-open-final-admin-doc>Open approved DOCX →</button>`;
+  banner.innerHTML=`<div><span>TEACHER-APPROVED DOCX FOR LITLAB REVIEW</span><h3>Review the DOCX the teacher approved</h3><p>${esc(teacher)} approved ${esc(version)} — ${esc(name)}. Teacher approval makes this the final handoff to LitLab admin. Review this exact DOCX; admin may mark the contribution “Completed / final approved” when it is accepted.</p></div><button type="button" data-open-final-admin-doc>Open approved DOCX →</button>`;
 }
 
 function normalize(){
@@ -90,7 +90,7 @@ function normalize(){
     badges.slice(1).forEach(item=>item.remove());
     let badge=badges[0];
     if(!badge){badge=document.createElement('strong');badge.dataset.adminFinalRowBadge='true';badge.className='ll-admin-final-row-badge';section.appendChild(badge)}
-    const label=approvedByTeacher&&!doc?.is_final_submission?'TEACHER-APPROVED DOC • REVIEW THIS':'FINAL DOC • REVIEW THIS';
+    const label=approvedByTeacher&&!doc?.is_final_submission?'FINAL DOC • TEACHER APPROVED':'FINAL DOC • REVIEW THIS';
     if(badge.textContent!==label)badge.textContent=label;
   });
 }
