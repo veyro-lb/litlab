@@ -79,5 +79,7 @@ import '../contributor-review-role-workspace';
 // Account-level reviewer specialization is the final authority. Existing Teacher accounts
 // are asked once, and the persisted choice drives the application and review workspace.
 import '../contributor-reviewer-specialization';
+// Role cards are selection-only; a separate confirmation step performs the permanent save.
+import '../contributor-reviewer-specialization-confirm';
 
 export {};
