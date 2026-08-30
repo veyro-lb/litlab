@@ -3,7 +3,6 @@ import './account-role-auth.css';
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
-const ROLE_RPC='get_my_litlab_contributor_account_role';
 const REQUEST_TIMEOUT_MS=12_000;
 const TOKEN_WATCH_MS=750;
 
@@ -22,7 +21,7 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
   const auth=token();if(!auth)throw new Error('Sign in required');
   const controller=new AbortController();const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
   try{
-    const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},body:JSON.stringify(body),signal:controller.signal,cache:name===ROLE_RPC?'no-store':'default'});
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},body:JSON.stringify(body),signal:controller.signal});
     if(!response.ok){let message=`${name} failed (${response.status})`;try{const json=await response.json() as {message?:string};if(json.message)message=json.message}catch{}throw new Error(message)}
     const text=await response.text();return (text?JSON.parse(text):null) as T;
   }finally{window.clearTimeout(timeout)}
@@ -90,7 +89,7 @@ async function refreshRoleState(force=false){
   if(!force&&roleState&&lastToken===current){decorateAccountMenu();return}
   loading=true;lastToken=current;
   try{
-    const state=await rpc<RoleState>(ROLE_RPC);
+    const state=await rpc<RoleState>('get_my_litlab_contributor_account_role');
     if(token()!==current)return;
     applyRoleState(state);window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:state}));
   }catch(error){console.error('LitLab account type unavailable',error)}finally{loading=false}

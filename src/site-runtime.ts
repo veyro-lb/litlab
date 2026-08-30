@@ -12,7 +12,6 @@ import './tutor-smart-layer';
 import './tutor-topbar-trigger';
 import './google-auth';
 import './account-role-auth';
-import './admin-role-preview';
 import './admin-menu-launcher';
 import './admin-feedback-notification';
 import './contributor-status-notifications';
