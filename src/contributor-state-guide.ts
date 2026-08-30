@@ -306,7 +306,8 @@ function renderGuide(){
   const info=flowInfo(activeRole,host,app);guide.dataset.tone=info.tone;guide.dataset.flow=info.flow;
   const html=`<span class="ll-contributor-toc-heading">On this ${activeRole?'workspace':'page'}</span><em class="ll-contributor-toc-state">${esc(info.label)}</em><div class="ll-contributor-toc-links">${links.map(buttonMarkup).join('')}</div><div class="ll-contributor-toc-toast" data-contributor-toc-toast role="status" aria-live="polite" hidden></div>`;
   if(guide.dataset.signature!==html){guide.dataset.signature=html;guide.innerHTML=html}
-  requestAnimationFrame(syncCurrentFromScroll);
+  if(activeRole==='student')window.dispatchEvent(new CustomEvent('litlab:contributor-guide-rendered'));
+  else requestAnimationFrame(syncCurrentFromScroll);
 }
 function schedule(){if(scheduled)return;scheduled=true;clearTimeout(timer);timer=window.setTimeout(renderGuide,70)}
 function startObserver(){
@@ -333,6 +334,7 @@ function setCurrent(button:HTMLButtonElement|null){
 }
 function syncCurrentFromScroll(){
   scrollScheduled=false;
+  if(role()==='student')return;
   const guide=document.querySelector<HTMLElement>('[data-contributor-state-guide]');if(!guide||route()!=='contribute')return;
   const entries:Array<{button:HTMLButtonElement;target:HTMLElement}>=[];
   guide.querySelectorAll<HTMLButtonElement>('[data-contributor-section-jump]').forEach(button=>{
@@ -349,7 +351,7 @@ function syncCurrentFromScroll(){
   if(best===-Infinity)active=entries.slice().sort((a,b)=>Math.abs(a.target.getBoundingClientRect().top-marker)-Math.abs(b.target.getBoundingClientRect().top-marker))[0]||entries[0];
   setCurrent(active.button);
 }
-function onScroll(){if(scrollScheduled)return;scrollScheduled=true;requestAnimationFrame(syncCurrentFromScroll)}
+function onScroll(){if(role()==='student'||scrollScheduled)return;scrollScheduled=true;requestAnimationFrame(syncCurrentFromScroll)}
 function showLockedReason(reason:string){
   const toast=document.querySelector<HTMLElement>('[data-contributor-toc-toast]');if(!toast)return;
   clearTimeout(toastTimer);toast.textContent=`Locked: ${reason}`;toast.hidden=false;
@@ -373,6 +375,7 @@ document.addEventListener('click',event=>{
   const locked=target.closest<HTMLButtonElement>('[data-contributor-locked]');if(locked){event.preventDefault();showLockedReason(locked.dataset.contributorLocked||'This section is not available yet.');return}
   const action=target.closest<HTMLButtonElement>('[data-contributor-action="application"]');if(action){event.preventDefault();setCurrent(action);openApplicationFromGuide();return}
   const button=target.closest<HTMLButtonElement>('[data-contributor-section-jump]');if(button){
+    if(role()==='student')return;
     const id=button.dataset.contributorSectionJump||'';const destination=id?document.getElementById(id):null;if(!visible(destination)){schedule();return}
     setCurrent(button);destination.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return;
   }

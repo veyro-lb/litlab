@@ -70,19 +70,13 @@ function chooseActive(entries:GuideEntry[],host:HTMLElement){
   const anchor=Math.max(110,Math.round(host.getBoundingClientRect().bottom+28));
   let active:GuideEntry|null=null;
   let bestTop=-Infinity;
-  let upcoming:GuideEntry|null=null;
-  let upcomingTop=Infinity;
   for(const entry of entries){
     const rect=entry.target.getBoundingClientRect();
     if(rect.width===0&&rect.height===0)continue;
     const top=rect.top;
-    if(top<=anchor){
-      if(top>bestTop+1){bestTop=top;active=entry}
-      continue;
-    }
-    if(top<upcomingTop-1){upcomingTop=top;upcoming=entry}
+    if(top<=anchor&&top>bestTop+1){bestTop=top;active=entry}
   }
-  return active||upcoming||entries[0];
+  return active;
 }
 function sync(){
   if(route()!=='contribute'||role()!=='student')return;
@@ -90,7 +84,7 @@ function sync(){
   lockEmptyCompletedButtons(host);
   const entries=guideEntries(host);
   if(!entries.length){setCurrent(null);return}
-  setCurrent(chooseActive(entries,host).button);
+  setCurrent(chooseActive(entries,host)?.button||null);
 }
 function scheduleSync(){
   if(frame)return;
@@ -111,17 +105,22 @@ function refreshSoon(){
   window.clearTimeout(refreshTimer);
   refreshTimer=window.setTimeout(()=>{observeGuide();scheduleSync()},70);
 }
+function guideRendered(){
+  observeGuide();
+  scheduleSync();
+}
 
-// Contributor workspaces contain nested scrolling and dynamically re-rendered sections.
-// Capture every scroll source, then do one section-boundary geometry pass per frame.
+// Student guide state has exactly one scroll owner. Capture nested workspace scrolling,
+// then resolve the active chip from section-top boundary crossings only.
 document.addEventListener('scroll',scheduleSync,{capture:true,passive:true});
 window.addEventListener('scroll',scheduleSync,{passive:true});
 window.addEventListener('resize',refreshSoon,{passive:true});
 window.addEventListener('hashchange',refreshSoon);
 for(const name of ['litlab:contributor-account-role','litlab:contributor-workspace-data','litlab:contributor-workspace-updated','litlab:contributor-submitted','litlab:contributor-admin-updated'])window.addEventListener(name,refreshSoon);
+window.addEventListener('litlab:contributor-guide-rendered',guideRendered);
 
-// Student guide navigation has one owner. Locked chips are inert; usable chips jump
-// immediately so a second smooth-scroll tracker cannot race the active highlight.
+// Locked chips are inert. Usable Student chips jump immediately and this controller
+// alone owns the active highlight, avoiding the old smooth-scroll/current-class race.
 window.addEventListener('click',event=>{
   if(route()!=='contribute'||role()!=='student')return;
   const target=event.target instanceof Element?event.target:null;if(!target)return;
