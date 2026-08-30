@@ -112,6 +112,7 @@ try{
       const form=document.querySelector('#ll-contributor-form');if(!form)return {ok:false,reason:'missing form'};
       const set=(name,value)=>{const field=form.querySelector('[name="'+name+'"]');if(!field)return false;field.value=value;field.dispatchEvent(new Event('input',{bubbles:true}));field.dispatchEvent(new Event('change',{bubbles:true}));return true};
       set('full_name','${role==='student'?'Student Smoke':'Teacher Smoke'}');
+      set('email','${role}-smoke@example.test');
       set('topics','Paper 1 analysis and academic writing');
       set('contribution_idea','Create and improve a useful LitLab academic resource.');
       set('motivation','I want to help students with clear and accurate explanations.');
@@ -120,13 +121,13 @@ try{
       }else{
         set('subject_taught','DP English A');set('mentee_email','student-linked@example.test');set('contribution_type','teacher-review');
       }
-      form.querySelectorAll('.ll-contrib-check input[type="checkbox"]').forEach(box=>{if(!box.closest('[hidden]')){box.checked=true;box.dispatchEvent(new Event('change',{bubbles:true}))}});
+      form.querySelectorAll('input[type="checkbox"]').forEach(box=>{box.checked=true;box.dispatchEvent(new Event('change',{bubbles:true}))});
       return {ok:true};
     })()`);
     if(!fillResult?.ok)throw new Error(`${role} form fill failed: ${JSON.stringify(fillResult)}`);
     await sleep(100);
 
-    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');return {valid:f?.checkValidity(),status:f?.querySelector('#ll-contributor-status')?.textContent,invalid:Array.from(f?.elements||[]).filter(x=>x instanceof HTMLInputElement||x instanceof HTMLTextAreaElement||x instanceof HTMLSelectElement).filter(x=>!x.checkValidity()).map(x=>x.name)}})()`);
+    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');return {valid:f?.checkValidity(),status:f?.querySelector('#ll-contributor-status')?.textContent,invalid:Array.from(f?.elements||[]).filter(x=>x instanceof HTMLInputElement||x instanceof HTMLTextAreaElement||x instanceof HTMLSelectElement).filter(x=>!x.checkValidity()).map(x=>({name:x.name,type:x.type||x.tagName,value:x.value,required:x.required}))}})()`);
     if(!before?.valid)throw new Error(`${role} form is invalid before click: ${JSON.stringify(before)}`);
 
     const roleChecksBefore=await evaluate(`window.__litlabRoleChecks`);
