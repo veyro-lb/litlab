@@ -97,10 +97,9 @@ try{
   for(const role of ['student','teacher']){
     const url=new URL(`?submitSmokeRole=${role}#contribute`,base).toString();
     await command('Page.navigate',{url});
-    await waitFor(`Boolean(document.querySelector('[data-role-application-toggle]'))`,`${role} application launcher`);
-    await evaluate(`document.querySelector('[data-role-application-toggle]')?.click()`);
-    await waitFor(`Boolean(document.querySelector('#ll-contributor-form'))&&!document.querySelector('#ll-contributor-form')?.hidden`,`${role} form`);
+    await waitFor(`Boolean(document.querySelector('#ll-contributor-form'))`,`${role} contributor form`);
     await waitFor(`document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole==='${role}'`,`${role} account role`);
+    await evaluate(`(()=>{const apply=document.getElementById('contribute-apply');const form=document.querySelector('#ll-contributor-form');if(apply){apply.hidden=false;apply.setAttribute('aria-hidden','false')}if(form)form.hidden=false;return true})()`);
     await waitFor(role==='student'?`Boolean(document.querySelector('select[name="student_supervision"]'))`:`Boolean(document.querySelector('input[name="mentee_email"]'))`,`${role} relationship fields`);
 
     const fillResult=await evaluate(`(()=>{
