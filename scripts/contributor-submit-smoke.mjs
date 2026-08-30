@@ -46,7 +46,7 @@ try{
   ws.addEventListener('message',event=>{const msg=JSON.parse(String(event.data));if(!msg.id)return;const item=pending.get(msg.id);if(!item)return;pending.delete(msg.id);msg.error?item.reject(new Error(`${item.method}: ${msg.error.message}`)):item.resolve(msg.result||{})});
   const command=(method,params={})=>new Promise((resolve,reject)=>{const next=++id;pending.set(next,{resolve,reject,method});ws.send(JSON.stringify({id:next,method,params}))});
   const evaluate=async expression=>{const result=await command('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(result.exceptionDetails)throw new Error(result.exceptionDetails.exception?.description||result.exceptionDetails.text||'Browser evaluation failed');return result.result?.value};
-  const waitFor=async(expression,label,timeout=12000)=>{const start=Date.now();while(Date.now()-start<timeout){if(await evaluate(expression))return;await sleep(100)}throw new Error(`Timed out waiting for ${label}`)};
+  const waitFor=async(expression,label,timeout=12000)=>{const start=Date.now();while(Date.now()-start<timeout){try{if(await evaluate(expression))return}catch{}await sleep(100)}throw new Error(`Timed out waiting for ${label}`)};
 
   await command('Page.enable');await command('Runtime.enable');
   await command('Page.addScriptToEvaluateOnNewDocument',{source:`(()=>{
@@ -70,30 +70,27 @@ try{
 
   for(const role of ['student','teacher']){
     await command('Page.navigate',{url:new URL(`?submitSmokeRole=${role}#contribute`,base).toString()});
-    await waitFor(`document.documentElement.dataset.contributorSubmitOwnerReady==='true'`,`${role} submit owner`);
+    await waitFor(`document.documentElement?.dataset?.contributorSubmitOwnerReady==='true'`,`${role} submit owner`);
     await waitFor(`Boolean(document.querySelector('#ll-contributor-form'))`,`${role} form`);
 
-    // Seed the app's cached account-role state through its own synchronization event. The submit
-    // path must still call get_my_litlab_contributor_account_role again before the INSERT.
     await evaluate(`window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:{role:'${role}',is_admin:false,needs_choice:false,has_conflict:false,existing_roles:['${role}']}}))`);
-    await waitFor(`document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole==='${role}'`,`${role} role state`);
+    await waitFor(`document.getElementById('ll-contributor-root')?.dataset?.contributorAccountRole==='${role}'`,`${role} role state`);
     await waitFor(`document.querySelector('#ll-contributor-form')?.hidden===false`,`${role} visible form`);
     await waitFor(role==='student'?`Boolean(document.querySelector('select[name="student_supervision"]'))`:`Boolean(document.querySelector('input[name="mentee_email"]'))`,`${role} relationship fields`);
 
     await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const set=(n,v)=>{const x=f.querySelector('[name="'+n+'"]');if(!x)return;x.value=v;x.dispatchEvent(new Event('input',{bubbles:true}));x.dispatchEvent(new Event('change',{bubbles:true}))};set('full_name','${role==='student'?'Student Smoke':'Teacher Smoke'}');set('email','${role}-smoke@example.test');set('topics','Paper 1 analysis and academic writing');set('contribution_idea','Create and improve a useful LitLab academic resource.');set('motivation','I want to help students with clear and accurate explanations.');if('${role}'==='student'){set('dp_year','dp1');set('cas_intent','no');set('student_supervision','no');set('contribution_type','content')}else{set('subject_taught','DP English A');set('mentee_email','student-linked@example.test');set('contribution_type','teacher-review')}f.querySelectorAll('input[type="checkbox"]').forEach(x=>{x.checked=true;x.dispatchEvent(new Event('change',{bubbles:true}))})})()`);
-    await waitFor(`document.querySelector('#ll-contributor-form button[type="submit"]')?.dataset.ready==='true'`,`${role} active-field readiness`);
+    await waitFor(`document.querySelector('#ll-contributor-form button[type="submit"]')?.dataset?.ready==='true'`,`${role} active-field readiness`);
     await sleep(250);
 
-    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f.querySelector('button[type="submit"]');const r=b.getBoundingClientRect();return {nativeValid:f.checkValidity(),hidden:f.hidden,ready:b.dataset.ready,disabled:b.disabled,width:r.width,height:r.height,status:f.querySelector('#ll-contributor-status')?.textContent,rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);
+    const before=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f.querySelector('button[type="submit"]');const r=b.getBoundingClientRect();return {nativeValid:f.checkValidity(),hidden:f.hidden,ready:b.dataset.ready,disabled:b.disabled,width:r.width,height:r.height,status:f.querySelector('#ll-contributor-status')?.textContent,rootRole:document.getElementById('ll-contributor-root')?.dataset?.contributorAccountRole}})()`);
     if(before.hidden||before.ready!=='true'||before.disabled||!(before.width>0)||!(before.height>0))throw new Error(`${role} submit not interactable: ${JSON.stringify(before)}`);
 
-    const checksBefore=await evaluate(`window.__litlabRoleChecks`);
-    const setsBefore=await evaluate(`window.__litlabRoleSets`);
+    const checksBefore=await evaluate(`window.__litlabRoleChecks`);const setsBefore=await evaluate(`window.__litlabRoleSets`);
     const point=await evaluate(`(()=>{const b=document.querySelector('#ll-contributor-form button[type="submit"]');b.scrollIntoView({block:'center'});const r=b.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2}})()`);
     await command('Input.dispatchMouseEvent',{type:'mousePressed',x:point.x,y:point.y,button:'left',buttons:1,clickCount:1});
     await command('Input.dispatchMouseEvent',{type:'mouseReleased',x:point.x,y:point.y,button:'left',buttons:0,clickCount:1});
 
-    try{await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`)}catch(error){const state=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {href:location.href,post:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,checks:window.__litlabRoleChecks,sets:window.__litlabRoleSets,clicks:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset.submitting,ready:b?.dataset.ready},hidden:f?.hidden,rootRole:document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole}})()`);throw new Error(`${role} application POST missing: ${JSON.stringify(state)}; ${error instanceof Error?error.message:String(error)}`)}
+    try{await waitFor(`Boolean(window.__litlabApplicationPost)`,`${role} application POST`)}catch(error){const state=await evaluate(`(()=>{const f=document.querySelector('#ll-contributor-form');const b=f?.querySelector('button[type="submit"]');return {href:location.href,post:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,checks:window.__litlabRoleChecks,sets:window.__litlabRoleSets,clicks:window.__litlabClickSeen,status:f?.querySelector('#ll-contributor-status')?.textContent,button:{disabled:b?.disabled,text:b?.textContent,submitting:b?.dataset?.submitting,ready:b?.dataset?.ready},hidden:f?.hidden,rootRole:document.getElementById('ll-contributor-root')?.dataset?.contributorAccountRole}})()`);throw new Error(`${role} application POST missing: ${JSON.stringify(state)}; ${error instanceof Error?error.message:String(error)}`)}
     await waitFor(`document.querySelector('#ll-contributor-form .ll-contrib-pending-badge')?.textContent==='PENDING ADMIN REVIEW'`,`${role} pending review`);
 
     const result=await evaluate(`({payload:window.__litlabApplicationPost,savedRole:window.__litlabSavedRole,checks:window.__litlabRoleChecks,sets:window.__litlabRoleSets,clicks:window.__litlabClickSeen,pending:document.querySelector('#ll-contributor-form .ll-contrib-pending-badge')?.textContent,thanks:Boolean(document.querySelector('#ll-contributor-form .ll-contrib-thanks'))})`);
