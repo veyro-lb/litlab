@@ -4,9 +4,9 @@ import '../contributor-form-validation';
 import '../contributor-teacher-application';
 import '../contributor-promotion-focus';
 // Submission capture order matters: validate first, enforce the signed-in account role second,
-// then let the account workflow own the network request. The workflow stops propagation once it
-// accepts a submission, so the role guard must be registered before it.
+// then let the direct submission owner run before the older account workflow interception.
 import '../contributor-account-role';
+import '../contributor-submit-direct';
 import '../contributor-account-workflow';
 import '../contributor-history';
 import '../contributor-chat';
@@ -73,9 +73,5 @@ import '../contributor-teacher-guide-sanity';
 import '../contributor-role-aware-review';
 import '../contributor-reviewer-role-form-polish';
 import '../contributor-reviewer-scope-sync';
-
-// Loaded last as a safety net. It binds the rendered Submit application button directly and only
-// runs when an earlier submission owner has not already marked the button as submitting.
-import '../contributor-submit-direct';
 
 export {};
