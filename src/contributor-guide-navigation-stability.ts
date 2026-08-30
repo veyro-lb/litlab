@@ -1,10 +1,8 @@
 type ContributorRole='student'|'teacher'|'';
 
 type GuideLock={button:HTMLButtonElement;until:number};
-type GuideEntry={button:HTMLButtonElement;target:HTMLElement};
 
 let scheduled=false;
-let scrollScheduled=false;
 let lock:GuideLock|null=null;
 let lockTimer=0;
 
@@ -65,24 +63,24 @@ function compareDocumentOrder(a:HTMLElement,b:HTMLElement){
   if(relation&Node.DOCUMENT_POSITION_PRECEDING)return 1;
   return 0;
 }
-function visibleTarget(target:HTMLElement|null):target is HTMLElement{
-  if(!target||!target.isConnected||target.hidden)return false;
-  const style=getComputedStyle(target);
-  return style.display!=='none'&&style.visibility!=='hidden';
+function reorderButtons(){
+  scheduled=false;
+  if(route()!=='contribute')return;
+  const bar=strip();if(!bar)return;
+  const buttons=Array.from(bar.querySelectorAll<HTMLButtonElement>(':scope > button[data-section-key]'));
+  if(buttons.length<2)return;
+  const sorted=buttons.map((button,index)=>({button,index,target:targetFor(button),rank:fallbackRank(button.dataset.sectionKey||'')})).sort((a,b)=>{
+    if(a.target&&b.target){const order=compareDocumentOrder(a.target,b.target);if(order)return order}
+    if(a.rank!==b.rank)return a.rank-b.rank;
+    return a.index-b.index;
+  });
+  const changed=sorted.some((entry,index)=>entry.button!==buttons[index]);
+  if(!changed)return;
+  const active=document.activeElement instanceof HTMLElement?document.activeElement:null;
+  sorted.forEach(entry=>bar.appendChild(entry.button));
+  if(active?.isConnected&&active.matches('[data-contributor-state-guide] button'))active.focus({preventScroll:true});
 }
-function visibleButton(button:HTMLButtonElement){
-  if(!button.isConnected||button.hidden||button.matches('[data-contributor-locked]'))return false;
-  const style=getComputedStyle(button);
-  return style.display!=='none'&&style.visibility!=='hidden';
-}
-function studentEntries(){
-  const bar=strip();if(!bar||role()!=='student')return [] as GuideEntry[];
-  return Array.from(bar.querySelectorAll<HTMLButtonElement>(':scope > button[data-section-key]'))
-    .filter(visibleButton)
-    .map(button=>({button,target:targetFor(button)}))
-    .filter((entry):entry is GuideEntry=>visibleTarget(entry.target))
-    .sort((a,b)=>compareDocumentOrder(a.target,b.target));
-}
+function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(reorderButtons)}
 function revealButton(button:HTMLButtonElement){
   const bar=strip();if(!bar)return;
   const left=button.offsetLeft;
@@ -101,60 +99,17 @@ function markCurrent(button:HTMLButtonElement){
   });
   revealButton(button);
 }
-function syncStudentFromScroll(){
-  scrollScheduled=false;
-  if(route()!=='contribute'||role()!=='student'||lock)return;
-  const host=guide();if(!host)return;
-  const entries=studentEntries();if(!entries.length)return;
-  const marker=Math.max(110,Math.round(host.getBoundingClientRect().bottom+14));
-  let active=entries[0];
-  let passed:GuideEntry|null=null;
-  let containing:GuideEntry|null=null;
-  for(const entry of entries){
-    const rect=entry.target.getBoundingClientRect();
-    if(rect.top<=marker)passed=entry;
-    if(rect.top<=marker&&rect.bottom>marker)containing=entry;
-  }
-  active=containing||passed||entries.slice().sort((a,b)=>Math.abs(a.target.getBoundingClientRect().top-marker)-Math.abs(b.target.getBoundingClientRect().top-marker))[0]||entries[0];
-  const doc=document.documentElement;
-  if(window.scrollY+window.innerHeight>=doc.scrollHeight-6)active=entries[entries.length-1]||active;
-  markCurrent(active.button);
-}
-function scheduleStudentScrollSync(){
-  if(scrollScheduled||route()!=='contribute'||role()!=='student')return;
-  scrollScheduled=true;
-  requestAnimationFrame(syncStudentFromScroll);
-}
-function reorderButtons(){
-  scheduled=false;
-  if(route()!=='contribute')return;
-  const bar=strip();if(!bar)return;
-  const buttons=Array.from(bar.querySelectorAll<HTMLButtonElement>(':scope > button[data-section-key]'));
-  if(buttons.length<2){scheduleStudentScrollSync();return}
-  const sorted=buttons.map((button,index)=>({button,index,target:targetFor(button),rank:fallbackRank(button.dataset.sectionKey||'')})).sort((a,b)=>{
-    if(a.target&&b.target){const order=compareDocumentOrder(a.target,b.target);if(order)return order}
-    if(a.rank!==b.rank)return a.rank-b.rank;
-    return a.index-b.index;
-  });
-  const changed=sorted.some((entry,index)=>entry.button!==buttons[index]);
-  if(!changed){scheduleStudentScrollSync();return}
-  const active=document.activeElement instanceof HTMLElement?document.activeElement:null;
-  sorted.forEach(entry=>bar.appendChild(entry.button));
-  if(active?.isConnected&&active.matches('[data-contributor-state-guide] button'))active.focus({preventScroll:true});
-  scheduleStudentScrollSync();
-}
-function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(reorderButtons)}
 function beginLock(button:HTMLButtonElement,duration=260){
   window.clearTimeout(lockTimer);
   lock={button,until:Date.now()+duration};
   markCurrent(button);
   lockTimer=window.setTimeout(()=>{
-    if(lock?.button===button){lock=null;scheduleStudentScrollSync()}
+    if(lock?.button===button){markCurrent(button);lock=null}
   },duration+20);
 }
 function enforceLock(){
   const current=lock;if(!current)return;
-  if(Date.now()>current.until||!current.button.isConnected){lock=null;scheduleStudentScrollSync();return}
+  if(Date.now()>current.until||!current.button.isConnected){lock=null;return}
   requestAnimationFrame(()=>{if(lock===current)markCurrent(current.button)});
 }
 function instantJump(button:HTMLButtonElement,destination:HTMLElement){
@@ -190,10 +145,10 @@ window.addEventListener('click',event=>{
   event.preventDefault();event.stopImmediatePropagation();
   instantJump(button,destination);
 },{capture:true});
-window.addEventListener('scroll',()=>{enforceLock();if(!lock)scheduleStudentScrollSync()},{passive:true});
-window.addEventListener('hashchange',()=>{window.clearTimeout(lockTimer);lock=null;scrollScheduled=false;schedule();scheduleStudentScrollSync()});
-window.addEventListener('resize',()=>{schedule();scheduleStudentScrollSync()});
-for(const name of ['litlab:contributor-account-role','litlab:contributor-workspace-data','litlab:contributor-workspace-updated','litlab:contributor-submitted','litlab:contributor-admin-updated'])window.addEventListener(name,()=>{schedule();scheduleStudentScrollSync()});
+window.addEventListener('scroll',enforceLock,{passive:true});
+window.addEventListener('hashchange',()=>{lock=null;schedule()});
+window.addEventListener('resize',schedule);
+for(const name of ['litlab:contributor-account-role','litlab:contributor-workspace-data','litlab:contributor-workspace-updated','litlab:contributor-submitted','litlab:contributor-admin-updated'])window.addEventListener(name,schedule);
 
 const observer=new MutationObserver(records=>{
   if(route()!=='contribute')return;
