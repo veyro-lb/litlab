@@ -1,0 +1,7 @@
+/* Contributor/admin pages are mounted by the lazy contributor runtime rather than React's
+   normal page switch. Hide React's unknown-route About fallback only while that handoff is in
+   progress, then restore the shell as soon as the intended contributor surface exists. */
+html[data-litlab-contributor-route-handoff] #root main#main,
+html[data-litlab-contributor-route-handoff] #root footer{
+  visibility:hidden!important;
+}
