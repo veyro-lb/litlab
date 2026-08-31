@@ -1,17 +1,9 @@
 import './analysis-launch-notice.css';
 
 const NOTICE_ID='ll-analysis-launch-notice';
-const CONTRIBUTOR_NOTICE_ID='ll-contributor-status-notice';
-const SEEN_KEY='litlabAnalysisLaunchNoticeSeen:2026-08-31-v1';
-const FIRST_TRY_MS=1100;
-const RETRY_MS=550;
-const EXPOSURE_MS=1400;
-const AUTO_CLOSE_MS=15000;
-
-let retryTimer=0;
-let exposureTimer=0;
-let autoCloseTimer=0;
-let waitingForContributor=false;
+// v2 intentionally resets the previous timed notice. The old version marked visitors as seen
+// after a short exposure even if they never interacted with the announcement.
+const SEEN_KEY='litlabAnalysisLaunchNoticeSeen:2026-08-31-v2';
 
 const reduceMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const currentRoute=()=>location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
@@ -24,17 +16,10 @@ function markSeen(){
   try{localStorage.setItem(SEEN_KEY,'1')}catch{}
 }
 
-function contributorNotice(){return document.getElementById(CONTRIBUTOR_NOTICE_ID)}
 function launchNotice(){return document.getElementById(NOTICE_ID)}
-
-function clearTimers(){
-  window.clearTimeout(exposureTimer);exposureTimer=0;
-  window.clearTimeout(autoCloseTimer);autoCloseTimer=0;
-}
 
 function removeLaunchNotice(mark=false){
   const notice=launchNotice();
-  clearTimers();
   if(mark)markSeen();
   if(!notice)return;
   notice.classList.remove('is-visible');
@@ -69,13 +54,7 @@ function openInsightfulAnalysis(){
 
 function showLaunchNotice(){
   if(seen()||launchNotice())return;
-  if(contributorNotice()){
-    waitingForContributor=true;
-    schedule(RETRY_MS);
-    return;
-  }
 
-  waitingForContributor=false;
   const notice=document.createElement('aside');
   notice.id=NOTICE_ID;
   notice.className='ll-analysis-launch-notice';
@@ -94,46 +73,19 @@ function showLaunchNotice(){
       </div>
     </div>
     <div class="ll-analysis-launch-chain" aria-label="Analysis chain"><span>CHOICE</span><i>→</i><span>EFFECT</span><i>→</i><span>IMPLICATION</span></div>
-    <button type="button" class="ll-analysis-launch-open">Open Insightful Analysis <span>→</span></button>
-    <div class="ll-analysis-launch-progress" aria-hidden="true"><i></i></div>`;
+    <button type="button" class="ll-analysis-launch-open">Open Insightful Analysis <span>→</span></button>`;
 
   notice.querySelector<HTMLButtonElement>('.ll-analysis-launch-close')?.addEventListener('click',()=>removeLaunchNotice(true));
   notice.querySelector<HTMLButtonElement>('.ll-analysis-launch-open')?.addEventListener('click',openInsightfulAnalysis);
   document.body.appendChild(notice);
 
   requestAnimationFrame(()=>requestAnimationFrame(()=>notice.classList.add('is-visible')));
-  exposureTimer=window.setTimeout(markSeen,EXPOSURE_MS);
-  autoCloseTimer=window.setTimeout(()=>removeLaunchNotice(false),AUTO_CLOSE_MS);
 }
-
-function schedule(delay=FIRST_TRY_MS){
-  if(seen()||launchNotice())return;
-  window.clearTimeout(retryTimer);
-  retryTimer=window.setTimeout(()=>{
-    retryTimer=0;
-    showLaunchNotice();
-  },delay);
-}
-
-const conflictObserver=new MutationObserver(()=>{
-  const contributor=contributorNotice();
-  const promo=launchNotice();
-
-  if(contributor&&promo){
-    waitingForContributor=true;
-    removeLaunchNotice(false);
-    return;
-  }
-
-  if(!contributor&&waitingForContributor&&!seen()){
-    waitingForContributor=false;
-    schedule(RETRY_MS);
-  }
-});
 
 function start(){
-  conflictObserver.observe(document.body,{childList:true,subtree:true});
-  schedule();
+  // Every visitor who has not explicitly dismissed/opened this version gets the notice immediately.
+  // There is no countdown, exposure timer, auto-close, or conflict deferral.
+  showLaunchNotice();
 }
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
