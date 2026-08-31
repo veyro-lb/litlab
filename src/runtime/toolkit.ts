@@ -7,6 +7,7 @@ import '../skills-choice-bank-ui-fix';
 import '../skills-lab-layout-polish';
 import '../toolkit-mode-guard';
 import '../insightful-analysis';
+import '../insightful-analysis-examples';
 import '../skills-lab-review-polish';
 
 export {};
