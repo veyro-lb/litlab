@@ -9,6 +9,7 @@ import '../toolkit-mode-guard';
 import '../insightful-analysis';
 import '../insightful-analysis-examples';
 import '../insightful-analysis-definitions';
+import '../insightful-analysis-feature-breakdowns';
 import '../skills-lab-review-polish';
 
 export {};
