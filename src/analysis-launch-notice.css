@@ -1,0 +1,79 @@
+.ll-analysis-launch-notice{
+  position:fixed;
+  right:20px;
+  bottom:22px;
+  z-index:218;
+  width:min(410px,calc(100vw - 40px));
+  overflow:hidden;
+  padding:18px;
+  border:1px solid color-mix(in srgb,#ef4444 34%,var(--line));
+  border-radius:23px;
+  background:
+    radial-gradient(circle at 92% 8%,color-mix(in srgb,#ef4444 13%,transparent),transparent 34%),
+    color-mix(in srgb,var(--surface) 97%,transparent);
+  color:var(--ink);
+  backdrop-filter:blur(18px);
+  box-shadow:0 26px 80px rgba(32,20,42,.2),0 0 0 1px color-mix(in srgb,#ef4444 5%,transparent);
+  opacity:0;
+  transform:translateY(22px) scale(.975);
+  transform-origin:bottom right;
+  transition:opacity .22s ease,transform .42s cubic-bezier(.16,1,.3,1);
+}
+.ll-analysis-launch-notice.is-visible{opacity:1;transform:none}
+.ll-analysis-launch-notice.is-closing{opacity:0;transform:translateY(14px) scale(.985);transition-duration:.24s}
+.ll-analysis-launch-close{
+  position:absolute;
+  right:11px;
+  top:11px;
+  width:31px;
+  height:31px;
+  display:grid;
+  place-items:center;
+  border:1px solid color-mix(in srgb,#ef4444 20%,var(--line));
+  border-radius:10px;
+  background:color-mix(in srgb,var(--surface-2) 92%,#ef4444 8%);
+  color:var(--muted);
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+}
+.ll-analysis-launch-close:hover,.ll-analysis-launch-close:focus-visible{color:#dc2626;border-color:color-mix(in srgb,#ef4444 52%,var(--line));outline:none}
+.ll-analysis-launch-topline{display:flex;align-items:center;gap:8px;padding-right:40px;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.13em}
+.ll-analysis-launch-new{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 8px;background:color-mix(in srgb,#ef4444 10%,var(--surface));color:#dc2626}
+.ll-analysis-launch-new i{width:6px;height:6px;border-radius:50%;background:#ef4444;box-shadow:0 0 0 5px color-mix(in srgb,#ef4444 12%,transparent)}
+.ll-analysis-launch-row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:13px;align-items:start;margin-top:13px}
+.ll-analysis-launch-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#ef4444,#c81e1e);color:#fff;font:900 21px var(--display);box-shadow:0 12px 28px rgba(239,68,68,.23)}
+.ll-analysis-launch-row b{display:block;color:#dc2626;font-size:10px;font-weight:950;letter-spacing:.09em}
+.ll-analysis-launch-row h3{margin:2px 0 0;font:880 22px/1.06 var(--display);letter-spacing:-.035em}
+.ll-analysis-launch-row p{margin:8px 0 0;color:var(--muted);font-size:11px;line-height:1.58}
+.ll-analysis-launch-row p strong{color:var(--ink);font-weight:850}
+.ll-analysis-launch-chain{display:flex;align-items:center;gap:7px;margin:14px 0 12px;padding:9px 10px;border:1px solid color-mix(in srgb,#ef4444 15%,var(--line));border-radius:12px;background:color-mix(in srgb,#ef4444 4%,var(--surface-2));overflow:hidden}
+.ll-analysis-launch-chain span{min-width:0;color:color-mix(in srgb,#dc2626 88%,var(--ink));font-size:8px;font-weight:950;letter-spacing:.06em;white-space:nowrap}
+.ll-analysis-launch-chain i{color:color-mix(in srgb,#ef4444 58%,var(--muted));font-style:normal}
+.ll-analysis-launch-open{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:13px;padding:11px 13px;background:linear-gradient(135deg,#ef4444,#c81e1e);color:#fff;font:900 10px var(--body);letter-spacing:.01em;cursor:pointer;box-shadow:0 11px 25px rgba(239,68,68,.2);transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}
+.ll-analysis-launch-open:hover,.ll-analysis-launch-open:focus-visible{transform:translateY(-2px);box-shadow:0 15px 30px rgba(239,68,68,.27);filter:saturate(1.08);outline:none}
+.ll-analysis-launch-open:active{transform:translateY(0) scale(.99)}
+.ll-analysis-launch-open span{font-size:15px;transition:transform .16s ease}
+.ll-analysis-launch-open:hover span,.ll-analysis-launch-open:focus-visible span{transform:translateX(3px)}
+.ll-analysis-launch-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:color-mix(in srgb,#ef4444 8%,transparent)}
+.ll-analysis-launch-progress i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#ef4444,#fb7185);transform-origin:left center;animation:ll-analysis-launch-countdown 15s linear forwards}
+@keyframes ll-analysis-launch-countdown{to{transform:scaleX(0)}}
+
+/* Contributor status/chat notices always win. This launch card is removed by JS
+   as soon as #ll-contributor-status-notice exists, so the two notification
+   systems never compete for attention or ownership of each other's state. */
+
+@media(max-width:700px){
+  .ll-analysis-launch-notice{right:12px;bottom:14px;width:calc(100vw - 24px);padding:16px;border-radius:20px}
+  .ll-analysis-launch-row{grid-template-columns:43px minmax(0,1fr);gap:11px}
+  .ll-analysis-launch-icon{width:43px;height:43px;border-radius:13px}
+  .ll-analysis-launch-row h3{font-size:20px}
+}
+@media(max-width:390px){
+  .ll-analysis-launch-chain{gap:5px;padding-inline:8px}
+  .ll-analysis-launch-chain span{font-size:7px;letter-spacing:.035em}
+}
+@media(prefers-reduced-motion:reduce){
+  .ll-analysis-launch-notice,.ll-analysis-launch-open,.ll-analysis-launch-open span{transition:none!important}
+  .ll-analysis-launch-progress i{animation:none!important}
+}

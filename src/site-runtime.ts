@@ -15,6 +15,7 @@ import './account-role-auth';
 import './admin-menu-launcher';
 import './admin-feedback-notification';
 import './contributor-status-notifications';
+import './analysis-launch-notice';
 import './auth-logo-refresh';
 import './microsoft-auth';
 import './auth-navigation-prompt';
