@@ -8,6 +8,8 @@ let previousNavigationRoute='';
 let isolateFrame=0;
 let scrollFrame=0;
 let scrollFrameTwo=0;
+let restoreFrame=0;
+let restoreAttempts=0;
 
 function currentRoute(){
   return location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
@@ -61,24 +63,86 @@ function seedEnhancementRoute(host:HTMLElement,route:string){
   host.append(page);
 }
 
-function restoreSurface(){
-  if(isolateFrame){cancelAnimationFrame(isolateFrame);isolateFrame=0}
-  document.querySelector<HTMLElement>('main[data-litlab-special-route-host]')?.remove();
-  restoreReactMain();
+function cancelRestoreWait(){
+  if(restoreFrame){cancelAnimationFrame(restoreFrame);restoreFrame=0}
+  restoreAttempts=0;
+}
+
+function finishSurfaceRestore(){
+  cancelRestoreWait();
   document.body.classList.remove('litlab-special-route-active');
   document.querySelectorAll<HTMLElement>('.litlab-special-route-hidden').forEach(el=>el.classList.remove('litlab-special-route-hidden'));
   lastRoute='';
 }
 
+function toolkitReactPageReady(){
+  if(currentRoute()!=='glossary')return false;
+  const main=reactMain();
+  if(!main)return false;
+  // Books uses an isolated visible host, but React still keeps its own fallback Books page hidden
+  // underneath. When navigating Books -> Toolkit, hashchange listeners can restore that React main
+  // one frame before React has replaced the fallback. Wait for Toolkit's own stable markers before
+  // revealing the normal route surface so stale Books content can never flash into Toolkit.
+  return Boolean(main.querySelector('.glossary-tools')&&main.querySelector('.glossary-grid'));
+}
+
+function waitForToolkitReactPage(){
+  cancelRestoreWait();
+  const check=()=>{
+    restoreFrame=0;
+    if(currentRoute()!=='glossary'){
+      finishSurfaceRestore();
+      ensureSpecialSurface();
+      return;
+    }
+    if(toolkitReactPageReady()){
+      finishSurfaceRestore();
+      window.dispatchEvent(new CustomEvent('litlab:route-surface-ready',{detail:{route:'glossary'}}));
+      return;
+    }
+    restoreAttempts++;
+    if(restoreAttempts>=120){
+      console.warn('LitLab Toolkit route handoff timed out waiting for the React page.');
+      finishSurfaceRestore();
+      return;
+    }
+    restoreFrame=requestAnimationFrame(check);
+  };
+  restoreFrame=requestAnimationFrame(check);
+}
+
+function restoreSurface(){
+  if(isolateFrame){cancelAnimationFrame(isolateFrame);isolateFrame=0}
+  const hadSpecialSurface=Boolean(
+    document.querySelector('main[data-litlab-special-route-host]')||
+    document.body.classList.contains('litlab-special-route-active')||
+    lastRoute
+  );
+  document.querySelector<HTMLElement>('main[data-litlab-special-route-host]')?.remove();
+  restoreReactMain();
+  lastRoute='';
+
+  if(hadSpecialSurface&&currentRoute()==='glossary'){
+    // Keep React's main hidden for the handoff frame. This avoids exposing the fallback Books DOM
+    // before App's hashchange state update has produced the Toolkit page.
+    document.body.classList.add('litlab-special-route-active');
+    waitForToolkitReactPage();
+    return;
+  }
+  finishSurfaceRestore();
+}
+
 function ensureSpecialSurface(){
   const route=currentRoute();
   if(!SPECIAL_ROUTES.has(route)){
-    // Important: remove the old isolated route immediately. Delaying this by a frame allowed the
-    // next renderer to find the stale main#main and append a new page underneath the previous one.
+    // Remove the isolated route immediately, but when the destination is Toolkit keep React's
+    // normal main concealed until Toolkit has actually rendered. This closes the Books -> Toolkit
+    // listener-order race without delaying navigation or leaving stale route content visible.
     restoreSurface();
     return null;
   }
 
+  cancelRestoreWait();
   const root=document.getElementById('root');
   if(!root)return null;
 
