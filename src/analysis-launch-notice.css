@@ -2,7 +2,10 @@
   position:fixed;
   right:20px;
   bottom:22px;
-  z-index:218;
+  /* Special routes place the whole React shell (including LitLab Tutor) at z-index 10000.
+     Keep this announcement above that shell, but below body-level auth dialogs at 10100. */
+  z-index:10050;
+  isolation:isolate;
   width:min(410px,calc(100vw - 40px));
   overflow:hidden;
   padding:18px;
@@ -55,13 +58,6 @@
 .ll-analysis-launch-open:active{transform:translateY(0) scale(.99)}
 .ll-analysis-launch-open span{font-size:15px;transition:transform .16s ease}
 .ll-analysis-launch-open:hover span,.ll-analysis-launch-open:focus-visible span{transform:translateX(3px)}
-.ll-analysis-launch-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:color-mix(in srgb,#ef4444 8%,transparent)}
-.ll-analysis-launch-progress i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#ef4444,#fb7185);transform-origin:left center;animation:ll-analysis-launch-countdown 15s linear forwards}
-@keyframes ll-analysis-launch-countdown{to{transform:scaleX(0)}}
-
-/* Contributor status/chat notices always win. This launch card is removed by JS
-   as soon as #ll-contributor-status-notice exists, so the two notification
-   systems never compete for attention or ownership of each other's state. */
 
 @media(max-width:700px){
   .ll-analysis-launch-notice{right:12px;bottom:14px;width:calc(100vw - 24px);padding:16px;border-radius:20px}
@@ -75,5 +71,4 @@
 }
 @media(prefers-reduced-motion:reduce){
   .ll-analysis-launch-notice,.ll-analysis-launch-open,.ll-analysis-launch-open span{transition:none!important}
-  .ll-analysis-launch-progress i{animation:none!important}
 }
