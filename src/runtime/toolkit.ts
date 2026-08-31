@@ -8,6 +8,7 @@ import '../skills-lab-layout-polish';
 import '../toolkit-mode-guard';
 import '../insightful-analysis';
 import '../insightful-analysis-examples';
+import '../insightful-analysis-definitions';
 import '../skills-lab-review-polish';
 
 export {};
