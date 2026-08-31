@@ -1,32 +1,43 @@
 /* Final visibility + active-state authority for Toolkit reference modes.
-   The older Glossary/Keywords/Command Terms modules still render content,
-   while this layer decides which mode is visible and selected. */
+   Older Toolkit modules still render their own content while this layer
+   decides which reference mode is visible and selected. */
 
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-tools{display:flex!important}
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .glossary-grid{display:grid!important}
 html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .keyword-panel,
-html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .sentence-frame-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .sentence-frame-panel,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="glossary"] > .insight-analysis-panel{display:none!important}
 
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .glossary-tools,
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .glossary-grid,
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .command-panel,
-html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .sentence-frame-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .sentence-frame-panel,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .insight-analysis-panel{display:none!important}
 html body main .toolkit-reference-page[data-toolkit-reference-mode="keywords"] > .keyword-panel:not(.command-panel){display:block!important}
 
 html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .glossary-tools,
 html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .glossary-grid,
 html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .keyword-panel:not(.command-panel),
-html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .sentence-frame-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .sentence-frame-panel,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .insight-analysis-panel{display:none!important}
 html body main .toolkit-reference-page[data-toolkit-reference-mode="commands"] > .command-panel{display:block!important}
 
 html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .glossary-tools,
 html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .glossary-grid,
-html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .keyword-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .keyword-panel,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .insight-analysis-panel{display:none!important}
 html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .sentence-frame-panel{display:block!important}
+
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] > .glossary-tools,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] > .glossary-grid,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] > .keyword-panel,
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] > .sentence-frame-panel{display:none!important}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] > .insight-analysis-panel{display:block!important}
 
 /* Mode switching itself must never fade, slide, scale or blur. */
 html body main .toolkit-reference-page > .keyword-panel,
 html body main .toolkit-reference-page > .sentence-frame-panel,
+html body main .toolkit-reference-page > .insight-analysis-panel,
 html body main .toolkit-reference-page > .keyword-mode-tabs,
 html body main .toolkit-reference-page > .toolkit-chooser{
   opacity:1!important;
@@ -38,12 +49,12 @@ html body main .toolkit-reference-page > .toolkit-chooser{
   will-change:auto!important;
 }
 
-/* Stable four-tab control. */
+/* Stable five-tab control. */
 html body main .toolkit-reference-page > .keyword-mode-tabs{
   width:min(calc(100% - 28px),1184px)!important;
   margin:0 auto 22px!important;
   display:grid!important;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-columns:repeat(5,minmax(0,1fr));
   gap:8px!important;
   padding:6px!important;
 }
@@ -54,6 +65,7 @@ html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
+  gap:6px!important;
   margin:0!important;
   padding-inline:10px!important;
   color:var(--muted)!important;
@@ -81,6 +93,35 @@ html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] > .
   color:#fff!important;
   background:linear-gradient(135deg,var(--violet),color-mix(in srgb,var(--violet) 78%,var(--cyan)))!important;
   box-shadow:0 8px 22px rgba(124,92,252,.24)!important;
+}
+html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode="insights"]{
+  color:color-mix(in srgb,#ef4444 86%,var(--ink))!important;
+  border-color:color-mix(in srgb,#ef4444 28%,var(--line))!important;
+  background:color-mix(in srgb,#ef4444 4%,transparent)!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] > .keyword-mode-tabs button[data-mode="insights"]{
+  color:#fff!important;
+  border-color:transparent!important;
+  background:linear-gradient(135deg,#ef4444,#dc2626)!important;
+  box-shadow:0 8px 22px rgba(239,68,68,.24)!important;
+}
+.toolkit-insight-tab-new{
+  display:inline-grid;
+  place-items:center;
+  min-width:28px;
+  height:16px;
+  padding:0 5px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  font-size:7px;
+  font-weight:950;
+  line-height:1;
+  letter-spacing:.08em;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] .toolkit-insight-tab-new{
+  background:#fff;
+  color:#dc2626;
 }
 
 /* Large chooser cards use the same single source of truth. */
@@ -126,6 +167,64 @@ html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] .to
   color:#fff!important;
 }
 
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode="insights"]{
+  position:relative;
+  overflow:hidden;
+  border-color:color-mix(in srgb,#ef4444 42%,var(--line))!important;
+  background:linear-gradient(145deg,color-mix(in srgb,#ef4444 6%,var(--surface)),var(--surface))!important;
+  box-shadow:0 9px 28px rgba(239,68,68,.08)!important;
+}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode="insights"]::after{
+  content:'';
+  position:absolute;
+  inset:auto -38px -54px auto;
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(239,68,68,.12),transparent 68%);
+  pointer-events:none;
+}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode="insights"] .toolkit-choice-icon{
+  background:color-mix(in srgb,#ef4444 10%,var(--surface-2))!important;
+  color:#ef4444!important;
+}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode="insights"] .toolkit-choice-copy small{color:#ef4444!important}
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode="insights"]:hover,
+html body main .toolkit-reference-page .toolkit-choice[data-toolkit-mode="insights"]:focus-visible{
+  border-color:color-mix(in srgb,#ef4444 72%,var(--line))!important;
+  box-shadow:0 14px 34px rgba(239,68,68,.13)!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] .toolkit-choice[data-toolkit-mode="insights"]{
+  border-color:#ef4444!important;
+  background:linear-gradient(145deg,color-mix(in srgb,#ef4444 11%,var(--surface)),color-mix(in srgb,#dc2626 4%,var(--surface)))!important;
+  box-shadow:0 14px 34px rgba(239,68,68,.16)!important;
+}
+html body main .toolkit-reference-page[data-toolkit-reference-mode="insights"] .toolkit-choice[data-toolkit-mode="insights"] .toolkit-choice-icon{
+  background:#ef4444!important;
+  color:#fff!important;
+}
+.insight-choice-new{
+  position:absolute;
+  top:12px;
+  right:12px;
+  z-index:2;
+  display:inline-grid;
+  place-items:center;
+  min-width:37px;
+  height:20px;
+  padding:0 7px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#fff;
+  box-shadow:0 5px 14px rgba(239,68,68,.24);
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.1em;
+}
+
+@media(max-width:1080px){
+  html body main .toolkit-reference-page > .keyword-mode-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 @media(max-width:780px){
   html body main .toolkit-reference-page > .keyword-mode-tabs{
     width:calc(100% - 28px)!important;
@@ -134,8 +233,8 @@ html body main .toolkit-reference-page[data-toolkit-reference-mode="frames"] .to
   }
   html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{font-size:11px!important}
 }
-
 @media(max-width:390px){
   html body main .toolkit-reference-page > .keyword-mode-tabs{gap:6px!important;padding:5px!important}
   html body main .toolkit-reference-page > .keyword-mode-tabs button[data-mode]{padding-inline:6px!important;font-size:10px!important}
+  .toolkit-insight-tab-new{display:none}
 }

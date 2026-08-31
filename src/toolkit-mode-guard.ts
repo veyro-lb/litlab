@@ -1,6 +1,6 @@
 import './toolkit-mode-guard.css';
 
-type ToolkitMode='glossary'|'keywords'|'commands'|'frames';
+type ToolkitMode='glossary'|'keywords'|'commands'|'frames'|'insights';
 
 let mode:ToolkitMode='glossary';
 let scheduled=false;
@@ -10,7 +10,7 @@ let settleToken=0;
 const currentRoute=()=>location.hash.slice(1).split('#')[0]||'home';
 
 function isMode(value:string|undefined):value is ToolkitMode{
-  return value==='glossary'||value==='keywords'||value==='commands'||value==='frames';
+  return value==='glossary'||value==='keywords'||value==='commands'||value==='frames'||value==='insights';
 }
 
 function directChild(page:HTMLElement,className:string){
@@ -35,12 +35,12 @@ function setHidden(el:HTMLElement|undefined|null,hidden:boolean){
   Older Toolkit modules used Motion to fade/translate entire panels. Their
   observers can re-run after another module inserts or filters content, which
   can leave a panel midway through an opacity animation or make the controls
-  appear to shake. Mode switching is intentionally motion-free now; accordion
-  content inside each reference mode can still animate normally.
+  appear to shake. Mode switching is intentionally motion-free now; content
+  inside each reference mode can still animate normally.
 */
 function stabilizeVisualState(page:HTMLElement){
   const targets=page.querySelectorAll<HTMLElement>(
-    ':scope > .keyword-panel, :scope > .sentence-frame-panel, :scope > .keyword-mode-tabs, :scope > .toolkit-chooser, :scope > .toolkit-chooser .toolkit-choice'
+    ':scope > .keyword-panel, :scope > .sentence-frame-panel, :scope > .insight-analysis-panel, :scope > .keyword-mode-tabs, :scope > .toolkit-chooser, :scope > .toolkit-chooser .toolkit-choice'
   );
   targets.forEach(element=>{
     element.getAnimations().forEach(animation=>animation.cancel());
@@ -77,12 +77,14 @@ function applyMode(page:HTMLElement,stabilize=true){
   const keywordPanel=page.querySelector<HTMLElement>(':scope > .keyword-panel:not(.command-panel)');
   const commandPanel=page.querySelector<HTMLElement>(':scope > .command-panel');
   const sentencePanel=page.querySelector<HTMLElement>(':scope > .sentence-frame-panel');
+  const insightPanel=page.querySelector<HTMLElement>(':scope > .insight-analysis-panel');
 
   setHidden(originalTools,mode!=='glossary');
   setHidden(originalGrid,mode!=='glossary');
   setHidden(keywordPanel,mode!=='keywords');
   setHidden(commandPanel,mode!=='commands');
   setHidden(sentencePanel,mode!=='frames');
+  setHidden(insightPanel,mode!=='insights');
 
   page.querySelectorAll<HTMLButtonElement>(':scope > .keyword-mode-tabs button[data-mode]').forEach(button=>{
     const selected=button.dataset.mode===mode;
@@ -128,9 +130,9 @@ function selectMode(next:ToolkitMode){
 }
 
 /*
-  The older Keywords and Command Terms modules still create their content,
-  search controls and cards. Sentence Frames only renders its panel. Mode
-  switching itself is owned here so every Toolkit control shares one state.
+  Older reference modules still create their own content, search controls and
+  cards. Mode switching itself is owned here so every Toolkit control shares
+  one stable state.
 */
 document.addEventListener('click',event=>{
   if(currentRoute()!=='glossary')return;
