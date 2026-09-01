@@ -1,3 +1,4 @@
+import '../contributor-native-fetch';
 import '../contributor-program';
 // The submit owner must register immediately after the form renderer, before any enhancement,
 // validation, role, or promotion capture listeners can intercept the button click.
