@@ -94,6 +94,7 @@ function teacherHandoff(){
 }
 
 function finalAdminCard(data:AdminWorkspace,applicationId:string){
+  if(document.getElementById('ll-admin-contributor-workspace')?.dataset.contributionType==='promotion')return;
   const grid=document.querySelector<HTMLElement>('#ll-admin-contributor-workspace .ll-admin-workspace-grid');if(!grid)return;
   const finalDoc=data.final_review_document;
   const signature=`${applicationId}|${finalDoc?.id||''}|${data.assignment?.teacher_name||''}|${(data.documents||[])[0]?.id||''}`;
