@@ -94,6 +94,9 @@ import '../contributor-review-workspace-experience';
 import '../contributor-promotion-workflow';
 import '../contributor-promotion-workflow-fixes';
 import '../contributor-promotion-legacy-guard';
+// Final Promotion hand-in experience: clear digital/physical rules, private attachments,
+// and one evidence record shared with the CAS supervisor and LitLab final review.
+import '../contributor-promotion-submission';
 
 // Keep the live-chat dialog inside the viewport after every contributor/admin styling layer.
 import '../contributor-chat-frame.css';
