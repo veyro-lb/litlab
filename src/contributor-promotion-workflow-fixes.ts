@@ -52,10 +52,54 @@ function fixAdminPromotionCards(){
   if(!modal?.classList.contains('ll-admin-promotion-mode'))return;
   modal.querySelectorAll<HTMLElement>('.ll-admin-workspace-grid > .ll-admin-workspace-card').forEach(card=>{
     const k=kicker(card);
-    if(k==='TEACHER REVIEWS'||k==='SUPERVISOR REVIEWS')card.hidden=true;
+    if(k==='WORD DOCUMENTS'||k==='TEACHER REVIEWS'||k==='SUPERVISOR REVIEWS'||k==='PUBLICATION & IMPACT')card.hidden=true;
+    if(k==='PROJECT BRIEF'||card.querySelector('form[data-admin-brief]')){
+      card.id='ll-admin-section-brief';
+      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label)label.textContent='PROMOTION BRIEF';
+      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title)title.textContent='Define the campaign and the evidence expected.';
+      const form=card.querySelector<HTMLFormElement>('form[data-admin-brief]');
+      const deliverable=form?.querySelector<HTMLInputElement>('input[name="deliverable"]');
+      if(deliverable&&(!deliverable.value||/word|docx/i.test(deliverable.value)))deliverable.value='Completed promotion actions with clear campaign evidence, results/context, reflection and supervisor review when required.';
+      const deliverableLabel=deliverable?.closest('label')?.querySelector<HTMLElement>(':scope > span');
+      if(deliverableLabel)deliverableLabel.textContent='Evidence needed for completion';
+    }
+    if(k==='TASKS'||card.querySelector('form[data-admin-add-task]')){
+      card.id='ll-admin-section-tasks';
+      const title=card.querySelector<HTMLInputElement>('form[data-admin-add-task] input[name="title"]');if(title)title.placeholder='Carry out the first promotion action / add evidence';
+      const instructions=card.querySelector<HTMLTextAreaElement>('form[data-admin-add-task] textarea[name="instructions"]');if(instructions)instructions.placeholder='State the channel, audience, anti-spam or permission expectations, evidence to save and any result to record.';
+    }
+    if(k==='REVISION REQUESTS'||card.querySelector('form[data-admin-add-revision]')){
+      card.id='ll-admin-section-revisions';
+      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label)label.textContent='FEEDBACK / CHANGES';
+      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title)title.textContent='Campaign feedback and evidence requests';
+      const form=card.querySelector<HTMLFormElement>('form[data-admin-add-revision]');
+      const request=form?.querySelector<HTMLInputElement>('input[name="title"]');if(request)request.placeholder='Add clearer proof of the Discord post';
+      const details=form?.querySelector<HTMLTextAreaElement>('textarea[name="details"]');if(details)details.placeholder='Explain what should change, be clarified or be added to the campaign evidence.';
+      const checklist=form?.querySelector<HTMLTextAreaElement>('textarea[name="checklist"]');if(checklist)checklist.placeholder='Add the post link or screenshot\nExplain when and where it was shared\nRecord reactions, reach or useful feedback';
+    }
+    if(k==='TEACHER REVIEWER'||k==='CAS SUPERVISOR'||card.querySelector('form[data-admin-assign-teacher]')){
+      card.id='ll-admin-section-reviewer';
+      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label)label.textContent='CAS SUPERVISOR';
+      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title)title.textContent='Assign the student’s accepted CAS supervisor / coordinator';
+    }
   });
+  const review=modal.querySelector<HTMLElement>('[data-admin-promotion-final],[data-admin-promotion-context-state]');
+  if(review)review.id='ll-admin-section-promotion-review';
   const nav=modal.querySelector<HTMLElement>('[data-admin-v3-workspace-nav]');
-  nav?.querySelectorAll<HTMLButtonElement>('button').forEach(button=>{if(button.textContent?.trim()==='Reviews')button.hidden=true});
+  nav?.querySelectorAll<HTMLButtonElement>('button').forEach(button=>{
+    const target=button.dataset.adminV3JumpSection||'';
+    if(['ll-admin-section-documents','ll-admin-section-reviews','ll-admin-section-publication'].includes(target))button.hidden=true;
+  });
+  const navButtons=nav?.querySelector<HTMLElement>(':scope > div:last-child');
+  if(navButtons){
+    const entries=[['ll-admin-section-readiness','Overview'],['ll-admin-section-brief','Campaign brief'],['ll-admin-section-tasks','Tasks'],['ll-admin-section-revisions','Feedback'],['ll-admin-section-reviewer','Supervisor'],['ll-admin-section-activity','Activity'],['ll-admin-section-promotion-review','Campaign review']];
+    entries.forEach(([target,label])=>{
+      if(!modal.querySelector(`#${target}`))return;
+      let button=navButtons.querySelector<HTMLButtonElement>(`[data-admin-v3-jump-section="${target}"]`);
+      if(!button){button=document.createElement('button');button.type='button';button.dataset.adminV3JumpSection=target;navButtons.appendChild(button)}
+      button.hidden=false;button.textContent=label;navButtons.appendChild(button);
+    });
+  }
 }
 
 function apply(){
@@ -63,7 +107,9 @@ function apply(){
   if(route()==='contribute')fixReviewerScope();
   if(route()==='admin-contributors')fixAdminPromotionCards();
 }
-function schedule(delay=100){clearTimeout(timer);timer=window.setTimeout(apply,delay)}
+// Keep Promotion labels authoritative even while the generic admin workspace rebuilds
+// its cards and navigation.
+function schedule(delay=100){if(timer)return;timer=window.setTimeout(()=>{timer=0;apply()},delay)}
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
