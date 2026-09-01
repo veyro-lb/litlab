@@ -42,8 +42,14 @@ function restoreSupervisorForm(modal:HTMLElement,center:HTMLElement){
 function protectAdminCards(){
   document.querySelectorAll<HTMLElement>('.admin-contrib-card').forEach(card=>{
     if(cardContributionType(card)!=='promotion')return;
-    card.querySelectorAll<HTMLElement>('[data-admin-student-review-owner]').forEach(el=>el.hidden=true);
+    card.classList.add('ll-admin-promotion-card');
+    card.dataset.promotionApplicationId=card.dataset.appId||'';
+    card.querySelectorAll<HTMLElement>('[data-admin-student-review-owner],[data-admin-final-doc-clarity],[data-admin-completion-gate-note],[data-admin-review-stage]').forEach(el=>el.hidden=true);
     const manage=card.querySelector<HTMLButtonElement>('[data-admin-manage-workspace]');if(manage)manage.textContent='Open promotion review';
+    const status=card.querySelector<HTMLSelectElement>('select[data-contributor-status]');
+    const completed=status?.querySelector<HTMLOptionElement>('option[value="completed"]');
+    if(completed)completed.disabled=false;
+    status?.removeAttribute('title');
   });
 }
 
@@ -64,7 +70,10 @@ function apply(){
   if(route()==='contribute'){protectStudent();protectTeacher()}
   if(route()==='admin-contributors'){protectAdminCards();protectAdminModal()}
 }
-function schedule(delay=120){clearTimeout(timer);timer=window.setTimeout(apply,delay)}
+// Throttle instead of debounce. Several legacy contributor layers continuously update
+// their DOCX panels; a debounce could be postponed forever and leave Promotion cards
+// showing the old academic-resource workflow.
+function schedule(delay=120){if(timer)return;timer=window.setTimeout(()=>{timer=0;apply()},delay)}
 
 window.addEventListener('litlab:contributor-workspace-data',event=>{const d=(event as CustomEvent<Row>).detail||{};if(Array.isArray(d.workspaces))workspaces=d.workspaces;if(Array.isArray(d.assignments))assignments=d.assignments;if(typeof d.selectedId==='string')selectedId=d.selectedId;schedule(220)});
 window.addEventListener('litlab:contributor-workspace-updated',()=>schedule(260));
