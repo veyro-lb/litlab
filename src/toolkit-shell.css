@@ -128,14 +128,14 @@ button[data-toolkit-nav]::before,button[data-toolkit-nav]::after{content:none!im
 .mobile-menu button[data-toolkit-nav] .ll-new-badge{position:static;margin-left:auto}
 .mobile-menu button[data-toolkit-nav]>svg{flex:0 0 auto;margin-left:2px}
 
-.toolkit-home-card{
+.feature-card[data-toolkit-card]{
   position:relative;
   border-color:rgba(239,65,65,.52)!important;
   overflow:visible!important;
 }
-.toolkit-home-card h3{display:block;position:static}
-.toolkit-home-card h3::after{content:none!important;display:none!important}
-.toolkit-home-card h3 .ll-new-badge{
+.feature-card[data-toolkit-card] h3{display:block;position:static}
+.feature-card[data-toolkit-card] h3::after{content:none!important;display:none!important}
+.feature-card[data-toolkit-card] h3 .ll-new-badge{
   position:absolute;
   top:-8px;
   right:18px;
