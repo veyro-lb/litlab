@@ -89,7 +89,6 @@ button[data-toolkit-nav]{
   border:1px solid rgba(239,65,65,.58)!important;
   border-radius:999px;
   padding-inline:15px!important;
-  overflow:visible!important;
 }
 button[data-toolkit-nav]::before,button[data-toolkit-nav]::after{content:none!important;display:none!important}
 .ll-toolkit-nav-label{display:inline-block;min-width:0;position:relative;z-index:1}
@@ -115,8 +114,8 @@ button[data-toolkit-nav]::before,button[data-toolkit-nav]::after{content:none!im
   white-space:nowrap;
   box-shadow:0 3px 8px rgba(239,65,65,.18);
 }
-.mobile-menu button[data-toolkit-nav]{position:relative;display:flex;align-items:center;gap:10px;padding-right:42px!important}
-.mobile-menu button[data-toolkit-nav] .ll-new-badge{top:-7px;right:12px;margin:0}
+.mobile-menu button[data-toolkit-nav]{position:relative;display:flex;align-items:center;gap:10px}
+.mobile-menu button[data-toolkit-nav] .ll-new-badge{top:-6px;right:6px;margin:0}
 .mobile-menu button[data-toolkit-nav]>svg{flex:0 0 auto;margin-left:auto}
 
 .toolkit-home-card{
@@ -145,7 +144,7 @@ button[data-toolkit-nav]::before,button[data-toolkit-nav]::after{content:none!im
   .toolkit-choice{grid-template-columns:auto minmax(0,1fr) auto;padding:14px}
   button[data-toolkit-nav]{padding-inline:13px!important}
   .ll-new-badge{top:-6px;right:8px;min-width:28px;height:14px;padding:0 5px;font-size:6.5px}
-  .mobile-menu button[data-toolkit-nav] .ll-new-badge{top:-6px;right:10px}
+  .mobile-menu button[data-toolkit-nav] .ll-new-badge{top:-6px;right:5px}
 }
 @media(max-width:420px){
   .toolkit-choice{grid-template-columns:auto minmax(0,1fr)}
