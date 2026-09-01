@@ -97,6 +97,8 @@ import '../contributor-promotion-legacy-guard';
 // Final Promotion hand-in experience: clear digital/physical rules, private attachments,
 // and one evidence record shared with the CAS supervisor and LitLab final review.
 import {restorePromotionMutationObserver} from '../contributor-promotion-observer-guard';
+// Stabilize only the Promotion-context RPC before the submission module registers its loader.
+import '../contributor-promotion-context-transport';
 import '../contributor-promotion-submission';
 import '../contributor-promotion-submission-stability';
 
