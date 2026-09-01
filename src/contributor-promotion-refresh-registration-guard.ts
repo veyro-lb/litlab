@@ -15,6 +15,38 @@ function callListener(listener:Listener,event:Event){
   return listener?.handleEvent(event);
 }
 
+function commitOtherValue(form:HTMLFormElement,name:'channel'|'medium'){
+  const select=form.querySelector<HTMLSelectElement>(`select[name="${name}"]`);
+  if(!select||select.value!=='Other')return true;
+  const input=form.querySelector<HTMLInputElement>(`input[name="${name}_other"]`);
+  const value=input?.value.trim()||'';
+  if(!input||value.length<2){
+    input?.setCustomValidity('Please specify your choice.');
+    input?.reportValidity();
+    return false;
+  }
+  input.setCustomValidity('');
+  select.setCustomValidity('');
+  const option=document.createElement('option');
+  option.value=value;
+  option.textContent=value;
+  option.dataset.promotionCustomOther='true';
+  select.appendChild(option);
+  select.value=value;
+  return true;
+}
+
+// Register before contributor-promotion-submission's capture submit owner. If a student chose
+// Other, convert the typed explanation into the actual channel/medium value that the existing
+// RPC submitter reads from FormData. This keeps the backend clean instead of storing "Other".
+document.addEventListener('submit',event=>{
+  const form=event.target instanceof HTMLFormElement?event.target:null;
+  if(!form?.matches('[data-promotion-submission-form]'))return;
+  if(commitOtherValue(form,'channel')&&commitOtherValue(form,'medium'))return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+},true);
+
 // contributor-promotion-submission registers a generic workspace-updated listener that
 // deletes its already-loaded Promotion context and immediately paints the loading state.
 // Generic LitLab live-sync events can fire even when Promotion evidence did not change,
