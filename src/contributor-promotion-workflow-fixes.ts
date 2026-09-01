@@ -1,8 +1,25 @@
 let timer=0;
+type WorkspaceRow={id?:string;contribution_type?:string};
+type WorkspaceData={selectedId?:string;workspaces?:WorkspaceRow[]};
+let selectedWorkspaceId='';
+let promotionWorkspaceIds=new Set<string>();
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function kicker(card:Element){return card.querySelector<HTMLElement>('.ll-card-title span,.ll-admin-workspace-title span,:scope > span')?.textContent?.trim().toUpperCase()||''}
-function setText(el:Element|null|undefined,value:string){if(el&&el.textContent!==value)el.textContent=value}
+function promotionType(value:unknown){return String(value||'').trim().toLowerCase()==='promotion'}
+function activePromotionWorkspace(){
+  const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
+  if(root?.classList.contains('ll-promotion-workspace-mode'))return true;
+  if(selectedWorkspaceId&&promotionWorkspaceIds.has(selectedWorkspaceId))return true;
+  return !selectedWorkspaceId&&promotionWorkspaceIds.size===1;
+}
+function promotionEvidence(){return document.querySelector<HTMLElement>('[data-contributor-workspace] [data-v3-evidence]')}
+function jumpToPromotionEvidence(){
+  const evidence=promotionEvidence();if(!evidence)return false;
+  evidence.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  window.setTimeout(()=>evidence.querySelector<HTMLElement>('form[data-v3-evidence] input,form[data-v3-evidence] select,form[data-v3-evidence] textarea,button,a')?.focus({preventScroll:true}),320);
+  return true;
+}
 
 function fixPromotionEvidenceButton(){
   document.querySelectorAll<HTMLButtonElement>('[data-promotion-jump-evidence]').forEach(button=>{
@@ -11,18 +28,14 @@ function fixPromotionEvidenceButton(){
     button.dataset.promotionEvidenceFixed='true';
     button.addEventListener('click',event=>{
       event.preventDefault();event.stopImmediatePropagation();
-      const evidence=document.querySelector<HTMLElement>('[data-v3-evidence]');
-      evidence?.scrollIntoView({behavior:'smooth',block:'start'});
-      window.setTimeout(()=>evidence?.querySelector<HTMLElement>('button,input,textarea,select,a')?.focus({preventScroll:true}),420);
+      jumpToPromotionEvidence();
     },true);
   });
 }
 
 function fixStudentPromotionSubmission(){
-  if(route()!=='contribute')return;
-  const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
-  if(!root?.classList.contains('ll-promotion-workspace-mode'))return;
-  const evidence=root.querySelector<HTMLElement>('[data-v3-evidence]');
+  if(route()!=='contribute'||!activePromotionWorkspace())return;
+  const evidence=promotionEvidence();
   const guide=document.querySelector<HTMLElement>('[data-contributor-state-guide]');
   if(!evidence||!guide)return;
 
@@ -30,13 +43,15 @@ function fixStudentPromotionSubmission(){
   const flow=guide.dataset.flow||'';
   const submission=guide.querySelector<HTMLButtonElement>('[data-section-key="submission"]');
   if(submission){
-    setText(submission,flow==='completed'?'Promotion evidence':'Submit evidence');
+    const label=flow==='completed'?'Promotion evidence':'Submit evidence';
+    if(submission.textContent!==label)submission.textContent=label;
     const title=flow==='pending'?'Promotion evidence opens after LitLab accepts the contribution.':'Open the Promotion evidence submission area.';
     if(submission.title!==title)submission.title=title;
     if(flow==='pending'||flow==='closed'){
       submission.classList.add('locked');
       submission.setAttribute('aria-disabled','true');
-      submission.dataset.contributorLocked=flow==='closed'?'This Promotion contribution is closed.':'Promotion evidence opens after LitLab accepts the contribution.';
+      const reason=flow==='closed'?'This Promotion contribution is closed.':'Promotion evidence opens after LitLab accepts the contribution.';
+      if(submission.dataset.contributorLocked!==reason)submission.dataset.contributorLocked=reason;
       delete submission.dataset.contributorSectionJump;
       delete submission.dataset.promotionSubmissionJump;
     }else{
@@ -48,17 +63,24 @@ function fixStudentPromotionSubmission(){
     }
   }
 
+  const supervisor=guide.querySelector<HTMLButtonElement>('[data-section-key="teacher-feedback"]');
+  if(supervisor&&supervisor.textContent!=='Supervisor feedback')supervisor.textContent='Supervisor feedback';
+
   const duplicateEvidence=guide.querySelector<HTMLButtonElement>('[data-section-key="evidence"]');
   if(duplicateEvidence&&duplicateEvidence!==submission&&!duplicateEvidence.hidden)duplicateEvidence.hidden=true;
 
-  setText(evidence.querySelector<HTMLElement>('.ll-card-title span'),'PROMOTION SUBMISSION');
-  setText(evidence.querySelector<HTMLElement>('.ll-card-title h3'),flow==='completed'?'Promotion evidence record':'Submit proof of the promotion you carried out.');
+  const sectionKicker=evidence.querySelector<HTMLElement>('.ll-card-title span');
+  if(sectionKicker&&sectionKicker.textContent!=='PROMOTION SUBMISSION')sectionKicker.textContent='PROMOTION SUBMISSION';
+  const heading=evidence.querySelector<HTMLElement>('.ll-card-title h3');
+  const headingText=flow==='completed'?'Promotion evidence record':'Submit proof of the promotion you carried out.';
+  if(heading&&heading.textContent!==headingText)heading.textContent=headingText;
   const intro=evidence.querySelector<HTMLElement>(':scope > p.ll-muted');
-  const introMarkup=flow==='completed'
+  const introHtml=flow==='completed'
     ?'<b>This is the saved Promotion submission record.</b> Your campaign evidence stays attached to the contribution for supervisor and LitLab review.'
     :'<b>This is where you submit your Promotion contribution for review.</b> Add proof such as Discord/message links where permitted, shareable screenshot links, campaign assets, reach or engagement results, and useful audience feedback. Explain enough context for a supervisor and LitLab admin to verify what happened.';
-  if(intro&&intro.innerHTML!==introMarkup)intro.innerHTML=introMarkup;
-  setText(evidence.querySelector<HTMLButtonElement>('form[data-v3-evidence] button[type="submit"]'),'Submit promotion evidence');
+  if(intro&&intro.innerHTML!==introHtml)intro.innerHTML=introHtml;
+  const submit=evidence.querySelector<HTMLButtonElement>('form[data-v3-evidence] button[type="submit"]');
+  if(submit&&submit.textContent!=='Submit promotion evidence')submit.textContent='Submit promotion evidence';
 }
 
 function fixReviewerScope(){
@@ -154,35 +176,50 @@ function apply(){
   }
   if(route()==='admin-contributors')fixAdminPromotionCards();
 }
-// Keep Promotion labels authoritative even while the generic admin workspace rebuilds
-// its cards and navigation.
 function schedule(delay=100){if(timer)return;timer=window.setTimeout(()=>{timer=0;apply()},delay)}
+
+// This capture listener is intentionally on window so Promotion can override the generic
+// locked Submission button before contributor-state-guide's document-level lock handler runs.
+window.addEventListener('click',event=>{
+  if(route()!=='contribute'||!activePromotionWorkspace())return;
+  const target=event.target instanceof Element?event.target:null;
+  const submission=target?.closest<HTMLButtonElement>('[data-section-key="submission"]');
+  if(!submission||!promotionEvidence())return;
+  const flow=document.querySelector<HTMLElement>('[data-contributor-state-guide]')?.dataset.flow||'';
+  if(flow==='pending'||flow==='closed')return;
+  event.preventDefault();event.stopImmediatePropagation();
+  jumpToPromotionEvidence();
+},true);
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
   const submission=target?.closest<HTMLButtonElement>('[data-promotion-submission-jump]');
   if(submission){
     event.preventDefault();event.stopImmediatePropagation();
-    const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
-    const evidence=root?.querySelector<HTMLElement>('[data-v3-evidence]');
-    evidence?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-    window.setTimeout(()=>evidence?.querySelector<HTMLElement>('form[data-v3-evidence] input,form[data-v3-evidence] select,form[data-v3-evidence] textarea,button,a')?.focus({preventScroll:true}),320);
+    jumpToPromotionEvidence();
     return;
   }
   const button=target?.closest<HTMLButtonElement>('[data-promotion-jump-evidence]');
   if(!button)return;
   event.preventDefault();event.stopImmediatePropagation();
-  const evidence=document.querySelector<HTMLElement>('[data-v3-evidence]');
-  evidence?.scrollIntoView({behavior:'smooth',block:'start'});
+  jumpToPromotionEvidence();
 },true);
 window.addEventListener('litlab:contributor-guide-rendered',()=>schedule(0));
-window.addEventListener('litlab:contributor-workspace-data',()=>schedule(220));
-window.addEventListener('litlab:contributor-workspace-updated',()=>schedule(260));
+window.addEventListener('litlab:contributor-workspace-data',event=>{
+  const detail=(event as CustomEvent<WorkspaceData>).detail||{};
+  if(Array.isArray(detail.workspaces)){
+    promotionWorkspaceIds=new Set(detail.workspaces.filter(row=>promotionType(row.contribution_type)&&row.id).map(row=>String(row.id)));
+  }
+  if(typeof detail.selectedId==='string')selectedWorkspaceId=detail.selectedId;
+  else if(!selectedWorkspaceId&&promotionWorkspaceIds.size===1)selectedWorkspaceId=Array.from(promotionWorkspaceIds)[0];
+  schedule(0);
+});
+window.addEventListener('litlab:contributor-workspace-updated',()=>schedule(120));
 window.addEventListener('litlab:admin-contributor-workspace-opened',()=>schedule(260));
 window.addEventListener('litlab:admin-contributor-workspace-updated',()=>schedule(260));
-window.addEventListener('hashchange',()=>schedule(160));
-window.addEventListener('focus',()=>schedule(80));
-const observer=new MutationObserver(()=>schedule(180));observer.observe(document.body,{childList:true,subtree:true});
+window.addEventListener('hashchange',()=>schedule(80));
+window.addEventListener('focus',()=>schedule(40));
+const observer=new MutationObserver(()=>schedule(80));observer.observe(document.body,{childList:true,subtree:true});
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>schedule(0),{once:true});else schedule(0);
 
 export {};
