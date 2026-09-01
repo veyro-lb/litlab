@@ -109,6 +109,8 @@ import '../contributor-promotion-submission-stability';
 // surfaces follow campaign evidence instead of the generic DOCX state machine.
 import '../contributor-promotion-teacher-workspace';
 import '../contributor-promotion-teacher-workspace.css';
+// Keep teacher Promotion review context synchronized with evidence submitted from another account.
+import '../contributor-promotion-teacher-evidence-sync';
 
 // Keep the live-chat dialog inside the viewport after every contributor/admin styling layer.
 import '../contributor-chat-frame.css';
