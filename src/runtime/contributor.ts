@@ -108,6 +108,7 @@ import '../contributor-promotion-submission-stability';
 // Final teacher-side Promotion coherence: the roster, status guide and selected-student
 // surfaces follow campaign evidence instead of the generic DOCX state machine.
 import '../contributor-promotion-teacher-workspace';
+import '../contributor-promotion-teacher-workspace.css';
 
 // Keep the live-chat dialog inside the viewport after every contributor/admin styling layer.
 import '../contributor-chat-frame.css';
