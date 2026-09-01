@@ -5,6 +5,7 @@ type Assignment=Row&{
   status?:string;
   student_name?:string;
   topics?:string;
+  promotion_evidence_count?:number;
 };
 type WorkspaceEvent={assignments?:Assignment[]};
 type PromotionStage='loading'|'waiting_evidence'|'waiting_supervisor'|'supervisor_review'|'student_revision'|'admin_review'|'complete';
@@ -37,6 +38,7 @@ function cardFor(root:HTMLElement,id:string){
 }
 function stageFor(card:HTMLElement|null,a:Assignment):PromotionStage{
   if(String(a.status||'').toLowerCase()==='completed')return 'complete';
+  if(a.promotion_evidence_count!==undefined&&Number(a.promotion_evidence_count||0)===0)return 'waiting_evidence';
   if(!card)return 'loading';
   if(card.querySelector('[data-promotion-supervisor-review]'))return 'supervisor_review';
   const badge=card.querySelector<HTMLElement>('.ll-promotion-supervisor-head em');
@@ -58,8 +60,8 @@ function stateFor(stage:PromotionStage):PromotionState{
   if(stage==='admin_review')return {label:'Sent to LitLab',detail:'You approved the current Promotion evidence. LitLab admin now owns the final review.',top:'CAS supervisor · Promotion sent to LitLab',tone:'waiting',action:false,cssKey:'sent-admin',lockedReason:'Your Promotion review is complete and the contribution is with LitLab admin.'};
   if(stage==='complete')return {label:'Complete',detail:'This Promotion contribution is complete. Your supervisor review remains attached to the student’s record.',top:'CAS supervisor · Promotion completed',tone:'success',action:false,cssKey:'complete',lockedReason:'This Promotion contribution is complete.'};
   if(stage==='waiting_supervisor')return {label:'Review setup pending',detail:'LitLab is preparing the supervisor-review step for this Promotion contribution.',top:'CAS supervisor · review setup pending',tone:'waiting',action:false,cssKey:'waiting-doc',lockedReason:'The Promotion supervisor-review step is still being prepared.'};
-  if(stage==='loading')return {label:'Checking evidence',detail:'LitLab is checking whether the student has submitted Promotion evidence and loading the current review status.',top:'CAS supervisor · checking evidence status',tone:'waiting',action:false,cssKey:'waiting-doc',lockedReason:'Promotion evidence status is still being checked.'};
-  return {label:'Waiting for evidence',detail:'The student has not submitted review-ready Promotion evidence yet. No supervisor action is needed until evidence is submitted.',top:'CAS supervisor · waiting for promotion evidence',tone:'waiting',action:false,cssKey:'waiting-doc',lockedReason:'Waiting for the student to submit Promotion evidence.'};
+  if(stage==='loading')return {label:'Checking evidence',detail:'LitLab is checking the current Promotion evidence and review status.',top:'CAS supervisor · checking evidence status',tone:'waiting',action:false,cssKey:'waiting-doc',lockedReason:'Promotion evidence status is still being checked.'};
+  return {label:'Waiting for evidence',detail:'The student has not submitted Promotion evidence yet. You do not need to do anything until their evidence is ready for review.',top:'CAS supervisor · waiting for promotion evidence',tone:'waiting',action:false,cssKey:'waiting-doc',lockedReason:'Waiting for the student to submit Promotion evidence.'};
 }
 function setStateClass(el:HTMLElement|null,state:PromotionState){
   if(!el)return;
@@ -83,10 +85,13 @@ function ensurePromotionPlaceholder(card:HTMLElement,a:Assignment){
   const old=card.querySelector<HTMLElement>('[data-promotion-teacher-placeholder]');
   if(real){old?.remove();return real}
   if(old)return old;
+  const noEvidence=a.promotion_evidence_count!==undefined&&Number(a.promotion_evidence_count||0)===0;
   const placeholder=document.createElement('section');
   placeholder.className='ll-promotion-supervisor-panel';
   placeholder.dataset.promotionTeacherPlaceholder='true';
-  placeholder.innerHTML=`<div class="ll-promotion-loading" role="status" aria-live="polite"><div class="ll-promotion-loading-mark" aria-hidden="true"><span></span></div><div class="ll-promotion-loading-copy"><span>PROMOTION EVIDENCE REVIEW</span><b>Checking evidence status</b><p>LitLab is checking whether ${esc(a.student_name||'the student')} has submitted Promotion evidence for your review.</p></div><em>Checking</em></div>`;
+  placeholder.innerHTML=noEvidence
+    ?`<div class="ll-promotion-waiting-card" role="status"><div class="ll-promotion-waiting-mark" aria-hidden="true">⏳</div><div class="ll-promotion-waiting-copy"><span>PROMOTION EVIDENCE</span><b>Waiting for evidence</b><p>${esc(a.student_name||'The student')} has not submitted Promotion evidence yet. This workspace will update automatically when evidence is ready for your review.</p></div><em>Waiting</em></div>`
+    :`<div class="ll-promotion-loading" role="status" aria-live="polite"><div class="ll-promotion-loading-mark" aria-hidden="true"><span></span></div><div class="ll-promotion-loading-copy"><span>PROMOTION EVIDENCE REVIEW</span><b>Checking evidence status</b><p>LitLab is checking the current Promotion evidence and supervisor-review status.</p></div><em>Checking</em></div>`;
   const history=card.querySelector('.ll-review-history');
   if(history)history.before(placeholder);else card.appendChild(placeholder);
   return placeholder;
