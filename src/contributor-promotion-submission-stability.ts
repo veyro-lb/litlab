@@ -16,6 +16,16 @@ function promotionPage(){return document.querySelector<HTMLElement>('[data-contr
 function smooth(){return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}
 function promotionOpen(){return ['accepted','reviewing','completed'].includes(String(current()?.status||''))}
 
+function repairLoadingSignature(){
+  const page=promotionPage();
+  if(!page?.querySelector('.ll-promo-loading'))return;
+  // The submission renderer caches a data-signature after a successful paint. If a later
+  // workspace refresh replaces that painted HTML with the loading state but leaves the old
+  // signature behind, an identical 200 response is incorrectly treated as "already rendered"
+  // and the spinner remains forever. Loading must never carry a completed render signature.
+  delete page.dataset.signature;
+}
+
 function removeLegacyEvidence(){
   const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
   if(!root||!isPromotion())return;
@@ -53,6 +63,7 @@ function stabilizeGuide(){
 function stabilize(){
   pending=false;
   if(route()!=='contribute'||!isPromotion())return;
+  repairLoadingSignature();
   removeLegacyEvidence();
   stabilizeGuide();
 }
@@ -85,7 +96,18 @@ window.addEventListener('litlab:contributor-workspace-data',event=>{
 // The state guide emits this immediately after rebuilding itself. Patch synchronously in a
 // microtask so the generic locked Submission state does not visibly paint first.
 window.addEventListener('litlab:contributor-guide-rendered',schedule);
-window.addEventListener('litlab:contributor-workspace-updated',schedule);
+window.addEventListener('litlab:contributor-workspace-updated',()=>{
+  // This event makes the submission module invalidate its cached context and show loading.
+  // Clear any stale paint signature before the refreshed context comes back.
+  repairLoadingSignature();
+  schedule();
+});
+window.addEventListener('litlab:promotion-context-ready',()=>{
+  // The transport fires this immediately before contributor-guide-rendered after a successful
+  // Promotion-context response. Ensure that repaint can never be skipped just because the
+  // returned data is identical to the previous successful response.
+  repairLoadingSignature();
+});
 window.addEventListener('hashchange',schedule);
 window.addEventListener('focus',schedule);
 
@@ -96,7 +118,10 @@ function start(){
     const relevant=records.some(record=>{
       const target=record.target instanceof Element?record.target:record.target.parentElement;
       if(!target)return true;
-      if(target.closest('[data-promotion-submission-page]'))return false;
+      if(target.closest('[data-promotion-submission-page]')){
+        repairLoadingSignature();
+        return false;
+      }
       return true;
     });
     if(relevant)schedule();
