@@ -14,12 +14,17 @@ let scheduled=false;
 let observer:MutationObserver|null=null;
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
 function root(){return document.querySelector<HTMLElement>('[data-contributor-workspace]')}
 function isTeacher(host:HTMLElement){return host.classList.contains('ll-teacher-reviewer-mode')||host.classList.contains('ll-hard-teacher-no-evidence')||Boolean(host.querySelector('.ll-teacher-zone,.ll-teacher-assignment'))||document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole==='teacher'}
 function cards(host:HTMLElement){return Array.from(host.querySelectorAll<HTMLElement>('.ll-teacher-zone .ll-teacher-assignment'))}
 function timestamp(value?:string){const time=Date.parse(value||'');return Number.isFinite(time)?time:0}
+function isPromotion(a:Assignment|null|undefined){return String(a?.contribution_type||'').trim().toLowerCase()==='promotion'}
 function assignmentState(a:Assignment):StudentState{
+  if(isPromotion(a)){
+    if(a.status==='completed')return {key:'complete',label:'Complete',detail:'This Promotion contribution is complete. Your supervisor review remains attached to the student’s record.',action:false};
+    return {key:'waiting-doc',label:'Waiting for evidence',detail:'The student has not submitted review-ready Promotion evidence yet. No supervisor action is needed.',action:false};
+  }
   if(a.status==='completed')return {key:'complete',label:'Complete',detail:'This student contribution is complete. Your saved review remains attached to their record.',action:false};
   const docs=a.documents||[];const reviews=a.reviews||[];const latestDoc=docs[0];const latestReview=reviews[0];
   if(!latestDoc)return {key:'waiting-doc',label:'Waiting for DOCX',detail:'The student has not submitted a DOCX yet. No teacher action is needed.',action:false};
@@ -52,6 +57,11 @@ function decorateCard(card:HTMLElement,a:Assignment,active:boolean){
   card.hidden=!active;
   card.classList.toggle('is-selected-student',active);
   const state=assignmentState(a);
+  if(isPromotion(a)){
+    card.querySelectorAll('[data-current-docx-badge]').forEach(badge=>badge.remove());
+    card.querySelector('[data-teacher-student-state-note]')?.remove();
+    return;
+  }
   const docs=card.querySelector<HTMLElement>('.ll-assigned-docs');
   docs?.querySelectorAll<HTMLElement>('button[data-download-doc]').forEach((button,index)=>{
     button.classList.toggle('is-current-docx',index===0);
@@ -87,9 +97,9 @@ function ensureBrowser(host:HTMLElement){
     selectedHead=browser.querySelector<HTMLElement>('[data-teacher-selected-head]')!;
     if(zone.parentElement!==detail)detail.append(zone);
   }
-  const signature=assignments.map(a=>`${a.application_id}:${a.student_name}:${a.topics||''}:${assignmentState(a).key}`).join('|')+`|selected:${selectedStudentId}`;
+  const signature=assignments.map(a=>`${a.application_id}:${a.student_name}:${a.topics||''}:${a.contribution_type||''}:${assignmentState(a).key}:${assignmentState(a).label}`).join('|')+`|selected:${selectedStudentId}`;
   if(nav.dataset.signature!==signature){nav.dataset.signature=signature;nav.innerHTML=rosterMarkup()}
-  const selected=selectedAssignment();if(selected){const headSignature=`${selected.application_id}|${assignmentState(selected).key}|${selected.topics||selected.contribution_type||''}`;if(selectedHead.dataset.signature!==headSignature){selectedHead.dataset.signature=headSignature;selectedHead.innerHTML=selectedHeaderMarkup(selected)}}
+  const selected=selectedAssignment();if(selected){const state=assignmentState(selected);const headSignature=`${selected.application_id}|${state.key}|${state.label}|${selected.topics||selected.contribution_type||''}`;if(selectedHead.dataset.signature!==headSignature){selectedHead.dataset.signature=headSignature;selectedHead.innerHTML=selectedHeaderMarkup(selected)}}
   list.forEach((card,index)=>{const a=assignments[index];if(a)decorateCard(card,a,a.application_id===selectedStudentId)});
   zone.classList.add('ll-teacher-zone-roster-mode');
 }
