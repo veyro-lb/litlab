@@ -63,8 +63,9 @@ function stateFor(stage:PromotionStage):PromotionState{
 }
 function setStateClass(el:HTMLElement|null,state:PromotionState){
   if(!el)return;
-  Array.from(el.classList).filter(name=>name.startsWith('is-')).forEach(name=>el.classList.remove(name));
-  el.classList.add(`is-${state.cssKey}`);
+  const wanted=`is-${state.cssKey}`;
+  const current=Array.from(el.classList).filter(name=>name.startsWith('is-'));
+  if(current.length!==1||current[0]!==wanted){current.forEach(name=>el.classList.remove(name));el.classList.add(wanted)}
   text(el,state.label);
 }
 function ensureTargetId(el:HTMLElement,id:string){if(!el.id)el.id=id;return el.id}
@@ -172,9 +173,11 @@ function patchGenericTeacherSurfaces(root:HTMLElement,promotionSelected:boolean)
 }
 function apply(){
   scheduled=false;if(route()!=='contribute')return;
-  const root=host();if(!root||!assignments.length||!promotionAssignments().length)return;
+  const root=host();if(!root)return;
+  const promotionRows=promotionAssignments();
+  if(!assignments.length||!promotionRows.length){patchGenericTeacherSurfaces(root,false);return}
   const states=new Map<string,{card:HTMLElement|null;state:PromotionState}>();
-  promotionAssignments().forEach(a=>{const card=patchPromotionCard(root,a);const state=stateFor(stageFor(card,a));states.set(a.application_id,{card,state});patchRoster(root,a,state)});
+  promotionRows.forEach(a=>{const card=patchPromotionCard(root,a);const state=stateFor(stageFor(card,a));states.set(a.application_id,{card,state});patchRoster(root,a,state)});
   refreshRosterCounts(root);
   const selectedId=selectedApplicationId(root);const selected=assignmentById(selectedId);const promotionSelected=isPromotion(selected);
   patchGenericTeacherSurfaces(root,promotionSelected);
@@ -192,7 +195,7 @@ function startObserver(){
     });
     if(relevant)schedule();
   });
-  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden','class','aria-current']});
+  observer.observe(document.body,{childList:true,subtree:true});
 }
 window.addEventListener('litlab:contributor-workspace-data',event=>{const detail=(event as CustomEvent<WorkspaceEvent>).detail||{};if(Array.isArray(detail.assignments))assignments=detail.assignments;schedule()});
 window.addEventListener('litlab:contributor-workspace-updated',schedule);
