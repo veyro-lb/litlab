@@ -2,15 +2,18 @@ import './contributor-review-lifecycle';
 import './contributor-teacher-workspace-polish.css';
 
 type WorkspaceRow={id:string;status?:string;applicant_type?:string};
-type WorkspaceEvent={selectedId?:string;workspaces?:WorkspaceRow[];assignments?:Array<{application_id?:string}>};
+type TeacherAssignment={application_id?:string;contribution_type?:string};
+type WorkspaceEvent={selectedId?:string;workspaces?:WorkspaceRow[];assignments?:TeacherAssignment[]};
 type MentorStats={assigned:number;pending:number;submitted:number;waitingForDoc:number};
 
+const SELECTED_STUDENT_KEY='litlabTeacherSelectedStudent';
 let timer=0;
 let attempts=0;
 let observer:MutationObserver|null=null;
 let applyTimer=0;
 let selectedId='';
 let selectedWorkspace:WorkspaceRow|null=null;
+let teacherAssignments:TeacherAssignment[]=[];
 let assignmentCount=0;
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
@@ -23,6 +26,13 @@ function isTeacher(host:HTMLElement){return selectedWorkspace?.applicant_type===
 function statusName(host:HTMLElement){return host.querySelector<HTMLElement>('.ll-workspace-status > div > span')?.textContent?.trim().toLowerCase()||''}
 function isCompletedTeacher(host:HTMLElement){return isTeacher(host)&&(selectedWorkspace?.status==='completed'||statusName(host).includes('completed'))}
 function setText(el:HTMLElement|undefined|null,value:string){if(el&&el.textContent!==value)el.textContent=value}
+function selectedTeacherAssignment(host:HTMLElement){
+  const visibleSelected=host.querySelector<HTMLButtonElement>('[data-teacher-student-select][aria-current="true"], [data-teacher-student-select].is-selected')?.dataset.teacherStudentSelect||'';
+  const stored=sessionStorage.getItem(SELECTED_STUDENT_KEY)||'';
+  const id=visibleSelected||stored;
+  return teacherAssignments.find(row=>row.application_id===id)||teacherAssignments[0]||null;
+}
+function isPromotionAssignment(host:HTMLElement){return String(selectedTeacherAssignment(host)?.contribution_type||'').trim().toLowerCase()==='promotion'}
 
 function roleCardMarkup(hasAssignments:boolean){
   return `<div class="ll-card-title"><div><span>TEACHER REVIEWER ROLE</span><h3>${hasAssignments?'Help assigned students move forward':'Ready for an assignment'}</h3></div><em>Private academic review</em></div><div class="ll-teacher-role-steps"><div><i>1</i><p><b>Open only the assigned student DOCX</b><span>Your access is limited to contributions LitLab assigns to this teacher account.</span></p></div><div><i>2</i><p><b>Review with the LitLab rubric</b><span>Score accuracy, clarity, DP relevance, originality and source quality.</span></p></div><div><i>3</i><p><b>Give feedback the student can use</b><span>Name the exact strength, issue and revision needed instead of giving vague comments.</span></p></div><div><i>4</i><p><b>Send the student to the correct next step</b><span>Approve academically to hand off to LitLab admin, or request changes so the student can revise.</span></p></div></div>${hasAssignments?'':'<p class="ll-teacher-waiting">No student document needs your review right now. You do not need an evidence ledger or contributor upload area. LitLab will place assigned student work here when action is needed.</p>'}`;
@@ -98,11 +108,21 @@ function clearCompletion(host:HTMLElement){host.querySelector('[data-teacher-com
 
 function apply(){
   const host=root();if(!host)return;
-  const teacher=isTeacher(host);const completed=isCompletedTeacher(host);
+  const teacher=isTeacher(host);const promotionSelected=teacher&&isPromotionAssignment(host);const completed=isCompletedTeacher(host);
   host.classList.toggle('ll-teacher-reviewer-mode',teacher);
-  host.classList.toggle('ll-teacher-reviewer-completed',completed);
+  host.classList.toggle('ll-promotion-supervisor-mode',promotionSelected);
+  host.classList.toggle('ll-teacher-reviewer-completed',completed&&!promotionSelected);
 
   if(!teacher){clearCompletion(host);clearMentorDashboard(host);host.querySelector('[data-teacher-reviewer-role-card]')?.remove();return}
+
+  // Promotion has its own evidence/supervisor adapter, loaded after this module.
+  // Do not strip its evidence, inject DOCX mentor cards, or rewrite its headings/status.
+  if(promotionSelected){
+    clearCompletion(host);
+    clearMentorDashboard(host);
+    host.querySelector('[data-teacher-reviewer-role-card]')?.remove();
+    return;
+  }
 
   stripTeacherEvidenceSurfaces(host);
   const head=host.querySelector<HTMLElement>(':scope > .ll-workspace-head');
@@ -148,10 +168,12 @@ function scan(){
 
 window.addEventListener('litlab:contributor-workspace-data',event=>{
   const detail=(event as CustomEvent<WorkspaceEvent>).detail||{};const rows=Array.isArray(detail.workspaces)?detail.workspaces:[];
-  selectedId=detail.selectedId||selectedId;selectedWorkspace=rows.find(row=>row.id===selectedId)||rows[0]||selectedWorkspace;assignmentCount=Array.isArray(detail.assignments)?detail.assignments.length:assignmentCount;scheduleApply();
+  selectedId=detail.selectedId||selectedId;selectedWorkspace=rows.find(row=>row.id===selectedId)||rows[0]||selectedWorkspace;
+  if(Array.isArray(detail.assignments))teacherAssignments=detail.assignments;
+  assignmentCount=teacherAssignments.length||assignmentCount;scheduleApply();
 });
-document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(target?.closest('[data-workspace-select]'))setTimeout(apply,0)},true);
-window.addEventListener('hashchange',()=>{selectedId='';selectedWorkspace=null;assignmentCount=0;attempts=0;observer?.disconnect();observer=null;setTimeout(scan,100)});
+document.addEventListener('click',event=>{const target=event.target instanceof Element?event.target:null;if(target?.closest('[data-workspace-select],[data-teacher-student-select]'))setTimeout(apply,0)},true);
+window.addEventListener('hashchange',()=>{selectedId='';selectedWorkspace=null;teacherAssignments=[];assignmentCount=0;attempts=0;observer?.disconnect();observer=null;setTimeout(scan,100)});
 window.addEventListener('litlab:contributor-workspace-updated',()=>setTimeout(apply,120));
 window.addEventListener('focus',()=>{if(route()==='contribute')setTimeout(apply,120)});
 
