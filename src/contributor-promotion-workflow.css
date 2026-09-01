@@ -6,6 +6,9 @@
 .ll-admin-promotion-card [data-admin-final-doc-clarity],
 .ll-admin-promotion-card [data-admin-completion-gate-note],
 .ll-admin-promotion-card [data-admin-review-stage]{display:none!important}
+.ll-admin-workspace-overlay[data-contribution-type="promotion"] [data-admin-final-review-document],
+.ll-admin-workspace-overlay[data-contribution-type="promotion"] [data-admin-v3-publication],
+.ll-admin-workspace-overlay[data-contribution-type="promotion"] [data-admin-review-decision-center]{display:none!important}
 .ll-promotion-plan-card{grid-column:1/-1;border:1px solid color-mix(in srgb,var(--accent,#7c5cff) 24%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--accent,#7c5cff) 7%,transparent),transparent 62%)}
 .ll-promotion-plan-card .ll-promotion-idea{font-size:1rem;line-height:1.7;margin:.2rem 0 1rem}
 .ll-promotion-plan-card dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:0}
