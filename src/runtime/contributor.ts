@@ -89,4 +89,7 @@ import '../contributor-reviewer-specialization-confirm';
 // Final reviewer UX layer: spacious rubric cards, guided steps, progress and subtle motion.
 import '../contributor-review-workspace-experience';
 
+// Keep the live-chat dialog inside the viewport after every contributor/admin styling layer.
+import '../contributor-chat-frame.css';
+
 export {};
