@@ -2,6 +2,7 @@ let timer=0;
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function kicker(card:Element){return card.querySelector<HTMLElement>('.ll-card-title span,.ll-admin-workspace-title span,:scope > span')?.textContent?.trim().toUpperCase()||''}
+function setText(el:Element|null|undefined,value:string){if(el&&el.textContent!==value)el.textContent=value}
 
 function fixPromotionEvidenceButton(){
   document.querySelectorAll<HTMLButtonElement>('[data-promotion-jump-evidence]').forEach(button=>{
@@ -29,8 +30,9 @@ function fixStudentPromotionSubmission(){
   const flow=guide.dataset.flow||'';
   const submission=guide.querySelector<HTMLButtonElement>('[data-section-key="submission"]');
   if(submission){
-    submission.textContent=flow==='completed'?'Promotion evidence':'Submit evidence';
-    submission.title=flow==='pending'?'Promotion evidence opens after LitLab accepts the contribution.':'Open the Promotion evidence submission area.';
+    setText(submission,flow==='completed'?'Promotion evidence':'Submit evidence');
+    const title=flow==='pending'?'Promotion evidence opens after LitLab accepts the contribution.':'Open the Promotion evidence submission area.';
+    if(submission.title!==title)submission.title=title;
     if(flow==='pending'||flow==='closed'){
       submission.classList.add('locked');
       submission.setAttribute('aria-disabled','true');
@@ -47,18 +49,16 @@ function fixStudentPromotionSubmission(){
   }
 
   const duplicateEvidence=guide.querySelector<HTMLButtonElement>('[data-section-key="evidence"]');
-  if(duplicateEvidence&&duplicateEvidence!==submission)duplicateEvidence.hidden=true;
+  if(duplicateEvidence&&duplicateEvidence!==submission&&!duplicateEvidence.hidden)duplicateEvidence.hidden=true;
 
-  const kicker=evidence.querySelector<HTMLElement>('.ll-card-title span');
-  if(kicker)kicker.textContent='PROMOTION SUBMISSION';
-  const heading=evidence.querySelector<HTMLElement>('.ll-card-title h3');
-  if(heading)heading.textContent=flow==='completed'?'Promotion evidence record':'Submit proof of the promotion you carried out.';
+  setText(evidence.querySelector<HTMLElement>('.ll-card-title span'),'PROMOTION SUBMISSION');
+  setText(evidence.querySelector<HTMLElement>('.ll-card-title h3'),flow==='completed'?'Promotion evidence record':'Submit proof of the promotion you carried out.');
   const intro=evidence.querySelector<HTMLElement>(':scope > p.ll-muted');
-  if(intro)intro.innerHTML=flow==='completed'
+  const introMarkup=flow==='completed'
     ?'<b>This is the saved Promotion submission record.</b> Your campaign evidence stays attached to the contribution for supervisor and LitLab review.'
     :'<b>This is where you submit your Promotion contribution for review.</b> Add proof such as Discord/message links where permitted, shareable screenshot links, campaign assets, reach or engagement results, and useful audience feedback. Explain enough context for a supervisor and LitLab admin to verify what happened.';
-  const submit=evidence.querySelector<HTMLButtonElement>('form[data-v3-evidence] button[type="submit"]');
-  if(submit)submit.textContent='Submit promotion evidence';
+  if(intro&&intro.innerHTML!==introMarkup)intro.innerHTML=introMarkup;
+  setText(evidence.querySelector<HTMLButtonElement>('form[data-v3-evidence] button[type="submit"]'),'Submit promotion evidence');
 }
 
 function fixReviewerScope(){
