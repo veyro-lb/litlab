@@ -1,88 +1,12 @@
 let timer=0;
-type WorkspaceRow={id?:string;contribution_type?:string};
-type WorkspaceData={selectedId?:string;workspaces?:WorkspaceRow[]};
-let selectedWorkspaceId='';
-let promotionWorkspaceIds=new Set<string>();
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
 function kicker(card:Element){return card.querySelector<HTMLElement>('.ll-card-title span,.ll-admin-workspace-title span,:scope > span')?.textContent?.trim().toUpperCase()||''}
-function promotionType(value:unknown){return String(value||'').trim().toLowerCase()==='promotion'}
-function activePromotionWorkspace(){
-  const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
-  if(root?.classList.contains('ll-promotion-workspace-mode'))return true;
-  if(selectedWorkspaceId&&promotionWorkspaceIds.has(selectedWorkspaceId))return true;
-  return !selectedWorkspaceId&&promotionWorkspaceIds.size===1;
-}
-function promotionEvidence(){return document.querySelector<HTMLElement>('[data-contributor-workspace] [data-v3-evidence]')}
-function jumpToPromotionEvidence(){
-  const evidence=promotionEvidence();if(!evidence)return false;
-  evidence.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-  window.setTimeout(()=>evidence.querySelector<HTMLElement>('form[data-v3-evidence] input,form[data-v3-evidence] select,form[data-v3-evidence] textarea,button,a')?.focus({preventScroll:true}),320);
-  return true;
-}
 
-function fixPromotionEvidenceButton(){
-  document.querySelectorAll<HTMLButtonElement>('[data-promotion-jump-evidence]').forEach(button=>{
-    delete button.dataset.v3Jump;
-    if(button.dataset.promotionEvidenceFixed==='true')return;
-    button.dataset.promotionEvidenceFixed='true';
-    button.addEventListener('click',event=>{
-      event.preventDefault();event.stopImmediatePropagation();
-      jumpToPromotionEvidence();
-    },true);
-  });
-}
-
-function fixStudentPromotionSubmission(){
-  if(route()!=='contribute'||!activePromotionWorkspace())return;
-  const evidence=promotionEvidence();
-  const guide=document.querySelector<HTMLElement>('[data-contributor-state-guide]');
-  if(!evidence||!guide)return;
-
-  if(!evidence.id)evidence.id='ll-v3-evidence';
-  const flow=guide.dataset.flow||'';
-  const submission=guide.querySelector<HTMLButtonElement>('[data-section-key="submission"]');
-  if(submission){
-    const label=flow==='completed'?'Promotion evidence':'Submit evidence';
-    if(submission.textContent!==label)submission.textContent=label;
-    const title=flow==='pending'?'Promotion evidence opens after LitLab accepts the contribution.':'Open the Promotion evidence submission area.';
-    if(submission.title!==title)submission.title=title;
-    if(flow==='pending'||flow==='closed'){
-      submission.classList.add('locked');
-      submission.setAttribute('aria-disabled','true');
-      const reason=flow==='closed'?'This Promotion contribution is closed.':'Promotion evidence opens after LitLab accepts the contribution.';
-      if(submission.dataset.contributorLocked!==reason)submission.dataset.contributorLocked=reason;
-      delete submission.dataset.contributorSectionJump;
-      delete submission.dataset.promotionSubmissionJump;
-    }else{
-      submission.classList.remove('locked');
-      submission.removeAttribute('aria-disabled');
-      submission.removeAttribute('data-contributor-locked');
-      submission.dataset.contributorSectionJump=evidence.id;
-      submission.dataset.promotionSubmissionJump='true';
-    }
-  }
-
-  const supervisor=guide.querySelector<HTMLButtonElement>('[data-section-key="teacher-feedback"]');
-  if(supervisor&&supervisor.textContent!=='Supervisor feedback')supervisor.textContent='Supervisor feedback';
-
-  const duplicateEvidence=guide.querySelector<HTMLButtonElement>('[data-section-key="evidence"]');
-  if(duplicateEvidence&&duplicateEvidence!==submission&&!duplicateEvidence.hidden)duplicateEvidence.hidden=true;
-
-  const sectionKicker=evidence.querySelector<HTMLElement>('.ll-card-title span');
-  if(sectionKicker&&sectionKicker.textContent!=='PROMOTION SUBMISSION')sectionKicker.textContent='PROMOTION SUBMISSION';
-  const heading=evidence.querySelector<HTMLElement>('.ll-card-title h3');
-  const headingText=flow==='completed'?'Promotion evidence record':'Submit proof of the promotion you carried out.';
-  if(heading&&heading.textContent!==headingText)heading.textContent=headingText;
-  const intro=evidence.querySelector<HTMLElement>(':scope > p.ll-muted');
-  const introHtml=flow==='completed'
-    ?'<b>This is the saved Promotion submission record.</b> Your campaign evidence stays attached to the contribution for supervisor and LitLab review.'
-    :'<b>This is where you submit your Promotion contribution for review.</b> Add proof such as Discord/message links where permitted, shareable screenshot links, campaign assets, reach or engagement results, and useful audience feedback. Explain enough context for a supervisor and LitLab admin to verify what happened.';
-  if(intro&&intro.innerHTML!==introHtml)intro.innerHTML=introHtml;
-  const submit=evidence.querySelector<HTMLButtonElement>('form[data-v3-evidence] button[type="submit"]');
-  if(submit&&submit.textContent!=='Submit promotion evidence')submit.textContent='Submit promotion evidence';
-}
-
+// Student Promotion submission is now owned exclusively by
+// contributor-promotion-submission + contributor-promotion-submission-stability.
+// Keep this file limited to reviewer/admin compatibility so no legacy click handler or
+// generic Evidence Vault patch can fight the dedicated student hand-in page.
 function fixReviewerScope(){
   const promotionCards=Array.from(document.querySelectorAll<HTMLElement>('[data-promotion-application-id]'));
   if(!promotionCards.length)return;
@@ -103,13 +27,14 @@ function fixReviewerScope(){
   document.querySelectorAll<HTMLElement>('[data-teacher-student-center] .ll-teacher-student-list article').forEach(row=>{
     const name=row.querySelector<HTMLElement>('b')?.textContent?.trim().toLowerCase()||'';
     if(!promotionNames.has(name))return;
-    const state=row.querySelector<HTMLElement>('em');if(state){state.textContent='Promotion evidence review';state.className='is-review'}
-    const button=row.querySelector<HTMLButtonElement>('button');if(button)button.textContent='Review promotion ↓';
+    const state=row.querySelector<HTMLElement>('em');if(state&&state.textContent!=='Promotion evidence review'){state.textContent='Promotion evidence review';state.className='is-review'}
+    const button=row.querySelector<HTMLButtonElement>('button');if(button&&button.textContent!=='Review promotion ↓')button.textContent='Review promotion ↓';
   });
   const center=document.querySelector<HTMLElement>('[data-teacher-student-center]');
   if(center){
     const copy=center.querySelector<HTMLElement>('.ll-teacher-student-center-head p');
-    if(copy)copy.textContent='Your assigned students appear below. Academic resources use DOCX review; Promotion uses campaign evidence, reflection and the CAS-supervision rubric.';
+    const text='Your assigned students appear below. Academic resources use DOCX review; Promotion uses campaign evidence, reflection and the CAS-supervision rubric.';
+    if(copy&&copy.textContent!==text)copy.textContent=text;
   }
 }
 
@@ -121,13 +46,13 @@ function fixAdminPromotionCards(){
     if(k==='WORD DOCUMENTS'||k==='TEACHER REVIEWS'||k==='SUPERVISOR REVIEWS'||k==='PUBLICATION & IMPACT')card.hidden=true;
     if(k==='PROJECT BRIEF'||card.querySelector('form[data-admin-brief]')){
       card.id='ll-admin-section-brief';
-      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label)label.textContent='PROMOTION BRIEF';
-      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title)title.textContent='Define the campaign and the evidence expected.';
+      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label&&label.textContent!=='PROMOTION BRIEF')label.textContent='PROMOTION BRIEF';
+      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title&&title.textContent!=='Define the campaign and the evidence expected.')title.textContent='Define the campaign and the evidence expected.';
       const form=card.querySelector<HTMLFormElement>('form[data-admin-brief]');
       const deliverable=form?.querySelector<HTMLInputElement>('input[name="deliverable"]');
       if(deliverable&&(!deliverable.value||/word|docx/i.test(deliverable.value)))deliverable.value='Completed promotion actions with clear campaign evidence, results/context, reflection and supervisor review when required.';
       const deliverableLabel=deliverable?.closest('label')?.querySelector<HTMLElement>(':scope > span');
-      if(deliverableLabel)deliverableLabel.textContent='Evidence needed for completion';
+      if(deliverableLabel&&deliverableLabel.textContent!=='Evidence needed for completion')deliverableLabel.textContent='Evidence needed for completion';
     }
     if(k==='TASKS'||card.querySelector('form[data-admin-add-task]')){
       card.id='ll-admin-section-tasks';
@@ -136,17 +61,17 @@ function fixAdminPromotionCards(){
     }
     if(k==='REVISION REQUESTS'||card.querySelector('form[data-admin-add-revision]')){
       card.id='ll-admin-section-revisions';
-      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label)label.textContent='FEEDBACK / CHANGES';
-      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title)title.textContent='Campaign feedback and evidence requests';
+      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label&&label.textContent!=='FEEDBACK / CHANGES')label.textContent='FEEDBACK / CHANGES';
+      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title&&title.textContent!=='Campaign feedback and evidence requests')title.textContent='Campaign feedback and evidence requests';
       const form=card.querySelector<HTMLFormElement>('form[data-admin-add-revision]');
-      const request=form?.querySelector<HTMLInputElement>('input[name="title"]');if(request)request.placeholder='Add clearer proof of the Discord post';
+      const request=form?.querySelector<HTMLInputElement>('input[name="title"]');if(request)request.placeholder='Add clearer proof of the promotion';
       const details=form?.querySelector<HTMLTextAreaElement>('textarea[name="details"]');if(details)details.placeholder='Explain what should change, be clarified or be added to the campaign evidence.';
       const checklist=form?.querySelector<HTMLTextAreaElement>('textarea[name="checklist"]');if(checklist)checklist.placeholder='Add the post link or screenshot\nExplain when and where it was shared\nRecord reactions, reach or useful feedback';
     }
     if(k==='TEACHER REVIEWER'||k==='CAS SUPERVISOR'||card.querySelector('form[data-admin-assign-teacher]')){
       card.id='ll-admin-section-reviewer';
-      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label)label.textContent='CAS SUPERVISOR';
-      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title)title.textContent='Assign the student’s accepted CAS supervisor / coordinator';
+      const label=card.querySelector<HTMLElement>('.ll-admin-workspace-title span');if(label&&label.textContent!=='CAS SUPERVISOR')label.textContent='CAS SUPERVISOR';
+      const title=card.querySelector<HTMLElement>('.ll-admin-workspace-title h3');if(title&&title.textContent!=='Assign the student’s accepted CAS supervisor / coordinator')title.textContent='Assign the student’s accepted CAS supervisor / coordinator';
     }
   });
   const review=modal.querySelector<HTMLElement>('[data-admin-promotion-final],[data-admin-promotion-context-state]');
@@ -163,63 +88,24 @@ function fixAdminPromotionCards(){
       if(!modal.querySelector(`#${target}`))return;
       let button=navButtons.querySelector<HTMLButtonElement>(`[data-admin-v3-jump-section="${target}"]`);
       if(!button){button=document.createElement('button');button.type='button';button.dataset.adminV3JumpSection=target;navButtons.appendChild(button)}
-      button.hidden=false;button.textContent=label;navButtons.appendChild(button);
+      button.hidden=false;if(button.textContent!==label)button.textContent=label;navButtons.appendChild(button);
     });
   }
 }
 
 function apply(){
-  fixPromotionEvidenceButton();
-  if(route()==='contribute'){
-    fixReviewerScope();
-    fixStudentPromotionSubmission();
-  }
+  if(route()==='contribute')fixReviewerScope();
   if(route()==='admin-contributors')fixAdminPromotionCards();
 }
 function schedule(delay=100){if(timer)return;timer=window.setTimeout(()=>{timer=0;apply()},delay)}
 
-// This capture listener is intentionally on window so Promotion can override the generic
-// locked Submission button before contributor-state-guide's document-level lock handler runs.
-window.addEventListener('click',event=>{
-  if(route()!=='contribute'||!activePromotionWorkspace())return;
-  const target=event.target instanceof Element?event.target:null;
-  const submission=target?.closest<HTMLButtonElement>('[data-section-key="submission"]');
-  if(!submission||!promotionEvidence())return;
-  const flow=document.querySelector<HTMLElement>('[data-contributor-state-guide]')?.dataset.flow||'';
-  if(flow==='pending'||flow==='closed')return;
-  event.preventDefault();event.stopImmediatePropagation();
-  jumpToPromotionEvidence();
-},true);
-
-document.addEventListener('click',event=>{
-  const target=event.target instanceof Element?event.target:null;
-  const submission=target?.closest<HTMLButtonElement>('[data-promotion-submission-jump]');
-  if(submission){
-    event.preventDefault();event.stopImmediatePropagation();
-    jumpToPromotionEvidence();
-    return;
-  }
-  const button=target?.closest<HTMLButtonElement>('[data-promotion-jump-evidence]');
-  if(!button)return;
-  event.preventDefault();event.stopImmediatePropagation();
-  jumpToPromotionEvidence();
-},true);
-window.addEventListener('litlab:contributor-guide-rendered',()=>schedule(0));
-window.addEventListener('litlab:contributor-workspace-data',event=>{
-  const detail=(event as CustomEvent<WorkspaceData>).detail||{};
-  if(Array.isArray(detail.workspaces)){
-    promotionWorkspaceIds=new Set(detail.workspaces.filter(row=>promotionType(row.contribution_type)&&row.id).map(row=>String(row.id)));
-  }
-  if(typeof detail.selectedId==='string')selectedWorkspaceId=detail.selectedId;
-  else if(!selectedWorkspaceId&&promotionWorkspaceIds.size===1)selectedWorkspaceId=Array.from(promotionWorkspaceIds)[0];
-  schedule(0);
-});
+window.addEventListener('litlab:contributor-workspace-data',()=>schedule(80));
 window.addEventListener('litlab:contributor-workspace-updated',()=>schedule(120));
-window.addEventListener('litlab:admin-contributor-workspace-opened',()=>schedule(260));
-window.addEventListener('litlab:admin-contributor-workspace-updated',()=>schedule(260));
+window.addEventListener('litlab:admin-contributor-workspace-opened',()=>schedule(180));
+window.addEventListener('litlab:admin-contributor-workspace-updated',()=>schedule(180));
 window.addEventListener('hashchange',()=>schedule(80));
 window.addEventListener('focus',()=>schedule(40));
-const observer=new MutationObserver(()=>schedule(80));observer.observe(document.body,{childList:true,subtree:true});
+const observer=new MutationObserver(()=>schedule(120));observer.observe(document.body,{childList:true,subtree:true});
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>schedule(0),{once:true});else schedule(0);
 
 export {};
