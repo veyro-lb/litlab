@@ -98,6 +98,7 @@ import '../contributor-promotion-legacy-guard';
 // and one evidence record shared with the CAS supervisor and LitLab final review.
 import {restorePromotionMutationObserver} from '../contributor-promotion-observer-guard';
 import '../contributor-promotion-submission';
+import '../contributor-promotion-submission-stability';
 
 // Keep the live-chat dialog inside the viewport after every contributor/admin styling layer.
 import '../contributor-chat-frame.css';
