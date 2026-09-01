@@ -55,6 +55,7 @@ function sectionId(card:HTMLElement){
   const map:Record<string,WorkspaceSection>={
     'PROGRAM READINESS':{id:'ll-admin-section-readiness',label:'Overview'},
     'PROJECT BRIEF':{id:'ll-admin-section-brief',label:'Brief'},
+    'PROMOTION BRIEF':{id:'ll-admin-section-brief',label:'Campaign brief'},
     'TASKS':{id:'ll-admin-section-tasks',label:'Tasks'},
     'REVISION REQUESTS':{id:'ll-admin-section-revisions',label:'Revisions'},
     'WORD DOCUMENTS':{id:'ll-admin-section-documents',label:'Documents'},
@@ -85,7 +86,8 @@ function apply(){
   const grid=body.querySelector<HTMLElement>('.ll-admin-workspace-grid');if(!grid)return;
   body.querySelectorAll('[data-admin-v3-readiness],[data-admin-v3-publication]').forEach(el=>el.remove());
   grid.insertAdjacentHTML('afterbegin',readinessMarkup(state));
-  const publication=publicationMarkup(state);if(publication)grid.insertAdjacentHTML('beforeend',publication);
+  const isPromotion=modal()?.dataset.contributionType==='promotion';
+  const publication=isPromotion?'':publicationMarkup(state);if(publication)grid.insertAdjacentHTML('beforeend',publication);
   enhanceWorkspaceNavigation();
 }
 
