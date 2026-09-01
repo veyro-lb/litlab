@@ -56,7 +56,7 @@ window.fetch=async function(input:RequestInfo|URL,init?:RequestInit):Promise<Res
 
   let pending=inflight.get(key);
   if(!pending){
-    pending=(async()=>{
+    const created:Promise<Snapshot>=(async():Promise<Snapshot>=>{
       const controller=new AbortController();
       const timer=window.setTimeout(()=>controller.abort(),TIMEOUT_MS);
       const callerSignal=init?.signal;
@@ -68,7 +68,8 @@ window.fetch=async function(input:RequestInfo|URL,init?:RequestInit):Promise<Res
       try{
         const response=await nativeFetch(input,{...init,signal:controller.signal});
         const text=await response.text();
-        const snapshot:Snapshot={status:response.status,statusText:response.statusText,headers:Array.from(response.headers.entries()),body:text,expires:Date.now()+(response.ok?CACHE_MS:1500)};
+        const headers=Array.from(response.headers.entries()) as [string,string][];
+        const snapshot:Snapshot={status:response.status,statusText:response.statusText,headers,body:text,expires:Date.now()+(response.ok?CACHE_MS:1500)};
         if(response.ok)cache.set(key,snapshot);
         return snapshot;
       }catch(error){
@@ -82,7 +83,8 @@ window.fetch=async function(input:RequestInfo|URL,init?:RequestInit):Promise<Res
         callerSignal?.removeEventListener('abort',abortFromCaller);
       }
     })().finally(()=>inflight.delete(key));
-    inflight.set(key,pending);
+    inflight.set(key,created);
+    pending=created;
   }
 
   const snapshot=await pending;
