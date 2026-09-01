@@ -1,4 +1,6 @@
-const nativeFetch=window.fetch.bind(window);
+import {litlabNativeFetch} from './contributor-native-fetch';
+
+const nativeFetch=litlabNativeFetch();
 const RPC_PATH='/rest/v1/rpc/get_litlab_promotion_review_context';
 const TIMEOUT_MS=12_000;
 const CACHE_MS=15_000;
@@ -34,8 +36,6 @@ function responseFrom(snapshot:Snapshot){
 function notifyReady(id:string){
   window.setTimeout(()=>{
     window.dispatchEvent(new CustomEvent('litlab:promotion-context-ready',{detail:{applicationId:id}}));
-    // The Promotion submission module already listens to this render event. Firing it after
-    // the fetch resolves gives its internal context map time to populate before remounting.
     window.dispatchEvent(new CustomEvent('litlab:contributor-guide-rendered'));
   },0);
 }
@@ -66,6 +66,9 @@ window.fetch=async function(input:RequestInfo|URL,init?:RequestInit):Promise<Res
         else callerSignal.addEventListener('abort',abortFromCaller,{once:true});
       }
       try{
+        // Important: bypass every later LitLab fetch wrapper for this RPC. A wrapper chain
+        // previously swallowed the request before it reached Supabase, leaving the UI on
+        // "Loading your Promotion submission area…" forever.
         const response=await nativeFetch(input,{...init,signal:controller.signal});
         const text=await response.text();
         const headers=Array.from(response.headers.entries()) as [string,string][];
