@@ -14,6 +14,10 @@ function iconToolkit(){
   return '<svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H10v16H6.5A2.5 2.5 0 0 0 4 22V6.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M20 6.5A2.5 2.5 0 0 0 17.5 4H14v16h3.5A2.5 2.5 0 0 1 20 22V6.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m12 6 .7 2.2L15 9l-2.3.8L12 12l-.7-2.2L9 9l2.3-.8L12 6Z" fill="currentColor"/></svg>';
 }
 
+function newBadge(){
+  return '<span class="ll-new-badge" aria-label="New">NEW</span>';
+}
+
 function ensureDesktopNav(){
   const nav=document.querySelector<HTMLElement>('.topbar nav');
   if(!nav)return;
@@ -22,9 +26,11 @@ function ensureDesktopNav(){
     button=document.createElement('button');
     button.type='button';
     button.dataset.toolkitNav='true';
-    button.textContent='Toolkit';
+    button.innerHTML=`<span class="ll-toolkit-nav-label">Toolkit</span>${newBadge()}`;
     button.addEventListener('click',goToolkit);
     nav.append(button);
+  }else if(!button.querySelector('.ll-new-badge')){
+    button.innerHTML=`<span class="ll-toolkit-nav-label">Toolkit</span>${newBadge()}`;
   }
   const active=route()===TOOLKIT_ROUTE;
   button.classList.toggle('active',active);
@@ -39,10 +45,12 @@ function ensureMobileNav(){
     button=document.createElement('button');
     button.type='button';
     button.dataset.toolkitNav='true';
-    button.innerHTML=`<span>Toolkit</span>${iconArrow()}`;
+    button.innerHTML=`<span class="ll-toolkit-nav-label">Toolkit</span>${newBadge()}${iconArrow()}`;
     button.addEventListener('click',goToolkit);
     const searchButton=Array.from(menu.querySelectorAll<HTMLButtonElement>('button')).find(btn=>(btn.textContent||'').trim().startsWith('Search'));
     if(searchButton)menu.insertBefore(button,searchButton);else menu.append(button);
+  }else if(!button.querySelector('.ll-new-badge')){
+    button.innerHTML=`<span class="ll-toolkit-nav-label">Toolkit</span>${newBadge()}${iconArrow()}`;
   }
   button.classList.toggle('ux-active',route()===TOOLKIT_ROUTE);
 }
@@ -63,9 +71,12 @@ function ensureHomeToolkitCard(){
     card.type='button';
     card.className='feature-card tilt toolkit-home-card';
     card.dataset.toolkitCard='true';
-    card.innerHTML=`<span class="feature-no">07</span><span class="feature-icon">${iconToolkit()}</span><h3>Toolkit</h3><p>Quickly check definitions, stronger analytical vocabulary and the command terms behind DP English questions.</p><span class="card-link">Explore ${iconArrow()}</span>`;
+    card.innerHTML=`<span class="feature-no">07</span><span class="feature-icon">${iconToolkit()}</span><h3><span>Toolkit</span>${newBadge()}</h3><p>Quickly check definitions, stronger analytical vocabulary and the command terms behind DP English questions.</p><span class="card-link">Explore ${iconArrow()}</span>`;
     card.addEventListener('click',goToolkit);
     grid.append(card);
+  }else if(!card.querySelector('.ll-new-badge')){
+    const title=card.querySelector<HTMLElement>('h3');
+    if(title)title.innerHTML=`<span>Toolkit</span>${newBadge()}`;
   }
 
   const section=grid.closest<HTMLElement>('.section');
