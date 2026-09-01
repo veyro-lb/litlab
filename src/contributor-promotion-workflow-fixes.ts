@@ -17,6 +17,50 @@ function fixPromotionEvidenceButton(){
   });
 }
 
+function fixStudentPromotionSubmission(){
+  if(route()!=='contribute')return;
+  const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
+  if(!root?.classList.contains('ll-promotion-workspace-mode'))return;
+  const evidence=root.querySelector<HTMLElement>('[data-v3-evidence]');
+  const guide=document.querySelector<HTMLElement>('[data-contributor-state-guide]');
+  if(!evidence||!guide)return;
+
+  if(!evidence.id)evidence.id='ll-v3-evidence';
+  const flow=guide.dataset.flow||'';
+  const submission=guide.querySelector<HTMLButtonElement>('[data-section-key="submission"]');
+  if(submission){
+    submission.textContent=flow==='completed'?'Promotion evidence':'Submit evidence';
+    submission.title=flow==='pending'?'Promotion evidence opens after LitLab accepts the contribution.':'Open the Promotion evidence submission area.';
+    if(flow==='pending'||flow==='closed'){
+      submission.classList.add('locked');
+      submission.setAttribute('aria-disabled','true');
+      submission.dataset.contributorLocked=flow==='closed'?'This Promotion contribution is closed.':'Promotion evidence opens after LitLab accepts the contribution.';
+      delete submission.dataset.contributorSectionJump;
+      delete submission.dataset.promotionSubmissionJump;
+    }else{
+      submission.classList.remove('locked');
+      submission.removeAttribute('aria-disabled');
+      submission.removeAttribute('data-contributor-locked');
+      submission.dataset.contributorSectionJump=evidence.id;
+      submission.dataset.promotionSubmissionJump='true';
+    }
+  }
+
+  const duplicateEvidence=guide.querySelector<HTMLButtonElement>('[data-section-key="evidence"]');
+  if(duplicateEvidence&&duplicateEvidence!==submission)duplicateEvidence.hidden=true;
+
+  const kicker=evidence.querySelector<HTMLElement>('.ll-card-title span');
+  if(kicker)kicker.textContent='PROMOTION SUBMISSION';
+  const heading=evidence.querySelector<HTMLElement>('.ll-card-title h3');
+  if(heading)heading.textContent=flow==='completed'?'Promotion evidence record':'Submit proof of the promotion you carried out.';
+  const intro=evidence.querySelector<HTMLElement>(':scope > p.ll-muted');
+  if(intro)intro.innerHTML=flow==='completed'
+    ?'<b>This is the saved Promotion submission record.</b> Your campaign evidence stays attached to the contribution for supervisor and LitLab review.'
+    :'<b>This is where you submit your Promotion contribution for review.</b> Add proof such as Discord/message links where permitted, shareable screenshot links, campaign assets, reach or engagement results, and useful audience feedback. Explain enough context for a supervisor and LitLab admin to verify what happened.';
+  const submit=evidence.querySelector<HTMLButtonElement>('form[data-v3-evidence] button[type="submit"]');
+  if(submit)submit.textContent='Submit promotion evidence';
+}
+
 function fixReviewerScope(){
   const promotionCards=Array.from(document.querySelectorAll<HTMLElement>('[data-promotion-application-id]'));
   if(!promotionCards.length)return;
@@ -104,7 +148,10 @@ function fixAdminPromotionCards(){
 
 function apply(){
   fixPromotionEvidenceButton();
-  if(route()==='contribute')fixReviewerScope();
+  if(route()==='contribute'){
+    fixReviewerScope();
+    fixStudentPromotionSubmission();
+  }
   if(route()==='admin-contributors')fixAdminPromotionCards();
 }
 // Keep Promotion labels authoritative even while the generic admin workspace rebuilds
@@ -113,12 +160,22 @@ function schedule(delay=100){if(timer)return;timer=window.setTimeout(()=>{timer=
 
 document.addEventListener('click',event=>{
   const target=event.target instanceof Element?event.target:null;
+  const submission=target?.closest<HTMLButtonElement>('[data-promotion-submission-jump]');
+  if(submission){
+    event.preventDefault();event.stopImmediatePropagation();
+    const root=document.querySelector<HTMLElement>('[data-contributor-workspace]');
+    const evidence=root?.querySelector<HTMLElement>('[data-v3-evidence]');
+    evidence?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    window.setTimeout(()=>evidence?.querySelector<HTMLElement>('form[data-v3-evidence] input,form[data-v3-evidence] select,form[data-v3-evidence] textarea,button,a')?.focus({preventScroll:true}),320);
+    return;
+  }
   const button=target?.closest<HTMLButtonElement>('[data-promotion-jump-evidence]');
   if(!button)return;
   event.preventDefault();event.stopImmediatePropagation();
   const evidence=document.querySelector<HTMLElement>('[data-v3-evidence]');
   evidence?.scrollIntoView({behavior:'smooth',block:'start'});
 },true);
+window.addEventListener('litlab:contributor-guide-rendered',()=>schedule(0));
 window.addEventListener('litlab:contributor-workspace-data',()=>schedule(220));
 window.addEventListener('litlab:contributor-workspace-updated',()=>schedule(260));
 window.addEventListener('litlab:admin-contributor-workspace-opened',()=>schedule(260));
