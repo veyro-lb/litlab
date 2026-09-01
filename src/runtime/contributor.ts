@@ -98,9 +98,12 @@ import '../contributor-promotion-legacy-guard';
 // Final Promotion hand-in experience: clear digital/physical rules, private attachments,
 // and one evidence record shared with the CAS supervisor and LitLab final review.
 import {restorePromotionMutationObserver} from '../contributor-promotion-observer-guard';
+import {restorePromotionRefreshRegistrationGuard} from '../contributor-promotion-refresh-registration-guard';
 // Stabilize only the Promotion-context RPC before the submission module registers its loader.
 import '../contributor-promotion-context-transport';
 import '../contributor-promotion-submission';
+// Conditional Promotion form rules: custom Other values and physical proof requirements.
+import '../contributor-promotion-form-clarity';
 import '../contributor-promotion-submission-stability';
 // Final teacher-side Promotion coherence: the roster, status guide and selected-student
 // surfaces follow campaign evidence instead of the generic DOCX state machine.
@@ -109,6 +112,7 @@ import '../contributor-promotion-teacher-workspace';
 // Keep the live-chat dialog inside the viewport after every contributor/admin styling layer.
 import '../contributor-chat-frame.css';
 
+restorePromotionRefreshRegistrationGuard();
 restorePromotionMutationObserver();
 
 export {};
