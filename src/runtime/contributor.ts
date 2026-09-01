@@ -23,6 +23,7 @@ import '../contributor-new-application-toggle';
 import '../contributor-entry-prompt';
 
 import '../admin-analytics';
+import '../admin-account-role-badges';
 import '../admin-account-delete';
 import '../admin-contributors';
 import '../admin-contributor-final-status-label';
