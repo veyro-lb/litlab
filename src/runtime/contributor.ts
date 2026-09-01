@@ -92,6 +92,7 @@ import '../contributor-review-workspace-experience';
 // Contribution-type adapter: Promotion uses campaign evidence + CAS supervisor review,
 // while academic-resource contributions keep the existing DOCX workflow unchanged.
 import '../contributor-promotion-workflow';
+import '../contributor-promotion-workflow-fixes';
 
 // Keep the live-chat dialog inside the viewport after every contributor/admin styling layer.
 import '../contributor-chat-frame.css';
