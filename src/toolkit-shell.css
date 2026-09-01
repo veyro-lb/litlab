@@ -80,6 +80,9 @@
 .toolkit-choice>svg{margin-top:9px;color:var(--muted);transition:transform .2s ease,color .2s ease}
 .toolkit-choice:hover>svg,.toolkit-choice.active>svg{transform:translateX(3px);color:var(--violet)}
 .toolkit-home-card .feature-icon{background:color-mix(in srgb,var(--cyan) 9%,var(--surface-2));color:color-mix(in srgb,var(--violet) 75%,var(--cyan))}
+button[data-toolkit-nav]{display:inline-flex;align-items:center;gap:6px}
+button[data-toolkit-nav]::after,.toolkit-home-card h3::after{content:'NEW';display:inline-flex;align-items:center;justify-content:center;min-height:16px;margin-left:5px;padding:2px 5px;border-radius:999px;background:var(--violet);color:#fff;font-size:8px;font-weight:950;line-height:1;letter-spacing:.08em;vertical-align:middle;box-shadow:0 3px 10px rgba(124,92,252,.2)}
+.mobile-menu button[data-toolkit-nav]::after{margin-left:2px;margin-right:auto}
 
 @media(max-width:980px){
   .toolkit-choice-grid{grid-template-columns:1fr}
