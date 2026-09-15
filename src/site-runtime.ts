@@ -7,6 +7,7 @@ import './motion-styles';
 import './special-route-host';
 import './contributor-route-handoff';
 import './toolkit-shell';
+import './glossary-link-fix';
 import './litlab-tutor';
 import './tutor-smart-layer';
 import './tutor-topbar-trigger';
