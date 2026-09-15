@@ -10,6 +10,7 @@ import './toolkit-shell';
 import './litlab-tutor';
 import './tutor-smart-layer';
 import './tutor-topbar-trigger';
+import './google-account-chooser';
 import './google-auth';
 import './account-role-auth';
 import './admin-menu-launcher';
