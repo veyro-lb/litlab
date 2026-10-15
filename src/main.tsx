@@ -19,7 +19,7 @@ function App(){
  const parse=()=>location.hash.slice(1).split('#')[0]||'home';
  const [page,setPage]=useState(parse),[dark,setDark]=useState(localStorage.litlabTheme==='dark'),[menu,setMenu]=useState(false),[searchOpen,setSearchOpen]=useState(false),[query,setQuery]=useState(''),[done,setDone]=useState<string[]>(()=>stored('litlabDone'));
  useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light';localStorage.litlabTheme=dark?'dark':'light'},[dark]);
- useEffect(()=>{const fn=()=>{setPage(parse());setMenu(false);setSearchOpen(false);requestAnimationFrame(()=>scrollTo({top:0,behavior:'smooth'}))};addEventListener('hashchange',fn);return()=>removeEventListener('hashchange',fn)},[]);
+ useEffect(()=>{const fn=()=>{setPage(parse());setMenu(false);setSearchOpen(false);if(!(isBiologyRoute(parse())&&parse().includes('?understanding=')))requestAnimationFrame(()=>scrollTo({top:0,behavior:'smooth'}))};addEventListener('hashchange',fn);return()=>removeEventListener('hashchange',fn)},[]);
  useEffect(()=>{const fn=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(isBiologyRoute(parse()))document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLInputElement>('input[type=search]')?.focus();else setSearchOpen(true)}if(e.key==='Escape'){setSearchOpen(false);setMenu(false)}};addEventListener('keydown',fn);return()=>removeEventListener('keydown',fn)},[]);
  const biology=isBiologyRoute(page);
  useEffect(()=>{document.documentElement.dataset.litlabSubject=biology?'biology':'english'},[biology]);

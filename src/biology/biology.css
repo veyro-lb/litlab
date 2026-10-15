@@ -23,3 +23,54 @@
 .bio-figure-open{display:block;font-size:11px;color:var(--bio-green);text-decoration:underline;margin:8px 0 12px}
 /* Keep section headings below LitLab's shared sticky header during navigation. */
 .bio-lesson-content{scroll-margin-top:100px}.bio-lesson-nav{top:100px}
+/* Numbered learning system: one registry label across scope, study and assessment. */
+.bio-understanding-label{display:inline-flex;flex-direction:column;gap:4px;line-height:1.5;min-width:0}
+.bio-understanding-label>span{display:block;overflow-wrap:anywhere}
+.bio-understanding-label b{font-size:.85em;color:var(--bio-green);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bio-lesson-content h2{font-size:30px;line-height:1.35;letter-spacing:-.5px;margin-bottom:18px;max-width:28ch}
+.bio-lesson-content h2 .bio-understanding-label{display:block}
+.bio-lesson-content h2 .bio-understanding-label b{display:block;font-size:16px;letter-spacing:.5px;margin-bottom:9px}
+.bio-lesson-content h2 .bio-understanding-label>span>span[aria-hidden]{display:none}
+.bio-lesson-hero h1{font-size:54px}.bio-lesson-subtitle{font-size:24px}.bio-lesson-hero{margin-bottom:24px}
+.bio-lesson-layout{grid-template-columns:245px minmax(0,1fr);gap:38px}
+.bio-lesson-nav{max-height:calc(100dvh - 125px);overflow-y:auto;scrollbar-width:thin;padding:4px 5px 8px 0}
+.bio-toc summary{cursor:pointer;font-size:14px;font-weight:750;padding:9px 8px 16px;min-height:44px}
+.bio-toc summary>span{display:block;font-size:11px;font-weight:500;color:var(--muted);margin-top:5px}
+.bio-lesson-nav button{padding:11px 12px;border-radius:7px;line-height:1.55;min-height:50px;position:relative}
+.bio-lesson-nav button>.bio-understanding-label{font-size:12px;color:var(--ink);display:block}
+.bio-lesson-nav button .bio-understanding-label b{display:block;font-size:12px;color:var(--bio-green);margin-bottom:3px;letter-spacing:.4px}
+.bio-lesson-nav button .bio-understanding-label [aria-hidden]{display:none}
+.bio-lesson-nav button[aria-current=step]{border-left:3px solid var(--bio-green);padding-left:10px}
+.bio-lesson-nav button small{border:1px solid var(--line);border-radius:4px;padding:1px 4px;font-size:10px}
+.bio-lesson-content>.bio-eyebrow{letter-spacing:.8px;font-size:11px;margin-bottom:12px}
+.bio-lesson-content>.bio-guiding-question{font-size:17px;font-weight:600;line-height:1.6;color:var(--bio-green);border-bottom:1px solid var(--line);padding-bottom:23px;margin-bottom:26px}
+.bio-lesson-content>p,.bio-teaching-block>p{font-size:16px;line-height:1.85;max-width:66ch}
+.bio-teaching-block{margin:30px 0}.bio-teaching-block>h3{font-size:20px;line-height:1.5;letter-spacing:-.2px;margin-bottom:12px}
+.bio-teaching-block>p{margin-bottom:0}
+.bio-terms,.bio-prerequisites{padding:14px 0;border-block:1px solid var(--line)}
+.bio-terms summary,.bio-prerequisites summary{min-height:28px;line-height:1.7}
+.bio-enrichment{padding:16px 18px;border:1px dashed var(--line);border-radius:8px;margin:24px 0}
+.bio-enrichment summary{font-weight:700;font-size:13px;line-height:1.6;cursor:pointer}
+.bio-enrichment p{font-size:14px;line-height:1.8;margin:14px 0 0}
+.bio-question-syllabus{font-size:12px;line-height:1.7;color:var(--muted);margin:20px 0 8px}
+.bio-question-syllabus .bio-understanding-label{display:inline;line-height:1.8}
+.bio-question-syllabus .bio-understanding-label>span{display:block;margin-top:5px}
+.bio-question-syllabus b{font-size:12px}
+.bio-recall-group>.bio-eyebrow{font-size:11px;letter-spacing:1px}
+.bio-recall h4{font-size:15px}.bio-recall p{font-size:14px}
+.bio-related-study{border-top:1px solid var(--line);padding-top:20px;margin-top:28px}
+.bio-related-study a,.bio-practice-target a{font-size:12px;font-weight:700;color:var(--bio-green);text-decoration:underline;text-underline-offset:3px;padding:12px 0;min-height:44px}
+.bio-actions button,.bio-recall button,.bio-written>button,.bio-practice>button{min-height:44px;font-size:12px}
+.bio-figure-open{min-height:44px;display:flex;align-items:center;font-size:12px}
+.bio-figure figcaption{font-size:13px}.bio-figure small{font-size:11px;line-height:1.7;display:block}
+.bio-lesson-content .bio-source-note p{font-size:12px;line-height:1.8}
+.bio-statement-list h3{font-size:17px;font-weight:650;line-height:1.6;margin:12px 0}
+.bio-statement-list h3 .bio-understanding-label b{font-size:14px}.bio-statement-list h3 a:hover{text-decoration:underline;text-underline-offset:4px}
+.bio-statement-list h3 a{display:block;padding-block:4px}
+.bio-mode-nav>a{min-height:44px}.bio-section-controls button{min-height:44px}
+.bio-figure img{background:#f1f7f6} /* Scientific canvas retains its tested light palette in either app theme. */
+@media(max-width:1000px){.bio-lesson-layout{grid-template-columns:215px minmax(0,1fr);gap:26px}}
+@media(max-width:760px){.bio-lesson-layout{grid-template-columns:1fr;gap:26px}.bio-lesson-nav{position:static;max-height:none;overflow:visible;padding:0}.bio-lesson-nav ol{display:grid;grid-template-columns:1fr 1fr;gap:7px}.bio-lesson-nav li+li{margin:0}.bio-lesson-nav button{height:100%;border-color:var(--line)}.bio-lesson-nav>p,.bio-lesson-nav>small{display:none}.bio-toc{border:1px solid var(--line);border-radius:10px;padding:8px}.bio-toc summary{padding-bottom:10px}.bio-lesson-content h2{font-size:28px;max-width:none}.bio-lesson-content>p,.bio-teaching-block>p{font-size:16px}.bio-lesson-content>.bio-guiding-question{font-size:16px}.bio-lesson-nav button>.bio-understanding-label{font-size:12px}.bio-lesson-nav button .bio-understanding-label b{font-size:13px}}
+@media(max-width:360px){.bio-app{padding-inline:16px}.bio-lesson-nav ol{grid-template-columns:1fr}.bio-lesson-content h2{font-size:26px}.bio-mode-nav>a{padding:10px 8px;font-size:12px}.bio-section-controls{flex-wrap:wrap}.bio-review-banner span{font-size:11px}}
+
+.bio-figure picture{display:block}.bio-figure picture>img{display:block;width:100%;height:auto;background:#f1f7f6}.bio-figure:has(img[src$=".jpg"]) picture>img{max-height:340px;object-fit:contain;background:#14202c}

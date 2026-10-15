@@ -5,6 +5,7 @@ export type ReviewStatus = 'draft' | 'source-mapped' | 'scientific-review' | 'ap
 export interface Understanding {
   id: string;
   printedId: string;
+  studentTitle?: string; // Original descriptive title, not verbatim official syllabus prose.
   level: 'shared' | 'HL';
   pdfPage: number;
   guidePage: number;
@@ -23,7 +24,7 @@ export interface Topic {
   pdfPage: number;
   review: ReviewStatus;
   availability: 'planned' | 'draft';
-  lessonId?: 'a1-1-water-v1';
+  lessonId?: string;
   questionReferences: {guiding: boolean; linking: boolean};
   understandings: Understanding[];
 }

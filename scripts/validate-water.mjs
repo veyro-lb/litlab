@@ -1,7 +1,8 @@
+import {validateLesson} from './validate-lesson.mjs';
 import {readFile,access} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 export function validateWater(d) {
-  const errors=[];const fail=x=>errors.push(x);
+  const errors=validateLesson(d,registry.find(t=>t.id==='A1.1'));const fail=x=>errors.push(x);
   if(d.id!=='a1-1-water-v1'||d.topicId!=='A1.1'||d.curriculumVersion!=='ib-biology-fa2025-v1')fail('Invalid lesson identity');
   if(d.review?.status!=='scientific-review'||d.review?.reviewer!==null)fail('Unapproved draft must retain qualified-review gate');
   if(d.sections?.length!==8)fail('All eight Water understandings required');
@@ -35,9 +36,10 @@ export function validateWater(d) {
   for(const a of d.assets||[]){if(!a.alt||!a.attribution||!a.license||!a.permissionEvidence||a.review!=='scientific-review'||!a.src?.startsWith('/biology/water/'))fail(`Missing asset provenance ${a.id}`);references(a.referenceIds,a.id);if(a.kind==='photograph'&&(!a.sourceUrl||!a.originalUrl||!a.termsUrl))fail(`Missing photo permission evidence ${a.id}`);}
   return errors;
 }
+const registry=JSON.parse(await readFile(new URL('../src/biology/curriculum/registry.json',import.meta.url),'utf8'));
 export const water=JSON.parse(await readFile(new URL('../src/biology/learning/water/lesson.json',import.meta.url),'utf8'));
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const errors=validateWater(water);
- for(const a of water.assets){for(const src of [a.src,a.recallSrc].filter(Boolean)){try{await access(new URL('../public'+src,import.meta.url))}catch{errors.push('Missing asset '+src)}}}
+ for(const a of water.assets){for(const src of [a.src,a.recallSrc,a.mobileSrc,a.recallMobileSrc].filter(Boolean)){try{await access(new URL('../public'+src,import.meta.url))}catch{errors.push('Missing asset '+src)}}}
  if(errors.length){console.error(errors.join('\n'));process.exitCode=1}else console.log('Water passed: 8 mapped sections, 16 recall prompts, 10 MCQs, 2 data tasks, 3 structured tasks; source and asset records present. Scientific approval remains pending.');
 }

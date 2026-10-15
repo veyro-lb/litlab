@@ -57,7 +57,8 @@ jobs:
           node scripts/validate-biology.mjs
           node --test scripts/validate-biology.test.mjs
           node scripts/validate-water.mjs
-          node --test scripts/validate-water.test.mjs
+          node scripts/validate-lessons.mjs
+          node --test scripts/validate-water.test.mjs scripts/validate-lesson.test.mjs
 
       - name: Existing production build
         id: build
