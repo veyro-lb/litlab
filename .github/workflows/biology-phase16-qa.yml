@@ -116,7 +116,7 @@ jobs:
                 sleep 1
               done
               test "$ready" = 1 || { cat qa-artifacts/preview.log; exit 1; }
-              node scripts/browser-smoke.mjs 2>&1 | tee qa-artifacts/browser-smoke-console.log
+              node scripts/biology-phase16-guarded-smoke.mjs 2>&1 | tee qa-artifacts/browser-smoke-console.log
             '
 
       - name: Upload actual results and screenshots
