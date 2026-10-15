@@ -648,6 +648,24 @@ try{
     }
   }
 
+  // Test the actual reasoning gate, incorrect feedback and a valid prediction at two screen sizes.
+  for(const width of [390,1440]){
+    await command('Emulation.setDeviceMetricsOverride',{width,height:width===390?844:1000,deviceScaleFactor:1,mobile:width===390,screenWidth:width,screenHeight:width===390?844:1000});
+    for(const topicId of ['B1.1','B1.2']){
+      await freshBiologyRoute('biology/topic/'+topicId+'/learn?understanding='+topicId+'.2');await waitLesson();
+      await bioEval("(root.querySelector('input[value=SL]')?.click(),true)");await sleep(120);
+      await check('Mechanism '+topicId+' '+width+' has three valid stages',async()=>await bioEval("root.querySelector('.bio-mechanism')?.textContent.includes('STEP 1 OF 3')===true"));
+      await bioEval("(root.querySelectorAll('.bio-mechanism-choices button')[1].click(),true)");await sleep(70);
+      await check('Mechanism '+topicId+' '+width+' explains incorrect prediction and gates progress',async()=>await bioEval("root.querySelector('.bio-mechanism-feedback')?.textContent.includes('Try again')&&root.querySelector('.bio-mechanism-next').disabled"));
+      await bioEval("(root.querySelectorAll('.bio-mechanism-choices button')[0].click(),true)");await sleep(80);
+      await check('Mechanism '+topicId+' '+width+' unlocks next step after correct prediction',async()=>await bioEval("root.querySelector('.bio-mechanism-feedback')?.textContent.includes('Correct prediction')&&!root.querySelector('.bio-mechanism-next').disabled"));
+      const pic=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+      await writeFile(join(outputDir,'phase32-mechanism-'+topicId+'-'+width+'.png'),Buffer.from(pic.data,'base64'));
+      await bioEval("(root.querySelector('.bio-mechanism-next').click(),true)");await sleep(70);
+      await check('Mechanism '+topicId+' '+width+' advances only after correct answer',async()=>await bioEval("root.querySelector('.bio-mechanism')?.textContent.includes('STEP 2 OF 3')===true"));
+    }
+  }
+
   await check('Biology dashboard does not request the lazy lesson body',async()=>{await freshBiologyRoute('biology');await sleep(100);return await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/assets\\/lesson-[^/]+\\.js/.test(x.name))")});
   await check('Biology assets retain original figures and add narrow scientific canvases',async()=>{
     await command('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
