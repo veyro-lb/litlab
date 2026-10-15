@@ -615,6 +615,39 @@ try{
       await evaluate("window.scrollTo({top:0,behavior:'instant'})");await sleep(70);shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase31-section-${i+1}-${width}.png`),Buffer.from(shot.data,'base64'));
     }
   }
+  // Phase 3.2: the first two real drafted subjects, incl. 320px, SL/HL boundary and screenshots.
+  const batchTopics=JSON.parse(await readFile(new URL('../src/biology/curriculum/registry.json',import.meta.url),'utf8')).filter(t=>t.id==='B1.1'||t.id==='B1.2');
+  for(const width of [320,390,768,1440]){
+    await command('Emulation.setDeviceMetricsOverride',{width,height:width===1440?1000:844,deviceScaleFactor:1,mobile:width<=390,screenWidth:width,screenHeight:width===1440?1000:844});
+    for(const t of batchTopics)for(const level of ['SL','HL']){
+      await freshBiologyRoute('biology/topic/'+t.id+'/learn');await waitLesson();
+      await bioEval("(root.querySelector('input[value="+level+"]')?.click(),true)");await sleep(100);
+      const count=t.understandings.filter(x=>level==='HL'||x.level==='shared').length;
+      await check('Batch '+t.id+' '+level+' '+width+'px syllabus navigation',async()=>{
+        const result=await bioEval("(()=>{const n=root.querySelectorAll('.bio-lesson-nav button').length;const content=root.querySelector('.bio-lesson-content');const vw=window.innerWidth;return {n,id:content?.dataset.understandingId,overflow:document.documentElement.scrollWidth>vw+2}})()");
+        return result?.n===count&&!result.overflow&&result.id===t.id+'.1';
+      });
+      await check('Batch '+t.id+' '+level+' '+width+'px Learn teaching check',async()=>await bioEval("!!root.querySelector('.bio-teaching-block h3')&&!!root.querySelector('.bio-recall-group')&&!!root.querySelector('.bio-misconception')"));
+      if(width===390||width===1440){
+        await evaluate("window.scrollTo({top:0,behavior:'instant'})");await sleep(85);
+        const capture=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+        await writeFile(join(outputDir,'phase32-'+t.id+'-'+level+'-learn-'+width+'.png'),Buffer.from(capture.data,'base64'));
+        if(t.id==='B1.2'&&level==='HL'){
+          await evaluate("location.hash='biology/topic/B1.2/learn?understanding=B1.2.12'");await sleep(130);
+          await check('Additional HL protein interaction and figure load '+width,async()=>{
+            await bioEval("(root.querySelectorAll('.bio-figure img').forEach(x=>x.loading='eager'),true)");
+            for(let wait=0;wait<24;wait++){if(await bioEval("[...root.querySelectorAll('.bio-figure img')].every(x=>x.complete&&x.naturalWidth>0)"))break;await sleep(80);}
+            return await bioEval("root.querySelector('.bio-lesson-content')?.dataset.understandingId==='B1.2.12'&&[...root.querySelectorAll('.bio-figure img')].some(x=>x.complete&&x.naturalWidth>0&&x.alt.length>70)");
+          });
+          const advanced=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+          await writeFile(join(outputDir,'phase32-B1.2-HL-structure-'+width+'.png'),Buffer.from(advanced.data,'base64'));
+        }
+      }
+      await evaluate("location.hash='biology/topic/"+t.id+"/practice'");await sleep(125);
+      await check('Batch '+t.id+' '+level+' practice obeys syllabus boundary',async()=>await bioEval("root.querySelectorAll('.bio-practice-choice').length==="+count));
+    }
+  }
+
   await check('Biology dashboard does not request the lazy lesson body',async()=>{await freshBiologyRoute('biology');await sleep(100);return await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/assets\\/lesson-[^/]+\\.js/.test(x.name))")});
   await check('Biology assets retain original figures and add narrow scientific canvases',async()=>{
     await command('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
