@@ -90,8 +90,8 @@ OpenStax current Biology preface: https://openstax.org/books/biology-2e/pages/pr
 | habitat-mobile.svg | `a938fb8ec273c5e73a02091d8012ddfef9e59ab20a65fdde162c2ec55b9deb8f` |
 | habitat-recall.svg | `cfc311f20f04e94e09d351b22c497f9548754ba958f9fb094d149f7980022879` |
 | habitat.svg | `9ae1af7f9be12716fdb3ce2e97267719fb6a831aa7187d6d0df494a13b5e880e` |
-| hydration-mobile-recall.svg | `65fee2261fc57c0313b4431a230c61740a6dbe96239bc3567f5419705761c68e` |
-| hydration-mobile.svg | `a5f2a9d663f61a3edbb415645cb0d5942eb33819ebe9c2a0a3fcef1679077104` |
+| hydration-mobile-recall.svg | `5d616914ae79c38efcd07b96025ab947aae4f1898036aee84f1221ebe51ca902` |
+| hydration-mobile.svg | `84553537174a31dbb6c6ce43b995bdbf6e26ff1afcff1e6234474688f28835ff` |
 | hydration-recall.svg | `5905807e8e430121b08343baa1283276c0ccfb82d935f6a07be0cb396e9a9458` |
 | hydration.svg | `9dc383cc8e249ff9f8d006e0a3a8e91dfe1e746477ef93184406fafb13855990` |
 | ringed-seal.jpg | `cea07f71a6320662b88075d12841067514ffc117cf65bcd36633223de83839b9` |

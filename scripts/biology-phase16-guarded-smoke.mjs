@@ -599,8 +599,8 @@ try{
     await check(`Numbered navigation and teaching reflow at ${width}px`,async()=>await bioEval("root.querySelector('.bio-app').scrollWidth<=document.documentElement.clientWidth+2&&document.documentElement.scrollWidth<=document.documentElement.clientWidth+2&&parseFloat(getComputedStyle(root.querySelector('.bio-lesson-content h2 b')).fontSize)>=16"));
     if(mobile)await check(`Mobile contents collapse and keyboard reopening at ${width}px`,async()=>{
       await bioEval("(root.querySelector('.bio-toc summary').click(),true)");await sleep(50);const closed=await bioEval("!root.querySelector('.bio-toc').open");
-      await bioEval("(root.querySelector('.bio-toc summary').focus(),true)");await command('Page.bringToFront');await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await sleep(80);
-      return closed&&await bioEval("root.querySelector('.bio-toc').open");
+      await command('Page.bringToFront');await bioEval("(root.querySelector('.bio-toc summary').focus(),true)");console.log('TOC before '+JSON.stringify(await bioEval("({open:root.querySelector('.bio-toc').open,focused:document.hasFocus(),active:root.activeElement?.outerHTML})")));await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r',unmodifiedText:'\r'});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await sleep(80);
+      console.log('TOC after '+JSON.stringify(await bioEval("({closedBeforeKey:true,open:root.querySelector('.bio-toc').open,focused:document.hasFocus(),active:root.activeElement?.outerHTML})")));return closed&&await bioEval("root.querySelector('.bio-toc').open");
     });
     for(const mode of ['learn','revision']){
       await evaluate(`location.hash='biology/topic/A1.1/${mode}?understanding=A1.1.2'`);await sleep(120);
@@ -612,9 +612,10 @@ try{
       await bioEval("(root.querySelectorAll('.bio-figure img').forEach(x=>x.loading='eager'),true)");
       for(let j=0;j<30;j++){if(await bioEval("[...root.querySelectorAll('.bio-figure img')].every(x=>x.complete&&x.naturalWidth>0)"))break;await sleep(80)}
       await check(`Scientific figures ${expectedWater[i].id} load at ${width}px with readable alternative`,async()=>await bioEval("[...root.querySelectorAll('.bio-figure img')].every(x=>x.complete&&x.naturalWidth>0&&x.alt.length>40)&&root.querySelector('.bio-lesson-content h2').getBoundingClientRect().top>=65"));
-      shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase31-section-${i+1}-${width}.png`),Buffer.from(shot.data,'base64'));
+      await evaluate("window.scrollTo({top:0,behavior:'instant'})");await sleep(70);shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase31-section-${i+1}-${width}.png`),Buffer.from(shot.data,'base64'));
     }
   }
+  await check('Biology dashboard does not request the lazy lesson body',async()=>{await freshBiologyRoute('biology');await sleep(100);return await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/assets\\/lesson-[^/]+\\.js/.test(x.name))")});
   await check('Biology assets retain original figures and add narrow scientific canvases',async()=>{
     await command('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
     await freshBiologyRoute('biology/topic/A1.1/learn?understanding=A1.1.2');await waitLesson();await sleep(150);
