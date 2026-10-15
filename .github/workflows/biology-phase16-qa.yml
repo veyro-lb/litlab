@@ -56,6 +56,8 @@ jobs:
           npm run quality 2>&1 | tee phase16-quality.log
           node scripts/validate-biology.mjs
           node --test scripts/validate-biology.test.mjs
+          node scripts/validate-water.mjs
+          node --test scripts/validate-water.test.mjs
 
       - name: Existing production build
         id: build

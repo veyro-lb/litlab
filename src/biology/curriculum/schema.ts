@@ -22,7 +22,8 @@ export interface Topic {
   level: 'shared' | 'HL';
   pdfPage: number;
   review: ReviewStatus;
-  availability: 'planned';
+  availability: 'planned' | 'draft';
+  lessonId?: 'a1-1-water-v1';
   questionReferences: {guiding: boolean; linking: boolean};
   understandings: Understanding[];
 }

@@ -14,7 +14,7 @@ export function validateCurriculum(topics){
     const idx=expectedIds.indexOf(t.id);
     if(idx<0){fail(`Unknown topic ${t.id}`);continue;}
     if(!t.title||t.theme!==t.id[0]||t.organization!==Number(t.id[1]))fail(`Invalid placement/metadata ${t.id}`);
-    if(t.version!=='ib-biology-fa2025-v1'||t.review!=='source-mapped'||t.availability!=='planned'||t.lessonId)fail(`Invalid version, review or unsupported lesson ${t.id}`);
+    if(t.version!=='ib-biology-fa2025-v1'||t.review!=='source-mapped'||(t.id==='A1.1' ? t.availability!=='draft'||t.lessonId!=='a1-1-water-v1' : t.availability!=='planned'||t.lessonId!==undefined))fail(`Invalid version, review or unsupported lesson ${t.id}`);
     if(t.level!==(hlOnly.has(t.id)?'HL':'shared'))fail(`Invalid topic level ${t.id}`);
     if(!t.questionReferences?.guiding||!t.questionReferences?.linking||!Number.isInteger(t.pdfPage)||t.pdfPage<40)fail(`Missing source references ${t.id}`);
     const themeIndex=expectedIds.filter(id=>id[0]===t.theme).indexOf(t.id);

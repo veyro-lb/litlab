@@ -412,6 +412,134 @@ try{
     await writeFile(join(outputDir,'biology-dark-'+viewport.name+'.png'),Buffer.from(dark.data,'base64'));
     await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");
   }
+  // Water pilot: preserve all foundation assertions above and extend the same isolated session.
+  await freshBiologyRoute('biology/topic/A1.1/learn');await sleep(300);
+  await check('Water draft loads directly with review gate and six SL sections',async()=>await bioEval("root.querySelector('[data-lesson-id]')?.dataset.mode==='learn'&&root.querySelectorAll('.bio-lesson-nav li').length===6&&root.querySelector('.bio-review-banner').textContent.includes('Awaiting qualified')"));
+  await check('Water concept check explains incorrect and correct choices and retry',async()=>{
+    await bioEval("(root.querySelector('[data-question-id=c1] input[value=b]').click(),true)");await sleep(60);
+    const bad=await bioEval("root.querySelector('[data-question-id=c1] .bio-feedback')?.textContent.includes('Reconsider.')");
+    await bioEval("(root.querySelector('[data-question-id=c1] .bio-actions button').click(),true)");await sleep(60);
+    const reset=await bioEval("!root.querySelector('[data-question-id=c1] input:checked')");
+    await bioEval("(root.querySelector('[data-question-id=c1] input[value=a]').click(),true)");await sleep(60);
+    return bad&&reset&&await bioEval("root.querySelector('[data-question-id=c1] .bio-feedback')?.textContent.includes('Correct.')&&root.querySelectorAll('[data-question-id=c1] details p').length===3");
+  });
+  await check('Learn and Revision share section content and preserve answers',async()=>{
+    await bioEval("(root.querySelector('a[href=\"#biology/topic/A1.1/revision\"]').click(),true)");await sleep(100);
+    const ok=await bioEval("root.querySelector('[data-mode=revision]')&&root.querySelector('[data-question-id=c1] input[value=a]').checked&&root.querySelector('.bio-takeaway').textContent.includes('Early cells')");
+    await bioEval("(root.querySelector('a[href=\"#biology/topic/A1.1/learn\"]').click(),true)");await sleep(100);return ok;
+  });
+  await check('Recall reveal and hide works',async()=>{
+    await bioEval("(root.querySelector('.bio-recall button').click(),true)");await sleep(50);
+    const shown=await bioEval("root.querySelector('.bio-recall button').getAttribute('aria-expanded')==='true'&&!!root.querySelector('.bio-recall p')");
+    await bioEval("(root.querySelector('.bio-recall button').click(),true)");await sleep(50);return shown&&await bioEval("!root.querySelector('.bio-recall p')");
+  });
+  await check('All eight understanding sections render only in HL and figures load',async()=>{
+    await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(100);
+    const seen=[];
+    for(let i=0;i<8;i++){
+      await bioEval(`(root.querySelectorAll('.bio-lesson-nav button')[${i}].click(),true)`);await sleep(100);
+      seen.push(await bioEval("root.querySelector('.bio-lesson-content').dataset.understandingId"));
+      await bioEval("(root.querySelectorAll('.bio-figure img').forEach(x=>{x.loading='eager'}),true)");
+      for(let j=0;j<30;j++){if(await bioEval("[...root.querySelectorAll('.bio-figure img')].every(x=>x.complete&&x.naturalWidth>0)"))break;await sleep(80)}
+      if(!await bioEval("[...root.querySelectorAll('.bio-figure img')].every(x=>x.complete&&x.naturalWidth>0)"))return false;
+    }
+    return seen.join(',')===Array.from({length:8},(_,i)=>'A1.1.'+(i+1)).join(',')&&await bioEval("root.querySelectorAll('.bio-lesson-nav li').length===8");
+  });
+  await check('SL excludes HL section while retaining hidden study state for return to HL',async()=>{
+    await bioEval("(root.querySelector('[data-question-id=c8] input[value=a]').click(),true)");await sleep(50);
+    await bioEval("(root.querySelector('input[value=SL]').click(),true)");await sleep(70);
+    const hidden=await bioEval("root.querySelectorAll('.bio-lesson-nav li').length===6&&!root.querySelector('[data-level=HL]')&&!root.querySelector('[data-question-id=c8]')");
+    await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(70);
+    return hidden&&await bioEval("root.querySelector('[data-question-id=c8] input[value=a]').checked");
+  });
+  await check('Molecule explorer and hidden-label recall give explanations',async()=>{
+    await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[1].click(),true)");await sleep(80);
+    await bioEval("(root.querySelectorAll('.bio-explorer button')[3].click(),true)");await sleep(70);
+    const explanation=await bioEval("root.querySelector('.bio-explorer [role=status]').textContent.includes('different molecules')");
+    await bioEval("(root.querySelector('.bio-lesson-content>.bio-actions button').click(),true)");await sleep(70);
+    const hidden=await bioEval("root.querySelector('[data-asset-id=bonding] img').src.includes('-recall.svg')");
+    await bioEval("(root.querySelector('.bio-lesson-content>.bio-actions button').click(),true)");await sleep(60);
+    return explanation&&hidden&&await bioEval("!root.querySelector('[data-asset-id=bonding] img').src.includes('-recall.svg')");
+  });
+  await check('Lesson section navigation supports keyboard activation',async()=>{
+    await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[2].focus(),true)");
+    await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await sleep(80);
+    return await bioEval("root.querySelector('.bio-lesson-content').dataset.understandingId==='A1.1.3'&&root.activeElement.classList.contains('bio-lesson-content')");
+  });
+  await check('Practice filters SL questions, explains all distractors and reviews errors',async()=>{
+    await bioEval("(root.querySelector('input[value=SL]').click(),true)");
+    await evaluate("location.hash='biology/topic/A1.1/practice'");await sleep(120);
+    const scope=await bioEval("root.querySelectorAll('.bio-practice-choice').length===8&&root.querySelectorAll('.bio-written').length===4&&!root.querySelector('[data-question-id=p1a-7]')&&!root.querySelector('[data-question-id=p2-3]')");
+    await bioEval("(root.querySelector('[data-question-id=p1a-1] input[value=b]').click(),true)");await sleep(70);
+    const feedback=await bioEval("root.querySelector('[data-question-id=p1a-1] .bio-feedback').textContent.includes('Reconsider.')&&root.querySelectorAll('[data-question-id=p1a-1] details p').length===4");
+    await bioEval("(root.querySelector('.bio-practice>button').click(),true)");await sleep(60);
+    const filtered=await bioEval("root.querySelectorAll('.bio-practice-choice').length===1&&!root.querySelector('.bio-written')");
+    await bioEval("(root.querySelector('.bio-practice>button').click(),true)");return scope&&feedback&&filtered;
+  });
+  await check('Written practice keeps drafts across modes without awarding a score',async()=>{
+    await evaluate(`(()=>{const root=${bio},x=root.querySelector('textarea');Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,'value').set.call(x,'My synthetic explanation');x.dispatchEvent(new Event('input',{bubbles:true}));})()`);await sleep(60);
+    await evaluate("location.hash='biology/topic/A1.1/revision'");await sleep(60);await evaluate("location.hash='biology/topic/A1.1/practice'");await sleep(70);
+    const saved=await bioEval("root.querySelector('textarea').value==='My synthetic explanation'");
+    await bioEval("(root.querySelector('.bio-written>button').click(),true)");await sleep(60);
+    return saved&&await bioEval("root.querySelector('.bio-written .bio-feedback').textContent.includes('No automatic written-response mark')");
+  });
+  await check('HL practice contains 10 choices and all five written tasks',async()=>{
+    await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(70);
+    return await bioEval("root.querySelectorAll('.bio-practice-choice').length===10&&root.querySelectorAll('.bio-written').length===5");
+  });
+  await check('Source register contains provenance and human-review limits',async()=>{
+    await evaluate("location.hash='biology/topic/A1.1/sources'");await sleep(90);
+    return await bioEval("root.querySelector('.bio-sources').textContent.includes('Qualified reviewer: not yet assigned')&&root.querySelector('.bio-sources').textContent.includes('NOAA')&&root.querySelector('.bio-sources').textContent.includes('NASA')&&root.querySelectorAll('.bio-sources details').length===8");
+  });
+  await check('Reviewing a wrong answer returns to its explanation',async()=>{
+    await evaluate("location.hash='biology/topic/A1.1/practice'");await sleep(80);
+    await bioEval("(root.querySelectorAll('[data-question-id=p1a-1] .bio-actions button')[1].click(),true)");await sleep(80);
+    return await bioEval("root.querySelector('[data-mode=learn]')&&root.querySelector('.bio-lesson-content').dataset.understandingId==='A1.1.1'");
+  });
+  await check('Study state survives Biology/English route unmount',async()=>{
+    await evaluate("location.hash='home'");await sleep(200);await evaluate("location.hash='biology/topic/A1.1/practice'");await waitBio();await sleep(130);
+    return await bioEval("root.querySelector('textarea').value==='My synthetic explanation'&&root.querySelector('[data-question-id=p1a-1] input[value=b]').checked");
+  });
+  await check('Lesson mode browser history follows native links',async()=>{
+    await bioEval("(root.querySelector('a[href=\"#biology/topic/A1.1/revision\"]').click(),true)");await sleep(70);await evaluate('history.back()');await sleep(80);
+    const back=await bioEval("!!root.querySelector('[data-mode=practice]')");await evaluate('history.forward()');await sleep(80);return back&&await bioEval("!!root.querySelector('[data-mode=revision]')");
+  });
+  await check('Missing scientific image retains its nonvisual explanation',async()=>{
+    await evaluate("location.hash='biology/topic/A1.1/learn'");await sleep(70);
+    await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[1].click(),true)");await sleep(70);
+    await bioEval("(root.querySelector('.bio-figure img').src='/biology/water/nonexistent-qa.svg',true)");await sleep(200);
+    return await bioEval("!!root.querySelector('.bio-image-fallback')&&root.querySelector('.bio-figure figcaption').textContent.includes('Solid O–H')");
+  });
+  // Fresh documents intentionally clear ephemeral study data. Capture the actual routes and figures.
+  for(const viewport of viewports){
+    await command('Emulation.setDeviceMetricsOverride',{width:viewport.width,height:viewport.height,deviceScaleFactor:1,mobile:viewport.mobile,screenWidth:viewport.width,screenHeight:viewport.height});
+    for(const mode of ['learn','revision','practice','sources']){
+      runtimeErrors.length=0;await freshBiologyRoute('biology/topic/A1.1/'+mode);await sleep(180);
+      await check(`Fresh Water ${mode} ${viewport.name} has correct mode and no overflow`,async()=>await bioEval(`root.querySelector('[data-mode=${mode}]')&&root.querySelector('.bio-app').scrollWidth<=document.documentElement.clientWidth+2` )&&await evaluate('document.documentElement.scrollWidth<=document.documentElement.clientWidth+2')&&runtimeErrors.length===0);
+    }
+    await freshBiologyRoute('biology/topic/A1.1/learn');await sleep(130);
+    await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[1].click(),true)");await sleep(100);
+    await bioEval("(root.querySelectorAll('.bio-figure img').forEach(x=>x.loading='eager'),true)");await sleep(200);
+    await evaluate('window.scrollTo(0,0)');await sleep(70);
+    const full=await command('Page.getLayoutMetrics');
+    const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width:viewport.width,height:full.cssContentSize.height,scale:1}});
+    await writeFile(join(outputDir,'water-learn-'+viewport.name+'.png'),Buffer.from(shot.data,'base64'));
+    if(viewport.mobile)await check('Water navigation responds to touch',async()=>{
+      await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[3].scrollIntoView({block:'center'}),true)");await sleep(50);
+      const pt=await bioEval("(()=>{const r=root.querySelectorAll('.bio-lesson-nav button')[3].getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()");
+      await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(130);
+      return await bioEval("root.querySelector('.bio-lesson-content').dataset.understandingId==='A1.1.4'");
+    });
+    await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");await sleep(80);
+    await check(`Water dark theme ${viewport.name} renders legible content tokens`,async()=>await bioEval("getComputedStyle(root.querySelector('.bio-app')).getPropertyValue('--bg').trim()==='#0a0f1f'&&!!root.querySelector('.bio-lesson-content h2')"));
+    const dark=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(join(outputDir,'water-dark-'+viewport.name+'.png'),Buffer.from(dark.data,'base64'));
+    await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");
+    await bioEval("(root.querySelector('input[value=SL]').click(),true)");
+  }
+  await check('Water lessons preserve all six English progress values',async()=>{
+    const values=await evaluate("Object.fromEntries("+JSON.stringify(Object.keys(synthetic))+".map(k=>[k,localStorage.getItem(k)]))");return JSON.stringify(values)===JSON.stringify(synthetic);
+  });
+  await check('Water study writes neither cloud progress nor local progress',async()=>await evaluate("localStorage.getItem('litlab:biology:progress:v1')===null"));
   await check('Biology browsing preserves all six English progress values',async()=>{
     const values=await evaluate("Object.fromEntries("+JSON.stringify(Object.keys(synthetic))+".map(k=>[k,localStorage.getItem(k)]))");
     return JSON.stringify(values)===JSON.stringify(synthetic);

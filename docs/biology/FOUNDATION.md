@@ -59,3 +59,9 @@ The existing PR workflow is `LitLab CI` with job `build`. Require that check aft
 8. Only then activate honest local attempt/review progress, verify English invariance and repeat the isolated regression suite. Cloud sync and release remain separately scoped.
 
 Phase 3 has not been started by this foundation.
+
+## Phase 3 Water draft update
+
+A1.1 now links to `a1-1-water-v1` with availability `draft`; the source-mapping review status remains `source-mapped`. The other 39 topics retain strict planned-only validation. Stable nested routes `/learn`, `/revision`, `/practice`, `/sources` preserve the existing overview route. See [Water review packet](WATER_REVIEW_PACKET.md) for scope, reference/asset provenance and release gates. The reviewed-learning content is a source-checked draft, not approved.
+
+The shared renderer consumes `learning/water/lesson.json`; source records and claim mappings live alongside authored content. `content.ts` uses inferred TypeScript data types so new fields remain checked at their actual use sites. Memory-only study state is stored in a module-level map to survive route/subject unmounts; it is cleared on full refresh. No Biology progress or English storage keys are written. `validate-water.mjs` validates the draft contract and rejects unsupported approval metadata.
