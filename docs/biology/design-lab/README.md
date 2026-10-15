@@ -16,7 +16,7 @@ The prototype includes: curriculum dashboard with the 40 IB Biology topic names 
 python test_prototype.py
 ```
 
-The test uses a locally installed Playwright Chromium browser with the HTML, CSS and JavaScript injected into `about:blank` because the sandboxed Chromium policy blocks navigation to local URLs. This does **not** test a deployed website. See `test-results.json` for assertions and `screenshots/` for viewport captures. Tested layouts: 1440, 768, 390 and 320 px. Some available full-page screenshots also appear in `screenshots.html` if packaged separately.
+The test uses a locally installed Playwright Chromium browser with the HTML, CSS and JavaScript injected into `about:blank` because the sandboxed Chromium policy blocks navigation to local URLs. This does **not** test a deployed website. See `test-results.json` for assertions and `screenshots/` for viewport captures. Tested layouts: 1440, 768, 390 and 320 px. Two self-contained reduced-size image galleries are included: `screenshots-desktop.html` and `screenshots-mobile.html`. Full original PNG captures are in `screenshots/`.
 
 ## Design and integration documentation
 
