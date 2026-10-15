@@ -519,6 +519,9 @@ try{
     for(const mode of ['learn','revision','practice','sources']){
       runtimeErrors.length=0;await freshBiologyRoute('biology/topic/A1.1/'+mode);await sleep(180);
       await check(`Fresh Water ${mode} ${viewport.name} has correct mode and no overflow`,async()=>await bioEval(`root.querySelector('[data-mode=${mode}]')&&root.querySelector('.bio-app').scrollWidth<=document.documentElement.clientWidth+2` )&&await evaluate('document.documentElement.scrollWidth<=document.documentElement.clientWidth+2')&&runtimeErrors.length===0);
+      await evaluate("window.scrollTo({top:0,left:0,behavior:'instant'})");await sleep(80);
+      const modeShot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+      await writeFile(join(outputDir,`water-${mode}-entry-${viewport.name}.png`),Buffer.from(modeShot.data,'base64'));
     }
     await freshBiologyRoute('biology/topic/A1.1/learn');await sleep(130);
     await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[1].click(),true)");await sleep(100);
@@ -543,6 +546,11 @@ try{
     await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");
     await bioEval("(root.querySelector('input[value=SL]').click(),true)");
   }
+  await command('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true});
+  await command('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await freshBiologyRoute('biology/topic/A1.1/learn');await sleep(100);
+  await check('Water reflows at 320px and respects reduced-motion media',async()=>await bioEval("root.querySelector('.bio-app').scrollWidth<=320&&document.documentElement.scrollWidth<=320&&getComputedStyle(root.querySelector('.bio-mode-nav a')).transitionDuration==='0s'"));
+  await command('Emulation.setEmulatedMedia',{features:[]});
   await check('Water lessons preserve all six English progress values',async()=>{
     const values=await evaluate("Object.fromEntries("+JSON.stringify(Object.keys(synthetic))+".map(k=>[k,localStorage.getItem(k)]))");return JSON.stringify(values)===JSON.stringify(synthetic);
   });
