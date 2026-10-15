@@ -6,3 +6,7 @@
 .topbar[data-subject=biology] .top-actions{margin-left:auto}
 @media(max-width:900px){.subject-bar{padding:14px 25px 0}}
 @media(max-width:560px){.subject-bar{padding:12px 20px 0}}
+
+/* English-only study tools have no Biology content yet. */
+html[data-litlab-subject=biology] .tutor-topbar-trigger,
+html[data-litlab-subject=biology] .litlab-tutor{display:none!important}

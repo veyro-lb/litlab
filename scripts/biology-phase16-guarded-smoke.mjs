@@ -316,6 +316,14 @@ try{
     const clicked=await evaluate("(()=>{const a=document.querySelector('.subject-navigation a[href=\"#biology\"]');if(!a)return false;a.click();return true})()");
     await waitBio();return clicked&&await bioEval("root.querySelector('h1')?.textContent.includes('Life is connected')");
   });
+  await check('Biology excludes English announcements, tutoring and guest sign-in prompts',async()=>{
+    await sleep(1000);
+    return await evaluate("!document.querySelector('#ll-analysis-launch-notice')&&!document.querySelector('[data-auth-modal]')&&getComputedStyle(document.querySelector('.tutor-topbar-trigger')).display==='none'");
+  });
+  await check('Skip link focuses content without changing subject or route',async()=>{
+    await evaluate("document.querySelector('a.skip').click()");
+    return await evaluate("location.hash==='#biology'&&document.activeElement?.id==='main'");
+  });
   await check('SL curriculum contains exactly 34 topics and excludes six HL-only topics',async()=>await bioEval("root.querySelectorAll('[data-topic-id]').length===34&&!root.querySelector('[data-topic-id=\"A2.1\"]')&&!root.querySelector('[data-topic-id=\"D2.2\"]')"));
   await check('Higher Level includes all 40 topics',async()=>{
     await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(150);
@@ -353,7 +361,8 @@ try{
     await command('Emulation.setDeviceMetricsOverride',{width:viewport.width,height:viewport.height,deviceScaleFactor:1,mobile:viewport.mobile,screenWidth:viewport.width,screenHeight:viewport.height});
     for(const route of bioRoutes){
       runtimeErrors.length=0;
-      await command('Page.navigate',{url:new URL('#'+route,base).toString()});await waitBio();await sleep(400);
+      await command('Page.navigate',{url:new URL('#'+route,base).toString()});await waitBio();await sleep(route==='biology'?1100:400);
+      if(route==='biology')await check(`Direct Biology entry has no English overlays (${viewport.name})`,async()=>await evaluate("!document.querySelector('[data-auth-modal]')&&!document.querySelector('#ll-analysis-launch-notice')"));
       await evaluate(closeAuthExpression);
       await check(`Biology ${route} ${viewport.name} renders without overflow or exceptions`,async()=>{
         const audit=await bioEval("({text:root.querySelector('.bio-app')?.textContent.length,width:root.querySelector('.bio-app')?.scrollWidth,view:document.documentElement.clientWidth,title:root.querySelector('h1,h2')?.textContent})");
