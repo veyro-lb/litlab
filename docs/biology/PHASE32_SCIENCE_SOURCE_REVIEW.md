@@ -32,7 +32,9 @@
 
 ## Original illustration review and accessibility
 
-Eight original vector schematics are bundled in two topic-specific directories, with eight label-recall variants. They depict reaction direction, alpha/beta storage versus support, lipid component counts, bilayer amphipathicity, generalized amino acids, peptide condensation, protein structure levels, and globular/fibrous comparison. Each asset records original provenance, authoring/reuse basis, scientific caption, full text alt description and a provisional scientific-review state. No photograph or third-party illustration was imported.
+Eleven original vector schematics are bundled in two topic-specific directories, with eleven label-recall variants. This includes additional recognition diagrams for pentose-versus-hexose ring carbon counting, cis-fatty-acid comparison, and the four fused steroid rings. They also depict reaction direction, alpha/beta storage versus support, lipid component counts, bilayer amphipathicity, generalized amino acids, peptide condensation, protein structure levels, and globular/fibrous comparison.
+
+The IB Guide's NOS link for B1.1.1 (internationally agreed SI prefixes) and B1.2.11 (cryo-EM as imaging beyond unaided senses) is now mapped into named instructional steps with active recall. Each asset records original provenance, authoring/reuse basis, scientific caption, full text alt description and a provisional scientific-review state. No photograph or third-party illustration was imported.
 
 All scientific illustrations are **conceptual** and deliberately marked where necessary as schematic/not atomic or not to scale. Independent molecular accuracy, assistive technology, mobile label legibility and legal/reuse sign-off are still pending.
 

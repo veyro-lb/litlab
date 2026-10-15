@@ -29,7 +29,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why can carbon make a straight chain, a branch and a ring?",
-      "explanation": "Carbon has four electrons available for covalent bonding. By sharing electrons with other non-metal atoms, one carbon atom can form four single bonds, or combinations including double bonds. Covalent bonds hold atoms together within a molecule.\n\nCarbons can connect in unbranched chains, branched chains and single or multiple rings. The arrangement matters: a long hydrocarbon tail has different physical properties from a compact ring system. The same element can therefore support very different biological molecules.",
+      "explanation": "Carbon has four electrons available for covalent bonding. By sharing electrons with other non-metal atoms, one carbon atom can form four single bonds, or combinations including double bonds. Covalent bonds hold atoms together within a molecule.\n\nCarbons can connect in unbranched chains, branched chains and single or multiple rings. The arrangement matters: a long hydrocarbon tail has different physical properties from a compact ring system. The same element can therefore support very different biological molecules.\n\nScientific conventions provide an internationally agreed language for recording dimensions. SI metric prefixes include kilo (10³), centi (10⁻²), milli (10⁻³), micro (10⁻⁶) and nano (10⁻⁹). These prefixes help biologists report the scale of molecules and cells consistently across laboratories; they are a nature-of-science convention, not another carbon bonding mechanism.",
       "revisionSummary": "Carbon can make four covalent bonds; chains, branches, rings and double bonds produce structurally diverse molecules.",
       "terms": [
         "Covalent bond: atoms share electron pairs",
@@ -55,6 +55,12 @@
           "referenceIds": [
             "ib-b11",
             "hodder-b11"
+          ]
+        },
+        {
+          "claim": "Scientific conventions provide an internationally agreed language for recording dimensions. SI metric prefixes include kilo (10³), centi (10⁻²), milli (10⁻³), micro (10⁻⁶) and nano (10⁻⁹). These prefixes help biologists report the scale of molecules and cells consistently across laboratories; they are a nature-of-science convention, not another carbon bonding mechanism.",
+          "referenceIds": [
+            "ib-b11"
           ]
         }
       ],
@@ -103,6 +109,16 @@
           "understandingIds": [
             "B1.1.1"
           ]
+        },
+        {
+          "kind": "recall",
+          "id": "b11-nos-si-prefixes",
+          "understandingIds": [
+            "B1.1.1"
+          ],
+          "prompt": "List five SI prefixes used in biological measurement and give their powers of ten.",
+          "answer": "Kilo 10³; centi 10⁻²; milli 10⁻³; micro 10⁻⁶; nano 10⁻⁹.",
+          "explanation": "These are conventional multipliers agreed internationally, separate from chemistry content."
         }
       ],
       "guidePage": 49,
@@ -139,6 +155,13 @@
           "referenceIds": [
             "ib-b11",
             "hodder-b11"
+          ]
+        },
+        {
+          "title": "Nature of science: a shared measurement language",
+          "explanation": "Scientific conventions provide an internationally agreed language for recording dimensions. SI metric prefixes include kilo (10³), centi (10⁻²), milli (10⁻³), micro (10⁻⁶) and nano (10⁻⁹). These prefixes help biologists report the scale of molecules and cells consistently across laboratories; they are a nature-of-science convention, not another carbon bonding mechanism.",
+          "referenceIds": [
+            "ib-b11"
           ]
         }
       ]
@@ -440,7 +463,9 @@
         "hodder-b11",
         "ncbi-polysaccharides"
       ],
-      "assets": [],
+      "assets": [
+        "b11-sugar-rings"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1191,7 +1216,9 @@
         "hodder-b11",
         "openstax-lipids"
       ],
-      "assets": [],
+      "assets": [
+        "b11-fatty-acids"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1574,7 +1601,9 @@
         "hodder-b11",
         "openstax-lipids"
       ],
-      "assets": [],
+      "assets": [
+        "b11-steroid-rings"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2416,6 +2445,59 @@
         "ib-b11",
         "openstax-membranes",
         "hodder-b11"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b11-sugar-rings",
+      "kind": "diagram",
+      "src": "/biology/carbohydrates-lipids/sugar-rings.svg",
+      "recallSrc": "/biology/carbohydrates-lipids/sugar-rings-recall.svg",
+      "alt": "Ribose is a five-carbon pentose with one outside-chain carbon; glucose is a six-carbon hexose with one outside-chain carbon; fructose is a six-carbon hexose whose five-membered ring has two outside-chain carbons. Count carbons, not corners, because ring oxygen does not count.",
+      "captionTitle": "Recognize pentose and hexose sugars by counting all carbons",
+      "attribution": "Original LitLab scientific teaching SVG; no third-party diagrams",
+      "license": "Original schematic, independent scientific/owner rights approval pending",
+      "permissionEvidence": "Created using original vector shapes and written chemical examples; not based on copied publisher artwork",
+      "referenceIds": [
+        "ib-b11",
+        "hodder-b11"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b11-fatty-acids",
+      "kind": "diagram",
+      "src": "/biology/carbohydrates-lipids/fatty-acids.svg",
+      "recallSrc": "/biology/carbohydrates-lipids/fatty-acids-recall.svg",
+      "alt": "Saturated fatty-acid tails contain no carbon–carbon double bonds; a cis-monounsaturated tail contains one and bends, reducing close packing. Polyunsaturated means two or more double bonds; chain length and cis/trans orientation also influence melting.",
+      "captionTitle": "Cis-unsaturation changes chain shape and melting",
+      "attribution": "Original LitLab scientific teaching SVG; no third-party diagrams",
+      "license": "Original schematic, independent scientific/owner rights approval pending",
+      "permissionEvidence": "Created using original vector shapes and written chemical examples; not based on copied publisher artwork",
+      "referenceIds": [
+        "ib-b11",
+        "hodder-b11",
+        "openstax-lipids"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b11-steroid-rings",
+      "kind": "diagram",
+      "src": "/biology/carbohydrates-lipids/steroid-rings.svg",
+      "recallSrc": "/biology/carbohydrates-lipids/steroid-rings-recall.svg",
+      "alt": "Steroid chemical nucleus has three fused six-carbon rings and one fused five-carbon ring. Both oestradiol and testosterone share this ring framework with different substituents; hydrogens and substituents are omitted for clarity.",
+      "captionTitle": "Identify a steroid by its characteristic four fused rings",
+      "attribution": "Original LitLab scientific teaching SVG; no third-party diagrams",
+      "license": "Original schematic, independent scientific/owner rights approval pending",
+      "permissionEvidence": "Created using original vector shapes and written chemical examples; not based on copied publisher artwork",
+      "referenceIds": [
+        "ib-b11",
+        "hodder-b11",
+        "openstax-lipids"
       ],
       "level": "shared",
       "review": "scientific-review"

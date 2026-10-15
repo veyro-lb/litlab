@@ -1,12 +1,13 @@
 // Phase 3.2 bounded two-topic production checks. Structural and provenance checks, not scientific certification.
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
+import {resolve} from 'node:path';
 import {validateLesson} from './validate-lesson.mjs';
 
 const root=new URL('../src/biology/',import.meta.url);
 export function validateBatch32(registry,catalog,lessonMap){
  const errors=[];
- for(const [topicId,expectedShared,expectedHL,expectedAssets] of [['B1.1',13,0,4],['B1.2',5,7,4]]){
+ for(const [topicId,expectedShared,expectedHL,expectedAssets] of [['B1.1',13,0,7],['B1.2',5,7,4]]){
   const t=registry.find(x=>x.id===topicId),d=lessonMap[topicId];
   if(!t||!d){errors.push('Missing topic/lesson '+topicId);continue}
   const ids=t.understandings.map(x=>x.id),prefix=topicId+'.';
@@ -23,6 +24,9 @@ export function validateBatch32(registry,catalog,lessonMap){
    if(s.teachingBlocks?.length<2||s.interactions.length<1||s.recall.length<1)errors.push('Missing progressive teaching or retrieval '+u.id);
    if(!d.questions.some(q=>q.understandingIds.includes(u.id)&&q.paper==='1A'))errors.push('No exam-style MCQ for '+u.id);
    if(!u.studentTitle||!s.misconceptions[0]?.correction)errors.push('Missing display title/misconception repair '+u.id);
+   if(['B1.1.4','B1.1.10','B1.1.13'].includes(u.id)&&!s.assets.length)errors.push('Missing official molecular recognition diagram '+u.id);
+   if(u.id==='B1.1.1'&&!s.recall.some(r=>r.id==='b11-nos-si-prefixes'))errors.push('Unmapped NOS SI prefixes');
+   if(u.id==='B1.2.11'&&!s.recall.some(r=>r.id==='b12-nos-cryo'))errors.push('Unmapped NOS cryogenic electron microscopy');
   }
   if(d.assets.length<expectedAssets||d.assets.some(a=>a.review==='approved'||a.alt?.length<75||!a.recallSrc||!a.src.startsWith('/biology/')||a.level==='HL'&&topicId==='B1.1'))errors.push('Missing original accessible recall figures '+topicId);
   if(d.review.reviewer!==null||d.review.status!=='scientific-review')errors.push('Review status misrepresented '+topicId);
@@ -32,7 +36,7 @@ export function validateBatch32(registry,catalog,lessonMap){
  }
  return errors;
 }
-if(process.argv[1]&&fileURLToPath(import.meta.url)===fileURLToPath(new URL('file://'+process.argv[1]))){
+if(process.argv[1]&&fileURLToPath(import.meta.url)===resolve(process.argv[1])){
  const registry=JSON.parse(await readFile(new URL('curriculum/registry.json',root),'utf8'));
  const catalog=JSON.parse(await readFile(new URL('learning/catalog.json',root),'utf8'));
  const lessonMap={};

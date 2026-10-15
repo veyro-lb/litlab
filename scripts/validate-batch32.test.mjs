@@ -16,5 +16,8 @@ for(const [reason,mutate] of [
  ['remove figure recall path',([,,l])=>delete l['B1.2'].assets[0].recallSrc],
  ['claim unqualified approval',([,,l])=>l['B1.1'].review.status='approved'],
  ['catalog mismatch',([,c])=>c['b1-2-proteins-v1'].topicId='B1.1'],
- ['missing scientific misconception feedback',([,,l])=>l['B1.1'].sections[8].misconceptions=[]]
+ ['missing scientific misconception feedback',([,,l])=>l['B1.1'].sections[8].misconceptions=[]],
+ ['missing official steroid visual',([,,l])=>l['B1.1'].sections[12].assets=[]],
+ ['missing B1.1 nature-of-science recall',([,,l])=>l['B1.1'].sections[0].recall=l['B1.1'].sections[0].recall.filter(x=>x.id!=='b11-nos-si-prefixes')]
+
 ])test('Phase 3.2 rejects '+reason,()=>{const values=fixtures();mutate(values);assert.ok(validateBatch32(...values).length>0)});
