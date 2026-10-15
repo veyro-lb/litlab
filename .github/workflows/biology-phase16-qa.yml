@@ -107,7 +107,7 @@ jobs:
               trap "kill $preview_pid 2>/dev/null || true" EXIT
               ready=0
               for attempt in $(seq 1 40); do
-                if node -e "fetch(\x27http://127.0.0.1:4173/\x27).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"; then
+                if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4173/; then
                   ready=1; break;
                 fi
                 sleep 1
