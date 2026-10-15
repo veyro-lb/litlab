@@ -72,3 +72,9 @@ test('an HL-only or unknown deep link cannot reveal an SL practice target',()=>{
  const invalid=render(water,topic,'SL','practice','A1.1.999');
  assert.ok(!invalid.includes('Targeting A1.1.999'));
 });
+
+// Reusable challenge contract: validate both valid and deliberately malformed stages.
+const challenge={title:'Synthetic mechanism',instructions:'Predict what happens.',stages:[1,2].map(i=>({id:'s'+i,prompt:'Predict step '+i,explanation:'Step explained.',options:['a','b','c'].map((id,j)=>({id,text:'Choice '+id,correct:j===0,feedback:'Because of the model.'}))}))};
+test('generic reusable mechanism challenge validates',()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge=structuredClone(challenge);assert.deepEqual(validateLesson(d,topic),[])});
+test('mechanism rejects two correct predictions',()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge=structuredClone(challenge);d.sections[0].mechanismChallenge.stages[0].options[1].correct=true;assert.ok(validateLesson(d,topic).some(x=>x.includes('Invalid mechanism stage')))});
+test('mechanism rejects missing stage feedback',()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge=structuredClone(challenge);d.sections[0].mechanismChallenge.stages[1].options[2].feedback='';assert.ok(validateLesson(d,topic).some(x=>x.includes('Invalid mechanism stage')))});

@@ -24,6 +24,7 @@ export function validateBatch32(registry,catalog,lessonMap){
    if(s.teachingBlocks?.length<2||s.interactions.length<1||s.recall.length<1)errors.push('Missing progressive teaching or retrieval '+u.id);
    if(!d.questions.some(q=>q.understandingIds.includes(u.id)&&q.paper==='1A'))errors.push('No exam-style MCQ for '+u.id);
    if(!u.studentTitle||!s.misconceptions[0]?.correction)errors.push('Missing display title/misconception repair '+u.id);
+   if(['B1.1.2','B1.2.2'].includes(u.id)&&!s.mechanismChallenge)errors.push('Missing interactive mechanism reasoning '+u.id);
    if(['B1.1.4','B1.1.10','B1.1.13'].includes(u.id)&&!s.assets.length)errors.push('Missing official molecular recognition diagram '+u.id);
    if(u.id==='B1.1.1'&&!s.recall.some(r=>r.id==='b11-nos-si-prefixes'))errors.push('Unmapped NOS SI prefixes');
    if(u.id==='B1.2.11'&&!s.recall.some(r=>r.id==='b12-nos-cryo'))errors.push('Unmapped NOS cryogenic electron microscopy');

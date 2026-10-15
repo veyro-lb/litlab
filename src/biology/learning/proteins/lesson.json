@@ -285,6 +285,87 @@
             "explanation": "Another amino acid can condense with a free terminal group to lengthen the polypeptide."
           }
         ]
+      },
+      "mechanismChallenge": {
+        "title": "Assemble an amino-acid chain",
+        "instructions": "Trace the reactants, the new covalent bond, and the fate of water and R groups.",
+        "stages": [
+          {
+            "id": "p1",
+            "prompt": "Which functional groups directly react to form the peptide bond?",
+            "options": [
+              {
+                "id": "a",
+                "text": "The carboxyl group of one amino acid and the amine group of another",
+                "correct": true,
+                "feedback": "Correct. These are the reacting backbone functional groups."
+              },
+              {
+                "id": "b",
+                "text": "Both variable R groups only",
+                "correct": false,
+                "feedback": "R groups may interact during folding, but peptide bonds are backbone links."
+              },
+              {
+                "id": "c",
+                "text": "Two hydrophobic tails from phospholipids",
+                "correct": false,
+                "feedback": "Those components participate in lipid, not polypeptide, assembly."
+              }
+            ],
+            "explanation": "Reaction occurs at the functional groups around the alpha-carbon backbone."
+          },
+          {
+            "id": "p2",
+            "prompt": "Which new bond appears in the dipeptide?",
+            "options": [
+              {
+                "id": "a",
+                "text": "A covalent –C(=O)–NH– peptide linkage",
+                "correct": true,
+                "feedback": "Yes. The carbonyl carbon connects covalently to the amino nitrogen."
+              },
+              {
+                "id": "b",
+                "text": "A hydrogen bond directly between two R groups",
+                "correct": false,
+                "feedback": "That is not the backbone covalent link produced by peptide condensation."
+              },
+              {
+                "id": "c",
+                "text": "An O–H bond that binds the two monomers without a C–N link",
+                "correct": false,
+                "feedback": "Water is released and a carbon–nitrogen peptide bond is formed."
+              }
+            ],
+            "explanation": "The generalized product includes the sequence –CH(R₁)–C(=O)–NH–CH(R₂)–."
+          },
+          {
+            "id": "p3",
+            "prompt": "What happens to water and the R groups as the peptide forms?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Water is released; each R group remains attached to its original alpha carbon",
+                "correct": true,
+                "feedback": "Exactly. The new peptide link joins backbone groups without replacing the identity-defining R groups."
+              },
+              {
+                "id": "b",
+                "text": "Water is consumed; both R groups detach",
+                "correct": false,
+                "feedback": "Water is released in the condensation direction and the R groups remain attached."
+              },
+              {
+                "id": "c",
+                "text": "Water is released; both R groups become phosphate groups",
+                "correct": false,
+                "feedback": "Side chains are retained, not converted to phosphates during ordinary peptide formation."
+              }
+            ],
+            "explanation": "Repeated condensation builds polypeptide chains while preserving the order of side-chain identities."
+          }
+        ]
       }
     },
     {

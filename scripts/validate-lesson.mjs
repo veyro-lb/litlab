@@ -28,6 +28,13 @@ export function validateLesson(d,topic){
   if(!s.interactions?.length||!s.recall?.length)fail(`Missing retrieval ${s.id}`);
   for(const q of [...s.interactions||[],...s.recall||[]]){add(q.id);if(!q.understandingIds?.length||q.understandingIds.some(id=>!s.understandingIds.includes(id)))fail(`Activity mapping drift ${q.id}`);if(q.kind==='selection')choice(q);else if(q.kind!=='recall'||!q.prompt||!q.answer)fail(`Invalid recall ${q.id}`)}
   for(const id of s.assets||[]){const a=assets.get(id);if(!a||s.level==='shared'&&a.level==='HL')fail(`Missing/leaking asset ${id}`)}
+  if(s.mechanismChallenge){
+   const c=s.mechanismChallenge;
+   if(!c.title?.trim()||!c.instructions?.trim()||!Array.isArray(c.stages)||c.stages.length<2||new Set(c.stages.map(x=>x.id)).size!==c.stages.length)fail('Invalid mechanism challenge '+s.id);
+   for(const stage of c.stages||[]){
+    if(!stage.id||!stage.prompt?.trim()||!stage.explanation?.trim()||!Array.isArray(stage.options)||stage.options.length<3||stage.options.filter(x=>x.correct).length!==1||new Set(stage.options.map(x=>x.id)).size!==stage.options.length||stage.options.some(x=>!x.id||!x.text?.trim()||!x.feedback?.trim()))fail('Invalid mechanism stage '+s.id);
+   }
+  }
   if(s.explorer&&(!s.explorer.title||(s.explorer.prompt!==undefined&&(typeof s.explorer.prompt!=='string'||!s.explorer.prompt.trim()))||!s.explorer.features?.length||new Set(s.explorer.features.map(f=>f.id)).size!==s.explorer.features.length||s.explorer.features.some(f=>!f.id||!f.label||!f.explanation)))fail(`Invalid explorer ${s.id}`);
  }
  if(covered.length!==u.size||new Set(covered).size!==covered.length||[...u.keys()].some(id=>!covered.includes(id)))fail('Missing or duplicate curriculum coverage');

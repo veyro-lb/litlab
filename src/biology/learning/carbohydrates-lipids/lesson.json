@@ -298,6 +298,87 @@
             "explanation": "Hydrolysis consumes a water molecule, supplying H and OH to the resulting monomers."
           }
         ]
+      },
+      "mechanismChallenge": {
+        "title": "Build and reverse a glycosidic link",
+        "instructions": "Decide what must change before moving to the next scientific step. An incorrect prediction gives a clue so you can retry.",
+        "stages": [
+          {
+            "id": "m1",
+            "prompt": "Two glucose monomers are about to form a disaccharide. Which reaction joins them?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Condensation",
+                "correct": true,
+                "feedback": "Yes. A covalent link forms and a small molecule is released."
+              },
+              {
+                "id": "b",
+                "text": "Hydrolysis",
+                "correct": false,
+                "feedback": "Hydrolysis is the reverse: it splits a pre-existing link by using water."
+              },
+              {
+                "id": "c",
+                "text": "Diffusion",
+                "correct": false,
+                "feedback": "Diffusion moves particles but does not itself create the glycosidic bond."
+              }
+            ],
+            "explanation": "The reactant functional groups participate in forming a new glycosidic covalent link."
+          },
+          {
+            "id": "m2",
+            "prompt": "What happens to water when this new link forms?",
+            "options": [
+              {
+                "id": "a",
+                "text": "A water molecule is released",
+                "correct": true,
+                "feedback": "Correct: the reacting groups collectively lose H and OH as water."
+              },
+              {
+                "id": "b",
+                "text": "A water molecule is always absorbed",
+                "correct": false,
+                "feedback": "Absorbing water and splitting the bond would describe hydrolysis."
+              },
+              {
+                "id": "c",
+                "text": "There is never a water molecule involved",
+                "correct": false,
+                "feedback": "The syllabus condensation model includes water as a product."
+              }
+            ],
+            "explanation": "Condensation and hydrolysis point in opposite directions for water."
+          },
+          {
+            "id": "m3",
+            "prompt": "Now the disaccharide must be digested. What is needed to split the link?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hydrolysis using water, adding H and OH to the products",
+                "correct": true,
+                "feedback": "Yes. Water contributes the groups that become part of the separated monomers."
+              },
+              {
+                "id": "b",
+                "text": "Another condensation with water released",
+                "correct": false,
+                "feedback": "Releasing water typically drives linkage formation, not its reversal."
+              },
+              {
+                "id": "c",
+                "text": "Only breaking the hydrogen bonds between molecules",
+                "correct": false,
+                "feedback": "The glycosidic link is covalent and requires a chemical bond-cleavage reaction."
+              }
+            ],
+            "explanation": "Digestive enzymes can catalyse hydrolysis of this covalent glycosidic bond."
+          }
+        ]
       }
     },
     {
