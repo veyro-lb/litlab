@@ -65,7 +65,9 @@
         "hodder-b12-sl",
         "openstax-protein"
       ],
-      "assets": [],
+      "assets": [
+        "b12-amino"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -185,7 +187,9 @@
         "hodder-b12-sl",
         "openstax-protein"
       ],
-      "assets": [],
+      "assets": [
+        "b12-peptide"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -935,7 +939,9 @@
         "openstax-protein",
         "openstax-chem"
       ],
-      "assets": [],
+      "assets": [
+        "b12-levels"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1077,7 +1083,9 @@
         "openstax-protein",
         "openstax-chem"
       ],
-      "assets": [],
+      "assets": [
+        "b12-levels"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1344,7 +1352,9 @@
         "openstax-protein",
         "openstax-chem"
       ],
-      "assets": [],
+      "assets": [
+        "b12-forms"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1474,7 +1484,9 @@
         "openstax-protein",
         "openstax-chem"
       ],
-      "assets": [],
+      "assets": [
+        "b12-forms"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2231,7 +2243,80 @@
       "level": "HL"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "b12-amino",
+      "kind": "diagram",
+      "src": "/biology/proteins/amino.svg",
+      "recallSrc": "/biology/proteins/amino-recall.svg",
+      "alt": "Generalized alpha amino acid: alpha carbon bonds to H, variable R side chain, amine NH2, and carboxyl COOH. Ionization state can differ with pH.",
+      "captionTitle": "Draw and identify the four amino-acid attachments",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; publication review pending",
+      "permissionEvidence": "Original vector construction; generalized formula independently checked against IB Guide and chemistry textbook",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-peptide",
+      "kind": "diagram",
+      "src": "/biology/proteins/peptide.svg",
+      "recallSrc": "/biology/proteins/peptide-recall.svg",
+      "alt": "Amino acid plus amino acid yields a generalized dipeptide and water. Product: H2N–CH(R1)–C(=O)–NH–CH(R2)–COOH; newly formed peptide bond is covalent C(=O)–NH.",
+      "captionTitle": "New covalent peptide link and water release",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; publication review pending",
+      "permissionEvidence": "Original text schematic, not reproduction of textbook chemical art; product formula reviewed at draft level",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-levels",
+      "kind": "diagram",
+      "src": "/biology/proteins/levels.svg",
+      "recallSrc": "/biology/proteins/levels-recall.svg",
+      "alt": "Primary structure is amino-acid sequence; secondary is regular helices/sheets; tertiary is fold of a chain; quaternary is association of two or more polypeptide subunits. Abstract topology, not to scale.",
+      "captionTitle": "The four protein-structure levels ask different questions",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; publication review pending",
+      "permissionEvidence": "Original line-based symbolic visualization; qualified protein-structure diagram review pending",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-forms",
+      "kind": "diagram",
+      "src": "/biology/proteins/forms.svg",
+      "recallSrc": "/biology/proteins/forms-recall.svg",
+      "alt": "Compact insulin hormone drawn as globular, with two mature chains held in part by disulfide links; collagen represented by three extended polypeptide strands twisted into a triple helix for structural strength. Not to scale.",
+      "captionTitle": "Insulin carries a signal; collagen resists tension",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; publication review pending",
+      "permissionEvidence": "Original symbolic outlines without third-party images or textbook diagrams; scientific visual review pending",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    }
+  ],
   "review": {
     "status": "scientific-review",
     "sourceCheckedAt": "2026-10-16",

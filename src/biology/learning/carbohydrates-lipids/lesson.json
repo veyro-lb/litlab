@@ -184,7 +184,9 @@
         "ib-b11",
         "hodder-b11"
       ],
-      "assets": [],
+      "assets": [
+        "b11-condensation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -315,7 +317,9 @@
         "ib-b11",
         "hodder-b11"
       ],
-      "assets": [],
+      "assets": [
+        "b11-condensation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -559,7 +563,9 @@
         "hodder-b11",
         "ncbi-polysaccharides"
       ],
-      "assets": [],
+      "assets": [
+        "b11-polysaccharides"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -695,7 +701,9 @@
         "hodder-b11",
         "ncbi-polysaccharides"
       ],
-      "assets": [],
+      "assets": [
+        "b11-polysaccharides"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1056,7 +1064,9 @@
         "hodder-b11",
         "openstax-lipids"
       ],
-      "assets": [],
+      "assets": [
+        "b11-lipids"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1426,7 +1436,9 @@
         "openstax-lipids",
         "openstax-membranes"
       ],
-      "assets": [],
+      "assets": [
+        "b11-bilayer"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2336,7 +2348,79 @@
       "level": "shared"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "b11-condensation",
+      "kind": "diagram",
+      "src": "/biology/carbohydrates-lipids/condensation.svg",
+      "recallSrc": "/biology/carbohydrates-lipids/condensation-recall.svg",
+      "alt": "Two monomers are joined by condensation with water released; hydrolysis uses water to split a covalent linkage into smaller units. Diagram illustrates opposite reaction types.",
+      "captionTitle": "Condensation versus hydrolysis: track the water",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; no third-party diagram incorporated; owner publication clearance pending",
+      "permissionEvidence": "Authored as original vector shapes and text; not traced or copied from Hodder, IB or third-party diagrams",
+      "referenceIds": [
+        "ib-b11",
+        "hodder-b11"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b11-polysaccharides",
+      "kind": "diagram",
+      "src": "/biology/carbohydrates-lipids/polysaccharides.svg",
+      "recallSrc": "/biology/carbohydrates-lipids/polysaccharides-recall.svg",
+      "alt": "Schematic branched alpha-glucose storage polysaccharide compared with parallel extended cellulose beta-glucose chains; cellulose strands are linked by between-chain hydrogen bonds, unlike the chain's covalent glycosidic bonds.",
+      "captionTitle": "Why glucose chains can store energy or resist pulling",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; publication review pending",
+      "permissionEvidence": "Original shapes drawn to explain broad structure–function relationships; not a chemical bond-level image or copied art",
+      "referenceIds": [
+        "ib-b11",
+        "hodder-b11",
+        "ncbi-polysaccharides"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b11-lipids",
+      "kind": "diagram",
+      "src": "/biology/carbohydrates-lipids/lipids.svg",
+      "recallSrc": "/biology/carbohydrates-lipids/lipids-recall.svg",
+      "alt": "Schematic triglyceride has glycerol with three fatty-acid residues; schematic glycerol phospholipid has two fatty-acid tails and one phosphate-containing head. This is a component diagram rather than an atomic structural formula.",
+      "captionTitle": "Triglyceride versus phospholipid component count",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; publication review pending",
+      "permissionEvidence": "Designed from biochemical relationships; no publisher figure, photograph or stock art reused",
+      "referenceIds": [
+        "ib-b11",
+        "hodder-b11",
+        "openstax-lipids"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b11-bilayer",
+      "kind": "diagram",
+      "src": "/biology/carbohydrates-lipids/bilayer.svg",
+      "recallSrc": "/biology/carbohydrates-lipids/bilayer-recall.svg",
+      "alt": "Phospholipid heads contact water on the external and internal faces of a bilayer; hydrophobic hydrocarbon tails point toward each other inside the membrane.",
+      "captionTitle": "Amphipathic lipids orient head-to-water, tail-to-tail",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "license": "Original LitLab artwork; publication review pending",
+      "permissionEvidence": "Original shapes assembled for the lesson; conceptual orientation checked against official and independent references",
+      "referenceIds": [
+        "ib-b11",
+        "openstax-membranes",
+        "hodder-b11"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    }
+  ],
   "review": {
     "status": "scientific-review",
     "sourceCheckedAt": "2026-10-16",
