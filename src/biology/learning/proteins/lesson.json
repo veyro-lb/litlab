@@ -1,0 +1,2248 @@
+{
+  "schemaVersion": 1,
+  "id": "b1-2-proteins-v1",
+  "topicId": "B1.2",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Proteins",
+  "introduction": "How can 20 kinds of amino acid produce both a signalling hormone and a strong structural fibre?",
+  "prerequisites": [
+    "Carbon forms covalent bonds",
+    "Condensation and hydrolysis",
+    "Polar water, hydrophobic and hydrophilic regions"
+  ],
+  "objectives": [
+    "Draw an amino acid and the peptide-bond condensation",
+    "Explain dietary, sequence and denaturation principles",
+    "At HL, connect R groups and structural levels to functional shape"
+  ],
+  "learningPath": [
+    "Build a chain",
+    "Supply and vary residues",
+    "Fold and denature",
+    "Advanced structure and function"
+  ],
+  "sections": [
+    {
+      "id": "b12-1",
+      "understandingIds": [
+        "B1.2.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What stays the same when you change the amino acid?",
+      "explanation": "Every standard protein-building amino acid has an alpha carbon attached to four groups: an amine group, a carboxyl group, a hydrogen atom and a variable side chain called R. A generalized school-level drawing writes H2N–CH(R)–COOH.\n\nThe R group differs between amino acids, allowing a range of chemical properties. In water at many biological pH values, the amine and carboxyl groups can occur in ionized forms; the conventional uncharged diagram is a useful generalized drawing model rather than the only physical form.",
+      "revisionSummary": "Draw an alpha carbon with amine, carboxyl, H and variable R groups.",
+      "terms": [
+        "Alpha carbon: central carbon in the generalized amino-acid structure",
+        "R group: variable side chain"
+      ],
+      "workedExample": "Replace one R group with a different one: the generalized backbone remains, but the amino-acid identity changes.",
+      "misconceptions": [
+        {
+          "misconception": "Every amino acid has four different R groups.",
+          "correction": "There is one variable R group per alpha carbon; the other attachments are specified."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Every standard protein-building amino acid has an alpha carbon attached to four groups: an amine group, a carboxyl group, a hydrogen atom and a variable side chain called R. A generalized school-level drawing writes H2N–CH(R)–COOH.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "claim": "The R group differs between amino acids, allowing a range of chemical properties. In water at many biological pH values, the amine and carboxyl groups can occur in ionized forms; the conventional uncharged diagram is a useful generalized drawing model rather than the only physical form.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-1",
+          "prompt": "Which group varies between amino acids?",
+          "understandingIds": [
+            "B1.2.1"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "R group",
+              "correct": true,
+              "feedback": "Correct: There is one variable R group per alpha carbon; the other attachments are specified."
+            },
+            {
+              "id": "b",
+              "text": "Alpha carbon",
+              "correct": false,
+              "feedback": "Not quite: There is one variable R group per alpha carbon; the other attachments are specified."
+            },
+            {
+              "id": "c",
+              "text": "Backbone hydrogen",
+              "correct": false,
+              "feedback": "Not quite: There is one variable R group per alpha carbon; the other attachments are specified."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-1",
+          "prompt": "Draw a generalized amino acid, labelling the four attachments to the alpha carbon.",
+          "answer": "Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms).",
+          "explanation": "Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms).",
+          "understandingIds": [
+            "B1.2.1"
+          ]
+        }
+      ],
+      "guidePage": 50,
+      "pdfPage": 56,
+      "textbook": {
+        "referenceId": "hodder-b12-sl",
+        "printedPages": [
+          205,
+          206
+        ],
+        "pdfPages": [
+          217,
+          218
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Locate the central carbon",
+          "explanation": "Every standard protein-building amino acid has an alpha carbon attached to four groups: an amine group, a carboxyl group, a hydrogen atom and a variable side chain called R. A generalized school-level drawing writes H2N–CH(R)–COOH.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "title": "Change R, change the identity",
+          "explanation": "The R group differs between amino acids, allowing a range of chemical properties. In water at many biological pH values, the amine and carboxyl groups can occur in ionized forms; the conventional uncharged diagram is a useful generalized drawing model rather than the only physical form.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-2",
+      "understandingIds": [
+        "B1.2.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Where does the new bond form when amino acids join?",
+      "explanation": "The carboxyl group of one amino acid and amine group of another react in condensation. A water molecule is produced as the new covalent C–N peptide bond forms in the –C(=O)–NH– linkage.\n\nWord equation: amino acid + amino acid → dipeptide + water. A simplified generalized product is H2N–CH(R1)–C(=O)–NH–CH(R2)–COOH. Repeated condensation reactions can extend a chain to a polypeptide; the R groups remain attached to their respective alpha carbons.",
+      "revisionSummary": "Carboxyl + amine react: peptide bond forms and water is produced; amino acid + amino acid → dipeptide + water.",
+      "terms": [
+        "Peptide bond: covalent –C(=O)–NH– linkage",
+        "Dipeptide: two linked amino-acid residues"
+      ],
+      "workedExample": "Build a three-residue chain by performing a second condensation after forming the first dipeptide.",
+      "misconceptions": [
+        {
+          "misconception": "A peptide bond is a hydrogen bond between two R groups.",
+          "correction": "It is a covalent bond formed between backbone carbonyl carbon and nitrogen; folding hydrogen bonds are different."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The carboxyl group of one amino acid and amine group of another react in condensation. A water molecule is produced as the new covalent C–N peptide bond forms in the –C(=O)–NH– linkage.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "claim": "Word equation: amino acid + amino acid → dipeptide + water. A simplified generalized product is H2N–CH(R1)–C(=O)–NH–CH(R2)–COOH. Repeated condensation reactions can extend a chain to a polypeptide; the R groups remain attached to their respective alpha carbons.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-2",
+          "prompt": "Which bond forms in a peptide condensation?",
+          "understandingIds": [
+            "B1.2.2"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Covalent C–N peptide bond",
+              "correct": true,
+              "feedback": "Correct: It is a covalent bond formed between backbone carbonyl carbon and nitrogen; folding hydrogen bonds are different."
+            },
+            {
+              "id": "b",
+              "text": "Interchain hydrogen bond",
+              "correct": false,
+              "feedback": "Not quite: It is a covalent bond formed between backbone carbonyl carbon and nitrogen; folding hydrogen bonds are different."
+            },
+            {
+              "id": "c",
+              "text": "Glycosidic C–O bond",
+              "correct": false,
+              "feedback": "Not quite: It is a covalent bond formed between backbone carbonyl carbon and nitrogen; folding hydrogen bonds are different."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-2",
+          "prompt": "Write the word equation and draw a two-amino-acid generalized condensation product.",
+          "answer": "Amino acid + amino acid → dipeptide + water; product has a –C(=O)–NH– peptide linkage between residues.",
+          "explanation": "Amino acid + amino acid → dipeptide + water; product has a –C(=O)–NH– peptide linkage between residues.",
+          "understandingIds": [
+            "B1.2.2"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-sl",
+        "printedPages": [
+          206,
+          207
+        ],
+        "pdfPages": [
+          218,
+          219
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Identify the reacting groups",
+          "explanation": "The carboxyl group of one amino acid and amine group of another react in condensation. A water molecule is produced as the new covalent C–N peptide bond forms in the –C(=O)–NH– linkage.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "title": "Draw the product, then extend it",
+          "explanation": "Word equation: amino acid + amino acid → dipeptide + water. A simplified generalized product is H2N–CH(R1)–C(=O)–NH–CH(R2)–COOH. Repeated condensation reactions can extend a chain to a polypeptide; the R groups remain attached to their respective alpha carbons.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ],
+      "explorer": {
+        "title": "Peptide bond prediction",
+        "prompt": "Inspect which functional groups react, then select a stage to test your mechanism.",
+        "features": [
+          {
+            "id": "reactants",
+            "label": "Before joining",
+            "explanation": "The two amino acids have a carboxyl group on one molecule and an amine group on the other available for reaction."
+          },
+          {
+            "id": "products",
+            "label": "After joining",
+            "explanation": "The new covalent –C(=O)–NH– bond links the residues; a molecule of water is formed."
+          },
+          {
+            "id": "another",
+            "label": "Extend the chain",
+            "explanation": "Another amino acid can condense with a free terminal group to lengthen the polypeptide."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b12-3",
+      "understandingIds": [
+        "B1.2.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why can a person eating only plants still obtain all needed amino acids?",
+      "explanation": "Essential amino acids cannot be synthesized in sufficient amounts by the human body and must be supplied by food. Non-essential amino acids can be synthesized through metabolism, including from precursors related to other amino acids. The guide does not require memorizing named examples or counts.\n\nA vegan diet can provide the required essential amino acids through adequate amounts and an appropriate range of plant proteins, such as legumes, grains, seeds and other protein-containing foods. Exact dietary adequacy depends on intake, digestibility and life stage; eating every protein source in one meal is not a requirement.",
+      "revisionSummary": "Essential amino acids require dietary intake; non-essential amino acids can be synthesized. Vegan diets need sufficient suitable protein variety.",
+      "terms": [
+        "Essential amino acid: dietary requirement because synthesis is inadequate",
+        "Non-essential amino acid: can be synthesized metabolically"
+      ],
+      "workedExample": "A person can include legumes and grains across meals to improve overall essential-amino-acid coverage.",
+      "misconceptions": [
+        {
+          "misconception": "A vegan diet cannot provide all essential amino acids.",
+          "correction": "Plant foods collectively can supply them when variety and adequate intake are planned."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Essential amino acids cannot be synthesized in sufficient amounts by the human body and must be supplied by food. Non-essential amino acids can be synthesized through metabolism, including from precursors related to other amino acids. The guide does not require memorizing named examples or counts.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "claim": "A vegan diet can provide the required essential amino acids through adequate amounts and an appropriate range of plant proteins, such as legumes, grains, seeds and other protein-containing foods. Exact dietary adequacy depends on intake, digestibility and life stage; eating every protein source in one meal is not a requirement.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-3",
+          "prompt": "Which amino acids must be supplied in food?",
+          "understandingIds": [
+            "B1.2.3"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Essential",
+              "correct": true,
+              "feedback": "Correct: Plant foods collectively can supply them when variety and adequate intake are planned."
+            },
+            {
+              "id": "b",
+              "text": "All non-essential only",
+              "correct": false,
+              "feedback": "Not quite: Plant foods collectively can supply them when variety and adequate intake are planned."
+            },
+            {
+              "id": "c",
+              "text": "Only those with charged R groups",
+              "correct": false,
+              "feedback": "Not quite: Plant foods collectively can supply them when variety and adequate intake are planned."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-3",
+          "prompt": "Define essential and non-essential amino acids without naming examples.",
+          "answer": "Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body.",
+          "explanation": "Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body.",
+          "understandingIds": [
+            "B1.2.3"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-sl",
+        "printedPages": [
+          208,
+          209
+        ],
+        "pdfPages": [
+          220,
+          221
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Separate two dietary categories",
+          "explanation": "Essential amino acids cannot be synthesized in sufficient amounts by the human body and must be supplied by food. Non-essential amino acids can be synthesized through metabolism, including from precursors related to other amino acids. The guide does not require memorizing named examples or counts.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "title": "Plan a sufficient range of sources",
+          "explanation": "A vegan diet can provide the required essential amino acids through adequate amounts and an appropriate range of plant proteins, such as legumes, grains, seeds and other protein-containing foods. Exact dietary adequacy depends on intake, digestibility and life stage; eating every protein source in one meal is not a requirement.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-4",
+      "understandingIds": [
+        "B1.2.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How many different chains can be made from 20 amino-acid choices?",
+      "explanation": "The genetic code specifies 20 standard amino-acid kinds for ordinary protein synthesis. Each position in a peptide chain can contain a different one, and chains range from short peptides to thousands of residues.\n\nTwo peptides containing the same kinds and numbers of amino acids may differ in sequence and therefore in properties and folding. Length and order create an enormous range of possible chains. For a fixed length n, the simple theoretical number of sequences is 20 to the power n; living systems make a limited subset.",
+      "revisionSummary": "The 20 genetically encoded amino acids can appear in many lengths and orders, producing enormous sequence diversity.",
+      "terms": [
+        "Sequence: order of amino acids in a chain",
+        "Polypeptide: chain of amino-acid residues"
+      ],
+      "workedExample": "Two three-residue chains A–B–C and C–B–A contain the same set but differ in sequence.",
+      "misconceptions": [
+        {
+          "misconception": "Changing the order of identical amino-acid sets cannot alter protein properties.",
+          "correction": "Sequence positions influence chemical interactions and eventual shape."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The genetic code specifies 20 standard amino-acid kinds for ordinary protein synthesis. Each position in a peptide chain can contain a different one, and chains range from short peptides to thousands of residues.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "claim": "Two peptides containing the same kinds and numbers of amino acids may differ in sequence and therefore in properties and folding. Length and order create an enormous range of possible chains. For a fixed length n, the simple theoretical number of sequences is 20 to the power n; living systems make a limited subset.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-4",
+          "prompt": "Which two chains differ in sequence?",
+          "understandingIds": [
+            "B1.2.4"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "A–B–C and C–B–A",
+              "correct": true,
+              "feedback": "Correct: Sequence positions influence chemical interactions and eventual shape."
+            },
+            {
+              "id": "b",
+              "text": "A–B–C and A–B–C",
+              "correct": false,
+              "feedback": "Not quite: Sequence positions influence chemical interactions and eventual shape."
+            },
+            {
+              "id": "c",
+              "text": "A–B–C printed twice",
+              "correct": false,
+              "feedback": "Not quite: Sequence positions influence chemical interactions and eventual shape."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-4",
+          "prompt": "Give two independent sources of diversity among polypeptides.",
+          "answer": "Different chain length and different amino-acid order among 20 standard encoded types.",
+          "explanation": "Different chain length and different amino-acid order among 20 standard encoded types.",
+          "understandingIds": [
+            "B1.2.4"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-sl",
+        "printedPages": [
+          209
+        ],
+        "pdfPages": [
+          221
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "A chain has positions",
+          "explanation": "The genetic code specifies 20 standard amino-acid kinds for ordinary protein synthesis. Each position in a peptide chain can contain a different one, and chains range from short peptides to thousands of residues.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "title": "Order matters, not just ingredients",
+          "explanation": "Two peptides containing the same kinds and numbers of amino acids may differ in sequence and therefore in properties and folding. Length and order create an enormous range of possible chains. For a fixed length n, the simple theoretical number of sequences is 20 to the power n; living systems make a limited subset.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-5",
+      "understandingIds": [
+        "B1.2.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why can an enzyme stop functioning without its peptide backbone being cut?",
+      "explanation": "A protein's three-dimensional structure is stabilized by multiple interactions. Increased temperature can disrupt stabilizing interactions; a change in pH can alter protonation and charges of side chains, changing attractive and repulsive forces.\n\nDenaturation is a loss or alteration of native protein conformation that can diminish function. It usually does not involve hydrolysis of the peptide backbone, and not every denaturation event is irreversible. Different proteins vary in stability, optimum conditions and ability to refold.",
+      "revisionSummary": "Temperature and pH can change protein conformation and function; denaturation need not break peptide bonds and can sometimes reverse.",
+      "terms": [
+        "Denaturation: disruption of native conformation",
+        "pH: measure related to hydrogen-ion activity"
+      ],
+      "workedExample": "An enzyme may lose its active-site geometry after strong heating even while its amino-acid sequence remains intact.",
+      "misconceptions": [
+        {
+          "misconception": "Denaturation always destroys the peptide-bonded primary sequence.",
+          "correction": "Often the chain remains covalently connected while higher-order interactions are disrupted."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A protein's three-dimensional structure is stabilized by multiple interactions. Increased temperature can disrupt stabilizing interactions; a change in pH can alter protonation and charges of side chains, changing attractive and repulsive forces.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "claim": "Denaturation is a loss or alteration of native protein conformation that can diminish function. It usually does not involve hydrolysis of the peptide backbone, and not every denaturation event is irreversible. Different proteins vary in stability, optimum conditions and ability to refold.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-5",
+          "prompt": "During many denaturation events, what stays intact?",
+          "understandingIds": [
+            "B1.2.5"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Primary peptide backbone",
+              "correct": true,
+              "feedback": "Correct: Often the chain remains covalently connected while higher-order interactions are disrupted."
+            },
+            {
+              "id": "b",
+              "text": "Every noncovalent interaction",
+              "correct": false,
+              "feedback": "Not quite: Often the chain remains covalently connected while higher-order interactions are disrupted."
+            },
+            {
+              "id": "c",
+              "text": "The exact functional 3D shape",
+              "correct": false,
+              "feedback": "Not quite: Often the chain remains covalently connected while higher-order interactions are disrupted."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-5",
+          "prompt": "Explain one way temperature and one way pH can cause denaturation.",
+          "answer": "Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds.",
+          "explanation": "Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds.",
+          "understandingIds": [
+            "B1.2.5"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-sl",
+        "printedPages": [
+          209,
+          210
+        ],
+        "pdfPages": [
+          221,
+          222
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Function depends on shape",
+          "explanation": "A protein's three-dimensional structure is stabilized by multiple interactions. Increased temperature can disrupt stabilizing interactions; a change in pH can alter protonation and charges of side chains, changing attractive and repulsive forces.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        },
+        {
+          "title": "Name the outcome carefully",
+          "explanation": "Denaturation is a loss or alteration of native protein conformation that can diminish function. It usually does not involve hydrolysis of the peptide backbone, and not every denaturation event is irreversible. Different proteins vary in stability, optimum conditions and ability to refold.",
+          "referenceIds": [
+            "ib-b12-sl",
+            "hodder-b12-sl",
+            "openstax-protein"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-6",
+      "understandingIds": [
+        "B1.2.6"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why can two proteins with similar backbones behave differently in water?",
+      "explanation": "Some R groups are hydrophobic; others are hydrophilic. Among hydrophilic R groups, some are polar but uncharged while others can carry positive or negative charge. Acidic groups can donate H+ and basic groups can accept H+, with charge depending on conditions.\n\nAn R group that forms strong interactions with water favours a different environment from a non-polar R group. A combination of charged, polar and non-polar positions enables specific intramolecular interactions and molecular recognition. No named R-group examples are required by this understanding.",
+      "revisionSummary": "R groups may be hydrophobic, polar hydrophilic, or ionizable acidic/basic; chemistry of side chains drives properties.",
+      "terms": [
+        "Ionizable: can gain or lose H+ under different conditions",
+        "Polar side chain: unequal charge distribution",
+        "Acidic/basic: tendency to donate/accept H+"
+      ],
+      "workedExample": "A hydrophobic patch is more compatible with a lipid-rich environment than with bulk water.",
+      "misconceptions": [
+        {
+          "misconception": "All hydrophilic R groups are permanently charged.",
+          "correction": "Some are polar and uncharged; others may ionize depending on pH."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Some R groups are hydrophobic; others are hydrophilic. Among hydrophilic R groups, some are polar but uncharged while others can carry positive or negative charge. Acidic groups can donate H+ and basic groups can accept H+, with charge depending on conditions.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "claim": "An R group that forms strong interactions with water favours a different environment from a non-polar R group. A combination of charged, polar and non-polar positions enables specific intramolecular interactions and molecular recognition. No named R-group examples are required by this understanding.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-6",
+          "prompt": "Which R group could be hydrophilic without net charge?",
+          "understandingIds": [
+            "B1.2.6"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Polar uncharged",
+              "correct": true,
+              "feedback": "Correct: Some are polar and uncharged; others may ionize depending on pH."
+            },
+            {
+              "id": "b",
+              "text": "Every non-polar hydrocarbon",
+              "correct": false,
+              "feedback": "Not quite: Some are polar and uncharged; others may ionize depending on pH."
+            },
+            {
+              "id": "c",
+              "text": "All R groups permanently negative",
+              "correct": false,
+              "feedback": "Not quite: Some are polar and uncharged; others may ionize depending on pH."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-6",
+          "prompt": "Classify possible R-group types required at HL.",
+          "answer": "Hydrophobic or hydrophilic; hydrophilic groups may be polar uncharged or charged, with acidic or basic behavior.",
+          "explanation": "Hydrophobic or hydrophilic; hydrophilic groups may be polar uncharged or charged, with acidic or basic behavior.",
+          "understandingIds": [
+            "B1.2.6"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-hl",
+        "printedPages": [
+          211
+        ],
+        "pdfPages": [
+          223
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Classify the side chain, not the backbone",
+          "explanation": "Some R groups are hydrophobic; others are hydrophilic. Among hydrophilic R groups, some are polar but uncharged while others can carry positive or negative charge. Acidic groups can donate H+ and basic groups can accept H+, with charge depending on conditions.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "title": "Use this chemistry to predict interactions",
+          "explanation": "An R group that forms strong interactions with water favours a different environment from a non-polar R group. A combination of charged, polar and non-polar positions enables specific intramolecular interactions and molecular recognition. No named R-group examples are required by this understanding.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-7",
+      "understandingIds": [
+        "B1.2.7"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How can changing one position in a sequence affect a whole protein?",
+      "explanation": "Primary structure describes the order of amino-acid residues along a polypeptide, joined by peptide bonds. Each residue's position determines which R group appears at that place along the chain.\n\nSide-chain identity and position determine what local and distant interactions can form as a chain folds. Under suitable conditions, many proteins reproducibly reach characteristic three-dimensional structures, often assisted in cells by chaperones; some are flexible or intrinsically disordered rather than one rigid shape.",
+      "revisionSummary": "The precise sequence positions define possible R-group interactions and strongly determine reproducible protein conformations.",
+      "terms": [
+        "Primary structure: ordered amino-acid sequence",
+        "Conformation: three-dimensional arrangement"
+      ],
+      "workedExample": "Substituting a charged side chain for a hydrophobic one can disrupt an internal stabilizing interaction.",
+      "misconceptions": [
+        {
+          "misconception": "Primary structure refers to the number of chains in a protein.",
+          "correction": "That is related to quaternary structure, where present; primary refers to residue sequence."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Primary structure describes the order of amino-acid residues along a polypeptide, joined by peptide bonds. Each residue's position determines which R group appears at that place along the chain.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "claim": "Side-chain identity and position determine what local and distant interactions can form as a chain folds. Under suitable conditions, many proteins reproducibly reach characteristic three-dimensional structures, often assisted in cells by chaperones; some are flexible or intrinsically disordered rather than one rigid shape.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-7",
+          "prompt": "Which best defines primary structure?",
+          "understandingIds": [
+            "B1.2.7"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Exact amino-acid sequence",
+              "correct": true,
+              "feedback": "Correct: That is related to quaternary structure, where present; primary refers to residue sequence."
+            },
+            {
+              "id": "b",
+              "text": "Only alpha helices",
+              "correct": false,
+              "feedback": "Not quite: That is related to quaternary structure, where present; primary refers to residue sequence."
+            },
+            {
+              "id": "c",
+              "text": "Number of polypeptide subunits",
+              "correct": false,
+              "feedback": "Not quite: That is related to quaternary structure, where present; primary refers to residue sequence."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-7",
+          "prompt": "Describe the causal link between amino-acid sequence and conformation.",
+          "answer": "Sequence fixes each side chain's identity and position, determining which interactions and folds are possible.",
+          "explanation": "Sequence fixes each side chain's identity and position, determining which interactions and folds are possible.",
+          "understandingIds": [
+            "B1.2.7"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-hl",
+        "printedPages": [
+          212
+        ],
+        "pdfPages": [
+          224
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Primary means exact sequence",
+          "explanation": "Primary structure describes the order of amino-acid residues along a polypeptide, joined by peptide bonds. Each residue's position determines which R group appears at that place along the chain.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "title": "A different sequence changes interaction opportunities",
+          "explanation": "Side-chain identity and position determine what local and distant interactions can form as a chain folds. Under suitable conditions, many proteins reproducibly reach characteristic three-dimensional structures, often assisted in cells by chaperones; some are flexible or intrinsically disordered rather than one rigid shape.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-8",
+      "understandingIds": [
+        "B1.2.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What holds a regular helix or pleated sheet together?",
+      "explanation": "Segments of a polypeptide backbone can coil into alpha helices or lie in extended beta strands that assemble into pleated sheets. These are patterns of secondary structure, not separate polypeptide species.\n\nHydrogen bonds form at regular positions between backbone C=O and N–H groups, stabilizing helices and sheets. Beta sheets may align strands from distant regions of a chain or separate chains. R groups influence which patterns are possible, but the characteristic repeated hydrogen bonds involve the backbone.",
+      "revisionSummary": "Alpha helices and beta-pleated sheets are stabilised by regular backbone hydrogen bonds.",
+      "terms": [
+        "Alpha helix: spiral backbone arrangement",
+        "Beta sheet: hydrogen-bonded extended strands",
+        "Backbone: repeated atom chain excluding R groups"
+      ],
+      "workedExample": "Point out repeated backbone C=O···H–N hydrogen bonding along a helix or between sheet strands.",
+      "misconceptions": [
+        {
+          "misconception": "Secondary structure is stabilized exclusively by disulfide bonds between R groups.",
+          "correction": "Regular backbone hydrogen bonds are the defining stabilizer of these shapes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Segments of a polypeptide backbone can coil into alpha helices or lie in extended beta strands that assemble into pleated sheets. These are patterns of secondary structure, not separate polypeptide species.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "claim": "Hydrogen bonds form at regular positions between backbone C=O and N–H groups, stabilizing helices and sheets. Beta sheets may align strands from distant regions of a chain or separate chains. R groups influence which patterns are possible, but the characteristic repeated hydrogen bonds involve the backbone.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-8",
+          "prompt": "Which bonds chiefly stabilize regular secondary structures?",
+          "understandingIds": [
+            "B1.2.8"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Backbone hydrogen bonds",
+              "correct": true,
+              "feedback": "Correct: Regular backbone hydrogen bonds are the defining stabilizer of these shapes."
+            },
+            {
+              "id": "b",
+              "text": "Glycosidic bonds between sugars",
+              "correct": false,
+              "feedback": "Not quite: Regular backbone hydrogen bonds are the defining stabilizer of these shapes."
+            },
+            {
+              "id": "c",
+              "text": "Ester bonds between fatty acids",
+              "correct": false,
+              "feedback": "Not quite: Regular backbone hydrogen bonds are the defining stabilizer of these shapes."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-8",
+          "prompt": "Distinguish alpha helix from beta sheet and identify the participating bonding groups.",
+          "answer": "Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond.",
+          "explanation": "Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond.",
+          "understandingIds": [
+            "B1.2.8"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-hl",
+        "printedPages": [
+          213,
+          214
+        ],
+        "pdfPages": [
+          225,
+          226
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Recognize two repeated shapes",
+          "explanation": "Segments of a polypeptide backbone can coil into alpha helices or lie in extended beta strands that assemble into pleated sheets. These are patterns of secondary structure, not separate polypeptide species.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "title": "Identify the stabilizing force",
+          "explanation": "Hydrogen bonds form at regular positions between backbone C=O and N–H groups, stabilizing helices and sheets. Beta sheets may align strands from distant regions of a chain or separate chains. R groups influence which patterns are possible, but the characteristic repeated hydrogen bonds involve the backbone.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "explorer": {
+        "title": "Interpret secondary-structure bonds",
+        "prompt": "Predict the defining source of stability for each structure.",
+        "features": [
+          {
+            "id": "helix",
+            "label": "Alpha helix",
+            "explanation": "Repeating backbone C=O···H–N hydrogen bonds stabilize a coil."
+          },
+          {
+            "id": "sheet",
+            "label": "Beta sheet",
+            "explanation": "Hydrogen bonds between neighboring extended backbone strands stabilize a pleated arrangement."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b12-9",
+      "understandingIds": [
+        "B1.2.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How do distant parts of one chain hold a 3D fold?",
+      "explanation": "Tertiary structure is the overall three-dimensional arrangement of a polypeptide. Side chains that were far apart in the linear sequence can approach as the chain folds. Hydrogen bonds, hydrophobic interactions and ionic attractions can stabilize their arrangement.\n\nIonizable amine- or carboxyl-containing R groups can gain or lose H+ and form attraction between opposite charges. Disulfide bonds are strong covalent links formed between pairs of cysteine side chains. A disulfide bond is distinct from a peptide bond linking consecutive backbone residues.",
+      "revisionSummary": "Tertiary folding uses hydrogen bonds, ionic attractions, hydrophobic interactions and cysteine disulfide covalent bonds.",
+      "terms": [
+        "Ionic attraction: attraction between opposite charges",
+        "Disulfide bond: covalent S–S link between cysteine side chains",
+        "Hydrophobic effect: non-polar groups cluster away from water"
+      ],
+      "workedExample": "A change in pH may alter a side chain's charge, disrupting an ionic attraction and protein conformation.",
+      "misconceptions": [
+        {
+          "misconception": "All tertiary-structure bonds are the same covalent peptide bond.",
+          "correction": "Peptide bonds join the backbone; tertiary structure depends on different side-chain interactions, including occasional covalent disulfides."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Tertiary structure is the overall three-dimensional arrangement of a polypeptide. Side chains that were far apart in the linear sequence can approach as the chain folds. Hydrogen bonds, hydrophobic interactions and ionic attractions can stabilize their arrangement.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "claim": "Ionizable amine- or carboxyl-containing R groups can gain or lose H+ and form attraction between opposite charges. Disulfide bonds are strong covalent links formed between pairs of cysteine side chains. A disulfide bond is distinct from a peptide bond linking consecutive backbone residues.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-9",
+          "prompt": "Which R groups form disulfide bonds?",
+          "understandingIds": [
+            "B1.2.9"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "A pair of cysteine residues",
+              "correct": true,
+              "feedback": "Correct: Peptide bonds join the backbone; tertiary structure depends on different side-chain interactions, including occasional covalent disulfides."
+            },
+            {
+              "id": "b",
+              "text": "Any two glucose monomers",
+              "correct": false,
+              "feedback": "Not quite: Peptide bonds join the backbone; tertiary structure depends on different side-chain interactions, including occasional covalent disulfides."
+            },
+            {
+              "id": "c",
+              "text": "Glycerol and phosphate",
+              "correct": false,
+              "feedback": "Not quite: Peptide bonds join the backbone; tertiary structure depends on different side-chain interactions, including occasional covalent disulfides."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-9",
+          "prompt": "Name and explain four interactions stabilizing tertiary structure, including an ionization effect.",
+          "answer": "Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions.",
+          "explanation": "Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions.",
+          "understandingIds": [
+            "B1.2.9"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-hl",
+        "printedPages": [
+          214,
+          215,
+          216
+        ],
+        "pdfPages": [
+          226,
+          227,
+          228
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Bring sequence positions together",
+          "explanation": "Tertiary structure is the overall three-dimensional arrangement of a polypeptide. Side chains that were far apart in the linear sequence can approach as the chain folds. Hydrogen bonds, hydrophobic interactions and ionic attractions can stabilize their arrangement.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "title": "Do not confuse all bonds",
+          "explanation": "Ionizable amine- or carboxyl-containing R groups can gain or lose H+ and form attraction between opposite charges. Disulfide bonds are strong covalent links formed between pairs of cysteine side chains. A disulfide bond is distinct from a peptide bond linking consecutive backbone residues.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-10",
+      "understandingIds": [
+        "B1.2.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why are globular soluble proteins and membrane proteins arranged differently?",
+      "explanation": "Many soluble globular proteins fold so hydrophobic side chains cluster in their interior while polar or charged side chains interact with surrounding water. This is a tendency rather than an inviolable rule for every surface residue.\n\nA region of a membrane-spanning protein contacts the hydrophobic fatty-acid core of the lipid bilayer. Hydrophobic amino-acid side chains are therefore often exposed on membrane-contacting surfaces, while aqueous-facing regions may use hydrophilic groups. The same side-chain logic predicts different stable locations.",
+      "revisionSummary": "Soluble globular proteins often bury hydrophobic groups; membrane-embedded regions expose hydrophobic surfaces to lipids.",
+      "terms": [
+        "Globular protein: compact roughly globular protein",
+        "Integral membrane protein: embedded in a lipid bilayer"
+      ],
+      "workedExample": "Compare a soluble enzyme's water-facing outer surface with the membrane-spanning segment of a channel protein.",
+      "misconceptions": [
+        {
+          "misconception": "All hydrophobic residues are buried inside every protein.",
+          "correction": "Membrane proteins can expose hydrophobic residues toward the lipid bilayer."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Many soluble globular proteins fold so hydrophobic side chains cluster in their interior while polar or charged side chains interact with surrounding water. This is a tendency rather than an inviolable rule for every surface residue.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "claim": "A region of a membrane-spanning protein contacts the hydrophobic fatty-acid core of the lipid bilayer. Hydrophobic amino-acid side chains are therefore often exposed on membrane-contacting surfaces, while aqueous-facing regions may use hydrophilic groups. The same side-chain logic predicts different stable locations.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-10",
+          "prompt": "Which outer region of an integral membrane protein contacts membrane lipids?",
+          "understandingIds": [
+            "B1.2.10"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Hydrophobic side chains",
+              "correct": true,
+              "feedback": "Correct: Membrane proteins can expose hydrophobic residues toward the lipid bilayer."
+            },
+            {
+              "id": "b",
+              "text": "Only fully charged carboxyl groups",
+              "correct": false,
+              "feedback": "Not quite: Membrane proteins can expose hydrophobic residues toward the lipid bilayer."
+            },
+            {
+              "id": "c",
+              "text": "Free glucose monomers",
+              "correct": false,
+              "feedback": "Not quite: Membrane proteins can expose hydrophobic residues toward the lipid bilayer."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-10",
+          "prompt": "Compare placement of hydrophobic side chains in soluble globular and integral membrane proteins.",
+          "answer": "Soluble proteins often bury hydrophobic groups; membrane-embedded portions display them toward non-polar membrane tails.",
+          "explanation": "Soluble proteins often bury hydrophobic groups; membrane-embedded portions display them toward non-polar membrane tails.",
+          "understandingIds": [
+            "B1.2.10"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-hl",
+        "printedPages": [
+          216
+        ],
+        "pdfPages": [
+          228
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Water-soluble globular proteins",
+          "explanation": "Many soluble globular proteins fold so hydrophobic side chains cluster in their interior while polar or charged side chains interact with surrounding water. This is a tendency rather than an inviolable rule for every surface residue.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "title": "Integral membrane proteins",
+          "explanation": "A region of a membrane-spanning protein contacts the hydrophobic fatty-acid core of the lipid bilayer. Hydrophobic amino-acid side chains are therefore often exposed on membrane-contacting surfaces, while aqueous-facing regions may use hydrophilic groups. The same side-chain logic predicts different stable locations.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "explorer": {
+        "title": "What environment fits the side chain?",
+        "prompt": "Compare what happens to non-polar residues in water versus the lipid core.",
+        "features": [
+          {
+            "id": "soluble",
+            "label": "Water-soluble protein",
+            "explanation": "Hydrophobic groups often gather inside the folded protein while water-facing groups tend to be hydrophilic."
+          },
+          {
+            "id": "membrane",
+            "label": "Membrane-spanning segment",
+            "explanation": "Hydrophobic residues can face the surrounding phospholipid tails rather than water."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b12-11",
+      "understandingIds": [
+        "B1.2.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "When do multiple chains become one protein?",
+      "explanation": "Quaternary structure describes the spatial association of two or more polypeptide subunits. Not every functional protein needs multiple subunits. Non-conjugated proteins lack a non-protein prosthetic component; examples used here include insulin (two mature peptide chains) and collagen (three polypeptide chains in a triple helix).\n\nHaemoglobin is a conjugated globular protein with four polypeptide subunits and non-protein haem groups, each containing an iron ion for oxygen binding. The haem prosthetic groups make it conjugated; the arrangement of polypeptide subunits makes it quaternary. Do not confuse these two classifications.",
+      "revisionSummary": "Quaternary structure associates multiple chains. Insulin/collagen are non-conjugated examples; haemoglobin has haem prosthetic groups.",
+      "terms": [
+        "Quaternary structure: assembly of multiple polypeptide subunits",
+        "Conjugated protein: protein associated with a non-protein prosthetic group",
+        "Haem: iron-containing prosthetic group"
+      ],
+      "workedExample": "Separate the four globin polypeptides and four haem groups in a model of adult haemoglobin.",
+      "misconceptions": [
+        {
+          "misconception": "A conjugated protein is simply any protein with two polypeptide chains.",
+          "correction": "Conjugation concerns a non-protein component, while multiple subunits concern quaternary arrangement."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Quaternary structure describes the spatial association of two or more polypeptide subunits. Not every functional protein needs multiple subunits. Non-conjugated proteins lack a non-protein prosthetic component; examples used here include insulin (two mature peptide chains) and collagen (three polypeptide chains in a triple helix).",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "claim": "Haemoglobin is a conjugated globular protein with four polypeptide subunits and non-protein haem groups, each containing an iron ion for oxygen binding. The haem prosthetic groups make it conjugated; the arrangement of polypeptide subunits makes it quaternary. Do not confuse these two classifications.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-11",
+          "prompt": "Which is the prosthetic group in haemoglobin?",
+          "understandingIds": [
+            "B1.2.11"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Haem",
+              "correct": true,
+              "feedback": "Correct: Conjugation concerns a non-protein component, while multiple subunits concern quaternary arrangement."
+            },
+            {
+              "id": "b",
+              "text": "Collagen chain",
+              "correct": false,
+              "feedback": "Not quite: Conjugation concerns a non-protein component, while multiple subunits concern quaternary arrangement."
+            },
+            {
+              "id": "c",
+              "text": "Free glucose",
+              "correct": false,
+              "feedback": "Not quite: Conjugation concerns a non-protein component, while multiple subunits concern quaternary arrangement."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-11",
+          "prompt": "Why is haemoglobin classified as conjugated, and what makes its structure quaternary?",
+          "answer": "Its haem groups are non-protein components; its multiple globin chains form quaternary assembly.",
+          "explanation": "Its haem groups are non-protein components; its multiple globin chains form quaternary assembly.",
+          "understandingIds": [
+            "B1.2.11"
+          ]
+        }
+      ],
+      "guidePage": 51,
+      "pdfPage": 57,
+      "textbook": {
+        "referenceId": "hodder-b12-hl",
+        "printedPages": [
+          217,
+          218,
+          219,
+          220
+        ],
+        "pdfPages": [
+          229,
+          230,
+          231,
+          232
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Distinguish polypeptide and assembly",
+          "explanation": "Quaternary structure describes the spatial association of two or more polypeptide subunits. Not every functional protein needs multiple subunits. Non-conjugated proteins lack a non-protein prosthetic component; examples used here include insulin (two mature peptide chains) and collagen (three polypeptide chains in a triple helix).",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "title": "A conjugated example",
+          "explanation": "Haemoglobin is a conjugated globular protein with four polypeptide subunits and non-protein haem groups, each containing an iron ion for oxygen binding. The haem prosthetic groups make it conjugated; the arrangement of polypeptide subunits makes it quaternary. Do not confuse these two classifications.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b12-12",
+      "understandingIds": [
+        "B1.2.12"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why is insulin compact but collagen extended?",
+      "explanation": "Globular proteins are relatively compact and often soluble, suitable for roles such as molecular signaling. Insulin is a compact peptide hormone that can travel through aqueous extracellular fluids and bind specific receptors.\n\nCollagen is fibrous: three polypeptide chains form a rope-like triple helix that packs into strong fibrils in extracellular matrices. Its extended arrangement gives tensile strength to tissues. Shape is functionally significant, but function also depends on precise amino-acid chemistry and assembly.",
+      "revisionSummary": "Insulin is compact and signals; collagen forms extended strong triple-helical fibres for support.",
+      "terms": [
+        "Globular: compact three-dimensional shape",
+        "Fibrous: elongated structural protein",
+        "Tensile strength: resistance to pulling forces"
+      ],
+      "workedExample": "Insulin reaches target cells through circulation; collagen fibres help tendons resist tension.",
+      "misconceptions": [
+        {
+          "misconception": "Collagen is globular because all proteins fold into spheres.",
+          "correction": "Collagen is a fibrous protein with extended triple-helical molecules assembled into structural fibres."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Globular proteins are relatively compact and often soluble, suitable for roles such as molecular signaling. Insulin is a compact peptide hormone that can travel through aqueous extracellular fluids and bind specific receptors.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "claim": "Collagen is fibrous: three polypeptide chains form a rope-like triple helix that packs into strong fibrils in extracellular matrices. Its extended arrangement gives tensile strength to tissues. Shape is functionally significant, but function also depends on precise amino-acid chemistry and assembly.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b12-check-12",
+          "prompt": "Which protein is best known for tensile strength in connective tissue?",
+          "understandingIds": [
+            "B1.2.12"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Collagen",
+              "correct": true,
+              "feedback": "Correct: Collagen is a fibrous protein with extended triple-helical molecules assembled into structural fibres."
+            },
+            {
+              "id": "b",
+              "text": "Insulin",
+              "correct": false,
+              "feedback": "Not quite: Collagen is a fibrous protein with extended triple-helical molecules assembled into structural fibres."
+            },
+            {
+              "id": "c",
+              "text": "Free haem group",
+              "correct": false,
+              "feedback": "Not quite: Collagen is a fibrous protein with extended triple-helical molecules assembled into structural fibres."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b12-recall-12",
+          "prompt": "Compare shape and function of insulin and collagen.",
+          "answer": "Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength.",
+          "explanation": "Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength.",
+          "understandingIds": [
+            "B1.2.12"
+          ]
+        }
+      ],
+      "guidePage": 52,
+      "pdfPage": 58,
+      "textbook": {
+        "referenceId": "hodder-b12-hl",
+        "printedPages": [
+          220,
+          221,
+          222
+        ],
+        "pdfPages": [
+          232,
+          233,
+          234
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Compare the overall shape",
+          "explanation": "Globular proteins are relatively compact and often soluble, suitable for roles such as molecular signaling. Insulin is a compact peptide hormone that can travel through aqueous extracellular fluids and bind specific receptors.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        },
+        {
+          "title": "A long structural design",
+          "explanation": "Collagen is fibrous: three polypeptide chains form a rope-like triple helix that packs into strong fibrils in extracellular matrices. Its extended arrangement gives tensile strength to tissues. Shape is functionally significant, but function also depends on precise amino-acid chemistry and assembly.",
+          "referenceIds": [
+            "ib-b12-hl",
+            "hodder-b12-hl",
+            "openstax-protein",
+            "openstax-chem"
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "b12-paper1a-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.1"
+      ],
+      "level": "shared",
+      "prompt": "What is directly attached to the alpha carbon in a generalized protein-building amino acid?",
+      "marks": 1,
+      "sectionId": "b12-1",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Amine, carboxyl, hydrogen and R group",
+          "correct": true,
+          "feedback": "Correct: Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms)."
+        },
+        {
+          "id": "b",
+          "text": "Two phosphate groups and two fatty-acid tails",
+          "correct": false,
+          "feedback": "Not quite: Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms)."
+        },
+        {
+          "id": "c",
+          "text": "Glucose, glycerol, starch and glycogen",
+          "correct": false,
+          "feedback": "Not quite: Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms)."
+        },
+        {
+          "id": "d",
+          "text": "Four other alpha carbons joined by peptide bonds",
+          "correct": false,
+          "feedback": "Not quite: Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms)."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.2"
+      ],
+      "level": "shared",
+      "prompt": "A dipeptide is formed from two amino acids. What is produced in addition to the dipeptide?",
+      "marks": 1,
+      "sectionId": "b12-2",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Water",
+          "correct": true,
+          "feedback": "Correct: Amino acid + amino acid → dipeptide + water; product has a –C(=O)–NH– peptide linkage between residues."
+        },
+        {
+          "id": "b",
+          "text": "A fatty acid",
+          "correct": false,
+          "feedback": "Not quite: Amino acid + amino acid → dipeptide + water; product has a –C(=O)–NH– peptide linkage between residues."
+        },
+        {
+          "id": "c",
+          "text": "A phosphate group",
+          "correct": false,
+          "feedback": "Not quite: Amino acid + amino acid → dipeptide + water; product has a –C(=O)–NH– peptide linkage between residues."
+        },
+        {
+          "id": "d",
+          "text": "A glucose molecule",
+          "correct": false,
+          "feedback": "Not quite: Amino acid + amino acid → dipeptide + water; product has a –C(=O)–NH– peptide linkage between residues."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.3"
+      ],
+      "level": "shared",
+      "prompt": "Which dietary statement is best supported?",
+      "marks": 1,
+      "sectionId": "b12-3",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "A suitably planned vegan diet can provide all essential amino acids",
+          "correct": true,
+          "feedback": "Correct: Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body."
+        },
+        {
+          "id": "b",
+          "text": "Essential amino acids can always be synthesized from glucose",
+          "correct": false,
+          "feedback": "Not quite: Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body."
+        },
+        {
+          "id": "c",
+          "text": "Every plant protein is necessarily devoid of essential amino acids",
+          "correct": false,
+          "feedback": "Not quite: Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body."
+        },
+        {
+          "id": "d",
+          "text": "Only people eating animal products can synthesize proteins",
+          "correct": false,
+          "feedback": "Not quite: Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.4"
+      ],
+      "level": "shared",
+      "prompt": "What most directly permits many distinct peptides from the same 20 amino acids?",
+      "marks": 1,
+      "sectionId": "b12-4",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Different sequence order and chain length",
+          "correct": true,
+          "feedback": "Correct: Different chain length and different amino-acid order among 20 standard encoded types."
+        },
+        {
+          "id": "b",
+          "text": "Every amino acid forms exactly one unique peptide",
+          "correct": false,
+          "feedback": "Not quite: Different chain length and different amino-acid order among 20 standard encoded types."
+        },
+        {
+          "id": "c",
+          "text": "All peptide chains are always exactly 20 residues long",
+          "correct": false,
+          "feedback": "Not quite: Different chain length and different amino-acid order among 20 standard encoded types."
+        },
+        {
+          "id": "d",
+          "text": "Each peptide has only a single possible order",
+          "correct": false,
+          "feedback": "Not quite: Different chain length and different amino-acid order among 20 standard encoded types."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.5"
+      ],
+      "level": "shared",
+      "prompt": "Why can strongly heating an enzyme reduce its activity without producing free amino acids?",
+      "marks": 1,
+      "sectionId": "b12-5",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Native conformation is disrupted while peptide bonds often remain intact",
+          "correct": true,
+          "feedback": "Correct: Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds."
+        },
+        {
+          "id": "b",
+          "text": "All amino acids turn directly into lipids",
+          "correct": false,
+          "feedback": "Not quite: Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds."
+        },
+        {
+          "id": "c",
+          "text": "Heat creates new DNA bases inside the enzyme",
+          "correct": false,
+          "feedback": "Not quite: Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds."
+        },
+        {
+          "id": "d",
+          "text": "Enzyme activity never depends on shape",
+          "correct": false,
+          "feedback": "Not quite: Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.6"
+      ],
+      "level": "HL",
+      "prompt": "A side chain accepts a proton in suitable conditions. What behavior does this indicate?",
+      "marks": 1,
+      "sectionId": "b12-6",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It acts as a basic group and its charge can change",
+          "correct": true,
+          "feedback": "Correct: Hydrophobic or hydrophilic; hydrophilic groups may be polar uncharged or charged, with acidic or basic behavior."
+        },
+        {
+          "id": "b",
+          "text": "It must be a non-polar hydrocarbon",
+          "correct": false,
+          "feedback": "Not quite: Hydrophobic or hydrophilic; hydrophilic groups may be polar uncharged or charged, with acidic or basic behavior."
+        },
+        {
+          "id": "c",
+          "text": "It necessarily forms a peptide bond with another R group",
+          "correct": false,
+          "feedback": "Not quite: Hydrophobic or hydrophilic; hydrophilic groups may be polar uncharged or charged, with acidic or basic behavior."
+        },
+        {
+          "id": "d",
+          "text": "Its alpha-carbon bond must break",
+          "correct": false,
+          "feedback": "Not quite: Hydrophobic or hydrophilic; hydrophilic groups may be polar uncharged or charged, with acidic or basic behavior."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.7"
+      ],
+      "level": "HL",
+      "prompt": "Why can an amino-acid substitution alter the folded structure of a protein?",
+      "marks": 1,
+      "sectionId": "b12-7",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The substituted R group may change the interactions at its position",
+          "correct": true,
+          "feedback": "Correct: Sequence fixes each side chain's identity and position, determining which interactions and folds are possible."
+        },
+        {
+          "id": "b",
+          "text": "Primary structure is unrelated to side-chain chemistry",
+          "correct": false,
+          "feedback": "Not quite: Sequence fixes each side chain's identity and position, determining which interactions and folds are possible."
+        },
+        {
+          "id": "c",
+          "text": "All substitutions automatically sever every peptide bond",
+          "correct": false,
+          "feedback": "Not quite: Sequence fixes each side chain's identity and position, determining which interactions and folds are possible."
+        },
+        {
+          "id": "d",
+          "text": "All proteins require exactly four polypeptide chains",
+          "correct": false,
+          "feedback": "Not quite: Sequence fixes each side chain's identity and position, determining which interactions and folds are possible."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.8"
+      ],
+      "level": "HL",
+      "prompt": "Which interaction is a defining stabilizer of an alpha helix?",
+      "marks": 1,
+      "sectionId": "b12-8",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Hydrogen bonds between peptide backbone groups",
+          "correct": true,
+          "feedback": "Correct: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
+        },
+        {
+          "id": "b",
+          "text": "Ester links joining glycerol to fatty acids",
+          "correct": false,
+          "feedback": "Not quite: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
+        },
+        {
+          "id": "c",
+          "text": "Antigen–antibody binding",
+          "correct": false,
+          "feedback": "Not quite: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
+        },
+        {
+          "id": "d",
+          "text": "Phosphate covalent links between glucose units",
+          "correct": false,
+          "feedback": "Not quite: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.9"
+      ],
+      "level": "HL",
+      "prompt": "A protein loses an ionic interaction when pH changes. What is a likely molecular cause?",
+      "marks": 1,
+      "sectionId": "b12-9",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "An R group's protonation and charge have changed",
+          "correct": true,
+          "feedback": "Correct: Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions."
+        },
+        {
+          "id": "b",
+          "text": "Every peptide bond became a glycosidic bond",
+          "correct": false,
+          "feedback": "Not quite: Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions."
+        },
+        {
+          "id": "c",
+          "text": "A fatty acid tail was hydrolysed from the backbone",
+          "correct": false,
+          "feedback": "Not quite: Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions."
+        },
+        {
+          "id": "d",
+          "text": "Cysteine disulfide bonds necessarily vanished in all proteins",
+          "correct": false,
+          "feedback": "Not quite: Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.10"
+      ],
+      "level": "HL",
+      "prompt": "Which side-chain arrangement is favourable for a membrane-spanning protein segment?",
+      "marks": 1,
+      "sectionId": "b12-10",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Hydrophobic groups facing phospholipid tails",
+          "correct": true,
+          "feedback": "Correct: Soluble proteins often bury hydrophobic groups; membrane-embedded portions display them toward non-polar membrane tails."
+        },
+        {
+          "id": "b",
+          "text": "All polar groups facing the hydrophobic core",
+          "correct": false,
+          "feedback": "Not quite: Soluble proteins often bury hydrophobic groups; membrane-embedded portions display them toward non-polar membrane tails."
+        },
+        {
+          "id": "c",
+          "text": "The entire segment covered only in soluble glucose",
+          "correct": false,
+          "feedback": "Not quite: Soluble proteins often bury hydrophobic groups; membrane-embedded portions display them toward non-polar membrane tails."
+        },
+        {
+          "id": "d",
+          "text": "Exclusive reliance on peptide hydrolysis to enter the bilayer",
+          "correct": false,
+          "feedback": "Not quite: Soluble proteins often bury hydrophobic groups; membrane-embedded portions display them toward non-polar membrane tails."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.11"
+      ],
+      "level": "HL",
+      "prompt": "Which feature makes haemoglobin a conjugated protein?",
+      "marks": 1,
+      "sectionId": "b12-11",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Non-protein haem groups associated with its globin chains",
+          "correct": true,
+          "feedback": "Correct: Its haem groups are non-protein components; its multiple globin chains form quaternary assembly."
+        },
+        {
+          "id": "b",
+          "text": "The mere presence of four polypeptide subunits",
+          "correct": false,
+          "feedback": "Not quite: Its haem groups are non-protein components; its multiple globin chains form quaternary assembly."
+        },
+        {
+          "id": "c",
+          "text": "The presence of any peptide bond",
+          "correct": false,
+          "feedback": "Not quite: Its haem groups are non-protein components; its multiple globin chains form quaternary assembly."
+        },
+        {
+          "id": "d",
+          "text": "Its inability to carry oxygen",
+          "correct": false,
+          "feedback": "Not quite: Its haem groups are non-protein components; its multiple globin chains form quaternary assembly."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper1a-12",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B1.2.12"
+      ],
+      "level": "HL",
+      "prompt": "Why is collagen particularly suited to supporting connective tissue?",
+      "marks": 1,
+      "sectionId": "b12-12",
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Its extended triple-helical structure can assemble into strong fibres",
+          "correct": true,
+          "feedback": "Correct: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
+        },
+        {
+          "id": "b",
+          "text": "Its single globular shape always dissolves like glucose",
+          "correct": false,
+          "feedback": "Not quite: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
+        },
+        {
+          "id": "c",
+          "text": "It is built from glycerol and three fatty acids",
+          "correct": false,
+          "feedback": "Not quite: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
+        },
+        {
+          "id": "d",
+          "text": "It carries oxygen through non-protein haem groups",
+          "correct": false,
+          "feedback": "Not quite: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper2-bond",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B1.2.1",
+        "B1.2.2"
+      ],
+      "level": "shared",
+      "sectionId": "b12-2",
+      "prompt": "Draw two generalized amino acids, then draw the resulting dipeptide and write the word equation. Identify the new bond and what happens to water.",
+      "marks": 4,
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "answer": "Draw an alpha carbon with amine/carboxyl/H/R; generalized product H2N–CH(R1)–C(=O)–NH–CH(R2)–COOH; amino acid + amino acid → dipeptide + water; a covalent peptide C–N link forms with water released.",
+      "markingPoints": [
+        "Correct generalized reactants with central carbon and four attachments.",
+        "Correct dipeptide with intact R groups and –C(=O)–NH– link.",
+        "Correct word equation, amino acid + amino acid → dipeptide + water.",
+        "Identify covalent peptide bond formation and condensation with water release."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper2-denature",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B1.2.5"
+      ],
+      "level": "shared",
+      "sectionId": "b12-5",
+      "prompt": "An enzyme becomes inactive after incubation at unusually high temperature but analysis finds no loss of amino acids from the chain. Explain this observation and state whether activity can necessarily return on cooling.",
+      "marks": 3,
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "answer": "Heat can disrupt stabilizing interactions and native conformation, changing active-site geometry without breaking the peptide backbone. Cooling does not guarantee refolding; some proteins renature, others do not.",
+      "markingPoints": [
+        "Explain disruption of shape-stabilizing interactions by heat.",
+        "Explain loss of function through altered native shape or active site despite preserved primary chain.",
+        "State reversibility varies and cannot be assumed."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b12-paper2-hl-fold",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B1.2.9",
+        "B1.2.10"
+      ],
+      "level": "HL",
+      "sectionId": "b12-9",
+      "prompt": "A soluble globular protein is altered so an internal hydrophobic residue is replaced by a charged residue. Predict a possible effect on its fold, describing two types of interactions that may change.",
+      "marks": 4,
+      "referenceIds": [
+        "ib-b12-hl",
+        "hodder-b12-hl",
+        "openstax-protein",
+        "openstax-chem"
+      ],
+      "answer": "A buried charge may be unfavourable inside the hydrophobic core and change stability or conformation. It could disrupt hydrophobic packing and create or disrupt ionic/hydrogen-bond interactions, depending on local geometry and pH. The precise outcome cannot be predicted from substitution alone.",
+      "markingPoints": [
+        "Recognize buried hydrophobic groups commonly stabilize aqueous globular protein cores.",
+        "Describe possible disruption of hydrophobic packing.",
+        "Describe possible ionization-dependent ionic or hydrogen-bond effects.",
+        "State the outcome depends on context, not always complete denaturation."
+      ],
+      "review": "scientific-review"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-b12-sl",
+      "title": "IB Biology Guide, first assessment 2025 — B1.2 SL/HL",
+      "locator": "Printed pp. 50–51 / PDF pp. 56–57; B1.2.1–B1.2.5 and accompanying guidance",
+      "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "ib-b12-hl",
+      "title": "IB Biology Guide, first assessment 2025 — B1.2 additional HL",
+      "locator": "Printed pp. 51–52 / PDF pp. 57–58; B1.2.6–B1.2.12 and accompanying guidance",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
+    },
+    {
+      "id": "hodder-b12-sl",
+      "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, Third Edition (2023) — B1.2 core",
+      "locator": "Printed pp. 205–210 / PDF pp. 217–222",
+      "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-b12-hl",
+      "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, Third Edition (2023) — B1.2 higher level",
+      "locator": "Printed pp. 211–222 / PDF pp. 223–234",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
+    },
+    {
+      "id": "openstax-protein",
+      "title": "OpenStax Biology 2e — 3.4 Proteins",
+      "url": "https://openstax.org/books/biology-2e/pages/3-4-proteins",
+      "locator": "Amino acids, peptide bonds, folding, denaturation, protein structural levels",
+      "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "openstax-chem",
+      "title": "OpenStax Organic Chemistry — 26.9 Protein Structure",
+      "url": "https://openstax.org/books/organic-chemistry/pages/26-9-protein-structure",
+      "locator": "R-group interactions, aqueous protein folds, denaturation and reversibility",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
+    }
+  ],
+  "assets": [],
+  "review": {
+    "status": "scientific-review",
+    "sourceCheckedAt": "2026-10-16",
+    "reviewer": null,
+    "notes": [
+      "B1.2.1–B1.2.5 are shared SL/HL and B1.2.6–B1.2.12 additional HL; scoped sections and assessment keep the boundary.",
+      "Original content informed by IB Guide printed pp. 50–52, Hodder Third Edition printed pp. 205–222 and independent scientific corroboration.",
+      "One accessible third-party transcript for Sirius Revision B1.2 incorrectly reverses essential/nonessential amino-acid counts and another transcript assertion conflates stereochemical mirror images; neither is reproduced. Full original audiovisual review not established.",
+      "The textbook also contains approximate dietary counts; numeric amino-acid counts are deliberately omitted because the official guide does not require them.",
+      "Diagrams, assessment and biological claims require qualified independent review; no certification or examination scoring claim is made."
+    ]
+  },
+  "summary": "Amino-acid building blocks condense into many possible sequences; dietary supply and environment matter. At HL, R-group chemistry determines folding across primary, secondary, tertiary and multi-subunit structures; form enables insulin and collagen functions."
+}
