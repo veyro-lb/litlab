@@ -1,7 +1,8 @@
+.subject-bar{max-width:1200px;margin:0 auto;padding:14px 38px 0;display:flex;align-items:center}
 .subject-navigation{display:inline-flex;align-items:center;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--surface);gap:2px;flex-shrink:0}
-.subject-navigation a{padding:7px 10px;border-radius:7px;font-size:11px;font-weight:750;color:var(--muted)}
+.subject-navigation a{padding:7px 15px;border-radius:7px;font-size:11px;font-weight:750;color:var(--muted)}
 .subject-navigation a[aria-current=page]{background:var(--surface-2);color:var(--ink)}
 .topbar[data-subject=biology]{justify-content:initial;gap:25px}
 .topbar[data-subject=biology] .top-actions{margin-left:auto}
-@media(min-width:1101px) and (max-width:1380px){.topbar[data-subject=english] .subject-navigation a{padding:7px 6px}.topbar[data-subject=english]{gap:8px}}
-@media(max-width:560px){.subject-navigation a{padding:6px 7px;font-size:10px}.topbar[data-subject=biology]{gap:15px}}
+@media(max-width:900px){.subject-bar{padding:14px 25px 0}}
+@media(max-width:560px){.subject-bar{padding:12px 20px 0}}
