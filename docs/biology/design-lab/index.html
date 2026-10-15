@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="LitLab Biology standalone non-production design lab prototype">
+  <title>LitLab Biology — Design Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-theme="light">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#dashboard" aria-label="LitLab Biology prototype home"><svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true"><rect x="2" y="2" width="36" height="36" rx="11" fill="currentColor" opacity=".09"/><path d="M8 11h10c3 0 5 1 7 3v18c-2-2-4-3-7-3H8zM32 11H22c-3 0-5 1-7 3v18c2-2 4-3 7-3h10z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M18 7h7m-4 0v7l-6 10q-2 4 3 4h9q4 0 2-4l-6-10V7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Lit<span class="brand-strong">Lab</span><small>BIOLOGY</small></span></a>
+    <nav class="site-nav" aria-label="Prototype main navigation"><a href="#dashboard">Curriculum</a><a href="#topic">A1.1 Water</a></nav>
+    <div class="header-actions"><fieldset class="level-switch"><legend class="sr-only">Course level</legend><label><input type="radio" name="level" value="SL" checked><span>SL</span></label><label><input type="radio" name="level" value="HL"><span>HL</span></label></fieldset><button id="theme-toggle" class="icon-control" type="button" aria-label="Switch to dark theme" title="Change theme">◐</button></div>
+  </div></header>
+  <div class="prototype-ribbon" role="note"><div class="ribbon-inner"><span class="ribbon-dot" aria-hidden="true"></span><strong>Non-production UI/UX prototype</strong><span class="ribbon-separator" aria-hidden="true">·</span> Sample activities only. No grades, progress tracking, scientific sign-off, or live integration.</div></div>
+  <main id="main" tabindex="-1"><div id="app"></div></main>
+  <footer class="site-footer"><div class="foot-inner"><span>LitLab Biology · Independent design study</span><span>Not affiliated with or endorsed by the International Baccalaureate Organization.</span></div></footer>
+  <div class="dialog-root" id="figure-modal" hidden><div class="modal-backdrop" data-close="figure"></div><div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="figure-dialog-title"><div class="modal-bar"><h2 id="figure-dialog-title">Molecular structure — enlarged</h2><button type="button" class="plain-button" data-close="figure">Close ✕</button></div><div id="modal-figure"></div><p>The O–H covalent bonds are solid. The hydrogen bond between different water molecules is dashed. δ indicates partial charge. Diagram is schematic, not to scale.</p></div></div>
+</body>
+</html>
