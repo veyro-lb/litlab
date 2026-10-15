@@ -74,3 +74,9 @@
 @media(max-width:360px){.bio-app{padding-inline:16px}.bio-lesson-nav ol{grid-template-columns:1fr}.bio-lesson-content h2{font-size:26px}.bio-mode-nav>a{padding:10px 8px;font-size:12px}.bio-section-controls{flex-wrap:wrap}.bio-review-banner span{font-size:11px}}
 
 .bio-figure picture{display:block}.bio-figure picture>img{display:block;width:100%;height:auto;background:#f1f7f6}.bio-figure:has(img[src$=".jpg"]) picture>img{max-height:340px;object-fit:contain;background:#14202c}
+
+/* The prediction question is a reading prompt, not explanatory feedback or a decorative card. */
+.bio-explorer .bio-explorer-prompt{background:transparent;padding:0;margin:10px 0 18px;color:var(--ink);font-size:14px;line-height:1.75;max-width:66ch}
+.bio-explorer .bio-actions{display:flex;flex-wrap:wrap;gap:8px}
+.bio-explorer .bio-actions button{min-height:44px;white-space:normal;text-align:left}
+.bio-explorer .bio-actions button[aria-pressed=true]{outline:2px solid var(--bio-green);outline-offset:1px}

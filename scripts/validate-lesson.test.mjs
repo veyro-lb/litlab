@@ -15,6 +15,7 @@ for(const [name,change] of [
  ['wrong explanation return',d=>d.questions[0].sectionId='water-8'],
  ['blocks differ from claims',d=>d.sections[5].teachingBlocks[0].explanation='Different'],
  ['unknown enrichment evidence',d=>d.sections[5].enrichment.referenceIds=['missing']],
+ ['blank explorer prediction',d=>d.sections[3].explorer.prompt=''],
  ['unqualified approval',d=>d.review={...d.review,status:'approved'}],
  ['HL figure leakage',d=>d.assets[0].level='HL'],
  ['missing asset caption',d=>delete d.assets[0].captionTitle],
@@ -45,3 +46,29 @@ test('synthetic real renderer supports 3 sections, study modes and scoped practi
  assert.ok(!render(fixture,fixtureTopic,'SL','learn').includes('data-syllabus-id="B1.9.3"'));
 });
 test('synthetic all-HL topic validates and renders in HL',()=>{const t=structuredClone(fixtureTopic),d=structuredClone(fixture);t.level='HL';t.understandings.forEach(u=>u.level='HL');d.sections.forEach(s=>s.level='HL');d.questions.forEach(q=>q.level='HL');assert.deepEqual(validateLesson(d,t),[]);assert.ok(render(d,t,'HL','learn').includes('ADDITIONAL HL'));assert.ok(render(d,t,'SL','learn').includes('This topic is HL only'))});
+
+test('progressive Water teaching steps remain evidence-mapped and appear as readable headings',()=>{
+ for(const s of water.sections){
+  assert.ok(s.teachingBlocks?.length>=3,`${s.understandingIds[0]} needs distinct teaching steps`);
+  assert.equal(s.teachingBlocks.map(x=>x.explanation).join('\n\n'),s.explanation);
+  const html=render(water,topic,'HL','learn',s.understandingIds[0]);
+  for(const block of s.teachingBlocks)assert.ok(html.includes(block.title.replaceAll('&','&amp;')),`Missing ${block.title}`);
+ }
+});
+test('mechanism comparisons have prediction prompts and keyboard-native controls',()=>{
+ for(const id of ['A1.1.2','A1.1.4','A1.1.5','A1.1.6']){
+  const s=water.sections.find(x=>x.understandingIds.includes(id));
+  assert.ok(s.explorer?.prompt?.trim());
+  const html=render(water,topic,'HL','learn',id);
+  assert.ok(html.includes(s.explorer.title));
+  assert.ok(html.includes('role="group"'));
+  assert.ok(html.includes('aria-pressed'));
+ }
+});
+test('an HL-only or unknown deep link cannot reveal an SL practice target',()=>{
+ const hl=render(water,topic,'SL','practice','A1.1.8');
+ assert.ok(!hl.includes('Targeting A1.1.8'));
+ assert.ok(!hl.includes('data-syllabus-id="A1.1.8"'));
+ const invalid=render(water,topic,'SL','practice','A1.1.999');
+ assert.ok(!invalid.includes('Targeting A1.1.999'));
+});

@@ -12,7 +12,7 @@ export interface Section {
  interactions:Choice[];recall:Recall[];guidePage:number;pdfPage:number;
  textbook?:{referenceId:string;printedPages:number[];pdfPages:number[]};
  teachingBlocks?:TeachingBlock[];enrichment?:{title:string;text:string;referenceIds:string[]};
- explorer?:{title:string;features:{id:string;label:string;explanation:string}[]};
+ explorer?:{title:string;prompt?:string;features:{id:string;label:string;explanation:string}[]};
 }
 export interface Question {
  id:string;paper:'1A'|'1B'|'2';kind:string;original:true;understandingIds:string[];level:Scope;prompt:string;marks:number;
