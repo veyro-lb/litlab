@@ -300,6 +300,86 @@ try{
   await command('Page.navigate',{url:new URL('#books',base).toString()});await sleep(1050);
   await command('Page.navigate',{url:new URL('#glossary',base).toString()});await sleep(1100);
   await check('Books to Glossary restores React-owned main',async()=>await evaluate("location.hash==='#glossary'&&!document.querySelector('main[data-litlab-special-route-host]')&&!!document.querySelector('.glossary-tools')"));
+
+  // Phase 2 Biology uses a shadow tree owned by React, isolated from legacy enhancers.
+  const bio = "document.querySelector('[data-biology-host]')?.shadowRoot";
+  async function bioEval(expression){return evaluate(`(()=>{const root=${bio};if(!root)return false;return (${expression});})()`)}
+  async function waitBio(){
+    for(let i=0;i<50;i++){
+      if(await bioEval("!!root.querySelector('.bio-app')"))return;
+      await sleep(100);
+    }
+    throw new Error('Biology did not render');
+  }
+  await check('English navigation did not fetch the lazy Biology entry',async()=>await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/entry-[^/]+\\.js/.test(x.name))"));
+  await check('Subject switch opens Biology from English',async()=>{
+    const clicked=await evaluate("(()=>{const a=document.querySelector('.subject-navigation a[href=\"#biology\"]');if(!a)return false;a.click();return true})()");
+    await waitBio();return clicked&&await bioEval("root.querySelector('h1')?.textContent.includes('Life is connected')");
+  });
+  await check('SL curriculum contains exactly 34 topics and excludes six HL-only topics',async()=>await bioEval("root.querySelectorAll('[data-topic-id]').length===34&&!root.querySelector('[data-topic-id=\"A2.1\"]')&&!root.querySelector('[data-topic-id=\"D2.2\"]')"));
+  await check('Higher Level includes all 40 topics',async()=>{
+    await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(150);
+    return await bioEval("root.querySelectorAll('[data-topic-id]').length===40&&!!root.querySelector('[data-topic-id=\"A2.1\"]')");
+  });
+  await check('Curriculum search filters by official topic code',async()=>{
+    await evaluate(`(()=>{const root=${bio};const x=root.querySelector('input[type=search]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(x,'A1.1');x.dispatchEvent(new Event('input',{bubbles:true}));})()`);
+    await sleep(180);return await bioEval("root.querySelectorAll('[data-topic-id]').length===1&&!!root.querySelector('[data-topic-id=\"A1.1\"]')");
+  });
+  await check('Topic link opens the Water overview with 8 HL statements',async()=>{
+    await bioEval("(root.querySelector('[data-topic-id=\"A1.1\"]').click(),true)");await sleep(250);
+    return await bioEval("root.querySelectorAll('[data-understanding-id]').length===8&&root.querySelector('h1')?.textContent==='Water'");
+  });
+  await check('SL selection hides Water additional HL statements',async()=>{
+    await bioEval("(root.querySelector('input[value=SL]').click(),true)");await sleep(150);
+    return await bioEval("root.querySelectorAll('[data-understanding-id]').length===6&&!root.querySelector('[data-understanding-id=\"A1.1.7\"]')");
+  });
+  await check('Biology history and keyboard focus follow navigation',async()=>{
+    await evaluate("history.back()");await sleep(250);
+    const back=await evaluate("location.hash==='#biology'");
+    await evaluate("history.forward()");await sleep(250);
+    const focus=await bioEval("root.activeElement?.classList.contains('bio-app')");
+    return back&&focus&&await evaluate("location.hash==='#biology/topic/A1.1'");
+  });
+  // Exercise actual keyboard selection of the native radio group.
+  await check('SL/HL control supports keyboard selection',async()=>{
+    await bioEval("(root.querySelector('input[value=SL]').focus(),true)");
+    await command('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
+    await command('Input.dispatchKeyEvent',{type:'keyUp',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
+    await sleep(150);const ok=await bioEval("root.querySelector('input[value=HL]').checked&&root.querySelectorAll('[data-understanding-id]').length===8");
+    await bioEval("(root.querySelector('input[value=SL]').click(),true)");return ok;
+  });
+  const bioRoutes=['biology','biology/theme/A','biology/theme/B','biology/theme/C','biology/theme/D','biology/topic/A1.1','biology/topic/A2.1','biology/topic/Z9.9','biology/topic/A1.99'];
+  for(const viewport of viewports){
+    await command('Emulation.setDeviceMetricsOverride',{width:viewport.width,height:viewport.height,deviceScaleFactor:1,mobile:viewport.mobile,screenWidth:viewport.width,screenHeight:viewport.height});
+    for(const route of bioRoutes){
+      runtimeErrors.length=0;
+      await command('Page.navigate',{url:new URL('#'+route,base).toString()});await waitBio();await sleep(400);
+      await evaluate(closeAuthExpression);
+      await check(`Biology ${route} ${viewport.name} renders without overflow or exceptions`,async()=>{
+        const audit=await bioEval("({text:root.querySelector('.bio-app')?.textContent.length,width:root.querySelector('.bio-app')?.scrollWidth,view:document.documentElement.clientWidth,title:root.querySelector('h1,h2')?.textContent})");
+        return audit.text>150&&audit.width<=audit.view+2&&runtimeErrors.length===0&&await evaluate("document.documentElement.scrollWidth<=document.documentElement.clientWidth+2");
+      });
+      if(route==='biology/topic/Z9.9'||route==='biology/topic/A1.99')await check(`Unknown Biology topic stays in Biology (${route}, ${viewport.name})`,async()=>await bioEval("!!root.querySelector('.bio-empty h1')&&root.querySelector('.bio-empty h1').textContent.includes('isn’t on this map')"));
+      if(route==='biology/topic/A2.1')await check(`HL-only direct link respects SL (${viewport.name})`,async()=>await bioEval("root.querySelector('.bio-empty h2')?.textContent==='This topic is HL only'&&!root.querySelector('[data-understanding-id]')"));
+      const shot=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
+      await writeFile(join(outputDir,route.replaceAll('/','-')+'-'+viewport.name+'.png'),Buffer.from(shot.data,'base64'));
+    }
+    await command('Page.navigate',{url:new URL('#biology',base).toString()});await waitBio();await sleep(350);await evaluate(closeAuthExpression);
+    await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");await sleep(220);
+    await check(`Biology dark theme inherits design tokens (${viewport.name})`,async()=>await bioEval("getComputedStyle(root.querySelector('.bio-app')).getPropertyValue('--bg').trim()==='#0a0f1f'"));
+    const dark=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
+    await writeFile(join(outputDir,'biology-dark-'+viewport.name+'.png'),Buffer.from(dark.data,'base64'));
+    await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");
+  }
+  await check('Biology browsing preserves all six English progress values',async()=>{
+    const values=await evaluate("Object.fromEntries("+JSON.stringify(Object.keys(synthetic))+".map(k=>[k,localStorage.getItem(k)]))");
+    return JSON.stringify(values)===JSON.stringify(synthetic);
+  });
+  await check('Biology does not create fabricated progress',async()=>await evaluate("localStorage.getItem('litlab:biology:progress:v1')===null"));
+  await check('Subject switch returns to English after Biology',async()=>{
+    await evaluate("document.querySelector('.subject-navigation a[href=\"#home\"]').click()");await sleep(400);
+    return await evaluate("location.hash==='#home'&&!!document.querySelector('.home-hero')&&!document.querySelector('[data-biology-host]')");
+  });
   await check('No external response bypassed interception',async()=>escapedExternal.length===0&&interceptionErrors.length===0);
   await writeFile(join(outputDir,'phase16-interaction-report.json'),JSON.stringify({interactions,blockedExternal,escapedExternal,interceptionErrors,failures},null,2));
   console.log('Phase 1.6 interactions: '+interactions.filter(x=>x.pass).length+'/'+interactions.length+' passed; '+blockedExternal.length+' external requests blocked');
