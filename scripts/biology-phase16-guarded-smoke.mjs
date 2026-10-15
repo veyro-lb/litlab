@@ -313,12 +313,19 @@ try{
   }
   await check('English navigation did not fetch the lazy Biology entry',async()=>await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/entry-[^/]+\\.js/.test(x.name))"));
   await check('Subject switch opens Biology from English',async()=>{
+    // A real guest dismisses the existing English sign-in overlay before using the switch.
+    await evaluate(closeAuthExpression);
     const clicked=await evaluate("(()=>{const a=document.querySelector('.subject-navigation a[href=\"#biology\"]');if(!a)return false;a.click();return true})()");
     await waitBio();return clicked&&await bioEval("root.querySelector('h1')?.textContent.includes('Life is connected')");
   });
   await check('Biology excludes English announcements, tutoring and guest sign-in prompts',async()=>{
     await sleep(1000);
     return await evaluate("!document.querySelector('#ll-analysis-launch-notice')&&!document.querySelector('[data-auth-modal]')&&getComputedStyle(document.querySelector('.tutor-topbar-trigger')).display==='none'");
+  });
+  await check('Biology keyboard search stays within Biology',async()=>{
+    await command('Input.dispatchKeyEvent',{type:'keyDown',key:'k',code:'KeyK',modifiers:2,windowsVirtualKeyCode:75});
+    await command('Input.dispatchKeyEvent',{type:'keyUp',key:'k',code:'KeyK',modifiers:2,windowsVirtualKeyCode:75});
+    return await bioEval("root.activeElement?.type==='search'&&!document.querySelector('.modal[role=dialog]')");
   });
   await check('Skip link focuses content without changing subject or route',async()=>{
     await evaluate("document.querySelector('a.skip').click()");
