@@ -258,11 +258,18 @@ try{
   await writeFile(join(outputDir,'skills-lab-desktop-diagnostic.png'),Buffer.from(skillsImage.data,'base64'));
   await check('Skills Lab practice answer clickable',async()=>{
     const open=await evaluate("(()=>{const b=document.querySelector('.skills-tool-card[data-tool=\"choices\"]');if(!b)return false;b.click();return true})()");
-    await sleep(220);
-    const clicked=await evaluate("(()=>{const b=document.querySelector('[data-quiz]');if(!b)return false;b.click();return true})()");
-    const state=await evaluate("(()=>({cards:document.querySelectorAll('.skills-tool-card').length,answered:!!document.querySelector('.practice-options.answered'),feedback:document.querySelector('.practice-feedback')?.textContent?.slice(0,80)||''}))()");
+    // The production choice-bank enhancer replaces the legacy quiz on the next frame.
+    // Wait for the actual 40-question bank, then assert its answer and explanation state.
+    let ready=false;
+    for(let attempt=0;attempt<40;attempt++){
+      ready=await evaluate("!!document.querySelector('[data-choice-bank-root] [data-choice-option]')");
+      if(ready)break;
+      await sleep(100);
+    }
+    const clicked=ready&&await evaluate("(()=>{const b=document.querySelector('[data-choice-bank-root] [data-choice-option]');if(!b)return false;b.click();return true})()");
+    const state=await evaluate("(()=>({answered:!!document.querySelector('.choice-bank-options.answered'),disabled:document.querySelectorAll('[data-choice-option]:disabled').length,explanations:document.querySelectorAll('.choice-bank-explanations article').length,nextEnabled:document.querySelector('[data-choice-next]')?.disabled===false}))()");
     console.log('Skills Lab answer DOM: '+JSON.stringify(state));
-    return open&&clicked&&state.answered;
+    return open&&clicked&&state.answered&&state.disabled===4&&state.explanations===4&&state.nextEnabled;
   });
   const synthetic={
     litlabDone:'["start"]',
