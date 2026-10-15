@@ -463,7 +463,10 @@ try{
   });
   await check('Lesson section navigation supports keyboard activation',async()=>{
     await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[2].focus(),true)");
-    await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await sleep(80);
+    console.log('Water keyboard before: '+JSON.stringify(await bioEval("({active:root.activeElement?.outerHTML,section:root.querySelector('.bio-lesson-content').dataset.understandingId,focused:document.hasFocus()})")));
+    await command('Page.bringToFront');
+    await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r',unmodifiedText:'\r'});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});await sleep(160);
+    console.log('Water keyboard after: '+JSON.stringify(await bioEval("({active:root.activeElement?.outerHTML?.slice(0,250),section:root.querySelector('.bio-lesson-content').dataset.understandingId,focused:document.hasFocus()})")));
     return await bioEval("root.querySelector('.bio-lesson-content').dataset.understandingId==='A1.1.3'&&root.activeElement.classList.contains('bio-lesson-content')");
   });
   await check('Practice filters SL questions, explains all distractors and reviews errors',async()=>{
@@ -520,14 +523,18 @@ try{
     await freshBiologyRoute('biology/topic/A1.1/learn');await sleep(130);
     await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[1].click(),true)");await sleep(100);
     await bioEval("(root.querySelectorAll('.bio-figure img').forEach(x=>x.loading='eager'),true)");await sleep(200);
-    await evaluate('window.scrollTo(0,0)');await sleep(70);
+    await evaluate("window.scrollTo({top:0,left:0,behavior:'instant'})");await sleep(120);
     const full=await command('Page.getLayoutMetrics');
     const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width:viewport.width,height:full.cssContentSize.height,scale:1}});
     await writeFile(join(outputDir,'water-learn-'+viewport.name+'.png'),Buffer.from(shot.data,'base64'));
     if(viewport.mobile)await check('Water navigation responds to touch',async()=>{
-      await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[3].scrollIntoView({block:'center'}),true)");await sleep(50);
+      await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[3].scrollIntoView({block:'center',behavior:'instant'}),true)");await sleep(50);
       const pt=await bioEval("(()=>{const r=root.querySelectorAll('.bio-lesson-nav button')[3].getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()");
-      await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(130);
+      await command('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
+      console.log('Water touch point: '+JSON.stringify(pt));
+      await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(180);
+      console.log('Water touch after: '+JSON.stringify(await bioEval("({section:root.querySelector('.bio-lesson-content').dataset.understandingId,scrollY:window.scrollY})")));
+      await command('Emulation.setTouchEmulationEnabled',{enabled:false});
       return await bioEval("root.querySelector('.bio-lesson-content').dataset.understandingId==='A1.1.4'");
     });
     await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");await sleep(80);
