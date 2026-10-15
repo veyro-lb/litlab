@@ -249,6 +249,9 @@ try{
     await sleep(300);return used&&await evaluate("document.querySelectorAll('.glossary-grid details').length>0");
   });
   await command('Page.navigate',{url:new URL('#skills',base).toString()});await sleep(2300);
+  const guestModalClosed=await evaluate(closeAuthExpression);
+  console.log('Skills Lab guest modal dismissed: '+guestModalClosed);
+  await sleep(260);
   const skillsState=await evaluate("(()=>({route:location.hash,page:!!document.querySelector('.skills-lab-page'),cards:document.querySelectorAll('.skills-tool-card').length,quiz:document.querySelectorAll('[data-quiz]').length,feature:document.documentElement.dataset.litlabFeatureReady||'',main:(document.querySelector('main#main')?.textContent||'').slice(0,120)}))()");
   console.log('Skills Lab pretest DOM: '+JSON.stringify(skillsState));
   const skillsImage=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
