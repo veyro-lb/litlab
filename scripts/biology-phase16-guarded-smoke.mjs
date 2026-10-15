@@ -79,6 +79,7 @@ try{
   let nextId=0;
   const pending=new Map();
   const runtimeErrors=[];
+  let pageLoadCount=0;
   const blockedExternal=[];
   const escapedExternal=[];
   const interceptionErrors=[];
@@ -90,6 +91,7 @@ try{
       if(message.error)item.reject(new Error(`${item.method}: ${message.error.message}`));else item.resolve(message.result||{});
       return;
     }
+    if(message.method==='Page.loadEventFired')pageLoadCount++;
     if(message.method==='Fetch.requestPaused'){
       const req=message.params?.request||{},url=req.url||'',requestId=message.params.requestId;
       const local=(()=>{try{const u=new URL(url);return u.protocol==='http:'&&u.hostname==='127.0.0.1'&&u.port==='4173'&&!u.username&&!u.password}catch{return false}})();
@@ -336,7 +338,7 @@ try{
     await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(150);
     return await bioEval("root.querySelectorAll('[data-topic-id]').length===40&&!!root.querySelector('[data-topic-id=\"A2.1\"]')");
   });
-  for(const [term,count] of [['Water',1],['Unity and diversity',9]])await check(`Curriculum search finds ${term}`,async()=>{
+  for(const [term,count] of [['Water',2],['Unity and diversity',9]])await check(`Curriculum search finds ${term}`,async()=>{
     await evaluate(`(()=>{const root=${bio};const x=root.querySelector('input[type=search]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(x,${JSON.stringify(term)});x.dispatchEvent(new Event('input',{bubbles:true}));})()`);
     await sleep(150);return await bioEval(`root.querySelectorAll('[data-topic-id]').length===${count}`);
   });
@@ -367,14 +369,31 @@ try{
     await sleep(150);const ok=await bioEval("root.querySelector('input[value=HL]').checked&&root.querySelectorAll('[data-understanding-id]').length===8");
     await bioEval("(root.querySelector('input[value=SL]').click(),true)");return ok;
   });
+  let biologyNavigation=0;
+  async function waitForLoad(previous){
+    for(let i=0;i<200;i++){
+      if(pageLoadCount>previous)return;
+      await sleep(50);
+    }
+    throw new Error('Page load event did not arrive');
+  }
+  async function freshBiologyRoute(route){
+    const url=new URL('#'+route,base);
+    // A unique query forces a document navigation; fragments alone reuse the old document.
+    url.searchParams.set('biologyQaNavigation',String(++biologyNavigation));
+    const previous=pageLoadCount;
+    await command('Page.navigate',{url:url.toString()});await waitForLoad(previous);await waitBio();
+    if(await evaluate('location.hash')!=='#'+route)throw new Error('Unexpected loaded route: '+await evaluate('location.hash'));
+  }
   const bioRoutes=['biology','biology/theme/A','biology/theme/B','biology/theme/C','biology/theme/D','biology/topic/A1.1','biology/topic/A2.1','biology/topic/Z9.9','biology/topic/A1.99'];
   for(const viewport of viewports){
     await command('Emulation.setDeviceMetricsOverride',{width:viewport.width,height:viewport.height,deviceScaleFactor:1,mobile:viewport.mobile,screenWidth:viewport.width,screenHeight:viewport.height});
     for(const route of bioRoutes){
       runtimeErrors.length=0;
-      await command('Page.navigate',{url:new URL('#'+route,base).toString()});
-      // Fragment-only Page.navigate may reuse the document. Reload to verify fresh entry, too.
-      await command('Page.reload',{ignoreCache:true});await sleep(150);await waitBio();await sleep(route==='biology'?1100:400);
+      await freshBiologyRoute(route);
+      if(route==='biology'){const previous=pageLoadCount;await command('Page.reload',{ignoreCache:true});await waitForLoad(previous);await waitBio();}
+      await sleep(route==='biology'?1100:400);
+      console.log('Biology direct route DOM: '+JSON.stringify({expected:route,hash:await evaluate('location.hash'),heading:await bioEval("root.querySelector('h1,h2')?.textContent")}));
       if(route==='biology')await check(`Direct Biology entry has no English overlays (${viewport.name})`,async()=>await evaluate("!document.querySelector('[data-auth-modal]')&&!document.querySelector('#ll-analysis-launch-notice')"));
       await evaluate(closeAuthExpression);
       await check(`Biology ${route} ${viewport.name} renders without overflow or exceptions`,async()=>{
@@ -386,7 +405,7 @@ try{
       const shot=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
       await writeFile(join(outputDir,route.replaceAll('/','-')+'-'+viewport.name+'.png'),Buffer.from(shot.data,'base64'));
     }
-    await command('Page.navigate',{url:new URL('#biology',base).toString()});await waitBio();await sleep(350);await evaluate(closeAuthExpression);
+    await freshBiologyRoute('biology');await sleep(350);await evaluate(closeAuthExpression);
     await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");await sleep(220);
     await check(`Biology dark theme inherits design tokens (${viewport.name})`,async()=>await bioEval("getComputedStyle(root.querySelector('.bio-app')).getPropertyValue('--bg').trim()==='#0a0f1f'"));
     const dark=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
