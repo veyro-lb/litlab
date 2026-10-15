@@ -54,7 +54,9 @@ The official IB Biology Guide, first assessment 2025, is the curriculum and SL/H
 
 **Validated (76/76 passing after resolving 4 initial issues):** dashboard render, no page-level overflow at **1440/768/390/320**, eight ID rows, lesson figure/understanding labels, desktop and mobile section navigation, revision answer reveal, incorrect-answer explanation, Try Again clearing answer, Paper 1B data table, Paper 2 written-response/guidance reveal without auto-marking, diagram label recall, modal open/Escape close, theme toggle, dark overflow, no JavaScript errors, 34 SL / 40 HL topics, topic search, full HL scope and blocking an HL-only deep link from SL scope, zero external resource dependencies. A timing assumption in the initial harness was corrected; an actual HL deep-link fallback issue was corrected in prototype routing. Tests run against the standalone prototype **only**.
 
-Representative full-page screenshots in `screenshots/`:
+GitHub-committed, viewable galleries: `docs/biology/design-lab/screenshots-desktop.html` (dashboard, overview, lesson, revision, practice) and `screenshots-mobile.html` (phone lesson, navigation opened, dark mode). They contain reduced-size WebP images inline; save/open the HTML locally to view them.
+
+Representative full-page screenshots in the local handoff archive, under `screenshots/`:
 
 - `desktop-dashboard-light.png`, `desktop-topic-light.png`, `desktop-lesson-light.png`, `desktop-revision-light.png`, `desktop-practice-light.png`
 - `tablet-dashboard-light.png`, `tablet-lesson-light.png`
