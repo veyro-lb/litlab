@@ -336,6 +336,10 @@ try{
     await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(150);
     return await bioEval("root.querySelectorAll('[data-topic-id]').length===40&&!!root.querySelector('[data-topic-id=\"A2.1\"]')");
   });
+  for(const [term,count] of [['Water',1],['Unity and diversity',9]])await check(`Curriculum search finds ${term}`,async()=>{
+    await evaluate(`(()=>{const root=${bio};const x=root.querySelector('input[type=search]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(x,${JSON.stringify(term)});x.dispatchEvent(new Event('input',{bubbles:true}));})()`);
+    await sleep(150);return await bioEval(`root.querySelectorAll('[data-topic-id]').length===${count}`);
+  });
   await check('Curriculum search filters by official topic code',async()=>{
     await evaluate(`(()=>{const root=${bio};const x=root.querySelector('input[type=search]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(x,'A1.1');x.dispatchEvent(new Event('input',{bubbles:true}));})()`);
     await sleep(180);return await bioEval("root.querySelectorAll('[data-topic-id]').length===1&&!!root.querySelector('[data-topic-id=\"A1.1\"]')");
@@ -368,7 +372,9 @@ try{
     await command('Emulation.setDeviceMetricsOverride',{width:viewport.width,height:viewport.height,deviceScaleFactor:1,mobile:viewport.mobile,screenWidth:viewport.width,screenHeight:viewport.height});
     for(const route of bioRoutes){
       runtimeErrors.length=0;
-      await command('Page.navigate',{url:new URL('#'+route,base).toString()});await waitBio();await sleep(route==='biology'?1100:400);
+      await command('Page.navigate',{url:new URL('#'+route,base).toString()});
+      // Fragment-only Page.navigate may reuse the document. Reload to verify fresh entry, too.
+      await command('Page.reload',{ignoreCache:true});await sleep(150);await waitBio();await sleep(route==='biology'?1100:400);
       if(route==='biology')await check(`Direct Biology entry has no English overlays (${viewport.name})`,async()=>await evaluate("!document.querySelector('[data-auth-modal]')&&!document.querySelector('#ll-analysis-launch-notice')"));
       await evaluate(closeAuthExpression);
       await check(`Biology ${route} ${viewport.name} renders without overflow or exceptions`,async()=>{
