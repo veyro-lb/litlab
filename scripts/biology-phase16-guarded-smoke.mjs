@@ -236,7 +236,9 @@ try{
     return clicked&&before!==after;
   });
   await check('Search dialog opens and Escape closes it',async()=>{
-    const opened=await evaluate("(()=>{const b=document.querySelector('.search-trigger');if(!b)return false;b.click();return !!document.querySelector('.modal[role=dialog]')})()");
+    const clicked=await evaluate("(()=>{const b=document.querySelector('.search-trigger');if(!b)return false;b.click();return true})()");
+    await sleep(180);
+    const opened=clicked&&await evaluate("!!document.querySelector('.modal[role=dialog]')");
     await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
     await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
     await sleep(150);return opened&&!(await evaluate("!!document.querySelector('.modal[role=dialog]')"));
@@ -246,12 +248,18 @@ try{
     const used=await evaluate("(()=>{const x=document.querySelector('.glossary-tools input');if(!x)return false;Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(x,'analysis');x.dispatchEvent(new Event('input',{bubbles:true}));return true})()");
     await sleep(300);return used&&await evaluate("document.querySelectorAll('.glossary-grid details').length>0");
   });
-  await command('Page.navigate',{url:new URL('#skills',base).toString()});await sleep(1500);
+  await command('Page.navigate',{url:new URL('#skills',base).toString()});await sleep(2300);
+  const skillsState=await evaluate("(()=>({route:location.hash,page:!!document.querySelector('.skills-lab-page'),cards:document.querySelectorAll('.skills-tool-card').length,quiz:document.querySelectorAll('[data-quiz]').length,feature:document.documentElement.dataset.litlabFeatureReady||'',main:(document.querySelector('main#main')?.textContent||'').slice(0,120)}))()");
+  console.log('Skills Lab pretest DOM: '+JSON.stringify(skillsState));
+  const skillsImage=await command('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false});
+  await writeFile(join(outputDir,'skills-lab-desktop-diagnostic.png'),Buffer.from(skillsImage.data,'base64'));
   await check('Skills Lab practice answer clickable',async()=>{
     const open=await evaluate("(()=>{const b=document.querySelector('.skills-tool-card[data-tool=\"choices\"]');if(!b)return false;b.click();return true})()");
     await sleep(220);
     const clicked=await evaluate("(()=>{const b=document.querySelector('[data-quiz]');if(!b)return false;b.click();return true})()");
-    return open&&clicked;
+    const state=await evaluate("(()=>({cards:document.querySelectorAll('.skills-tool-card').length,answered:!!document.querySelector('.practice-options.answered'),feedback:document.querySelector('.practice-feedback')?.textContent?.slice(0,80)||''}))()");
+    console.log('Skills Lab answer DOM: '+JSON.stringify(state));
+    return open&&clicked&&state.answered;
   });
   const synthetic={
     litlabDone:'["start"]',
