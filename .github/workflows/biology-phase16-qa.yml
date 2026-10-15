@@ -78,7 +78,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p qa-artifacts
+          mkdir -p qa-artifacts node_modules/.vite-temp
           # Pull dependencies BEFORE entering the isolated browser-runtime network namespace.
           docker pull mcr.microsoft.com/playwright:v1.56.1-noble
           docker run --rm \
@@ -92,6 +92,7 @@ jobs:
             --shm-size=1g \
             --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
             --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
             --workdir /work \
             --env CI=true \
             mcr.microsoft.com/playwright:v1.56.1-noble \
