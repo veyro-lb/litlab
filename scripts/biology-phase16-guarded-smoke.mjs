@@ -655,9 +655,13 @@ try{
       await freshBiologyRoute('biology/topic/'+topicId+'/learn?understanding='+topicId+'.2');await waitLesson();
       await bioEval("(root.querySelector('input[value=SL]')?.click(),true)");await sleep(120);
       await check('Mechanism '+topicId+' '+width+' has three valid stages',async()=>await bioEval("root.querySelector('.bio-mechanism')?.textContent.includes('STEP 1 OF 3')===true"));
-      await bioEval("(root.querySelectorAll('.bio-mechanism-choices button')[1].click(),true)");await sleep(70);
+      const slug=topicId==='B1.1'?'carbohydrates-lipids':'proteins';
+      const lessonData=JSON.parse(await readFile(new URL('../src/biology/learning/'+slug+'/lesson.json',import.meta.url),'utf8'));
+      const firstOptions=lessonData.sections[1].mechanismChallenge.stages[0].options;
+      const wrongIndex=firstOptions.findIndex(x=>!x.correct),rightIndex=firstOptions.findIndex(x=>x.correct);
+      await bioEval("(root.querySelectorAll('.bio-mechanism-choices button')["+wrongIndex+"].click(),true)");await sleep(70);
       await check('Mechanism '+topicId+' '+width+' explains incorrect prediction and gates progress',async()=>await bioEval("root.querySelector('.bio-mechanism-feedback')?.textContent.includes('Try again')&&root.querySelector('.bio-mechanism-next').disabled"));
-      await bioEval("(root.querySelectorAll('.bio-mechanism-choices button')[0].click(),true)");await sleep(80);
+      await bioEval("(root.querySelectorAll('.bio-mechanism-choices button')["+rightIndex+"].click(),true)");await sleep(80);
       await check('Mechanism '+topicId+' '+width+' unlocks next step after correct prediction',async()=>await bioEval("root.querySelector('.bio-mechanism-feedback')?.textContent.includes('Correct prediction')&&!root.querySelector('.bio-mechanism-next').disabled"));
       const pic=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
       await writeFile(join(outputDir,'phase32-mechanism-'+topicId+'-'+width+'.png'),Buffer.from(pic.data,'base64'));

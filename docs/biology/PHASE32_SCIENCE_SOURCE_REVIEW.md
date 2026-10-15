@@ -43,3 +43,6 @@ All scientific illustrations are **conceptual** and deliberately marked where ne
 A qualified IB Biology expert must examine all 25 current rendered understandings, causal explanations and figure chemistry; an experienced examiner must review command terms, distractors and provisional marking points; a qualified accessibility tester must inspect keyboard/touch, images, focus and status feedback; and real students should test comprehension/recall. These checks remain unperformed and may require corrections. Code checks and passing browsers do not imply learning gains.
 
 No deployment, main merge, or publishing approval is authorized.
+## Assessment design check after initial QA
+
+The first authored MCQs had a correct-answer-location bias. The subsequent revision deterministically balanced correct positions across A/B/C/D for each topic (B1.1 has thirteen MCQs, B1.2 twelve), rotated three-option understanding checks and varied positions across the two mechanism challenges. A new negative validation catches one-position answer patterns. Browser tests select the expected option by the authored ground-truth answer flag, not a hardcoded letter. This is **not** a substitute for examiner review of distractor plausibility and marks.

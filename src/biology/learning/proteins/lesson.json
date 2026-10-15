@@ -78,12 +78,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "R group",
-              "correct": true,
-              "feedback": "Correct: There is one variable R group per alpha carbon; the other attachments are specified."
-            },
-            {
               "id": "b",
               "text": "Alpha carbon",
               "correct": false,
@@ -94,6 +88,12 @@
               "text": "Backbone hydrogen",
               "correct": false,
               "feedback": "Not quite: There is one variable R group per alpha carbon; the other attachments are specified."
+            },
+            {
+              "id": "a",
+              "text": "R group",
+              "correct": true,
+              "feedback": "Correct: There is one variable R group per alpha carbon; the other attachments are specified."
             }
           ]
         }
@@ -200,6 +200,12 @@
           ],
           "options": [
             {
+              "id": "c",
+              "text": "Glycosidic C–O bond",
+              "correct": false,
+              "feedback": "Not quite: It is a covalent bond formed between backbone carbonyl carbon and nitrogen; folding hydrogen bonds are different."
+            },
+            {
               "id": "a",
               "text": "Covalent C–N peptide bond",
               "correct": true,
@@ -208,12 +214,6 @@
             {
               "id": "b",
               "text": "Interchain hydrogen bond",
-              "correct": false,
-              "feedback": "Not quite: It is a covalent bond formed between backbone carbonyl carbon and nitrogen; folding hydrogen bonds are different."
-            },
-            {
-              "id": "c",
-              "text": "Glycosidic C–O bond",
               "correct": false,
               "feedback": "Not quite: It is a covalent bond formed between backbone carbonyl carbon and nitrogen; folding hydrogen bonds are different."
             }
@@ -295,6 +295,12 @@
             "prompt": "Which functional groups directly react to form the peptide bond?",
             "options": [
               {
+                "id": "c",
+                "text": "Two hydrophobic tails from phospholipids",
+                "correct": false,
+                "feedback": "Those components participate in lipid, not polypeptide, assembly."
+              },
+              {
                 "id": "a",
                 "text": "The carboxyl group of one amino acid and the amine group of another",
                 "correct": true,
@@ -305,12 +311,6 @@
                 "text": "Both variable R groups only",
                 "correct": false,
                 "feedback": "R groups may interact during folding, but peptide bonds are backbone links."
-              },
-              {
-                "id": "c",
-                "text": "Two hydrophobic tails from phospholipids",
-                "correct": false,
-                "feedback": "Those components participate in lipid, not polypeptide, assembly."
               }
             ],
             "explanation": "Reaction occurs at the functional groups around the alpha-carbon backbone."
@@ -345,12 +345,6 @@
             "prompt": "What happens to water and the R groups as the peptide forms?",
             "options": [
               {
-                "id": "a",
-                "text": "Water is released; each R group remains attached to its original alpha carbon",
-                "correct": true,
-                "feedback": "Exactly. The new peptide link joins backbone groups without replacing the identity-defining R groups."
-              },
-              {
                 "id": "b",
                 "text": "Water is consumed; both R groups detach",
                 "correct": false,
@@ -361,6 +355,12 @@
                 "text": "Water is released; both R groups become phosphate groups",
                 "correct": false,
                 "feedback": "Side chains are retained, not converted to phosphates during ordinary peptide formation."
+              },
+              {
+                "id": "a",
+                "text": "Water is released; each R group remains attached to its original alpha carbon",
+                "correct": true,
+                "feedback": "Exactly. The new peptide link joins backbone groups without replacing the identity-defining R groups."
               }
             ],
             "explanation": "Repeated condensation builds polypeptide chains while preserving the order of side-chain identities."
@@ -542,12 +542,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "A–B–C and C–B–A",
-              "correct": true,
-              "feedback": "Correct: Sequence positions influence chemical interactions and eventual shape."
-            },
-            {
               "id": "b",
               "text": "A–B–C and A–B–C",
               "correct": false,
@@ -558,6 +552,12 @@
               "text": "A–B–C printed twice",
               "correct": false,
               "feedback": "Not quite: Sequence positions influence chemical interactions and eventual shape."
+            },
+            {
+              "id": "a",
+              "text": "A–B–C and C–B–A",
+              "correct": true,
+              "feedback": "Correct: Sequence positions influence chemical interactions and eventual shape."
             }
           ]
         }
@@ -660,6 +660,12 @@
           ],
           "options": [
             {
+              "id": "c",
+              "text": "The exact functional 3D shape",
+              "correct": false,
+              "feedback": "Not quite: Often the chain remains covalently connected while higher-order interactions are disrupted."
+            },
+            {
               "id": "a",
               "text": "Primary peptide backbone",
               "correct": true,
@@ -668,12 +674,6 @@
             {
               "id": "b",
               "text": "Every noncovalent interaction",
-              "correct": false,
-              "feedback": "Not quite: Often the chain remains covalently connected while higher-order interactions are disrupted."
-            },
-            {
-              "id": "c",
-              "text": "The exact functional 3D shape",
               "correct": false,
               "feedback": "Not quite: Often the chain remains covalently connected while higher-order interactions are disrupted."
             }
@@ -907,12 +907,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Exact amino-acid sequence",
-              "correct": true,
-              "feedback": "Correct: That is related to quaternary structure, where present; primary refers to residue sequence."
-            },
-            {
               "id": "b",
               "text": "Only alpha helices",
               "correct": false,
@@ -923,6 +917,12 @@
               "text": "Number of polypeptide subunits",
               "correct": false,
               "feedback": "Not quite: That is related to quaternary structure, where present; primary refers to residue sequence."
+            },
+            {
+              "id": "a",
+              "text": "Exact amino-acid sequence",
+              "correct": true,
+              "feedback": "Correct: That is related to quaternary structure, where present; primary refers to residue sequence."
             }
           ]
         }
@@ -1033,6 +1033,12 @@
           ],
           "options": [
             {
+              "id": "c",
+              "text": "Ester bonds between fatty acids",
+              "correct": false,
+              "feedback": "Not quite: Regular backbone hydrogen bonds are the defining stabilizer of these shapes."
+            },
+            {
               "id": "a",
               "text": "Backbone hydrogen bonds",
               "correct": true,
@@ -1041,12 +1047,6 @@
             {
               "id": "b",
               "text": "Glycosidic bonds between sugars",
-              "correct": false,
-              "feedback": "Not quite: Regular backbone hydrogen bonds are the defining stabilizer of these shapes."
-            },
-            {
-              "id": "c",
-              "text": "Ester bonds between fatty acids",
               "correct": false,
               "feedback": "Not quite: Regular backbone hydrogen bonds are the defining stabilizer of these shapes."
             }
@@ -1304,12 +1304,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Hydrophobic side chains",
-              "correct": true,
-              "feedback": "Correct: Membrane proteins can expose hydrophobic residues toward the lipid bilayer."
-            },
-            {
               "id": "b",
               "text": "Only fully charged carboxyl groups",
               "correct": false,
@@ -1320,6 +1314,12 @@
               "text": "Free glucose monomers",
               "correct": false,
               "feedback": "Not quite: Membrane proteins can expose hydrophobic residues toward the lipid bilayer."
+            },
+            {
+              "id": "a",
+              "text": "Hydrophobic side chains",
+              "correct": true,
+              "feedback": "Correct: Membrane proteins can expose hydrophobic residues toward the lipid bilayer."
             }
           ]
         }
@@ -1452,6 +1452,12 @@
           ],
           "options": [
             {
+              "id": "c",
+              "text": "Free glucose",
+              "correct": false,
+              "feedback": "Not quite: Conjugation concerns a non-protein component, while multiple subunits concern quaternary arrangement."
+            },
+            {
               "id": "a",
               "text": "Haem",
               "correct": true,
@@ -1460,12 +1466,6 @@
             {
               "id": "b",
               "text": "Collagen chain",
-              "correct": false,
-              "feedback": "Not quite: Conjugation concerns a non-protein component, while multiple subunits concern quaternary arrangement."
-            },
-            {
-              "id": "c",
-              "text": "Free glucose",
               "correct": false,
               "feedback": "Not quite: Conjugation concerns a non-protein component, while multiple subunits concern quaternary arrangement."
             }
@@ -1692,6 +1692,12 @@
       ],
       "options": [
         {
+          "id": "d",
+          "text": "Four other alpha carbons joined by peptide bonds",
+          "correct": false,
+          "feedback": "Not quite: Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms)."
+        },
+        {
           "id": "a",
           "text": "Amine, carboxyl, hydrogen and R group",
           "correct": true,
@@ -1706,12 +1712,6 @@
         {
           "id": "c",
           "text": "Glucose, glycerol, starch and glycogen",
-          "correct": false,
-          "feedback": "Not quite: Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms)."
-        },
-        {
-          "id": "d",
-          "text": "Four other alpha carbons joined by peptide bonds",
           "correct": false,
           "feedback": "Not quite: Central C with –NH2, –COOH, –H and –R attached (or corresponding ionized forms)."
         }
@@ -1782,12 +1782,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "A suitably planned vegan diet can provide all essential amino acids",
-          "correct": true,
-          "feedback": "Correct: Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body."
-        },
-        {
           "id": "b",
           "text": "Essential amino acids can always be synthesized from glucose",
           "correct": false,
@@ -1804,6 +1798,12 @@
           "text": "Only people eating animal products can synthesize proteins",
           "correct": false,
           "feedback": "Not quite: Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body."
+        },
+        {
+          "id": "a",
+          "text": "A suitably planned vegan diet can provide all essential amino acids",
+          "correct": true,
+          "feedback": "Correct: Essential amino acids must be obtained from diet; non-essential amino acids can be made by the body."
         }
       ],
       "review": "scientific-review"
@@ -1827,18 +1827,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Different sequence order and chain length",
-          "correct": true,
-          "feedback": "Correct: Different chain length and different amino-acid order among 20 standard encoded types."
-        },
-        {
-          "id": "b",
-          "text": "Every amino acid forms exactly one unique peptide",
-          "correct": false,
-          "feedback": "Not quite: Different chain length and different amino-acid order among 20 standard encoded types."
-        },
-        {
           "id": "c",
           "text": "All peptide chains are always exactly 20 residues long",
           "correct": false,
@@ -1847,6 +1835,18 @@
         {
           "id": "d",
           "text": "Each peptide has only a single possible order",
+          "correct": false,
+          "feedback": "Not quite: Different chain length and different amino-acid order among 20 standard encoded types."
+        },
+        {
+          "id": "a",
+          "text": "Different sequence order and chain length",
+          "correct": true,
+          "feedback": "Correct: Different chain length and different amino-acid order among 20 standard encoded types."
+        },
+        {
+          "id": "b",
+          "text": "Every amino acid forms exactly one unique peptide",
           "correct": false,
           "feedback": "Not quite: Different chain length and different amino-acid order among 20 standard encoded types."
         }
@@ -1872,6 +1872,12 @@
       ],
       "options": [
         {
+          "id": "d",
+          "text": "Enzyme activity never depends on shape",
+          "correct": false,
+          "feedback": "Not quite: Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds."
+        },
+        {
           "id": "a",
           "text": "Native conformation is disrupted while peptide bonds often remain intact",
           "correct": true,
@@ -1886,12 +1892,6 @@
         {
           "id": "c",
           "text": "Heat creates new DNA bases inside the enzyme",
-          "correct": false,
-          "feedback": "Not quite: Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds."
-        },
-        {
-          "id": "d",
-          "text": "Enzyme activity never depends on shape",
           "correct": false,
           "feedback": "Not quite: Heat changes stabilizing interactions; pH changes side-chain protonation/charge. Both can alter shape while preserving peptide bonds."
         }
@@ -1964,12 +1964,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "The substituted R group may change the interactions at its position",
-          "correct": true,
-          "feedback": "Correct: Sequence fixes each side chain's identity and position, determining which interactions and folds are possible."
-        },
-        {
           "id": "b",
           "text": "Primary structure is unrelated to side-chain chemistry",
           "correct": false,
@@ -1986,6 +1980,12 @@
           "text": "All proteins require exactly four polypeptide chains",
           "correct": false,
           "feedback": "Not quite: Sequence fixes each side chain's identity and position, determining which interactions and folds are possible."
+        },
+        {
+          "id": "a",
+          "text": "The substituted R group may change the interactions at its position",
+          "correct": true,
+          "feedback": "Correct: Sequence fixes each side chain's identity and position, determining which interactions and folds are possible."
         }
       ],
       "review": "scientific-review"
@@ -2010,18 +2010,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Hydrogen bonds between peptide backbone groups",
-          "correct": true,
-          "feedback": "Correct: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
-        },
-        {
-          "id": "b",
-          "text": "Ester links joining glycerol to fatty acids",
-          "correct": false,
-          "feedback": "Not quite: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
-        },
-        {
           "id": "c",
           "text": "Antigen–antibody binding",
           "correct": false,
@@ -2030,6 +2018,18 @@
         {
           "id": "d",
           "text": "Phosphate covalent links between glucose units",
+          "correct": false,
+          "feedback": "Not quite: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
+        },
+        {
+          "id": "a",
+          "text": "Hydrogen bonds between peptide backbone groups",
+          "correct": true,
+          "feedback": "Correct: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
+        },
+        {
+          "id": "b",
+          "text": "Ester links joining glycerol to fatty acids",
           "correct": false,
           "feedback": "Not quite: Helix coils; beta sheet forms pleated extended strands; backbone C=O and N–H groups hydrogen bond."
         }
@@ -2056,6 +2056,12 @@
       ],
       "options": [
         {
+          "id": "d",
+          "text": "Cysteine disulfide bonds necessarily vanished in all proteins",
+          "correct": false,
+          "feedback": "Not quite: Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions."
+        },
+        {
           "id": "a",
           "text": "An R group's protonation and charge have changed",
           "correct": true,
@@ -2070,12 +2076,6 @@
         {
           "id": "c",
           "text": "A fatty acid tail was hydrolysed from the backbone",
-          "correct": false,
-          "feedback": "Not quite: Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions."
-        },
-        {
-          "id": "d",
-          "text": "Cysteine disulfide bonds necessarily vanished in all proteins",
           "correct": false,
           "feedback": "Not quite: Hydrogen bonding, ionic attraction after R-group ionization, cysteine–cysteine disulfide bonds, and hydrophobic interactions."
         }
@@ -2148,12 +2148,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Non-protein haem groups associated with its globin chains",
-          "correct": true,
-          "feedback": "Correct: Its haem groups are non-protein components; its multiple globin chains form quaternary assembly."
-        },
-        {
           "id": "b",
           "text": "The mere presence of four polypeptide subunits",
           "correct": false,
@@ -2170,6 +2164,12 @@
           "text": "Its inability to carry oxygen",
           "correct": false,
           "feedback": "Not quite: Its haem groups are non-protein components; its multiple globin chains form quaternary assembly."
+        },
+        {
+          "id": "a",
+          "text": "Non-protein haem groups associated with its globin chains",
+          "correct": true,
+          "feedback": "Correct: Its haem groups are non-protein components; its multiple globin chains form quaternary assembly."
         }
       ],
       "review": "scientific-review"
@@ -2194,18 +2194,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Its extended triple-helical structure can assemble into strong fibres",
-          "correct": true,
-          "feedback": "Correct: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
-        },
-        {
-          "id": "b",
-          "text": "Its single globular shape always dissolves like glucose",
-          "correct": false,
-          "feedback": "Not quite: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
-        },
-        {
           "id": "c",
           "text": "It is built from glycerol and three fatty acids",
           "correct": false,
@@ -2214,6 +2202,18 @@
         {
           "id": "d",
           "text": "It carries oxygen through non-protein haem groups",
+          "correct": false,
+          "feedback": "Not quite: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
+        },
+        {
+          "id": "a",
+          "text": "Its extended triple-helical structure can assemble into strong fibres",
+          "correct": true,
+          "feedback": "Correct: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
+        },
+        {
+          "id": "b",
+          "text": "Its single globular shape always dissolves like glucose",
           "correct": false,
           "feedback": "Not quite: Compact globular insulin works as a signaling hormone; elongated triple-helical collagen provides tensile strength."
         }

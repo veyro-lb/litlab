@@ -29,6 +29,11 @@ export function validateBatch32(registry,catalog,lessonMap){
    if(u.id==='B1.1.1'&&!s.recall.some(r=>r.id==='b11-nos-si-prefixes'))errors.push('Unmapped NOS SI prefixes');
    if(u.id==='B1.2.11'&&!s.recall.some(r=>r.id==='b12-nos-cryo'))errors.push('Unmapped NOS cryogenic electron microscopy');
   }
+  const mcqPositions=d.questions.filter(q=>q.paper==='1A').map(q=>q.options.findIndex(o=>o.correct));
+  const checkPositions=d.sections.map(s=>s.interactions[0]?.options?.findIndex(o=>o.correct)).filter(x=>x>=0);
+  if(new Set(mcqPositions).size<4||new Set(checkPositions).size<3)errors.push('Unbalanced fixed-position correct answers '+topicId);
+  const mechanismSections=d.sections.filter(s=>s.mechanismChallenge);
+  for(const s of mechanismSections)if(new Set(s.mechanismChallenge.stages.map(st=>st.options.findIndex(o=>o.correct))).size<2)errors.push('Fixed-position mechanism predictions '+s.id);
   if(d.assets.length<expectedAssets||d.assets.some(a=>a.review==='approved'||a.alt?.length<75||!a.recallSrc||!a.src.startsWith('/biology/')||a.level==='HL'&&topicId==='B1.1'))errors.push('Missing original accessible recall figures '+topicId);
   if(d.review.reviewer!==null||d.review.status!=='scientific-review')errors.push('Review status misrepresented '+topicId);
   if(d.references.some(r=>r.title.includes('Hodder')&&r.url?.endsWith('.pdf')))errors.push('Copyrighted textbook PDF linked '+topicId);

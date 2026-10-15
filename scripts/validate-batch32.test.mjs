@@ -19,6 +19,7 @@ for(const [reason,mutate] of [
  ['missing scientific misconception feedback',([,,l])=>l['B1.1'].sections[8].misconceptions=[]],
  ['missing official steroid visual',([,,l])=>l['B1.1'].sections[12].assets=[]],
  ['missing B1.1 nature-of-science recall',([,,l])=>l['B1.1'].sections[0].recall=l['B1.1'].sections[0].recall.filter(x=>x.id!=='b11-nos-si-prefixes')],
- ['missing interactive peptide mechanism',([,,l])=>delete l['B1.2'].sections[1].mechanismChallenge]
+ ['missing interactive peptide mechanism',([,,l])=>delete l['B1.2'].sections[1].mechanismChallenge],
+ ['unbalanced correct answer position',([,,l])=>l['B1.1'].questions.filter(q=>q.paper==='1A').forEach(q=>q.options.sort((a,b)=>Number(b.correct)-Number(a.correct)))]
 
 ])test('Phase 3.2 rejects '+reason,()=>{const values=fixtures();mutate(values);assert.ok(validateBatch32(...values).length>0)});
