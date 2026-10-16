@@ -18,3 +18,13 @@ jobs:
         run: node scripts/validate-phase7-batch3.mjs
       - name: Isolated positive and negative tests
         run: node --test scripts/validate-phase7-batch3.test.mjs
+      - name: Install isolated figure rendering dependencies
+        run: python -m pip install --disable-pip-version-check cairosvg pillow
+      - name: Render and structurally inspect 52 original SVG files at desktop and mobile widths
+        run: python scripts/render-phase7-figures.py
+      - name: Preserve artwork previews and raster QA results
+        uses: actions/upload-artifact@v4
+        with:
+          name: biology-phase7-figure-renders
+          path: artifacts/phase7-figure-renders/
+          if-no-files-found: error
