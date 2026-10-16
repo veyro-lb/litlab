@@ -1,0 +1,170 @@
+name: Biology Phase 6 Five-Lesson Hardening Isolated QA
+
+on:
+  push:
+    branches:
+      - feature/biology-phase6-hardening-20261016
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Checkout, quality, build, audit, isolated browser
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    env:
+      CI: "true"
+    steps:
+      - name: Check out exact branch commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Verify complete and clean checkout
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          for path in src public scripts package.json package-lock.json vite.config.ts index.html .github/workflows; do
+            test -e "$path" || { echo "Missing checkout path: $path"; exit 1; }
+          done
+          git rev-parse HEAD
+          git status --porcelain
+          git ls-files | wc -l
+          printf "checkout_sha=%s\n" "$GITHUB_SHA" > phase16-checkout.txt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        id: install
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm ci 2>&1 | tee phase16-install.log
+
+      - name: Existing quality checks
+        id: quality
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run quality 2>&1 | tee phase16-quality.log
+          node scripts/validate-biology.mjs
+          node --test scripts/validate-biology.test.mjs
+          node scripts/validate-water.mjs
+          node scripts/validate-lessons.mjs
+          node scripts/validate-batch32.mjs
+          node scripts/validate-batch5.mjs
+          node --test scripts/validate-batch5.test.mjs
+          node scripts/validate-phase5-figures.mjs
+          node --test scripts/validate-phase5-figures.test.mjs
+          node scripts/validate-phase6-editorial.mjs
+          node --test scripts/validate-phase6-editorial.test.mjs
+          node scripts/validate-phase4-figures.mjs
+          node --test scripts/validate-phase4-figures.test.mjs
+          node --test scripts/validate-batch32.test.mjs
+          node --test scripts/validate-water.test.mjs scripts/validate-lesson.test.mjs
+
+      - name: Existing production build
+        id: build
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee phase16-build.log
+
+      - name: Audit production dependencies
+        id: audit
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm audit --omit=dev --audit-level=high 2>&1 | tee phase16-audit.log
+
+      - name: Audit full dependency tree separately (known dev-tooling advisories)
+        id: full_audit
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm audit --audit-level=high 2>&1 | tee phase6-full-audit.log
+
+      - name: Run existing browser smoke in offline container
+        id: browser
+        if: steps.build.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts node_modules/.vite-temp
+          # Pull dependencies BEFORE entering the isolated browser-runtime network namespace.
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm \
+            --network none \
+            --cap-drop ALL \
+            --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp \
+            --security-opt no-new-privileges \
+            --read-only \
+            --tmpfs /tmp:rw,nosuid,size=768m \
+            --shm-size=1g \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
+            --workdir /work \
+            --env CI=true \
+            mcr.microsoft.com/playwright:v1.56.1-noble \
+            bash -euo pipefail -c '
+              test "$(ls -1 /sys/class/net | tr "\n" " ")" = "lo " || {
+                echo "Isolation failure: unexpected container network interfaces"; exit 1;
+              }
+              CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              test -n "$CHROME_BIN" && test -x "$CHROME_BIN"
+              export CHROME_BIN
+              node -v
+              printf "network=none; interfaces=lo; chrome=%s\n" "$CHROME_BIN" | tee qa-artifacts/isolation-evidence.txt
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/preview.log 2>&1 &
+              preview_pid=$!
+              trap "kill $preview_pid 2>/dev/null || true" EXIT
+              ready=0
+              for attempt in $(seq 1 40); do
+                if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4173/; then
+                  ready=1; break;
+                fi
+                sleep 1
+              done
+              test "$ready" = 1 || { cat qa-artifacts/preview.log; exit 1; }
+              node scripts/biology-phase16-guarded-smoke.mjs 2>&1 | tee qa-artifacts/browser-smoke-console.log
+            '
+
+      - name: Upload actual results and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biology-phase6-five-lesson-qa
+          path: |
+            phase16-*.log
+            phase5-full-audit.log
+            phase16-checkout.txt
+            qa-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Fail if any gate failed or was skipped
+        if: always()
+        env:
+          INSTALL: ${{ steps.install.outcome }}
+          QUALITY: ${{ steps.quality.outcome }}
+          BUILD: ${{ steps.build.outcome }}
+          AUDIT: ${{ steps.audit.outcome }}
+          BROWSER: ${{ steps.browser.outcome }}
+        run: |
+          printf "Install=%s\nQuality=%s\nBuild=%s\nAudit=%s\nBrowser=%s\n" "$INSTALL" "$QUALITY" "$BUILD" "$AUDIT" "$BROWSER"
+          for state in "$INSTALL" "$QUALITY" "$BUILD" "$AUDIT" "$BROWSER"; do
+            test "$state" = success || exit 1
+          done
