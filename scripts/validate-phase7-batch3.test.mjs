@@ -13,7 +13,7 @@ for(const slug of ['membranes-transport','organelles-compartmentalization']){
   ['unknown science reference',x=>x.sections[0].referenceIds=['absent']],
   ['false approval',x=>x.review.status='approved'],
   ['wrong page',x=>x.sections[0].pdfPage=1],
-  ['two correct MCQ options',x=>x.questions[0].options[1].correct=true],
+  ['two correct MCQ options',x=>x.questions[0].options.find(o=>!o.correct).correct=true],
   ['invalid marks',x=>x.questions.find(q=>q.paper==='2').marks=99],
   ['missing artwork recall',x=>x.assets[0].recallSrc=''],
   ['missing correction',x=>x.sections[0].misconceptions=[]]

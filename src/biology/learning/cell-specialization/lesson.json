@@ -87,7 +87,7 @@
         {
           "kind": "selection",
           "id": "b23-check-1",
-          "prompt": "Which statement is scientifically accurate for B2.3.1?",
+          "prompt": "Genetically similar embryonic cells occupy different positions along a morphogen gradient. What best explains their different fates?",
           "understandingIds": [
             "B2.3.1"
           ],
@@ -240,7 +240,7 @@
         {
           "kind": "selection",
           "id": "b23-check-2",
-          "prompt": "Which statement is scientifically accurate for B2.3.2?",
+          "prompt": "A cell lineage repeatedly supplies specialized descendants while preserving a population with the original potential. Which property identifies it as a stem-cell lineage?",
           "understandingIds": [
             "B2.3.2"
           ],
@@ -393,7 +393,7 @@
         {
           "kind": "selection",
           "id": "b23-check-3",
-          "prompt": "Which statement is scientifically accurate for B2.3.3?",
+          "prompt": "Removing a marrow stem cell from its surrounding support cells changes its behaviour. Which explanation best describes the role of its niche?",
           "understandingIds": [
             "B2.3.3"
           ],
@@ -546,7 +546,7 @@
         {
           "kind": "selection",
           "id": "b23-check-4",
-          "prompt": "Which statement is scientifically accurate for B2.3.4?",
+          "prompt": "An early embryonic cell can contribute to embryonic and extraembryonic tissues, whereas a marrow stem cell produces blood lineages. How do their developmental potentials compare?",
           "understandingIds": [
             "B2.3.4"
           ],
@@ -720,7 +720,7 @@
         {
           "kind": "selection",
           "id": "b23-check-5",
-          "prompt": "Which statement is scientifically accurate for B2.3.5?",
+          "prompt": "A neuron has a long thin axon, while a secondary oocyte has a large cell body. Which interpretation avoids confusing length with volume?",
           "understandingIds": [
             "B2.3.5"
           ],
@@ -806,6 +806,48 @@
             "ncbi-potency"
           ]
         }
+      ],
+      "graphTables": [
+        {
+          "caption": "Representative human dimensions from Hodder pp. 261–262; approximate examples, not universal or measured class data. Diameter and length are different quantities.",
+          "headers": [
+            "Cell",
+            "Dimension",
+            "Approximate example"
+          ],
+          "rows": [
+            [
+              "Secondary oocyte",
+              "diameter",
+              "100 µm"
+            ],
+            [
+              "Sperm head/main body",
+              "length",
+              "5 µm"
+            ],
+            [
+              "Erythrocyte",
+              "diameter",
+              "8 µm"
+            ],
+            [
+              "White blood cell",
+              "diameter",
+              "12–17 µm; varies by type"
+            ],
+            [
+              "Long neuron",
+              "axon length",
+              "up to about 1 m"
+            ],
+            [
+              "Skeletal muscle fibre",
+              "length",
+              "several cm"
+            ]
+          ]
+        }
       ]
     },
     {
@@ -874,33 +916,33 @@
         {
           "kind": "selection",
           "id": "b23-check-6",
-          "prompt": "Which statement is scientifically accurate for B2.3.6?",
+          "prompt": "A cube model has side length 2 µm and all six faces exposed. What are its surface area, volume and surface-area-to-volume ratio?",
           "understandingIds": [
             "B2.3.6"
           ],
           "options": [
             {
-              "text": "Surface area and volume always increase at the same proportional rate.",
+              "text": "12 µm²; 8 µm³; 1.5 µm⁻¹",
               "correct": false,
-              "feedback": "Area scales by factor four, volume by eight when length doubles.",
+              "feedback": "This halves the surface area: a cube has six faces, each of area 2² = 4 µm², giving 24 µm².",
               "id": "b23-6-o3"
             },
             {
-              "text": "A 2 µm cube has an SA:V of 6 µm⁻¹.",
+              "text": "24 µm²; 4 µm³; 6 µm⁻¹",
               "correct": false,
-              "feedback": "For L = 2 µm, ratio = 6/2 = 3 µm⁻¹.",
+              "feedback": "The volume must use three dimensions: 2 × 2 × 2 = 8 µm³. Four is the area of one face, not the volume.",
               "id": "b23-6-o4"
             },
             {
-              "text": "A cube is an exact anatomical model of any cell.",
+              "text": "8 µm²; 24 µm³; 0.33 µm⁻¹",
               "correct": false,
-              "feedback": "Cubes are simplified quantitative models; cell shapes and active transport differ.",
+              "feedback": "Area and volume have been interchanged. Surface area is 6 × 2² = 24 µm²; volume is 2³ = 8 µm³.",
               "id": "b23-6-o1"
             },
             {
-              "text": "For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+              "text": "24 µm²; 8 µm³; 3 µm⁻¹",
               "correct": true,
-              "feedback": "Correct. For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+              "feedback": "Six faces each have area 4 µm²; volume is 2³ = 8 µm³. Dividing area by volume gives 3 µm⁻¹.",
               "id": "b23-6-o2"
             }
           ]
@@ -1143,7 +1185,7 @@
         {
           "kind": "selection",
           "id": "b23-check-7",
-          "prompt": "Which statement is scientifically accurate for B2.3.7?",
+          "prompt": "A proximal tubule cell develops many apical microvilli while its volume changes little. Which explanation predicts improved exchange capacity?",
           "understandingIds": [
             "B2.3.7"
           ],
@@ -1286,7 +1328,7 @@
         {
           "kind": "selection",
           "id": "b23-check-8",
-          "prompt": "Which statement is scientifically accurate for B2.3.8?",
+          "prompt": "A lung sample has very thin cells beside cuboidal cells containing lamellar bodies. Which functional assignment is supported?",
           "understandingIds": [
             "B2.3.8"
           ],
@@ -1433,7 +1475,7 @@
         {
           "kind": "selection",
           "id": "b23-check-9",
-          "prompt": "Which statement is scientifically accurate for B2.3.9?",
+          "prompt": "Two striated muscle samples differ: one has short branched cells with central nuclei; the other has long unbranched multinucleated fibres. Which interpretation is supported?",
           "understandingIds": [
             "B2.3.9"
           ],
@@ -1580,7 +1622,7 @@
         {
           "kind": "selection",
           "id": "b23-check-10",
-          "prompt": "Which statement is scientifically accurate for B2.3.10?",
+          "prompt": "Which comparison correctly links the structures of human sperm and an ovulated secondary oocyte to their functions?",
           "understandingIds": [
             "B2.3.10"
           ],
@@ -1676,7 +1718,7 @@
         "B2.3.1"
       ],
       "level": "shared",
-      "prompt": "Which statement is scientifically accurate for B2.3.1?",
+      "prompt": "Genetically similar embryonic cells occupy different positions along a morphogen gradient. What best explains their different fates?",
       "marks": 1,
       "sectionId": "b23-1",
       "referenceIds": [
@@ -1722,7 +1764,7 @@
         "B2.3.2"
       ],
       "level": "shared",
-      "prompt": "Which statement is scientifically accurate for B2.3.2?",
+      "prompt": "A cell lineage repeatedly supplies specialized descendants while preserving a population with the original potential. Which property identifies it as a stem-cell lineage?",
       "marks": 1,
       "sectionId": "b23-2",
       "referenceIds": [
@@ -1768,7 +1810,7 @@
         "B2.3.3"
       ],
       "level": "shared",
-      "prompt": "Which statement is scientifically accurate for B2.3.3?",
+      "prompt": "Removing a marrow stem cell from its surrounding support cells changes its behaviour. Which explanation best describes the role of its niche?",
       "marks": 1,
       "sectionId": "b23-3",
       "referenceIds": [
@@ -1814,7 +1856,7 @@
         "B2.3.4"
       ],
       "level": "shared",
-      "prompt": "Which statement is scientifically accurate for B2.3.4?",
+      "prompt": "An early embryonic cell can contribute to embryonic and extraembryonic tissues, whereas a marrow stem cell produces blood lineages. How do their developmental potentials compare?",
       "marks": 1,
       "sectionId": "b23-4",
       "referenceIds": [
@@ -1860,7 +1902,7 @@
         "B2.3.5"
       ],
       "level": "shared",
-      "prompt": "Which statement is scientifically accurate for B2.3.5?",
+      "prompt": "A neuron has a long thin axon, while a secondary oocyte has a large cell body. Which interpretation avoids confusing length with volume?",
       "marks": 1,
       "sectionId": "b23-5",
       "referenceIds": [
@@ -1906,7 +1948,7 @@
         "B2.3.6"
       ],
       "level": "shared",
-      "prompt": "Which statement is scientifically accurate for B2.3.6?",
+      "prompt": "A cube model has side length 2 µm and all six faces exposed. What are its surface area, volume and surface-area-to-volume ratio?",
       "marks": 1,
       "sectionId": "b23-6",
       "referenceIds": [
@@ -1917,27 +1959,27 @@
       ],
       "options": [
         {
-          "text": "Surface area and volume always increase at the same proportional rate.",
+          "text": "12 µm²; 8 µm³; 1.5 µm⁻¹",
           "correct": false,
-          "feedback": "Area scales by factor four, volume by eight when length doubles.",
+          "feedback": "This halves the surface area: a cube has six faces, each of area 2² = 4 µm², giving 24 µm².",
           "id": "b23-6-o3"
         },
         {
-          "text": "A 2 µm cube has an SA:V of 6 µm⁻¹.",
+          "text": "24 µm²; 4 µm³; 6 µm⁻¹",
           "correct": false,
-          "feedback": "For L = 2 µm, ratio = 6/2 = 3 µm⁻¹.",
+          "feedback": "The volume must use three dimensions: 2 × 2 × 2 = 8 µm³. Four is the area of one face, not the volume.",
           "id": "b23-6-o4"
         },
         {
-          "text": "A cube is an exact anatomical model of any cell.",
+          "text": "8 µm²; 24 µm³; 0.33 µm⁻¹",
           "correct": false,
-          "feedback": "Cubes are simplified quantitative models; cell shapes and active transport differ.",
+          "feedback": "Area and volume have been interchanged. Surface area is 6 × 2² = 24 µm²; volume is 2³ = 8 µm³.",
           "id": "b23-6-o1"
         },
         {
-          "text": "For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+          "text": "24 µm²; 8 µm³; 3 µm⁻¹",
           "correct": true,
-          "feedback": "Correct. For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+          "feedback": "Six faces each have area 4 µm²; volume is 2³ = 8 µm³. Dividing area by volume gives 3 µm⁻¹.",
           "id": "b23-6-o2"
         }
       ],
@@ -1952,7 +1994,7 @@
         "B2.3.7"
       ],
       "level": "HL",
-      "prompt": "Which statement is scientifically accurate for B2.3.7?",
+      "prompt": "A proximal tubule cell develops many apical microvilli while its volume changes little. Which explanation predicts improved exchange capacity?",
       "marks": 1,
       "sectionId": "b23-7",
       "referenceIds": [
@@ -1997,7 +2039,7 @@
         "B2.3.8"
       ],
       "level": "HL",
-      "prompt": "Which statement is scientifically accurate for B2.3.8?",
+      "prompt": "A lung sample has very thin cells beside cuboidal cells containing lamellar bodies. Which functional assignment is supported?",
       "marks": 1,
       "sectionId": "b23-8",
       "referenceIds": [
@@ -2042,7 +2084,7 @@
         "B2.3.9"
       ],
       "level": "HL",
-      "prompt": "Which statement is scientifically accurate for B2.3.9?",
+      "prompt": "Two striated muscle samples differ: one has short branched cells with central nuclei; the other has long unbranched multinucleated fibres. Which interpretation is supported?",
       "marks": 1,
       "sectionId": "b23-9",
       "referenceIds": [
@@ -2088,7 +2130,7 @@
         "B2.3.10"
       ],
       "level": "HL",
-      "prompt": "Which statement is scientifically accurate for B2.3.10?",
+      "prompt": "Which comparison correctly links the structures of human sperm and an ovulated secondary oocyte to their functions?",
       "marks": 1,
       "sectionId": "b23-10",
       "referenceIds": [
@@ -2554,7 +2596,7 @@
       "kind": "diagram",
       "src": "/biology/cell-specialization/b23-gametes.svg",
       "recallSrc": "/biology/cell-specialization/b23-gametes-recall.svg",
-      "alt": "Human sperm and secondary oocyte specialization. Original educational schematic, deliberately not to scale.",
+      "alt": "Original schematic of a sperm with acrosome, haploid nucleus, mitochondrial midpiece and flagellum, and a secondary oocyte with a zona pellucida, cytoplasm and metaphase II chromosomes on a spindle. There is no intact oocyte nucleus at this stage. Not to scale; the sperm and oocyte are enlarged independently.",
       "captionTitle": "Human sperm and secondary oocyte specialization",
       "attribution": "Original LitLab Phase 8 SVG diagram",
       "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
