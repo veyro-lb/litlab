@@ -799,22 +799,22 @@
                 "id": "a",
                 "text": "Thymine",
                 "correct": true,
-                "feedback": "This matches complementary DNA / transcription logic."
+                "feedback": "In ordinary DNA, adenine pairs with thymine across the strands; uracil is used instead in RNA."
               },
               {
                 "id": "b",
                 "text": "Uracil",
                 "correct": false,
-                "feedback": "This confuses RNA and DNA or coding with template."
+                "feedback": "Uracil normally replaces thymine in RNA, whereas this question concerns double-stranded DNA."
               },
               {
                 "id": "c",
                 "text": "Cytosine",
                 "correct": false,
-                "feedback": "Cytosine does not correspond here."
+                "feedback": "Cytosine normally pairs with guanine, not adenine, in standard DNA."
               }
             ],
-            "explanation": "Correct complementarity identifies the appropriate molecule."
+            "explanation": "Base complementarity is specific: in ordinary DNA A pairs with T and G with C."
           },
           {
             "id": "s2",
@@ -824,22 +824,22 @@
                 "id": "a",
                 "text": "3′-TG-5′",
                 "correct": true,
-                "feedback": "Antiparallel chemical polarity is correct."
+                "feedback": "A pairs with T and C with G, while the aligned complementary backbone must point 3′→5′."
               },
               {
                 "id": "b",
                 "text": "5′-TG-3′",
                 "correct": false,
-                "feedback": "This reverses the direction."
+                "feedback": "The bases complement each other, but both written strands point 5′→3′ left to right; DNA strands are antiparallel."
               },
               {
                 "id": "c",
                 "text": "3′-UG-5′",
                 "correct": false,
-                "feedback": "DNA/RNA polymerisation is directional."
+                "feedback": "Uracil is characteristic of RNA, while this task requires a DNA strand containing thymine."
               }
             ],
-            "explanation": "A growing chain uses its 3′ end for extension."
+            "explanation": "Hydrogen-bonded DNA strands have opposite 5′/3′ chemical orientation; align both ends and bases before checking the sequence."
           }
         ]
       }
@@ -1111,22 +1111,22 @@
                 "id": "a",
                 "text": "Template DNA",
                 "correct": true,
-                "feedback": "This matches complementary DNA / transcription logic."
+                "feedback": "RNA polymerase reads the template (noncoding) DNA strand to assemble a complementary RNA sequence."
               },
               {
                 "id": "b",
                 "text": "Coding DNA",
                 "correct": false,
-                "feedback": "This confuses RNA and DNA or coding with template."
+                "feedback": "The coding DNA strand generally matches the RNA sequence except T is replaced by U; it is not the template read by RNA polymerase."
               },
               {
                 "id": "c",
-                "text": "Cytosine",
+                "text": "Either DNA strand, randomly switching during transcription",
                 "correct": false,
-                "feedback": "Cytosine does not correspond here."
+                "feedback": "RNA polymerase does not randomly alternate strands or switch template at each nucleotide; gene orientation specifies a template strand."
               }
             ],
-            "explanation": "Correct complementarity identifies the appropriate molecule."
+            "explanation": "A coding strand and template strand have different roles: RNA is complementary to the template and normally matches the coding strand except T/U."
           },
           {
             "id": "s2",
@@ -1136,22 +1136,22 @@
                 "id": "a",
                 "text": "5′→3′",
                 "correct": true,
-                "feedback": "Antiparallel chemical polarity is correct."
+                "feedback": "RNA polymerase adds the next nucleotide to the RNA 3′ hydroxyl, so RNA grows in the 5′→3′ direction."
               },
               {
                 "id": "b",
                 "text": "3′→5′",
                 "correct": false,
-                "feedback": "This reverses the direction."
+                "feedback": "The DNA template is read 3′→5′, but the complementary RNA molecule is synthesized 5′→3′."
               },
               {
                 "id": "c",
                 "text": "Either direction",
                 "correct": false,
-                "feedback": "DNA/RNA polymerisation is directional."
+                "feedback": "RNA polymerase cannot extend either end interchangeably: standard nucleotide addition requires the growing RNA 3′ end."
               }
             ],
-            "explanation": "A growing chain uses its 3′ end for extension."
+            "explanation": "Template reading and transcript growth run in opposite directions: 3′→5′ on DNA and 5′→3′ on RNA."
           }
         ]
       }
