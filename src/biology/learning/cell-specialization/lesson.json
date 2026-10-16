@@ -1,0 +1,2389 @@
+{
+  "schemaVersion": 1,
+  "id": "b2-3-cell-specialization-v1",
+  "topicId": "B2.3",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Cell specialization",
+  "introduction": "How do signals turn unspecialized descendants of a zygote into structurally distinct cells, and how do size, surface area and cellular geometry constrain what those cells can do?",
+  "learningPath": [
+    "Follow differentiation signals",
+    "Compare stem cells and potency",
+    "Model cell size and surface exchange",
+    "HL: connect cell structure to physiological demand"
+  ],
+  "prerequisites": [
+    "Cell membranes exchange materials with surroundings",
+    "Gene expression can vary among cells",
+    "Area and volume have different dimensional units"
+  ],
+  "objectives": [
+    "Explain all B2.3.1–B2.3.6 understandings",
+    "Calculate and evaluate surface-area-to-volume models",
+    "For HL, explain specialized pneumocyte, muscle, gamete and membrane adaptations"
+  ],
+  "sections": [
+    {
+      "id": "b23-1",
+      "understandingIds": [
+        "B2.3.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How can cells from the same fertilized egg become different?",
+      "explanation": "Fertilization produces a zygote, which divides repeatedly to generate initially unspecialized descendant cells. As the embryo develops, cells occupy different positions relative to surrounding tissues and molecular signals. Some signalling molecules (morphogens) form concentration gradients, so cells in different positions experience different concentrations even while inheriting essentially the same genome.\n\nCells interpret those graded signals through regulatory pathways that increase or decrease expression of particular genes. Changes in protein abundance and activity then direct differentiation into particular cell types. A high or low morphogen concentration is not itself a different gene; it is contextual information that helps select a cell fate. Because the same genome can support distinct expression programs, a tissue may contain cells with different morphology and roles. Embryogenesis is regulated, not random conversion into arbitrary cell types.",
+      "revisionSummary": "Morphogen concentration gradients can alter expression patterns and influence early cell fates. Position-dependent signals alter gene expression while the inherited genome usually remains the same.",
+      "terms": [
+        "zygote",
+        "embryo",
+        "morphogen",
+        "gene expression",
+        "differentiation"
+      ],
+      "workedExample": "Two cells sit at different positions in a morphogen gradient. Predict different gene-expression programs and describe how this can create distinct tissue identities.",
+      "misconceptions": [
+        {
+          "misconception": "Cells differentiate mainly because their DNA is replaced with new genes.",
+          "correction": "Position-dependent signals alter gene expression while the inherited genome usually remains the same."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Fertilization produces a zygote, which divides repeatedly to generate initially unspecialized descendant cells. As the embryo develops, cells occupy different positions relative to surrounding tissues and molecular signals. Some signalling molecules (morphogens) form concentration gradients, so cells in different positions experience different concentrations even while inheriting essentially the same genome.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "claim": "Cells interpret those graded signals through regulatory pathways that increase or decrease expression of particular genes. Changes in protein abundance and activity then direct differentiation into particular cell types. A high or low morphogen concentration is not itself a different gene; it is contextual information that helps select a cell fate. Because the same genome can support distinct expression programs, a tissue may contain cells with different morphology and roles. Embryogenesis is regulated, not random conversion into arbitrary cell types.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "assets": [
+        "b23-gradient"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-1",
+          "prompt": "Which statement is scientifically accurate for B2.3.1?",
+          "understandingIds": [
+            "B2.3.1"
+          ],
+          "options": [
+            {
+              "text": "A morphogen is another name for a chromosome.",
+              "correct": false,
+              "feedback": "Morphogens are signalling molecules, not chromosomes.",
+              "id": "b23-1-o1"
+            },
+            {
+              "text": "A gradient changes the genetic code of every cell.",
+              "correct": false,
+              "feedback": "Signals regulate transcriptional programs; they do not systematically rewrite the genetic code.",
+              "id": "b23-1-o2"
+            },
+            {
+              "text": "Morphogen concentration gradients can alter expression patterns and influence early cell fates.",
+              "correct": true,
+              "feedback": "Correct. Morphogen concentration gradients can alter expression patterns and influence early cell fates.",
+              "id": "b23-1-o3"
+            },
+            {
+              "text": "All cells receive identical positional information.",
+              "correct": false,
+              "feedback": "Cells at different positions encounter different signal concentrations.",
+              "id": "b23-1-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-1",
+          "prompt": "Retrieve without notes: How can cells from the same fertilized egg become different?",
+          "answer": "Fertilization produces a zygote, which divides repeatedly to generate initially unspecialized descendant cells. As the embryo develops, cells occupy different positions relative to surrounding tissues and molecular signals. Some signalling molecules (morphogens) form concentration gradients, so cells in different positions experience different concentrations even while inheriting essentially the same genome. Two cells sit at different positions in a morphogen gradient. Predict different gene-expression programs and describe how this can create distinct tissue identities.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.1"
+          ]
+        }
+      ],
+      "guidePage": 55,
+      "pdfPage": 61,
+      "textbook": {
+        "referenceId": "hodder-b23",
+        "printedPages": [
+          256
+        ],
+        "pdfPages": [
+          268
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "Fertilization produces a zygote, which divides repeatedly to generate initially unspecialized descendant cells. As the embryo develops, cells occupy different positions relative to surrounding tissues and molecular signals. Some signalling molecules (morphogens) form concentration gradients, so cells in different positions experience different concentrations even while inheriting essentially the same genome.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "Cells interpret those graded signals through regulatory pathways that increase or decrease expression of particular genes. Changes in protein abundance and activity then direct differentiation into particular cell types. A high or low morphogen concentration is not itself a different gene; it is contextual information that helps select a cell fate. Because the same genome can support distinct expression programs, a tissue may contain cells with different morphology and roles. Embryogenesis is regulated, not random conversion into arbitrary cell types.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b23-2",
+      "understandingIds": [
+        "B2.3.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What makes a stem cell different from a mature specialized cell?",
+      "explanation": "Two capacities define stem cells: self-renewal and differentiation. Self-renewal means cell divisions can yield daughters that retain stem-cell properties; differentiation yields descendants that acquire specialized characteristics. In appropriate biological contexts or culture conditions, stem-cell lineages can undergo extensive or ongoing division. Their capacities are regulated by genetic programs, cellular surroundings and signals, rather than guaranteeing that every stem cell literally proliferates forever.\n\nSome stem cells divide to replace cells lost from continuously renewed tissues, while others may be relatively quiescent until they receive activating signals. A mature red blood cell cannot divide and is not a stem cell; a bone marrow hematopoietic stem cell can produce both renewing daughters and blood progenitors. Do not confuse potency (range of possible differentiated descendants) with the current speed of division or the number of years a cell survives.",
+      "revisionSummary": "Self-renewal and differentiation capacity jointly characterize stem cells. Rapid division alone does not establish the ability to self-renew and generate different specialized descendants.",
+      "terms": [
+        "stem cell",
+        "self-renewal",
+        "differentiation",
+        "potency",
+        "quiescence"
+      ],
+      "workedExample": "A bone marrow stem cell generates another stem cell and a committed blood progenitor. Identify renewal and differentiation in the same division lineage.",
+      "misconceptions": [
+        {
+          "misconception": "Any fast-dividing cancer or skin cell must be a stem cell.",
+          "correction": "Rapid division alone does not establish the ability to self-renew and generate different specialized descendants."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Two capacities define stem cells: self-renewal and differentiation. Self-renewal means cell divisions can yield daughters that retain stem-cell properties; differentiation yields descendants that acquire specialized characteristics. In appropriate biological contexts or culture conditions, stem-cell lineages can undergo extensive or ongoing division. Their capacities are regulated by genetic programs, cellular surroundings and signals, rather than guaranteeing that every stem cell literally proliferates forever.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "claim": "Some stem cells divide to replace cells lost from continuously renewed tissues, while others may be relatively quiescent until they receive activating signals. A mature red blood cell cannot divide and is not a stem cell; a bone marrow hematopoietic stem cell can produce both renewing daughters and blood progenitors. Do not confuse potency (range of possible differentiated descendants) with the current speed of division or the number of years a cell survives.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "assets": [
+        "b23-stem"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-2",
+          "prompt": "Which statement is scientifically accurate for B2.3.2?",
+          "understandingIds": [
+            "B2.3.2"
+          ],
+          "options": [
+            {
+              "text": "Any cell dividing rapidly has the capacity to differentiate into many fates.",
+              "correct": false,
+              "feedback": "High proliferation without potency does not define a stem cell.",
+              "id": "b23-2-o1"
+            },
+            {
+              "text": "Self-renewal and differentiation capacity jointly characterize stem cells.",
+              "correct": true,
+              "feedback": "Correct. Self-renewal and differentiation capacity jointly characterize stem cells.",
+              "id": "b23-2-o2"
+            },
+            {
+              "text": "Stem cells are always non-dividing.",
+              "correct": false,
+              "feedback": "Stem-cell pools may divide extensively when activated.",
+              "id": "b23-2-o3"
+            },
+            {
+              "text": "Every mature blood cell has unlimited developmental potential.",
+              "correct": false,
+              "feedback": "Mature erythrocytes have lost their nuclei and division capacity.",
+              "id": "b23-2-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-2",
+          "prompt": "Retrieve without notes: What makes a stem cell different from a mature specialized cell?",
+          "answer": "Two capacities define stem cells: self-renewal and differentiation. Self-renewal means cell divisions can yield daughters that retain stem-cell properties; differentiation yields descendants that acquire specialized characteristics. In appropriate biological contexts or culture conditions, stem-cell lineages can undergo extensive or ongoing division. Their capacities are regulated by genetic programs, cellular surroundings and signals, rather than guaranteeing that every stem cell literally proliferates forever. A bone marrow stem cell generates another stem cell and a committed blood progenitor. Identify renewal and differentiation in the same division lineage.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.2"
+          ]
+        }
+      ],
+      "guidePage": 55,
+      "pdfPage": 61,
+      "textbook": {
+        "referenceId": "hodder-b23",
+        "printedPages": [
+          257
+        ],
+        "pdfPages": [
+          269
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "Two capacities define stem cells: self-renewal and differentiation. Self-renewal means cell divisions can yield daughters that retain stem-cell properties; differentiation yields descendants that acquire specialized characteristics. In appropriate biological contexts or culture conditions, stem-cell lineages can undergo extensive or ongoing division. Their capacities are regulated by genetic programs, cellular surroundings and signals, rather than guaranteeing that every stem cell literally proliferates forever.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "Some stem cells divide to replace cells lost from continuously renewed tissues, while others may be relatively quiescent until they receive activating signals. A mature red blood cell cannot divide and is not a stem cell; a bone marrow hematopoietic stem cell can produce both renewing daughters and blood progenitors. Do not confuse potency (range of possible differentiated descendants) with the current speed of division or the number of years a cell survives.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b23-3",
+      "understandingIds": [
+        "B2.3.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How does location control adult stem cell activity?",
+      "explanation": "An adult stem-cell niche is a localized microenvironment that helps preserve a stem-cell population or stimulates proliferation and differentiation when tissue replacement is needed. Signals come from neighboring cells, extracellular materials and local chemical conditions. The niche is more than the stem cell itself: it provides regulatory cues that influence whether daughter cells remain stem-like, multiply, or differentiate.\n\nIn bone marrow, hematopoietic stem cells are supported by surrounding stromal and vascular components that regulate blood cell renewal. In hair follicles, stem cells occupy regions associated with hair renewal and can respond to local niche signals during cycles of growth. Both examples show that stem cell behavior is context-dependent. Leaving or damaging a niche can alter cell behavior; this does not mean that every external tissue instantly becomes a stem-cell niche.",
+      "revisionSummary": "Bone marrow and hair follicles provide adult human examples of regulated niches. It is a functional tissue microenvironment that regulates stem-cell maintenance, proliferation and differentiation.",
+      "terms": [
+        "niche",
+        "bone marrow",
+        "hematopoietic stem cell",
+        "hair follicle",
+        "local signaling"
+      ],
+      "workedExample": "A hair follicle stem cell remains quiescent, then is activated during a new growth cycle. Explain how a changing local signal can alter activity without changing cell ancestry.",
+      "misconceptions": [
+        {
+          "misconception": "A stem-cell niche is simply a hollow space filled with stem cells.",
+          "correction": "It is a functional tissue microenvironment that regulates stem-cell maintenance, proliferation and differentiation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An adult stem-cell niche is a localized microenvironment that helps preserve a stem-cell population or stimulates proliferation and differentiation when tissue replacement is needed. Signals come from neighboring cells, extracellular materials and local chemical conditions. The niche is more than the stem cell itself: it provides regulatory cues that influence whether daughter cells remain stem-like, multiply, or differentiate.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "claim": "In bone marrow, hematopoietic stem cells are supported by surrounding stromal and vascular components that regulate blood cell renewal. In hair follicles, stem cells occupy regions associated with hair renewal and can respond to local niche signals during cycles of growth. Both examples show that stem cell behavior is context-dependent. Leaving or damaging a niche can alter cell behavior; this does not mean that every external tissue instantly becomes a stem-cell niche.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "assets": [
+        "b23-niche"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-3",
+          "prompt": "Which statement is scientifically accurate for B2.3.3?",
+          "understandingIds": [
+            "B2.3.3"
+          ],
+          "options": [
+            {
+              "text": "Bone marrow and hair follicles provide adult human examples of regulated niches.",
+              "correct": true,
+              "feedback": "Correct. Bone marrow and hair follicles provide adult human examples of regulated niches.",
+              "id": "b23-3-o1"
+            },
+            {
+              "text": "The niche has no effect on stem cell fate.",
+              "correct": false,
+              "feedback": "Local cell-cell and extracellular signals influence renewal.",
+              "id": "b23-3-o2"
+            },
+            {
+              "text": "Every adult body cell sits in a stem-cell niche.",
+              "correct": false,
+              "feedback": "A niche is a specific regulatory environment, not every tissue location.",
+              "id": "b23-3-o3"
+            },
+            {
+              "text": "Bone marrow contains only mature red blood cells.",
+              "correct": false,
+              "feedback": "Bone marrow contains blood-forming stem and progenitor cells.",
+              "id": "b23-3-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-3",
+          "prompt": "Retrieve without notes: How does location control adult stem cell activity?",
+          "answer": "An adult stem-cell niche is a localized microenvironment that helps preserve a stem-cell population or stimulates proliferation and differentiation when tissue replacement is needed. Signals come from neighboring cells, extracellular materials and local chemical conditions. The niche is more than the stem cell itself: it provides regulatory cues that influence whether daughter cells remain stem-like, multiply, or differentiate. A hair follicle stem cell remains quiescent, then is activated during a new growth cycle. Explain how a changing local signal can alter activity without changing cell ancestry.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.3"
+          ]
+        }
+      ],
+      "guidePage": 55,
+      "pdfPage": 61,
+      "textbook": {
+        "referenceId": "hodder-b23",
+        "printedPages": [
+          258
+        ],
+        "pdfPages": [
+          270
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "An adult stem-cell niche is a localized microenvironment that helps preserve a stem-cell population or stimulates proliferation and differentiation when tissue replacement is needed. Signals come from neighboring cells, extracellular materials and local chemical conditions. The niche is more than the stem cell itself: it provides regulatory cues that influence whether daughter cells remain stem-like, multiply, or differentiate.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "In bone marrow, hematopoietic stem cells are supported by surrounding stromal and vascular components that regulate blood cell renewal. In hair follicles, stem cells occupy regions associated with hair renewal and can respond to local niche signals during cycles of growth. Both examples show that stem cell behavior is context-dependent. Leaving or damaging a niche can alter cell behavior; this does not mean that every external tissue instantly becomes a stem-cell niche.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b23-4",
+      "understandingIds": [
+        "B2.3.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why do totipotent, pluripotent and multipotent mean different things?",
+      "explanation": "Potency describes the breadth of cell types a cell can generate under suitable conditions. Totipotent early embryonic cells can contribute to an entire new organism, including the required extraembryonic tissues. The zygote and very early embryonic blastomeres are standard developmental examples, but totipotency is stage- and species-dependent and should not be assigned to an arbitrary cultured cell. Pluripotent cells can generate cell types of all three embryonic germ layers, but cannot alone produce all structures required for a complete developing organism.\n\nMultipotent adult tissue stem cells generate a more limited family of descendants. A hematopoietic stem cell in bone marrow can ultimately produce several types of blood cell, but ordinarily not neural tissue. In an early animal embryo, developmental potential becomes restricted as embryonic lineages separate. The inner cell mass of a mammalian blastocyst contains pluripotent progenitors, not a cluster of uniformly totipotent cells. Potency and differentiation state are related but distinct measurements.",
+      "revisionSummary": "Totipotent potential is broader than pluripotent, which is broader than multipotent. Totipotency includes the ability to generate all necessary embryonic and extraembryonic lineages; pluripotency does not.",
+      "terms": [
+        "totipotent",
+        "pluripotent",
+        "multipotent",
+        "blastomere",
+        "inner cell mass"
+      ],
+      "workedExample": "Classify zygote—totipotent; pluripotent embryonic stem cell—pluripotent; marrow blood-forming stem cell—multipotent. Explain each by descendants it can form.",
+      "misconceptions": [
+        {
+          "misconception": "Pluripotent and totipotent both mean a cell can make an entire organism on its own.",
+          "correction": "Totipotency includes the ability to generate all necessary embryonic and extraembryonic lineages; pluripotency does not."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Potency describes the breadth of cell types a cell can generate under suitable conditions. Totipotent early embryonic cells can contribute to an entire new organism, including the required extraembryonic tissues. The zygote and very early embryonic blastomeres are standard developmental examples, but totipotency is stage- and species-dependent and should not be assigned to an arbitrary cultured cell. Pluripotent cells can generate cell types of all three embryonic germ layers, but cannot alone produce all structures required for a complete developing organism.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "claim": "Multipotent adult tissue stem cells generate a more limited family of descendants. A hematopoietic stem cell in bone marrow can ultimately produce several types of blood cell, but ordinarily not neural tissue. In an early animal embryo, developmental potential becomes restricted as embryonic lineages separate. The inner cell mass of a mammalian blastocyst contains pluripotent progenitors, not a cluster of uniformly totipotent cells. Potency and differentiation state are related but distinct measurements.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "assets": [
+        "b23-potency"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-4",
+          "prompt": "Which statement is scientifically accurate for B2.3.4?",
+          "understandingIds": [
+            "B2.3.4"
+          ],
+          "options": [
+            {
+              "text": "Adult blood stem cells are totipotent.",
+              "correct": false,
+              "feedback": "Adult hematopoietic stem cells have lineage-limited multipotency.",
+              "id": "b23-4-o1"
+            },
+            {
+              "text": "Pluripotent cells can only make red blood cells.",
+              "correct": false,
+              "feedback": "Pluripotent cells can differentiate into derivatives of all germ layers.",
+              "id": "b23-4-o2"
+            },
+            {
+              "text": "Stem cell potency is identical to its cell division rate.",
+              "correct": false,
+              "feedback": "Potency concerns developmental range, not how frequently a cell divides.",
+              "id": "b23-4-o3"
+            },
+            {
+              "text": "Totipotent potential is broader than pluripotent, which is broader than multipotent.",
+              "correct": true,
+              "feedback": "Correct. Totipotent potential is broader than pluripotent, which is broader than multipotent.",
+              "id": "b23-4-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-4",
+          "prompt": "Retrieve without notes: Why do totipotent, pluripotent and multipotent mean different things?",
+          "answer": "Potency describes the breadth of cell types a cell can generate under suitable conditions. Totipotent early embryonic cells can contribute to an entire new organism, including the required extraembryonic tissues. The zygote and very early embryonic blastomeres are standard developmental examples, but totipotency is stage- and species-dependent and should not be assigned to an arbitrary cultured cell. Pluripotent cells can generate cell types of all three embryonic germ layers, but cannot alone produce all structures required for a complete developing organism. Classify zygote—totipotent; pluripotent embryonic stem cell—pluripotent; marrow blood-forming stem cell—multipotent. Explain each by descendants it can form.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.4"
+          ]
+        }
+      ],
+      "guidePage": 56,
+      "pdfPage": 62,
+      "textbook": {
+        "referenceId": "hodder-b23",
+        "printedPages": [
+          260
+        ],
+        "pdfPages": [
+          272
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "Potency describes the breadth of cell types a cell can generate under suitable conditions. Totipotent early embryonic cells can contribute to an entire new organism, including the required extraembryonic tissues. The zygote and very early embryonic blastomeres are standard developmental examples, but totipotency is stage- and species-dependent and should not be assigned to an arbitrary cultured cell. Pluripotent cells can generate cell types of all three embryonic germ layers, but cannot alone produce all structures required for a complete developing organism.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "Multipotent adult tissue stem cells generate a more limited family of descendants. A hematopoietic stem cell in bone marrow can ultimately produce several types of blood cell, but ordinarily not neural tissue. In an early animal embryo, developmental potential becomes restricted as embryonic lineages separate. The inner cell mass of a mammalian blastocyst contains pluripotent progenitors, not a cluster of uniformly totipotent cells. Potency and differentiation state are related but distinct measurements.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "explorer": {
+        "title": "Potency classifier",
+        "prompt": "Compare possible descendants before choosing a potency label.",
+        "features": [
+          {
+            "id": "t",
+            "label": "Totipotent",
+            "explanation": "Zygote and appropriate very early blastomeres can contribute to the embryo and required extraembryonic tissues."
+          },
+          {
+            "id": "p",
+            "label": "Pluripotent",
+            "explanation": "Embryonic stem cells can give rise to derivatives of all three germ layers, but not independently to a complete conceptus."
+          },
+          {
+            "id": "m",
+            "label": "Multipotent",
+            "explanation": "Adult marrow hematopoietic stem cells produce multiple blood lineages within a restricted family."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b23-5",
+      "understandingIds": [
+        "B2.3.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why are human specialized cells so different in size?",
+      "explanation": "Human cells vary greatly in their dimensions and shape because they perform different functions. A mature human erythrocyte is a small flexible biconcave disc that can pass through narrow capillaries, whereas a mature human egg cell has a large volume and cytoplasmic resources important for early development. Sperm are smaller cells with a compact head and flagellum for movement through the female reproductive tract. White blood cells vary in size, shape and behavior according to type.\n\nA neuron can have a very long axon, enabling communication over large anatomical distances, while a skeletal muscle fibre may extend over centimeters as a long multinucleate contractile cell. Their linear length should not be mistaken for a comparably huge spherical volume. Size changes diffusion distances and supply demands, but cell function also depends on membrane folding, internal transport, metabolic activity and tissue context. There is no single 'best' size across every cell type.",
+      "revisionSummary": "Cell shape and dimensions reflect function: erythrocytes, gametes, neurons and skeletal fibres differ. Structure, size and functional specialization reflect different expression programs and roles.",
+      "terms": [
+        "erythrocyte",
+        "oocyte",
+        "spermatozoon",
+        "axon",
+        "muscle fibre"
+      ],
+      "workedExample": "Explain why a 100 µm-diameter human egg and a 7–8 µm-wide red blood cell serve different functions; dimensions are approximate and not fixed biological constants.",
+      "misconceptions": [
+        {
+          "misconception": "All human cells must be the same size because they have the same DNA.",
+          "correction": "Structure, size and functional specialization reflect different expression programs and roles."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Human cells vary greatly in their dimensions and shape because they perform different functions. A mature human erythrocyte is a small flexible biconcave disc that can pass through narrow capillaries, whereas a mature human egg cell has a large volume and cytoplasmic resources important for early development. Sperm are smaller cells with a compact head and flagellum for movement through the female reproductive tract. White blood cells vary in size, shape and behavior according to type.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "claim": "A neuron can have a very long axon, enabling communication over large anatomical distances, while a skeletal muscle fibre may extend over centimeters as a long multinucleate contractile cell. Their linear length should not be mistaken for a comparably huge spherical volume. Size changes diffusion distances and supply demands, but cell function also depends on membrane folding, internal transport, metabolic activity and tissue context. There is no single 'best' size across every cell type.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "assets": [
+        "b23-sizes"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-5",
+          "prompt": "Which statement is scientifically accurate for B2.3.5?",
+          "understandingIds": [
+            "B2.3.5"
+          ],
+          "options": [
+            {
+              "text": "All white blood cells are exactly the diameter of red blood cells.",
+              "correct": false,
+              "feedback": "White blood cells encompass variable morphologies.",
+              "id": "b23-5-o1"
+            },
+            {
+              "text": "A sperm's flagellum is mainly for storing the embryo's cytoplasm.",
+              "correct": false,
+              "feedback": "The sperm tail is primarily a motility structure.",
+              "id": "b23-5-o2"
+            },
+            {
+              "text": "Cell shape and dimensions reflect function: erythrocytes, gametes, neurons and skeletal fibres differ.",
+              "correct": true,
+              "feedback": "Correct. Cell shape and dimensions reflect function: erythrocytes, gametes, neurons and skeletal fibres differ.",
+              "id": "b23-5-o3"
+            },
+            {
+              "text": "Neurons must be spherical because axons are long.",
+              "correct": false,
+              "feedback": "Neurons often have elongated processes and irregular bodies.",
+              "id": "b23-5-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-5",
+          "prompt": "Retrieve without notes: Why are human specialized cells so different in size?",
+          "answer": "Human cells vary greatly in their dimensions and shape because they perform different functions. A mature human erythrocyte is a small flexible biconcave disc that can pass through narrow capillaries, whereas a mature human egg cell has a large volume and cytoplasmic resources important for early development. Sperm are smaller cells with a compact head and flagellum for movement through the female reproductive tract. White blood cells vary in size, shape and behavior according to type. Explain why a 100 µm-diameter human egg and a 7–8 µm-wide red blood cell serve different functions; dimensions are approximate and not fixed biological constants.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.5"
+          ]
+        }
+      ],
+      "guidePage": 56,
+      "pdfPage": 62,
+      "textbook": {
+        "referenceId": "hodder-b23",
+        "printedPages": [
+          261
+        ],
+        "pdfPages": [
+          273
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "Human cells vary greatly in their dimensions and shape because they perform different functions. A mature human erythrocyte is a small flexible biconcave disc that can pass through narrow capillaries, whereas a mature human egg cell has a large volume and cytoplasmic resources important for early development. Sperm are smaller cells with a compact head and flagellum for movement through the female reproductive tract. White blood cells vary in size, shape and behavior according to type.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "A neuron can have a very long axon, enabling communication over large anatomical distances, while a skeletal muscle fibre may extend over centimeters as a long multinucleate contractile cell. Their linear length should not be mistaken for a comparably huge spherical volume. Size changes diffusion distances and supply demands, but cell function also depends on membrane folding, internal transport, metabolic activity and tissue context. There is no single 'best' size across every cell type.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b23-6",
+      "understandingIds": [
+        "B2.3.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why does increasing linear size reduce relative exchange area?",
+      "explanation": "For a cube with side length L, surface area = 6L² and volume = L³, so the ratio SA:V = 6/L. A cube of side 1 µm has 6 µm² surface area and 1 µm³ volume, giving 6:1 µm⁻¹. At side 2 µm, area is 24 µm² and volume 8 µm³, ratio 3:1 µm⁻¹. At side 4 µm, area is 96 µm² and volume 64 µm³, ratio 1.5:1 µm⁻¹. Doubling size multiplies area by four but volume by eight.\n\nSubstances cross the cell membrane across surface area, while total requirements for nutrients, gas exchange and waste clearance often increase with metabolically active volume. Therefore, if membrane exchange capacity per unit area and demand per volume stayed equal, a larger cell would have less exchange capacity relative to demand. Real cells are not cubes: folds, shape, transport proteins, metabolic rates and cytoplasmic organization alter performance. The cube model isolates the scaling rule without claiming that every biological limitation has one simple cause.",
+      "revisionSummary": "For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge. Area scales with side length squared and volume with its cube; SA:V falls as 1/L.",
+      "terms": [
+        "surface area",
+        "volume",
+        "SA:V ratio",
+        "square law",
+        "cube law",
+        "model assumption"
+      ],
+      "workedExample": "For a cube of side 3 µm: area = 6×3² = 54 µm²; volume = 3³ = 27 µm³; SA:V = 2 µm⁻¹. Doubling to side 6 gives area 216 µm², volume 216 µm³, SA:V = 1 µm⁻¹.",
+      "misconceptions": [
+        {
+          "misconception": "Doubling the side length doubles both area and volume.",
+          "correction": "Area scales with side length squared and volume with its cube; SA:V falls as 1/L."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "For a cube with side length L, surface area = 6L² and volume = L³, so the ratio SA:V = 6/L. A cube of side 1 µm has 6 µm² surface area and 1 µm³ volume, giving 6:1 µm⁻¹. At side 2 µm, area is 24 µm² and volume 8 µm³, ratio 3:1 µm⁻¹. At side 4 µm, area is 96 µm² and volume 64 µm³, ratio 1.5:1 µm⁻¹. Doubling size multiplies area by four but volume by eight.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "claim": "Substances cross the cell membrane across surface area, while total requirements for nutrients, gas exchange and waste clearance often increase with metabolically active volume. Therefore, if membrane exchange capacity per unit area and demand per volume stayed equal, a larger cell would have less exchange capacity relative to demand. Real cells are not cubes: folds, shape, transport proteins, metabolic rates and cytoplasmic organization alter performance. The cube model isolates the scaling rule without claiming that every biological limitation has one simple cause.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "assets": [
+        "b23-cubes"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-6",
+          "prompt": "Which statement is scientifically accurate for B2.3.6?",
+          "understandingIds": [
+            "B2.3.6"
+          ],
+          "options": [
+            {
+              "text": "A cube is an exact anatomical model of any cell.",
+              "correct": false,
+              "feedback": "Cubes are simplified quantitative models; cell shapes and active transport differ.",
+              "id": "b23-6-o1"
+            },
+            {
+              "text": "For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+              "correct": true,
+              "feedback": "Correct. For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+              "id": "b23-6-o2"
+            },
+            {
+              "text": "Surface area and volume always increase at the same proportional rate.",
+              "correct": false,
+              "feedback": "Area scales by factor four, volume by eight when length doubles.",
+              "id": "b23-6-o3"
+            },
+            {
+              "text": "A 2 µm cube has an SA:V of 6 µm⁻¹.",
+              "correct": false,
+              "feedback": "For L = 2 µm, ratio = 6/2 = 3 µm⁻¹.",
+              "id": "b23-6-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-6",
+          "prompt": "Retrieve without notes: Why does increasing linear size reduce relative exchange area?",
+          "answer": "For a cube with side length L, surface area = 6L² and volume = L³, so the ratio SA:V = 6/L. A cube of side 1 µm has 6 µm² surface area and 1 µm³ volume, giving 6:1 µm⁻¹. At side 2 µm, area is 24 µm² and volume 8 µm³, ratio 3:1 µm⁻¹. At side 4 µm, area is 96 µm² and volume 64 µm³, ratio 1.5:1 µm⁻¹. Doubling size multiplies area by four but volume by eight. For a cube of side 3 µm: area = 6×3² = 54 µm²; volume = 3³ = 27 µm³; SA:V = 2 µm⁻¹. Doubling to side 6 gives area 216 µm², volume 216 µm³, SA:V = 1 µm⁻¹.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.6"
+          ]
+        }
+      ],
+      "guidePage": 56,
+      "pdfPage": 62,
+      "textbook": {
+        "referenceId": "hodder-b23",
+        "printedPages": [
+          263
+        ],
+        "pdfPages": [
+          275
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "For a cube with side length L, surface area = 6L² and volume = L³, so the ratio SA:V = 6/L. A cube of side 1 µm has 6 µm² surface area and 1 µm³ volume, giving 6:1 µm⁻¹. At side 2 µm, area is 24 µm² and volume 8 µm³, ratio 3:1 µm⁻¹. At side 4 µm, area is 96 µm² and volume 64 µm³, ratio 1.5:1 µm⁻¹. Doubling size multiplies area by four but volume by eight.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "Substances cross the cell membrane across surface area, while total requirements for nutrients, gas exchange and waste clearance often increase with metabolically active volume. Therefore, if membrane exchange capacity per unit area and demand per volume stayed equal, a larger cell would have less exchange capacity relative to demand. Real cells are not cubes: folds, shape, transport proteins, metabolic rates and cytoplasmic organization alter performance. The cube model isolates the scaling rule without claiming that every biological limitation has one simple cause.",
+          "referenceIds": [
+            "ib-b23",
+            "hodder-b23",
+            "ncbi-niche",
+            "ncbi-potency"
+          ]
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Cube model with side length L, surface area = 6L² and volume = L³",
+          "headers": [
+            "L (µm)",
+            "Surface area (µm²)",
+            "Volume (µm³)",
+            "SA:V (µm⁻¹)"
+          ],
+          "rows": [
+            [
+              1,
+              6,
+              1,
+              6
+            ],
+            [
+              2,
+              24,
+              8,
+              3
+            ],
+            [
+              3,
+              54,
+              27,
+              2
+            ],
+            [
+              4,
+              96,
+              64,
+              1.5
+            ],
+            [
+              6,
+              216,
+              216,
+              1
+            ]
+          ]
+        }
+      ],
+      "mechanismChallenge": {
+        "title": "Predict scaling before calculating",
+        "instructions": "For each stage, choose the correctly scaled change for cubes of the same shape.",
+        "stages": [
+          {
+            "id": "area",
+            "prompt": "If side length doubles, by what factor does area change?",
+            "options": [
+              {
+                "id": "a",
+                "text": "×4",
+                "correct": true,
+                "feedback": "Area depends on two powers of length."
+              },
+              {
+                "id": "b",
+                "text": "×2",
+                "correct": false,
+                "feedback": "You must square the side multiplier."
+              },
+              {
+                "id": "c",
+                "text": "×8",
+                "correct": false,
+                "feedback": "That is the volume scaling factor."
+              }
+            ],
+            "explanation": "6(2L)² = 4(6L²)."
+          },
+          {
+            "id": "volume",
+            "prompt": "If side length doubles, by what factor does volume change?",
+            "options": [
+              {
+                "id": "a",
+                "text": "×8",
+                "correct": true,
+                "feedback": "A cube uses three powers of length."
+              },
+              {
+                "id": "b",
+                "text": "×4",
+                "correct": false,
+                "feedback": "That is the area factor."
+              },
+              {
+                "id": "c",
+                "text": "×2",
+                "correct": false,
+                "feedback": "Linear scaling is insufficient."
+              }
+            ],
+            "explanation": "(2L)³ = 8L³."
+          },
+          {
+            "id": "ratio",
+            "prompt": "After doubling linear size, what happens to SA:V?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Halves",
+                "correct": true,
+                "feedback": "Four times the surface divided by eight times the volume is one-half."
+              },
+              {
+                "id": "b",
+                "text": "Doubles",
+                "correct": false,
+                "feedback": "Volume grows faster than area."
+              },
+              {
+                "id": "c",
+                "text": "Unchanged",
+                "correct": false,
+                "feedback": "Area and volume do not have identical exponents."
+              }
+            ],
+            "explanation": "New ratio = 4SA/8V = 0.5×old ratio."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b23-7",
+      "understandingIds": [
+        "B2.3.7"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which structural adaptations increase surface area relative to cell volume? (HL)",
+      "explanation": "Flattening a cell increases surface area relative to its volume for a given amount of internal material and can shorten diffusion distance. A mature human red blood cell's biconcave shape makes a relatively high membrane area accessible to gas exchange, while its thin central region reduces diffusion path length. A flattened shape is not the only possible adaptation, and erythrocytes also rely on hemoglobin and flexibility.\n\nMicrovilli are membrane projections that increase exchange surface area, as on epithelial cells of the proximal convoluted tubule of the nephron. Invaginations are inward folds of the membrane that create additional membrane area without equivalent increases in total cellular volume. Both adaptations are meaningful when the appropriate exchange/transport proteins are present; more membrane alone does not guarantee unlimited transport. Distinguish microvilli from motile cilia and describe the physical geometry involved.",
+      "revisionSummary": "Flattening, microvilli and invagination can increase effective membrane surface relative to volume. Microvilli are short surface projections that enlarge membrane area; cilia and flagella have different architectures and functions.",
+      "terms": [
+        "biconcave",
+        "microvilli",
+        "invagination",
+        "proximal convoluted tubule",
+        "erythrocyte"
+      ],
+      "workedExample": "A proximal tubule epithelial cell increases apical microvilli. Predict greater membrane area available for reabsorption, assuming transport-protein density remains comparable.",
+      "misconceptions": [
+        {
+          "misconception": "A microvillus is a motile flagellum that pumps molecules.",
+          "correction": "Microvilli are short surface projections that enlarge membrane area; cilia and flagella have different architectures and functions."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Flattening a cell increases surface area relative to its volume for a given amount of internal material and can shorten diffusion distance. A mature human red blood cell's biconcave shape makes a relatively high membrane area accessible to gas exchange, while its thin central region reduces diffusion path length. A flattened shape is not the only possible adaptation, and erythrocytes also rely on hemoglobin and flexibility.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        },
+        {
+          "claim": "Microvilli are membrane projections that increase exchange surface area, as on epithelial cells of the proximal convoluted tubule of the nephron. Invaginations are inward folds of the membrane that create additional membrane area without equivalent increases in total cellular volume. Both adaptations are meaningful when the appropriate exchange/transport proteins are present; more membrane alone does not guarantee unlimited transport. Distinguish microvilli from motile cilia and describe the physical geometry involved.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "assets": [
+        "b23-surface"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-7",
+          "prompt": "Which statement is scientifically accurate for B2.3.7?",
+          "understandingIds": [
+            "B2.3.7"
+          ],
+          "options": [
+            {
+              "text": "Flattening, microvilli and invagination can increase effective membrane surface relative to volume.",
+              "correct": true,
+              "feedback": "Correct. Flattening, microvilli and invagination can increase effective membrane surface relative to volume.",
+              "id": "b23-7-o1"
+            },
+            {
+              "text": "Cell walls double the volume without any extra membrane.",
+              "correct": false,
+              "feedback": "The adaptations concern cell geometry and membrane surface.",
+              "id": "b23-7-o2"
+            },
+            {
+              "text": "Microvilli are always powered by the same motility machinery as cilia.",
+              "correct": false,
+              "feedback": "Microvilli contain actin-based structure and are not motile cilia.",
+              "id": "b23-7-o3"
+            },
+            {
+              "text": "Invagination necessarily removes membrane area.",
+              "correct": false,
+              "feedback": "Membrane folds can expand accessible surface area.",
+              "id": "b23-7-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-7",
+          "prompt": "Retrieve without notes: Which structural adaptations increase surface area relative to cell volume? (HL)",
+          "answer": "Flattening a cell increases surface area relative to its volume for a given amount of internal material and can shorten diffusion distance. A mature human red blood cell's biconcave shape makes a relatively high membrane area accessible to gas exchange, while its thin central region reduces diffusion path length. A flattened shape is not the only possible adaptation, and erythrocytes also rely on hemoglobin and flexibility. A proximal tubule epithelial cell increases apical microvilli. Predict greater membrane area available for reabsorption, assuming transport-protein density remains comparable.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.7"
+          ]
+        }
+      ],
+      "guidePage": 56,
+      "pdfPage": 62,
+      "textbook": {
+        "referenceId": "hodder-b23-hl",
+        "printedPages": [
+          266
+        ],
+        "pdfPages": [
+          278
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "Flattening a cell increases surface area relative to its volume for a given amount of internal material and can shorten diffusion distance. A mature human red blood cell's biconcave shape makes a relatively high membrane area accessible to gas exchange, while its thin central region reduces diffusion path length. A flattened shape is not the only possible adaptation, and erythrocytes also rely on hemoglobin and flexibility.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "Microvilli are membrane projections that increase exchange surface area, as on epithelial cells of the proximal convoluted tubule of the nephron. Invaginations are inward folds of the membrane that create additional membrane area without equivalent increases in total cellular volume. Both adaptations are meaningful when the appropriate exchange/transport proteins are present; more membrane alone does not guarantee unlimited transport. Distinguish microvilli from motile cilia and describe the physical geometry involved.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b23-8",
+      "understandingIds": [
+        "B2.3.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why do alveoli need both type I and type II pneumocytes? (HL)",
+      "explanation": "The alveolar epithelium contains cells specialized for complementary tasks. Type I pneumocytes spread into extremely thin, flat sheets lining most of the air-exchange surface; their narrow cytoplasmic regions help minimize diffusion distance between alveolar air and the capillary blood barrier. Type II pneumocytes are more cuboidal and contain many lamellar bodies—secretory organelles holding components of pulmonary surfactant.\n\nType II pneumocytes release surfactant into the alveolar lumen. Surfactant reduces surface tension at the air–liquid interface and helps keep alveoli from collapsing during breathing. The thin barrier produced by type I cells and surfactant secretion by type II cells are related to the overall function of the tissue, but must not be confused: type I is not the principal surfactant secretor. Lamellar bodies represent intracellular secretory structure; they are not empty alveolar air spaces. Diagram thickness is exaggerated for visibility and not a literal microscopic scale.",
+      "revisionSummary": "Type I pneumocytes shorten gas diffusion distance, while type II release surfactant to lower surface tension. Type I cells are thin for gas diffusion; type II cells store and secrete surfactant from lamellar bodies.",
+      "terms": [
+        "alveolus",
+        "type I pneumocyte",
+        "type II pneumocyte",
+        "lamellar body",
+        "surfactant"
+      ],
+      "workedExample": "In a patient with reduced surfactant production, predict a higher tendency for alveoli to collapse despite continued thinness of type I cell sheets.",
+      "misconceptions": [
+        {
+          "misconception": "Type I pneumocytes produce most surfactant and type II pneumocytes form the thinnest diffusion barrier.",
+          "correction": "Type I cells are thin for gas diffusion; type II cells store and secrete surfactant from lamellar bodies."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The alveolar epithelium contains cells specialized for complementary tasks. Type I pneumocytes spread into extremely thin, flat sheets lining most of the air-exchange surface; their narrow cytoplasmic regions help minimize diffusion distance between alveolar air and the capillary blood barrier. Type II pneumocytes are more cuboidal and contain many lamellar bodies—secretory organelles holding components of pulmonary surfactant.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-alveoli"
+          ]
+        },
+        {
+          "claim": "Type II pneumocytes release surfactant into the alveolar lumen. Surfactant reduces surface tension at the air–liquid interface and helps keep alveoli from collapsing during breathing. The thin barrier produced by type I cells and surfactant secretion by type II cells are related to the overall function of the tissue, but must not be confused: type I is not the principal surfactant secretor. Lamellar bodies represent intracellular secretory structure; they are not empty alveolar air spaces. Diagram thickness is exaggerated for visibility and not a literal microscopic scale.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-alveoli"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-alveoli"
+      ],
+      "assets": [
+        "b23-alveoli"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-8",
+          "prompt": "Which statement is scientifically accurate for B2.3.8?",
+          "understandingIds": [
+            "B2.3.8"
+          ],
+          "options": [
+            {
+              "text": "Both are identical cells with different names.",
+              "correct": false,
+              "feedback": "They have distinct morphology, organelles and function.",
+              "id": "b23-8-o1"
+            },
+            {
+              "text": "Type I cells are thick glands holding lamellar vesicles.",
+              "correct": false,
+              "feedback": "Type II pneumocytes have the prominent surfactant storage organelles.",
+              "id": "b23-8-o2"
+            },
+            {
+              "text": "Surfactant increases alveolar surface tension.",
+              "correct": false,
+              "feedback": "Surfactant reduces surface tension and helps prevent alveolar collapse.",
+              "id": "b23-8-o3"
+            },
+            {
+              "text": "Type I pneumocytes shorten gas diffusion distance, while type II release surfactant to lower surface tension.",
+              "correct": true,
+              "feedback": "Correct. Type I pneumocytes shorten gas diffusion distance, while type II release surfactant to lower surface tension.",
+              "id": "b23-8-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-8",
+          "prompt": "Retrieve without notes: Why do alveoli need both type I and type II pneumocytes? (HL)",
+          "answer": "The alveolar epithelium contains cells specialized for complementary tasks. Type I pneumocytes spread into extremely thin, flat sheets lining most of the air-exchange surface; their narrow cytoplasmic regions help minimize diffusion distance between alveolar air and the capillary blood barrier. Type II pneumocytes are more cuboidal and contain many lamellar bodies—secretory organelles holding components of pulmonary surfactant. In a patient with reduced surfactant production, predict a higher tendency for alveoli to collapse despite continued thinness of type I cell sheets.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.8"
+          ]
+        }
+      ],
+      "guidePage": 56,
+      "pdfPage": 62,
+      "textbook": {
+        "referenceId": "hodder-b23-hl",
+        "printedPages": [
+          267
+        ],
+        "pdfPages": [
+          279
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "The alveolar epithelium contains cells specialized for complementary tasks. Type I pneumocytes spread into extremely thin, flat sheets lining most of the air-exchange surface; their narrow cytoplasmic regions help minimize diffusion distance between alveolar air and the capillary blood barrier. Type II pneumocytes are more cuboidal and contain many lamellar bodies—secretory organelles holding components of pulmonary surfactant.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-alveoli"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "Type II pneumocytes release surfactant into the alveolar lumen. Surfactant reduces surface tension at the air–liquid interface and helps keep alveoli from collapsing during breathing. The thin barrier produced by type I cells and surfactant secretion by type II cells are related to the overall function of the tissue, but must not be confused: type I is not the principal surfactant secretor. Lamellar bodies represent intracellular secretory structure; they are not empty alveolar air spaces. Diagram thickness is exaggerated for visibility and not a literal microscopic scale.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-alveoli"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b23-9",
+      "understandingIds": [
+        "B2.3.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How does muscle cellular organization support different contraction patterns? (HL)",
+      "explanation": "Both cardiac muscle cells and skeletal striated muscle fibres contain contractile myofibrils built of repeated sarcomeres. Cardiac muscle cells usually branch, connect end-to-end through intercalated discs and typically have one central nucleus, although some are binucleate. Their network assists coordinated rhythmic contraction. Skeletal muscle fibres are long, generally unbranched structures formed by fusion of myoblasts; they contain many nuclei positioned near their periphery.\n\nA skeletal striated muscle fibre is a single highly specialized multinucleated cell, not a string of numerous ordinary single-nucleus cells. The relative length, branching and nuclei number are part of structural explanations for tissue function, but students should distinguish observations from proposed functional hypotheses. Both tissues appear striated because of the organization of myofibrils. Neither should be depicted as merely an elongated generic animal cell with a single oval nucleus.",
+      "revisionSummary": "Cardiac cells are typically branched with central nuclei; skeletal fibres are long, unbranched and multinucleated. Its multiple nuclei occupy a continuous fused cell bounded by one sarcolemma.",
+      "terms": [
+        "cardiomyocyte",
+        "striated muscle fibre",
+        "myofibril",
+        "sarcomere",
+        "intercalated disc",
+        "syncytium"
+      ],
+      "workedExample": "A micrograph shows branching striated fibres with central nuclei and visible junctions. Reason that it likely depicts cardiac tissue, giving at least two visible clues.",
+      "misconceptions": [
+        {
+          "misconception": "A skeletal muscle fibre is a collection of many separate cells merely lying next to one another.",
+          "correction": "Its multiple nuclei occupy a continuous fused cell bounded by one sarcolemma."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Both cardiac muscle cells and skeletal striated muscle fibres contain contractile myofibrils built of repeated sarcomeres. Cardiac muscle cells usually branch, connect end-to-end through intercalated discs and typically have one central nucleus, although some are binucleate. Their network assists coordinated rhythmic contraction. Skeletal muscle fibres are long, generally unbranched structures formed by fusion of myoblasts; they contain many nuclei positioned near their periphery.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        },
+        {
+          "claim": "A skeletal striated muscle fibre is a single highly specialized multinucleated cell, not a string of numerous ordinary single-nucleus cells. The relative length, branching and nuclei number are part of structural explanations for tissue function, but students should distinguish observations from proposed functional hypotheses. Both tissues appear striated because of the organization of myofibrils. Neither should be depicted as merely an elongated generic animal cell with a single oval nucleus.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "assets": [
+        "b23-muscle"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-9",
+          "prompt": "Which statement is scientifically accurate for B2.3.9?",
+          "understandingIds": [
+            "B2.3.9"
+          ],
+          "options": [
+            {
+              "text": "Every cardiomyocyte contains ten peripheral nuclei.",
+              "correct": false,
+              "feedback": "Cardiac cells usually have one or two central nuclei.",
+              "id": "b23-9-o1"
+            },
+            {
+              "text": "Skeletal muscle fibres lack striations.",
+              "correct": false,
+              "feedback": "Skeletal fibres are striated through organized sarcomeres.",
+              "id": "b23-9-o2"
+            },
+            {
+              "text": "Cardiac cells are typically branched with central nuclei; skeletal fibres are long, unbranched and multinucleated.",
+              "correct": true,
+              "feedback": "Correct. Cardiac cells are typically branched with central nuclei; skeletal fibres are long, unbranched and multinucleated.",
+              "id": "b23-9-o3"
+            },
+            {
+              "text": "Only cardiac cells contain myofibrils.",
+              "correct": false,
+              "feedback": "Skeletal striated muscle also has myofibrils.",
+              "id": "b23-9-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-9",
+          "prompt": "Retrieve without notes: How does muscle cellular organization support different contraction patterns? (HL)",
+          "answer": "Both cardiac muscle cells and skeletal striated muscle fibres contain contractile myofibrils built of repeated sarcomeres. Cardiac muscle cells usually branch, connect end-to-end through intercalated discs and typically have one central nucleus, although some are binucleate. Their network assists coordinated rhythmic contraction. Skeletal muscle fibres are long, generally unbranched structures formed by fusion of myoblasts; they contain many nuclei positioned near their periphery. A micrograph shows branching striated fibres with central nuclei and visible junctions. Reason that it likely depicts cardiac tissue, giving at least two visible clues.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.9"
+          ]
+        }
+      ],
+      "guidePage": 56,
+      "pdfPage": 62,
+      "textbook": {
+        "referenceId": "hodder-b23-hl",
+        "printedPages": [
+          268
+        ],
+        "pdfPages": [
+          280
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "Both cardiac muscle cells and skeletal striated muscle fibres contain contractile myofibrils built of repeated sarcomeres. Cardiac muscle cells usually branch, connect end-to-end through intercalated discs and typically have one central nucleus, although some are binucleate. Their network assists coordinated rhythmic contraction. Skeletal muscle fibres are long, generally unbranched structures formed by fusion of myoblasts; they contain many nuclei positioned near their periphery.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "A skeletal striated muscle fibre is a single highly specialized multinucleated cell, not a string of numerous ordinary single-nucleus cells. The relative length, branching and nuclei number are part of structural explanations for tissue function, but students should distinguish observations from proposed functional hypotheses. Both tissues appear striated because of the organization of myofibrils. Neither should be depicted as merely an elongated generic animal cell with a single oval nucleus.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b23-10",
+      "understandingIds": [
+        "B2.3.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How are sperm and egg cells adapted for fertilization and early development? (HL)",
+      "explanation": "A human sperm cell is comparatively small and motile. It has a streamlined head containing a haploid nucleus and an acrosome with proteins involved in interacting with the egg's surrounding layers. Mitochondria concentrated in the midpiece support energy demands of flagellar movement, while the flagellum generates propulsion. These features help sperm reach and interact with the egg and deliver paternal genetic material.\n\nA human secondary oocyte is large and nonmotile, with a haploid chromosome complement arrested at metaphase II until fertilization triggers completion of meiosis. Its abundant cytoplasm supplies molecules and machinery to the early embryo; its plasma membrane and surrounding zona pellucida participate in fertilization interactions. Egg size should not be attributed to containing much more DNA than the sperm: both gametes carry haploid nuclear genomes. Simplified drawings should not show an adult ovulated human egg as already having completed meiosis II before fertilization.",
+      "revisionSummary": "Sperm have motility-related structures; the oocyte provides substantial cytoplasm for early development. Human gametes are haploid; the egg's larger cytoplasm supports early developmental processes.",
+      "terms": [
+        "spermatozoon",
+        "secondary oocyte",
+        "haploid",
+        "acrosome",
+        "zona pellucida",
+        "flagellum"
+      ],
+      "workedExample": "A sperm with an immotile flagellum may have reduced capacity to reach the oocyte; an oocyte contains much more cytoplasm but not double the sperm's haploid nuclear chromosome set.",
+      "misconceptions": [
+        {
+          "misconception": "The egg is larger because it contains the full diploid genome while sperm carries only half.",
+          "correction": "Human gametes are haploid; the egg's larger cytoplasm supports early developmental processes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A human sperm cell is comparatively small and motile. It has a streamlined head containing a haploid nucleus and an acrosome with proteins involved in interacting with the egg's surrounding layers. Mitochondria concentrated in the midpiece support energy demands of flagellar movement, while the flagellum generates propulsion. These features help sperm reach and interact with the egg and deliver paternal genetic material.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        },
+        {
+          "claim": "A human secondary oocyte is large and nonmotile, with a haploid chromosome complement arrested at metaphase II until fertilization triggers completion of meiosis. Its abundant cytoplasm supplies molecules and machinery to the early embryo; its plasma membrane and surrounding zona pellucida participate in fertilization interactions. Egg size should not be attributed to containing much more DNA than the sperm: both gametes carry haploid nuclear genomes. Simplified drawings should not show an adult ovulated human egg as already having completed meiosis II before fertilization.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "assets": [
+        "b23-gametes"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "b23-check-10",
+          "prompt": "Which statement is scientifically accurate for B2.3.10?",
+          "understandingIds": [
+            "B2.3.10"
+          ],
+          "options": [
+            {
+              "text": "The human oocyte swims using a flagellum.",
+              "correct": false,
+              "feedback": "The human oocyte is nonmotile and lacks a sperm-like flagellum.",
+              "id": "b23-10-o1"
+            },
+            {
+              "text": "Sperm have motility-related structures; the oocyte provides substantial cytoplasm for early development.",
+              "correct": true,
+              "feedback": "Correct. Sperm have motility-related structures; the oocyte provides substantial cytoplasm for early development.",
+              "id": "b23-10-o2"
+            },
+            {
+              "text": "Sperm cells have no genetic material.",
+              "correct": false,
+              "feedback": "A sperm head carries a haploid nucleus.",
+              "id": "b23-10-o3"
+            },
+            {
+              "text": "A mature human secondary oocyte has completed meiosis II before fertilization.",
+              "correct": false,
+              "feedback": "The ovulated oocyte generally completes meiosis II following fertilization.",
+              "id": "b23-10-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "b23-recall-10",
+          "prompt": "Retrieve without notes: How are sperm and egg cells adapted for fertilization and early development? (HL)",
+          "answer": "A human sperm cell is comparatively small and motile. It has a streamlined head containing a haploid nucleus and an acrosome with proteins involved in interacting with the egg's surrounding layers. Mitochondria concentrated in the midpiece support energy demands of flagellar movement, while the flagellum generates propulsion. These features help sperm reach and interact with the egg and deliver paternal genetic material. A sperm with an immotile flagellum may have reduced capacity to reach the oocyte; an oocyte contains much more cytoplasm but not double the sperm's haploid nuclear chromosome set.",
+          "explanation": "Explain a biological mechanism and a particular supporting example.",
+          "understandingIds": [
+            "B2.3.10"
+          ]
+        }
+      ],
+      "guidePage": 56,
+      "pdfPage": 62,
+      "textbook": {
+        "referenceId": "hodder-b23-hl",
+        "printedPages": [
+          271
+        ],
+        "pdfPages": [
+          283
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the biological cause",
+          "explanation": "A human sperm cell is comparatively small and motile. It has a streamlined head containing a haploid nucleus and an acrosome with proteins involved in interacting with the egg's surrounding layers. Mitochondria concentrated in the midpiece support energy demands of flagellar movement, while the flagellum generates propulsion. These features help sperm reach and interact with the egg and deliver paternal genetic material.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        },
+        {
+          "title": "Use the explanation to make a prediction",
+          "explanation": "A human secondary oocyte is large and nonmotile, with a haploid chromosome complement arrested at metaphase II until fertilization triggers completion of meiosis. Its abundant cytoplasm supplies molecules and machinery to the early embryo; its plasma membrane and surrounding zona pellucida participate in fertilization interactions. Egg size should not be attributed to containing much more DNA than the sperm: both gametes carry haploid nuclear genomes. Simplified drawings should not show an adult ovulated human egg as already having completed meiosis II before fertilization.",
+          "referenceIds": [
+            "ib-b23-hl",
+            "hodder-b23-hl",
+            "ncbi-niche"
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "b23-p1a-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.1"
+      ],
+      "level": "shared",
+      "prompt": "Which statement is scientifically accurate for B2.3.1?",
+      "marks": 1,
+      "sectionId": "b23-1",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "options": [
+        {
+          "text": "A morphogen is another name for a chromosome.",
+          "correct": false,
+          "feedback": "Morphogens are signalling molecules, not chromosomes.",
+          "id": "b23-1-o1"
+        },
+        {
+          "text": "A gradient changes the genetic code of every cell.",
+          "correct": false,
+          "feedback": "Signals regulate transcriptional programs; they do not systematically rewrite the genetic code.",
+          "id": "b23-1-o2"
+        },
+        {
+          "text": "Morphogen concentration gradients can alter expression patterns and influence early cell fates.",
+          "correct": true,
+          "feedback": "Correct. Morphogen concentration gradients can alter expression patterns and influence early cell fates.",
+          "id": "b23-1-o3"
+        },
+        {
+          "text": "All cells receive identical positional information.",
+          "correct": false,
+          "feedback": "Cells at different positions encounter different signal concentrations.",
+          "id": "b23-1-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.2"
+      ],
+      "level": "shared",
+      "prompt": "Which statement is scientifically accurate for B2.3.2?",
+      "marks": 1,
+      "sectionId": "b23-2",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "options": [
+        {
+          "text": "Any cell dividing rapidly has the capacity to differentiate into many fates.",
+          "correct": false,
+          "feedback": "High proliferation without potency does not define a stem cell.",
+          "id": "b23-2-o1"
+        },
+        {
+          "text": "Self-renewal and differentiation capacity jointly characterize stem cells.",
+          "correct": true,
+          "feedback": "Correct. Self-renewal and differentiation capacity jointly characterize stem cells.",
+          "id": "b23-2-o2"
+        },
+        {
+          "text": "Stem cells are always non-dividing.",
+          "correct": false,
+          "feedback": "Stem-cell pools may divide extensively when activated.",
+          "id": "b23-2-o3"
+        },
+        {
+          "text": "Every mature blood cell has unlimited developmental potential.",
+          "correct": false,
+          "feedback": "Mature erythrocytes have lost their nuclei and division capacity.",
+          "id": "b23-2-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.3"
+      ],
+      "level": "shared",
+      "prompt": "Which statement is scientifically accurate for B2.3.3?",
+      "marks": 1,
+      "sectionId": "b23-3",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "options": [
+        {
+          "text": "Bone marrow and hair follicles provide adult human examples of regulated niches.",
+          "correct": true,
+          "feedback": "Correct. Bone marrow and hair follicles provide adult human examples of regulated niches.",
+          "id": "b23-3-o1"
+        },
+        {
+          "text": "The niche has no effect on stem cell fate.",
+          "correct": false,
+          "feedback": "Local cell-cell and extracellular signals influence renewal.",
+          "id": "b23-3-o2"
+        },
+        {
+          "text": "Every adult body cell sits in a stem-cell niche.",
+          "correct": false,
+          "feedback": "A niche is a specific regulatory environment, not every tissue location.",
+          "id": "b23-3-o3"
+        },
+        {
+          "text": "Bone marrow contains only mature red blood cells.",
+          "correct": false,
+          "feedback": "Bone marrow contains blood-forming stem and progenitor cells.",
+          "id": "b23-3-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.4"
+      ],
+      "level": "shared",
+      "prompt": "Which statement is scientifically accurate for B2.3.4?",
+      "marks": 1,
+      "sectionId": "b23-4",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "options": [
+        {
+          "text": "Adult blood stem cells are totipotent.",
+          "correct": false,
+          "feedback": "Adult hematopoietic stem cells have lineage-limited multipotency.",
+          "id": "b23-4-o1"
+        },
+        {
+          "text": "Pluripotent cells can only make red blood cells.",
+          "correct": false,
+          "feedback": "Pluripotent cells can differentiate into derivatives of all germ layers.",
+          "id": "b23-4-o2"
+        },
+        {
+          "text": "Stem cell potency is identical to its cell division rate.",
+          "correct": false,
+          "feedback": "Potency concerns developmental range, not how frequently a cell divides.",
+          "id": "b23-4-o3"
+        },
+        {
+          "text": "Totipotent potential is broader than pluripotent, which is broader than multipotent.",
+          "correct": true,
+          "feedback": "Correct. Totipotent potential is broader than pluripotent, which is broader than multipotent.",
+          "id": "b23-4-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.5"
+      ],
+      "level": "shared",
+      "prompt": "Which statement is scientifically accurate for B2.3.5?",
+      "marks": 1,
+      "sectionId": "b23-5",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "options": [
+        {
+          "text": "All white blood cells are exactly the diameter of red blood cells.",
+          "correct": false,
+          "feedback": "White blood cells encompass variable morphologies.",
+          "id": "b23-5-o1"
+        },
+        {
+          "text": "A sperm's flagellum is mainly for storing the embryo's cytoplasm.",
+          "correct": false,
+          "feedback": "The sperm tail is primarily a motility structure.",
+          "id": "b23-5-o2"
+        },
+        {
+          "text": "Cell shape and dimensions reflect function: erythrocytes, gametes, neurons and skeletal fibres differ.",
+          "correct": true,
+          "feedback": "Correct. Cell shape and dimensions reflect function: erythrocytes, gametes, neurons and skeletal fibres differ.",
+          "id": "b23-5-o3"
+        },
+        {
+          "text": "Neurons must be spherical because axons are long.",
+          "correct": false,
+          "feedback": "Neurons often have elongated processes and irregular bodies.",
+          "id": "b23-5-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Which statement is scientifically accurate for B2.3.6?",
+      "marks": 1,
+      "sectionId": "b23-6",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "options": [
+        {
+          "text": "A cube is an exact anatomical model of any cell.",
+          "correct": false,
+          "feedback": "Cubes are simplified quantitative models; cell shapes and active transport differ.",
+          "id": "b23-6-o1"
+        },
+        {
+          "text": "For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+          "correct": true,
+          "feedback": "Correct. For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge.",
+          "id": "b23-6-o2"
+        },
+        {
+          "text": "Surface area and volume always increase at the same proportional rate.",
+          "correct": false,
+          "feedback": "Area scales by factor four, volume by eight when length doubles.",
+          "id": "b23-6-o3"
+        },
+        {
+          "text": "A 2 µm cube has an SA:V of 6 µm⁻¹.",
+          "correct": false,
+          "feedback": "For L = 2 µm, ratio = 6/2 = 3 µm⁻¹.",
+          "id": "b23-6-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.7"
+      ],
+      "level": "HL",
+      "prompt": "Which statement is scientifically accurate for B2.3.7?",
+      "marks": 1,
+      "sectionId": "b23-7",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "options": [
+        {
+          "text": "Flattening, microvilli and invagination can increase effective membrane surface relative to volume.",
+          "correct": true,
+          "feedback": "Correct. Flattening, microvilli and invagination can increase effective membrane surface relative to volume.",
+          "id": "b23-7-o1"
+        },
+        {
+          "text": "Cell walls double the volume without any extra membrane.",
+          "correct": false,
+          "feedback": "The adaptations concern cell geometry and membrane surface.",
+          "id": "b23-7-o2"
+        },
+        {
+          "text": "Microvilli are always powered by the same motility machinery as cilia.",
+          "correct": false,
+          "feedback": "Microvilli contain actin-based structure and are not motile cilia.",
+          "id": "b23-7-o3"
+        },
+        {
+          "text": "Invagination necessarily removes membrane area.",
+          "correct": false,
+          "feedback": "Membrane folds can expand accessible surface area.",
+          "id": "b23-7-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.8"
+      ],
+      "level": "HL",
+      "prompt": "Which statement is scientifically accurate for B2.3.8?",
+      "marks": 1,
+      "sectionId": "b23-8",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-alveoli"
+      ],
+      "options": [
+        {
+          "text": "Both are identical cells with different names.",
+          "correct": false,
+          "feedback": "They have distinct morphology, organelles and function.",
+          "id": "b23-8-o1"
+        },
+        {
+          "text": "Type I cells are thick glands holding lamellar vesicles.",
+          "correct": false,
+          "feedback": "Type II pneumocytes have the prominent surfactant storage organelles.",
+          "id": "b23-8-o2"
+        },
+        {
+          "text": "Surfactant increases alveolar surface tension.",
+          "correct": false,
+          "feedback": "Surfactant reduces surface tension and helps prevent alveolar collapse.",
+          "id": "b23-8-o3"
+        },
+        {
+          "text": "Type I pneumocytes shorten gas diffusion distance, while type II release surfactant to lower surface tension.",
+          "correct": true,
+          "feedback": "Correct. Type I pneumocytes shorten gas diffusion distance, while type II release surfactant to lower surface tension.",
+          "id": "b23-8-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.9"
+      ],
+      "level": "HL",
+      "prompt": "Which statement is scientifically accurate for B2.3.9?",
+      "marks": 1,
+      "sectionId": "b23-9",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "options": [
+        {
+          "text": "Every cardiomyocyte contains ten peripheral nuclei.",
+          "correct": false,
+          "feedback": "Cardiac cells usually have one or two central nuclei.",
+          "id": "b23-9-o1"
+        },
+        {
+          "text": "Skeletal muscle fibres lack striations.",
+          "correct": false,
+          "feedback": "Skeletal fibres are striated through organized sarcomeres.",
+          "id": "b23-9-o2"
+        },
+        {
+          "text": "Cardiac cells are typically branched with central nuclei; skeletal fibres are long, unbranched and multinucleated.",
+          "correct": true,
+          "feedback": "Correct. Cardiac cells are typically branched with central nuclei; skeletal fibres are long, unbranched and multinucleated.",
+          "id": "b23-9-o3"
+        },
+        {
+          "text": "Only cardiac cells contain myofibrils.",
+          "correct": false,
+          "feedback": "Skeletal striated muscle also has myofibrils.",
+          "id": "b23-9-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-p1a-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.10"
+      ],
+      "level": "HL",
+      "prompt": "Which statement is scientifically accurate for B2.3.10?",
+      "marks": 1,
+      "sectionId": "b23-10",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "options": [
+        {
+          "text": "The human oocyte swims using a flagellum.",
+          "correct": false,
+          "feedback": "The human oocyte is nonmotile and lacks a sperm-like flagellum.",
+          "id": "b23-10-o1"
+        },
+        {
+          "text": "Sperm have motility-related structures; the oocyte provides substantial cytoplasm for early development.",
+          "correct": true,
+          "feedback": "Correct. Sperm have motility-related structures; the oocyte provides substantial cytoplasm for early development.",
+          "id": "b23-10-o2"
+        },
+        {
+          "text": "Sperm cells have no genetic material.",
+          "correct": false,
+          "feedback": "A sperm head carries a haploid nucleus.",
+          "id": "b23-10-o3"
+        },
+        {
+          "text": "A mature human secondary oocyte has completed meiosis II before fertilization.",
+          "correct": false,
+          "feedback": "The ovulated oocyte generally completes meiosis II following fertilization.",
+          "id": "b23-10-o4"
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-paper2-1",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.3.1"
+      ],
+      "level": "shared",
+      "prompt": "Explain how an extracellular morphogen gradient can cause differences in embryonic cell differentiation.",
+      "marks": 3,
+      "sectionId": "b23-1",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "answer": "Different positions experience different concentrations; Signals alter transcriptional/regulatory activity; Changes in protein expression lead to distinct phenotypes",
+      "markingPoints": [
+        "Different positions experience different concentrations",
+        "Signals alter transcriptional/regulatory activity",
+        "Changes in protein expression lead to distinct phenotypes"
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-paper2-2",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.3.4"
+      ],
+      "level": "shared",
+      "prompt": "Differentiate totipotent, pluripotent and multipotent cells with one developmentally appropriate example of each.",
+      "marks": 3,
+      "sectionId": "b23-4",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "answer": "Totipotent zygote/very early blastomere plus extraembryonic lineages; Pluripotent embryonic stem cells produce three germ layer derivatives; Multipotent marrow blood stem cells give multiple blood-cell types",
+      "markingPoints": [
+        "Totipotent zygote/very early blastomere plus extraembryonic lineages",
+        "Pluripotent embryonic stem cells produce three germ layer derivatives",
+        "Multipotent marrow blood stem cells give multiple blood-cell types"
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-paper2-3",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "For a cube-shaped cell with side 5 µm calculate area, volume and SA:V. Predict the effect of doubling the side.",
+      "marks": 5,
+      "sectionId": "b23-6",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "answer": "Area = 6×25 = 150 µm²; Volume = 125 µm³; SA:V = 1.2 µm⁻¹; Doubling side halves ratio to 0.6 µm⁻¹; Model assumes a cube and comparable metabolic/exchange characteristics",
+      "markingPoints": [
+        "Area = 6×25 = 150 µm²",
+        "Volume = 125 µm³",
+        "SA:V = 1.2 µm⁻¹",
+        "Doubling side halves ratio to 0.6 µm⁻¹",
+        "Model assumes a cube and comparable metabolic/exchange characteristics"
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-paper2-4",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "A cuboid cell is 2 µm × 3 µm × 5 µm. Calculate the exposed surface area, volume and surface-area-to-volume ratio.",
+      "marks": 4,
+      "sectionId": "b23-6",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche",
+        "ncbi-potency"
+      ],
+      "answer": "Area = 2(2×3+2×5+3×5)=62 µm²; Volume = 2×3×5=30 µm³; Ratio = 62/30 = 2.07 µm⁻¹ approximately; Assumes all six faces are exposed for exchange",
+      "markingPoints": [
+        "Area = 2(2×3+2×5+3×5)=62 µm²",
+        "Volume = 2×3×5=30 µm³",
+        "Ratio = 62/30 = 2.07 µm⁻¹ approximately",
+        "Assumes all six faces are exposed for exchange"
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-paper2-5",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.3.8"
+      ],
+      "level": "HL",
+      "prompt": "Compare the alveolar adaptations of type I and type II pneumocytes and relate each to overall gas exchange.",
+      "marks": 5,
+      "sectionId": "b23-8",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-alveoli"
+      ],
+      "answer": "Type I cells are very thin; Reduced diffusion path for gases; Type II cells have many lamellar bodies; Lamellar bodies contain material for surfactant secretion; Surfactant reduces surface tension and helps prevent collapse",
+      "markingPoints": [
+        "Type I cells are very thin",
+        "Reduced diffusion path for gases",
+        "Type II cells have many lamellar bodies",
+        "Lamellar bodies contain material for surfactant secretion",
+        "Surfactant reduces surface tension and helps prevent collapse"
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-paper2-6",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.3.9"
+      ],
+      "level": "HL",
+      "prompt": "Compare cardiac and skeletal striated muscle using myofibrils, branching, length and nuclei. Is a skeletal muscle fibre a single cell?",
+      "marks": 5,
+      "sectionId": "b23-9",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "answer": "Both have myofibrils; Cardiac cells typically branched and shorter; Cardiac nuclei usually central 1–2; Skeletal fibres long and unbranched; Skeletal fibre is one multinucleated syncytial cell",
+      "markingPoints": [
+        "Both have myofibrils",
+        "Cardiac cells typically branched and shorter",
+        "Cardiac nuclei usually central 1–2",
+        "Skeletal fibres long and unbranched",
+        "Skeletal fibre is one multinucleated syncytial cell"
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "b23-paper2-7",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.3.10"
+      ],
+      "level": "HL",
+      "prompt": "Explain how the structural differences between human sperm and a secondary oocyte reflect their functions.",
+      "marks": 5,
+      "sectionId": "b23-10",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "answer": "Sperm flagellum supports motility; Sperm head carries haploid genome; Sperm midpiece mitochondria support energy demand; Oocyte large cytoplasmic store supports early development; Both carry a haploid set; oocyte completes meiosis II after fertilization",
+      "markingPoints": [
+        "Sperm flagellum supports motility",
+        "Sperm head carries haploid genome",
+        "Sperm midpiece mitochondria support energy demand",
+        "Oocyte large cytoplasmic store supports early development",
+        "Both carry a haploid set; oocyte completes meiosis II after fertilization"
+      ],
+      "review": "draft"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-b23",
+      "title": "IB Biology Guide — first assessment 2025",
+      "locator": "B2.3.1–B2.3.6, printed pp.55–56 / PDF pp.61–62; NOS cube model",
+      "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "ib-b23-hl",
+      "title": "IB Biology Guide — first assessment 2025",
+      "locator": "B2.3.7–B2.3.10, printed p.56 / PDF p.62",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
+    },
+    {
+      "id": "hodder-b23",
+      "title": "Clegg, Davis & Talbot, Biology for the IB Diploma, third edition (2023)",
+      "locator": "Chapter B2.3, printed pp.256–265 / PDF pp.268–277",
+      "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-b23-hl",
+      "title": "Clegg, Davis & Talbot, Biology for the IB Diploma, third edition (2023)",
+      "locator": "Chapter B2.3 HL, printed pp.266–272 / PDF pp.278–284",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
+    },
+    {
+      "id": "ncbi-niche",
+      "title": "StemBook: Engineering microenvironments to control stem cell fate and function",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK27048/",
+      "locator": "Self-renewal, differentiation and environmental cues",
+      "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "ncbi-potency",
+      "title": "StemBook: Lineage analysis of stem cells",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK27073/",
+      "locator": "Stem cell lineage inference and potency caveats",
+      "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "ncbi-alveoli",
+      "title": "NCBI Bookshelf: Histology, Alveolar Cells",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK557542/",
+      "locator": "Type I and II pneumocyte histology, lamellar bodies",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
+    }
+  ],
+  "assets": [
+    {
+      "id": "b23-gradient",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-gradient.svg",
+      "recallSrc": "/biology/cell-specialization/b23-gradient-recall.svg",
+      "alt": "Morphogen gradient and gene-expression decisions. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Morphogen gradient and gene-expression decisions",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-stem",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-stem.svg",
+      "recallSrc": "/biology/cell-specialization/b23-stem-recall.svg",
+      "alt": "Stem cell self-renewal and differentiated progeny. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Stem cell self-renewal and differentiated progeny",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-niche",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-niche.svg",
+      "recallSrc": "/biology/cell-specialization/b23-niche-recall.svg",
+      "alt": "Adult marrow and follicle niche cues. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Adult marrow and follicle niche cues",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-potency",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-potency.svg",
+      "recallSrc": "/biology/cell-specialization/b23-potency-recall.svg",
+      "alt": "Totipotent, pluripotent and multipotent lineage examples. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Totipotent, pluripotent and multipotent lineage examples",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-sizes",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-sizes.svg",
+      "recallSrc": "/biology/cell-specialization/b23-sizes-recall.svg",
+      "alt": "Human cell size and shape comparisons, schematic. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Human cell size and shape comparisons, schematic",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-cubes",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-cubes.svg",
+      "recallSrc": "/biology/cell-specialization/b23-cubes-recall.svg",
+      "alt": "Cube area, volume and surface-to-volume relationship. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Cube area, volume and surface-to-volume relationship",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23",
+        "ncbi-niche"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-surface",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-surface.svg",
+      "recallSrc": "/biology/cell-specialization/b23-surface-recall.svg",
+      "alt": "Biconcave erythrocyte and proximal tubule microvilli. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Biconcave erythrocyte and proximal tubule microvilli",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-alveoli",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-alveoli.svg",
+      "recallSrc": "/biology/cell-specialization/b23-alveoli-recall.svg",
+      "alt": "Type I and type II alveolar epithelial specializations. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Type I and type II alveolar epithelial specializations",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-alveoli"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-muscle",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-muscle.svg",
+      "recallSrc": "/biology/cell-specialization/b23-muscle-recall.svg",
+      "alt": "Cardiac and skeletal striated muscle cells. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Cardiac and skeletal striated muscle cells",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    },
+    {
+      "id": "b23-gametes",
+      "kind": "diagram",
+      "src": "/biology/cell-specialization/b23-gametes.svg",
+      "recallSrc": "/biology/cell-specialization/b23-gametes-recall.svg",
+      "alt": "Human sperm and secondary oocyte specialization. Original educational schematic, deliberately not to scale.",
+      "captionTitle": "Human sperm and secondary oocyte specialization",
+      "attribution": "Original LitLab Phase 8 SVG diagram",
+      "license": "Original project-created vector; repository author authorization needed for downstream redistribution",
+      "permissionEvidence": "Independently generated without copied textbook images or micrograph sources",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-niche"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    }
+  ],
+  "summary": "Differentiation changes gene expression and cellular fate; a stem-cell niche influences renewal and commitment. Size and shape determine exchange geometry, while specialized cells develop structural adaptations for their work.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-16",
+    "reviewer": null,
+    "notes": [
+      "Original educational draft. Named qualified scientific and assessment review remains outstanding.",
+      "All original figures are illustrative, not micrographs or scaled histological sections.",
+      "Quantitative cube model is explicitly simplified and independently recomputed.",
+      "B2.3.8 type II pneumocytes store surfactant in lamellar bodies; type I are thin exchange cells.",
+      "No official IB marks or scientific endorsement is implied."
+    ]
+  }
+}
