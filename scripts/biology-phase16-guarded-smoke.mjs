@@ -378,6 +378,7 @@ try{
     throw new Error('Page load event did not arrive');
   }
   async function freshBiologyRoute(route){
+    await command('Emulation.setPageScaleFactor',{pageScaleFactor:1});
     const url=new URL('#'+route,base);
     // A unique query forces a document navigation; fragments alone reuse the old document.
     url.searchParams.set('biologyQaNavigation',String(++biologyNavigation));
@@ -551,7 +552,7 @@ try{
     await evaluate("document.querySelector('button[aria-label=\"Toggle theme\"]').click()");
     await bioEval("(root.querySelector('input[value=SL]').click(),true)");
   }
-  await command('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true});
+  await command('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true,screenWidth:320,screenHeight:844});
   await command('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
   await freshBiologyRoute('biology/topic/A1.1/learn');await sleep(100);
   await check('Water reflows at 320px and respects reduced-motion media',async()=>await bioEval("root.querySelector('.bio-app').scrollWidth<=320&&document.documentElement.scrollWidth<=320&&getComputedStyle(root.querySelector('.bio-mode-nav a')).transitionDuration==='0s'"));
@@ -690,7 +691,7 @@ try{
   for(const entry of Object.values(integratedCatalog)){
     const t=integratedRegistry.find(t=>t.id===entry.topicId);
     for(const width of [390,1440]){
-      await command('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width===390});
+      await command('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width===390,screenWidth:width,screenHeight:1000});
       await freshBiologyRoute('biology/topic/'+t.id+'/learn');await waitLesson();
       await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(80);
       for(const u of t.understandings){
@@ -703,7 +704,7 @@ try{
       }
     }
     for(const width of [320,390,768,1440]){
-      await command('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<=390});
+      await command('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<=390,screenWidth:width,screenHeight:1000});
       for(const theme of ['light','dark'])for(const mode of ['revision','practice']){
         await freshBiologyRoute(`biology/topic/${t.id}/${mode}`);await waitLesson();
         await evaluate(`document.documentElement.dataset.theme='${theme}'`);await sleep(80);
@@ -712,19 +713,21 @@ try{
       }
     }
     const id=t.id==='A1.1'?'A1.1.2':t.id==='B1.1'?'B1.1.4':'B1.2.1';
-    await command('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true});
+    await command('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true,screenWidth:320,screenHeight:844});
     await freshBiologyRoute(`biology/topic/${t.id}/learn?understanding=${id}`);await waitLesson();await sleep(80);
     await check(`Phase 4 ${t.id} mobile sections initially compact`,async()=>await bioEval("!root.querySelector('.bio-toc').open"));
     await bioEval("(root.querySelector('.bio-figure-enlarge').click(),true)");await sleep(100);
     await check(`Phase 4 ${t.id} native enlargement traps focus and keeps readable canvas`,async()=>await bioEval("root.querySelector('.bio-figure-dialog').open&&root.activeElement?.textContent==='Close figure'&&root.querySelector('.bio-figure-zoom img').getBoundingClientRect().width>=640"));
     await check(`Phase 4 ${t.id} enlargement retains keyboard focus`,async()=>{
+      await command('Page.bringToFront');
       for(let i=0;i<3;i++){
         await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});await sleep(30);
+        console.log('Dialog Tab '+t.id+' '+i+' '+JSON.stringify(await bioEval("({focus:document.hasFocus(),active:root.activeElement?.outerHTML?.slice(0,220),dialog:root.querySelector('.bio-figure-dialog').open,visual:{width:visualViewport.width,left:visualViewport.offsetLeft,top:visualViewport.offsetTop}})")));
         if(!await bioEval("!!root.activeElement?.closest('.bio-figure-dialog')"))return false;
       }
       return true;
     });
-    await check(`Phase 4 ${t.id} enlargement stays inside narrow viewport`,async()=>await bioEval("(()=>{const d=root.querySelector('.bio-figure-dialog'),r=d.getBoundingClientRect(),b=d.querySelector('button').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight&&b.left>=r.left&&b.right<=r.right&&b.top>=0&&b.bottom<=innerHeight})()"));
+    await check(`Phase 4 ${t.id} enlargement stays inside narrow viewport`,async()=>await bioEval("(()=>{const d=root.querySelector('.bio-figure-dialog'),r=d.getBoundingClientRect(),b=d.querySelector('button').getBoundingClientRect();console.log('dialog bounds',JSON.stringify({r:r.toJSON(),b:b.toJSON(),innerWidth,innerHeight,visualWidth:visualViewport.width}));return r.left>=0&&r.right<=320&&r.top>=0&&r.bottom<=844&&b.left>=r.left&&b.right<=r.right&&b.top>=0&&b.bottom<=844})()"));
     const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(join(outputDir,`phase4-${t.id}-enlarge-320.png`),Buffer.from(shot.data,'base64'));
     await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await sleep(80);
     await check(`Phase 4 ${t.id} Escape closes enlargement`,async()=>await bioEval("!root.querySelector('.bio-figure-dialog').open&&root.activeElement?.classList.contains('bio-figure-enlarge')"));
@@ -738,7 +741,8 @@ try{
       await command('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
       async function tap(selector){
         await bioEval(`(root.querySelector(${JSON.stringify(selector)}).scrollIntoView({block:'center',behavior:'instant'}),true)`);await sleep(60);
-        const pt=await bioEval(`(()=>{const r=root.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
+        const pt=await bioEval(`(()=>{const r=root.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2-visualViewport.offsetLeft,y:r.y+r.height/2-visualViewport.offsetTop}})()`);
+        console.log('Phase 4 touch target '+t.id+' '+selector+' '+JSON.stringify(pt));
         if(pt.y<0||pt.y>844||pt.x<0||pt.x>320)throw new Error('Touch target outside viewport');
         await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(350);
       }
@@ -746,10 +750,11 @@ try{
       console.log('Phase 4 touch menu '+t.id+' '+JSON.stringify(await bioEval("({open:root.querySelector('.bio-toc').open,scrollY,active:root.activeElement?.tagName})")));
       if(!await bioEval("root.querySelector('.bio-toc').open"))return false;
       const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(join(outputDir,`phase4-${t.id}-sections-touch-320.png`),Buffer.from(shot.data,'base64'));
+      await bioEval("(root.addEventListener('click',e=>window.__phase4LastClick={tag:e.target.tagName,text:e.target.textContent.slice(0,150)},{once:true,capture:true}),true)");
       await tap('.bio-lesson-nav li:nth-child(2) button');
       await command('Emulation.setTouchEmulationEnabled',{enabled:false});
       for(let retry=0;retry<20;retry++){if(await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId==='${t.id}.2'&&!root.querySelector('.bio-toc').open`))break;await sleep(50)}
-      console.log('Phase 4 touch selected '+t.id+' '+JSON.stringify(await bioEval("({id:root.querySelector('.bio-lesson-content').dataset.understandingId,open:root.querySelector('.bio-toc').open,scrollY})")));
+      console.log('Phase 4 touch selected '+t.id+' '+JSON.stringify(await bioEval("({id:root.querySelector('.bio-lesson-content').dataset.understandingId,open:root.querySelector('.bio-toc').open,scrollY,lastClick:window.__phase4LastClick})")));
       return await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId==='${t.id}.2'&&!root.querySelector('.bio-toc').open`);
     });
   }
