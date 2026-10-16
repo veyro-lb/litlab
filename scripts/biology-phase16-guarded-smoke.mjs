@@ -769,6 +769,7 @@ try{
       await freshBiologyRoute(`biology/topic/${topicId}/learn?understanding=${firstHL}`);await waitLesson();
       await bioEval("(root.querySelector('input[value=SL]').click(),true)");await sleep(80);
       await check(`Phase 9 ${topicId} SL rejects HL deep-link ${width}`,async()=>await bioEval(`root.querySelector('.bio-lesson-content').dataset.level==='shared'&&root.querySelectorAll('.bio-lesson-nav li').length===${topic.understandings.filter(u=>u.level==='shared').length}`));
+      if(topicId==='B2.2'&&width===320)await check('Phase 9 narrow heading keeps compartmentalization on one line',async()=>await bioEval("(()=>{const el=root.querySelector('.bio-lesson-hero h1'),s=getComputedStyle(el),c=document.createElement('canvas').getContext('2d');c.font=s.fontWeight+' '+s.fontSize+' '+s.fontFamily;return c.measureText('compartmentalization').width<=el.clientWidth})()"));
       for(const mode of ['practice','revision','sources']){
         await evaluate(`location.hash='biology/topic/${topicId}/${mode}?understanding=${firstHL}'`);await sleep(80);
         await check(`Phase 9 ${topicId} SL ${mode} has no HL material ${width}`,async()=>await bioEval(`!root.querySelector('[data-level=HL]')&&!root.querySelector('.bio-practice-target')&&!root.querySelector('.bio-practice')?.textContent.includes('ADDITIONAL HL')`));
