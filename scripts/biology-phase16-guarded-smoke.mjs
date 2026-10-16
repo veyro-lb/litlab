@@ -708,10 +708,17 @@ try{
     await check(`Phase 4 ${t.id} mobile sections initially compact`,async()=>await bioEval("!root.querySelector('.bio-toc').open"));
     await bioEval("(root.querySelector('.bio-figure-enlarge').click(),true)");await sleep(100);
     await check(`Phase 4 ${t.id} native enlargement traps focus and keeps readable canvas`,async()=>await bioEval("root.querySelector('.bio-figure-dialog').open&&root.activeElement?.textContent==='Close figure'&&root.querySelector('.bio-figure-zoom img').getBoundingClientRect().width>=640"));
+    await check(`Phase 4 ${t.id} enlargement retains keyboard focus`,async()=>{
+      for(let i=0;i<3;i++){
+        await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});await sleep(30);
+        if(!await bioEval("!!root.activeElement?.closest('.bio-figure-dialog')"))return false;
+      }
+      return true;
+    });
     await check(`Phase 4 ${t.id} enlargement stays inside narrow viewport`,async()=>await bioEval("(()=>{const d=root.querySelector('.bio-figure-dialog'),r=d.getBoundingClientRect(),b=d.querySelector('button').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight&&b.left>=r.left&&b.right<=r.right&&b.top>=0&&b.bottom<=innerHeight})()"));
     const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(join(outputDir,`phase4-${t.id}-enlarge-320.png`),Buffer.from(shot.data,'base64'));
     await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await sleep(80);
-    await check(`Phase 4 ${t.id} Escape closes enlargement`,async()=>await bioEval("!root.querySelector('.bio-figure-dialog').open"));
+    await check(`Phase 4 ${t.id} Escape closes enlargement`,async()=>await bioEval("!root.querySelector('.bio-figure-dialog').open&&root.activeElement?.classList.contains('bio-figure-enlarge')"));
     await bioEval("(root.querySelector('.bio-check input').click(),true)");await sleep(50);
     await bioEval("(root.querySelector('.bio-feedback button').click(),true)");await sleep(50);
     await check(`Phase 4 ${t.id} retry restores answer focus`,async()=>await bioEval("root.activeElement===root.querySelector('.bio-check input')&&!root.querySelector('.bio-feedback')"));
