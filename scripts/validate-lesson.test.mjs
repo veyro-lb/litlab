@@ -78,3 +78,14 @@ const challenge={title:'Synthetic mechanism',instructions:'Predict what happens.
 test('generic reusable mechanism challenge validates',()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge=structuredClone(challenge);assert.deepEqual(validateLesson(d,topic),[])});
 test('mechanism rejects two correct predictions',()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge=structuredClone(challenge);d.sections[0].mechanismChallenge.stages[0].options[1].correct=true;assert.ok(validateLesson(d,topic).some(x=>x.includes('Invalid mechanism stage')))});
 test('mechanism rejects missing stage feedback',()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge=structuredClone(challenge);d.sections[0].mechanismChallenge.stages[1].options[2].feedback='';assert.ok(validateLesson(d,topic).some(x=>x.includes('Invalid mechanism stage')))});
+
+for(const slug of ['carbohydrates-lipids','proteins']){
+ const d=JSON.parse(await readFile(new URL('../src/biology/learning/'+slug+'/lesson.json',import.meta.url),'utf8'));
+ const t=registry.find(x=>x.id===d.topicId);
+ test('Phase 4 actual '+t.id+' headings and scope in Learn, Revision and targeted Practice',()=>{
+  for(const u of t.understandings){
+   for(const mode of ['learn','revision']){const html=render(d,t,'HL',mode,u.id);assert.ok(html.includes(`data-understanding-id="${u.id}"`));assert.ok(html.includes(u.studentTitle.replaceAll('&','&amp;')))}
+   if(u.level==='HL')for(const mode of ['learn','revision','practice'])assert.ok(!render(d,t,'SL',mode,u.id).includes(`data-syllabus-id="${u.id}"`));
+  }
+ });
+}

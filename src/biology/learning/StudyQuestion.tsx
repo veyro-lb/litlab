@@ -1,15 +1,17 @@
+import {useRef} from 'react';
 import UnderstandingLabel from './UnderstandingLabel';
 import type {Topic} from '../curriculum/schema';
 import type {Choice, Question, StudyState} from './content';
 export type UpdateStudy = (fn: (previous: StudyState) => StudyState) => void;
 export function ChoiceQuestion({item,study,update,returnTo}: {item: Choice; study: StudyState; update: UpdateStudy; returnTo?: () => void}) {
+  const fieldset=useRef<HTMLFieldSetElement>(null);
   const selected=study.answers[item.id];
   const answer=item.options.find(o=>o.id===selected);
-  return <fieldset className="bio-check" data-question-id={item.id}><legend>{item.prompt}</legend>
+  return <fieldset ref={fieldset} className="bio-check" data-question-id={item.id}><legend>{item.prompt}</legend>
     <div className="bio-options">{item.options.map(o=><label key={o.id}><input type="radio" name={item.id} value={o.id} checked={selected===o.id} onChange={()=>update(s=>({...s,answers:{...s.answers,[item.id]:o.id}}))}/><span><b>{o.id.toUpperCase()}.</b> {o.text}</span></label>)}</div>
     {answer && <div className="bio-feedback" role="status"><strong>{answer.correct ? 'Correct. ' : 'Reconsider. '}</strong>{answer.feedback}
       <details><summary>Explain every choice</summary>{item.options.map(o=><p key={o.id}><b>{o.id.toUpperCase()}. {o.correct ? 'Correct' : 'Incorrect'}:</b> {o.feedback}</p>)}</details>
-      <div className="bio-actions"><button type="button" onClick={()=>update(s=>{const a={...s.answers};delete a[item.id];return {...s,answers:a}})}>Try again</button>{returnTo && <button type="button" onClick={returnTo}>Revisit explanation</button>}</div></div>}
+      <div className="bio-actions"><button type="button" onClick={()=>{update(s=>{const a={...s.answers};delete a[item.id];return {...s,answers:a}});fieldset.current?.querySelector<HTMLInputElement>('input')?.focus()}}>Try again</button>{returnTo && <button type="button" onClick={returnTo}>Revisit explanation</button>}</div></div>}
   </fieldset>;
 }
 export function RecallQuestion({item,study,update}: {item: {id:string;prompt:string;answer:string;enrichment?:boolean};study:StudyState;update:UpdateStudy}) {

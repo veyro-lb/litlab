@@ -59,6 +59,8 @@ jobs:
           node scripts/validate-water.mjs
           node scripts/validate-lessons.mjs
           node scripts/validate-batch32.mjs
+          node scripts/validate-phase4-figures.mjs
+          node --test scripts/validate-phase4-figures.test.mjs
           node --test scripts/validate-batch32.test.mjs
           node --test scripts/validate-water.test.mjs scripts/validate-lesson.test.mjs
 
