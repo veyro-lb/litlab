@@ -89,12 +89,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Hydrophobic tails minimize water contact while heads remain hydrated.",
-              "correct": true,
-              "feedback": "The hydrophobic effect favours a buried nonpolar core."
-            },
-            {
               "id": "b",
               "text": "Adjacent phospholipids form permanent peptide bonds.",
               "correct": false,
@@ -105,6 +99,12 @@
               "text": "ATP-dependent motors position every lipid.",
               "correct": false,
               "feedback": "No ATP-driven assembly machinery is required for basic bilayer formation."
+            },
+            {
+              "id": "a",
+              "text": "Hydrophobic tails minimize water contact while heads remain hydrated.",
+              "correct": true,
+              "feedback": "The hydrophobic effect favours a buried nonpolar core."
             },
             {
               "id": "d",
@@ -254,12 +254,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Charged glucose derivative",
-              "correct": false,
-              "feedback": "A charged sugar derivative encounters a strong energetic barrier."
-            },
-            {
               "id": "b",
               "text": "Oxygen (O2)",
               "correct": true,
@@ -270,6 +264,12 @@
               "text": "Sodium ion (Na+)",
               "correct": false,
               "feedback": "Na+ is charged and highly hydrated."
+            },
+            {
+              "id": "a",
+              "text": "Charged glucose derivative",
+              "correct": false,
+              "feedback": "A charged sugar derivative encounters a strong energetic barrier."
             },
             {
               "id": "d",
@@ -419,18 +419,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "O2 is transported only through Na+ channels.",
-              "correct": false,
-              "feedback": "O2 can cross lipid without ion channels."
-            },
-            {
-              "id": "b",
-              "text": "All O2 molecules move one way and none leave.",
-              "correct": false,
-              "feedback": "Random motion produces movement in both directions."
-            },
-            {
               "id": "c",
               "text": "Net O2 movement into the cell by simple diffusion.",
               "correct": true,
@@ -441,6 +429,18 @@
               "text": "O2 can enter only after ATP hydrolysis.",
               "correct": false,
               "feedback": "Gas diffusion through bilayer lipids does not require ATP."
+            },
+            {
+              "id": "b",
+              "text": "All O2 molecules move one way and none leave.",
+              "correct": false,
+              "feedback": "Random motion produces movement in both directions."
+            },
+            {
+              "id": "a",
+              "text": "O2 is transported only through Na+ channels.",
+              "correct": false,
+              "feedback": "O2 can cross lipid without ion channels."
             }
           ]
         }
@@ -584,12 +584,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "It must span the bilayer to open an ion pore.",
-              "correct": false,
-              "feedback": "A transmembrane pore is an integral protein."
-            },
-            {
               "id": "b",
               "text": "It consists entirely of phospholipids.",
               "correct": false,
@@ -606,6 +600,12 @@
               "text": "It is attached to a surface without being embedded through the hydrocarbon core.",
               "correct": true,
               "feedback": "Peripheral proteins can interact with one face or another."
+            },
+            {
+              "id": "a",
+              "text": "It must span the bilayer to open an ion pore.",
+              "correct": false,
+              "feedback": "A transmembrane pore is an integral protein."
             }
           ]
         }
@@ -749,16 +749,16 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Aquaporins provide a passive route for water; they do not consume ATP to pump it.",
-              "correct": true,
-              "feedback": "Facilitated water flow follows thermodynamic driving forces."
-            },
-            {
               "id": "b",
               "text": "Aquaporins move dissolved salt into the cell.",
               "correct": false,
               "feedback": "Aquaporins primarily select water rather than transporting salt."
+            },
+            {
+              "id": "a",
+              "text": "Aquaporins provide a passive route for water; they do not consume ATP to pump it.",
+              "correct": true,
+              "feedback": "Facilitated water flow follows thermodynamic driving forces."
             },
             {
               "id": "c",
@@ -976,6 +976,12 @@
               "feedback": "A selectivity filter restricts the ions that pass."
             },
             {
+              "id": "d",
+              "text": "Hydrolysis of ATP for every ion crossing.",
+              "correct": false,
+              "feedback": "Channel gating and ion conduction do not require ATP hydrolysis for each transported ion."
+            },
+            {
               "id": "b",
               "text": "Passive flux down the ion's electrochemical gradient.",
               "correct": true,
@@ -986,12 +992,6 @@
               "text": "Mandatory movement against concentration and electrical forces.",
               "correct": false,
               "feedback": "Uphill transport requires coupling to energy."
-            },
-            {
-              "id": "d",
-              "text": "Hydrolysis of ATP for every ion crossing.",
-              "correct": false,
-              "feedback": "Channel gating and ion conduction do not require ATP hydrolysis for each transported ion."
             }
           ]
         }
@@ -1191,6 +1191,18 @@
           ],
           "options": [
             {
+              "id": "d",
+              "text": "O2 moves directly through a bilayer down its gradient.",
+              "correct": false,
+              "feedback": "Simple gas diffusion is passive."
+            },
+            {
+              "id": "c",
+              "text": "A carrier maintains net uphill transport using ATP hydrolysis.",
+              "correct": true,
+              "feedback": "ATP coupling supports transport against a gradient."
+            },
+            {
               "id": "a",
               "text": "Ions diffuse through an open channel.",
               "correct": false,
@@ -1201,18 +1213,6 @@
               "text": "Water moves through an aquaporin without ATP.",
               "correct": false,
               "feedback": "Aquaporins permit passive water flow."
-            },
-            {
-              "id": "c",
-              "text": "A carrier maintains net uphill transport using ATP hydrolysis.",
-              "correct": true,
-              "feedback": "ATP coupling supports transport against a gradient."
-            },
-            {
-              "id": "d",
-              "text": "O2 moves directly through a bilayer down its gradient.",
-              "correct": false,
-              "feedback": "Simple gas diffusion is passive."
             }
           ]
         }
@@ -1412,16 +1412,16 @@
           ],
           "options": [
             {
+              "id": "d",
+              "text": "It introduces a selective protein-mediated route for glucose.",
+              "correct": true,
+              "feedback": "A carrier recognizes glucose and mediates its passage."
+            },
+            {
               "id": "a",
               "text": "It makes all ions cross the lipid interior freely.",
               "correct": false,
               "feedback": "Ion permeability is still constrained and selective."
-            },
-            {
-              "id": "b",
-              "text": "It makes glucose cross by oxygen-like simple diffusion.",
-              "correct": false,
-              "feedback": "Carrier-mediated passage is not simple lipid diffusion."
             },
             {
               "id": "c",
@@ -1430,10 +1430,10 @@
               "feedback": "Uphill transport needs an energy source or coupled gradient."
             },
             {
-              "id": "d",
-              "text": "It introduces a selective protein-mediated route for glucose.",
-              "correct": true,
-              "feedback": "A carrier recognizes glucose and mediates its passage."
+              "id": "b",
+              "text": "It makes glucose cross by oxygen-like simple diffusion.",
+              "correct": false,
+              "feedback": "Carrier-mediated passage is not simple lipid diffusion."
             }
           ]
         }
@@ -1577,12 +1577,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Their sugar groups can project extracellularly and contribute to cell recognition.",
-              "correct": true,
-              "feedback": "Extracellular glycans provide molecular recognition information."
-            },
-            {
               "id": "b",
               "text": "Their sugar groups form the central hydrocarbon core.",
               "correct": false,
@@ -1599,6 +1593,12 @@
               "text": "Their carbohydrates normally face the cytosol in the plasma membrane.",
               "correct": false,
               "feedback": "The plasma-membrane carbohydrate chains face outside."
+            },
+            {
+              "id": "a",
+              "text": "Their sugar groups can project extracellularly and contribute to cell recognition.",
+              "correct": true,
+              "feedback": "Extracellular glycans provide molecular recognition information."
             }
           ]
         }
@@ -1742,16 +1742,16 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "As a pore spanning the bilayer to pass sodium ions.",
-              "correct": false,
-              "feedback": "Cholesterol is not an ion-channel protein."
-            },
-            {
               "id": "b",
               "text": "Between phospholipid hydrocarbon tails, with its polar group near the heads.",
               "correct": true,
               "feedback": "Cholesterol intercalates among tails with its small polar head near the interface."
+            },
+            {
+              "id": "d",
+              "text": "Only as a chain projecting from glycoproteins.",
+              "correct": false,
+              "feedback": "Cholesterol is a lipid, not a glycan chain."
             },
             {
               "id": "c",
@@ -1760,10 +1760,10 @@
               "feedback": "It is amphipathic and resides mainly in the bilayer."
             },
             {
-              "id": "d",
-              "text": "Only as a chain projecting from glycoproteins.",
+              "id": "a",
+              "text": "As a pore spanning the bilayer to pass sodium ions.",
               "correct": false,
-              "feedback": "Cholesterol is a lipid, not a glycan chain."
+              "feedback": "Cholesterol is not an ion-channel protein."
             }
           ]
         }
@@ -1913,6 +1913,12 @@
               "feedback": "Bilayers require amphipathic lipids."
             },
             {
+              "id": "d",
+              "text": "Replacing all tails with long saturated chains.",
+              "correct": false,
+              "feedback": "More long saturated tails can promote ordering."
+            },
+            {
               "id": "b",
               "text": "Linking adjacent phospholipids covalently into a rigid lattice.",
               "correct": false,
@@ -1923,12 +1929,6 @@
               "text": "Higher proportion of cis-unsaturated fatty-acid tails.",
               "correct": true,
               "feedback": "Kinked tails resist tight packing at low temperature."
-            },
-            {
-              "id": "d",
-              "text": "Replacing all tails with long saturated chains.",
-              "correct": false,
-              "feedback": "More long saturated tails can promote ordering."
             }
           ]
         }
@@ -2072,6 +2072,18 @@
           ],
           "options": [
             {
+              "id": "d",
+              "text": "It moderates fluidity by limiting excessive mobility when warm and tight packing when cool.",
+              "correct": true,
+              "feedback": "Cholesterol buffers membrane physical behaviour."
+            },
+            {
+              "id": "c",
+              "text": "It catalyses ATP hydrolysis to transport ions.",
+              "correct": false,
+              "feedback": "It is not an ATPase pump."
+            },
+            {
               "id": "a",
               "text": "It always removes fluidity at every temperature.",
               "correct": false,
@@ -2082,18 +2094,6 @@
               "text": "It only functions as an external cell-surface carbohydrate.",
               "correct": false,
               "feedback": "It is a sterol lipid, not a glycan."
-            },
-            {
-              "id": "c",
-              "text": "It catalyses ATP hydrolysis to transport ions.",
-              "correct": false,
-              "feedback": "It is not an ATPase pump."
-            },
-            {
-              "id": "d",
-              "text": "It moderates fluidity by limiting excessive mobility when warm and tight packing when cool.",
-              "correct": true,
-              "feedback": "Cholesterol buffers membrane physical behaviour."
             }
           ]
         }
@@ -2241,10 +2241,10 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Secretory vesicle fuses with plasma membrane and discharges a protein.",
-              "correct": true,
-              "feedback": "Vesicle fusion releases luminal cargo outside the cell."
+              "id": "c",
+              "text": "An Na+ ion passes through an open channel.",
+              "correct": false,
+              "feedback": "Ion-channel movement is facilitated diffusion."
             },
             {
               "id": "b",
@@ -2253,16 +2253,16 @@
               "feedback": "Gas entry is simple diffusion."
             },
             {
-              "id": "c",
-              "text": "An Na+ ion passes through an open channel.",
-              "correct": false,
-              "feedback": "Ion-channel movement is facilitated diffusion."
-            },
-            {
               "id": "d",
               "text": "Glucose diffuses down its gradient through a carrier.",
               "correct": false,
               "feedback": "Carrier movement can be passive but is not exocytosis."
+            },
+            {
+              "id": "a",
+              "text": "Secretory vesicle fuses with plasma membrane and discharges a protein.",
+              "correct": true,
+              "feedback": "Vesicle fusion releases luminal cargo outside the cell."
             }
           ]
         }
@@ -2471,10 +2471,10 @@
               "feedback": "Nicotinic receptors are not photosystems."
             },
             {
-              "id": "b",
-              "text": "Nicotinic acetylcholine receptor — acetylcholine binding.",
-              "correct": true,
-              "feedback": "The nicotinic receptor is neurotransmitter gated."
+              "id": "d",
+              "text": "Voltage-gated Na+ channel — obligatory ATP-powered ion pumping.",
+              "correct": false,
+              "feedback": "Ion flow through Na+ channels remains passive."
             },
             {
               "id": "c",
@@ -2483,10 +2483,10 @@
               "feedback": "Voltage-gated channels respond to voltage, not glucose hydrolysis."
             },
             {
-              "id": "d",
-              "text": "Voltage-gated Na+ channel — obligatory ATP-powered ion pumping.",
-              "correct": false,
-              "feedback": "Ion flow through Na+ channels remains passive."
+              "id": "b",
+              "text": "Nicotinic acetylcholine receptor — acetylcholine binding.",
+              "correct": true,
+              "feedback": "The nicotinic receptor is neurotransmitter gated."
             }
           ]
         }
@@ -2686,12 +2686,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Three glucose molecules enter coupled to sodium.",
-              "correct": false,
-              "feedback": "This describes neither the pump nor its transported substances."
-            },
-            {
               "id": "b",
               "text": "One Na+ passes through an open channel without conformational change.",
               "correct": false,
@@ -2702,6 +2696,12 @@
               "text": "Three Na+ leave and two K+ enter per ATP hydrolyzed.",
               "correct": true,
               "feedback": "Correct pump stoichiometry is 3 Na+ out and 2 K+ in per ATP."
+            },
+            {
+              "id": "a",
+              "text": "Three glucose molecules enter coupled to sodium.",
+              "correct": false,
+              "feedback": "This describes neither the pump nor its transported substances."
             },
             {
               "id": "d",
@@ -2907,28 +2907,28 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Glucose diffusing through the phospholipid core unaided.",
-              "correct": false,
-              "feedback": "Glucose is polar and the named process uses a protein."
-            },
-            {
               "id": "b",
               "text": "Direct ATP hydrolysis by every SGLT transport cycle.",
               "correct": false,
               "feedback": "ATP is used indirectly to establish the sodium gradient."
             },
             {
-              "id": "c",
-              "text": "Water leaving through aquaporins.",
+              "id": "a",
+              "text": "Glucose diffusing through the phospholipid core unaided.",
               "correct": false,
-              "feedback": "Water transport is not the driving coupled solute in SGLT."
+              "feedback": "Glucose is polar and the named process uses a protein."
             },
             {
               "id": "d",
               "text": "Na+ entering the cell down its electrochemical gradient.",
               "correct": true,
               "feedback": "The downhill Na+ flux supplies the cotransport free energy."
+            },
+            {
+              "id": "c",
+              "text": "Water leaving through aquaporins.",
+              "correct": false,
+              "feedback": "Water transport is not the driving coupled solute in SGLT."
             }
           ]
         }
@@ -3128,6 +3128,12 @@
           ],
           "options": [
             {
+              "id": "c",
+              "text": "Cholesterol intercalates among lipid tails.",
+              "correct": false,
+              "feedback": "Normal cholesterol organization is unrelated to detachment."
+            },
+            {
               "id": "a",
               "text": "Epithelial cells detach from neighbouring cells while their membranes remain intact.",
               "correct": true,
@@ -3138,12 +3144,6 @@
               "text": "Oxygen diffuses across a bilayer.",
               "correct": false,
               "feedback": "Gas diffusion does not directly diagnose CAM loss."
-            },
-            {
-              "id": "c",
-              "text": "Cholesterol intercalates among lipid tails.",
-              "correct": false,
-              "feedback": "Normal cholesterol organization is unrelated to detachment."
             },
             {
               "id": "d",
@@ -3249,12 +3249,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Hydrophobic tails minimize water contact while heads remain hydrated.",
-          "correct": true,
-          "feedback": "The hydrophobic effect favours a buried nonpolar core."
-        },
-        {
           "id": "b",
           "text": "Adjacent phospholipids form permanent peptide bonds.",
           "correct": false,
@@ -3265,6 +3259,12 @@
           "text": "ATP-dependent motors position every lipid.",
           "correct": false,
           "feedback": "No ATP-driven assembly machinery is required for basic bilayer formation."
+        },
+        {
+          "id": "a",
+          "text": "Hydrophobic tails minimize water contact while heads remain hydrated.",
+          "correct": true,
+          "feedback": "The hydrophobic effect favours a buried nonpolar core."
         },
         {
           "id": "d",
@@ -3294,12 +3294,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Charged glucose derivative",
-          "correct": false,
-          "feedback": "A charged sugar derivative encounters a strong energetic barrier."
-        },
-        {
           "id": "b",
           "text": "Oxygen (O2)",
           "correct": true,
@@ -3310,6 +3304,12 @@
           "text": "Sodium ion (Na+)",
           "correct": false,
           "feedback": "Na+ is charged and highly hydrated."
+        },
+        {
+          "id": "a",
+          "text": "Charged glucose derivative",
+          "correct": false,
+          "feedback": "A charged sugar derivative encounters a strong energetic barrier."
         },
         {
           "id": "d",
@@ -3339,18 +3339,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "O2 is transported only through Na+ channels.",
-          "correct": false,
-          "feedback": "O2 can cross lipid without ion channels."
-        },
-        {
-          "id": "b",
-          "text": "All O2 molecules move one way and none leave.",
-          "correct": false,
-          "feedback": "Random motion produces movement in both directions."
-        },
-        {
           "id": "c",
           "text": "Net O2 movement into the cell by simple diffusion.",
           "correct": true,
@@ -3361,6 +3349,18 @@
           "text": "O2 can enter only after ATP hydrolysis.",
           "correct": false,
           "feedback": "Gas diffusion through bilayer lipids does not require ATP."
+        },
+        {
+          "id": "b",
+          "text": "All O2 molecules move one way and none leave.",
+          "correct": false,
+          "feedback": "Random motion produces movement in both directions."
+        },
+        {
+          "id": "a",
+          "text": "O2 is transported only through Na+ channels.",
+          "correct": false,
+          "feedback": "O2 can cross lipid without ion channels."
         }
       ],
       "review": "source-mapped"
@@ -3384,12 +3384,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "It must span the bilayer to open an ion pore.",
-          "correct": false,
-          "feedback": "A transmembrane pore is an integral protein."
-        },
-        {
           "id": "b",
           "text": "It consists entirely of phospholipids.",
           "correct": false,
@@ -3406,6 +3400,12 @@
           "text": "It is attached to a surface without being embedded through the hydrocarbon core.",
           "correct": true,
           "feedback": "Peripheral proteins can interact with one face or another."
+        },
+        {
+          "id": "a",
+          "text": "It must span the bilayer to open an ion pore.",
+          "correct": false,
+          "feedback": "A transmembrane pore is an integral protein."
         }
       ],
       "review": "source-mapped"
@@ -3429,16 +3429,16 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Aquaporins provide a passive route for water; they do not consume ATP to pump it.",
-          "correct": true,
-          "feedback": "Facilitated water flow follows thermodynamic driving forces."
-        },
-        {
           "id": "b",
           "text": "Aquaporins move dissolved salt into the cell.",
           "correct": false,
           "feedback": "Aquaporins primarily select water rather than transporting salt."
+        },
+        {
+          "id": "a",
+          "text": "Aquaporins provide a passive route for water; they do not consume ATP to pump it.",
+          "correct": true,
+          "feedback": "Facilitated water flow follows thermodynamic driving forces."
         },
         {
           "id": "c",
@@ -3480,6 +3480,12 @@
           "feedback": "A selectivity filter restricts the ions that pass."
         },
         {
+          "id": "d",
+          "text": "Hydrolysis of ATP for every ion crossing.",
+          "correct": false,
+          "feedback": "Channel gating and ion conduction do not require ATP hydrolysis for each transported ion."
+        },
+        {
           "id": "b",
           "text": "Passive flux down the ion's electrochemical gradient.",
           "correct": true,
@@ -3490,12 +3496,6 @@
           "text": "Mandatory movement against concentration and electrical forces.",
           "correct": false,
           "feedback": "Uphill transport requires coupling to energy."
-        },
-        {
-          "id": "d",
-          "text": "Hydrolysis of ATP for every ion crossing.",
-          "correct": false,
-          "feedback": "Channel gating and ion conduction do not require ATP hydrolysis for each transported ion."
         }
       ],
       "review": "source-mapped"
@@ -3519,6 +3519,18 @@
       ],
       "options": [
         {
+          "id": "d",
+          "text": "O2 moves directly through a bilayer down its gradient.",
+          "correct": false,
+          "feedback": "Simple gas diffusion is passive."
+        },
+        {
+          "id": "c",
+          "text": "A carrier maintains net uphill transport using ATP hydrolysis.",
+          "correct": true,
+          "feedback": "ATP coupling supports transport against a gradient."
+        },
+        {
           "id": "a",
           "text": "Ions diffuse through an open channel.",
           "correct": false,
@@ -3529,18 +3541,6 @@
           "text": "Water moves through an aquaporin without ATP.",
           "correct": false,
           "feedback": "Aquaporins permit passive water flow."
-        },
-        {
-          "id": "c",
-          "text": "A carrier maintains net uphill transport using ATP hydrolysis.",
-          "correct": true,
-          "feedback": "ATP coupling supports transport against a gradient."
-        },
-        {
-          "id": "d",
-          "text": "O2 moves directly through a bilayer down its gradient.",
-          "correct": false,
-          "feedback": "Simple gas diffusion is passive."
         }
       ],
       "review": "source-mapped"
@@ -3564,16 +3564,16 @@
       ],
       "options": [
         {
+          "id": "d",
+          "text": "It introduces a selective protein-mediated route for glucose.",
+          "correct": true,
+          "feedback": "A carrier recognizes glucose and mediates its passage."
+        },
+        {
           "id": "a",
           "text": "It makes all ions cross the lipid interior freely.",
           "correct": false,
           "feedback": "Ion permeability is still constrained and selective."
-        },
-        {
-          "id": "b",
-          "text": "It makes glucose cross by oxygen-like simple diffusion.",
-          "correct": false,
-          "feedback": "Carrier-mediated passage is not simple lipid diffusion."
         },
         {
           "id": "c",
@@ -3582,10 +3582,10 @@
           "feedback": "Uphill transport needs an energy source or coupled gradient."
         },
         {
-          "id": "d",
-          "text": "It introduces a selective protein-mediated route for glucose.",
-          "correct": true,
-          "feedback": "A carrier recognizes glucose and mediates its passage."
+          "id": "b",
+          "text": "It makes glucose cross by oxygen-like simple diffusion.",
+          "correct": false,
+          "feedback": "Carrier-mediated passage is not simple lipid diffusion."
         }
       ],
       "review": "source-mapped"
@@ -3609,12 +3609,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Their sugar groups can project extracellularly and contribute to cell recognition.",
-          "correct": true,
-          "feedback": "Extracellular glycans provide molecular recognition information."
-        },
-        {
           "id": "b",
           "text": "Their sugar groups form the central hydrocarbon core.",
           "correct": false,
@@ -3631,6 +3625,12 @@
           "text": "Their carbohydrates normally face the cytosol in the plasma membrane.",
           "correct": false,
           "feedback": "The plasma-membrane carbohydrate chains face outside."
+        },
+        {
+          "id": "a",
+          "text": "Their sugar groups can project extracellularly and contribute to cell recognition.",
+          "correct": true,
+          "feedback": "Extracellular glycans provide molecular recognition information."
         }
       ],
       "review": "source-mapped"
@@ -3654,16 +3654,16 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "As a pore spanning the bilayer to pass sodium ions.",
-          "correct": false,
-          "feedback": "Cholesterol is not an ion-channel protein."
-        },
-        {
           "id": "b",
           "text": "Between phospholipid hydrocarbon tails, with its polar group near the heads.",
           "correct": true,
           "feedback": "Cholesterol intercalates among tails with its small polar head near the interface."
+        },
+        {
+          "id": "d",
+          "text": "Only as a chain projecting from glycoproteins.",
+          "correct": false,
+          "feedback": "Cholesterol is a lipid, not a glycan chain."
         },
         {
           "id": "c",
@@ -3672,10 +3672,10 @@
           "feedback": "It is amphipathic and resides mainly in the bilayer."
         },
         {
-          "id": "d",
-          "text": "Only as a chain projecting from glycoproteins.",
+          "id": "a",
+          "text": "As a pore spanning the bilayer to pass sodium ions.",
           "correct": false,
-          "feedback": "Cholesterol is a lipid, not a glycan chain."
+          "feedback": "Cholesterol is not an ion-channel protein."
         }
       ],
       "review": "source-mapped"
@@ -3705,6 +3705,12 @@
           "feedback": "Bilayers require amphipathic lipids."
         },
         {
+          "id": "d",
+          "text": "Replacing all tails with long saturated chains.",
+          "correct": false,
+          "feedback": "More long saturated tails can promote ordering."
+        },
+        {
           "id": "b",
           "text": "Linking adjacent phospholipids covalently into a rigid lattice.",
           "correct": false,
@@ -3715,12 +3721,6 @@
           "text": "Higher proportion of cis-unsaturated fatty-acid tails.",
           "correct": true,
           "feedback": "Kinked tails resist tight packing at low temperature."
-        },
-        {
-          "id": "d",
-          "text": "Replacing all tails with long saturated chains.",
-          "correct": false,
-          "feedback": "More long saturated tails can promote ordering."
         }
       ],
       "review": "source-mapped"
@@ -3744,6 +3744,18 @@
       ],
       "options": [
         {
+          "id": "d",
+          "text": "It moderates fluidity by limiting excessive mobility when warm and tight packing when cool.",
+          "correct": true,
+          "feedback": "Cholesterol buffers membrane physical behaviour."
+        },
+        {
+          "id": "c",
+          "text": "It catalyses ATP hydrolysis to transport ions.",
+          "correct": false,
+          "feedback": "It is not an ATPase pump."
+        },
+        {
           "id": "a",
           "text": "It always removes fluidity at every temperature.",
           "correct": false,
@@ -3754,18 +3766,6 @@
           "text": "It only functions as an external cell-surface carbohydrate.",
           "correct": false,
           "feedback": "It is a sterol lipid, not a glycan."
-        },
-        {
-          "id": "c",
-          "text": "It catalyses ATP hydrolysis to transport ions.",
-          "correct": false,
-          "feedback": "It is not an ATPase pump."
-        },
-        {
-          "id": "d",
-          "text": "It moderates fluidity by limiting excessive mobility when warm and tight packing when cool.",
-          "correct": true,
-          "feedback": "Cholesterol buffers membrane physical behaviour."
         }
       ],
       "review": "source-mapped"
@@ -3789,10 +3789,10 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Secretory vesicle fuses with plasma membrane and discharges a protein.",
-          "correct": true,
-          "feedback": "Vesicle fusion releases luminal cargo outside the cell."
+          "id": "c",
+          "text": "An Na+ ion passes through an open channel.",
+          "correct": false,
+          "feedback": "Ion-channel movement is facilitated diffusion."
         },
         {
           "id": "b",
@@ -3801,16 +3801,16 @@
           "feedback": "Gas entry is simple diffusion."
         },
         {
-          "id": "c",
-          "text": "An Na+ ion passes through an open channel.",
-          "correct": false,
-          "feedback": "Ion-channel movement is facilitated diffusion."
-        },
-        {
           "id": "d",
           "text": "Glucose diffuses down its gradient through a carrier.",
           "correct": false,
           "feedback": "Carrier movement can be passive but is not exocytosis."
+        },
+        {
+          "id": "a",
+          "text": "Secretory vesicle fuses with plasma membrane and discharges a protein.",
+          "correct": true,
+          "feedback": "Vesicle fusion releases luminal cargo outside the cell."
         }
       ],
       "review": "source-mapped"
@@ -3840,10 +3840,10 @@
           "feedback": "Nicotinic receptors are not photosystems."
         },
         {
-          "id": "b",
-          "text": "Nicotinic acetylcholine receptor — acetylcholine binding.",
-          "correct": true,
-          "feedback": "The nicotinic receptor is neurotransmitter gated."
+          "id": "d",
+          "text": "Voltage-gated Na+ channel — obligatory ATP-powered ion pumping.",
+          "correct": false,
+          "feedback": "Ion flow through Na+ channels remains passive."
         },
         {
           "id": "c",
@@ -3852,10 +3852,10 @@
           "feedback": "Voltage-gated channels respond to voltage, not glucose hydrolysis."
         },
         {
-          "id": "d",
-          "text": "Voltage-gated Na+ channel — obligatory ATP-powered ion pumping.",
-          "correct": false,
-          "feedback": "Ion flow through Na+ channels remains passive."
+          "id": "b",
+          "text": "Nicotinic acetylcholine receptor — acetylcholine binding.",
+          "correct": true,
+          "feedback": "The nicotinic receptor is neurotransmitter gated."
         }
       ],
       "review": "source-mapped"
@@ -3879,12 +3879,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Three glucose molecules enter coupled to sodium.",
-          "correct": false,
-          "feedback": "This describes neither the pump nor its transported substances."
-        },
-        {
           "id": "b",
           "text": "One Na+ passes through an open channel without conformational change.",
           "correct": false,
@@ -3895,6 +3889,12 @@
           "text": "Three Na+ leave and two K+ enter per ATP hydrolyzed.",
           "correct": true,
           "feedback": "Correct pump stoichiometry is 3 Na+ out and 2 K+ in per ATP."
+        },
+        {
+          "id": "a",
+          "text": "Three glucose molecules enter coupled to sodium.",
+          "correct": false,
+          "feedback": "This describes neither the pump nor its transported substances."
         },
         {
           "id": "d",
@@ -3924,28 +3924,28 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Glucose diffusing through the phospholipid core unaided.",
-          "correct": false,
-          "feedback": "Glucose is polar and the named process uses a protein."
-        },
-        {
           "id": "b",
           "text": "Direct ATP hydrolysis by every SGLT transport cycle.",
           "correct": false,
           "feedback": "ATP is used indirectly to establish the sodium gradient."
         },
         {
-          "id": "c",
-          "text": "Water leaving through aquaporins.",
+          "id": "a",
+          "text": "Glucose diffusing through the phospholipid core unaided.",
           "correct": false,
-          "feedback": "Water transport is not the driving coupled solute in SGLT."
+          "feedback": "Glucose is polar and the named process uses a protein."
         },
         {
           "id": "d",
           "text": "Na+ entering the cell down its electrochemical gradient.",
           "correct": true,
           "feedback": "The downhill Na+ flux supplies the cotransport free energy."
+        },
+        {
+          "id": "c",
+          "text": "Water leaving through aquaporins.",
+          "correct": false,
+          "feedback": "Water transport is not the driving coupled solute in SGLT."
         }
       ],
       "review": "source-mapped"
@@ -3969,6 +3969,12 @@
       ],
       "options": [
         {
+          "id": "c",
+          "text": "Cholesterol intercalates among lipid tails.",
+          "correct": false,
+          "feedback": "Normal cholesterol organization is unrelated to detachment."
+        },
+        {
           "id": "a",
           "text": "Epithelial cells detach from neighbouring cells while their membranes remain intact.",
           "correct": true,
@@ -3979,12 +3985,6 @@
           "text": "Oxygen diffuses across a bilayer.",
           "correct": false,
           "feedback": "Gas diffusion does not directly diagnose CAM loss."
-        },
-        {
-          "id": "c",
-          "text": "Cholesterol intercalates among lipid tails.",
-          "correct": false,
-          "feedback": "Normal cholesterol organization is unrelated to detachment."
         },
         {
           "id": "d",

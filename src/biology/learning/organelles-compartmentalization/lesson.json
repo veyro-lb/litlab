@@ -93,6 +93,12 @@
           ],
           "options": [
             {
+              "id": "c",
+              "text": "Cell wall, vesicle, cytoskeleton and ribosome.",
+              "correct": false,
+              "feedback": "Cell wall and cytoskeleton are excluded."
+            },
+            {
               "id": "a",
               "text": "Ribosome, nucleus, vesicle and plasma membrane.",
               "correct": true,
@@ -103,12 +109,6 @@
               "text": "Cytoplasm, cytoskeleton, cell wall and nucleus.",
               "correct": false,
               "feedback": "Cytoplasm, cytoskeleton and cell wall are excluded."
-            },
-            {
-              "id": "c",
-              "text": "Cell wall, vesicle, cytoskeleton and ribosome.",
-              "correct": false,
-              "feedback": "Cell wall and cytoskeleton are excluded."
             },
             {
               "id": "d",
@@ -271,10 +271,10 @@
               "feedback": "Most prokaryotes lack a nuclear envelope."
             },
             {
-              "id": "b",
-              "text": "Pre-mRNA can be processed before translation on cytoplasmic ribosomes.",
-              "correct": true,
-              "feedback": "Nuclear compartmentalization allows post-transcriptional modification before translation."
+              "id": "d",
+              "text": "The membrane eliminates the need for transcription.",
+              "correct": false,
+              "feedback": "RNA transcription remains essential."
             },
             {
               "id": "c",
@@ -283,10 +283,10 @@
               "feedback": "Ribosomes translate RNA, not DNA."
             },
             {
-              "id": "d",
-              "text": "The membrane eliminates the need for transcription.",
-              "correct": false,
-              "feedback": "RNA transcription remains essential."
+              "id": "b",
+              "text": "Pre-mRNA can be processed before translation on cytoplasmic ribosomes.",
+              "correct": true,
+              "feedback": "Nuclear compartmentalization allows post-transcriptional modification before translation."
             }
           ]
         }
@@ -443,10 +443,10 @@
               "feedback": "A lysosome is not a cell wall."
             },
             {
-              "id": "b",
-              "text": "Compartmentalization removes the need for any solute transfer.",
+              "id": "d",
+              "text": "Their reaction must occur only in the cell nucleus.",
               "correct": false,
-              "feedback": "Controlled transport remains necessary."
+              "feedback": "Lysosomes are cytoplasmic organelles."
             },
             {
               "id": "c",
@@ -455,10 +455,10 @@
               "feedback": "A bounded low-pH lumen supports digestion and containment."
             },
             {
-              "id": "d",
-              "text": "Their reaction must occur only in the cell nucleus.",
+              "id": "b",
+              "text": "Compartmentalization removes the need for any solute transfer.",
               "correct": false,
-              "feedback": "Lysosomes are cytoplasmic organelles."
+              "feedback": "Controlled transport remains necessary."
             }
           ]
         }
@@ -665,16 +665,16 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "Ribosomes attached to the outer mitochondrial membrane.",
-              "correct": false,
-              "feedback": "Bound ribosomes are not the specified ATP-synthesis membrane adaptation."
-            },
-            {
               "id": "b",
               "text": "Cellulose lamellae surrounding the matrix.",
               "correct": false,
               "feedback": "Cellulose is a plant-cell-wall component, not mitochondrial membrane."
+            },
+            {
+              "id": "d",
+              "text": "Folds of the inner mitochondrial membrane called cristae.",
+              "correct": true,
+              "feedback": "Cristae expand inner-membrane area containing respiratory complexes."
             },
             {
               "id": "c",
@@ -683,10 +683,10 @@
               "feedback": "Matrix is enclosed by an inner membrane, preserving a gradient."
             },
             {
-              "id": "d",
-              "text": "Folds of the inner mitochondrial membrane called cristae.",
-              "correct": true,
-              "feedback": "Cristae expand inner-membrane area containing respiratory complexes."
+              "id": "a",
+              "text": "Ribosomes attached to the outer mitochondrial membrane.",
+              "correct": false,
+              "feedback": "Bound ribosomes are not the specified ATP-synthesis membrane adaptation."
             }
           ]
         }
@@ -843,16 +843,16 @@
               "feedback": "This spatial arrangement couples light capture to carbon fixation."
             },
             {
-              "id": "b",
-              "text": "Photosystems in stroma and Calvin cycle inside thylakoid lumen.",
-              "correct": false,
-              "feedback": "It reverses the locations."
-            },
-            {
               "id": "c",
               "text": "Photosystems on the outer chloroplast envelope only.",
               "correct": false,
               "feedback": "The photosystems are predominantly in thylakoid membranes."
+            },
+            {
+              "id": "b",
+              "text": "Photosystems in stroma and Calvin cycle inside thylakoid lumen.",
+              "correct": false,
+              "feedback": "It reverses the locations."
             },
             {
               "id": "d",
@@ -1009,12 +1009,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "They convert nuclear DNA to ATP.",
-              "correct": false,
-              "feedback": "Nuclear pores are transport structures, not ATP-generating enzymes."
-            },
-            {
               "id": "b",
               "text": "They permit regulated movement of RNA and proteins between nucleus and cytoplasm.",
               "correct": true,
@@ -1031,6 +1025,12 @@
               "text": "They keep every molecule permanently excluded from nucleus.",
               "correct": false,
               "feedback": "Total isolation would prevent essential transport."
+            },
+            {
+              "id": "a",
+              "text": "They convert nuclear DNA to ATP.",
+              "correct": false,
+              "feedback": "Nuclear pores are transport structures, not ATP-generating enzymes."
             }
           ]
         }
@@ -1187,10 +1187,10 @@
               "feedback": "Secreted proteins are normally synthesized before exocytosis."
             },
             {
-              "id": "b",
-              "text": "By DNA replication inside mitochondrial matrix.",
+              "id": "d",
+              "text": "At a lysosomal hydrolase active site.",
               "correct": false,
-              "feedback": "DNA replication is not protein translation."
+              "feedback": "Lysosomes do not initiate polypeptide synthesis."
             },
             {
               "id": "c",
@@ -1199,10 +1199,10 @@
               "feedback": "ER-bound translation delivers secretory proteins into the endomembrane system."
             },
             {
-              "id": "d",
-              "text": "At a lysosomal hydrolase active site.",
+              "id": "b",
+              "text": "By DNA replication inside mitochondrial matrix.",
               "correct": false,
-              "feedback": "Lysosomes do not initiate polypeptide synthesis."
+              "feedback": "DNA replication is not protein translation."
             }
           ]
         }
@@ -1409,6 +1409,12 @@
           ],
           "options": [
             {
+              "id": "d",
+              "text": "Rough ER → Golgi apparatus → secretory vesicle → plasma membrane.",
+              "correct": true,
+              "feedback": "This sequence follows the canonical eukaryotic secretory pathway."
+            },
+            {
               "id": "a",
               "text": "Golgi → nucleus → mitochondrial matrix → exterior.",
               "correct": false,
@@ -1425,12 +1431,6 @@
               "text": "Cytoskeleton → DNA polymerase → cell wall → exterior.",
               "correct": false,
               "feedback": "The named structures are not a membrane trafficking sequence."
-            },
-            {
-              "id": "d",
-              "text": "Rough ER → Golgi apparatus → secretory vesicle → plasma membrane.",
-              "correct": true,
-              "feedback": "This sequence follows the canonical eukaryotic secretory pathway."
             }
           ]
         }
@@ -1637,12 +1637,6 @@
           ],
           "options": [
             {
-              "id": "a",
-              "text": "On the cytosolic surface of a budding membrane region.",
-              "correct": true,
-              "feedback": "Clathrin coat assembles on the cytosolic side of a budding pit."
-            },
-            {
               "id": "b",
               "text": "Inside the vesicle lumen as the transported hormone.",
               "correct": false,
@@ -1659,6 +1653,12 @@
               "text": "Only on the extracellular face of a plasma-membrane channel.",
               "correct": false,
               "feedback": "Clathrin is not an extracellular ion-channel component."
+            },
+            {
+              "id": "a",
+              "text": "On the cytosolic surface of a budding membrane region.",
+              "correct": true,
+              "feedback": "Clathrin coat assembles on the cytosolic side of a budding pit."
             }
           ]
         }
@@ -1817,6 +1817,12 @@
       ],
       "options": [
         {
+          "id": "c",
+          "text": "Cell wall, vesicle, cytoskeleton and ribosome.",
+          "correct": false,
+          "feedback": "Cell wall and cytoskeleton are excluded."
+        },
+        {
           "id": "a",
           "text": "Ribosome, nucleus, vesicle and plasma membrane.",
           "correct": true,
@@ -1827,12 +1833,6 @@
           "text": "Cytoplasm, cytoskeleton, cell wall and nucleus.",
           "correct": false,
           "feedback": "Cytoplasm, cytoskeleton and cell wall are excluded."
-        },
-        {
-          "id": "c",
-          "text": "Cell wall, vesicle, cytoskeleton and ribosome.",
-          "correct": false,
-          "feedback": "Cell wall and cytoskeleton are excluded."
         },
         {
           "id": "d",
@@ -1868,10 +1868,10 @@
           "feedback": "Most prokaryotes lack a nuclear envelope."
         },
         {
-          "id": "b",
-          "text": "Pre-mRNA can be processed before translation on cytoplasmic ribosomes.",
-          "correct": true,
-          "feedback": "Nuclear compartmentalization allows post-transcriptional modification before translation."
+          "id": "d",
+          "text": "The membrane eliminates the need for transcription.",
+          "correct": false,
+          "feedback": "RNA transcription remains essential."
         },
         {
           "id": "c",
@@ -1880,10 +1880,10 @@
           "feedback": "Ribosomes translate RNA, not DNA."
         },
         {
-          "id": "d",
-          "text": "The membrane eliminates the need for transcription.",
-          "correct": false,
-          "feedback": "RNA transcription remains essential."
+          "id": "b",
+          "text": "Pre-mRNA can be processed before translation on cytoplasmic ribosomes.",
+          "correct": true,
+          "feedback": "Nuclear compartmentalization allows post-transcriptional modification before translation."
         }
       ],
       "review": "source-mapped"
@@ -1913,10 +1913,10 @@
           "feedback": "A lysosome is not a cell wall."
         },
         {
-          "id": "b",
-          "text": "Compartmentalization removes the need for any solute transfer.",
+          "id": "d",
+          "text": "Their reaction must occur only in the cell nucleus.",
           "correct": false,
-          "feedback": "Controlled transport remains necessary."
+          "feedback": "Lysosomes are cytoplasmic organelles."
         },
         {
           "id": "c",
@@ -1925,10 +1925,10 @@
           "feedback": "A bounded low-pH lumen supports digestion and containment."
         },
         {
-          "id": "d",
-          "text": "Their reaction must occur only in the cell nucleus.",
+          "id": "b",
+          "text": "Compartmentalization removes the need for any solute transfer.",
           "correct": false,
-          "feedback": "Lysosomes are cytoplasmic organelles."
+          "feedback": "Controlled transport remains necessary."
         }
       ],
       "review": "source-mapped"
@@ -1952,16 +1952,16 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "Ribosomes attached to the outer mitochondrial membrane.",
-          "correct": false,
-          "feedback": "Bound ribosomes are not the specified ATP-synthesis membrane adaptation."
-        },
-        {
           "id": "b",
           "text": "Cellulose lamellae surrounding the matrix.",
           "correct": false,
           "feedback": "Cellulose is a plant-cell-wall component, not mitochondrial membrane."
+        },
+        {
+          "id": "d",
+          "text": "Folds of the inner mitochondrial membrane called cristae.",
+          "correct": true,
+          "feedback": "Cristae expand inner-membrane area containing respiratory complexes."
         },
         {
           "id": "c",
@@ -1970,10 +1970,10 @@
           "feedback": "Matrix is enclosed by an inner membrane, preserving a gradient."
         },
         {
-          "id": "d",
-          "text": "Folds of the inner mitochondrial membrane called cristae.",
-          "correct": true,
-          "feedback": "Cristae expand inner-membrane area containing respiratory complexes."
+          "id": "a",
+          "text": "Ribosomes attached to the outer mitochondrial membrane.",
+          "correct": false,
+          "feedback": "Bound ribosomes are not the specified ATP-synthesis membrane adaptation."
         }
       ],
       "review": "source-mapped"
@@ -2003,16 +2003,16 @@
           "feedback": "This spatial arrangement couples light capture to carbon fixation."
         },
         {
-          "id": "b",
-          "text": "Photosystems in stroma and Calvin cycle inside thylakoid lumen.",
-          "correct": false,
-          "feedback": "It reverses the locations."
-        },
-        {
           "id": "c",
           "text": "Photosystems on the outer chloroplast envelope only.",
           "correct": false,
           "feedback": "The photosystems are predominantly in thylakoid membranes."
+        },
+        {
+          "id": "b",
+          "text": "Photosystems in stroma and Calvin cycle inside thylakoid lumen.",
+          "correct": false,
+          "feedback": "It reverses the locations."
         },
         {
           "id": "d",
@@ -2042,12 +2042,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "They convert nuclear DNA to ATP.",
-          "correct": false,
-          "feedback": "Nuclear pores are transport structures, not ATP-generating enzymes."
-        },
-        {
           "id": "b",
           "text": "They permit regulated movement of RNA and proteins between nucleus and cytoplasm.",
           "correct": true,
@@ -2064,6 +2058,12 @@
           "text": "They keep every molecule permanently excluded from nucleus.",
           "correct": false,
           "feedback": "Total isolation would prevent essential transport."
+        },
+        {
+          "id": "a",
+          "text": "They convert nuclear DNA to ATP.",
+          "correct": false,
+          "feedback": "Nuclear pores are transport structures, not ATP-generating enzymes."
         }
       ],
       "review": "source-mapped"
@@ -2093,10 +2093,10 @@
           "feedback": "Secreted proteins are normally synthesized before exocytosis."
         },
         {
-          "id": "b",
-          "text": "By DNA replication inside mitochondrial matrix.",
+          "id": "d",
+          "text": "At a lysosomal hydrolase active site.",
           "correct": false,
-          "feedback": "DNA replication is not protein translation."
+          "feedback": "Lysosomes do not initiate polypeptide synthesis."
         },
         {
           "id": "c",
@@ -2105,10 +2105,10 @@
           "feedback": "ER-bound translation delivers secretory proteins into the endomembrane system."
         },
         {
-          "id": "d",
-          "text": "At a lysosomal hydrolase active site.",
+          "id": "b",
+          "text": "By DNA replication inside mitochondrial matrix.",
           "correct": false,
-          "feedback": "Lysosomes do not initiate polypeptide synthesis."
+          "feedback": "DNA replication is not protein translation."
         }
       ],
       "review": "source-mapped"
@@ -2132,6 +2132,12 @@
       ],
       "options": [
         {
+          "id": "d",
+          "text": "Rough ER → Golgi apparatus → secretory vesicle → plasma membrane.",
+          "correct": true,
+          "feedback": "This sequence follows the canonical eukaryotic secretory pathway."
+        },
+        {
           "id": "a",
           "text": "Golgi → nucleus → mitochondrial matrix → exterior.",
           "correct": false,
@@ -2148,12 +2154,6 @@
           "text": "Cytoskeleton → DNA polymerase → cell wall → exterior.",
           "correct": false,
           "feedback": "The named structures are not a membrane trafficking sequence."
-        },
-        {
-          "id": "d",
-          "text": "Rough ER → Golgi apparatus → secretory vesicle → plasma membrane.",
-          "correct": true,
-          "feedback": "This sequence follows the canonical eukaryotic secretory pathway."
         }
       ],
       "review": "source-mapped"
@@ -2177,12 +2177,6 @@
       ],
       "options": [
         {
-          "id": "a",
-          "text": "On the cytosolic surface of a budding membrane region.",
-          "correct": true,
-          "feedback": "Clathrin coat assembles on the cytosolic side of a budding pit."
-        },
-        {
           "id": "b",
           "text": "Inside the vesicle lumen as the transported hormone.",
           "correct": false,
@@ -2199,6 +2193,12 @@
           "text": "Only on the extracellular face of a plasma-membrane channel.",
           "correct": false,
           "feedback": "Clathrin is not an extracellular ion-channel component."
+        },
+        {
+          "id": "a",
+          "text": "On the cytosolic surface of a budding membrane region.",
+          "correct": true,
+          "feedback": "Clathrin coat assembles on the cytosolic side of a budding pit."
         }
       ],
       "review": "source-mapped"
