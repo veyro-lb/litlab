@@ -1,3 +1,4 @@
+import {isBiologyRoute} from './biology/routes';
 const SESSION_KEY='litlabSupabaseSession';
 
 let navigationId=0;
@@ -14,7 +15,7 @@ function hasStoredSession(){
 }
 
 function isHome(){
-  return currentRoute()==='home';
+  return currentRoute()==='home'||isBiologyRoute(currentRoute());
 }
 
 function openSignInPrompt(id:number,attempt=0){

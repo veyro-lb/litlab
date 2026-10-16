@@ -1,3 +1,4 @@
+import {isBiologyRoute} from './biology/routes';
 import './analysis-launch-notice.css';
 
 const NOTICE_ID='ll-analysis-launch-notice';
@@ -53,7 +54,7 @@ function openInsightfulAnalysis(){
 }
 
 function showLaunchNotice(){
-  if(seen()||launchNotice())return;
+  if(isBiologyRoute(currentRoute())||seen()||launchNotice())return;
 
   const notice=document.createElement('aside');
   notice.id=NOTICE_ID;
@@ -90,3 +91,9 @@ function start(){
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
 else start();
+
+// English announcements stay within the English experience without marking them dismissed.
+window.addEventListener('hashchange',()=>{
+  if(isBiologyRoute(currentRoute()))launchNotice()?.remove();
+  else showLaunchNotice();
+});

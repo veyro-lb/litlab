@@ -80,6 +80,7 @@ function ensureRouteDock(){
 
 function syncNavigation(){
   const current=route();
+  if(/^biology(?:\/|$)/.test(current)){document.querySelector('.litlab-route-dock')?.remove();return;}
   const info=routes[current]||{label:'LitLab'};
   const isEssayRoute=current==='essays'||current==='ee'||current==='hl-essay';
   const activeMain=(current==='paper-1'||current==='paper-2')?'papers':isEssayRoute?'essays':current;

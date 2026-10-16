@@ -1,0 +1,40 @@
+/* BioLab beta launch — homepage feature and persistent entry point. English styles unaffected. */
+.biolab-nav-cta{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 14px;border-radius:13px;background:#176c5f;border:1px solid #247f71;color:#fff;text-decoration:none;font-size:13px;font-weight:850;letter-spacing:.01em;white-space:nowrap;box-shadow:0 8px 24px rgba(17,105,84,.18);transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
+.biolab-nav-cta:hover{background:#0f584e;color:#fff;transform:translateY(-2px);box-shadow:0 10px 26px rgba(17,105,84,.25)}
+.biolab-nav-cta:focus-visible,.biolab-showcase a:focus-visible,.biolab-showcase button:focus-visible{outline:3px solid #f3b955;outline-offset:4px}
+.biolab-nav-cta[aria-current=page]{background:#104d45;outline:2px solid #79daba;outline-offset:1px}
+.biolab-nav-cta small{font-size:9px;letter-spacing:.075em;font-weight:900;border:1px solid rgba(255,255,255,.36);border-radius:5px;padding:2px 4px}
+.subject-navigation a[href="#biology"]{font-weight:850;color:#126e5b}
+.subject-navigation a[href="#biology"][aria-current=page]{background:#e1f5eb;color:#0e5b4b}
+html[data-theme=dark] .subject-navigation a[href="#biology"]{color:#87e8c5}
+html[data-theme=dark] .subject-navigation a[href="#biology"][aria-current=page]{background:#15493b;color:#dcffef}
+.biolab-showcase{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr);gap:24px;max-width:1260px;margin:10px auto 26px;padding:clamp(32px,6vw,72px);min-height:510px;overflow:hidden;border:1px solid #277d6b;border-radius:32px;background:radial-gradient(ellipse at 95% 8%,rgba(98,209,193,.22),transparent 43%),linear-gradient(125deg,#0d2f34,#105345 72%,#136f5c);color:#f3fff8;box-shadow:0 25px 68px rgba(10,74,66,.14)}
+.biolab-showcase::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(90deg,transparent,#000)}
+.biolab-showcase-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.biolab-showcase-kicker{display:inline-flex;align-items:center;gap:9px;color:#b5ffe1;font-size:11px;font-weight:900;letter-spacing:.13em}
+.biolab-showcase-status{padding:4px 7px;border-radius:6px;border:1px solid rgba(172,255,216,.55);background:rgba(115,223,173,.12);font-size:9px;letter-spacing:.12em}
+.biolab-showcase h2{font:750 clamp(40px,5.7vw,76px)/1.04 var(--display);letter-spacing:-.055em;margin:22px 0 20px;max-width:750px;color:#fff}
+.biolab-showcase h2 em{font-style:normal;color:#95f0ca}
+.biolab-showcase-copy>p{font-size:clamp(15px,1.35vw,18px);line-height:1.7;color:#dcf4eb;max-width:655px;margin:0}
+.biolab-showcase-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px}
+.biolab-showcase-actions>span{font-size:12px;font-weight:700;color:#bfedda}
+.biolab-showcase-primary{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:55px;padding:0 24px;border:none;border-radius:14px;background:#c6ffe4;color:#0b453b;font:850 15px var(--body);cursor:pointer;box-shadow:0 9px 26px rgba(0,0,0,.13);transition:transform .2s ease,background .2s ease}
+.biolab-showcase-primary:hover{transform:translateY(-3px);background:#e5fff2}
+.biolab-showcase-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.biolab-showcase-links a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid rgba(203,255,230,.2);border-radius:10px;background:rgba(0,30,24,.17);color:#b0ffe0;text-decoration:none;font-size:12px;font-weight:850}
+.biolab-showcase-links a span{color:#fff;font-weight:600}
+.biolab-showcase-links a:hover{background:rgba(201,255,229,.14);border-color:rgba(201,255,229,.53)}
+.biolab-showcase-copy>p.biolab-showcase-disclaimer{margin-top:24px;color:#b4d5cb;font-size:11px;line-height:1.6}
+.biolab-showcase-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:385px;overflow:hidden}
+.biolab-showcase-visual svg{width:min(100%,350px);max-height:390px;filter:drop-shadow(0 0 20px rgba(83,245,193,.14));position:relative}
+.biolab-showcase-orbit{position:absolute;left:50%;top:50%;border:1px solid rgba(183,255,222,.17);border-radius:50%;transform:translate(-50%,-50%)}
+.biolab-showcase-orbit.orbit-outer{width:380px;height:380px}
+.biolab-showcase-orbit.orbit-inner{width:285px;height:285px}
+.biolab-showcase-float{position:absolute;display:flex;align-items:center;gap:8px;border:1px solid rgba(197,255,225,.33);border-radius:12px;background:rgba(12,53,47,.85);padding:12px 14px;color:#ebfff4;font-size:12px;font-weight:800;box-shadow:0 8px 25px rgba(0,0,0,.17);backdrop-filter:blur(8px)}
+.biolab-showcase-float.float-top{top:16%;right:0}
+.biolab-showcase-float.float-bottom{bottom:15%;left:0}
+@media(max-width:1100px){.biolab-showcase{margin:8px 20px 26px}}
+@media(max-width:820px){.biolab-showcase{grid-template-columns:1fr;padding:38px 28px}.biolab-showcase-visual{max-height:270px;min-height:270px}.biolab-showcase-visual svg{width:230px}.biolab-showcase-orbit.orbit-outer{width:300px;height:300px}.biolab-showcase-float.float-top{right:6%}.biolab-showcase-float.float-bottom{left:6%}}
+@media(max-width:520px){.topbar .biolab-nav-cta{min-height:40px;padding:0 9px;gap:5px;font-size:11px}.biolab-nav-cta svg{width:15px;height:15px}.biolab-nav-cta small{display:none}.top-actions{gap:5px}.biolab-showcase{margin:8px 14px 20px;padding:28px 20px;border-radius:24px}.biolab-showcase-kicker{letter-spacing:.055em;font-size:10px}.biolab-showcase h2{font-size:clamp(36px,11vw,52px)}.biolab-showcase-primary{width:100%}.biolab-showcase-actions{width:100%}.biolab-showcase-links{gap:7px}.biolab-showcase-links a{font-size:11px}.biolab-showcase-visual{min-height:235px;max-height:235px}.biolab-showcase-visual svg{width:195px}.biolab-showcase-float{font-size:10px;padding:8px}.biolab-showcase-copy>p.biolab-showcase-disclaimer{font-size:10px}}
+@media(max-width:375px){.biolab-nav-cta{font-size:10px}.topbar .search-trigger{display:none}.biolab-showcase h2{font-size:34px}}
+@media(prefers-reduced-motion:reduce){.biolab-nav-cta,.biolab-showcase-primary{transition:none}.biolab-nav-cta:hover,.biolab-showcase-primary:hover{transform:none}}

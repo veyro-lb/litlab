@@ -1,4 +1,9 @@
-import React,{useEffect,useMemo,useRef,useState}from'react';
+import React,{lazy,Suspense,useEffect,useMemo,useRef,useState}from'react';
+import BiologyBoundary from './biology/components/BiologyBoundary';
+import {isBiologyRoute} from './biology/routes';
+import './subject-navigation.css';
+import './biolab-launch.css';
+const BiologyEntry=lazy(()=>import('./biology/entry')); 
 import{createRoot}from'react-dom/client';
 import{ArrowRight,Atom,BookOpen,Check,ChevronDown,ChevronRight,CircleHelp,Clock,ExternalLink,FileText,FlaskConical,Home as HomeIcon,Instagram,LibraryBig,Menu,Mic2,Moon,Pause,Play,RefreshCw,Search,SearchCheck,Sparkles,Sun,Target,TriangleAlert,X,Zap}from'lucide-react';
 import{compass,faqs,glossary,homeCards,nav,officialSources,searchItems,tips}from'./content';
@@ -15,18 +20,21 @@ function App(){
  const parse=()=>location.hash.slice(1).split('#')[0]||'home';
  const [page,setPage]=useState(parse),[dark,setDark]=useState(localStorage.litlabTheme==='dark'),[menu,setMenu]=useState(false),[searchOpen,setSearchOpen]=useState(false),[query,setQuery]=useState(''),[done,setDone]=useState<string[]>(()=>stored('litlabDone'));
  useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light';localStorage.litlabTheme=dark?'dark':'light'},[dark]);
- useEffect(()=>{const fn=()=>{setPage(parse());setMenu(false);requestAnimationFrame(()=>scrollTo({top:0,behavior:'smooth'}))};addEventListener('hashchange',fn);return()=>removeEventListener('hashchange',fn)},[]);
- useEffect(()=>{const fn=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();setSearchOpen(true)}if(e.key==='Escape'){setSearchOpen(false);setMenu(false)}};addEventListener('keydown',fn);return()=>removeEventListener('keydown',fn)},[]);
+ useEffect(()=>{const fn=()=>{setPage(parse());setMenu(false);setSearchOpen(false);if(!(isBiologyRoute(parse())&&parse().includes('?understanding=')))requestAnimationFrame(()=>scrollTo({top:0,behavior:'smooth'}))};addEventListener('hashchange',fn);return()=>removeEventListener('hashchange',fn)},[]);
+ useEffect(()=>{const fn=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(isBiologyRoute(parse()))document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLInputElement>('input[type=search]')?.focus();else setSearchOpen(true)}if(e.key==='Escape'){setSearchOpen(false);setMenu(false)}};addEventListener('keydown',fn);return()=>removeEventListener('keydown',fn)},[]);
+ const biology=isBiologyRoute(page);
+ useEffect(()=>{document.documentElement.dataset.litlabSubject=biology?'biology':'english'},[biology]);
  const go:Go=(to)=>{const [p,anchor]=to.split('#');if(parse()!==p) location.hash=p;else setPage(p);setMenu(false);setSearchOpen(false);setTimeout(()=>{if(anchor)document.getElementById(anchor)?.scrollIntoView({behavior:'smooth',block:'start'});else scrollTo({top:0,behavior:'smooth'})},80)};
  const mark=(id:string)=>setDone(v=>{const n=v.includes(id)?v:[...v,id];localStorage.litlabDone=JSON.stringify(n);return n});
  const results=useMemo(()=>{const q=query.trim().toLowerCase();return q?searchItems.filter(x=>(x.title+' '+x.preview+' '+x.category).toLowerCase().includes(q)).slice(0,10):[]},[query]);
  return <div className="app-shell">
-  <a className="skip" href="#main">Skip to content</a>
-  <header className="topbar"><button className="brand-btn" onClick={()=>go('home')} aria-label="LitLab home"><Logo/></button><nav aria-label="Primary navigation">{nav.map(([slug,label])=><button key={slug} className={page===slug?'active':''} onClick={()=>go(slug)}>{label}</button>)}</nav><div className="top-actions"><button className="search-trigger" onClick={()=>setSearchOpen(true)}><Search size={17}/><span>Search</span><kbd>⌘K</kbd></button><button className="icon-btn" onClick={()=>setDark(v=>!v)} aria-label="Toggle theme">{dark?<Sun/>:<Moon/>}</button><button className="icon-btn mobile-only" onClick={()=>setMenu(v=>!v)} aria-expanded={menu} aria-label="Toggle menu">{menu?<X/>:<Menu/>}</button></div></header>
+  <a className="skip" href="#main" onClick={e=>{e.preventDefault();const main=document.getElementById('main');main?.focus();main?.scrollIntoView({block:'start'});}}>Skip to content</a>
+  <header className="topbar" data-subject={biology?'biology':'english'}><button className="brand-btn" onClick={()=>go('home')} aria-label="LitLab home"><Logo/></button>{!biology&&<nav aria-label="Primary navigation">{nav.map(([slug,label])=><button key={slug} className={page===slug?'active':''} onClick={()=>go(slug)}>{label}</button>)}</nav>}<div className="top-actions"><a className="biolab-nav-cta" href="#biology" aria-current={biology?'page':undefined} aria-label="Open BioLab Biology"><FlaskConical size={17} aria-hidden="true"/><span>BioLab</span><small>BETA</small></a>{!biology&&<button className="search-trigger" onClick={()=>setSearchOpen(true)}><Search size={17}/><span>Search</span><kbd>⌘K</kbd></button>}<button className="icon-btn" onClick={()=>setDark(v=>!v)} aria-label="Toggle theme">{dark?<Sun/>:<Moon/>}</button>{!biology&&<button className="icon-btn mobile-only" onClick={()=>setMenu(v=>!v)} aria-expanded={menu} aria-label="Toggle menu">{menu?<X/>:<Menu/>}</button>}</div></header>
+  <div className="subject-bar"><div className="subject-navigation" role="group" aria-label="Choose subject"><a href="#home" aria-current={!biology?'page':undefined}>English</a><a href="#biology" aria-current={biology?'page':undefined}>BioLab</a></div></div>
   {menu&&<div className="mobile-menu">{nav.map(([slug,label])=><button key={slug} onClick={()=>go(slug)}>{label}<ChevronRight/></button>)}<button onClick={()=>setSearchOpen(true)}>Search<Search/></button></div>}
   {searchOpen&&<SearchModal query={query} setQuery={setQuery} results={results} close={()=>setSearchOpen(false)} go={go}/>} 
-  <main id="main">{page==='home'?<Home go={go} done={done}/>:page==='start'?<StartHere go={go} done={done} mark={mark}/>:page==='papers'?<Papers go={go}/>:page==='paper-1'?<PaperPage kind="Paper 1" go={go} done={done} mark={mark}/>:page==='paper-2'?<PaperPage kind="Paper 2" go={go} done={done} mark={mark}/>:page==='io'?<IOPage go={go} done={done} mark={mark}/>:page==='books'?<BooksPage go={go} done={done} mark={mark}/>:page==='ee'?<EEPage go={go} done={done} mark={mark}/>:page==='glossary'?<GlossaryPage/>:<AboutPage/>}</main>
-  <Footer go={go}/>
+  <main id="main" tabIndex={-1}>{biology?<BiologyBoundary><Suspense fallback={<p role="status" style={{padding:'3rem'}}>Loading Biology…</p>}><BiologyEntry hash={page}/></Suspense></BiologyBoundary>:page==='home'?<Home go={go} done={done}/>:page==='start'?<StartHere go={go} done={done} mark={mark}/>:page==='papers'?<Papers go={go}/>:page==='paper-1'?<PaperPage kind="Paper 1" go={go} done={done} mark={mark}/>:page==='paper-2'?<PaperPage kind="Paper 2" go={go} done={done} mark={mark}/>:page==='io'?<IOPage go={go} done={done} mark={mark}/>:page==='books'?<BooksPage go={go} done={done} mark={mark}/>:page==='ee'?<EEPage go={go} done={done} mark={mark}/>:page==='glossary'?<GlossaryPage/>:<AboutPage/>}</main>
+  {!biology&&<Footer go={go}/>}
  </div>
 }
 
@@ -34,6 +42,7 @@ function SearchModal({query,setQuery,results,close,go}:{query:string;setQuery:(v
 
 function Home({go,done}:{go:Go;done:string[]}){const[tipIndex,setTipIndex]=useState(0);return <>
  <section className="hero home-hero"><div className="hero-grid"></div><div className="hero-glow one"></div><div className="hero-glow two"></div><div className="hero-copy reveal"><span className="eyebrow"><Sparkles/> Student-made DP English guide</span><h1>English can feel complicated.<br/><em>LitLab makes it clearer.</em></h1><p>Explore the key parts of DP English, understand how they connect, discover useful strategies and find the section you need without digging through pages of notes.</p><div className="button-row"><button className="btn primary" onClick={()=>document.getElementById('compass')?.scrollIntoView({behavior:'smooth'})}>Start exploring <ArrowRight/></button><button className="btn secondary" onClick={()=>go('start')}>I'm new — Start Here</button></div><p className="creator-line">Created by <b>Rayan Sayed Ahmad</b> & <b>Elena Bizri</b></p></div><HeroLabArt/></section>
+ <BioLabShowcase go={go}/>
  <section id="compass" className="section compass-section"><SectionHead eyebrow="LitLab Compass" title="Where are you trying to go?" text="Choose a direction. Nothing is locked, and you can jump straight to what you need."/><Compass go={go}/></section>
  <section className="section"><div className="quick-strip"><span>Quick access</span>{[['What is Paper 1?','paper-1'],['Paper 1 vs Paper 2','papers'],['What is the IO?','io'],['Analysis vs Summary','start#analysis'],['Authorial Choices','start#choices'],['What is an EE?','ee']].map(([l,to])=><button key={l} onClick={()=>go(to)}>{l}<ArrowRight/></button>)}</div></section>
  <section className="section"><SectionHead eyebrow="Explore the guide" title="Five places. One clear map." text="Start with the overview, or go directly to the part of DP English you are working on."/><div className="feature-grid">{homeCards.map(c=>{const I=iconMap[c.icon]||BookOpen;return <button className="feature-card tilt" key={c.slug} onClick={()=>go(c.slug)}><span className="feature-no">{c.n}</span><span className="feature-icon"><I size={27}/></span><h3>{c.title}</h3><p>{c.desc}</p><span className="card-link">Explore <ArrowRight/></span></button>})}</div></section>
@@ -42,6 +51,31 @@ function Home({go,done}:{go:Go;done:string[]}){const[tipIndex,setTipIndex]=useSt
  <section className="section split-section"><div className="tip-lab"><span className="eyebrow"><Zap/> LitLab tip</span><h2>{tips[tipIndex].title}</h2><p>{tips[tipIndex].text}</p><button className="btn secondary" onClick={()=>setTipIndex(i=>(i+1)%tips.length)}>Another tip <RefreshCw/></button></div><ProgressPanel done={done}/></section>
  <section className="section makers"><div><span className="eyebrow">Built by students, for students</span><h2>Made to be useful before it tries to be impressive.</h2><p>LitLab was created by Rayan Sayed Ahmad and Elena Bizri as a student project designed to make the first steps into DP English clearer and more approachable.</p><div className="button-row"><button className="btn primary" onClick={()=>go('about')}>About the project <ArrowRight/></button><a className="btn insta" href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><Instagram/> View our Instagram <ExternalLink/></a></div></div><div className="maker-orbit"><div className="orbit-ring r1"></div><div className="orbit-ring r2"></div><div className="maker-core"><Logo/></div><span className="orbit-label l1">CAS</span><span className="orbit-label l2">DP1</span><span className="orbit-label l3">ENGLISH</span></div></section>
  </>}
+
+function BioLabShowcase({go}:{go:Go}){return <section className="biolab-showcase" aria-labelledby="biolab-showcase-title">
+ <div className="biolab-showcase-copy">
+  <span className="biolab-showcase-kicker"><FlaskConical size={17} aria-hidden="true"/> THE BIOLOGY SIDE OF LITLAB <span className="biolab-showcase-status">BETA</span></span>
+  <h2 id="biolab-showcase-title">Meet <em>BioLab.</em><br/>Biology that finally connects.</h2>
+  <p>Explore IB Biology by understanding number, then learn through clear explanations, original scientific diagrams, active recall and real practice questions. Built for Standard and Higher Level.</p>
+  <div className="biolab-showcase-actions"><button className="biolab-showcase-primary" onClick={()=>go('biology')}>Explore BioLab <ArrowRight size={20} aria-hidden="true"/></button><span>8 interactive topic drafts available</span></div>
+  <div className="biolab-showcase-links" aria-label="Start studying a Biology topic">
+   <a href="#biology/topic/A1.1">A1.1 <span>Water</span><ArrowRight size={14} aria-hidden="true"/></a>
+   <a href="#biology/topic/B2.1">B2.1 <span>Membranes</span><ArrowRight size={14} aria-hidden="true"/></a>
+   <a href="#biology/topic/C1.1">C1.1 <span>Enzymes</span><ArrowRight size={14} aria-hidden="true"/></a>
+  </div>
+  <p className="biolab-showcase-disclaimer">Early-access study drafts. Scientific and teacher review is ongoing; independent of and not endorsed by the IB.</p>
+ </div>
+ <div className="biolab-showcase-visual" aria-hidden="true">
+  <div className="biolab-showcase-orbit orbit-outer"></div><div className="biolab-showcase-orbit orbit-inner"></div>
+  <svg viewBox="0 0 350 390" role="presentation" focusable="false">
+   <defs><linearGradient id="biolab-helix" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#c7ffe4"/><stop offset="1" stopColor="#72c9dd"/></linearGradient></defs>
+   {Array.from({length:13},(_,i)=>{const y=32+i*26;const x1=175+80*Math.sin(i*.64),x2=175-80*Math.sin(i*.64);return <g key={i}><line x1={x1} y1={y} x2={x2} y2={y+7} stroke="#d9fced" strokeWidth="5" strokeLinecap="round" opacity=".7"/><circle cx={x1} cy={y} r={7.5} fill="#b0f8cf"/><circle cx={x2} cy={y+7} r={7.5} fill="#6cb6d1"/></g>})}
+   <path d={Array.from({length:110},(_,i)=>{const y=30+i*3.12;return `${i?'L':'M'}${175+80*Math.sin(y/41)} ${y}`}).join(' ')} fill="none" stroke="url(#biolab-helix)" strokeWidth="8" strokeLinecap="round"/>
+   <path d={Array.from({length:110},(_,i)=>{const y=30+i*3.12;return `${i?'L':'M'}${175-80*Math.sin(y/41)} ${y}`}).join(' ')} fill="none" stroke="#6cb6d1" strokeWidth="8" strokeLinecap="round" opacity=".75"/>
+  </svg>
+  <span className="biolab-showcase-float float-top"><Atom size={17}/> Molecules</span><span className="biolab-showcase-float float-bottom"><BookOpen size={17}/> Learn · Recall · Practice</span>
+ </div>
+ </section>}
 
 function HeroLabArt(){return <div className="hero-art" aria-hidden="true"><div className="paper p1"><span>ANALYSE</span><i></i><i></i><i></i></div><div className="paper p2"><span>CONNECT</span><i></i><i></i></div><div className="lab-orb"><Atom/></div><div className="floating-tag t1">P1</div><div className="floating-tag t2">IO</div><div className="floating-tag t3">EE</div><div className="floating-tag t4">BOOKS</div></div>}
 
