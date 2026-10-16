@@ -36,3 +36,30 @@ The 38 assets are original diagrams, not micrographs. All titles, structure labe
 - SVG assets use a 640-wide viewBox, high-contrast text and separate recall variants; the shared ScientificFigure component supports zoom and alt text. This is **not** a claim that 320 px mobile rendering has been manually certified.
 - Before integration, render all 19 label versions and 19 recall versions at 320 px and desktop sizes, inspect for text clipping, note icon/illustration simplifications, and verify zoom plus keyboard and screen-reader flow.
 - Assess any dark-mode styling inherited from shared CSS and preserve visible text at 200% browser zoom. Scientific labels must not depend on color alone.
+
+## Current scientific figure-source mappings (post-content-enrichment)
+
+The following is the authoritative current list, refreshed to match the final lesson package assets. Original artwork remains unapproved pending specialist review.
+- **a22-organization** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing; files `/biology/cell-structure/a22-organization.svg`, `/biology/cell-structure/a22-organization-recall.svg`.
+- **a22-scale** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing; files `/biology/cell-structure/a22-scale.svg`, `/biology/cell-structure/a22-scale-recall.svg`.
+- **a22-methods** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing; files `/biology/cell-structure/a22-methods.svg`, `/biology/cell-structure/a22-methods-recall.svg`.
+- **a22-prokaryote** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing, ncbi-walls; files `/biology/cell-structure/a22-prokaryote.svg`, `/biology/cell-structure/a22-prokaryote-recall.svg`.
+- **a22-eukaryote** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing; files `/biology/cell-structure/a22-eukaryote.svg`, `/biology/cell-structure/a22-eukaryote-recall.svg`.
+- **a22-groups** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing, ncbi-walls; files `/biology/cell-structure/a22-groups.svg`, `/biology/cell-structure/a22-groups-recall.svg`.
+- **a22-atypical** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing; files `/biology/cell-structure/a22-atypical.svg`, `/biology/cell-structure/a22-atypical-recall.svg`.
+- **a22-micrograph-key** (A2.2, shared): ib-a22, hodder-a22, ncbi-visualizing; files `/biology/cell-structure/a22-micrograph-key.svg`, `/biology/cell-structure/a22-micrograph-key-recall.svg`.
+- **a22-endosymbiosis** (A2.2, HL): ib-a22-hl, hodder-a22-hl, ncbi-origin; files `/biology/cell-structure/a22-endosymbiosis.svg`, `/biology/cell-structure/a22-endosymbiosis-recall.svg`.
+- **b23-gradient** (B2.3, shared): ib-b23, hodder-b23, ncbi-niche; files `/biology/cell-specialization/b23-gradient.svg`, `/biology/cell-specialization/b23-gradient-recall.svg`.
+- **b23-stem** (B2.3, shared): ib-b23, hodder-b23, ncbi-niche; files `/biology/cell-specialization/b23-stem.svg`, `/biology/cell-specialization/b23-stem-recall.svg`.
+- **b23-niche** (B2.3, shared): ib-b23, hodder-b23, ncbi-niche; files `/biology/cell-specialization/b23-niche.svg`, `/biology/cell-specialization/b23-niche-recall.svg`.
+- **b23-potency** (B2.3, shared): ib-b23, hodder-b23, ncbi-niche; files `/biology/cell-specialization/b23-potency.svg`, `/biology/cell-specialization/b23-potency-recall.svg`.
+- **b23-sizes** (B2.3, shared): ib-b23, hodder-b23, ncbi-niche; files `/biology/cell-specialization/b23-sizes.svg`, `/biology/cell-specialization/b23-sizes-recall.svg`.
+- **b23-cubes** (B2.3, shared): ib-b23, hodder-b23, ncbi-niche; files `/biology/cell-specialization/b23-cubes.svg`, `/biology/cell-specialization/b23-cubes-recall.svg`.
+- **b23-surface** (B2.3, HL): ib-b23-hl, hodder-b23-hl, ncbi-niche; files `/biology/cell-specialization/b23-surface.svg`, `/biology/cell-specialization/b23-surface-recall.svg`.
+- **b23-alveoli** (B2.3, HL): ib-b23-hl, hodder-b23-hl, ncbi-alveoli; files `/biology/cell-specialization/b23-alveoli.svg`, `/biology/cell-specialization/b23-alveoli-recall.svg`.
+- **b23-muscle** (B2.3, HL): ib-b23-hl, hodder-b23-hl, ncbi-muscle; files `/biology/cell-specialization/b23-muscle.svg`, `/biology/cell-specialization/b23-muscle-recall.svg`.
+- **b23-gametes** (B2.3, HL): ib-b23-hl, hodder-b23-hl, ncbi-fertilization; files `/biology/cell-specialization/b23-gametes.svg`, `/biology/cell-specialization/b23-gametes-recall.svg`.
+
+## Standalone figure preview
+`docs/biology/phase8/preview.html` provides a **static** 320px/full-size selector and labelled/recall gallery for all 19 diagrams. It does not change routing, registry, catalog or lesson rendering. The page exists for a future visual check; existence is not evidence that manual 320px phone, browser or assistive-technology inspection occurred.
+

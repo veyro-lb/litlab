@@ -440,3 +440,162 @@ IB Biology Guide (2023; first assessment 2025) is the curriculum authority. Hodd
 - B2.3.8 type I alveolar cells reduce diffusion distance; type II cells release surfactant from lamellar bodies. The designs have different functions.
 - Syllabus-specified drawing/micrograph tasks require genuine specimens or licensed institutional images with traceable provenance. No simulated image is claimed as a micrograph.
 - IB publication requires independent copyright/permission review; access to a guide or textbook does not grant a license to republish their figures, wording or trademarks.
+
+## Phase 8 follow-up: extended investigative teaching (all 24 understandings)
+
+The detailed third teaching block below was added to the two JSON packages after the first ledger was written. It is original instructional material, extends each understanding's causal reasoning and is linked to the refreshed `claimReferences` arrays. It does not imply external scientific approval.
+
+### A2.2 new teaching blocks
+
+#### A2.2.1
+
+Evidence and prediction: imagine finding a microscopic green object in a pond. Seeing a green pigment is insufficient to call it an organism. Examine its boundary, whether it grows and reproduces under suitable conditions, and whether it carries out cellular activities. If several cells cooperate, distinguish each cell from the tissue or colony. An apparent contradiction to cell theory would need reproducible observations and careful exclusion of contamination and misidentification.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.2
+
+Practice calibration rather than trusting a microscope knob: if a stage micrometer shows 100 µm across 40 eyepiece-graticule divisions, one division represents 2.5 µm for that objective. A cell spanning 13 divisions is therefore 32.5 µm wide. Recalibrate when changing objective lenses. Record stain, specimen, lens combination and measurement uncertainty. When photographing, include a calibrated scale bar or enough metadata to create one; a ruler placed on the printed photo is not a physical specimen scale by itself.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.3
+
+Choose by evidence required. To follow movement in a living protist, transmitted-light microscopy may be best. To find where an antibody binds inside a fixed cell, use appropriate immunofluorescent labeling with negative controls. TEM requires thin specimens and reveals internal membranes; SEM usually provides surface information. A freeze-fractured preparation exposes membrane faces, but freezing and etching can introduce artifacts. Cryo-EM vitrification minimizes ice-crystal damage and aids structural reconstruction. Report what was actually resolved, not what a familiar cartoon says should be present.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.4
+
+Test which elements are common and which are typical. DNA can support inheritance because sequence information is copied; a plasma membrane permits cells to establish internal environments; ribosomes build proteins following encoded instructions. A wall is protective in many prokaryotes, plants and fungi, but its chemical construction varies and it is absent in animals. A nucleus is especially important in a typical eukaryotic organization but not universal among living cells. Build explanations using each structure's function rather than memorizing a universal organelle checklist.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.5
+
+Reason about layers: a Gram-positive bacterium has a thick peptidoglycan cell wall outside its plasma membrane, while the membrane controls traffic into its watery cytoplasm. Ribosomes are involved in protein synthesis even without a nucleus. The DNA loop is in the nucleoid, a region lacking a membrane boundary. Bacillus can be rod-shaped and Staphylococcus often forms spherical cells in clusters, although actual shapes vary. Never draw a flagellum or capsule as compulsory, and do not confuse Gram-positive peptidoglycan with a plant cellulose wall.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing, ncbi-walls.
+
+#### A2.2.6
+
+Trace a secreted protein as an organizational example: ribosomes associated with rough ER synthesize many proteins destined for secretion; membrane traffic can carry cargo to the Golgi apparatus for modification and sorting, then into vesicles that fuse with the plasma membrane. This illustrates why membranes organize specific tasks. A cytoskeleton also positions components and can assist intracellular movement. This sequence is a simplified model: not all proteins follow it, and ribosomes themselves lack surrounding membranes. Connect each compartment to a function rather than treating organelles as separate decorative icons.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.7
+
+Predict changes in a protist's behavior after a stimulus. In freshwater Paramecium, beating cilia supports movement; food particles can be brought into food vacuoles, while contractile vacuoles assist osmoregulation by expelling excess water. Reproduction by cell division creates two organisms when conditions permit. Each action requires coordinated molecular processes in the same cell. Metabolism includes both building and breaking down molecules, and homeostasis is regulation rather than literal constancy of every internal quantity.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.8
+
+Make a three-column evidence table before identifying an unfamiliar eukaryotic cell. Cellulose-rich walls and plastids suggest plant tissue; chitin-rich walls suggest fungi; a flexible cell edge without a wall may suggest animal tissue. Vacuoles and motile appendages can occur in more than one kingdom and vary with tissue or life stage. A potato storage cell may contain non-green plastids; a green leaf cell may contain chloroplasts. Compare several independent features, not one cartoon color or a single cell's roundness.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing, ncbi-walls.
+
+#### A2.2.9
+
+Use the four prescribed examples to challenge a one-nucleus stereotype. In a continuous aseptate fungal hypha, multiple nuclei share a cytoplasmic tube. Skeletal muscle fibres arise from fusion and use many nuclei across their large length. During maturation, human erythrocytes lose their nuclei, leaving more volume for haemoglobin; phloem sieve-tube elements lack nuclei and receive support from companion cells. Do not infer that nucleus-free mature cells are prokaryotes: their developmental history is eukaryotic.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.10
+
+For a proposed electron-micrograph label, write the visible evidence before the name: 'elongated double membrane with internal folds—probable mitochondrion' is defensible; 'purple dot—ribosome' is not, unless original modality, resolution and context establish it. A chloroplast may show thylakoid membranes, while rough ER may show small dense ribosomal particles on its surface. A two-dimensional section can miss structures outside the cut plane. Without a provenance-checked, calibrated authentic image, train the identification reasoning but do not claim the image test itself is complete.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.11
+
+Use a checklist on a verified electron micrograph before drawing: correct specimen title, faithful outline, convincing proportions, structures limited to those resolved, clean continuous pencil lines, accurate leader-line endpoints, functional annotation and a justified image-derived scale. For example, 'nuclear envelope—separates DNA-containing nucleoplasm from cytoplasm' extends a label into a function. If the boundary is ambiguous, mark the inference cautiously rather than inventing pores. A text-based explanation of what you would annotate remains a keyboard-accessible alternative to freehand-only assessment.
+
+**Current source reference IDs:** ib-a22, hodder-a22, ncbi-visualizing.
+
+#### A2.2.12
+
+Evaluate alternative explanations. Mitochondria and plastids maintain their own genetic material and division processes, and organellar ribosomes resemble bacterial counterparts. The bacterial affinity of numerous organelle genes provides an additional independent line of evidence. Modern mitochondria do not live freely in normal cells because evolutionary integration transferred or lost many genes. Students can identify the observable evidence and infer an ancestral bacterial partnership, but should not claim a photographed merger or insist that all proposed steps of early eukaryotic evolution are settled.
+
+**Current source reference IDs:** ib-a22-hl, hodder-a22-hl, ncbi-origin.
+
+#### A2.2.13
+
+Differentiate cause from consequence. If two genetically similar early cells experience different neighbor signals, they may turn on different transcription factors, synthesize different proteins and acquire different cytoskeletal structures or membrane transporters. Tissue architecture then emerges from cells performing complementary roles. Cellular fate can become more restricted across development while many genetic sequences stay unchanged. Specialized maturation is not always reversible under normal circumstances; however, research reprogramming methods demonstrate that some differentiated states can be experimentally altered.
+
+**Current source reference IDs:** ib-a22-hl, hodder-a22-hl, ncbi-origin.
+
+#### A2.2.14
+
+Compare independent evolutionary origins using trees, traits and fossils, not just visible similarity. Large bodies can reduce vulnerability to some predators and allow cells to perform complementary tasks, but they can also create coordination, transport and resource costs. These benefits and constraints vary with ecological setting. Natural selection can favor cell adhesion and cooperation when they confer heritable reproductive advantages. A colony of associated cells is not automatically equivalent to an organism with integrated development and distinct tissues.
+
+**Current source reference IDs:** ib-a22-hl, hodder-a22-hl, ncbi-origin.
+
+### B2.3 new teaching blocks
+
+#### B2.3.1
+
+Try drawing three embryonic cells at positions along a signalling gradient, then sketch one graph of morphogen concentration against position. Thresholds and regulatory networks can cause different sets of genes to be expressed in cells above and below a particular signal concentration. These responses also depend on cell competence and previous developmental history, not signal concentration alone. A predicted outcome should connect position, regulatory change and morphological differentiation, rather than saying a chemical directly turns into a tissue.
+
+**Current source reference IDs:** ib-b23, hodder-b23, ncbi-niche, ncbi-potency.
+
+#### B2.3.2
+
+Think about lineage outcomes instead of assuming every division has two identical fates. One division may leave a daughter in the stem-cell pool and produce a progenitor that progressively specializes; in other contexts, divisions can expand or deplete the pool. Stem-cell capacity is tested through lineage evidence under appropriate conditions. 'Unlimited division' in introductory models refers to enduring self-renewal potential in favorable conditions, not immortality of every individual stem cell or absence of senescence and regulation.
+
+**Current source reference IDs:** ib-b23, hodder-b23, ncbi-niche, ncbi-potency.
+
+#### B2.3.3
+
+Compare how the marrow and follicle microenvironments maintain their resident stem cells. A niche may supply contact-dependent signals, extracellular matrix attachment and soluble factors; removing a cell from that context can change its behavior. Blood-cell production must be sustained throughout adult life, while hair growth follows cycles involving periods of activity and relative quiescence. The scientific distinction is between cells' potential to differentiate and the niche's influence on whether they remain inactive, self-renew or commit to a new lineage.
+
+**Current source reference IDs:** ib-b23, hodder-b23, ncbi-niche, ncbi-potency.
+
+#### B2.3.4
+
+Apply potency classifications to a lineage tree. Start from a zygote with the broadest natural developmental potential, then consider pluripotent cells within an early embryo and progressively restricted adult blood stem cells. Ask whether the descendants could contribute to the extraembryonic supporting tissues as well as embryonic tissue: that distinguishes totipotency from pluripotency. The experimental method and developmental stage matter; do not describe all cells of a later blastocyst as totipotent simply because the zygote once was.
+
+**Current source reference IDs:** ib-b23, hodder-b23, ncbi-niche, ncbi-potency.
+
+#### B2.3.5
+
+Separate length from volume when comparing human cells. A neuron can extend a thin axon over substantial distance, but that does not mean its entire cytoplasm fills an equally wide cylinder. A skeletal muscle fibre is long and usually contains many peripheral nuclei. Human sperm, erythrocytes and oocytes also differ in shape, cytoplasmic contents and life-cycle stage. Record whether a measurement refers to diameter, length or volume, and avoid using a single average measurement to represent every cell in a mixed tissue.
+
+**Current source reference IDs:** ib-b23, hodder-b23, ncbi-niche, ncbi-potency.
+
+#### B2.3.6
+
+Derive the relationship instead of memorizing a table. Scale every linear dimension of a cube by k: each face area scales by k², six faces together also scale by k², but volume scales by k³. Consequently the SA:V numerical ratio is multiplied by 1/k. SA:V has dimensions of inverse length when numerical area and volume use coherent units. In real cells, membrane transport capacity depends on proteins and conditions and metabolism need not rise exactly with volume; explain these qualifications whenever you predict exchange limits.
+
+**Current source reference IDs:** ib-b23, hodder-b23, ncbi-niche, ncbi-potency.
+
+#### B2.3.7
+
+Compare how shape changes exchange. A biconcave erythrocyte offers a useful surface-to-volume geometry and a short central diffusion path, while the proximal convoluted tubule adds extensive apical microvilli for reabsorption. Infoldings can enlarge membrane area elsewhere in a cell. Ask which membrane face contacts the relevant fluid and what transport proteins it contains: enlarging an inaccessible or transporter-free region might not improve the needed exchange. Microvilli are not propulsive flagella, and the kidney example should not be confused with intestinal absorption.
+
+**Current source reference IDs:** ib-b23-hl, hodder-b23-hl.
+
+#### B2.3.8
+
+Treat the alveolar wall as a cooperative tissue. Type I cells form expansive very thin sheets that reduce the distance gases diffuse; capillary endothelium and a basement membrane contribute additional layers to the blood-air barrier. Type II cells are more cuboidal and package surfactant in lamellar bodies before secretion. Surface tension at the wet alveolar lining opposes expansion; surfactant decreases it. A diagram should deliberately exaggerate thin membranes for visibility, then state that the drawing has no measured tissue thickness.
+
+**Current source reference IDs:** ib-b23-hl, hodder-b23-hl, ncbi-alveoli.
+
+#### B2.3.9
+
+Formulate an evidence-based hypothesis: branching and intercalated discs in cardiac cells support transmission of forces and electrical signals through a functional network; long fused skeletal fibres permit coordinated shortening along their axis. Both have organized myofibrils and repeating sarcomeres, so striation alone cannot distinguish them. A cardiac section may show centrally situated nuclei and distinct junctions; a skeletal fibre may have numerous peripheral nuclei. Identify whether a long multinucleated object represents one fused cell or several joined cardiomyocytes before drawing conclusions.
+
+**Current source reference IDs:** ib-b23-hl, hodder-b23-hl, ncbi-muscle.
+
+#### B2.3.10
+
+Connect each gamete adaptation to its function without implying one gamete contributes all the important genetic information. A human sperm's acrosome participates in reaching and interacting with the oocyte, its midpiece supplies energy for movement, and its flagellum produces motility. The ovulated secondary oocyte has a large cytoplasm and protective extracellular coat, and contributes cellular machinery needed by the developing embryo. Both contribute haploid nuclear genetic material; extra molecular detail on gamete recognition should be treated as supporting context, not an unrelated assessed requirement.
+
+**Current source reference IDs:** ib-b23-hl, hodder-b23-hl, ncbi-fertilization.
+
+### Additional corroborating references
+
+- **ncbi-walls** — The Cell: Cell Walls and the Extracellular Matrix (NCBI Bookshelf), Gram-positive peptidoglycan, plant cellulose, fungal chitin. URL: https://www.ncbi.nlm.nih.gov/books/NBK9874/. Accessed 2026-10-16.
+- **ncbi-muscle** — Striated muscle function, regeneration and repair (PMC), Branched cardiac cardiomyocytes and multinucleate skeletal fibres. URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC5056123/. Accessed 2026-10-16.
+- **ncbi-fertilization** — Molecular Biology of the Cell: Fertilization (NCBI Bookshelf), Human gamete interactions, acrosome and zona pellucida. URL: https://www.ncbi.nlm.nih.gov/books/NBK26843/. Accessed 2026-10-16.
+

@@ -53,3 +53,16 @@ For the existing A2.2 and B2.3 entries in `src/biology/curriculum/registry.json`
 - **Public publication: NO-GO** pending authentic microscopy assets, exact image permissions, qualified scientific and curriculum review, executable CI, browser preview and accessibility sign-off.
 
 Both topics remain `planned` in the authoritative registry; this is intentional until a separately authorized integration step.
+
+## Post-handoff production checkpoints
+
+- The figure assets initially had mismatched SVG closing tags. Those tags were repaired across all 38 SVG files in four isolated commits; the tag stack was balanced in each mutation pass. Future browser rendering and screen review still required.
+- Added a standalone `docs/biology/phase8/preview.html` fixture to inspect 19 labelled and 19 recall SVGs at 320px and 640px widths independently from the live app.
+- Third substantial explanation blocks were added to **all 24** numbered sections; latest connector read-back reports average explanation length ~218 words for A2.2 and ~222 for B2.3.
+- Updated explicit third-party source corroboration for bacterial/plant/fungal walls (A2.2.5/A2.2.8), muscle fibre structure (B2.3.9) and human fertilization (B2.3.10). Lesson references, section claim mapping and figure reference IDs were updated in the JSON.
+- Independent connector structural validation on the enhanced lessons found **zero errors** for 24 unique ordered understanding IDs, levels, page offsets, mapped sources, labelled/recall file existence, MCQ cardinality, written marking point counts and five cube SA:V table rows. This is not a substitute for executing the committed Node validator scripts.
+- **Node tests and preview screenshots remain unexecuted** in this tool session; GitHub content edits cannot be treated as a runnable checked-out working tree. Execute the positive and negative scripts on the integrator's local/CI checkout and record pass/fail objectively.
+
+## Scope and publication caveat
+Despite full 24-understanding draft text and 38 concept diagrams, **the A2.2.10/A2.2.11 authentic micrograph interpret-and-draw exercise is NOT complete**. The existing text, tests, and original illustrative diagrams do not satisfy the genuine source-image requirement. The subject-matter and image-rights reviews are also uncompleted. Integration can transfer these drafts for continued work; public publication remains NO-GO.
+
