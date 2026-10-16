@@ -893,31 +893,31 @@
           "understandingIds": [
             "C1.1.7"
           ],
-          "prompt": "Which change may reduce activity at extreme pH?",
+          "prompt": "How can extreme pH directly reduce an enzyme's catalytic activity?",
           "options": [
             {
               "id": "check-o1",
-              "text": "Creation of net chemical energy",
+              "text": "Extreme pH invariably breaks every peptide bond in the enzyme.",
               "correct": false,
-              "feedback": "Catalysts cannot create net reaction energy."
+              "feedback": "A large pH shift can change charge and conformation without necessarily hydrolysing the peptide backbone."
             },
             {
               "id": "check-o2",
-              "text": "Every enzyme becoming covalently bonded to water",
+              "text": "Extreme pH changes the gene sequence that originally encoded the enzyme.",
               "correct": false,
-              "feedback": "The stated universal covalent reaction does not occur."
+              "feedback": "Changing the solution's pH alters molecular interactions, not the DNA sequence used to produce that protein."
             },
             {
               "id": "check-o3",
-              "text": "Altered ionisation and active-site geometry",
+              "text": "Extreme pH can alter side-chain ionisation and active-site geometry.",
               "correct": true,
-              "feedback": "Active-site charge and fold influence binding and catalysis."
+              "feedback": "Changing protonation can disrupt catalytic charges, binding interactions or the folded shape of the active site."
             },
             {
               "id": "check-o4",
-              "text": "Automatic disappearance of every substrate",
+              "text": "Extreme pH changes only the substrate, never the enzyme's side chains.",
               "correct": false,
-              "feedback": "pH does not imply substrate is absent."
+              "feedback": "Amino-acid side chains have ionisable groups; enzyme structure and catalysis can be pH-sensitive."
             }
           ]
         }
@@ -1780,31 +1780,31 @@
           "understandingIds": [
             "C1.1.12"
           ],
-          "prompt": "Why does metabolism warm an endothermic animal?",
+          "prompt": "Why can cellular metabolism contribute to warming an endothermic animal?",
           "options": [
             {
               "id": "check-o1",
-              "text": "Enzymes create energy out of nothing",
+              "text": "ATP synthesis and cellular work are perfectly efficient with no heat loss.",
               "correct": false,
-              "feedback": "Energy is conserved."
+              "feedback": "No biological energy conversion is perfectly efficient; some transferred energy is dispersed as heat."
             },
             {
               "id": "check-o2",
-              "text": "All reactions transfer exactly the same heat",
+              "text": "Body heat comes only from sunlight absorbed at the skin.",
               "correct": false,
-              "feedback": "Different processes have different energetics."
+              "feedback": "External heat can contribute, but endotherms produce substantial thermal energy internally through metabolism."
             },
             {
               "id": "check-o3",
-              "text": "Heat output is independent of metabolic activity",
+              "text": "Metabolic reactions cannot release thermal energy when body temperature is stable.",
               "correct": false,
-              "feedback": "Activity generally affects heat production."
+              "feedback": "Stable temperature reflects a balance between heat production and heat loss, not absence of thermal energy generation."
             },
             {
               "id": "check-o4",
-              "text": "Some chemical energy dissipates as heat in imperfect transfers",
+              "text": "Some chemical energy is dissipated as heat during metabolic energy transfers.",
               "correct": true,
-              "feedback": "Heat is a by-product of real energy conversion."
+              "feedback": "Respiration and coupled cellular work transfer chemical energy; some inevitably becomes thermal energy."
             }
           ]
         }
@@ -2345,31 +2345,31 @@
           "understandingIds": [
             "C1.1.16"
           ],
-          "prompt": "What is the expected effect of abundant isoleucine?",
+          "prompt": "How does abundant isoleucine usually affect its own biosynthetic pathway?",
           "options": [
             {
               "id": "check-o1",
-              "text": "An automatic increase in isoleucine production",
+              "text": "Accumulated isoleucine activates the first pathway enzyme to accelerate synthesis.",
               "correct": false,
-              "feedback": "Negative feedback limits excess synthesis."
+              "feedback": "This reverses negative feedback: a plentiful end product normally slows an early committed step."
             },
             {
               "id": "check-o2",
-              "text": "Immediate mutation of DNA",
+              "text": "Isoleucine inhibits the pathway only by hydrolysing enzyme peptide bonds.",
               "correct": false,
-              "feedback": "Enzyme activity can change without genetic mutation."
+              "feedback": "Reversible feedback regulation changes enzyme activity without destroying its polypeptide backbone."
             },
             {
               "id": "check-o3",
-              "text": "All enzymes convert to isoleucine",
+              "text": "Isoleucine functions solely as an alternative substrate of the final pathway enzyme.",
               "correct": false,
-              "feedback": "Enzymes are catalysts, not converted into product."
+              "feedback": "In the classic example, isoleucine binds an allosteric regulatory site on an earlier enzyme."
             },
             {
               "id": "check-o4",
-              "text": "Reduced activity of an early biosynthetic enzyme",
+              "text": "It lowers activity of an early enzyme through end-product feedback inhibition.",
               "correct": true,
-              "feedback": "End-product feedback slows pathway entry."
+              "feedback": "Isoleucine binds a regulatory site on an early biosynthetic enzyme, limiting excess production."
             }
           ]
         }
@@ -2532,31 +2532,31 @@
           "understandingIds": [
             "C1.1.17"
           ],
-          "prompt": "Which mechanism can produce resistance without destroying the drug?",
+          "prompt": "Which resistance mechanism directly changes penicillin's enzyme target, rather than destroying the drug or reducing its access?",
           "options": [
             {
               "id": "check-o1",
-              "text": "Altered penicillin-binding proteins",
+              "text": "Alteration of a penicillin-binding protein reduces effective β-lactam binding or acylation.",
               "correct": true,
-              "feedback": "Altered target PBPs can reduce effective acylation."
+              "feedback": "An altered PBP/transpeptidase is a less susceptible target even if the antibiotic molecule remains intact."
             },
             {
               "id": "check-o2",
-              "text": "Increased spontaneous conversion of enzyme to ATP",
+              "text": "A β-lactamase enzyme chemically hydrolyses the penicillin β-lactam ring.",
               "correct": false,
-              "feedback": "This is not a defined resistance mechanism."
+              "feedback": "β-Lactamases are a genuine resistance mechanism, but they destroy or inactivate the antibiotic rather than modifying its target PBP."
             },
             {
               "id": "check-o3",
-              "text": "Enzymes all transforming to collagen",
+              "text": "Reduced outer-membrane porin permeability limits antibiotic entry.",
               "correct": false,
-              "feedback": "PBPs are bacterial cell-wall enzymes, not collagen precursors."
+              "feedback": "Reduced permeability can lower drug exposure in some bacteria, but does not change the structure of the penicillin-binding target enzyme."
             },
             {
               "id": "check-o4",
-              "text": "Antibiotic changing every cell's external pH",
+              "text": "An efflux transporter lowers antibiotic concentration near the target.",
               "correct": false,
-              "feedback": "Resistance is not a universal pH response."
+              "feedback": "Efflux can contribute to resistance by reducing exposure; it does not itself alter the PBP active site."
             }
           ]
         }
@@ -2888,7 +2888,7 @@
         "C1.1.7"
       ],
       "level": "shared",
-      "prompt": "Which change may reduce activity at extreme pH?",
+      "prompt": "How can extreme pH directly reduce an enzyme's catalytic activity?",
       "marks": 1,
       "sectionId": "c11-7",
       "referenceIds": [
@@ -2899,27 +2899,27 @@
       "options": [
         {
           "id": "o1",
-          "text": "Creation of net chemical energy",
+          "text": "Extreme pH invariably breaks every peptide bond in the enzyme.",
           "correct": false,
-          "feedback": "Catalysts cannot create net reaction energy."
+          "feedback": "A large pH shift can change charge and conformation without necessarily hydrolysing the peptide backbone."
         },
         {
           "id": "o2",
-          "text": "Every enzyme becoming covalently bonded to water",
+          "text": "Extreme pH changes the gene sequence that originally encoded the enzyme.",
           "correct": false,
-          "feedback": "The stated universal covalent reaction does not occur."
+          "feedback": "Changing the solution's pH alters molecular interactions, not the DNA sequence used to produce that protein."
         },
         {
           "id": "o3",
-          "text": "Altered ionisation and active-site geometry",
+          "text": "Extreme pH can alter side-chain ionisation and active-site geometry.",
           "correct": true,
-          "feedback": "Active-site charge and fold influence binding and catalysis."
+          "feedback": "Changing protonation can disrupt catalytic charges, binding interactions or the folded shape of the active site."
         },
         {
           "id": "o4",
-          "text": "Automatic disappearance of every substrate",
+          "text": "Extreme pH changes only the substrate, never the enzyme's side chains.",
           "correct": false,
-          "feedback": "pH does not imply substrate is absent."
+          "feedback": "Amino-acid side chains have ionisable groups; enzyme structure and catalysis can be pH-sensitive."
         }
       ],
       "review": "scientific-review"
@@ -3117,7 +3117,7 @@
         "C1.1.12"
       ],
       "level": "HL",
-      "prompt": "Why does metabolism warm an endothermic animal?",
+      "prompt": "Why can cellular metabolism contribute to warming an endothermic animal?",
       "marks": 1,
       "sectionId": "c11-12",
       "referenceIds": [
@@ -3128,27 +3128,27 @@
       "options": [
         {
           "id": "o1",
-          "text": "Enzymes create energy out of nothing",
+          "text": "ATP synthesis and cellular work are perfectly efficient with no heat loss.",
           "correct": false,
-          "feedback": "Energy is conserved."
+          "feedback": "No biological energy conversion is perfectly efficient; some transferred energy is dispersed as heat."
         },
         {
           "id": "o2",
-          "text": "All reactions transfer exactly the same heat",
+          "text": "Body heat comes only from sunlight absorbed at the skin.",
           "correct": false,
-          "feedback": "Different processes have different energetics."
+          "feedback": "External heat can contribute, but endotherms produce substantial thermal energy internally through metabolism."
         },
         {
           "id": "o3",
-          "text": "Heat output is independent of metabolic activity",
+          "text": "Metabolic reactions cannot release thermal energy when body temperature is stable.",
           "correct": false,
-          "feedback": "Activity generally affects heat production."
+          "feedback": "Stable temperature reflects a balance between heat production and heat loss, not absence of thermal energy generation."
         },
         {
           "id": "o4",
-          "text": "Some chemical energy dissipates as heat in imperfect transfers",
+          "text": "Some chemical energy is dissipated as heat during metabolic energy transfers.",
           "correct": true,
-          "feedback": "Heat is a by-product of real energy conversion."
+          "feedback": "Respiration and coupled cellular work transfer chemical energy; some inevitably becomes thermal energy."
         }
       ],
       "review": "scientific-review"
@@ -3299,7 +3299,7 @@
         "C1.1.16"
       ],
       "level": "HL",
-      "prompt": "What is the expected effect of abundant isoleucine?",
+      "prompt": "How does abundant isoleucine usually affect its own biosynthetic pathway?",
       "marks": 1,
       "sectionId": "c11-16",
       "referenceIds": [
@@ -3310,27 +3310,27 @@
       "options": [
         {
           "id": "o1",
-          "text": "An automatic increase in isoleucine production",
+          "text": "Accumulated isoleucine activates the first pathway enzyme to accelerate synthesis.",
           "correct": false,
-          "feedback": "Negative feedback limits excess synthesis."
+          "feedback": "This reverses negative feedback: a plentiful end product normally slows an early committed step."
         },
         {
           "id": "o2",
-          "text": "Immediate mutation of DNA",
+          "text": "Isoleucine inhibits the pathway only by hydrolysing enzyme peptide bonds.",
           "correct": false,
-          "feedback": "Enzyme activity can change without genetic mutation."
+          "feedback": "Reversible feedback regulation changes enzyme activity without destroying its polypeptide backbone."
         },
         {
           "id": "o3",
-          "text": "All enzymes convert to isoleucine",
+          "text": "Isoleucine functions solely as an alternative substrate of the final pathway enzyme.",
           "correct": false,
-          "feedback": "Enzymes are catalysts, not converted into product."
+          "feedback": "In the classic example, isoleucine binds an allosteric regulatory site on an earlier enzyme."
         },
         {
           "id": "o4",
-          "text": "Reduced activity of an early biosynthetic enzyme",
+          "text": "It lowers activity of an early enzyme through end-product feedback inhibition.",
           "correct": true,
-          "feedback": "End-product feedback slows pathway entry."
+          "feedback": "Isoleucine binds a regulatory site on an early biosynthetic enzyme, limiting excess production."
         }
       ],
       "review": "scientific-review"
@@ -3344,7 +3344,7 @@
         "C1.1.17"
       ],
       "level": "HL",
-      "prompt": "Which mechanism can produce resistance without destroying the drug?",
+      "prompt": "Which resistance mechanism directly changes penicillin's enzyme target, rather than destroying the drug or reducing its access?",
       "marks": 1,
       "sectionId": "c11-17",
       "referenceIds": [
@@ -3356,27 +3356,27 @@
       "options": [
         {
           "id": "o1",
-          "text": "Altered penicillin-binding proteins",
+          "text": "Alteration of a penicillin-binding protein reduces effective β-lactam binding or acylation.",
           "correct": true,
-          "feedback": "Altered target PBPs can reduce effective acylation."
+          "feedback": "An altered PBP/transpeptidase is a less susceptible target even if the antibiotic molecule remains intact."
         },
         {
           "id": "o2",
-          "text": "Increased spontaneous conversion of enzyme to ATP",
+          "text": "A β-lactamase enzyme chemically hydrolyses the penicillin β-lactam ring.",
           "correct": false,
-          "feedback": "This is not a defined resistance mechanism."
+          "feedback": "β-Lactamases are a genuine resistance mechanism, but they destroy or inactivate the antibiotic rather than modifying its target PBP."
         },
         {
           "id": "o3",
-          "text": "Enzymes all transforming to collagen",
+          "text": "Reduced outer-membrane porin permeability limits antibiotic entry.",
           "correct": false,
-          "feedback": "PBPs are bacterial cell-wall enzymes, not collagen precursors."
+          "feedback": "Reduced permeability can lower drug exposure in some bacteria, but does not change the structure of the penicillin-binding target enzyme."
         },
         {
           "id": "o4",
-          "text": "Antibiotic changing every cell's external pH",
+          "text": "An efflux transporter lowers antibiotic concentration near the target.",
           "correct": false,
-          "feedback": "Resistance is not a universal pH response."
+          "feedback": "Efflux can contribute to resistance by reducing exposure; it does not itself alter the PBP active site."
         }
       ],
       "review": "scientific-review"
