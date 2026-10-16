@@ -91,3 +91,14 @@ for(const slug of ['carbohydrates-lipids','proteins']){
 }
 
 for(const stages of [{bad:true},[null,null]])test('mechanism rejects malformed stages '+JSON.stringify(stages),()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge={...structuredClone(challenge),stages};assert.ok(validateLesson(d,topic).some(x=>x.includes('Invalid mechanism')))});
+
+for(const slug of ['carbohydrates-lipids','proteins']){
+ const d=JSON.parse(await readFile(new URL('../src/biology/learning/'+slug+'/lesson.json',import.meta.url),'utf8'));const t=registry.find(x=>x.id===d.topicId);
+ test('visible answer letters follow option order without changing internal IDs: '+t.id,()=>{
+  const html=render(d,t,'HL','practice');
+  for(const q of d.questions.filter(q=>q.options)){
+   const body=html.split(`data-question-id="${q.id}"`)[1].split('</fieldset>')[0];
+   q.options.forEach((o,i)=>{const encoded=renderToStaticMarkup(createElement('span',null,o.text)).slice(6,-7);assert.ok(body.includes(`<b>${String.fromCharCode(65+i)}.</b> ${encoded}`));assert.ok(body.includes(`value="${o.id}"`))});
+  }
+ });
+}
