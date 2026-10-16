@@ -630,7 +630,7 @@ try{
       await bioEval("(root.querySelector('input[value="+level+"]')?.click(),true)");await sleep(100);
       const count=t.understandings.filter(x=>level==='HL'||x.level==='shared').length;
       await check('Batch '+t.id+' '+level+' '+width+'px syllabus navigation',async()=>{
-        const result=await bioEval("(()=>{const n=root.querySelectorAll('.bio-lesson-nav button').length;const content=root.querySelector('.bio-lesson-content');const vw=window.innerWidth;return {n,id:content?.dataset.understandingId,overflow:document.documentElement.scrollWidth>vw+2}})()");
+        const result=await bioEval("(()=>{const n=root.querySelectorAll('.bio-lesson-nav button').length;const content=root.querySelector('.bio-lesson-content');const vw="+width+";return {n,id:content?.dataset.understandingId,overflow:document.documentElement.scrollWidth>vw+2}})()");
         return result?.n===count&&!result.overflow&&result.id===t.id+'.1';
       });
       await check('Batch '+t.id+' '+level+' '+width+'px Learn teaching check',async()=>await bioEval("!!root.querySelector('.bio-teaching-block h3')&&!!root.querySelector('.bio-recall-group')&&!!root.querySelector('.bio-misconception')"));
@@ -698,7 +698,7 @@ try{
         await evaluate(`location.hash='biology/topic/${t.id}/learn?understanding=${u.id}'`);await sleep(100);
         await bioEval("(root.querySelectorAll('.bio-figure picture img').forEach(x=>x.loading='eager'),true)");
         for(let retry=0;retry<20;retry++){if(await bioEval("[...root.querySelectorAll('.bio-figure picture img')].every(x=>x.complete&&x.naturalWidth>0)"))break;await sleep(60)}
-        await check(`Phase 4 ${u.id} exact heading, loaded figures and reflow ${width}`,async()=>await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId===${JSON.stringify(u.id)}&&root.querySelector('.bio-lesson-content h2').textContent.includes(${JSON.stringify(u.studentTitle)})&&[...root.querySelectorAll('.bio-figure picture img')].every(x=>x.complete&&x.naturalWidth>0)&&root.querySelector('.bio-app').scrollWidth<=innerWidth+2`));
+        await check(`Phase 4 ${u.id} exact heading, loaded figures and reflow ${width}`,async()=>await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId===${JSON.stringify(u.id)}&&root.querySelector('.bio-lesson-content h2').textContent.includes(${JSON.stringify(u.studentTitle)})&&[...root.querySelectorAll('.bio-figure picture img')].every(x=>x.complete&&x.naturalWidth>0)&&root.querySelector('.bio-app').scrollWidth<=${width+2}&&document.documentElement.scrollWidth<=${width+2}`));
         await evaluate("window.scrollTo({top:0,left:0,behavior:'instant'})");await sleep(40);
         const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase4-${u.id}-${width}.png`),Buffer.from(shot.data,'base64'));
       }
@@ -708,7 +708,7 @@ try{
       for(const theme of ['light','dark'])for(const mode of ['revision','practice']){
         await freshBiologyRoute(`biology/topic/${t.id}/${mode}`);await waitLesson();
         await evaluate(`document.documentElement.dataset.theme='${theme}'`);await sleep(80);
-        await check(`Phase 4 ${t.id} ${mode} ${theme} ${width} reflow`,async()=>await bioEval("root.querySelector('.bio-app').scrollWidth<=innerWidth+2&&document.documentElement.scrollWidth<=innerWidth+2"));
+        await check(`Phase 4 ${t.id} ${mode} ${theme} ${width} reflow`,async()=>await bioEval("root.querySelector('.bio-app').scrollWidth<="+(width+2)+"&&document.documentElement.scrollWidth<="+(width+2)));
         const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase4-${t.id}-${mode}-${theme}-${width}.png`),Buffer.from(shot.data,'base64'));
       }
     }
