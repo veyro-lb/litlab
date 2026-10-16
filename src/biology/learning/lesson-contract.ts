@@ -16,6 +16,7 @@ export interface Section {
  explorer?:{title:string;prompt?:string;features:{id:string;label:string;explanation:string}[]};
  mechanismChallenge?:MechanismChallenge;
  molecularViewer?:{title:string;structureId:string;url:string;prompt:string;fallback:string;referenceId:string};
+ graphTables?:{caption:string;headers:string[];rows:(string|number)[][]}[];
 }
 export interface Question {
  id:string;paper:'1A'|'1B'|'2';kind:string;original:true;understandingIds:string[];level:Scope;prompt:string;marks:number;

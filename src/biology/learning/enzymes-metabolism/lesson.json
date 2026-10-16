@@ -1,0 +1,3826 @@
+{
+  "schemaVersion": 1,
+  "id": "c1-1-enzymes-metabolism-v1",
+  "topicId": "C1.1",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Enzymes and metabolism",
+  "introduction": "Learn how a folded active site accelerates chemistry, then reason with rate curves, experimental quantities and inhibition pathways.",
+  "learningPath": [
+    "Catalysis and metabolic networks",
+    "Active sites and induced fit",
+    "Rates, graphs and reaction energetics",
+    "HL metabolic pathways and inhibition"
+  ],
+  "prerequisites": [
+    "Recall globular protein structure",
+    "Understand covalent versus noncovalent interactions",
+    "Know how to calculate a graph gradient"
+  ],
+  "objectives": [
+    "Explain reaction-rate changes using catalytic mechanism",
+    "Interpret and calculate graph-based enzyme rates with units",
+    "HL: compare metabolic pathways, regulatory inhibition and antibiotic targets"
+  ],
+  "sections": [
+    {
+      "id": "c11-1",
+      "understandingIds": [
+        "C1.1.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why can living reactions proceed quickly without a catalyst changing the net energy balance?",
+      "explanation": "A catalyst offers a reaction pathway with a lower activation-energy barrier and is regenerated after a catalytic cycle. Most biological enzymes are globular proteins. Reactions that proceed slowly without enzymes can then occur fast enough to support cellular survival, growth and repair.\n\nCatalysis changes reaction rates, not the location of equilibrium or the net Gibbs-energy difference between starting materials and products. An enzyme is not a net fuel or source of the products' energy. A reaction can be thermodynamically unfavourable even when an enzyme is available; coupling to other reactions may be needed.",
+      "revisionSummary": "A catalyst offers a reaction pathway with a lower activation-energy barrier and is regenerated after a catalytic cycle. Catalysis changes reaction rates, not the location of equilibrium or the net Gibbs-energy difference between starting materials and products.",
+      "terms": [
+        "Catalyst: accelerates a reaction without net consumption",
+        "Activation energy: energy barrier to reaction"
+      ],
+      "workedExample": "Digestive amylase accelerates starch breakdown but does not change the reaction's equilibrium constant.",
+      "misconceptions": [
+        {
+          "misconception": "A catalyst provides net reaction energy or moves equilibrium.",
+          "correction": "It reduces a kinetic barrier, not the product–reactant free-energy difference."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A catalyst offers a reaction pathway with a lower activation-energy barrier and is regenerated after a catalytic cycle. Most biological enzymes are globular proteins. Reactions that proceed slowly without enzymes can then occur fast enough to support cellular survival, growth and repair.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "Catalysis changes reaction rates, not the location of equilibrium or the net Gibbs-energy difference between starting materials and products. An enzyme is not a net fuel or source of the products' energy. A reaction can be thermodynamically unfavourable even when an enzyme is available; coupling to other reactions may be needed.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "id": "c11-check-1",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.1"
+          ],
+          "prompt": "What does an enzyme primarily change?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Activation energy and reaction rate",
+              "correct": true,
+              "feedback": "Catalysts lower the barrier and accelerate approach to equilibrium."
+            },
+            {
+              "id": "check-o2",
+              "text": "Equilibrium composition",
+              "correct": false,
+              "feedback": "The equilibrium itself is unchanged by ordinary catalysis."
+            },
+            {
+              "id": "check-o3",
+              "text": "Net free energy between reactants and products",
+              "correct": false,
+              "feedback": "ΔG for the net reaction does not change."
+            },
+            {
+              "id": "check-o4",
+              "text": "Total energy created during reaction",
+              "correct": false,
+              "feedback": "Energy is conserved, and catalysts are not fuel."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-1",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.1"
+          ],
+          "prompt": "Without looking: Why can living reactions proceed quickly without a catalyst changing the net energy balance?",
+          "answer": "A catalyst offers a reaction pathway with a lower activation-energy barrier and is regenerated after a catalytic cycle. Most biological enzymes are globular proteins. Reactions that proceed slowly without enzymes can then occur fast enough to support cellular survival, growth and repair. Digestive amylase accelerates starch breakdown but does not change the reaction's equilibrium constant.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          380,
+          381
+        ],
+        "pdfPages": [
+          392,
+          393
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "A catalyst offers a reaction pathway with a lower activation-energy barrier and is regenerated after a catalytic cycle. Most biological enzymes are globular proteins. Reactions that proceed slowly without enzymes can then occur fast enough to support cellular survival, growth and repair.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Catalysis changes reaction rates, not the location of equilibrium or the net Gibbs-energy difference between starting materials and products. An enzyme is not a net fuel or source of the products' energy. A reaction can be thermodynamically unfavourable even when an enzyme is available; coupling to other reactions may be needed.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-2",
+      "understandingIds": [
+        "C1.1.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why does one organism require many different enzymes?",
+      "explanation": "Metabolism is the interdependent network of chemical reactions in living systems. The product of one catalysed reaction may become the substrate for another, allowing branching pathways and linked biochemical cycles. Metabolism includes both energy transfer and the synthesis of cellular matter.\n\nActive-site chemistry makes enzymes selective for reactions and substrates, so many distinct enzymes are necessary. Cells adjust enzyme abundance or activity to regulate throughput, substrate use and inter-pathway coordination. A metabolic network is not a single enzyme acting on all compounds.",
+      "revisionSummary": "Metabolism is the interdependent network of chemical reactions in living systems. Active-site chemistry makes enzymes selective for reactions and substrates, so many distinct enzymes are necessary.",
+      "terms": [
+        "Metabolism: interconnected reactions of life",
+        "Specificity: selectivity of a catalytic active site"
+      ],
+      "workedExample": "Respiratory intermediates can feed biosynthetic reactions as well as energy-yielding steps.",
+      "misconceptions": [
+        {
+          "misconception": "One universal enzyme catalyses all metabolic reactions.",
+          "correction": "Different reactions require different active-site structures and mechanisms."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Metabolism is the interdependent network of chemical reactions in living systems. The product of one catalysed reaction may become the substrate for another, allowing branching pathways and linked biochemical cycles. Metabolism includes both energy transfer and the synthesis of cellular matter.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "Active-site chemistry makes enzymes selective for reactions and substrates, so many distinct enzymes are necessary. Cells adjust enzyme abundance or activity to regulate throughput, substrate use and inter-pathway coordination. A metabolic network is not a single enzyme acting on all compounds.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "id": "c11-check-2",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.2"
+          ],
+          "prompt": "Which description best captures metabolism?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Only processes that break molecules down",
+              "correct": false,
+              "feedback": "Metabolism includes synthesis as well as breakdown."
+            },
+            {
+              "id": "check-o2",
+              "text": "Interdependent enzyme-catalysed reaction network",
+              "correct": true,
+              "feedback": "Products and substrates connect metabolic reactions."
+            },
+            {
+              "id": "check-o3",
+              "text": "Unconnected set of independent reactions",
+              "correct": false,
+              "feedback": "Reactions are often linked and regulated."
+            },
+            {
+              "id": "check-o4",
+              "text": "Single enzyme acting on every substrate",
+              "correct": false,
+              "feedback": "Enzymes are chemically selective."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-2",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.2"
+          ],
+          "prompt": "Without looking: Why does one organism require many different enzymes?",
+          "answer": "Metabolism is the interdependent network of chemical reactions in living systems. The product of one catalysed reaction may become the substrate for another, allowing branching pathways and linked biochemical cycles. Metabolism includes both energy transfer and the synthesis of cellular matter. Respiratory intermediates can feed biosynthetic reactions as well as energy-yielding steps.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          381,
+          382
+        ],
+        "pdfPages": [
+          393,
+          394
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Metabolism is the interdependent network of chemical reactions in living systems. The product of one catalysed reaction may become the substrate for another, allowing branching pathways and linked biochemical cycles. Metabolism includes both energy transfer and the synthesis of cellular matter.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Active-site chemistry makes enzymes selective for reactions and substrates, so many distinct enzymes are necessary. Cells adjust enzyme abundance or activity to regulate throughput, substrate use and inter-pathway coordination. A metabolic network is not a single enzyme acting on all compounds.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-3",
+      "understandingIds": [
+        "C1.1.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What distinguishes building from breaking down in metabolism?",
+      "explanation": "Anabolism forms larger or more complex compounds from smaller precursors. Examples required by the guide include protein synthesis, glycogen formation and photosynthesis. Overall condensation schemes illustrate the formation of many macromolecules. Catabolism includes hydrolytic digestion of polymers and oxidative respiration of fuels.\n\nAnabolic reactions commonly require input or coupling of energy; catabolic reactions can release usable energy. But not every biosynthetic step releases water in its direct mechanism, and not every catabolic reaction is hydrolysis. The labels describe the overall transformation and are not absolute claims about each individual bond change.",
+      "revisionSummary": "Anabolism forms larger or more complex compounds from smaller precursors. Anabolic reactions commonly require input or coupling of energy; catabolic reactions can release usable energy.",
+      "terms": [
+        "Anabolism: building complex molecules",
+        "Catabolism: breakdown or oxidation"
+      ],
+      "workedExample": "Forming glycogen is anabolic, digesting starch is catabolic, and glucose oxidation in respiration is catabolic.",
+      "misconceptions": [
+        {
+          "misconception": "Photosynthesis is catabolic because light energy is needed.",
+          "correction": "Carbon assimilation builds organic molecules, which is anabolic."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Anabolism forms larger or more complex compounds from smaller precursors. Examples required by the guide include protein synthesis, glycogen formation and photosynthesis. Overall condensation schemes illustrate the formation of many macromolecules. Catabolism includes hydrolytic digestion of polymers and oxidative respiration of fuels.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "Anabolic reactions commonly require input or coupling of energy; catabolic reactions can release usable energy. But not every biosynthetic step releases water in its direct mechanism, and not every catabolic reaction is hydrolysis. The labels describe the overall transformation and are not absolute claims about each individual bond change.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "id": "c11-check-3",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.3"
+          ],
+          "prompt": "Which is an example of catabolism?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Protein synthesis",
+              "correct": false,
+              "feedback": "Protein synthesis assembles amino acids."
+            },
+            {
+              "id": "check-o2",
+              "text": "Carbon fixation in photosynthesis",
+              "correct": false,
+              "feedback": "Photosynthetic carbon fixation builds organic material."
+            },
+            {
+              "id": "check-o3",
+              "text": "Starch hydrolysis during digestion",
+              "correct": true,
+              "feedback": "Digestion breaks polymers into smaller units."
+            },
+            {
+              "id": "check-o4",
+              "text": "Formation of glycogen",
+              "correct": false,
+              "feedback": "Glycogen formation builds a polymer."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-3",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.3"
+          ],
+          "prompt": "Without looking: What distinguishes building from breaking down in metabolism?",
+          "answer": "Anabolism forms larger or more complex compounds from smaller precursors. Examples required by the guide include protein synthesis, glycogen formation and photosynthesis. Overall condensation schemes illustrate the formation of many macromolecules. Catabolism includes hydrolytic digestion of polymers and oxidative respiration of fuels. Forming glycogen is anabolic, digesting starch is catabolic, and glucose oxidation in respiration is catabolic.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          382,
+          383
+        ],
+        "pdfPages": [
+          394,
+          395
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Anabolism forms larger or more complex compounds from smaller precursors. Examples required by the guide include protein synthesis, glycogen formation and photosynthesis. Overall condensation schemes illustrate the formation of many macromolecules. Catabolism includes hydrolytic digestion of polymers and oxidative respiration of fuels.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Anabolic reactions commonly require input or coupling of energy; catabolic reactions can release usable energy. But not every biosynthetic step releases water in its direct mechanism, and not every catabolic reaction is hydrolysis. The labels describe the overall transformation and are not absolute claims about each individual bond change.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-4",
+      "understandingIds": [
+        "C1.1.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How do amino acids far apart in sequence contribute to one active site?",
+      "explanation": "An enzyme's active site is usually formed by a few appropriately placed amino-acid residues within a globular protein. Those residues can lie far apart along the primary sequence but meet when the polypeptide folds. The substrate binds where side-chain shape, charge and chemical groups permit selective catalysis.\n\nThe remaining residues maintain the active-site geometry through overall tertiary or quaternary interactions. Hydrogen bonds, salt bridges and hydrophobic packing help establish this fold. Denaturation or a distant mutation can therefore reduce enzyme activity even if residues that directly contact the substrate are unchanged.",
+      "revisionSummary": "An enzyme's active site is usually formed by a few appropriately placed amino-acid residues within a globular protein. The remaining residues maintain the active-site geometry through overall tertiary or quaternary interactions.",
+      "terms": [
+        "Active site: catalytic substrate-binding region",
+        "Globular protein: compact folded protein"
+      ],
+      "workedExample": "Active-site residues in amylase become adjacent in three dimensions after folding.",
+      "misconceptions": [
+        {
+          "misconception": "Only the few residues that directly bind substrate matter for catalysis.",
+          "correction": "The entire protein scaffold helps position and stabilise those residues."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An enzyme's active site is usually formed by a few appropriately placed amino-acid residues within a globular protein. Those residues can lie far apart along the primary sequence but meet when the polypeptide folds. The substrate binds where side-chain shape, charge and chemical groups permit selective catalysis.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "The remaining residues maintain the active-site geometry through overall tertiary or quaternary interactions. Hydrogen bonds, salt bridges and hydrophobic packing help establish this fold. Denaturation or a distant mutation can therefore reduce enzyme activity even if residues that directly contact the substrate are unchanged.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [
+        "c11-active"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-4",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.4"
+          ],
+          "prompt": "Why can a distant amino-acid change disrupt enzyme catalysis?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "The enzyme has no stable three-dimensional fold",
+              "correct": false,
+              "feedback": "Most enzymes depend on their folds."
+            },
+            {
+              "id": "check-o2",
+              "text": "Every residue directly breaks a substrate bond",
+              "correct": false,
+              "feedback": "Only some residues participate directly in catalysis."
+            },
+            {
+              "id": "check-o3",
+              "text": "Sequence length alone determines catalysis",
+              "correct": false,
+              "feedback": "Length by itself cannot specify an active-site geometry."
+            },
+            {
+              "id": "check-o4",
+              "text": "Protein folding can reposition catalytic residues",
+              "correct": true,
+              "feedback": "Long-range structural interactions maintain the active site."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-4",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.4"
+          ],
+          "prompt": "Without looking: How do amino acids far apart in sequence contribute to one active site?",
+          "answer": "An enzyme's active site is usually formed by a few appropriately placed amino-acid residues within a globular protein. Those residues can lie far apart along the primary sequence but meet when the polypeptide folds. The substrate binds where side-chain shape, charge and chemical groups permit selective catalysis. Active-site residues in amylase become adjacent in three dimensions after folding.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          383,
+          384
+        ],
+        "pdfPages": [
+          395,
+          396
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "An enzyme's active site is usually formed by a few appropriately placed amino-acid residues within a globular protein. Those residues can lie far apart along the primary sequence but meet when the polypeptide folds. The substrate binds where side-chain shape, charge and chemical groups permit selective catalysis.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "The remaining residues maintain the active-site geometry through overall tertiary or quaternary interactions. Hydrogen bonds, salt bridges and hydrophobic packing help establish this fold. Denaturation or a distant mutation can therefore reduce enzyme activity even if residues that directly contact the substrate are unchanged.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-5",
+      "understandingIds": [
+        "C1.1.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why is induced fit not a rigid lock-and-key animation?",
+      "explanation": "Substrate binding can change the conformation of the enzyme and the bound substrate. Productive contacts strengthen, catalytic groups align and substrate bonds may be strained or polarised. The transient enzyme–substrate complex is formed as a consequence of both molecular recognition and flexibility.\n\nInduced fit does not mean that the enzyme loses its fold or that every enzyme follows exactly the same sequential movements. It is an instructional model of conformational adjustment; depicting the active site as permanently rigid misstates the requirement that both enzyme and substrate can change shape.",
+      "revisionSummary": "Substrate binding can change the conformation of the enzyme and the bound substrate. Induced fit does not mean that the enzyme loses its fold or that every enzyme follows exactly the same sequential movements.",
+      "terms": [
+        "Induced fit: conformational adjustment on binding",
+        "Enzyme–substrate complex: temporary binding state"
+      ],
+      "workedExample": "Glucose binding triggers a closure-like conformational change in the enzyme hexokinase.",
+      "misconceptions": [
+        {
+          "misconception": "Only the substrate changes shape during induced fit.",
+          "correction": "Binding can alter both partners' conformations."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Substrate binding can change the conformation of the enzyme and the bound substrate. Productive contacts strengthen, catalytic groups align and substrate bonds may be strained or polarised. The transient enzyme–substrate complex is formed as a consequence of both molecular recognition and flexibility.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "Induced fit does not mean that the enzyme loses its fold or that every enzyme follows exactly the same sequential movements. It is an instructional model of conformational adjustment; depicting the active site as permanently rigid misstates the requirement that both enzyme and substrate can change shape.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [
+        "c11-induced"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-5",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.5"
+          ],
+          "prompt": "Which statement correctly describes induced fit?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Both enzyme and substrate can change conformation",
+              "correct": true,
+              "feedback": "Binding-coupled adjustments enable productive catalytic geometry."
+            },
+            {
+              "id": "check-o2",
+              "text": "The enzyme is necessarily rigid throughout binding",
+              "correct": false,
+              "feedback": "Rigid-lock models miss induced fit."
+            },
+            {
+              "id": "check-o3",
+              "text": "The enzyme is consumed as a reactant",
+              "correct": false,
+              "feedback": "Enzymes generally regenerate."
+            },
+            {
+              "id": "check-o4",
+              "text": "All collision events must cause catalysis",
+              "correct": false,
+              "feedback": "Most encounters are not productive reactions."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-5",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.5"
+          ],
+          "prompt": "Without looking: Why is induced fit not a rigid lock-and-key animation?",
+          "answer": "Substrate binding can change the conformation of the enzyme and the bound substrate. Productive contacts strengthen, catalytic groups align and substrate bonds may be strained or polarised. The transient enzyme–substrate complex is formed as a consequence of both molecular recognition and flexibility. Glucose binding triggers a closure-like conformational change in the enzyme hexokinase.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          384,
+          385
+        ],
+        "pdfPages": [
+          396,
+          397
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Substrate binding can change the conformation of the enzyme and the bound substrate. Productive contacts strengthen, catalytic groups align and substrate bonds may be strained or polarised. The transient enzyme–substrate complex is formed as a consequence of both molecular recognition and flexibility.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Induced fit does not mean that the enzyme loses its fold or that every enzyme follows exactly the same sequential movements. It is an instructional model of conformational adjustment; depicting the active site as permanently rigid misstates the requirement that both enzyme and substrate can change shape.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "mechanismChallenge": {
+        "title": "Induced-fit mechanism",
+        "instructions": "Predict the next causal step and compare the explanation.",
+        "stages": [
+          {
+            "id": "first",
+            "prompt": "What changes during binding?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Enzyme and substrate can adjust",
+                "correct": true,
+                "feedback": "The binding or product feedback changes activity."
+              },
+              {
+                "id": "b",
+                "text": "Enzyme becomes permanent reaction fuel",
+                "correct": false,
+                "feedback": "A catalyst is not consumed as reaction fuel."
+              },
+              {
+                "id": "c",
+                "text": "All chemical directions reverse",
+                "correct": false,
+                "feedback": "Chemical direction does not simply reverse."
+              }
+            ],
+            "explanation": "Structural control changes catalytic effectiveness."
+          },
+          {
+            "id": "second",
+            "prompt": "What improves catalytic effectiveness?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Better alignment of catalytic groups",
+                "correct": true,
+                "feedback": "Correct mechanism consequence."
+              },
+              {
+                "id": "b",
+                "text": "Creation of new net chemical energy",
+                "correct": false,
+                "feedback": "Catalysis does not create energy."
+              },
+              {
+                "id": "c",
+                "text": "Guaranteed increase in equilibrium constant",
+                "correct": false,
+                "feedback": "A catalyst does not shift equilibrium."
+              }
+            ],
+            "explanation": "Changes in catalysis follow binding or regulatory interactions."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c11-6",
+      "understandingIds": [
+        "C1.1.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How can an immobilised enzyme still encounter its substrate?",
+      "explanation": "Enzyme catalysis usually requires substrate molecules to encounter an available active site with suitable orientation and energy. Diffusion, mixing and molecular motion make encounters possible. More encounters can increase rate, but only some result in productive binding and catalysis.\n\nEnzymes may be immobilised on membranes or artificial support beads, while large substrates may also be held in position. Relative movement and access matter: a substrate can diffuse to an enzyme that remains anchored. Immobilisation should not be confused with denaturation or chemical inactivation.",
+      "revisionSummary": "Enzyme catalysis usually requires substrate molecules to encounter an available active site with suitable orientation and energy. Enzymes may be immobilised on membranes or artificial support beads, while large substrates may also be held in position.",
+      "terms": [
+        "Collision theory: productive molecular encounters determine rate",
+        "Immobilised enzyme: enzyme spatially constrained"
+      ],
+      "workedExample": "Membrane-bound enzymes can react with mobile solutes that approach their exposed active sites.",
+      "misconceptions": [
+        {
+          "misconception": "Both substrate and enzyme must move freely in solution for catalysis.",
+          "correction": "One reaction partner may be immobilised while the other moves toward it."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Enzyme catalysis usually requires substrate molecules to encounter an available active site with suitable orientation and energy. Diffusion, mixing and molecular motion make encounters possible. More encounters can increase rate, but only some result in productive binding and catalysis.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "Enzymes may be immobilised on membranes or artificial support beads, while large substrates may also be held in position. Relative movement and access matter: a substrate can diffuse to an enzyme that remains anchored. Immobilisation should not be confused with denaturation or chemical inactivation.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [
+        "c11-collision"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-6",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.6"
+          ],
+          "prompt": "How can a membrane-anchored enzyme remain catalytic?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "All collisions become productive",
+              "correct": false,
+              "feedback": "Correct orientation and chemistry are still required."
+            },
+            {
+              "id": "check-o2",
+              "text": "Substrate diffuses toward its accessible active site",
+              "correct": true,
+              "feedback": "Relative motion allows substrate–active-site encounter."
+            },
+            {
+              "id": "check-o3",
+              "text": "Both molecules must detach from the membrane",
+              "correct": false,
+              "feedback": "Membrane attachment can be compatible with catalysis."
+            },
+            {
+              "id": "check-o4",
+              "text": "Immobilisation always denatures the enzyme",
+              "correct": false,
+              "feedback": "Immobilisation does not necessarily denature."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-6",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.6"
+          ],
+          "prompt": "Without looking: How can an immobilised enzyme still encounter its substrate?",
+          "answer": "Enzyme catalysis usually requires substrate molecules to encounter an available active site with suitable orientation and energy. Diffusion, mixing and molecular motion make encounters possible. More encounters can increase rate, but only some result in productive binding and catalysis. Membrane-bound enzymes can react with mobile solutes that approach their exposed active sites.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          386,
+          387
+        ],
+        "pdfPages": [
+          398,
+          399
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Enzyme catalysis usually requires substrate molecules to encounter an available active site with suitable orientation and energy. Diffusion, mixing and molecular motion make encounters possible. More encounters can increase rate, but only some result in productive binding and catalysis.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Enzymes may be immobilised on membranes or artificial support beads, while large substrates may also be held in position. Relative movement and access matter: a substrate can diffuse to an enzyme that remains anchored. Immobilisation should not be confused with denaturation or chemical inactivation.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-7",
+      "understandingIds": [
+        "C1.1.7"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why can pH or heat destroy selective enzyme activity?",
+      "explanation": "Substrate specificity depends on shape complementarity and active-site chemical groups, including charges, hydrogen-bond donors and acceptors. Related substrates may sometimes be processed, so specificity need not mean an enzyme binds exactly one chemical species in all contexts.\n\nExtreme temperature or pH can disturb intramolecular interactions, altering the active-site arrangement or ionisation and reducing catalytic activity. Low temperature by itself often decreases molecular movement without denaturing a protein. Denaturation may or may not be reversible, depending on the enzyme and conditions.",
+      "revisionSummary": "Substrate specificity depends on shape complementarity and active-site chemical groups, including charges, hydrogen-bond donors and acceptors. Extreme temperature or pH can disturb intramolecular interactions, altering the active-site arrangement or ionisation and reducing catalytic activity.",
+      "terms": [
+        "Denaturation: loss of functional protein fold",
+        "Specificity: selective productive substrate binding"
+      ],
+      "workedExample": "An enzyme may become inactive after heating while its polypeptide chains are still present.",
+      "misconceptions": [
+        {
+          "misconception": "Every lower rate at low temperature proves denaturation.",
+          "correction": "Cold conditions can slow collisions while the folded enzyme remains intact."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Substrate specificity depends on shape complementarity and active-site chemical groups, including charges, hydrogen-bond donors and acceptors. Related substrates may sometimes be processed, so specificity need not mean an enzyme binds exactly one chemical species in all contexts.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "Extreme temperature or pH can disturb intramolecular interactions, altering the active-site arrangement or ionisation and reducing catalytic activity. Low temperature by itself often decreases molecular movement without denaturing a protein. Denaturation may or may not be reversible, depending on the enzyme and conditions.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [
+        "c11-active"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-7",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.7"
+          ],
+          "prompt": "Which change may reduce activity at extreme pH?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Creation of net chemical energy",
+              "correct": false,
+              "feedback": "Catalysts cannot create net reaction energy."
+            },
+            {
+              "id": "check-o2",
+              "text": "Every enzyme becoming covalently bonded to water",
+              "correct": false,
+              "feedback": "The stated universal covalent reaction does not occur."
+            },
+            {
+              "id": "check-o3",
+              "text": "Altered ionisation and active-site geometry",
+              "correct": true,
+              "feedback": "Active-site charge and fold influence binding and catalysis."
+            },
+            {
+              "id": "check-o4",
+              "text": "Automatic disappearance of every substrate",
+              "correct": false,
+              "feedback": "pH does not imply substrate is absent."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-7",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.7"
+          ],
+          "prompt": "Without looking: Why can pH or heat destroy selective enzyme activity?",
+          "answer": "Substrate specificity depends on shape complementarity and active-site chemical groups, including charges, hydrogen-bond donors and acceptors. Related substrates may sometimes be processed, so specificity need not mean an enzyme binds exactly one chemical species in all contexts. An enzyme may become inactive after heating while its polypeptide chains are still present.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          387,
+          388
+        ],
+        "pdfPages": [
+          399,
+          400
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Substrate specificity depends on shape complementarity and active-site chemical groups, including charges, hydrogen-bond donors and acceptors. Related substrates may sometimes be processed, so specificity need not mean an enzyme binds exactly one chemical species in all contexts.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Extreme temperature or pH can disturb intramolecular interactions, altering the active-site arrangement or ionisation and reducing catalytic activity. Low temperature by itself often decreases molecular movement without denaturing a protein. Denaturation may or may not be reversible, depending on the enzyme and conditions.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-8",
+      "understandingIds": [
+        "C1.1.8"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How do we distinguish explanatory enzyme-rate models from experimental observations?",
+      "explanation": "At modest temperatures, greater molecular motion often increases productive collision frequency. Strong heating can reduce active enzyme through unfolding; the position of an optimum depends on assay time and enzyme identity. Changes in pH affect ionisation and sometimes folding, producing an enzyme-specific pH optimum.\n\nAt a constant amount of active enzyme, rising substrate concentration usually increases initial reaction rate and approaches saturation. The three graphs are explicitly invented numerical models, not actual laboratory results. Their accompanying tables list every coordinate, labelled units and fixed assay assumptions so students can test the claimed relationships and compare them with future experimental data.",
+      "revisionSummary": "At modest temperatures, greater molecular motion often increases productive collision frequency. At a constant amount of active enzyme, rising substrate concentration usually increases initial reaction rate and approaches saturation.",
+      "terms": [
+        "Optimum: condition maximizing observed assay rate",
+        "Saturation: active sites approach full occupancy"
+      ],
+      "workedExample": "A low rate at 5°C need not indicate denaturation, while high substrate with fixed enzyme cannot produce unlimited initial rate.",
+      "misconceptions": [
+        {
+          "misconception": "All enzymes are fastest at exactly 37°C.",
+          "correction": "Rate optima depend on enzyme, incubation and other assay conditions."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "At modest temperatures, greater molecular motion often increases productive collision frequency. Strong heating can reduce active enzyme through unfolding; the position of an optimum depends on assay time and enzyme identity. Changes in pH affect ionisation and sometimes folding, producing an enzyme-specific pH optimum.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "claim": "At a constant amount of active enzyme, rising substrate concentration usually increases initial reaction rate and approaches saturation. The three graphs are explicitly invented numerical models, not actual laboratory results. Their accompanying tables list every coordinate, labelled units and fixed assay assumptions so students can test the claimed relationships and compare them with future experimental data.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "assets": [
+        "c11-temperature",
+        "c11-ph",
+        "c11-substrate"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-8",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.8"
+          ],
+          "prompt": "What happens as substrate concentration rises toward saturation?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Rate rises linearly without limit",
+              "correct": false,
+              "feedback": "Fixed enzyme availability imposes a capacity limit."
+            },
+            {
+              "id": "check-o2",
+              "text": "Enzyme concentration automatically increases",
+              "correct": false,
+              "feedback": "Substrate concentration does not itself change enzyme amount."
+            },
+            {
+              "id": "check-o3",
+              "text": "All enzymes denature at high substrate",
+              "correct": false,
+              "feedback": "High substrate is not inherently denaturing in this model."
+            },
+            {
+              "id": "check-o4",
+              "text": "Rate often rises then levels toward a maximum",
+              "correct": true,
+              "feedback": "Limited active sites constrain the maximum enzyme turnover rate."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-8",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.8"
+          ],
+          "prompt": "Without looking: How do we distinguish explanatory enzyme-rate models from experimental observations?",
+          "answer": "At modest temperatures, greater molecular motion often increases productive collision frequency. Strong heating can reduce active enzyme through unfolding; the position of an optimum depends on assay time and enzyme identity. Changes in pH affect ionisation and sometimes folding, producing an enzyme-specific pH optimum. A low rate at 5°C need not indicate denaturation, while high substrate with fixed enzyme cannot produce unlimited initial rate.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          388,
+          389,
+          390
+        ],
+        "pdfPages": [
+          400,
+          401,
+          402
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "At modest temperatures, greater molecular motion often increases productive collision frequency. Strong heating can reduce active enzyme through unfolding; the position of an optimum depends on assay time and enzyme identity. Changes in pH affect ionisation and sometimes folding, producing an enzyme-specific pH optimum.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "At a constant amount of active enzyme, rising substrate concentration usually increases initial reaction rate and approaches saturation. The three graphs are explicitly invented numerical models, not actual laboratory results. Their accompanying tables list every coordinate, labelled units and fixed assay assumptions so students can test the claimed relationships and compare them with future experimental data.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "explorer": {
+        "title": "Reason through three enzyme factors",
+        "prompt": "Conceptual predictions; all other experimental variables held fixed.",
+        "features": [
+          {
+            "id": "warming",
+            "label": "Moderate warming",
+            "explanation": "More productive collisions can raise rate if the active-site fold remains stable."
+          },
+          {
+            "id": "extreme",
+            "label": "Prolonged high temperature",
+            "explanation": "The enzyme can denature, lowering the active enzyme concentration and measured rate."
+          },
+          {
+            "id": "saturation",
+            "label": "Excess substrate",
+            "explanation": "At fixed active-enzyme concentration, further increases in substrate have diminishing effects on initial rate."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Hypothetical temperature response. Fixed pH 7; enzyme quantity and substrate concentration fixed. Invented model values, not laboratory data.",
+          "headers": [
+            "Temperature (°C)",
+            "Initial rate (μmol min⁻¹)"
+          ],
+          "rows": [
+            [
+              0,
+              0.5
+            ],
+            [
+              10,
+              1.5
+            ],
+            [
+              20,
+              3
+            ],
+            [
+              30,
+              5
+            ],
+            [
+              40,
+              8
+            ],
+            [
+              50,
+              4
+            ],
+            [
+              60,
+              0.4
+            ]
+          ]
+        },
+        {
+          "caption": "Hypothetical pH response. 30°C and fixed enzyme/substrate concentration; invented demonstration, not real measurements.",
+          "headers": [
+            "pH (dimensionless)",
+            "Initial rate (μmol min⁻¹)"
+          ],
+          "rows": [
+            [
+              2,
+              1
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Saturation: simple Michaelis–Menten model. v=10[S]/(2+[S]) with fixed enzyme, pH and temperature; theoretical values, not experimental observations.",
+          "headers": [
+            "Substrate (mmol L⁻¹)",
+            "Initial rate (μmol min⁻¹)"
+          ],
+          "rows": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              3.333
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              7.143
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              12,
+              8.571
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-9",
+      "understandingIds": [
+        "C1.1.9"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the difference between an initial tangent and a full-experiment average?",
+      "explanation": "A rate is a change in amount or concentration per unit time. A product amount–time curve has positive gradient; a substrate concentration–time curve falls and its negative gradient gives substrate disappearance rate. Always show units such as μmol min⁻¹ or mmol L⁻¹ s⁻¹.\n\nAn initial rate corresponds to the tangent slope near the beginning of a reaction or a justified short near-linear interval. Later rates can fall as substrate is depleted or conditions change. A multi-minute secant gives the mean rate over that interval, not necessarily initial rate. The numerical curve below is a disclosed theoretical model, not measured observations.",
+      "revisionSummary": "A rate is a change in amount or concentration per unit time. An initial rate corresponds to the tangent slope near the beginning of a reaction or a justified short near-linear interval.",
+      "terms": [
+        "Rate: change divided by time",
+        "Initial rate: beginning-of-curve gradient"
+      ],
+      "workedExample": "If product increases 10 μmol over the first 20 s, its early interval rate is 0.50 μmol s⁻¹.",
+      "misconceptions": [
+        {
+          "misconception": "Product accumulated over ten minutes divided by ten always equals initial rate.",
+          "correction": "That computes a mean rate unless the graph is sufficiently linear over the interval."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A rate is a change in amount or concentration per unit time. A product amount–time curve has positive gradient; a substrate concentration–time curve falls and its negative gradient gives substrate disappearance rate. Always show units such as μmol min⁻¹ or mmol L⁻¹ s⁻¹.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "claim": "An initial rate corresponds to the tangent slope near the beginning of a reaction or a justified short near-linear interval. Later rates can fall as substrate is depleted or conditions change. A multi-minute secant gives the mean rate over that interval, not necessarily initial rate. The numerical curve below is a disclosed theoretical model, not measured observations.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "assets": [
+        "c11-timecourse"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-9",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.9"
+          ],
+          "prompt": "Product rises from 0 to 12 μmol in 30 s. What is the interval rate?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "0.40 μmol s⁻¹",
+              "correct": true,
+              "feedback": "12/30 is 0.40 with correct units."
+            },
+            {
+              "id": "check-o2",
+              "text": "2.5 μmol s⁻¹",
+              "correct": false,
+              "feedback": "This reverses the quotient."
+            },
+            {
+              "id": "check-o3",
+              "text": "12 μmol min⁻¹",
+              "correct": false,
+              "feedback": "Over 0.5 min the rate would be 24 μmol min⁻¹."
+            },
+            {
+              "id": "check-o4",
+              "text": "360 μmol s⁻¹",
+              "correct": false,
+              "feedback": "Multiplying instead of dividing is incorrect."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-9",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.9"
+          ],
+          "prompt": "Without looking: What is the difference between an initial tangent and a full-experiment average?",
+          "answer": "A rate is a change in amount or concentration per unit time. A product amount–time curve has positive gradient; a substrate concentration–time curve falls and its negative gradient gives substrate disappearance rate. Always show units such as μmol min⁻¹ or mmol L⁻¹ s⁻¹. If product increases 10 μmol over the first 20 s, its early interval rate is 0.50 μmol s⁻¹.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          390,
+          391,
+          392
+        ],
+        "pdfPages": [
+          402,
+          403,
+          404
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "A rate is a change in amount or concentration per unit time. A product amount–time curve has positive gradient; a substrate concentration–time curve falls and its negative gradient gives substrate disappearance rate. Always show units such as μmol min⁻¹ or mmol L⁻¹ s⁻¹.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "An initial rate corresponds to the tangent slope near the beginning of a reaction or a justified short near-linear interval. Later rates can fall as substrate is depleted or conditions change. A multi-minute secant gives the mean rate over that interval, not necessarily initial rate. The numerical curve below is a disclosed theoretical model, not measured observations.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Illustrative reaction progress. P(t)=60(1−exp(−t/3)); initial tangent 20 μmol min⁻¹. Model, not laboratory data.",
+          "headers": [
+            "Time (min)",
+            "Product (μmol)"
+          ],
+          "rows": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              17.008
+            ],
+            [
+              2,
+              29.195
+            ],
+            [
+              3,
+              37.927
+            ],
+            [
+              4,
+              44.185
+            ],
+            [
+              5,
+              48.669
+            ],
+            [
+              6,
+              51.88
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-10",
+      "understandingIds": [
+        "C1.1.10"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why does the catalysed energy barrier fall while reaction ΔE stays constant?",
+      "explanation": "Breaking or distorting bonds and reorganising charges on the way to a transition state requires an energy input, while forming more stable bonds can release energy. Enzymes favour a lower-barrier mechanistic route. Catalytic interactions can stabilise the transition state and speed conversion without being a net energy source.\n\nThe final reactant-to-product energy difference is unaffected by an enzyme. Our illustrative relative-energy profiles have reactants at 20, products at 0, an uncatalysed peak at 90 and a catalysed peak at 55 kJ mol⁻¹: barriers are 70 and 35, while both net energy differences are −20 kJ mol⁻¹. These are theoretical example values, not measured biochemical energetics.",
+      "revisionSummary": "Breaking or distorting bonds and reorganising charges on the way to a transition state requires an energy input, while forming more stable bonds can release energy. The final reactant-to-product energy difference is unaffected by an enzyme.",
+      "terms": [
+        "Transition state: high-energy reaction configuration",
+        "Activation energy: barrier from reactants to transition state"
+      ],
+      "workedExample": "From a common reactant baseline at 20, lowering a peak from 90 to 55 lowers activation energy 70→35 kJ mol⁻¹.",
+      "misconceptions": [
+        {
+          "misconception": "Enzymes lower product energy but leave activation energy unchanged.",
+          "correction": "They lower the energy barrier and leave the net product–reactant difference unchanged."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Breaking or distorting bonds and reorganising charges on the way to a transition state requires an energy input, while forming more stable bonds can release energy. Enzymes favour a lower-barrier mechanistic route. Catalytic interactions can stabilise the transition state and speed conversion without being a net energy source.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "claim": "The final reactant-to-product energy difference is unaffected by an enzyme. Our illustrative relative-energy profiles have reactants at 20, products at 0, an uncatalysed peak at 90 and a catalysed peak at 55 kJ mol⁻¹: barriers are 70 and 35, while both net energy differences are −20 kJ mol⁻¹. These are theoretical example values, not measured biochemical energetics.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "assets": [
+        "c11-activation"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-10",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.10"
+          ],
+          "prompt": "Which quantity remains unchanged by enzyme catalysis?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Rate of productive conversions",
+              "correct": false,
+              "feedback": "Productive turnover rises when catalysis succeeds."
+            },
+            {
+              "id": "check-o2",
+              "text": "Reactant-to-product energy difference",
+              "correct": true,
+              "feedback": "Net reaction energetics do not depend on catalytic route."
+            },
+            {
+              "id": "check-o3",
+              "text": "Forward activation energy",
+              "correct": false,
+              "feedback": "The effective barrier is lowered."
+            },
+            {
+              "id": "check-o4",
+              "text": "Reaction time to equilibrium",
+              "correct": false,
+              "feedback": "Catalysis usually changes timescale."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-10",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.10"
+          ],
+          "prompt": "Without looking: Why does the catalysed energy barrier fall while reaction ΔE stays constant?",
+          "answer": "Breaking or distorting bonds and reorganising charges on the way to a transition state requires an energy input, while forming more stable bonds can release energy. Enzymes favour a lower-barrier mechanistic route. Catalytic interactions can stabilise the transition state and speed conversion without being a net energy source. From a common reactant baseline at 20, lowering a peak from 90 to 55 lowers activation energy 70→35 kJ mol⁻¹.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 65,
+      "pdfPage": 71,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          395,
+          396
+        ],
+        "pdfPages": [
+          407,
+          408
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Breaking or distorting bonds and reorganising charges on the way to a transition state requires an energy input, while forming more stable bonds can release energy. Enzymes favour a lower-barrier mechanistic route. Catalytic interactions can stabilise the transition state and speed conversion without being a net energy source.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "The final reactant-to-product energy difference is unaffected by an enzyme. Our illustrative relative-energy profiles have reactants at 20, products at 0, an uncatalysed peak at 90 and a catalysed peak at 55 kJ mol⁻¹: barriers are 70 and 35, while both net energy differences are −20 kJ mol⁻¹. These are theoretical example values, not measured biochemical energetics.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Catalysed versus uncatalysed energy profiles. Illustrative energy levels: reactants 20, products 0; transition peaks 90 and 55 kJ mol⁻¹. Not measured data.",
+          "headers": [
+            "Reaction progress (relative units)",
+            "Relative energy (kJ mol⁻¹)",
+            "Second model, Relative energy (kJ mol⁻¹)"
+          ],
+          "rows": [
+            [
+              0,
+              20,
+              20
+            ],
+            [
+              1,
+              42,
+              30
+            ],
+            [
+              2,
+              75,
+              48
+            ],
+            [
+              3,
+              90,
+              55
+            ],
+            [
+              4,
+              60,
+              32
+            ],
+            [
+              5,
+              20,
+              10
+            ],
+            [
+              6,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-11",
+      "understandingIds": [
+        "C1.1.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What distinguishes cytosolic respiration from secreted gut digestion?",
+      "explanation": "Glycolysis occurs in the cytosol, and in eukaryotes the Krebs cycle takes place in the mitochondrial matrix. These are intracellular processes. Digestive enzymes act extracellularly within the gut lumen after being secreted from cells; enzyme synthesis and enzyme action can therefore happen in different compartments.\n\nSecretory enzyme vesicles release their contents by exocytosis when they fuse with the plasma membrane. Hodder printed p. 396 incorrectly says endocytosis in this context; independent NCBI digestive-enzyme evidence specifies exocytosis. Endocytosis instead imports material into cells.",
+      "revisionSummary": "Glycolysis occurs in the cytosol, and in eukaryotes the Krebs cycle takes place in the mitochondrial matrix. Secretory enzyme vesicles release their contents by exocytosis when they fuse with the plasma membrane.",
+      "terms": [
+        "Intracellular: within a cell",
+        "Extracellular: outside plasma membrane",
+        "Exocytosis: vesicle cargo released to exterior"
+      ],
+      "workedExample": "Pancreatic acinar cells exocytose digestive enzymes that later hydrolyse proteins in the intestinal lumen.",
+      "misconceptions": [
+        {
+          "misconception": "Pancreatic enzymes enter the gut by endocytosis.",
+          "correction": "Vesicle fusion and release to the exterior is exocytosis."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Glycolysis occurs in the cytosol, and in eukaryotes the Krebs cycle takes place in the mitochondrial matrix. These are intracellular processes. Digestive enzymes act extracellularly within the gut lumen after being secreted from cells; enzyme synthesis and enzyme action can therefore happen in different compartments.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-exocytosis"
+          ]
+        },
+        {
+          "claim": "Secretory enzyme vesicles release their contents by exocytosis when they fuse with the plasma membrane. Hodder printed p. 396 incorrectly says endocytosis in this context; independent NCBI digestive-enzyme evidence specifies exocytosis. Endocytosis instead imports material into cells.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-exocytosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "ncbi-exocytosis"
+      ],
+      "assets": [
+        "c11-pathways"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-11",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.11"
+          ],
+          "prompt": "Which process is extracellular?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Mitochondrial Krebs cycle",
+              "correct": false,
+              "feedback": "Krebs cycle occurs inside mitochondria in eukaryotes."
+            },
+            {
+              "id": "check-o2",
+              "text": "Protein folding within the endoplasmic reticulum",
+              "correct": false,
+              "feedback": "ER folding occurs within a cellular organelle."
+            },
+            {
+              "id": "check-o3",
+              "text": "Pancreatic enzyme digestion in gut lumen",
+              "correct": true,
+              "feedback": "Gut-lumen digestion occurs outside cells."
+            },
+            {
+              "id": "check-o4",
+              "text": "Cytosolic glycolysis",
+              "correct": false,
+              "feedback": "Glycolysis occurs in cytosol."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-11",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.11"
+          ],
+          "prompt": "Without looking: What distinguishes cytosolic respiration from secreted gut digestion?",
+          "answer": "Glycolysis occurs in the cytosol, and in eukaryotes the Krebs cycle takes place in the mitochondrial matrix. These are intracellular processes. Digestive enzymes act extracellularly within the gut lumen after being secreted from cells; enzyme synthesis and enzyme action can therefore happen in different compartments. Pancreatic acinar cells exocytose digestive enzymes that later hydrolyse proteins in the intestinal lumen.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 66,
+      "pdfPage": 72,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          396,
+          397,
+          398
+        ],
+        "pdfPages": [
+          408,
+          409,
+          410
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Glycolysis occurs in the cytosol, and in eukaryotes the Krebs cycle takes place in the mitochondrial matrix. These are intracellular processes. Digestive enzymes act extracellularly within the gut lumen after being secreted from cells; enzyme synthesis and enzyme action can therefore happen in different compartments.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-exocytosis"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Secretory enzyme vesicles release their contents by exocytosis when they fuse with the plasma membrane. Hodder printed p. 396 incorrectly says endocytosis in this context; independent NCBI digestive-enzyme evidence specifies exocytosis. Endocytosis instead imports material into cells.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-exocytosis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-12",
+      "understandingIds": [
+        "C1.1.12"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why does metabolism contribute to body temperature?",
+      "explanation": "Metabolism transfers chemical energy to ATP, chemical gradients, mechanical work and other cellular functions. No biological energy-transfer process captures all available energy as organised work; some energy becomes dispersed as heat. This thermal output is a normal feature of metabolism, not energy creation by enzymes.\n\nBirds, mammals and some other animals depend on ongoing metabolic heat production to support relatively constant body temperature. Heat output changes with activity and physiology. Individual pathways can have different energy budgets; do not assert that every metabolic reaction releases the same heat.",
+      "revisionSummary": "Metabolism transfers chemical energy to ATP, chemical gradients, mechanical work and other cellular functions. Birds, mammals and some other animals depend on ongoing metabolic heat production to support relatively constant body temperature.",
+      "terms": [
+        "Metabolic heat: dissipated energy",
+        "Thermoregulation: maintaining body temperature"
+      ],
+      "workedExample": "Skeletal muscle shivering increases ATP use and metabolic heat output.",
+      "misconceptions": [
+        {
+          "misconception": "Metabolism converts 100% of available chemical energy into useful work.",
+          "correction": "Real transfers dissipate energy as heat."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Metabolism transfers chemical energy to ATP, chemical gradients, mechanical work and other cellular functions. No biological energy-transfer process captures all available energy as organised work; some energy becomes dispersed as heat. This thermal output is a normal feature of metabolism, not energy creation by enzymes.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "Birds, mammals and some other animals depend on ongoing metabolic heat production to support relatively constant body temperature. Heat output changes with activity and physiology. Individual pathways can have different energy budgets; do not assert that every metabolic reaction releases the same heat.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "id": "c11-check-12",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.12"
+          ],
+          "prompt": "Why does metabolism warm an endothermic animal?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Enzymes create energy out of nothing",
+              "correct": false,
+              "feedback": "Energy is conserved."
+            },
+            {
+              "id": "check-o2",
+              "text": "All reactions transfer exactly the same heat",
+              "correct": false,
+              "feedback": "Different processes have different energetics."
+            },
+            {
+              "id": "check-o3",
+              "text": "Heat output is independent of metabolic activity",
+              "correct": false,
+              "feedback": "Activity generally affects heat production."
+            },
+            {
+              "id": "check-o4",
+              "text": "Some chemical energy dissipates as heat in imperfect transfers",
+              "correct": true,
+              "feedback": "Heat is a by-product of real energy conversion."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-12",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.12"
+          ],
+          "prompt": "Without looking: Why does metabolism contribute to body temperature?",
+          "answer": "Metabolism transfers chemical energy to ATP, chemical gradients, mechanical work and other cellular functions. No biological energy-transfer process captures all available energy as organised work; some energy becomes dispersed as heat. This thermal output is a normal feature of metabolism, not energy creation by enzymes. Skeletal muscle shivering increases ATP use and metabolic heat output.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 66,
+      "pdfPage": 72,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          397,
+          398
+        ],
+        "pdfPages": [
+          409,
+          410
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Metabolism transfers chemical energy to ATP, chemical gradients, mechanical work and other cellular functions. No biological energy-transfer process captures all available energy as organised work; some energy becomes dispersed as heat. This thermal output is a normal feature of metabolism, not energy creation by enzymes.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Birds, mammals and some other animals depend on ongoing metabolic heat production to support relatively constant body temperature. Heat output changes with activity and physiology. Individual pathways can have different energy budgets; do not assert that every metabolic reaction releases the same heat.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-13",
+      "understandingIds": [
+        "C1.1.13"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What distinguishes a regenerated cycle from a reaction sequence with endpoints?",
+      "explanation": "Glycolysis is a linear metabolic sequence that converts glucose toward pyruvate through enzyme-catalysed intermediate reactions. Cyclic pathways regenerate a participant needed for subsequent turns; the Krebs cycle regenerates oxaloacetate, and the Calvin cycle regenerates ribulose bisphosphate.\n\nA metabolic cycle still has net inputs, outputs and energy requirements or releases. Its intermediates are not a perpetual supply of material. The guide uses these three pathways to illustrate linear versus cyclic organisation, not as a demand to memorise every intermediate in this topic.",
+      "revisionSummary": "Glycolysis is a linear metabolic sequence that converts glucose toward pyruvate through enzyme-catalysed intermediate reactions. A metabolic cycle still has net inputs, outputs and energy requirements or releases.",
+      "terms": [
+        "Linear pathway: sequence with input/output ends",
+        "Cyclic pathway: regeneration of a participant"
+      ],
+      "workedExample": "Label glucose as the input to a linear glycolytic pathway and RuBP as a regenerated participant in the Calvin cycle.",
+      "misconceptions": [
+        {
+          "misconception": "A cyclic pathway cannot consume reactants or release products.",
+          "correction": "It regenerates a key intermediate while still taking in and giving out substances."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Glycolysis is a linear metabolic sequence that converts glucose toward pyruvate through enzyme-catalysed intermediate reactions. Cyclic pathways regenerate a participant needed for subsequent turns; the Krebs cycle regenerates oxaloacetate, and the Calvin cycle regenerates ribulose bisphosphate.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "A metabolic cycle still has net inputs, outputs and energy requirements or releases. Its intermediates are not a perpetual supply of material. The guide uses these three pathways to illustrate linear versus cyclic organisation, not as a demand to memorise every intermediate in this topic.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [
+        "c11-pathways"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-13",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.13"
+          ],
+          "prompt": "Which is usually represented as a linear pathway?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Glycolysis",
+              "correct": true,
+              "feedback": "Glycolysis is a linear sequence."
+            },
+            {
+              "id": "check-o2",
+              "text": "Krebs cycle",
+              "correct": false,
+              "feedback": "The Krebs cycle regenerates a substrate."
+            },
+            {
+              "id": "check-o3",
+              "text": "Calvin cycle",
+              "correct": false,
+              "feedback": "Calvin-cycle carbon assimilation regenerates RuBP."
+            },
+            {
+              "id": "check-o4",
+              "text": "Both Krebs and Calvin cycles",
+              "correct": false,
+              "feedback": "Both named cyclic examples regenerate intermediates."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-13",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.13"
+          ],
+          "prompt": "Without looking: What distinguishes a regenerated cycle from a reaction sequence with endpoints?",
+          "answer": "Glycolysis is a linear metabolic sequence that converts glucose toward pyruvate through enzyme-catalysed intermediate reactions. Cyclic pathways regenerate a participant needed for subsequent turns; the Krebs cycle regenerates oxaloacetate, and the Calvin cycle regenerates ribulose bisphosphate. Label glucose as the input to a linear glycolytic pathway and RuBP as a regenerated participant in the Calvin cycle.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 66,
+      "pdfPage": 72,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          398,
+          399
+        ],
+        "pdfPages": [
+          410,
+          411
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Glycolysis is a linear metabolic sequence that converts glucose toward pyruvate through enzyme-catalysed intermediate reactions. Cyclic pathways regenerate a participant needed for subsequent turns; the Krebs cycle regenerates oxaloacetate, and the Calvin cycle regenerates ribulose bisphosphate.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "A metabolic cycle still has net inputs, outputs and energy requirements or releases. Its intermediates are not a perpetual supply of material. The guide uses these three pathways to illustrate linear versus cyclic organisation, not as a demand to memorise every intermediate in this topic.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-14",
+      "understandingIds": [
+        "C1.1.14"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How does binding away from a catalytic pocket change enzyme activity?",
+      "explanation": "An allosteric inhibitor binds at a specific noncatalytic site. The binding changes internal protein interactions and can alter the active-site conformation enough to reduce catalysis. In the guide's model this binding is reversible, so the inhibitor may dissociate and enzyme activity can recover.\n\nA simple non-competitive diagram contrasts a separate regulatory site with direct active-site competition. Real allosteric regulation has multiple kinetic patterns, including mixed inhibition; the special pure noncompetitive model is not identical to every allosteric mechanism. An inhibitor must have binding specificity; arbitrary molecules cannot universally bind regulatory sites.",
+      "revisionSummary": "An allosteric inhibitor binds at a specific noncatalytic site. A simple non-competitive diagram contrasts a separate regulatory site with direct active-site competition.",
+      "terms": [
+        "Allosteric site: distinct regulatory binding site",
+        "Noncompetitive model: inhibitor reduces catalysis without direct active-site competition"
+      ],
+      "workedExample": "An allosteric effector may change a catalytic pocket while substrate remains available in solution.",
+      "misconceptions": [
+        {
+          "misconception": "All allosteric inhibitors bind the active site and share the same kinetic signature.",
+          "correction": "Allosteric binding occurs elsewhere and has diverse possible kinetic responses."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An allosteric inhibitor binds at a specific noncatalytic site. The binding changes internal protein interactions and can alter the active-site conformation enough to reduce catalysis. In the guide's model this binding is reversible, so the inhibitor may dissociate and enzyme activity can recover.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-allostery"
+          ]
+        },
+        {
+          "claim": "A simple non-competitive diagram contrasts a separate regulatory site with direct active-site competition. Real allosteric regulation has multiple kinetic patterns, including mixed inhibition; the special pure noncompetitive model is not identical to every allosteric mechanism. An inhibitor must have binding specificity; arbitrary molecules cannot universally bind regulatory sites.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-allostery"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "ncbi-allostery"
+      ],
+      "assets": [
+        "c11-inhibition"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-14",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.14"
+          ],
+          "prompt": "What happens in the guide's reversible allosteric inhibition model?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Every compound can occupy any allosteric site",
+              "correct": false,
+              "feedback": "Binding requires molecular compatibility."
+            },
+            {
+              "id": "check-o2",
+              "text": "A specific inhibitor binds away from the active site and changes conformation",
+              "correct": true,
+              "feedback": "The distinct regulatory site can alter catalysis."
+            },
+            {
+              "id": "check-o3",
+              "text": "Substrate and inhibitor bind identically at active-site atoms",
+              "correct": false,
+              "feedback": "That describes competitive active-site binding."
+            },
+            {
+              "id": "check-o4",
+              "text": "Every inhibitor is irreversible",
+              "correct": false,
+              "feedback": "The guide's interaction is reversible."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-14",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.14"
+          ],
+          "prompt": "Without looking: How does binding away from a catalytic pocket change enzyme activity?",
+          "answer": "An allosteric inhibitor binds at a specific noncatalytic site. The binding changes internal protein interactions and can alter the active-site conformation enough to reduce catalysis. In the guide's model this binding is reversible, so the inhibitor may dissociate and enzyme activity can recover. An allosteric effector may change a catalytic pocket while substrate remains available in solution.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 66,
+      "pdfPage": 72,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          400,
+          401
+        ],
+        "pdfPages": [
+          412,
+          413
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "An allosteric inhibitor binds at a specific noncatalytic site. The binding changes internal protein interactions and can alter the active-site conformation enough to reduce catalysis. In the guide's model this binding is reversible, so the inhibitor may dissociate and enzyme activity can recover.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-allostery"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "A simple non-competitive diagram contrasts a separate regulatory site with direct active-site competition. Real allosteric regulation has multiple kinetic patterns, including mixed inhibition; the special pure noncompetitive model is not identical to every allosteric mechanism. An inhibitor must have binding specificity; arbitrary molecules cannot universally bind regulatory sites.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-allostery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-15",
+      "understandingIds": [
+        "C1.1.15"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why can high substrate offset a reversible competitive inhibitor?",
+      "explanation": "A competitive inhibitor reversibly occupies a substrate-binding region of the active site, blocking substrate access while present. Raising substrate concentration increases the chance of substrate rather than inhibitor binding. Under a simple Michaelis–Menten competitive model, Vmax remains the same while apparent Km rises.\n\nStatins competitively inhibit HMG-CoA reductase, reducing endogenous cholesterol biosynthesis. The contrast with school-level non-competitive inhibition concerns where the inhibitor binds and how higher substrate concentration affects inhibition; real allosteric mechanisms cannot all be assigned one universal kinetic shape.",
+      "revisionSummary": "A competitive inhibitor reversibly occupies a substrate-binding region of the active site, blocking substrate access while present. Statins competitively inhibit HMG-CoA reductase, reducing endogenous cholesterol biosynthesis.",
+      "terms": [
+        "Competitive inhibitor: reversible active-site competitor",
+        "Statin: HMG-CoA reductase inhibitor"
+      ],
+      "workedExample": "An enzyme with a reversible active-site inhibitor can show less proportional inhibition when substrate concentration increases.",
+      "misconceptions": [
+        {
+          "misconception": "Increasing substrate displaces an irreversible covalently bound inhibitor.",
+          "correction": "Competition with high substrate can overcome reversible active-site occupancy, not irreversible inactivation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A competitive inhibitor reversibly occupies a substrate-binding region of the active site, blocking substrate access while present. Raising substrate concentration increases the chance of substrate rather than inhibitor binding. Under a simple Michaelis–Menten competitive model, Vmax remains the same while apparent Km rises.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "claim": "Statins competitively inhibit HMG-CoA reductase, reducing endogenous cholesterol biosynthesis. The contrast with school-level non-competitive inhibition concerns where the inhibitor binds and how higher substrate concentration affects inhibition; real allosteric mechanisms cannot all be assigned one universal kinetic shape.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "assets": [
+        "c11-inhibition",
+        "c11-substrate"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-15",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.15"
+          ],
+          "prompt": "What may reduce reversible competitive inhibition?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Permanently denaturing the enzyme",
+              "correct": false,
+              "feedback": "Denaturation would stop catalysis."
+            },
+            {
+              "id": "check-o2",
+              "text": "Removing all reactants",
+              "correct": false,
+              "feedback": "No substrate means no reaction flux."
+            },
+            {
+              "id": "check-o3",
+              "text": "Increasing substrate concentration",
+              "correct": true,
+              "feedback": "Substrate can outcompete an inhibitor for active-site occupancy."
+            },
+            {
+              "id": "check-o4",
+              "text": "Decreasing substrate to zero",
+              "correct": false,
+              "feedback": "Less substrate favours relative inhibitor occupancy."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-15",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.15"
+          ],
+          "prompt": "Without looking: Why can high substrate offset a reversible competitive inhibitor?",
+          "answer": "A competitive inhibitor reversibly occupies a substrate-binding region of the active site, blocking substrate access while present. Raising substrate concentration increases the chance of substrate rather than inhibitor binding. Under a simple Michaelis–Menten competitive model, Vmax remains the same while apparent Km rises. An enzyme with a reversible active-site inhibitor can show less proportional inhibition when substrate concentration increases.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 66,
+      "pdfPage": 72,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          401,
+          402
+        ],
+        "pdfPages": [
+          413,
+          414
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "A competitive inhibitor reversibly occupies a substrate-binding region of the active site, blocking substrate access while present. Raising substrate concentration increases the chance of substrate rather than inhibitor binding. Under a simple Michaelis–Menten competitive model, Vmax remains the same while apparent Km rises.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Statins competitively inhibit HMG-CoA reductase, reducing endogenous cholesterol biosynthesis. The contrast with school-level non-competitive inhibition concerns where the inhibitor binds and how higher substrate concentration affects inhibition; real allosteric mechanisms cannot all be assigned one universal kinetic shape.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "litlab-models"
+          ]
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Competitive inhibitor rate models. Both theoretical curves have Vmax=10 μmol min⁻¹. Control Km=2, inhibitor apparent Km=6 mmol L⁻¹. Not lab data.",
+          "headers": [
+            "Substrate (mmol L⁻¹)",
+            "Initial rate (μmol min⁻¹)",
+            "Second model, Initial rate (μmol min⁻¹)"
+          ],
+          "rows": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              3.333,
+              1.429
+            ],
+            [
+              2,
+              5,
+              2.5
+            ],
+            [
+              4,
+              6.667,
+              4
+            ],
+            [
+              8,
+              8,
+              5.714
+            ],
+            [
+              16,
+              8.889,
+              7.273
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11-16",
+      "understandingIds": [
+        "C1.1.16"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How does a pathway product limit its own excessive production?",
+      "explanation": "In isoleucine biosynthesis in bacteria, threonine undergoes a sequence of conversions catalysed by enzymes. Isoleucine, the end product, can bind allosterically to the first controlling enzyme, threonine deaminase, and decrease its activity when isoleucine accumulates.\n\nThis reversible negative feedback saves resources and reduces pathway flux before additional intermediates build up. When isoleucine levels decline, inhibitory occupancy can decrease and biosynthetic activity resumes. Feedback regulates an upstream step, not only the final chemical conversion.",
+      "revisionSummary": "In isoleucine biosynthesis in bacteria, threonine undergoes a sequence of conversions catalysed by enzymes. This reversible negative feedback saves resources and reduces pathway flux before additional intermediates build up.",
+      "terms": [
+        "Feedback inhibition: end-product regulation of earlier reaction",
+        "Threonine deaminase: early isoleucine pathway enzyme"
+      ],
+      "workedExample": "Predict that high isoleucine reduces further conversion of threonine into early pathway intermediates.",
+      "misconceptions": [
+        {
+          "misconception": "Extra isoleucine stimulates still more synthesis in an unchecked positive feedback loop.",
+          "correction": "The end product inhibits an early enzyme, slowing further synthesis."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In isoleucine biosynthesis in bacteria, threonine undergoes a sequence of conversions catalysed by enzymes. Isoleucine, the end product, can bind allosterically to the first controlling enzyme, threonine deaminase, and decrease its activity when isoleucine accumulates.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "claim": "This reversible negative feedback saves resources and reduces pathway flux before additional intermediates build up. When isoleucine levels decline, inhibitory occupancy can decrease and biosynthetic activity resumes. Feedback regulates an upstream step, not only the final chemical conversion.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "assets": [
+        "c11-feedback"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-16",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.16"
+          ],
+          "prompt": "What is the expected effect of abundant isoleucine?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "An automatic increase in isoleucine production",
+              "correct": false,
+              "feedback": "Negative feedback limits excess synthesis."
+            },
+            {
+              "id": "check-o2",
+              "text": "Immediate mutation of DNA",
+              "correct": false,
+              "feedback": "Enzyme activity can change without genetic mutation."
+            },
+            {
+              "id": "check-o3",
+              "text": "All enzymes convert to isoleucine",
+              "correct": false,
+              "feedback": "Enzymes are catalysts, not converted into product."
+            },
+            {
+              "id": "check-o4",
+              "text": "Reduced activity of an early biosynthetic enzyme",
+              "correct": true,
+              "feedback": "End-product feedback slows pathway entry."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-16",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.16"
+          ],
+          "prompt": "Without looking: How does a pathway product limit its own excessive production?",
+          "answer": "In isoleucine biosynthesis in bacteria, threonine undergoes a sequence of conversions catalysed by enzymes. Isoleucine, the end product, can bind allosterically to the first controlling enzyme, threonine deaminase, and decrease its activity when isoleucine accumulates. Predict that high isoleucine reduces further conversion of threonine into early pathway intermediates.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 66,
+      "pdfPage": 72,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          402,
+          403
+        ],
+        "pdfPages": [
+          414,
+          415
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "In isoleucine biosynthesis in bacteria, threonine undergoes a sequence of conversions catalysed by enzymes. Isoleucine, the end product, can bind allosterically to the first controlling enzyme, threonine deaminase, and decrease its activity when isoleucine accumulates.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "This reversible negative feedback saves resources and reduces pathway flux before additional intermediates build up. When isoleucine levels decline, inhibitory occupancy can decrease and biosynthetic activity resumes. Feedback regulates an upstream step, not only the final chemical conversion.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme"
+          ]
+        }
+      ],
+      "mechanismChallenge": {
+        "title": "Feedback inhibition mechanism",
+        "instructions": "Predict the next causal step and compare the explanation.",
+        "stages": [
+          {
+            "id": "first",
+            "prompt": "What happens when isoleucine becomes abundant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Early biosynthetic enzyme is inhibited",
+                "correct": true,
+                "feedback": "The binding or product feedback changes activity."
+              },
+              {
+                "id": "b",
+                "text": "Enzyme becomes permanent reaction fuel",
+                "correct": false,
+                "feedback": "A catalyst is not consumed as reaction fuel."
+              },
+              {
+                "id": "c",
+                "text": "All chemical directions reverse",
+                "correct": false,
+                "feedback": "Chemical direction does not simply reverse."
+              }
+            ],
+            "explanation": "Structural control changes catalytic effectiveness."
+          },
+          {
+            "id": "second",
+            "prompt": "What happens to pathway flux?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Entry into isoleucine synthesis decreases",
+                "correct": true,
+                "feedback": "Correct mechanism consequence."
+              },
+              {
+                "id": "b",
+                "text": "Creation of new net chemical energy",
+                "correct": false,
+                "feedback": "Catalysis does not create energy."
+              },
+              {
+                "id": "c",
+                "text": "Guaranteed increase in equilibrium constant",
+                "correct": false,
+                "feedback": "A catalyst does not shift equilibrium."
+              }
+            ],
+            "explanation": "Changes in catalysis follow binding or regulatory interactions."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c11-17",
+      "understandingIds": [
+        "C1.1.17"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How does penicillin permanently impair bacterial cell-wall crosslinking?",
+      "explanation": "Penicillin-class β-lactams inhibit susceptible penicillin-binding proteins, including transpeptidases involved in peptidoglycan crosslinking. A catalytic active-site serine can react with the β-lactam to produce a covalently acylated, long-lived inactive enzyme complex. This is a mechanism-based, effectively irreversible inhibition rather than ordinary short-lived competition.\n\nSome bacteria develop altered penicillin-binding proteins that bind/react with the antibiotic less effectively. Other bacteria produce β-lactamases that chemically break down β-lactam antibiotics. Altering the drug's target and destroying the drug are distinct resistance mechanisms; do not conflate either with a general change in the bacterial DNA replication mechanism.",
+      "revisionSummary": "Penicillin-class β-lactams inhibit susceptible penicillin-binding proteins, including transpeptidases involved in peptidoglycan crosslinking. Some bacteria develop altered penicillin-binding proteins that bind/react with the antibiotic less effectively.",
+      "terms": [
+        "PBP: penicillin-binding protein involved in cell wall synthesis",
+        "Mechanism-based inhibition: active-site chemistry causes long-lived inactivation"
+      ],
+      "workedExample": "Compare methicillin-resistant altered PBP targets with β-lactamase-mediated destruction of a penicillin drug.",
+      "misconceptions": [
+        {
+          "misconception": "All penicillin resistance is due to β-lactamase.",
+          "correction": "Target modification of transpeptidase PBPs is an independent resistance route."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Penicillin-class β-lactams inhibit susceptible penicillin-binding proteins, including transpeptidases involved in peptidoglycan crosslinking. A catalytic active-site serine can react with the β-lactam to produce a covalently acylated, long-lived inactive enzyme complex. This is a mechanism-based, effectively irreversible inhibition rather than ordinary short-lived competition.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-pbp"
+          ]
+        },
+        {
+          "claim": "Some bacteria develop altered penicillin-binding proteins that bind/react with the antibiotic less effectively. Other bacteria produce β-lactamases that chemically break down β-lactam antibiotics. Altering the drug's target and destroying the drug are distinct resistance mechanisms; do not conflate either with a general change in the bacterial DNA replication mechanism.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-pbp"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "ncbi-pbp"
+      ],
+      "assets": [
+        "c11-penicillin"
+      ],
+      "interactions": [
+        {
+          "id": "c11-check-17",
+          "kind": "selection",
+          "understandingIds": [
+            "C1.1.17"
+          ],
+          "prompt": "Which mechanism can produce resistance without destroying the drug?",
+          "options": [
+            {
+              "id": "check-o1",
+              "text": "Altered penicillin-binding proteins",
+              "correct": true,
+              "feedback": "Altered target PBPs can reduce effective acylation."
+            },
+            {
+              "id": "check-o2",
+              "text": "Increased spontaneous conversion of enzyme to ATP",
+              "correct": false,
+              "feedback": "This is not a defined resistance mechanism."
+            },
+            {
+              "id": "check-o3",
+              "text": "Enzymes all transforming to collagen",
+              "correct": false,
+              "feedback": "PBPs are bacterial cell-wall enzymes, not collagen precursors."
+            },
+            {
+              "id": "check-o4",
+              "text": "Antibiotic changing every cell's external pH",
+              "correct": false,
+              "feedback": "Resistance is not a universal pH response."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "c11-recall-17",
+          "kind": "recall",
+          "understandingIds": [
+            "C1.1.17"
+          ],
+          "prompt": "Without looking: How does penicillin permanently impair bacterial cell-wall crosslinking?",
+          "answer": "Penicillin-class β-lactams inhibit susceptible penicillin-binding proteins, including transpeptidases involved in peptidoglycan crosslinking. A catalytic active-site serine can react with the β-lactam to produce a covalently acylated, long-lived inactive enzyme complex. This is a mechanism-based, effectively irreversible inhibition rather than ordinary short-lived competition. Compare methicillin-resistant altered PBP targets with β-lactamase-mediated destruction of a penicillin drug.",
+          "explanation": "Explain the mechanism and example."
+        }
+      ],
+      "guidePage": 66,
+      "pdfPage": 72,
+      "textbook": {
+        "referenceId": "hodder-c11",
+        "printedPages": [
+          404
+        ],
+        "pdfPages": [
+          416
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Build the mechanism",
+          "explanation": "Penicillin-class β-lactams inhibit susceptible penicillin-binding proteins, including transpeptidases involved in peptidoglycan crosslinking. A catalytic active-site serine can react with the β-lactam to produce a covalently acylated, long-lived inactive enzyme complex. This is a mechanism-based, effectively irreversible inhibition rather than ordinary short-lived competition.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-pbp"
+          ]
+        },
+        {
+          "title": "Test the causal explanation",
+          "explanation": "Some bacteria develop altered penicillin-binding proteins that bind/react with the antibiotic less effectively. Other bacteria produce β-lactamases that chemically break down β-lactam antibiotics. Altering the drug's target and destroying the drug are distinct resistance mechanisms; do not conflate either with a general change in the bacterial DNA replication mechanism.",
+          "referenceIds": [
+            "ib-c11",
+            "hodder-c11",
+            "ncbi-enzyme",
+            "ncbi-pbp"
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "c11-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.1"
+      ],
+      "level": "shared",
+      "prompt": "What does an enzyme primarily change?",
+      "marks": 1,
+      "sectionId": "c11-1",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Activation energy and reaction rate",
+          "correct": true,
+          "feedback": "Catalysts lower the barrier and accelerate approach to equilibrium."
+        },
+        {
+          "id": "o2",
+          "text": "Equilibrium composition",
+          "correct": false,
+          "feedback": "The equilibrium itself is unchanged by ordinary catalysis."
+        },
+        {
+          "id": "o3",
+          "text": "Net free energy between reactants and products",
+          "correct": false,
+          "feedback": "ΔG for the net reaction does not change."
+        },
+        {
+          "id": "o4",
+          "text": "Total energy created during reaction",
+          "correct": false,
+          "feedback": "Energy is conserved, and catalysts are not fuel."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.2"
+      ],
+      "level": "shared",
+      "prompt": "Which description best captures metabolism?",
+      "marks": 1,
+      "sectionId": "c11-2",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Only processes that break molecules down",
+          "correct": false,
+          "feedback": "Metabolism includes synthesis as well as breakdown."
+        },
+        {
+          "id": "o2",
+          "text": "Interdependent enzyme-catalysed reaction network",
+          "correct": true,
+          "feedback": "Products and substrates connect metabolic reactions."
+        },
+        {
+          "id": "o3",
+          "text": "Unconnected set of independent reactions",
+          "correct": false,
+          "feedback": "Reactions are often linked and regulated."
+        },
+        {
+          "id": "o4",
+          "text": "Single enzyme acting on every substrate",
+          "correct": false,
+          "feedback": "Enzymes are chemically selective."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.3"
+      ],
+      "level": "shared",
+      "prompt": "Which is an example of catabolism?",
+      "marks": 1,
+      "sectionId": "c11-3",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Protein synthesis",
+          "correct": false,
+          "feedback": "Protein synthesis assembles amino acids."
+        },
+        {
+          "id": "o2",
+          "text": "Carbon fixation in photosynthesis",
+          "correct": false,
+          "feedback": "Photosynthetic carbon fixation builds organic material."
+        },
+        {
+          "id": "o3",
+          "text": "Starch hydrolysis during digestion",
+          "correct": true,
+          "feedback": "Digestion breaks polymers into smaller units."
+        },
+        {
+          "id": "o4",
+          "text": "Formation of glycogen",
+          "correct": false,
+          "feedback": "Glycogen formation builds a polymer."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.4"
+      ],
+      "level": "shared",
+      "prompt": "Why can a distant amino-acid change disrupt enzyme catalysis?",
+      "marks": 1,
+      "sectionId": "c11-4",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "The enzyme has no stable three-dimensional fold",
+          "correct": false,
+          "feedback": "Most enzymes depend on their folds."
+        },
+        {
+          "id": "o2",
+          "text": "Every residue directly breaks a substrate bond",
+          "correct": false,
+          "feedback": "Only some residues participate directly in catalysis."
+        },
+        {
+          "id": "o3",
+          "text": "Sequence length alone determines catalysis",
+          "correct": false,
+          "feedback": "Length by itself cannot specify an active-site geometry."
+        },
+        {
+          "id": "o4",
+          "text": "Protein folding can reposition catalytic residues",
+          "correct": true,
+          "feedback": "Long-range structural interactions maintain the active site."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.5"
+      ],
+      "level": "shared",
+      "prompt": "Which statement correctly describes induced fit?",
+      "marks": 1,
+      "sectionId": "c11-5",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Both enzyme and substrate can change conformation",
+          "correct": true,
+          "feedback": "Binding-coupled adjustments enable productive catalytic geometry."
+        },
+        {
+          "id": "o2",
+          "text": "The enzyme is necessarily rigid throughout binding",
+          "correct": false,
+          "feedback": "Rigid-lock models miss induced fit."
+        },
+        {
+          "id": "o3",
+          "text": "The enzyme is consumed as a reactant",
+          "correct": false,
+          "feedback": "Enzymes generally regenerate."
+        },
+        {
+          "id": "o4",
+          "text": "All collision events must cause catalysis",
+          "correct": false,
+          "feedback": "Most encounters are not productive reactions."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.6"
+      ],
+      "level": "shared",
+      "prompt": "How can a membrane-anchored enzyme remain catalytic?",
+      "marks": 1,
+      "sectionId": "c11-6",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "All collisions become productive",
+          "correct": false,
+          "feedback": "Correct orientation and chemistry are still required."
+        },
+        {
+          "id": "o2",
+          "text": "Substrate diffuses toward its accessible active site",
+          "correct": true,
+          "feedback": "Relative motion allows substrate–active-site encounter."
+        },
+        {
+          "id": "o3",
+          "text": "Both molecules must detach from the membrane",
+          "correct": false,
+          "feedback": "Membrane attachment can be compatible with catalysis."
+        },
+        {
+          "id": "o4",
+          "text": "Immobilisation always denatures the enzyme",
+          "correct": false,
+          "feedback": "Immobilisation does not necessarily denature."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.7"
+      ],
+      "level": "shared",
+      "prompt": "Which change may reduce activity at extreme pH?",
+      "marks": 1,
+      "sectionId": "c11-7",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Creation of net chemical energy",
+          "correct": false,
+          "feedback": "Catalysts cannot create net reaction energy."
+        },
+        {
+          "id": "o2",
+          "text": "Every enzyme becoming covalently bonded to water",
+          "correct": false,
+          "feedback": "The stated universal covalent reaction does not occur."
+        },
+        {
+          "id": "o3",
+          "text": "Altered ionisation and active-site geometry",
+          "correct": true,
+          "feedback": "Active-site charge and fold influence binding and catalysis."
+        },
+        {
+          "id": "o4",
+          "text": "Automatic disappearance of every substrate",
+          "correct": false,
+          "feedback": "pH does not imply substrate is absent."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.8"
+      ],
+      "level": "shared",
+      "prompt": "What happens as substrate concentration rises toward saturation?",
+      "marks": 1,
+      "sectionId": "c11-8",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Rate rises linearly without limit",
+          "correct": false,
+          "feedback": "Fixed enzyme availability imposes a capacity limit."
+        },
+        {
+          "id": "o2",
+          "text": "Enzyme concentration automatically increases",
+          "correct": false,
+          "feedback": "Substrate concentration does not itself change enzyme amount."
+        },
+        {
+          "id": "o3",
+          "text": "All enzymes denature at high substrate",
+          "correct": false,
+          "feedback": "High substrate is not inherently denaturing in this model."
+        },
+        {
+          "id": "o4",
+          "text": "Rate often rises then levels toward a maximum",
+          "correct": true,
+          "feedback": "Limited active sites constrain the maximum enzyme turnover rate."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.9"
+      ],
+      "level": "shared",
+      "prompt": "Product rises from 0 to 12 μmol in 30 s. What is the interval rate?",
+      "marks": 1,
+      "sectionId": "c11-9",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "0.40 μmol s⁻¹",
+          "correct": true,
+          "feedback": "12/30 is 0.40 with correct units."
+        },
+        {
+          "id": "o2",
+          "text": "2.5 μmol s⁻¹",
+          "correct": false,
+          "feedback": "This reverses the quotient."
+        },
+        {
+          "id": "o3",
+          "text": "12 μmol min⁻¹",
+          "correct": false,
+          "feedback": "Over 0.5 min the rate would be 24 μmol min⁻¹."
+        },
+        {
+          "id": "o4",
+          "text": "360 μmol s⁻¹",
+          "correct": false,
+          "feedback": "Multiplying instead of dividing is incorrect."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.10"
+      ],
+      "level": "shared",
+      "prompt": "Which quantity remains unchanged by enzyme catalysis?",
+      "marks": 1,
+      "sectionId": "c11-10",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Rate of productive conversions",
+          "correct": false,
+          "feedback": "Productive turnover rises when catalysis succeeds."
+        },
+        {
+          "id": "o2",
+          "text": "Reactant-to-product energy difference",
+          "correct": true,
+          "feedback": "Net reaction energetics do not depend on catalytic route."
+        },
+        {
+          "id": "o3",
+          "text": "Forward activation energy",
+          "correct": false,
+          "feedback": "The effective barrier is lowered."
+        },
+        {
+          "id": "o4",
+          "text": "Reaction time to equilibrium",
+          "correct": false,
+          "feedback": "Catalysis usually changes timescale."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.11"
+      ],
+      "level": "HL",
+      "prompt": "Which process is extracellular?",
+      "marks": 1,
+      "sectionId": "c11-11",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "ncbi-exocytosis"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Mitochondrial Krebs cycle",
+          "correct": false,
+          "feedback": "Krebs cycle occurs inside mitochondria in eukaryotes."
+        },
+        {
+          "id": "o2",
+          "text": "Protein folding within the endoplasmic reticulum",
+          "correct": false,
+          "feedback": "ER folding occurs within a cellular organelle."
+        },
+        {
+          "id": "o3",
+          "text": "Pancreatic enzyme digestion in gut lumen",
+          "correct": true,
+          "feedback": "Gut-lumen digestion occurs outside cells."
+        },
+        {
+          "id": "o4",
+          "text": "Cytosolic glycolysis",
+          "correct": false,
+          "feedback": "Glycolysis occurs in cytosol."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-12",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.12"
+      ],
+      "level": "HL",
+      "prompt": "Why does metabolism warm an endothermic animal?",
+      "marks": 1,
+      "sectionId": "c11-12",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Enzymes create energy out of nothing",
+          "correct": false,
+          "feedback": "Energy is conserved."
+        },
+        {
+          "id": "o2",
+          "text": "All reactions transfer exactly the same heat",
+          "correct": false,
+          "feedback": "Different processes have different energetics."
+        },
+        {
+          "id": "o3",
+          "text": "Heat output is independent of metabolic activity",
+          "correct": false,
+          "feedback": "Activity generally affects heat production."
+        },
+        {
+          "id": "o4",
+          "text": "Some chemical energy dissipates as heat in imperfect transfers",
+          "correct": true,
+          "feedback": "Heat is a by-product of real energy conversion."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-13",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.13"
+      ],
+      "level": "HL",
+      "prompt": "Which is usually represented as a linear pathway?",
+      "marks": 1,
+      "sectionId": "c11-13",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Glycolysis",
+          "correct": true,
+          "feedback": "Glycolysis is a linear sequence."
+        },
+        {
+          "id": "o2",
+          "text": "Krebs cycle",
+          "correct": false,
+          "feedback": "The Krebs cycle regenerates a substrate."
+        },
+        {
+          "id": "o3",
+          "text": "Calvin cycle",
+          "correct": false,
+          "feedback": "Calvin-cycle carbon assimilation regenerates RuBP."
+        },
+        {
+          "id": "o4",
+          "text": "Both Krebs and Calvin cycles",
+          "correct": false,
+          "feedback": "Both named cyclic examples regenerate intermediates."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-14",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.14"
+      ],
+      "level": "HL",
+      "prompt": "What happens in the guide's reversible allosteric inhibition model?",
+      "marks": 1,
+      "sectionId": "c11-14",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "ncbi-allostery"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Every compound can occupy any allosteric site",
+          "correct": false,
+          "feedback": "Binding requires molecular compatibility."
+        },
+        {
+          "id": "o2",
+          "text": "A specific inhibitor binds away from the active site and changes conformation",
+          "correct": true,
+          "feedback": "The distinct regulatory site can alter catalysis."
+        },
+        {
+          "id": "o3",
+          "text": "Substrate and inhibitor bind identically at active-site atoms",
+          "correct": false,
+          "feedback": "That describes competitive active-site binding."
+        },
+        {
+          "id": "o4",
+          "text": "Every inhibitor is irreversible",
+          "correct": false,
+          "feedback": "The guide's interaction is reversible."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-15",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.15"
+      ],
+      "level": "HL",
+      "prompt": "What may reduce reversible competitive inhibition?",
+      "marks": 1,
+      "sectionId": "c11-15",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Permanently denaturing the enzyme",
+          "correct": false,
+          "feedback": "Denaturation would stop catalysis."
+        },
+        {
+          "id": "o2",
+          "text": "Removing all reactants",
+          "correct": false,
+          "feedback": "No substrate means no reaction flux."
+        },
+        {
+          "id": "o3",
+          "text": "Increasing substrate concentration",
+          "correct": true,
+          "feedback": "Substrate can outcompete an inhibitor for active-site occupancy."
+        },
+        {
+          "id": "o4",
+          "text": "Decreasing substrate to zero",
+          "correct": false,
+          "feedback": "Less substrate favours relative inhibitor occupancy."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-16",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.16"
+      ],
+      "level": "HL",
+      "prompt": "What is the expected effect of abundant isoleucine?",
+      "marks": 1,
+      "sectionId": "c11-16",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "An automatic increase in isoleucine production",
+          "correct": false,
+          "feedback": "Negative feedback limits excess synthesis."
+        },
+        {
+          "id": "o2",
+          "text": "Immediate mutation of DNA",
+          "correct": false,
+          "feedback": "Enzyme activity can change without genetic mutation."
+        },
+        {
+          "id": "o3",
+          "text": "All enzymes convert to isoleucine",
+          "correct": false,
+          "feedback": "Enzymes are catalysts, not converted into product."
+        },
+        {
+          "id": "o4",
+          "text": "Reduced activity of an early biosynthetic enzyme",
+          "correct": true,
+          "feedback": "End-product feedback slows pathway entry."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-mcq-17",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.1.17"
+      ],
+      "level": "HL",
+      "prompt": "Which mechanism can produce resistance without destroying the drug?",
+      "marks": 1,
+      "sectionId": "c11-17",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "ncbi-pbp"
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "Altered penicillin-binding proteins",
+          "correct": true,
+          "feedback": "Altered target PBPs can reduce effective acylation."
+        },
+        {
+          "id": "o2",
+          "text": "Increased spontaneous conversion of enzyme to ATP",
+          "correct": false,
+          "feedback": "This is not a defined resistance mechanism."
+        },
+        {
+          "id": "o3",
+          "text": "Enzymes all transforming to collagen",
+          "correct": false,
+          "feedback": "PBPs are bacterial cell-wall enzymes, not collagen precursors."
+        },
+        {
+          "id": "o4",
+          "text": "Antibiotic changing every cell's external pH",
+          "correct": false,
+          "feedback": "Resistance is not a universal pH response."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-data-initial",
+      "paper": "1B",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "C1.1.9"
+      ],
+      "level": "shared",
+      "prompt": "These are invented illustrative product amounts, not measured lab results. Calculate early 0–20 s and late 40–60 s rates, giving units, and say which better approximates initial rate.",
+      "marks": 4,
+      "sectionId": "c11-9",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "answer": "Early interval 0.50 μmol s⁻¹, late 0.30 μmol s⁻¹.",
+      "markingPoints": [
+        "10 μmol/20 s = 0.50 μmol s⁻¹.",
+        "(24−18) μmol/20 s = 0.30 μmol s⁻¹.",
+        "Correct rate units.",
+        "An early short interval can approximate initial rate, not the late interval."
+      ],
+      "data": {
+        "caption": "Illustrative hypothetical product data at fixed conditions, not measured laboratory data.",
+        "headers": [
+          "Time (s)",
+          "Product (μmol)"
+        ],
+        "rows": [
+          [
+            0,
+            0
+          ],
+          [
+            20,
+            10
+          ],
+          [
+            40,
+            18
+          ],
+          [
+            60,
+            24
+          ]
+        ]
+      },
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-data-saturation",
+      "paper": "1B",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "C1.1.8"
+      ],
+      "level": "shared",
+      "prompt": "For a theoretical simple enzyme model v=10[S]/(2+[S]), calculate the initial rate at 2 mmol L⁻¹ substrate, describe saturation and state one limit of the model.",
+      "marks": 4,
+      "sectionId": "c11-8",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "answer": "v=10×2/(2+2)=5 μmol min⁻¹ at 2 mmol L⁻¹. This is a model, not experimental data.",
+      "markingPoints": [
+        "Substitute [S]=2 into equation.",
+        "Rate is 5 μmol min⁻¹.",
+        "Curve approaches 10 μmol min⁻¹ rather than rising without limit.",
+        "Model assumes fixed enzyme, pH and temperature and may not fit all real enzymes."
+      ],
+      "data": {
+        "caption": "Calculated theoretical Michaelis–Menten model, Vmax 10 μmol min⁻¹, Km 2 mmol L⁻¹; not real measurements.",
+        "headers": [
+          "Substrate (mmol L⁻¹)",
+          "Initial rate (μmol min⁻¹)"
+        ],
+        "rows": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            3.333
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            7.143
+          ],
+          [
+            10,
+            8.333
+          ]
+        ]
+      },
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-energy-evaluate",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "C1.1.10"
+      ],
+      "level": "shared",
+      "prompt": "Given illustrative relative energies: reactants 20, products 0, uncatalysed transition level 90 and catalysed level 55 kJ mol⁻¹, calculate both forward activation energies and explain the unchanged ΔE.",
+      "marks": 4,
+      "sectionId": "c11-10",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme",
+        "litlab-models"
+      ],
+      "answer": "Ea before=90−20=70; after=55−20=35; ΔE=0−20=−20 kJ mol⁻¹.",
+      "markingPoints": [
+        "Uncatalysed barrier 70 kJ mol⁻¹.",
+        "Catalysed barrier 35 kJ mol⁻¹.",
+        "Products−reactants = −20 kJ mol⁻¹ in both.",
+        "Enzyme affects activation barrier, not the net energy difference."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-inhibition-explain",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "C1.1.16"
+      ],
+      "level": "HL",
+      "prompt": "Explain end-product feedback in the threonine→isoleucine pathway, and distinguish it from statin competitive inhibition and penicillin's active-site inactivation.",
+      "marks": 4,
+      "sectionId": "c11-16",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-enzyme"
+      ],
+      "answer": "Feedback is regulatory, statins compete reversibly, and penicillin acts through long-lived mechanism-based covalent inactivation.",
+      "markingPoints": [
+        "Isoleucine binds a regulatory site on an early enzyme.",
+        "Excess isoleucine slows pathway flux.",
+        "Statins reversibly compete at HMG-CoA reductase active site.",
+        "Penicillin acylates bacterial PBP transpeptidase; altered PBPs can confer resistance."
+      ],
+      "review": "scientific-review"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-c11",
+      "title": "IB Biology Guide, first assessment 2025",
+      "locator": "C1.1 printed pp. 64–66 / PDF pp. 70–72",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "hodder-c11",
+      "title": "Clegg, Davis, Talbot, Hodder IB Biology Third Edition (2023)",
+      "locator": "Complete chapter C1.1 printed pp. 380–404 / PDF pp. 392–416",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "ncbi-enzyme",
+      "title": "NCBI Bookshelf: The Central Role of Enzymes as Biological Catalysts",
+      "locator": "Catalysis, active sites, feedback / isoleucine",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK9921/",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "ncbi-exocytosis",
+      "title": "NCBI Bookshelf: Digestive Enzymes — The Exocrine Pancreas",
+      "locator": "Pancreatic secretory vesicles release cargo by exocytosis",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK54127/",
+      "level": "HL",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "ncbi-allostery",
+      "title": "NCBI Bookshelf: Physiology, Noncompetitive Inhibitor",
+      "locator": "Pure noncompetitive kinetics as a special case",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK545242/",
+      "level": "HL",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "ncbi-pbp",
+      "title": "NCBI Bookshelf: Antimicrobial Chemotherapy",
+      "locator": "Target PBP changes and beta-lactamase resistance",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK7986/",
+      "level": "HL",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "litlab-models",
+      "title": "LitLab original theoretical enzyme models",
+      "locator": "Mathematical model coordinates and explanatory assumptions; not empirical data",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    }
+  ],
+  "assets": [
+    {
+      "id": "c11-active",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/active.svg",
+      "recallSrc": "/biology/enzymes-metabolism/active-recall.svg",
+      "captionTitle": "Active mechanism",
+      "alt": "Compact globular fold; Only a few residues directly catalyse; Other residues stabilise active-site geometry. Conceptual schematic; not an atom-resolved model.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-induced",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/induced.svg",
+      "recallSrc": "/biology/enzymes-metabolism/induced-recall.svg",
+      "captionTitle": "Induced mechanism",
+      "alt": "Before binding: both molecules mobile; On binding: enzyme and substrate conformations adjust; After catalysis: products depart. Conceptual schematic; not an atom-resolved model.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-collision",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/collision.svg",
+      "recallSrc": "/biology/enzymes-metabolism/collision-recall.svg",
+      "captionTitle": "Collision mechanism",
+      "alt": "Anchored enzyme at a surface; Mobile substrate diffuses to accessible active site; Correctly oriented encounter gives complex. Conceptual schematic; not an atom-resolved model.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-temperature",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/temperature.svg",
+      "recallSrc": "/biology/enzymes-metabolism/temperature-recall.svg",
+      "captionTitle": "Hypothetical temperature response",
+      "alt": "Hypothetical temperature response. Fixed pH 7; enzyme quantity and substrate concentration fixed. Invented model values, not laboratory data. Complete accessible coordinate table appears with lesson.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "litlab-models"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-ph",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/ph.svg",
+      "recallSrc": "/biology/enzymes-metabolism/ph-recall.svg",
+      "captionTitle": "Hypothetical pH response",
+      "alt": "Hypothetical pH response. 30°C and fixed enzyme/substrate concentration; invented demonstration, not real measurements. Complete accessible coordinate table appears with lesson.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "litlab-models"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-substrate",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/substrate.svg",
+      "recallSrc": "/biology/enzymes-metabolism/substrate-recall.svg",
+      "captionTitle": "Saturation: simple Michaelis–Menten model",
+      "alt": "Saturation: simple Michaelis–Menten model. v=10[S]/(2+[S]) with fixed enzyme, pH and temperature; theoretical values, not experimental observations. Complete accessible coordinate table appears with lesson.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "litlab-models"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-timecourse",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/timecourse.svg",
+      "recallSrc": "/biology/enzymes-metabolism/timecourse-recall.svg",
+      "captionTitle": "Illustrative reaction progress",
+      "alt": "Illustrative reaction progress. P(t)=60(1−exp(−t/3)); initial tangent 20 μmol min⁻¹. Model, not laboratory data. Complete accessible coordinate table appears with lesson.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "litlab-models"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-activation",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/activation.svg",
+      "recallSrc": "/biology/enzymes-metabolism/activation-recall.svg",
+      "captionTitle": "Catalysed versus uncatalysed energy profiles",
+      "alt": "Catalysed versus uncatalysed energy profiles. Illustrative energy levels: reactants 20, products 0; transition peaks 90 and 55 kJ mol⁻¹. Not measured data. Complete accessible coordinate table appears with lesson.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "litlab-models"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-pathways",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/pathways.svg",
+      "recallSrc": "/biology/enzymes-metabolism/pathways-recall.svg",
+      "captionTitle": "Pathways mechanism",
+      "alt": "Glycolysis: cytosolic linear pathway; Krebs cycle: intracellular cyclic pathway; Gut digestion: extracellular pathway. Conceptual schematic; not an atom-resolved model.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-inhibition",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/inhibition.svg",
+      "recallSrc": "/biology/enzymes-metabolism/inhibition-recall.svg",
+      "captionTitle": "Competitive inhibitor rate models",
+      "alt": "Competitive inhibitor rate models. Both theoretical curves have Vmax=10 μmol min⁻¹. Control Km=2, inhibitor apparent Km=6 mmol L⁻¹. Not lab data. Complete accessible coordinate table appears with lesson.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "litlab-models"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-feedback",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/feedback.svg",
+      "recallSrc": "/biology/enzymes-metabolism/feedback-recall.svg",
+      "captionTitle": "Feedback mechanism",
+      "alt": "Threonine → intermediate steps → isoleucine; End product inhibits early enzyme. Conceptual schematic; not an atom-resolved model.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c11-penicillin",
+      "kind": "diagram",
+      "src": "/biology/enzymes-metabolism/penicillin.svg",
+      "recallSrc": "/biology/enzymes-metabolism/penicillin-recall.svg",
+      "captionTitle": "Penicillin mechanism",
+      "alt": "β-lactam binds/reacts with PBP transpeptidase; Long-lived acyl-enzyme prevents wall crosslinking; Altered PBP differs from β-lactamase destruction. Conceptual schematic; not an atom-resolved model.",
+      "attribution": "Original LitLab SVG developed for Phase 5",
+      "license": "Original LitLab draft artwork; owner clearance pending",
+      "permissionEvidence": "New SVG layout and theoretical curves generated from explicit original model parameters; no third-party diagrams traced",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    }
+  ],
+  "summary": "Catalysis lowers an activation barrier without changing equilibrium. Folded active sites and productive encounters control enzyme activity. Qualitative curves, controlled rate measurements and regulation illustrate metabolic interdependence.",
+  "review": {
+    "status": "scientific-review",
+    "sourceCheckedAt": "2026-10-16",
+    "reviewer": null,
+    "notes": [
+      "Mapped C1.1.1–C1.1.17 to official IB 2025 Guide with SL/HL boundaries.",
+      "Consulted full Hodder C1.1 pp. 380–404 (PDF 392–416); corrected exocytosis/endocytosis error on printed p. 396.",
+      "All graph curves are independently generated hypothetical model values with explicit units, assumptions and accessible numeric tables; none presented as laboratory measurements.",
+      "Qualified biochemistry, chemistry graph, IB assessment, rights and accessibility sign-off are still required.",
+      "No claims of laboratory validation, student testing or reviewer approval."
+    ]
+  }
+}
