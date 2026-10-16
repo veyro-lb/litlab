@@ -114,3 +114,26 @@
 @media(max-width:560px){.bio-figure-dialog-head{align-items:start}.bio-figure-dialog{padding:12px}}
 /* Long topic names must not expand the mobile layout viewport. */
 @media(max-width:560px){.bio-lesson-hero h1{font-size:clamp(26px,7.5vw,38px);letter-spacing:-1px;overflow-wrap:anywhere}.bio-lesson-hero>div{min-width:0}}
+
+/* BioLab learning redesign: structured, student-controlled teaching steps.
+   This is a real disclosure sequence; no content is fabricated by CSS. */
+.bio-guided-learning{margin:24px 0 30px;display:grid;gap:11px;min-width:0}
+.bio-guided-learning-intro{padding:21px 23px;border:1px solid color-mix(in srgb,var(--bio-green) 32%,var(--line));border-radius:17px;background:color-mix(in srgb,var(--bio-green) 7%,var(--surface));margin-bottom:2px}
+.bio-guided-learning-intro .bio-eyebrow{font-size:10px;font-weight:850;letter-spacing:.1em}
+.bio-guided-learning-intro h3{font-size:clamp(21px,2.2vw,27px);letter-spacing:-.04em;line-height:1.25;margin:8px 0}
+.bio-guided-learning-intro p{margin:0;font-size:14px;line-height:1.7;max-width:63ch;color:var(--muted)}
+.bio-guided-learning .bio-teaching-block{margin:0}
+.bio-learning-step{border:1px solid var(--line);border-radius:15px;background:var(--surface);overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}
+.bio-learning-step[open]{border-color:color-mix(in srgb,var(--bio-green) 48%,var(--line));box-shadow:0 10px 30px rgba(12,67,55,.06)}
+.bio-learning-step summary{display:flex;align-items:center;gap:15px;min-height:78px;padding:14px 18px;list-style:none;cursor:pointer;outline-offset:-3px}
+.bio-learning-step summary::-webkit-details-marker{display:none}
+.bio-learning-step summary:focus-visible{outline:3px solid var(--bio-green);border-radius:13px}
+.bio-learning-step-number{flex:0 0 45px;width:45px;height:45px;border:1px solid color-mix(in srgb,var(--bio-green) 24%,var(--line));border-radius:11px;background:color-mix(in srgb,var(--bio-green) 8%,var(--surface));display:grid;place-items:center;color:var(--bio-green);font-size:14px;font-weight:850;letter-spacing:.03em}
+.bio-learning-step summary h3{flex:1;min-width:0;font-size:clamp(16px,1.6vw,20px);line-height:1.4;letter-spacing:-.02em;margin:0;color:var(--ink)}
+.bio-learning-step-hint{flex:0 0 auto;text-transform:uppercase;font-size:10px;letter-spacing:.11em;font-weight:750;color:var(--muted)}
+.bio-learning-step[open] .bio-learning-step-hint{color:var(--bio-green)}
+.bio-learning-step>p{padding:4px 26px 26px 78px;font-size:clamp(15px,1.35vw,17px);line-height:1.8;max-width:75ch;margin:0;color:var(--ink)}
+.bio-learning-direct{font-size:13px;font-weight:800;color:var(--bio-green);text-decoration:underline;text-underline-offset:4px}
+.bio-learning-direct:focus-visible{outline:3px solid var(--bio-green);outline-offset:4px}
+@media(max-width:560px){.bio-guided-learning-intro{padding:18px}.bio-learning-step summary{gap:10px;padding:12px;min-height:68px}.bio-learning-step-number{width:36px;height:36px;flex-basis:36px;font-size:12px}.bio-learning-step-hint{font-size:9px;max-width:72px;text-align:right;line-height:1.4}.bio-learning-step>p{padding:4px 16px 20px;font-size:15px;line-height:1.75}}
+@media(prefers-reduced-motion:reduce){.bio-learning-step{transition:none}}
