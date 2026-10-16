@@ -23,6 +23,7 @@ export function validateLesson(d,topic){
   if(s.claimReferences?.map(x=>x.claim).join('\n\n')!==s.explanation)fail(`Unmapped explanation ${s.id}`);
   for(const c of s.claimReferences||[])checkRefs(c.referenceIds,s.id);
   if(s.teachingBlocks){if(s.teachingBlocks.map(b=>b.explanation).join('\n\n')!==s.explanation)fail(`Teaching blocks drift ${s.id}`);for(const b of s.teachingBlocks){if(!b.title)fail(`Missing teaching heading ${s.id}`);checkRefs(b.referenceIds,s.id)}}
+  if(s.molecularViewer&&(!s.molecularViewer.title||!s.molecularViewer.prompt||!s.molecularViewer.fallback||!s.molecularViewer.structureId||!s.molecularViewer.url.startsWith('https://www.rcsb.org/3d-view/')||!refs.has(s.molecularViewer.referenceId)))fail('Invalid molecular viewing '+s.id);
   if(s.enrichment){if(!s.enrichment.title||!s.enrichment.text)fail(`Missing enrichment ${s.id}`);checkRefs(s.enrichment.referenceIds,s.id)}
   if(s.textbook){checkRefs([s.textbook.referenceId],s.id);if(!s.textbook.printedPages?.length||s.textbook.printedPages.length!==s.textbook.pdfPages?.length)fail(`Incomplete textbook locator ${s.id}`)}
   if(!s.interactions?.length||!s.recall?.length)fail(`Missing retrieval ${s.id}`);

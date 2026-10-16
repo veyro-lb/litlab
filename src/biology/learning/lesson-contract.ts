@@ -15,6 +15,7 @@ export interface Section {
  teachingBlocks?:TeachingBlock[];enrichment?:{title:string;text:string;referenceIds:string[]};
  explorer?:{title:string;prompt?:string;features:{id:string;label:string;explanation:string}[]};
  mechanismChallenge?:MechanismChallenge;
+ molecularViewer?:{title:string;structureId:string;url:string;prompt:string;fallback:string;referenceId:string};
 }
 export interface Question {
  id:string;paper:'1A'|'1B'|'2';kind:string;original:true;understandingIds:string[];level:Scope;prompt:string;marks:number;

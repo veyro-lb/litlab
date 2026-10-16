@@ -9,6 +9,7 @@ import {ChoiceQuestion,RecallQuestion,WrittenQuestion} from './StudyQuestion';
 import type {UpdateStudy} from './StudyQuestion';
 import ScientificFigure from './ScientificFigure';
 import MechanismSequence from './MechanismSequence';
+import MolecularViewerActivity from './MolecularViewerActivity';
 export type LessonMode = 'learn'|'revision'|'practice'|'sources';
 const modes: LessonMode[]=['learn','revision','practice','sources'];
 export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesson;topic:Topic;level:Level;mode:LessonMode;hash:string}) {
@@ -47,6 +48,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
       {section.assets.length>0&&<><div className="bio-actions"><button type="button" aria-pressed={!study.labels} onClick={()=>update(s=>({...s,labels:!s.labels}))}>{study.labels?'Hide figure labels for recall':'Reveal figure labels'}</button></div>{section.assets.map(id=>{const a=lesson.assets.find(x=>x.id===id)!;return <ScientificFigure key={id} asset={a} hideLabels={!study.labels&&a.kind!=='photograph'}/>})}</>}
       {section.explorer&&mode==='learn'&&<div className="bio-explorer"><h3>{section.explorer.title}</h3>{section.explorer.prompt&&<p className="bio-explorer-prompt">{section.explorer.prompt}</p>}<div className="bio-actions" role="group" aria-label={section.explorer.title}>{section.explorer.features.map(f=><button type="button" key={f.id} aria-pressed={(explorerFeatures[section.id]??section.explorer!.features[0].id)===f.id} onClick={()=>setExplorerFeatures(s=>({...s,[section.id]:f.id}))}>{f.label}</button>)}</div><p role="status">{section.explorer.features.find(f=>f.id===(explorerFeatures[section.id]??section.explorer!.features[0].id))?.explanation}</p></div>}
       {section.mechanismChallenge&&mode==='learn'&&<MechanismSequence key={section.id} challenge={section.mechanismChallenge}/>}
+      {section.molecularViewer&&mode==='learn'&&<MolecularViewerActivity activity={section.molecularViewer}/>}
       {section.enrichment&&<details className="bio-enrichment"><summary>Enrichment · {section.enrichment.title}</summary><p>{section.enrichment.text}</p></details>}
       {mode==='learn'&&<div className="bio-example"><span className="bio-eyebrow">MAKE THE CONNECTION</span><p>{section.workedExample}</p></div>}
       <p className="bio-question-syllabus">Understanding check · {section.understandingIds.join(' / ')}</p>{section.interactions.map(q=><ChoiceQuestion key={q.id} item={q} study={study} update={update}/>)}

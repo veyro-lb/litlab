@@ -1,0 +1,3083 @@
+{
+  "schemaVersion": 1,
+  "id": "a1-2-nucleic-acids-v1",
+  "topicId": "A1.2",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Nucleic acids",
+  "introduction": "How do covalently linked nucleotides encode and transmit hereditary information, and what experiments reveal DNA's role?",
+  "prerequisites": [
+    "Know what a covalent bond is",
+    "Recognise DNA as a molecule within cells",
+    "Distinguish an experimental observation from a scientific inference"
+  ],
+  "objectives": [
+    "Draw nucleotides and complementary antiparallel strands",
+    "Explain nucleic-acid structure, conservation and information capacity",
+    "For HL, inspect a nucleosome with molecular visualization software and evaluate experimental evidence"
+  ],
+  "learningPath": [
+    "Build the nucleotide",
+    "Link and pair strands",
+    "Interpret information and inheritance",
+    "At HL: molecules, isotopes and evidence"
+  ],
+  "sections": [
+    {
+      "id": "a12-1",
+      "understandingIds": [
+        "A1.2.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why is DNA inherited in cells even though some viruses have RNA genomes?",
+      "explanation": "DNA is the genetic material of all living cellular organisms. A cell's DNA sequence is copied before division and transmitted to daughter cells; inherited sequences can direct biological function through gene expression. DNA is present in bacteria and archaea as well as eukaryotes, so chromosomes inside a nucleus are not its defining feature.\n\nSome viruses carry RNA rather than DNA as their genetic material. The IB guide classifies viruses as non-living, so this exception must be stated without turning it into the false claim that every organism has an RNA genome. A piece of DNA is genetic information even when it does not directly code for a protein.",
+      "revisionSummary": "DNA is the genetic material of all living cellular organisms. Some viruses carry RNA rather than DNA as their genetic material.",
+      "terms": [
+        "Genome: hereditary nucleic-acid information",
+        "DNA: deoxyribonucleic acid"
+      ],
+      "workedExample": "A bacterium copies its chromosome before splitting; an RNA virus may instead package RNA.",
+      "misconceptions": [
+        {
+          "misconception": "All genetic material in biology is DNA.",
+          "correction": "Some viruses have RNA genomes; living cellular organisms use DNA."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "DNA is the genetic material of all living cellular organisms. A cell's DNA sequence is copied before division and transmitted to daughter cells; inherited sequences can direct biological function through gene expression. DNA is present in bacteria and archaea as well as eukaryotes, so chromosomes inside a nucleus are not its defining feature.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "Some viruses carry RNA rather than DNA as their genetic material. The IB guide classifies viruses as non-living, so this exception must be stated without turning it into the false claim that every organism has an RNA genome. A piece of DNA is genetic information even when it does not directly code for a protein.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-1",
+          "prompt": "Which statement best fits the IB guide?",
+          "understandingIds": [
+            "A1.2.1"
+          ],
+          "options": [
+            {
+              "text": "All living organisms carry genetic information as DNA, while some viruses use RNA",
+              "correct": true,
+              "feedback": "DNA is inherited by cellular life; RNA viruses are a distinct non-living category.",
+              "id": "check-o1"
+            },
+            {
+              "text": "Every virus has DNA",
+              "correct": false,
+              "feedback": "RNA genomes exist in some viruses.",
+              "id": "check-o2"
+            },
+            {
+              "text": "Only organisms with nuclei use DNA",
+              "correct": false,
+              "feedback": "Bacteria also store information in DNA.",
+              "id": "check-o3"
+            },
+            {
+              "text": "RNA never stores hereditary information",
+              "correct": false,
+              "feedback": "RNA can be genetic material in viruses.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-1",
+          "understandingIds": [
+            "A1.2.1"
+          ],
+          "prompt": "Without notes: Why is DNA inherited in cells even though some viruses have RNA genomes?",
+          "answer": "DNA is the genetic material of all living cellular organisms. A cell's DNA sequence is copied before division and transmitted to daughter cells; inherited sequences can direct biological function through gene expression. DNA is present in bacteria and archaea as well as eukaryotes, so chromosomes inside a nucleus are not its defining feature. A bacterium copies its chromosome before splitting; an RNA virus may instead package RNA.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 35,
+      "pdfPage": 41,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          14,
+          15
+        ],
+        "pdfPages": [
+          26,
+          27
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "DNA is the genetic material of all living cellular organisms. A cell's DNA sequence is copied before division and transmitted to daughter cells; inherited sequences can direct biological function through gene expression. DNA is present in bacteria and archaea as well as eukaryotes, so chromosomes inside a nucleus are not its defining feature.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "Some viruses carry RNA rather than DNA as their genetic material. The IB guide classifies viruses as non-living, so this exception must be stated without turning it into the false claim that every organism has an RNA genome. A piece of DNA is genetic information even when it does not directly code for a protein.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-2",
+      "understandingIds": [
+        "A1.2.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How should phosphate, pentose and base be positioned in a nucleotide diagram?",
+      "explanation": "Every nucleotide includes a phosphate group, a five-carbon sugar and a nitrogenous base. The official simplified diagram uses a circle for phosphate, a pentagon for sugar and a rectangle for base. The sugar is central: phosphate attaches to sugar, and the base also attaches to sugar, not directly to the phosphate.\n\nIn a common molecular nucleotide, the base attaches at the sugar's 1′ carbon and phosphate is associated with the 5′ carbon. The icon diagram is a connectivity aid, not an atom-by-atom structural formula; the precise relative position of base and phosphate must nevertheless remain correct.",
+      "revisionSummary": "Every nucleotide includes a phosphate group, a five-carbon sugar and a nitrogenous base. In a common molecular nucleotide, the base attaches at the sugar's 1′ carbon and phosphate is associated with the 5′ carbon.",
+      "terms": [
+        "Pentose: five-carbon sugar",
+        "Phosphate: component of nucleic acid backbone"
+      ],
+      "workedExample": "Draw phosphate (circle) — sugar (pentagon) — base (rectangle), with connections meeting sugar.",
+      "misconceptions": [
+        {
+          "misconception": "Phosphate connects directly to a base, with sugar dangling separately.",
+          "correction": "Both phosphate and base are covalently attached to the pentose sugar."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Every nucleotide includes a phosphate group, a five-carbon sugar and a nitrogenous base. The official simplified diagram uses a circle for phosphate, a pentagon for sugar and a rectangle for base. The sugar is central: phosphate attaches to sugar, and the base also attaches to sugar, not directly to the phosphate.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "In a common molecular nucleotide, the base attaches at the sugar's 1′ carbon and phosphate is associated with the 5′ carbon. The icon diagram is a connectivity aid, not an atom-by-atom structural formula; the precise relative position of base and phosphate must nevertheless remain correct.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-nucleotide"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-2",
+          "prompt": "Which nucleotide icon is connected correctly?",
+          "understandingIds": [
+            "A1.2.2"
+          ],
+          "options": [
+            {
+              "text": "Base—phosphate only",
+              "correct": false,
+              "feedback": "The pentose sugar is an essential attached component.",
+              "id": "check-o1"
+            },
+            {
+              "text": "Phosphate—sugar—base",
+              "correct": true,
+              "feedback": "The pentose forms the connection between these components.",
+              "id": "check-o2"
+            },
+            {
+              "text": "Phosphate—base—sugar",
+              "correct": false,
+              "feedback": "The base does not bond directly to phosphate in this representation.",
+              "id": "check-o3"
+            },
+            {
+              "text": "Three isolated icons",
+              "correct": false,
+              "feedback": "The components must form a nucleotide, not three separate objects.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-2",
+          "understandingIds": [
+            "A1.2.2"
+          ],
+          "prompt": "Without notes: How should phosphate, pentose and base be positioned in a nucleotide diagram?",
+          "answer": "Every nucleotide includes a phosphate group, a five-carbon sugar and a nitrogenous base. The official simplified diagram uses a circle for phosphate, a pentagon for sugar and a rectangle for base. The sugar is central: phosphate attaches to sugar, and the base also attaches to sugar, not directly to the phosphate. Draw phosphate (circle) — sugar (pentagon) — base (rectangle), with connections meeting sugar.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 35,
+      "pdfPage": 41,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          15,
+          16
+        ],
+        "pdfPages": [
+          27,
+          28
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "Every nucleotide includes a phosphate group, a five-carbon sugar and a nitrogenous base. The official simplified diagram uses a circle for phosphate, a pentagon for sugar and a rectangle for base. The sugar is central: phosphate attaches to sugar, and the base also attaches to sugar, not directly to the phosphate.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "In a common molecular nucleotide, the base attaches at the sugar's 1′ carbon and phosphate is associated with the 5′ carbon. The icon diagram is a connectivity aid, not an atom-by-atom structural formula; the precise relative position of base and phosphate must nevertheless remain correct.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-3",
+      "understandingIds": [
+        "A1.2.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What survives as a strong linked chain when complementary DNA strands separate?",
+      "explanation": "Successive nucleotides are joined by covalent sugar–phosphate (phosphodiester) bonds. Repeating phosphate and pentose units form a continuous backbone within each DNA or RNA strand. Bases attach to sugars and point away from that backbone; they do not replace it.\n\nThe backbone's covalent links are different from the hydrogen bonds that hold complementary DNA strands together. When two DNA strands separate during replication, their interstrand hydrogen bonds are disrupted but each pre-existing sugar–phosphate chain remains covalently continuous.",
+      "revisionSummary": "Successive nucleotides are joined by covalent sugar–phosphate (phosphodiester) bonds. The backbone's covalent links are different from the hydrogen bonds that hold complementary DNA strands together.",
+      "terms": [
+        "Phosphodiester bond: covalent sugar–phosphate link",
+        "Backbone: repeated covalently linked sugar and phosphate"
+      ],
+      "workedExample": "Unzipping a double helix separates paired bases; it does not normally break each parental phosphodiester backbone.",
+      "misconceptions": [
+        {
+          "misconception": "Hydrogen bonds join sugar to phosphate along each DNA strand.",
+          "correction": "Sugar–phosphate links are covalent; complementary base-pair hydrogen bonds join the two strands."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Successive nucleotides are joined by covalent sugar–phosphate (phosphodiester) bonds. Repeating phosphate and pentose units form a continuous backbone within each DNA or RNA strand. Bases attach to sugars and point away from that backbone; they do not replace it.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "The backbone's covalent links are different from the hydrogen bonds that hold complementary DNA strands together. When two DNA strands separate during replication, their interstrand hydrogen bonds are disrupted but each pre-existing sugar–phosphate chain remains covalently continuous.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-backbone"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-3",
+          "prompt": "Which bonds form the stable internal backbone of DNA?",
+          "understandingIds": [
+            "A1.2.3"
+          ],
+          "options": [
+            {
+              "text": "Peptide bonds",
+              "correct": false,
+              "feedback": "Peptide bonds link amino acids, not nucleotides.",
+              "id": "check-o1"
+            },
+            {
+              "text": "Ionic bonds between bases",
+              "correct": false,
+              "feedback": "Ionic base-to-base links are not DNA backbone bonds.",
+              "id": "check-o2"
+            },
+            {
+              "text": "Covalent phosphodiester bonds",
+              "correct": true,
+              "feedback": "Phosphodiester bonds connect nucleotide units in one strand.",
+              "id": "check-o3"
+            },
+            {
+              "text": "Hydrogen bonds between paired bases",
+              "correct": false,
+              "feedback": "Base-pair hydrogen bonds act between strands.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-3",
+          "understandingIds": [
+            "A1.2.3"
+          ],
+          "prompt": "Without notes: What survives as a strong linked chain when complementary DNA strands separate?",
+          "answer": "Successive nucleotides are joined by covalent sugar–phosphate (phosphodiester) bonds. Repeating phosphate and pentose units form a continuous backbone within each DNA or RNA strand. Bases attach to sugars and point away from that backbone; they do not replace it. Unzipping a double helix separates paired bases; it does not normally break each parental phosphodiester backbone.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 36,
+      "pdfPage": 42,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          16,
+          17
+        ],
+        "pdfPages": [
+          28,
+          29
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "Successive nucleotides are joined by covalent sugar–phosphate (phosphodiester) bonds. Repeating phosphate and pentose units form a continuous backbone within each DNA or RNA strand. Bases attach to sugars and point away from that backbone; they do not replace it.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "The backbone's covalent links are different from the hydrogen bonds that hold complementary DNA strands together. When two DNA strands separate during replication, their interstrand hydrogen bonds are disrupted but each pre-existing sugar–phosphate chain remains covalently continuous.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-4",
+      "understandingIds": [
+        "A1.2.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which named bases distinguish RNA from DNA?",
+      "explanation": "DNA contains the named bases adenine (A), thymine (T), cytosine (C) and guanine (G). Standard RNA instead has adenine (A), uracil (U), cytosine (C) and guanine (G). The order of bases carries sequence information; the shared sugar–phosphate backbone is not the four-symbol information alphabet.\n\nAdenine and guanine are two-ring purines; cytosine, thymine and uracil are one-ring pyrimidines. Students should recognise the named bases in DNA and RNA without treating the written base letters as separate covalently bound chains.",
+      "revisionSummary": "DNA contains the named bases adenine (A), thymine (T), cytosine (C) and guanine (G). Adenine and guanine are two-ring purines; cytosine, thymine and uracil are one-ring pyrimidines.",
+      "terms": [
+        "Purines: adenine and guanine",
+        "Pyrimidines: cytosine, thymine and uracil"
+      ],
+      "workedExample": "The RNA sequence AUGC and DNA sequence ATGC differ in T versus U notation.",
+      "misconceptions": [
+        {
+          "misconception": "RNA contains thymine instead of uracil.",
+          "correction": "Standard RNA uses U in place of DNA's T."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "DNA contains the named bases adenine (A), thymine (T), cytosine (C) and guanine (G). Standard RNA instead has adenine (A), uracil (U), cytosine (C) and guanine (G). The order of bases carries sequence information; the shared sugar–phosphate backbone is not the four-symbol information alphabet.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "Adenine and guanine are two-ring purines; cytosine, thymine and uracil are one-ring pyrimidines. Students should recognise the named bases in DNA and RNA without treating the written base letters as separate covalently bound chains.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-bases"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-4",
+          "prompt": "Which base occurs in standard RNA instead of thymine?",
+          "understandingIds": [
+            "A1.2.4"
+          ],
+          "options": [
+            {
+              "text": "Adenine",
+              "correct": false,
+              "feedback": "Adenine occurs in both DNA and RNA.",
+              "id": "check-o1"
+            },
+            {
+              "text": "Guanine",
+              "correct": false,
+              "feedback": "Guanine occurs in both DNA and RNA.",
+              "id": "check-o2"
+            },
+            {
+              "text": "Cytosine",
+              "correct": false,
+              "feedback": "Cytosine occurs in both DNA and RNA.",
+              "id": "check-o3"
+            },
+            {
+              "text": "Uracil",
+              "correct": true,
+              "feedback": "Uracil is the RNA alternative to thymine.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-4",
+          "understandingIds": [
+            "A1.2.4"
+          ],
+          "prompt": "Without notes: Which named bases distinguish RNA from DNA?",
+          "answer": "DNA contains the named bases adenine (A), thymine (T), cytosine (C) and guanine (G). Standard RNA instead has adenine (A), uracil (U), cytosine (C) and guanine (G). The order of bases carries sequence information; the shared sugar–phosphate backbone is not the four-symbol information alphabet. The RNA sequence AUGC and DNA sequence ATGC differ in T versus U notation.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 36,
+      "pdfPage": 42,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          16,
+          17
+        ],
+        "pdfPages": [
+          28,
+          29
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "DNA contains the named bases adenine (A), thymine (T), cytosine (C) and guanine (G). Standard RNA instead has adenine (A), uracil (U), cytosine (C) and guanine (G). The order of bases carries sequence information; the shared sugar–phosphate backbone is not the four-symbol information alphabet.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "Adenine and guanine are two-ring purines; cytosine, thymine and uracil are one-ring pyrimidines. Students should recognise the named bases in DNA and RNA without treating the written base letters as separate covalently bound chains.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-5",
+      "understandingIds": [
+        "A1.2.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What changes when separate nucleotides become an RNA polymer?",
+      "explanation": "RNA is a polymer of ribonucleotide monomers. In an IB simplified net condensation model, adjoining monomers form covalent links along a ribose–phosphate backbone and water is represented as a product. A structural drawing should show linked phosphate and ribose units with A, U, G or C bases attached to the sugars.\n\nAt the biochemical level, cellular RNA polymerases use activated nucleoside triphosphates and release pyrophosphate as the direct leaving group; the simplified condensation equation must not be misrepresented as the precise enzymatic pathway. The 5′ and 3′ ends are chemically different, giving the polymer direction.",
+      "revisionSummary": "RNA is a polymer of ribonucleotide monomers. At the biochemical level, cellular RNA polymerases use activated nucleoside triphosphates and release pyrophosphate as the direct leaving group; the simplified condensation equation must not be misrepresented as the precise enzymatic pathway.",
+      "terms": [
+        "Ribonucleotide: RNA monomer",
+        "Polymer: many covalently joined monomers"
+      ],
+      "workedExample": "Sketch three sugars connected through intervening phosphate groups and put an RNA base beside each sugar.",
+      "misconceptions": [
+        {
+          "misconception": "Writing three letters A-U-G is a complete structural formula for RNA.",
+          "correction": "A base sequence is shorthand; a drawn polymer also shows its linked ribose–phosphate backbone."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "RNA is a polymer of ribonucleotide monomers. In an IB simplified net condensation model, adjoining monomers form covalent links along a ribose–phosphate backbone and water is represented as a product. A structural drawing should show linked phosphate and ribose units with A, U, G or C bases attached to the sugars.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "At the biochemical level, cellular RNA polymerases use activated nucleoside triphosphates and release pyrophosphate as the direct leaving group; the simplified condensation equation must not be misrepresented as the precise enzymatic pathway. The 5′ and 3′ ends are chemically different, giving the polymer direction.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-backbone"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-5",
+          "prompt": "Which is required in a drawing of a short RNA polymer?",
+          "understandingIds": [
+            "A1.2.5"
+          ],
+          "options": [
+            {
+              "text": "Connected ribose and phosphate units with attached bases",
+              "correct": true,
+              "feedback": "RNA consists of connected nucleotides, not free bases.",
+              "id": "check-o1"
+            },
+            {
+              "text": "Only three free nitrogenous bases",
+              "correct": false,
+              "feedback": "Free bases are not a nucleotide polymer.",
+              "id": "check-o2"
+            },
+            {
+              "text": "Paired A–T double strands",
+              "correct": false,
+              "feedback": "A–T double strands depict DNA complementarity.",
+              "id": "check-o3"
+            },
+            {
+              "text": "Peptide bonds between amino acids",
+              "correct": false,
+              "feedback": "Peptides are polymers of amino acids.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-5",
+          "understandingIds": [
+            "A1.2.5"
+          ],
+          "prompt": "Without notes: What changes when separate nucleotides become an RNA polymer?",
+          "answer": "RNA is a polymer of ribonucleotide monomers. In an IB simplified net condensation model, adjoining monomers form covalent links along a ribose–phosphate backbone and water is represented as a product. A structural drawing should show linked phosphate and ribose units with A, U, G or C bases attached to the sugars. Sketch three sugars connected through intervening phosphate groups and put an RNA base beside each sugar.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 36,
+      "pdfPage": 42,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          17,
+          18
+        ],
+        "pdfPages": [
+          29,
+          30
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "RNA is a polymer of ribonucleotide monomers. In an IB simplified net condensation model, adjoining monomers form covalent links along a ribose–phosphate backbone and water is represented as a product. A structural drawing should show linked phosphate and ribose units with A, U, G or C bases attached to the sugars.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "At the biochemical level, cellular RNA polymerases use activated nucleoside triphosphates and release pyrophosphate as the direct leaving group; the simplified condensation equation must not be misrepresented as the precise enzymatic pathway. The 5′ and 3′ ends are chemically different, giving the polymer direction.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-6",
+      "understandingIds": [
+        "A1.2.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How can two strands pair without pointing the same way?",
+      "explanation": "DNA has two nucleotide strands arranged antiparallel in a double helix. At one end of the paired molecule a strand is 5′→3′ while its complementary strand is 3′→5′ when read in the same spatial direction. Hydrogen bonds form between A and T, and between G and C.\n\nDraw paired bases opposite one another with two sugar–phosphate backbones and arrows indicating opposite orientation. The official shared-level diagram need not be helical, nor must students recall exact hydrogen-bond counts or relative purine/pyrimidine lengths. Hydrogen bonds join strands but the strong intrachain phosphodiester bonds remain covalent.",
+      "revisionSummary": "DNA has two nucleotide strands arranged antiparallel in a double helix. Draw paired bases opposite one another with two sugar–phosphate backbones and arrows indicating opposite orientation.",
+      "terms": [
+        "Antiparallel: opposite 5′/3′ strand orientation",
+        "Complementary: A–T and C–G pairing"
+      ],
+      "workedExample": "Write 5′-ATCG-3′ opposite 3′-TAGC-5′, aligned base by base.",
+      "misconceptions": [
+        {
+          "misconception": "Both aligned DNA strands are 5′→3′ from left to right.",
+          "correction": "The aligned opposite strand runs 3′→5′."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "DNA has two nucleotide strands arranged antiparallel in a double helix. At one end of the paired molecule a strand is 5′→3′ while its complementary strand is 3′→5′ when read in the same spatial direction. Hydrogen bonds form between A and T, and between G and C.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "Draw paired bases opposite one another with two sugar–phosphate backbones and arrows indicating opposite orientation. The official shared-level diagram need not be helical, nor must students recall exact hydrogen-bond counts or relative purine/pyrimidine lengths. Hydrogen bonds join strands but the strong intrachain phosphodiester bonds remain covalent.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-paired"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-6",
+          "prompt": "What is the aligned complement of 5′-ACGT-3′?",
+          "understandingIds": [
+            "A1.2.6"
+          ],
+          "options": [
+            {
+              "text": "3′-UGCA-5′",
+              "correct": false,
+              "feedback": "U belongs to RNA, not this DNA complement.",
+              "id": "check-o1"
+            },
+            {
+              "text": "3′-TGCA-5′",
+              "correct": true,
+              "feedback": "Complementary bases and opposite orientation are both correct.",
+              "id": "check-o2"
+            },
+            {
+              "text": "5′-TGCA-3′",
+              "correct": false,
+              "feedback": "The bases fit but strands would be shown parallel.",
+              "id": "check-o3"
+            },
+            {
+              "text": "3′-ACGT-5′",
+              "correct": false,
+              "feedback": "Complementary means opposite partner bases, not the identical letters.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-6",
+          "understandingIds": [
+            "A1.2.6"
+          ],
+          "prompt": "Without notes: How can two strands pair without pointing the same way?",
+          "answer": "DNA has two nucleotide strands arranged antiparallel in a double helix. At one end of the paired molecule a strand is 5′→3′ while its complementary strand is 3′→5′ when read in the same spatial direction. Hydrogen bonds form between A and T, and between G and C. Write 5′-ATCG-3′ opposite 3′-TAGC-5′, aligned base by base.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 36,
+      "pdfPage": 42,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          18,
+          19
+        ],
+        "pdfPages": [
+          30,
+          31
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "DNA has two nucleotide strands arranged antiparallel in a double helix. At one end of the paired molecule a strand is 5′→3′ while its complementary strand is 3′→5′ when read in the same spatial direction. Hydrogen bonds form between A and T, and between G and C.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "Draw paired bases opposite one another with two sugar–phosphate backbones and arrows indicating opposite orientation. The official shared-level diagram need not be helical, nor must students recall exact hydrogen-bond counts or relative purine/pyrimidine lengths. Hydrogen bonds join strands but the strong intrachain phosphodiester bonds remain covalent.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "mechanismChallenge": {
+        "title": "Predict antiparallel base pairing",
+        "instructions": "Select the scientifically correct prediction for each step; retry after corrective feedback.",
+        "stages": [
+          {
+            "id": "s1",
+            "prompt": "Which base complements DNA adenine?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Thymine",
+                "correct": true,
+                "feedback": "This matches complementary DNA / transcription logic."
+              },
+              {
+                "id": "b",
+                "text": "Uracil",
+                "correct": false,
+                "feedback": "This confuses RNA and DNA or coding with template."
+              },
+              {
+                "id": "c",
+                "text": "Cytosine",
+                "correct": false,
+                "feedback": "Cytosine does not correspond here."
+              }
+            ],
+            "explanation": "Correct complementarity identifies the appropriate molecule."
+          },
+          {
+            "id": "s2",
+            "prompt": "What aligns with 5′-AC-3′?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3′-TG-5′",
+                "correct": true,
+                "feedback": "Antiparallel chemical polarity is correct."
+              },
+              {
+                "id": "b",
+                "text": "5′-TG-3′",
+                "correct": false,
+                "feedback": "This reverses the direction."
+              },
+              {
+                "id": "c",
+                "text": "3′-UG-5′",
+                "correct": false,
+                "feedback": "DNA/RNA polymerisation is directional."
+              }
+            ],
+            "explanation": "A growing chain uses its 3′ end for extension."
+          }
+        ]
+      }
+    },
+    {
+      "id": "a12-7",
+      "understandingIds": [
+        "A1.2.7"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which sugar position and base distinguish DNA from RNA?",
+      "explanation": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. RNA is commonly single-stranded, contains ribose and uses uracil. Single-stranded RNA can fold into hydrogen-bonded regions, so 'commonly single-stranded' is more precise than 'cannot form paired regions'.\n\nRibose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position. A sugar sketch must mark the correct 2′ position while preserving the 3′ hydroxyl relevant to backbone formation. Examples of RNA include mRNA, tRNA and rRNA.",
+      "revisionSummary": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. Ribose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position.",
+      "terms": [
+        "Deoxyribose: sugar with 2′ H",
+        "Ribose: sugar with 2′ OH"
+      ],
+      "workedExample": "Circle the sugar's 2′ group in DNA and RNA: DNA has 2′–H; RNA has 2′–OH.",
+      "misconceptions": [
+        {
+          "misconception": "The DNA sugar is missing the 3′ hydroxyl group.",
+          "correction": "The distinguishing loss is the 2′ hydroxyl, not 3′."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. RNA is commonly single-stranded, contains ribose and uses uracil. Single-stranded RNA can fold into hydrogen-bonded regions, so 'commonly single-stranded' is more precise than 'cannot form paired regions'.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "Ribose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position. A sugar sketch must mark the correct 2′ position while preserving the 3′ hydroxyl relevant to backbone formation. Examples of RNA include mRNA, tRNA and rRNA.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-sugars"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-7",
+          "prompt": "Where is the characteristic DNA/RNA sugar difference?",
+          "understandingIds": [
+            "A1.2.7"
+          ],
+          "options": [
+            {
+              "text": "Only at the phosphate",
+              "correct": false,
+              "feedback": "Phosphates can occur in both nucleotide types.",
+              "id": "check-o1"
+            },
+            {
+              "text": "Only at the 5′ phosphate",
+              "correct": false,
+              "feedback": "The difference is on the sugar, not limited to the phosphate.",
+              "id": "check-o2"
+            },
+            {
+              "text": "At the 2′ carbon",
+              "correct": true,
+              "feedback": "Ribose has 2′ OH whereas deoxyribose has 2′ H.",
+              "id": "check-o3"
+            },
+            {
+              "text": "At the 3′ carbon",
+              "correct": false,
+              "feedback": "The 3′ hydroxyl is retained in both typical sugars.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-7",
+          "understandingIds": [
+            "A1.2.7"
+          ],
+          "prompt": "Without notes: Which sugar position and base distinguish DNA from RNA?",
+          "answer": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. RNA is commonly single-stranded, contains ribose and uses uracil. Single-stranded RNA can fold into hydrogen-bonded regions, so 'commonly single-stranded' is more precise than 'cannot form paired regions'. Circle the sugar's 2′ group in DNA and RNA: DNA has 2′–H; RNA has 2′–OH.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          21,
+          22
+        ],
+        "pdfPages": [
+          33,
+          34
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. RNA is commonly single-stranded, contains ribose and uses uracil. Single-stranded RNA can fold into hydrogen-bonded regions, so 'commonly single-stranded' is more precise than 'cannot form paired regions'.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "Ribose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position. A sugar sketch must mark the correct 2′ position while preserving the 3′ hydroxyl relevant to backbone formation. Examples of RNA include mRNA, tRNA and rRNA.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-8",
+      "understandingIds": [
+        "A1.2.8"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How does one DNA strand predict a new DNA or RNA sequence?",
+      "explanation": "Complementary base pairing allows one existing DNA strand to act as a template for synthesising another DNA strand during semiconservative replication. During transcription, RNA nucleotides pair against a DNA template; the resulting RNA differs from its template sequence because it is complementary and uses U in place of T.\n\nRNA polymerase reads template DNA 3′→5′ and synthesises RNA 5′→3′. The coding DNA strand generally has the same sequence as the transcript except DNA T appears where RNA U occurs. Hodder printed p. 25 reverses the identity of the coding strand and the transcription template; LitLab deliberately corrects this error.",
+      "revisionSummary": "Complementary base pairing allows one existing DNA strand to act as a template for synthesising another DNA strand during semiconservative replication. RNA polymerase reads template DNA 3′→5′ and synthesises RNA 5′→3′.",
+      "terms": [
+        "DNA template: strand read for synthesis",
+        "Coding DNA strand: sequence generally matches RNA except T/U"
+      ],
+      "workedExample": "For template DNA 3′-TACG-5′, RNA is 5′-AUGC-3′ and coding DNA is 5′-ATGC-3′.",
+      "misconceptions": [
+        {
+          "misconception": "RNA polymerase reads the DNA coding strand as its template.",
+          "correction": "RNA polymerase reads the template (noncoding) strand in the standard model."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Complementary base pairing allows one existing DNA strand to act as a template for synthesising another DNA strand during semiconservative replication. During transcription, RNA nucleotides pair against a DNA template; the resulting RNA differs from its template sequence because it is complementary and uses U in place of T.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-transcription"
+          ]
+        },
+        {
+          "claim": "RNA polymerase reads template DNA 3′→5′ and synthesises RNA 5′→3′. The coding DNA strand generally has the same sequence as the transcript except DNA T appears where RNA U occurs. Hodder printed p. 25 reverses the identity of the coding strand and the transcription template; LitLab deliberately corrects this error.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-transcription"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-transcription"
+      ],
+      "assets": [
+        "a12-paired"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-8",
+          "prompt": "What is made from template DNA 3′-TAC-5′?",
+          "understandingIds": [
+            "A1.2.8"
+          ],
+          "options": [
+            {
+              "text": "RNA 5′-TAC-3′",
+              "correct": false,
+              "feedback": "RNA uses U rather than T and follows complementarity.",
+              "id": "check-o1"
+            },
+            {
+              "text": "RNA 3′-AUG-5′",
+              "correct": false,
+              "feedback": "This is reversed synthesis orientation.",
+              "id": "check-o2"
+            },
+            {
+              "text": "RNA 5′-UAC-3′",
+              "correct": false,
+              "feedback": "UAC does not correctly complement TAC.",
+              "id": "check-o3"
+            },
+            {
+              "text": "RNA 5′-AUG-3′",
+              "correct": true,
+              "feedback": "RNA complementary to TAC is AUG in 5′→3′ orientation.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-8",
+          "understandingIds": [
+            "A1.2.8"
+          ],
+          "prompt": "Without notes: How does one DNA strand predict a new DNA or RNA sequence?",
+          "answer": "Complementary base pairing allows one existing DNA strand to act as a template for synthesising another DNA strand during semiconservative replication. During transcription, RNA nucleotides pair against a DNA template; the resulting RNA differs from its template sequence because it is complementary and uses U in place of T. For template DNA 3′-TACG-5′, RNA is 5′-AUGC-3′ and coding DNA is 5′-ATGC-3′.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          22,
+          25
+        ],
+        "pdfPages": [
+          34,
+          37
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "Complementary base pairing allows one existing DNA strand to act as a template for synthesising another DNA strand during semiconservative replication. During transcription, RNA nucleotides pair against a DNA template; the resulting RNA differs from its template sequence because it is complementary and uses U in place of T.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-transcription"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "RNA polymerase reads template DNA 3′→5′ and synthesises RNA 5′→3′. The coding DNA strand generally has the same sequence as the transcript except DNA T appears where RNA U occurs. Hodder printed p. 25 reverses the identity of the coding strand and the transcription template; LitLab deliberately corrects this error.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-transcription"
+          ]
+        }
+      ],
+      "mechanismChallenge": {
+        "title": "Predict RNA from a template",
+        "instructions": "Select the scientifically correct prediction for each step; retry after corrective feedback.",
+        "stages": [
+          {
+            "id": "s1",
+            "prompt": "Which DNA strand does RNA polymerase read?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Template DNA",
+                "correct": true,
+                "feedback": "This matches complementary DNA / transcription logic."
+              },
+              {
+                "id": "b",
+                "text": "Coding DNA",
+                "correct": false,
+                "feedback": "This confuses RNA and DNA or coding with template."
+              },
+              {
+                "id": "c",
+                "text": "Cytosine",
+                "correct": false,
+                "feedback": "Cytosine does not correspond here."
+              }
+            ],
+            "explanation": "Correct complementarity identifies the appropriate molecule."
+          },
+          {
+            "id": "s2",
+            "prompt": "What direction is RNA synthesised?",
+            "options": [
+              {
+                "id": "a",
+                "text": "5′→3′",
+                "correct": true,
+                "feedback": "Antiparallel chemical polarity is correct."
+              },
+              {
+                "id": "b",
+                "text": "3′→5′",
+                "correct": false,
+                "feedback": "This reverses the direction."
+              },
+              {
+                "id": "c",
+                "text": "Either direction",
+                "correct": false,
+                "feedback": "DNA/RNA polymerisation is directional."
+              }
+            ],
+            "explanation": "A growing chain uses its 3′ end for extension."
+          }
+        ]
+      }
+    },
+    {
+      "id": "a12-9",
+      "understandingIds": [
+        "A1.2.9"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How many distinct messages can a four-base alphabet encode?",
+      "explanation": "Four base choices at each of n independent positions yield 4ⁿ possible sequences in a simplified model. A four-base-long DNA segment therefore has 4⁴ = 256 possibilities, and ten positions give 4¹⁰ = 1,048,576. Longer strands increase combinatorial possibilities while using an economical repeating backbone.\n\nThe guide's phrase 'limitless capacity' emphasizes that the length and base order are not confined to one short fixed molecule: in a DNA molecule of any fixed finite length, the number of sequences and its data capacity are also finite. Not every possible sequence is biologically functional.",
+      "revisionSummary": "Four base choices at each of n independent positions yield 4ⁿ possible sequences in a simplified model. The guide's phrase 'limitless capacity' emphasizes that the length and base order are not confined to one short fixed molecule: in a DNA molecule of any fixed finite length, the number of sequences and its data capacity are also finite.",
+      "terms": [
+        "Base sequence: order of A/T/G/C",
+        "4ⁿ: combinations of n four-choice sites"
+      ],
+      "workedExample": "Explain why two positions yield 16 combinations but four positions yield 256, not just four.",
+      "misconceptions": [
+        {
+          "misconception": "Four base types allow only four different genetic messages.",
+          "correction": "Sequence positions create exponentially many combinations."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Four base choices at each of n independent positions yield 4ⁿ possible sequences in a simplified model. A four-base-long DNA segment therefore has 4⁴ = 256 possibilities, and ten positions give 4¹⁰ = 1,048,576. Longer strands increase combinatorial possibilities while using an economical repeating backbone.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "The guide's phrase 'limitless capacity' emphasizes that the length and base order are not confined to one short fixed molecule: in a DNA molecule of any fixed finite length, the number of sequences and its data capacity are also finite. Not every possible sequence is biologically functional.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-capacity"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-9",
+          "prompt": "How many four-position DNA sequences are possible?",
+          "understandingIds": [
+            "A1.2.9"
+          ],
+          "options": [
+            {
+              "text": "256",
+              "correct": true,
+              "feedback": "4⁴ = 256 distinct four-position sequences.",
+              "id": "check-o1"
+            },
+            {
+              "text": "16",
+              "correct": false,
+              "feedback": "4² counts two positions.",
+              "id": "check-o2"
+            },
+            {
+              "text": "64",
+              "correct": false,
+              "feedback": "4³ counts three positions.",
+              "id": "check-o3"
+            },
+            {
+              "text": "4",
+              "correct": false,
+              "feedback": "Four is the alphabet size, not the number of sequences.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-9",
+          "understandingIds": [
+            "A1.2.9"
+          ],
+          "prompt": "Without notes: How many distinct messages can a four-base alphabet encode?",
+          "answer": "Four base choices at each of n independent positions yield 4ⁿ possible sequences in a simplified model. A four-base-long DNA segment therefore has 4⁴ = 256 possibilities, and ten positions give 4¹⁰ = 1,048,576. Longer strands increase combinatorial possibilities while using an economical repeating backbone. Explain why two positions yield 16 combinations but four positions yield 256, not just four.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          23,
+          24
+        ],
+        "pdfPages": [
+          35,
+          36
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "Four base choices at each of n independent positions yield 4ⁿ possible sequences in a simplified model. A four-base-long DNA segment therefore has 4⁴ = 256 possibilities, and ten positions give 4¹⁰ = 1,048,576. Longer strands increase combinatorial possibilities while using an economical repeating backbone.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "The guide's phrase 'limitless capacity' emphasizes that the length and base order are not confined to one short fixed molecule: in a DNA molecule of any fixed finite length, the number of sequences and its data capacity are also finite. Not every possible sequence is biologically functional.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-10",
+      "understandingIds": [
+        "A1.2.10"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why is the genetic code more conserved than genome sequences?",
+      "explanation": "The genetic code is the mapping of messenger RNA codons to amino acids or translation-stop signals. It is not the DNA sequence or the entire genome. Most cellular organisms use the same code assignments despite different DNA sequences, genome structures and physiological adaptations.\n\nThe code's widespread conservation supports the inference of universal common ancestry, because descendants can inherit a common translation system. A few code variants exist, including certain mitochondrial codes: conservation is overwhelming but not absolute. The guide does not require memorised examples of variants.",
+      "revisionSummary": "The genetic code is the mapping of messenger RNA codons to amino acids or translation-stop signals. The code's widespread conservation supports the inference of universal common ancestry, because descendants can inherit a common translation system.",
+      "terms": [
+        "Codon: RNA triplet used by translation",
+        "Genetic code: codon-to-amino-acid rules"
+      ],
+      "workedExample": "Bacteria and humans can translate the same codon to the same amino acid without having identical genomes.",
+      "misconceptions": [
+        {
+          "misconception": "Shared genetic code means every organism has the same DNA sequence.",
+          "correction": "Common code assignments do not mean identical genomes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The genetic code is the mapping of messenger RNA codons to amino acids or translation-stop signals. It is not the DNA sequence or the entire genome. Most cellular organisms use the same code assignments despite different DNA sequences, genome structures and physiological adaptations.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "The code's widespread conservation supports the inference of universal common ancestry, because descendants can inherit a common translation system. A few code variants exist, including certain mitochondrial codes: conservation is overwhelming but not absolute. The guide does not require memorised examples of variants.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-10",
+          "prompt": "Which similarity most directly supports common ancestry in this understanding?",
+          "understandingIds": [
+            "A1.2.10"
+          ],
+          "options": [
+            {
+              "text": "Exactly identical protein sequences in all species",
+              "correct": false,
+              "feedback": "Proteins vary among organisms.",
+              "id": "check-o1"
+            },
+            {
+              "text": "Near-universality of codon assignments",
+              "correct": true,
+              "feedback": "The translation code is strongly conserved across cellular life.",
+              "id": "check-o2"
+            },
+            {
+              "text": "Identical genomes in all organisms",
+              "correct": false,
+              "feedback": "Species have different genomes.",
+              "id": "check-o3"
+            },
+            {
+              "text": "The same number of chromosomes",
+              "correct": false,
+              "feedback": "Chromosome counts differ.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-10",
+          "understandingIds": [
+            "A1.2.10"
+          ],
+          "prompt": "Without notes: Why is the genetic code more conserved than genome sequences?",
+          "answer": "The genetic code is the mapping of messenger RNA codons to amino acids or translation-stop signals. It is not the DNA sequence or the entire genome. Most cellular organisms use the same code assignments despite different DNA sequences, genome structures and physiological adaptations. Bacteria and humans can translate the same codon to the same amino acid without having identical genomes.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          23,
+          24
+        ],
+        "pdfPages": [
+          35,
+          36
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "The genetic code is the mapping of messenger RNA codons to amino acids or translation-stop signals. It is not the DNA sequence or the entire genome. Most cellular organisms use the same code assignments despite different DNA sequences, genome structures and physiological adaptations.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "The code's widespread conservation supports the inference of universal common ancestry, because descendants can inherit a common translation system. A few code variants exist, including certain mitochondrial codes: conservation is overwhelming but not absolute. The guide does not require memorised examples of variants.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-11",
+      "understandingIds": [
+        "A1.2.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why is the direction of a polynucleotide chemically important?",
+      "explanation": "A nucleotide's sugar carbons are numbered 1′ through 5′. Phosphodiester linkages join a 3′ sugar oxygen to the next nucleotide's 5′ phosphate. Standard DNA and RNA polymerases extend strands at the growing 3′ hydroxyl, so new chains grow 5′→3′ while their templates are read in the opposite orientation.\n\nThe same polarity is essential in transcription and replication; ribosomes read mRNA codons 5′→3′ during translation. Draw the 5′ and 3′ ends at chemically consistent opposite ends of complementary strands rather than labelling both strands with parallel arrows.",
+      "revisionSummary": "A nucleotide's sugar carbons are numbered 1′ through 5′. The same polarity is essential in transcription and replication; ribosomes read mRNA codons 5′→3′ during translation.",
+      "terms": [
+        "5′ end: sugar's 5′-associated terminus",
+        "3′ end: end with 3′ hydroxyl"
+      ],
+      "workedExample": "Align template 3′-CGTA-5′ with product 5′-GCAT-3′ and identify the growing 3′ end.",
+      "misconceptions": [
+        {
+          "misconception": "Polymerases normally add nucleotides to the 5′ end.",
+          "correction": "Standard DNA and RNA chain extension occurs at the 3′ end."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A nucleotide's sugar carbons are numbered 1′ through 5′. Phosphodiester linkages join a 3′ sugar oxygen to the next nucleotide's 5′ phosphate. Standard DNA and RNA polymerases extend strands at the growing 3′ hydroxyl, so new chains grow 5′→3′ while their templates are read in the opposite orientation.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "The same polarity is essential in transcription and replication; ribosomes read mRNA codons 5′→3′ during translation. Draw the 5′ and 3′ ends at chemically consistent opposite ends of complementary strands rather than labelling both strands with parallel arrows.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-backbone"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-11",
+          "prompt": "Where is a new nucleotide usually attached during DNA synthesis?",
+          "understandingIds": [
+            "A1.2.11"
+          ],
+          "options": [
+            {
+              "text": "At a random internal base",
+              "correct": false,
+              "feedback": "Sequence elongation does not insert random bases into the backbone.",
+              "id": "check-o1"
+            },
+            {
+              "text": "To a histone protein",
+              "correct": false,
+              "feedback": "Histones are packaging proteins, not polymerisation acceptors.",
+              "id": "check-o2"
+            },
+            {
+              "text": "To the growing 3′ end",
+              "correct": true,
+              "feedback": "The 3′ hydroxyl accepts the next nucleotide.",
+              "id": "check-o3"
+            },
+            {
+              "text": "To the growing 5′ end",
+              "correct": false,
+              "feedback": "Polymerases synthesise in the 5′→3′ direction.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-11",
+          "understandingIds": [
+            "A1.2.11"
+          ],
+          "prompt": "Without notes: Why is the direction of a polynucleotide chemically important?",
+          "answer": "A nucleotide's sugar carbons are numbered 1′ through 5′. Phosphodiester linkages join a 3′ sugar oxygen to the next nucleotide's 5′ phosphate. Standard DNA and RNA polymerases extend strands at the growing 3′ hydroxyl, so new chains grow 5′→3′ while their templates are read in the opposite orientation. Align template 3′-CGTA-5′ with product 5′-GCAT-3′ and identify the growing 3′ end.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          25,
+          26
+        ],
+        "pdfPages": [
+          37,
+          38
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "A nucleotide's sugar carbons are numbered 1′ through 5′. Phosphodiester linkages join a 3′ sugar oxygen to the next nucleotide's 5′ phosphate. Standard DNA and RNA polymerases extend strands at the growing 3′ hydroxyl, so new chains grow 5′→3′ while their templates are read in the opposite orientation.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "The same polarity is essential in transcription and replication; ribosomes read mRNA codons 5′→3′ during translation. Draw the 5′ and 3′ ends at chemically consistent opposite ends of complementary strands rather than labelling both strands with parallel arrows.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-12",
+      "understandingIds": [
+        "A1.2.12"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why is the DNA double helix nearly uniform in diameter?",
+      "explanation": "Adenine and guanine are two-ring purines, whereas thymine and cytosine are one-ring pyrimidines. Each standard Watson–Crick DNA pair combines a larger purine with a smaller pyrimidine: adenine with thymine, and guanine with cytosine. These pairs have comparable lengths across the space between sugar–phosphate backbones.\n\nPurine–purine pairs would usually be too wide for ordinary Watson–Crick geometry and pyrimidine–pyrimidine pairs too narrow. Correct complementary pairing stabilises a broadly consistent double-helix geometry despite varying base order. This is not an assertion that all DNA is rigid or perfectly straight.",
+      "revisionSummary": "Adenine and guanine are two-ring purines, whereas thymine and cytosine are one-ring pyrimidines. Purine–purine pairs would usually be too wide for ordinary Watson–Crick geometry and pyrimidine–pyrimidine pairs too narrow.",
+      "terms": [
+        "Purine: two-ring base",
+        "Pyrimidine: one-ring base"
+      ],
+      "workedExample": "Explain why replacing an A–T pair with a G–C pair preserves the backbone separation.",
+      "misconceptions": [
+        {
+          "misconception": "Purine–purine pairs explain the standard helix diameter.",
+          "correction": "Standard pairs contain one purine and one pyrimidine."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Adenine and guanine are two-ring purines, whereas thymine and cytosine are one-ring pyrimidines. Each standard Watson–Crick DNA pair combines a larger purine with a smaller pyrimidine: adenine with thymine, and guanine with cytosine. These pairs have comparable lengths across the space between sugar–phosphate backbones.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "claim": "Purine–purine pairs would usually be too wide for ordinary Watson–Crick geometry and pyrimidine–pyrimidine pairs too narrow. Correct complementary pairing stabilises a broadly consistent double-helix geometry despite varying base order. This is not an assertion that all DNA is rigid or perfectly straight.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "assets": [
+        "a12-bases"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-12",
+          "prompt": "Which feature keeps normal A–T and G–C pair spans similar?",
+          "understandingIds": [
+            "A1.2.12"
+          ],
+          "options": [
+            {
+              "text": "Each has two purines",
+              "correct": false,
+              "feedback": "Two purines are too wide for usual paired geometry.",
+              "id": "check-o1"
+            },
+            {
+              "text": "A and G are both one-ring bases",
+              "correct": false,
+              "feedback": "A and G are purines with two rings.",
+              "id": "check-o2"
+            },
+            {
+              "text": "All bases are exactly the same size",
+              "correct": false,
+              "feedback": "Purines and pyrimidines differ in ring count.",
+              "id": "check-o3"
+            },
+            {
+              "text": "Each combines a purine and a pyrimidine",
+              "correct": true,
+              "feedback": "One large and one small base give comparable pairing width.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-12",
+          "understandingIds": [
+            "A1.2.12"
+          ],
+          "prompt": "Without notes: Why is the DNA double helix nearly uniform in diameter?",
+          "answer": "Adenine and guanine are two-ring purines, whereas thymine and cytosine are one-ring pyrimidines. Each standard Watson–Crick DNA pair combines a larger purine with a smaller pyrimidine: adenine with thymine, and guanine with cytosine. These pairs have comparable lengths across the space between sugar–phosphate backbones. Explain why replacing an A–T pair with a G–C pair preserves the backbone separation.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          26,
+          27
+        ],
+        "pdfPages": [
+          38,
+          39
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "Adenine and guanine are two-ring purines, whereas thymine and cytosine are one-ring pyrimidines. Each standard Watson–Crick DNA pair combines a larger purine with a smaller pyrimidine: adenine with thymine, and guanine with cytosine. These pairs have comparable lengths across the space between sugar–phosphate backbones.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "Purine–purine pairs would usually be too wide for ordinary Watson–Crick geometry and pyrimidine–pyrimidine pairs too narrow. Correct complementary pairing stabilises a broadly consistent double-helix geometry despite varying base order. This is not an assertion that all DNA is rigid or perfectly straight.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "ncbi-dna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-13",
+      "understandingIds": [
+        "A1.2.13"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What are the eight core histones and where does H1 belong?",
+      "explanation": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones.\n\nThe guide also requires actual use of molecular visualization software. Open the opt-in RCSB 1KX5 activity below, rotate the experimentally determined nucleosome core, and identify the DNA double helix and protein core. 1KX5 is a core-particle structure without histone H1; H1's absence is consistent with the stated structural scope. The diagram and written description are accessible alternatives but cannot replace hands-on software use.",
+      "revisionSummary": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. The guide also requires actual use of molecular visualization software.",
+      "terms": [
+        "Histone octamer: two each H2A/H2B/H3/H4",
+        "Nucleosome: DNA wrapped around a core histone octamer"
+      ],
+      "workedExample": "At the RCSB 1KX5 3D view, locate wrapped DNA; list core histones and describe why linker H1 is outside the octamer.",
+      "misconceptions": [
+        {
+          "misconception": "H1 is the ninth histone in the octamer.",
+          "correction": "An octamer contains eight core histones; H1 is associated with linker DNA."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "rcsb-nucleosome"
+          ]
+        },
+        {
+          "claim": "The guide also requires actual use of molecular visualization software. Open the opt-in RCSB 1KX5 activity below, rotate the experimentally determined nucleosome core, and identify the DNA double helix and protein core. 1KX5 is a core-particle structure without histone H1; H1's absence is consistent with the stated structural scope. The diagram and written description are accessible alternatives but cannot replace hands-on software use.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "rcsb-nucleosome"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "rcsb-nucleosome"
+      ],
+      "assets": [
+        "a12-nucleosome"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-13",
+          "prompt": "How many copies of each core histone make up the octamer?",
+          "understandingIds": [
+            "A1.2.13"
+          ],
+          "options": [
+            {
+              "text": "Two each of H2A, H2B, H3 and H4",
+              "correct": true,
+              "feedback": "Two copies of four types yields eight histone molecules.",
+              "id": "check-o1"
+            },
+            {
+              "text": "One H1 plus seven other histones",
+              "correct": false,
+              "feedback": "H1 is not a core member.",
+              "id": "check-o2"
+            },
+            {
+              "text": "Eight copies of H1",
+              "correct": false,
+              "feedback": "H1 is a linker histone, not an octamer replacement.",
+              "id": "check-o3"
+            },
+            {
+              "text": "One of each H2A, H2B, H3 and H4",
+              "correct": false,
+              "feedback": "One each yields only four, not eight.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-13",
+          "understandingIds": [
+            "A1.2.13"
+          ],
+          "prompt": "Without notes: What are the eight core histones and where does H1 belong?",
+          "answer": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones. At the RCSB 1KX5 3D view, locate wrapped DNA; list core histones and describe why linker H1 is outside the octamer.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          27,
+          28
+        ],
+        "pdfPages": [
+          39,
+          40
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "rcsb-nucleosome"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "The guide also requires actual use of molecular visualization software. Open the opt-in RCSB 1KX5 activity below, rotate the experimentally determined nucleosome core, and identify the DNA double helix and protein core. 1KX5 is a core-particle structure without histone H1; H1's absence is consistent with the stated structural scope. The diagram and written description are accessible alternatives but cannot replace hands-on software use.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "rcsb-nucleosome"
+          ]
+        }
+      ],
+      "molecularViewer": {
+        "title": "Molecular visualization: inspect nucleosome 1KX5",
+        "structureId": "1KX5",
+        "url": "https://www.rcsb.org/3d-view/1KX5",
+        "referenceId": "rcsb-nucleosome",
+        "prompt": "In the RCSB 3D view, rotate the nucleosome. Locate the wrapped DNA strands and core histones H2A, H2B, H3 and H4. Explain why H1 is absent from this core-only molecular structure.",
+        "fallback": "The written and schematic alternative depicts DNA wrapping around eight core proteins, two copies each of H2A, H2B, H3 and H4; H1 binds linker DNA outside the core. This is an accessibility alternative but does not satisfy the compulsory hands-on software use."
+      }
+    },
+    {
+      "id": "a12-14",
+      "understandingIds": [
+        "A1.2.14"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What did different radioactive labels reveal about the material entering bacteria?",
+      "explanation": "Hershey and Chase separately labelled bacteriophage DNA using phosphorus-32 and protein using sulfur-35. DNA contains phosphorus in its backbone but no sulfur; some coat proteins contain sulfur-containing amino acids. After phages infected Escherichia coli, blending removed most external coats and centrifugation separated the bacterial pellet from the liquid supernatant.\n\nMost 32P radioactivity accompanied the bacterial pellet, whereas most 35S remained with the supernatant. This supported phage DNA, rather than the protein coat, as the genetic information injected into host cells. Using available radioisotopes enabled the experiment—an important nature-of-science point. One experiment is evidence, not deductive proof about all forms of life.",
+      "revisionSummary": "Hershey and Chase separately labelled bacteriophage DNA using phosphorus-32 and protein using sulfur-35. Most 32P radioactivity accompanied the bacterial pellet, whereas most 35S remained with the supernatant.",
+      "terms": [
+        "32P: DNA-associated phosphate tracer",
+        "35S: sulfur-containing protein tracer",
+        "Pellet: centrifuged bacterial fraction"
+      ],
+      "workedExample": "Predict where labels would be measured if the protein coat were the hereditary molecule, then compare with the observed pattern.",
+      "misconceptions": [
+        {
+          "misconception": "35S is the DNA label and 32P marks proteins.",
+          "correction": "Phosphorus labelled DNA; sulfur labelled proteins."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Hershey and Chase separately labelled bacteriophage DNA using phosphorus-32 and protein using sulfur-35. DNA contains phosphorus in its backbone but no sulfur; some coat proteins contain sulfur-containing amino acids. After phages infected Escherichia coli, blending removed most external coats and centrifugation separated the bacterial pellet from the liquid supernatant.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        },
+        {
+          "claim": "Most 32P radioactivity accompanied the bacterial pellet, whereas most 35S remained with the supernatant. This supported phage DNA, rather than the protein coat, as the genetic information injected into host cells. Using available radioisotopes enabled the experiment—an important nature-of-science point. One experiment is evidence, not deductive proof about all forms of life.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "original-evidence"
+      ],
+      "assets": [
+        "a12-hershey"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-14",
+          "prompt": "Which label mostly followed infected bacterial cells into the pellet?",
+          "understandingIds": [
+            "A1.2.14"
+          ],
+          "options": [
+            {
+              "text": "Neither label could be distinguished",
+              "correct": false,
+              "feedback": "Radioisotopes made the separation of molecules measurable.",
+              "id": "check-o1"
+            },
+            {
+              "text": "32P-labelled DNA",
+              "correct": true,
+              "feedback": "DNA-associated 32P was found predominantly in the pellet.",
+              "id": "check-o2"
+            },
+            {
+              "text": "35S-labelled protein coats",
+              "correct": false,
+              "feedback": "Most coat-protein 35S remained outside cells.",
+              "id": "check-o3"
+            },
+            {
+              "text": "Both labels only into the supernatant",
+              "correct": false,
+              "feedback": "DNA-associated radioactivity was associated with cells.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-14",
+          "understandingIds": [
+            "A1.2.14"
+          ],
+          "prompt": "Without notes: What did different radioactive labels reveal about the material entering bacteria?",
+          "answer": "Hershey and Chase separately labelled bacteriophage DNA using phosphorus-32 and protein using sulfur-35. DNA contains phosphorus in its backbone but no sulfur; some coat proteins contain sulfur-containing amino acids. After phages infected Escherichia coli, blending removed most external coats and centrifugation separated the bacterial pellet from the liquid supernatant. Predict where labels would be measured if the protein coat were the hereditary molecule, then compare with the observed pattern.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 37,
+      "pdfPage": 43,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          29,
+          30,
+          31
+        ],
+        "pdfPages": [
+          41,
+          42,
+          43
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "Hershey and Chase separately labelled bacteriophage DNA using phosphorus-32 and protein using sulfur-35. DNA contains phosphorus in its backbone but no sulfur; some coat proteins contain sulfur-containing amino acids. After phages infected Escherichia coli, blending removed most external coats and centrifugation separated the bacterial pellet from the liquid supernatant.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "Most 32P radioactivity accompanied the bacterial pellet, whereas most 35S remained with the supernatant. This supported phage DNA, rather than the protein coat, as the genetic information injected into host cells. Using available radioisotopes enabled the experiment—an important nature-of-science point. One experiment is evidence, not deductive proof about all forms of life.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a12-15",
+      "understandingIds": [
+        "A1.2.15"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What evidence falsified an equal four-base repeating model of DNA?",
+      "explanation": "Chargaff showed that DNA base composition varies between species, while in double-stranded DNA adenine is approximately equal to thymine and guanine approximately equal to cytosine. Across species the A+T proportion can differ from G+C, contradicting a fixed tetranucleotide sequence with equal frequencies of all four bases.\n\nScientific induction infers general patterns from finite observations but cannot establish all cases with logical certainty. In contrast, an incompatible observation can falsify a strict universal model. Chargaff's composition data undermined the fixed A:T:G:C = 1:1:1:1 hypothesis; by itself it did not directly reveal the entire double-helix structure.",
+      "revisionSummary": "Chargaff showed that DNA base composition varies between species, while in double-stranded DNA adenine is approximately equal to thymine and guanine approximately equal to cytosine. Scientific induction infers general patterns from finite observations but cannot establish all cases with logical certainty.",
+      "terms": [
+        "Chargaff's rules: A≈T and G≈C in double-stranded DNA",
+        "Falsification: inconsistency with a universal model prediction"
+      ],
+      "workedExample": "Illustrative, NOT measured values: A 30%, T 30%, G 20%, C 20%. Explain what follows and what does not.",
+      "misconceptions": [
+        {
+          "misconception": "Every double-stranded DNA sample has exactly 25% of each base.",
+          "correction": "A≈T and G≈C; GC percentage varies among genomes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Chargaff showed that DNA base composition varies between species, while in double-stranded DNA adenine is approximately equal to thymine and guanine approximately equal to cytosine. Across species the A+T proportion can differ from G+C, contradicting a fixed tetranucleotide sequence with equal frequencies of all four bases.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        },
+        {
+          "claim": "Scientific induction infers general patterns from finite observations but cannot establish all cases with logical certainty. In contrast, an incompatible observation can falsify a strict universal model. Chargaff's composition data undermined the fixed A:T:G:C = 1:1:1:1 hypothesis; by itself it did not directly reveal the entire double-helix structure.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "original-evidence"
+      ],
+      "assets": [
+        "a12-chargaff"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "a12-check-15",
+          "prompt": "If A = T = 32% in a DNA sample, what is C approximately?",
+          "understandingIds": [
+            "A1.2.15"
+          ],
+          "options": [
+            {
+              "text": "36%",
+              "correct": false,
+              "feedback": "36% is both G and C together.",
+              "id": "check-o1"
+            },
+            {
+              "text": "16%",
+              "correct": false,
+              "feedback": "16% does not balance the four percentages.",
+              "id": "check-o2"
+            },
+            {
+              "text": "18%",
+              "correct": true,
+              "feedback": "G+C=36%, so C≈18% if G≈C.",
+              "id": "check-o3"
+            },
+            {
+              "text": "32%",
+              "correct": false,
+              "feedback": "A≈T does not imply A≈C.",
+              "id": "check-o4"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "a12-recall-15",
+          "understandingIds": [
+            "A1.2.15"
+          ],
+          "prompt": "Without notes: What evidence falsified an equal four-base repeating model of DNA?",
+          "answer": "Chargaff showed that DNA base composition varies between species, while in double-stranded DNA adenine is approximately equal to thymine and guanine approximately equal to cytosine. Across species the A+T proportion can differ from G+C, contradicting a fixed tetranucleotide sequence with equal frequencies of all four bases. Illustrative, NOT measured values: A 30%, T 30%, G 20%, C 20%. Explain what follows and what does not.",
+          "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
+        }
+      ],
+      "guidePage": 38,
+      "pdfPage": 44,
+      "textbook": {
+        "referenceId": "hodder-a12",
+        "printedPages": [
+          32,
+          33
+        ],
+        "pdfPages": [
+          44,
+          45
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Understand the science",
+          "explanation": "Chargaff showed that DNA base composition varies between species, while in double-stranded DNA adenine is approximately equal to thymine and guanine approximately equal to cytosine. Across species the A+T proportion can differ from G+C, contradicting a fixed tetranucleotide sequence with equal frequencies of all four bases.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        },
+        {
+          "title": "Reason from the mechanism",
+          "explanation": "Scientific induction infers general patterns from finite observations but cannot establish all cases with logical certainty. In contrast, an incompatible observation can falsify a strict universal model. Chargaff's composition data undermined the fixed A:T:G:C = 1:1:1:1 hypothesis; by itself it did not directly reveal the entire double-helix structure.",
+          "referenceIds": [
+            "ib-a12",
+            "hodder-a12",
+            "original-evidence"
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "a12-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.1"
+      ],
+      "level": "shared",
+      "prompt": "Which statement best fits the IB guide?",
+      "marks": 1,
+      "sectionId": "a12-1",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "All living organisms carry genetic information as DNA, while some viruses use RNA",
+          "correct": true,
+          "feedback": "DNA is inherited by cellular life; RNA viruses are a distinct non-living category.",
+          "id": "o1"
+        },
+        {
+          "text": "Every virus has DNA",
+          "correct": false,
+          "feedback": "RNA genomes exist in some viruses.",
+          "id": "o2"
+        },
+        {
+          "text": "Only organisms with nuclei use DNA",
+          "correct": false,
+          "feedback": "Bacteria also store information in DNA.",
+          "id": "o3"
+        },
+        {
+          "text": "RNA never stores hereditary information",
+          "correct": false,
+          "feedback": "RNA can be genetic material in viruses.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.2"
+      ],
+      "level": "shared",
+      "prompt": "Which nucleotide icon is connected correctly?",
+      "marks": 1,
+      "sectionId": "a12-2",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "Base—phosphate only",
+          "correct": false,
+          "feedback": "The pentose sugar is an essential attached component.",
+          "id": "o1"
+        },
+        {
+          "text": "Phosphate—sugar—base",
+          "correct": true,
+          "feedback": "The pentose forms the connection between these components.",
+          "id": "o2"
+        },
+        {
+          "text": "Phosphate—base—sugar",
+          "correct": false,
+          "feedback": "The base does not bond directly to phosphate in this representation.",
+          "id": "o3"
+        },
+        {
+          "text": "Three isolated icons",
+          "correct": false,
+          "feedback": "The components must form a nucleotide, not three separate objects.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.3"
+      ],
+      "level": "shared",
+      "prompt": "Which bonds form the stable internal backbone of DNA?",
+      "marks": 1,
+      "sectionId": "a12-3",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "Peptide bonds",
+          "correct": false,
+          "feedback": "Peptide bonds link amino acids, not nucleotides.",
+          "id": "o1"
+        },
+        {
+          "text": "Ionic bonds between bases",
+          "correct": false,
+          "feedback": "Ionic base-to-base links are not DNA backbone bonds.",
+          "id": "o2"
+        },
+        {
+          "text": "Covalent phosphodiester bonds",
+          "correct": true,
+          "feedback": "Phosphodiester bonds connect nucleotide units in one strand.",
+          "id": "o3"
+        },
+        {
+          "text": "Hydrogen bonds between paired bases",
+          "correct": false,
+          "feedback": "Base-pair hydrogen bonds act between strands.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.4"
+      ],
+      "level": "shared",
+      "prompt": "Which base occurs in standard RNA instead of thymine?",
+      "marks": 1,
+      "sectionId": "a12-4",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "Adenine",
+          "correct": false,
+          "feedback": "Adenine occurs in both DNA and RNA.",
+          "id": "o1"
+        },
+        {
+          "text": "Guanine",
+          "correct": false,
+          "feedback": "Guanine occurs in both DNA and RNA.",
+          "id": "o2"
+        },
+        {
+          "text": "Cytosine",
+          "correct": false,
+          "feedback": "Cytosine occurs in both DNA and RNA.",
+          "id": "o3"
+        },
+        {
+          "text": "Uracil",
+          "correct": true,
+          "feedback": "Uracil is the RNA alternative to thymine.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.5"
+      ],
+      "level": "shared",
+      "prompt": "Which is required in a drawing of a short RNA polymer?",
+      "marks": 1,
+      "sectionId": "a12-5",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "Connected ribose and phosphate units with attached bases",
+          "correct": true,
+          "feedback": "RNA consists of connected nucleotides, not free bases.",
+          "id": "o1"
+        },
+        {
+          "text": "Only three free nitrogenous bases",
+          "correct": false,
+          "feedback": "Free bases are not a nucleotide polymer.",
+          "id": "o2"
+        },
+        {
+          "text": "Paired A–T double strands",
+          "correct": false,
+          "feedback": "A–T double strands depict DNA complementarity.",
+          "id": "o3"
+        },
+        {
+          "text": "Peptide bonds between amino acids",
+          "correct": false,
+          "feedback": "Peptides are polymers of amino acids.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.6"
+      ],
+      "level": "shared",
+      "prompt": "What is the aligned complement of 5′-ACGT-3′?",
+      "marks": 1,
+      "sectionId": "a12-6",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "3′-UGCA-5′",
+          "correct": false,
+          "feedback": "U belongs to RNA, not this DNA complement.",
+          "id": "o1"
+        },
+        {
+          "text": "3′-TGCA-5′",
+          "correct": true,
+          "feedback": "Complementary bases and opposite orientation are both correct.",
+          "id": "o2"
+        },
+        {
+          "text": "5′-TGCA-3′",
+          "correct": false,
+          "feedback": "The bases fit but strands would be shown parallel.",
+          "id": "o3"
+        },
+        {
+          "text": "3′-ACGT-5′",
+          "correct": false,
+          "feedback": "Complementary means opposite partner bases, not the identical letters.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.7"
+      ],
+      "level": "shared",
+      "prompt": "Where is the characteristic DNA/RNA sugar difference?",
+      "marks": 1,
+      "sectionId": "a12-7",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "Only at the phosphate",
+          "correct": false,
+          "feedback": "Phosphates can occur in both nucleotide types.",
+          "id": "o1"
+        },
+        {
+          "text": "Only at the 5′ phosphate",
+          "correct": false,
+          "feedback": "The difference is on the sugar, not limited to the phosphate.",
+          "id": "o2"
+        },
+        {
+          "text": "At the 2′ carbon",
+          "correct": true,
+          "feedback": "Ribose has 2′ OH whereas deoxyribose has 2′ H.",
+          "id": "o3"
+        },
+        {
+          "text": "At the 3′ carbon",
+          "correct": false,
+          "feedback": "The 3′ hydroxyl is retained in both typical sugars.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.8"
+      ],
+      "level": "shared",
+      "prompt": "What is made from template DNA 3′-TAC-5′?",
+      "marks": 1,
+      "sectionId": "a12-8",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-transcription"
+      ],
+      "options": [
+        {
+          "text": "RNA 5′-TAC-3′",
+          "correct": false,
+          "feedback": "RNA uses U rather than T and follows complementarity.",
+          "id": "o1"
+        },
+        {
+          "text": "RNA 3′-AUG-5′",
+          "correct": false,
+          "feedback": "This is reversed synthesis orientation.",
+          "id": "o2"
+        },
+        {
+          "text": "RNA 5′-UAC-3′",
+          "correct": false,
+          "feedback": "UAC does not correctly complement TAC.",
+          "id": "o3"
+        },
+        {
+          "text": "RNA 5′-AUG-3′",
+          "correct": true,
+          "feedback": "RNA complementary to TAC is AUG in 5′→3′ orientation.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.9"
+      ],
+      "level": "shared",
+      "prompt": "How many four-position DNA sequences are possible?",
+      "marks": 1,
+      "sectionId": "a12-9",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "256",
+          "correct": true,
+          "feedback": "4⁴ = 256 distinct four-position sequences.",
+          "id": "o1"
+        },
+        {
+          "text": "16",
+          "correct": false,
+          "feedback": "4² counts two positions.",
+          "id": "o2"
+        },
+        {
+          "text": "64",
+          "correct": false,
+          "feedback": "4³ counts three positions.",
+          "id": "o3"
+        },
+        {
+          "text": "4",
+          "correct": false,
+          "feedback": "Four is the alphabet size, not the number of sequences.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.10"
+      ],
+      "level": "shared",
+      "prompt": "Which similarity most directly supports common ancestry in this understanding?",
+      "marks": 1,
+      "sectionId": "a12-10",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "Exactly identical protein sequences in all species",
+          "correct": false,
+          "feedback": "Proteins vary among organisms.",
+          "id": "o1"
+        },
+        {
+          "text": "Near-universality of codon assignments",
+          "correct": true,
+          "feedback": "The translation code is strongly conserved across cellular life.",
+          "id": "o2"
+        },
+        {
+          "text": "Identical genomes in all organisms",
+          "correct": false,
+          "feedback": "Species have different genomes.",
+          "id": "o3"
+        },
+        {
+          "text": "The same number of chromosomes",
+          "correct": false,
+          "feedback": "Chromosome counts differ.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.11"
+      ],
+      "level": "HL",
+      "prompt": "Where is a new nucleotide usually attached during DNA synthesis?",
+      "marks": 1,
+      "sectionId": "a12-11",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "At a random internal base",
+          "correct": false,
+          "feedback": "Sequence elongation does not insert random bases into the backbone.",
+          "id": "o1"
+        },
+        {
+          "text": "To a histone protein",
+          "correct": false,
+          "feedback": "Histones are packaging proteins, not polymerisation acceptors.",
+          "id": "o2"
+        },
+        {
+          "text": "To the growing 3′ end",
+          "correct": true,
+          "feedback": "The 3′ hydroxyl accepts the next nucleotide.",
+          "id": "o3"
+        },
+        {
+          "text": "To the growing 5′ end",
+          "correct": false,
+          "feedback": "Polymerases synthesise in the 5′→3′ direction.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-12",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.12"
+      ],
+      "level": "HL",
+      "prompt": "Which feature keeps normal A–T and G–C pair spans similar?",
+      "marks": 1,
+      "sectionId": "a12-12",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "options": [
+        {
+          "text": "Each has two purines",
+          "correct": false,
+          "feedback": "Two purines are too wide for usual paired geometry.",
+          "id": "o1"
+        },
+        {
+          "text": "A and G are both one-ring bases",
+          "correct": false,
+          "feedback": "A and G are purines with two rings.",
+          "id": "o2"
+        },
+        {
+          "text": "All bases are exactly the same size",
+          "correct": false,
+          "feedback": "Purines and pyrimidines differ in ring count.",
+          "id": "o3"
+        },
+        {
+          "text": "Each combines a purine and a pyrimidine",
+          "correct": true,
+          "feedback": "One large and one small base give comparable pairing width.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-13",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.13"
+      ],
+      "level": "HL",
+      "prompt": "How many copies of each core histone make up the octamer?",
+      "marks": 1,
+      "sectionId": "a12-13",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "rcsb-nucleosome"
+      ],
+      "options": [
+        {
+          "text": "Two each of H2A, H2B, H3 and H4",
+          "correct": true,
+          "feedback": "Two copies of four types yields eight histone molecules.",
+          "id": "o1"
+        },
+        {
+          "text": "One H1 plus seven other histones",
+          "correct": false,
+          "feedback": "H1 is not a core member.",
+          "id": "o2"
+        },
+        {
+          "text": "Eight copies of H1",
+          "correct": false,
+          "feedback": "H1 is a linker histone, not an octamer replacement.",
+          "id": "o3"
+        },
+        {
+          "text": "One of each H2A, H2B, H3 and H4",
+          "correct": false,
+          "feedback": "One each yields only four, not eight.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-14",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.14"
+      ],
+      "level": "HL",
+      "prompt": "Which label mostly followed infected bacterial cells into the pellet?",
+      "marks": 1,
+      "sectionId": "a12-14",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "original-evidence"
+      ],
+      "options": [
+        {
+          "text": "Neither label could be distinguished",
+          "correct": false,
+          "feedback": "Radioisotopes made the separation of molecules measurable.",
+          "id": "o1"
+        },
+        {
+          "text": "32P-labelled DNA",
+          "correct": true,
+          "feedback": "DNA-associated 32P was found predominantly in the pellet.",
+          "id": "o2"
+        },
+        {
+          "text": "35S-labelled protein coats",
+          "correct": false,
+          "feedback": "Most coat-protein 35S remained outside cells.",
+          "id": "o3"
+        },
+        {
+          "text": "Both labels only into the supernatant",
+          "correct": false,
+          "feedback": "DNA-associated radioactivity was associated with cells.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-mcq-15",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A1.2.15"
+      ],
+      "level": "HL",
+      "prompt": "If A = T = 32% in a DNA sample, what is C approximately?",
+      "marks": 1,
+      "sectionId": "a12-15",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "original-evidence"
+      ],
+      "options": [
+        {
+          "text": "36%",
+          "correct": false,
+          "feedback": "36% is both G and C together.",
+          "id": "o1"
+        },
+        {
+          "text": "16%",
+          "correct": false,
+          "feedback": "16% does not balance the four percentages.",
+          "id": "o2"
+        },
+        {
+          "text": "18%",
+          "correct": true,
+          "feedback": "G+C=36%, so C≈18% if G≈C.",
+          "id": "o3"
+        },
+        {
+          "text": "32%",
+          "correct": false,
+          "feedback": "A≈T does not imply A≈C.",
+          "id": "o4"
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-draw-dna",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A1.2.6"
+      ],
+      "level": "shared",
+      "prompt": "Draw a two-strand schematic with a DNA strand 5′-AGTC-3′. Show its complementary strand, both sugar–phosphate backbones, and the 5′/3′ labels. Explain the bond types.",
+      "marks": 4,
+      "sectionId": "a12-6",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "answer": "Aligned complement 3′-TCAG-5′. Each backbone has covalent phosphodiester bonds; the strands pair through hydrogen bonds.",
+      "markingPoints": [
+        "Correct complementary sequence 3′-TCAG-5′.",
+        "Antiparallel directions clearly labelled.",
+        "Sugar–phosphate backbones shown and identified as covalent.",
+        "Hydrogen bonding correctly identified between base pairs."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-draw-rna",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A1.2.5"
+      ],
+      "level": "shared",
+      "prompt": "Sketch a three-nucleotide RNA polymer, using symbolic phosphate/sugar/base shapes and bases A,U,G. Explain how its backbone forms and why this simplified net condensation drawing differs from cellular RNA polymerase chemistry.",
+      "marks": 4,
+      "sectionId": "a12-5",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "answer": "Three connected ribose units joined via phosphate, bases A/U/G attached to sugars; simplified joining is a net condensation model, but nucleotide triphosphate incorporation releases pyrophosphate directly.",
+      "markingPoints": [
+        "Show three RNA sugar residues in sequence.",
+        "Bases A,U,G attach to the corresponding sugars.",
+        "Phosphates link sugar units covalently in the backbone.",
+        "Distinguish simplified net condensation from activated nucleotide insertion and pyrophosphate release."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-data-chargaff",
+      "paper": "1B",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A1.2.15"
+      ],
+      "level": "HL",
+      "prompt": "These invented values illustrate a double-stranded DNA sample, not real measured data. Estimate G and C, and explain whether the result fits a strict tetranucleotide model predicting 25% of every base.",
+      "marks": 4,
+      "sectionId": "a12-15",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "original-evidence"
+      ],
+      "answer": "A=T=30%; G+C=40%; G≈C≈20%. A strict 25% for all four bases is contradicted.",
+      "markingPoints": [
+        "A=T=30% recognised.",
+        "G+C=40% calculated.",
+        "G=C≈20% calculated.",
+        "25%-per-base model rejected on these values."
+      ],
+      "review": "scientific-review",
+      "data": {
+        "caption": "Illustrative mathematical exercise; not empirical laboratory data. All values are percentage of total DNA bases.",
+        "headers": [
+          "Sample",
+          "A (%)",
+          "T (%)",
+          "G (%)",
+          "C (%)"
+        ],
+        "rows": [
+          [
+            "Illustrative X",
+            30,
+            30,
+            "?",
+            "?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "a12-evidence-hershey",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A1.2.14"
+      ],
+      "level": "HL",
+      "prompt": "Explain why Hershey and Chase used different isotopic labels in separate bacteriophage cultures and how the fractions after blending and centrifugation supported their genetic-material conclusion. State one limitation.",
+      "marks": 4,
+      "sectionId": "a12-14",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "original-evidence"
+      ],
+      "answer": "32P-labelled DNA predominantly accompanied the cell pellet and 35S protein the supernatant; supports injected viral DNA as hereditary material in this phage system; one experiment cannot establish every possible genome.",
+      "markingPoints": [
+        "Correct DNA-specific 32P tracer rationale.",
+        "Correct protein-associated 35S tracer rationale.",
+        "Describe the two fractions and where signals predominated.",
+        "Connect entry to DNA hereditary function, acknowledging an inference limit."
+      ],
+      "review": "scientific-review"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-a12",
+      "title": "IB Biology Guide (first assessment 2025)",
+      "locator": "A1.2.1–A1.2.15 and guidance; printed pp. 35–38, PDF pp. 41–44",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "hodder-a12",
+      "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (2023)",
+      "locator": "A1.2 full chapter, printed pp. 14–33, PDF pp. 26–45",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "ncbi-transcription",
+      "title": "NCBI Bookshelf, From DNA to RNA",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK26887/",
+      "locator": "DNA template and coding strand distinction; RNA 5′→3′ synthesis",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "rcsb-nucleosome",
+      "title": "RCSB PDB structure 1KX5, nucleosome core particle",
+      "url": "https://www.rcsb.org/structure/1KX5",
+      "locator": "Experimental nucleosome core with eight core histone chains, wrapped DNA, without H1",
+      "level": "HL",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "ncbi-dna",
+      "title": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+      "locator": "DNA complementarity, information and molecular structures; background corroboration",
+      "level": "shared",
+      "accessedAt": "2026-10-16"
+    },
+    {
+      "id": "original-evidence",
+      "title": "Original LitLab instructional scientific analysis and illustrative examples",
+      "locator": "Illustrative calculations and original non-empirical models; not measured data",
+      "level": "HL",
+      "accessedAt": "2026-10-16"
+    }
+  ],
+  "assets": [
+    {
+      "id": "a12-nucleotide",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/nucleotide.svg",
+      "recallSrc": "/biology/nucleic-acids/nucleotide-recall.svg",
+      "captionTitle": "How nucleotide components connect",
+      "alt": "Original conceptual diagram. phosphate; pentose sugar; nitrogenous base. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-backbone",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/backbone.svg",
+      "recallSrc": "/biology/nucleic-acids/backbone-recall.svg",
+      "captionTitle": "Covalent sugar–phosphate chain",
+      "alt": "Original conceptual diagram. 5′ phosphate; ribose / deoxyribose; bases project from sugars. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-bases",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/bases.svg",
+      "recallSrc": "/biology/nucleic-acids/bases-recall.svg",
+      "captionTitle": "DNA and RNA base recognition",
+      "alt": "Original conceptual diagram. Purines: A + G (two rings); Pyrimidines: C + T + U (one ring); DNA T ↔ RNA U. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-paired",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/paired.svg",
+      "recallSrc": "/biology/nucleic-acids/paired-recall.svg",
+      "captionTitle": "Complementary DNA strands",
+      "alt": "Original conceptual diagram. 5′  A  T  G  C  3′; 3′  T  A  C  G  5′; A–T / G–C. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-sugars",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/sugars.svg",
+      "recallSrc": "/biology/nucleic-acids/sugars-recall.svg",
+      "captionTitle": "Pentose 2′ substituent",
+      "alt": "Original conceptual diagram. RNA ribose: 2′—OH; DNA deoxyribose: 2′—H; 3′—OH in both. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-capacity",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/capacity.svg",
+      "recallSrc": "/biology/nucleic-acids/capacity-recall.svg",
+      "captionTitle": "Four choices at every site",
+      "alt": "Original conceptual diagram. 2 bases: 4² = 16; 4 bases: 4⁴ = 256; 8 bases: 4⁸ = 65,536. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-nucleosome",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/nucleosome.svg",
+      "recallSrc": "/biology/nucleic-acids/nucleosome-recall.svg",
+      "captionTitle": "Nucleosome octamer plus H1",
+      "alt": "Original conceptual diagram. DNA wraps around eight histones; 2 × (H2A, H2B, H3, H4); H1 on linker DNA, outside core. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "rcsb-nucleosome"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-hershey",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/hershey.svg",
+      "recallSrc": "/biology/nucleic-acids/hershey-recall.svg",
+      "captionTitle": "Isotope tracing after infection",
+      "alt": "Original conceptual diagram. ³²P-labelled DNA → bacterial pellet; ³⁵S-labelled protein → supernatant; Blender + centrifuge separate fractions. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "rcsb-nucleosome"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-chargaff",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/chargaff.svg",
+      "recallSrc": "/biology/nucleic-acids/chargaff-recall.svg",
+      "captionTitle": "Illustrative base percentages",
+      "alt": "Original conceptual diagram. A 30%, T 30%; G 20%, C 20%; Not all bases = 25%. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "rcsb-nucleosome"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    }
+  ],
+  "summary": "Nucleotide chemistry produces strong directional sugar–phosphate backbones and complementary strands. DNA's enormous sequence space allows genetic storage; a conserved translation code supports ancestry. HL studies nucleosomes, tracers and falsification.",
+  "review": {
+    "status": "scientific-review",
+    "sourceCheckedAt": "2026-10-16",
+    "reviewer": null,
+    "notes": [
+      "All 15 A1.2 understandings mapped to the first-assessment-2025 guide; source locators are reviewable and Hodder chapter was consulted.",
+      "Hodder printed page 25 coding-strand/template reversal corrected in A1.2.8.",
+      "All artwork is original conceptual SVG rather than chemically atom-resolved figures; chemistry and illustration review pending.",
+      "A1.2.13 provides opt-in RCSB molecular software use with written fallback; hands-on activity requires internet and manual accessibility testing.",
+      "Independent scientific validation, subject-teacher assessment calibration, actual molecular viewer use, mobile visual verification and publication-rights review are not completed."
+    ]
+  }
+}
