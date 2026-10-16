@@ -1,70 +1,15 @@
-import test from 'node:test';
+import {test} from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {validateBatch5} from './validate-batch5.mjs';
-
-const ids=(topic,count,shared)=>Array.from({length:count},(_,i)=>({
- id:topic+'.'+(i+1),
- level:i<shared?'shared':'HL',
- guidePage:topic==='A1.2'?35:65,
- pdfPage:topic==='A1.2'?41:71,
- studentTitle:'A distinct student-facing description '+(i+1)
-}));
-function fixture(topic='A1.2'){
- const count=topic==='A1.2'?15:17,shared=10;
- const t={id:topic,understandings:ids(topic,count,shared)};
- const sections=t.understandings.map((u,i)=>({
- id:'section-'+(i+1),understandingIds:[u.id],level:u.level,
- explanation:'A template DNA strand is read 3′→5′; RNA matches the coding strand except for uracil. Exocytosis; penicillin; isoleucine; competitive feedback inhibition; initial rate and activation energy.',
- workedExample:'A real example',revisionSummary:'Summary',interactions:[{
- kind:'selection',id:'check-'+i,options:[{correct:true,feedback:'A good reason'},{correct:false,feedback:'A correction'}]
- }],recall:[{id:'recall-'+i}],misconceptions:[{misconception:'Incorrect',correction:'Correct'}],
- claimReferences:[{claim:'a claim',referenceIds:['ib']}],guidePage:u.guidePage,pdfPage:u.pdfPage,
- textbook:{printedPages:[14],pdfPages:[26]},
- ...(topic==='A1.2'&&i===12?{molecularViewer:{
- url:'https://www.rcsb.org/3d-view/1KX5',
- fallback:'A complete written alternative',
- studentInstructions:'Rotate model and identify DNA and histones'
- }}:{})
- }));
- const questions=t.understandings.map((u,i)=>({
- id:'mcq-'+i,paper:'1A',original:true,understandingIds:[u.id],
- options:Array.from({length:4},(_,j)=>({id:String(j),text:'answer '+j,correct:j===0,feedback:'Specific feedback'}))
- }));
- for(let i=0;i<(topic==='A1.2'?2:4);i++)questions.push({id:'written-'+i,paper:'2'});
- for(let i=0;i<(topic==='A1.2'?1:2);i++)questions.push({id:'data-'+i,paper:'1B',data:{caption:'Illustrative test data'}});
- const assets=Array.from({length:8},(_,i)=>({id:'diagram-'+i,kind:'diagram',
- recallSrc:'/biology/draft/recalled-'+i+'.svg',alt:'Accessible written depiction',
- permissionEvidence:'Original and unlicensed material excluded',review:'scientific-review'}));
- return {t,lesson:{sections,questions,assets,review:{status:'scientific-review',reviewer:null}}};
-}
-test('accepts a structurally complete A1.2 fixture (not science approval)',()=>{
- const {t,lesson}=fixture();
- assert.deepEqual(validateBatch5(t,lesson),[]);
-});
-test('rejects missing molecular software guidance, HL leaks, and wrong pages',()=>{
- const {t,lesson}=fixture();
- delete lesson.sections[12].molecularViewer;
- lesson.sections[11].level='shared';
- lesson.sections[0].pdfPage=40;
- const issues=validateBatch5(t,lesson).join(' | ');
- assert.match(issues,/molecular viewer/);
- assert.match(issues,/Scope leakage/);
- assert.match(issues,/Guide locator/);
-});
-test('rejects incomplete four-option MCQs and unauthorized scientific approval',()=>{
- const {t,lesson}=fixture();
- lesson.questions[0].options.pop();
- lesson.review.status='approved';
- const issues=validateBatch5(t,lesson).join(' | ');
- assert.match(issues,/MCQ validity/);
- assert.match(issues,/Unauthorized approval/);
-});
-test('C1.1 detects missing quantitative-graph data and enzyme mechanisms',()=>{
- const {t,lesson}=fixture('C1.1');
- assert.deepEqual(validateBatch5(t,lesson),[]);
- lesson.sections.forEach(s=>{s.explanation='A simple enzyme statement.'});
- lesson.assets[0].kind='graph';
- const issues=validateBatch5(t,lesson).join(' | ');
- assert.match(issues,/Required enzyme teaching checkpoint/);
- assert.match(issues,/Graph data/);
-});
+const p=name=>JSON.parse(readFileSync(new URL(name,import.meta.url),'utf8'));
+const reg=p('../src/biology/curriculum/registry.json'),cat=p('../src/biology/learning/catalog.json');
+const lessons={'A1.2':p('../src/biology/learning/nucleic-acids/lesson.json'),'C1.1':p('../src/biology/learning/enzymes-metabolism/lesson.json')};
+const clone=()=>({registry:structuredClone(reg),catalog:structuredClone(cat),lessons:structuredClone(lessons)});
+test('real Batch 2 data satisfies source and lesson mapping',()=>assert.deepEqual(validateBatch5(reg,cat,lessons),[]));
+test('negative: additional HL cannot leak into SL',()=>{const a=clone();a.registry.find(t=>t.id==='A1.2').understandings[14].level='shared';assert.notDeepEqual(validateBatch5(a.registry,a.catalog,a.lessons),[])});
+test('negative: missing molecular viewer fails',()=>{const a=clone();delete a.lessons['A1.2'].sections[12].molecularViewer;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),'molecular')});
+test('negative: graph must disclose modelling not real measurements',()=>{const a=clone();a.lessons['C1.1'].sections[7].graphTables[0].caption='Results from a real biological experiment';assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),'provenance')});
+test('negative: graph calculations must agree',()=>{const a=clone();a.lessons['C1.1'].sections[7].graphTables[2].rows[2][1]=6;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),'Michaelis')});
+test('negative: altered textbook page offset is blocked',()=>{const a=clone();a.lessons['C1.1'].sections[10].textbook.pdfPages[0]+=1;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),'Hodder')});
+test('negative: no falsely qualified reviewer',()=>{const a=clone();a.lessons['A1.2'].review.reviewer={name:'Invented',qualification:'none'};assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),'Human review')});

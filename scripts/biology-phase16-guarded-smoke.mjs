@@ -712,7 +712,7 @@ try{
         const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase4-${t.id}-${mode}-${theme}-${width}.png`),Buffer.from(shot.data,'base64'));
       }
     }
-    const id=t.id==='A1.1'?'A1.1.2':t.id==='B1.1'?'B1.1.4':'B1.2.1';
+    const id=t.id==='A1.1'?'A1.1.2':t.id==='B1.1'?'B1.1.4':t.id==='A1.2'?'A1.2.2':t.id==='C1.1'?'C1.1.5':'B1.2.1';
     await command('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true,screenWidth:320,screenHeight:844});
     await freshBiologyRoute(`biology/topic/${t.id}/learn?understanding=${id}`);await waitLesson();await sleep(80);
     await check(`Phase 4 ${t.id} mobile sections initially compact`,async()=>await bioEval("!root.querySelector('.bio-toc').open"));
