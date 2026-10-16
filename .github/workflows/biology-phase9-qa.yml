@@ -54,6 +54,8 @@ jobs:
         run: |
           set -o pipefail
           npm run quality 2>&1 | tee phase16-quality.log
+          node scripts/validate-phase9.mjs
+          node --test scripts/validate-phase9.test.mjs
           node scripts/validate-phase7-batch3.mjs
           node --test scripts/validate-phase7-batch3.test.mjs
           node scripts/biology/phase8/validate.mjs

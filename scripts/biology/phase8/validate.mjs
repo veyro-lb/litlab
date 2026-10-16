@@ -52,7 +52,7 @@ export function validateLesson(l,s,exists=(p)=>fs.existsSync(path.join(root,p)))
  for(const a of l.assets||[]){
   if(seenAssets.has(a.id))fail('duplicate asset '+a.id);seenAssets.add(a.id);
   if(!statuses.has(a.review)||a.review==='approved'||!a.alt||!a.captionTitle||!a.license||!a.permissionEvidence||!a.attribution)fail('asset provenance '+a.id);
-  for(const p of [a.src,a.recallSrc])if(!p||!p.startsWith('/biology/')||!exists('public'+p))fail('asset missing '+a.id);
+  for(const p of (a.kind==='photograph'?[a.src]:[a.src,a.recallSrc]))if(!p||!p.startsWith('/biology/')||!exists('public'+p))fail('asset missing '+a.id);
   for(const r of a.referenceIds||[])if(!refs.has(r))fail('asset ref '+r);
  }
  if(s.topic==='B2.3'){

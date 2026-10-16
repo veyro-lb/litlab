@@ -712,7 +712,7 @@ try{
         const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase4-${t.id}-${mode}-${theme}-${width}.png`),Buffer.from(shot.data,'base64'));
       }
     }
-    const id=t.id==='A1.1'?'A1.1.2':t.id==='B1.1'?'B1.1.4':t.id==='A1.2'?'A1.2.2':t.id==='C1.1'?'C1.1.5':'B1.2.1';
+    const id=t.id==='A1.1'?'A1.1.2':t.id==='B1.1'?'B1.1.4':t.id==='A1.2'?'A1.2.2':t.id==='C1.1'?'C1.1.5':t.id==='B1.2'?'B1.2.1':t.understandings[0].id;
     await command('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true,screenWidth:320,screenHeight:844});
     await freshBiologyRoute(`biology/topic/${t.id}/learn?understanding=${id}`);await waitLesson();await sleep(80);
     await check(`Phase 4 ${t.id} mobile sections initially compact`,async()=>await bioEval("!root.querySelector('.bio-toc').open"));
@@ -758,6 +758,54 @@ try{
       return await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId==='${t.id}.2'&&!root.querySelector('.bio-toc').open`);
     });
   }
+
+  // Phase 9: actual integrated new topics, scope boundaries, retrieval and source views.
+  for(const topicId of ['B2.1','B2.2','B2.3']){
+    const entry=Object.values(integratedCatalog).find(e=>e.topicId===topicId);
+    const lesson=JSON.parse(await readFile(new URL('../src/biology/learning/'+entry.path.slice(2),import.meta.url),'utf8'));
+    const topic=integratedRegistry.find(t=>t.id===topicId),firstHL=topic.understandings.find(u=>u.level==='HL').id;
+    for(const width of [320,390,768,1440]){
+      await command('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<=390,screenWidth:width,screenHeight:1000});
+      await freshBiologyRoute(`biology/topic/${topicId}/learn?understanding=${firstHL}`);await waitLesson();
+      await bioEval("(root.querySelector('input[value=SL]').click(),true)");await sleep(80);
+      await check(`Phase 9 ${topicId} SL rejects HL deep-link ${width}`,async()=>await bioEval(`root.querySelector('.bio-lesson-content').dataset.level==='shared'&&root.querySelectorAll('.bio-lesson-nav li').length===${topic.understandings.filter(u=>u.level==='shared').length}`));
+      for(const mode of ['practice','revision','sources']){
+        await evaluate(`location.hash='biology/topic/${topicId}/${mode}?understanding=${firstHL}'`);await sleep(80);
+        await check(`Phase 9 ${topicId} SL ${mode} has no HL material ${width}`,async()=>await bioEval(`!root.querySelector('[data-level=HL]')&&!root.querySelector('.bio-practice-target')&&!root.querySelector('.bio-practice')?.textContent.includes('ADDITIONAL HL')`));
+      }
+      for(const level of ['SL','HL'])for(const theme of ['light','dark']){
+        await freshBiologyRoute(`biology/topic/${topicId}/sources`);await waitLesson();await bioEval(`(root.querySelector('input[value=${level}]').click(),true)`);
+        await evaluate(`document.documentElement.dataset.theme='${theme}'`);await sleep(70);
+        await check(`Phase 9 ${topicId} Sources ${level} ${theme} ${width}`,async()=>await bioEval(`!!root.querySelector('.bio-sources')&&root.querySelector('.bio-app').scrollWidth<=${width+2}`));
+        const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase9-${topicId}-sources-${level}-${theme}-${width}.png`),Buffer.from(shot.data,'base64'));
+      }
+    }
+    // Check every new section at the narrowest width, including label-recall image loading.
+    await command('Emulation.setDeviceMetricsOverride',{width:320,height:1000,deviceScaleFactor:1,mobile:true,screenWidth:320,screenHeight:1000});
+    await freshBiologyRoute(`biology/topic/${topicId}/learn`);await waitLesson();await bioEval("(root.querySelector('input[value=HL]').click(),true)");
+    for(const s of lesson.sections){
+      const id=s.understandingIds[0];await evaluate(`location.hash='biology/topic/${topicId}/learn?understanding=${id}'`);await sleep(70);
+      await bioEval("(root.querySelectorAll('.bio-figure img').forEach(x=>x.loading='eager'),true)");await sleep(80);
+      await check(`Phase 9 ${id} Learn at 320`,async()=>await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId==='${id}'&&root.querySelector('.bio-app').scrollWidth<=322&&[...root.querySelectorAll('.bio-figure picture img')].every(x=>x.complete&&x.naturalWidth>0)`));
+      const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase9-${id}-learn-320.png`),Buffer.from(shot.data,'base64'));
+      await bioEval("(root.querySelector('.bio-lesson-content .bio-actions button').click(),true)");await sleep(80);
+      await check(`Phase 9 ${id} recall variant loads`,async()=>await bioEval("[...root.querySelectorAll('.bio-figure picture img')].every(x=>x.complete&&x.naturalWidth>0&&x.src.includes('recall'))"));
+      await bioEval("(root.querySelector('.bio-lesson-content .bio-actions button').click(),true)");
+    }
+    await freshBiologyRoute(`biology/topic/${topicId}/practice`);await waitLesson();await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(50);
+    const q=lesson.questions.find(q=>q.options),right=q.options.find(o=>o.correct).id;
+    await bioEval(`(root.querySelector('[data-question-id="${q.id}"] input[value="${right}"]').click(),true)`);await sleep(50);
+    await check(`Phase 9 ${topicId} keyed answer gives causal feedback`,async()=>await bioEval(`root.querySelector('[data-question-id="${q.id}"] .bio-feedback strong').textContent.includes('Correct')`));
+    await bioEval(`(root.querySelector('[data-question-id="${q.id}"] .bio-feedback button').click(),true)`);await sleep(50);
+    await check(`Phase 9 ${topicId} practice retry restores keyboard focus`,async()=>await bioEval(`root.activeElement===root.querySelector('[data-question-id="${q.id}"] input')`));
+    await bioEval("(root.querySelector('.bio-written button').click(),true)");await sleep(40);
+    await check(`Phase 9 ${topicId} written self-review is provisional`,async()=>await bioEval("root.querySelector('.bio-written .bio-feedback').textContent.includes('No automatic written-response mark')"));
+    await freshBiologyRoute(`biology/topic/${topicId}/revision`);await waitLesson();
+    await bioEval("(root.querySelector('.bio-recall button').click(),true)");await sleep(50);
+    await check(`Phase 9 ${topicId} active recall reveals explanation`,async()=>await bioEval("root.querySelector('.bio-recall button').getAttribute('aria-expanded')==='true'&&!!root.querySelector('.bio-recall [role=status]')"));
+  }
+  await freshBiologyRoute('biology/topic/A2.2/learn?understanding=A2.2.10');await sleep(100);
+  await check('Phase 9 incomplete microscopy topic remains unavailable as a lesson',async()=>await bioEval("!root.querySelector('[data-lesson-id]')"));
 
   await check('Biology dashboard does not request the lazy lesson body',async()=>{await freshBiologyRoute('biology');await sleep(100);return await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/assets\\/lesson-[^/]+\\.js/.test(x.name))")});
   await check('Biology assets retain original figures and add narrow scientific canvases',async()=>{

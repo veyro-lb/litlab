@@ -142,14 +142,17 @@ try{
   for(const slug of slugs){
     const lesson=JSON.parse(await readFile(new URL('../src/biology/learning/'+slug+'/lesson.json',import.meta.url),'utf8'));
     for(const asset of lesson.assets)for(const variant of ['src','recallSrc']){
-      const source=asset[variant];if(!source)continue;
+      const source=asset[variant];if(!source||asset.kind==='photograph')continue;
       const svg=await readFile(new URL('../public'+source,import.meta.url),'utf8');
       for(const width of [320,650]){
         const view=svg.match(/viewBox="[^"]*?([\d.]+) ([\d.]+)"/);if(!view)throw new Error('viewBox '+source);
         const height=Math.ceil(width*Number(view[2])/Number(view[1]));
         await command('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
-        await evaluate(`(document.open(),document.write(${JSON.stringify('<!doctype html><html><body style="margin:0;background:white">'+svg.replace('<svg ','<svg style="display:block;width:100%;height:auto" ')+'</body></html>')}),document.close(),true)`);
-        await sleep(20);
+        await evaluate(`(document.body.innerHTML=(${JSON.stringify('<!doctype html><html><body style="margin:0;background:white">'+svg.replace('<svg ','<svg style="display:block;width:100%;height:auto" ')+'</body></html>')}),true)`);
+        await evaluate("(document.body.style.margin=\"0\",true)");
+        await evaluate("document.fonts.ready.then(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))");
+        await evaluate("(window.scrollTo(0,0),true)");
+        await sleep(100);
         const audit=await evaluate(`(()=>{const svg=document.querySelector('svg'),v=svg.viewBox.baseVal;return [...svg.querySelectorAll('text')].map(t=>{const b=t.getBBox();return {text:t.textContent,x:b.x,y:b.y,right:b.x+b.width,bottom:b.y+b.height}}).filter(b=>b.x<0||b.y<0||b.right>v.width||b.bottom>v.height)})()`);
         if(width===650)bounds.push({source,clipped:audit});
         const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
@@ -157,6 +160,17 @@ try{
         await writeFile(join(outputDir,file),Buffer.from(shot.data,'base64'));manifest.push({source,width,file});
       }
     }
+  }
+
+  const photo=await readFile(new URL('../public/biology/cell-structure/cucumber-leaf-tem.webp',import.meta.url));
+  for(const width of [320,650]){
+    const height=Math.ceil(width*778/1228);
+    await command('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+    await evaluate(`(document.body.style.margin='0',document.body.innerHTML='<img alt="Authentic cucumber leaf TEM; six panels with original 500 nm scale bars" style="display:block;width:100%" src="data:image/webp;base64,${photo.toString('base64')}">',true)`);
+    await evaluate("document.querySelector('img').decode()");await sleep(100);
+    const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+    const file=`phase9-microscopy-${width}.png`;await writeFile(join(outputDir,file),Buffer.from(shot.data,'base64'));
+    manifest.push({source:'/biology/cell-structure/cucumber-leaf-tem.webp',width,file});
   }
   await writeFile(join(outputDir,'phase9-figure-manifest.json'),JSON.stringify({manifest,bounds},null,2));
   console.log('Rendered '+manifest.length+' figure views; clipped text in '+bounds.filter(x=>x.clipped.length).length+' files.');
