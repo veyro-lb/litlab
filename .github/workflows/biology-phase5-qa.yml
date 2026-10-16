@@ -61,6 +61,8 @@ jobs:
           node scripts/validate-batch32.mjs
           node scripts/validate-batch5.mjs
           node --test scripts/validate-batch5.test.mjs
+          node scripts/validate-phase5-figures.mjs
+          node --test scripts/validate-phase5-figures.test.mjs
           node scripts/validate-phase4-figures.mjs
           node --test scripts/validate-phase4-figures.test.mjs
           node --test scripts/validate-batch32.test.mjs
