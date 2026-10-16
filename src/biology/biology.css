@@ -103,10 +103,10 @@
 .bio-mechanism-choices button,.bio-mechanism-next{min-height:44px}
 .bio-practice .bio-written{border-top:2px solid var(--line);padding-top:24px;margin-top:32px}
 .bio-practice .bio-written textarea{font-size:16px}
-.bio-figure-dialog{width:min(1100px,calc(100vw - 24px));max-height:90dvh;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--surface,#fff);color:var(--ink,#202439);overflow:auto}
+.bio-figure-dialog{position:fixed;inset:0;margin:auto;width:min(1100px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:90dvh;overflow-wrap:anywhere;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--surface,#fff);color:var(--ink,#202439);overflow:auto}
 .bio-figure-dialog::backdrop{background:#071419b8}
-.bio-figure-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.bio-figure-dialog-head button{min-height:44px;flex-shrink:0}
+.bio-figure-dialog-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;position:sticky;top:0;background:var(--surface,#fff);z-index:1}
+.bio-figure-dialog-head button{min-height:44px;max-width:90px;white-space:normal}
 .bio-figure-dialog p{font-size:14px;line-height:1.7;margin:14px 0}
 .bio-figure-zoom{overflow:auto;max-height:62dvh;border:1px solid var(--line);background:#f1f7f6}
 .bio-figure-zoom img{display:block;width:100%;min-width:1000px;max-width:none;height:auto}

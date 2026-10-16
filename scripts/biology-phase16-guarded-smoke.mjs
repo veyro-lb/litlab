@@ -689,6 +689,7 @@ try{
         await bioEval("(root.querySelectorAll('.bio-figure picture img').forEach(x=>x.loading='eager'),true)");
         for(let retry=0;retry<20;retry++){if(await bioEval("[...root.querySelectorAll('.bio-figure picture img')].every(x=>x.complete&&x.naturalWidth>0)"))break;await sleep(60)}
         await check(`Phase 4 ${u.id} exact heading, loaded figures and reflow ${width}`,async()=>await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId===${JSON.stringify(u.id)}&&root.querySelector('.bio-lesson-content h2').textContent.includes(${JSON.stringify(u.studentTitle)})&&[...root.querySelectorAll('.bio-figure picture img')].every(x=>x.complete&&x.naturalWidth>0)&&root.querySelector('.bio-app').scrollWidth<=innerWidth+2`));
+        await evaluate("window.scrollTo({top:0,left:0,behavior:'instant'})");await sleep(40);
         const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase4-${u.id}-${width}.png`),Buffer.from(shot.data,'base64'));
       }
     }
@@ -707,6 +708,7 @@ try{
     await check(`Phase 4 ${t.id} mobile sections initially compact`,async()=>await bioEval("!root.querySelector('.bio-toc').open"));
     await bioEval("(root.querySelector('.bio-figure-enlarge').click(),true)");await sleep(100);
     await check(`Phase 4 ${t.id} native enlargement traps focus and keeps readable canvas`,async()=>await bioEval("root.querySelector('.bio-figure-dialog').open&&root.activeElement?.textContent==='Close figure'&&root.querySelector('.bio-figure-zoom img').getBoundingClientRect().width>=640"));
+    await check(`Phase 4 ${t.id} enlargement stays inside narrow viewport`,async()=>await bioEval("(()=>{const d=root.querySelector('.bio-figure-dialog'),r=d.getBoundingClientRect(),b=d.querySelector('button').getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight&&b.left>=r.left&&b.right<=r.right&&b.top>=0&&b.bottom<=innerHeight})()"));
     const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(join(outputDir,`phase4-${t.id}-enlarge-320.png`),Buffer.from(shot.data,'base64'));
     await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await sleep(80);
     await check(`Phase 4 ${t.id} Escape closes enlargement`,async()=>await bioEval("!root.querySelector('.bio-figure-dialog').open"));
