@@ -23,7 +23,7 @@ export function validatePhase5Figures(files,lessons){
     for(const [,v] of s.matchAll(/\bfill="([^"]+)"/g)){
      if(!/^(?:#[\da-f]{3,8}|none|transparent|white|black|url\(#[\w-]+\))$/i.test(v))fail('Invalid paint fill '+path);
     }
-    if(kind==='recall'&&textCount(s,'?')===0&&!s.includes('Reconstruct'))fail('Unlabelled figure lacks recall prompts '+path);
+    if(kind==='recall'&&textCount(s,'?')===0&&!/Recall (?:horizontal variable|rate\/energy axis|vertical axis)/.test(s)&&!s.includes('Reconstruct'))fail('Unlabelled figure lacks recall prompts '+path);
    }
  }
  }
