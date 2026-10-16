@@ -910,19 +910,19 @@
               "id": "b",
               "text": "Only alpha helices",
               "correct": false,
-              "feedback": "Not quite: That is related to quaternary structure, where present; primary refers to residue sequence."
+              "feedback": "Alpha helices are secondary structure, stabilized by regular backbone hydrogen bonds."
             },
             {
               "id": "c",
               "text": "Number of polypeptide subunits",
               "correct": false,
-              "feedback": "Not quite: That is related to quaternary structure, where present; primary refers to residue sequence."
+              "feedback": "Association of multiple subunits concerns quaternary structure. Primary structure is residue order within a chain."
             },
             {
               "id": "a",
               "text": "Exact amino-acid sequence",
               "correct": true,
-              "feedback": "Correct: That is related to quaternary structure, where present; primary refers to residue sequence."
+              "feedback": "Primary structure specifies the identity and order of amino-acid residues along the polypeptide backbone."
             }
           ]
         }
@@ -1437,7 +1437,9 @@
         "ib-b12-hl",
         "hodder-b12-hl",
         "openstax-protein",
-        "openstax-chem"
+        "openstax-chem",
+        "pdb-insulin",
+        "pdb-collagen"
       ],
       "assets": [
         "b12-forms"
@@ -1586,7 +1588,9 @@
         "ib-b12-hl",
         "hodder-b12-hl",
         "openstax-protein",
-        "openstax-chem"
+        "openstax-chem",
+        "pdb-insulin",
+        "pdb-collagen"
       ],
       "assets": [
         "b12-forms"
@@ -2345,6 +2349,22 @@
       "locator": "R-group interactions, aqueous protein folds, denaturation and reversibility",
       "accessedAt": "2026-10-16",
       "level": "HL"
+    },
+    {
+      "id": "pdb-insulin",
+      "title": "RCSB PDB 3I40 — experimentally determined human insulin",
+      "url": "https://www.rcsb.org/structure/3I40",
+      "locator": "Biological assembly A1B1; A chain 21 and B chain 30 residues; X-ray structure, primary citation Timofeev et al. (2010)",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
+    },
+    {
+      "id": "pdb-collagen",
+      "title": "RCSB PDB 1BKV — collagen-like triple-helical peptide",
+      "url": "https://www.rcsb.org/structure/1BKV",
+      "locator": "Experimental collagen-like peptide model; three-chain triple helix, not a complete collagen fibril",
+      "accessedAt": "2026-10-16",
+      "level": "HL"
     }
   ],
   "assets": [
@@ -2415,7 +2435,9 @@
       "referenceIds": [
         "ib-b12-hl",
         "hodder-b12-hl",
-        "openstax-protein"
+        "openstax-protein",
+        "pdb-insulin",
+        "pdb-collagen"
       ],
       "level": "HL",
       "review": "scientific-review"

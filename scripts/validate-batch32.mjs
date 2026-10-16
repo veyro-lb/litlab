@@ -21,7 +21,7 @@ export function validateBatch32(registry,catalog,lessonMap){
    if(!s)continue;
    if(s.guidePage!==u.guidePage||s.pdfPage!==u.pdfPage)errors.push('IB guide page mismatch '+u.id);
    if(!s.textbook?.printedPages?.every((page,i)=>page+12===s.textbook.pdfPages[i]))errors.push('Hodder printed/PDF page mismatch '+u.id);
-   if(s.teachingBlocks?.length<2||s.interactions.length<1||s.recall.length<1)errors.push('Missing progressive teaching or retrieval '+u.id);
+   if(!Array.isArray(s.teachingBlocks)||s.teachingBlocks.length<2||s.interactions.length<1||s.recall.length<1)errors.push('Missing progressive teaching or retrieval '+u.id);
    if(!d.questions.some(q=>q.understandingIds.includes(u.id)&&q.paper==='1A'))errors.push('No exam-style MCQ for '+u.id);
    if(!u.studentTitle||!s.misconceptions[0]?.correction)errors.push('Missing display title/misconception repair '+u.id);
    if(['B1.1.2','B1.2.2'].includes(u.id)&&!s.mechanismChallenge)errors.push('Missing interactive mechanism reasoning '+u.id);

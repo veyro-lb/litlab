@@ -531,6 +531,11 @@ try{
     const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width:viewport.width,height:full.cssContentSize.height,scale:1}});
     await writeFile(join(outputDir,'water-learn-'+viewport.name+'.png'),Buffer.from(shot.data,'base64'));
     if(viewport.mobile)await check('Water navigation responds to touch',async()=>{
+      await command('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
+      await bioEval("(root.querySelector('.bio-toc summary').scrollIntoView({block:'center',behavior:'instant'}),true)");await sleep(70);
+      const menuPoint=await bioEval("(()=>{const r=root.querySelector('.bio-toc summary').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()");
+      await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[menuPoint]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(80);
+      if(!await bioEval("root.querySelector('.bio-toc').open"))return false;
       await bioEval("(root.querySelectorAll('.bio-lesson-nav button')[3].scrollIntoView({block:'center',behavior:'instant'}),true)");await sleep(50);
       const pt=await bioEval("(()=>{const r=root.querySelectorAll('.bio-lesson-nav button')[3].getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()");
       await command('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
@@ -711,6 +716,21 @@ try{
     await command('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
     await check(`Phase 4 ${t.id} reduced motion`,async()=>await bioEval("getComputedStyle(root.querySelector('.bio-mode-nav a')).transitionDuration==='0s'"));
     await command('Emulation.setEmulatedMedia',{features:[]});
+    await check(`Phase 4 ${t.id} touch opens sections and selects an understanding`,async()=>{
+      await command('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
+      async function tap(selector){
+        await bioEval(`(root.querySelector(${JSON.stringify(selector)}).scrollIntoView({block:'center',behavior:'instant'}),true)`);await sleep(60);
+        const pt=await bioEval(`(()=>{const r=root.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
+        if(pt.y<0||pt.y>844||pt.x<0||pt.x>320)throw new Error('Touch target outside viewport');
+        await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(90);
+      }
+      await tap('.bio-toc summary');
+      if(!await bioEval("root.querySelector('.bio-toc').open"))return false;
+      const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(join(outputDir,`phase4-${t.id}-sections-touch-320.png`),Buffer.from(shot.data,'base64'));
+      await tap('.bio-lesson-nav li:nth-child(2) button');
+      await command('Emulation.setTouchEmulationEnabled',{enabled:false});
+      return await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId==='${t.id}.2'&&!root.querySelector('.bio-toc').open`);
+    });
   }
 
   await check('Biology dashboard does not request the lazy lesson body',async()=>{await freshBiologyRoute('biology');await sleep(100);return await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/assets\\/lesson-[^/]+\\.js/.test(x.name))")});

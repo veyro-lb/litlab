@@ -89,3 +89,5 @@ for(const slug of ['carbohydrates-lipids','proteins']){
   }
  });
 }
+
+for(const stages of [{bad:true},[null,null]])test('mechanism rejects malformed stages '+JSON.stringify(stages),()=>{const d=structuredClone(water);d.sections[0].mechanismChallenge={...structuredClone(challenge),stages};assert.ok(validateLesson(d,topic).some(x=>x.includes('Invalid mechanism')))});

@@ -7,6 +7,7 @@ const [registry,catalog,b11,b12]=await Promise.all([load('curriculum/registry.js
 const fixtures=()=>[structuredClone(registry),structuredClone(catalog),{'B1.1':structuredClone(b11),'B1.2':structuredClone(b12)}];
 test('Phase 3.2 mapped drafts satisfy bounded contract',()=>{const [r,c,lessons]=fixtures();assert.deepEqual(validateBatch32(r,c,lessons),[])});
 for(const [reason,mutate] of [
+ ['omit progressive teaching blocks',([,,l])=>delete l['B1.1'].sections[0].teachingBlocks],
  ['omit protein HL section',([, ,l])=>l['B1.2'].sections.pop()],
  ['leak HL into SL',([, ,l])=>l['B1.2'].sections[5].level='shared'],
  ['remove claim evidence',([,,l])=>l['B1.1'].sections[3].claimReferences=[]],
