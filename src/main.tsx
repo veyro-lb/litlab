@@ -59,9 +59,9 @@ function BioLabShowcase({go}:{go:Go}){return <section className="biolab-showcase
   <p>Explore IB Biology by understanding number, then learn through clear explanations, original scientific diagrams, active recall and real practice questions. Built for Standard and Higher Level.</p>
   <div className="biolab-showcase-actions"><button className="biolab-showcase-primary" onClick={()=>go('biology')}>Explore BioLab <ArrowRight size={20} aria-hidden="true"/></button><span>8 interactive topic drafts available</span></div>
   <div className="biolab-showcase-links" aria-label="Start studying a Biology topic">
-   <a href="#biology/topic/A1.1">A1.1 <span>Water</span><ArrowRight size={14} aria-hidden="true"/></a>
-   <a href="#biology/topic/B2.1">B2.1 <span>Membranes</span><ArrowRight size={14} aria-hidden="true"/></a>
-   <a href="#biology/topic/C1.1">C1.1 <span>Enzymes</span><ArrowRight size={14} aria-hidden="true"/></a>
+   <a href="#biology/topic/A1.1/learn">A1.1 <span>Water</span><ArrowRight size={14} aria-hidden="true"/></a>
+   <a href="#biology/topic/B2.1/learn">B2.1 <span>Membranes</span><ArrowRight size={14} aria-hidden="true"/></a>
+   <a href="#biology/topic/C1.1/learn">C1.1 <span>Enzymes</span><ArrowRight size={14} aria-hidden="true"/></a>
   </div>
   <p className="biolab-showcase-disclaimer">Early-access study drafts. Scientific and teacher review is ongoing; independent of and not endorsed by the IB.</p>
  </div>
