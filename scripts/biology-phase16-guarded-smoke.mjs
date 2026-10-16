@@ -346,27 +346,27 @@ try{
     await evaluate(`(()=>{const root=${bio};const x=root.querySelector('input[type=search]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(x,'A1.1');x.dispatchEvent(new Event('input',{bubbles:true}));})()`);
     await sleep(180);return await bioEval("root.querySelectorAll('[data-topic-id]').length===1&&!!root.querySelector('[data-topic-id=\"A1.1\"]')");
   });
-  await check('Topic link opens the Water overview with 8 HL statements',async()=>{
+  await check('Available topic card opens the Water interactive lesson with 8 HL sections',async()=>{
     await bioEval("(root.querySelector('[data-topic-id=\"A1.1\"]').click(),true)");await sleep(250);
-    return await bioEval("root.querySelectorAll('[data-understanding-id]').length===8&&root.querySelector('h1')?.textContent==='Water'");
+    return await bioEval("root.querySelector('[data-lesson-id]')?.dataset.mode==='learn'&&root.querySelectorAll('.bio-lesson-nav li').length===8&&root.querySelector('h1')?.textContent.startsWith('Water')");
   });
   await check('SL selection hides Water additional HL statements',async()=>{
     await bioEval("(root.querySelector('input[value=SL]').click(),true)");await sleep(150);
-    return await bioEval("root.querySelectorAll('[data-understanding-id]').length===6&&!root.querySelector('[data-understanding-id=\"A1.1.7\"]')");
+    return await bioEval("root.querySelectorAll('.bio-lesson-nav li').length===6&&!root.querySelector('[data-syllabus-id=\"A1.1.7\"]')");
   });
   await check('Biology history and keyboard focus follow navigation',async()=>{
     await evaluate("history.back()");await sleep(250);
     const back=await evaluate("location.hash==='#biology'");
     await evaluate("history.forward()");await sleep(250);
     const focus=await bioEval("root.activeElement?.classList.contains('bio-app')");
-    return back&&focus&&await evaluate("location.hash==='#biology/topic/A1.1'");
+    return back&&focus&&await evaluate("location.hash==='#biology/topic/A1.1/learn'");
   });
   // Exercise actual keyboard selection of the native radio group.
   await check('SL/HL control supports keyboard selection',async()=>{
     await bioEval("(root.querySelector('input[value=SL]').focus(),true)");
     await command('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
     await command('Input.dispatchKeyEvent',{type:'keyUp',key:'ArrowRight',code:'ArrowRight',windowsVirtualKeyCode:39});
-    await sleep(150);const ok=await bioEval("root.querySelector('input[value=HL]').checked&&root.querySelectorAll('[data-understanding-id]').length===8");
+    await sleep(150);const ok=await bioEval("root.querySelector('input[value=HL]').checked&&root.querySelectorAll('.bio-lesson-nav li').length===8");
     await bioEval("(root.querySelector('input[value=SL]').click(),true)");return ok;
   });
   let biologyNavigation=0;
