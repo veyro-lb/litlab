@@ -672,6 +672,15 @@ try{
       await writeFile(join(outputDir,'phase32-mechanism-'+topicId+'-'+width+'.png'),Buffer.from(pic.data,'base64'));
       await bioEval("(root.querySelector('.bio-mechanism-next').click(),true)");await sleep(70);
       await check('Mechanism '+topicId+' '+width+' advances only after correct answer',async()=>await bioEval("root.querySelector('.bio-mechanism')?.textContent.includes('STEP 2 OF 3')===true"));
+      for(let stageIndex=1;stageIndex<3;stageIndex++){
+        const correctIndex=lessonData.sections[1].mechanismChallenge.stages[stageIndex].options.findIndex(x=>x.correct);
+        await bioEval("(root.querySelectorAll('.bio-mechanism-choices button')["+correctIndex+"].click(),true)");await sleep(60);
+        await bioEval("(root.querySelector('.bio-mechanism-next').click(),true)");await sleep(70);
+      }
+      await check('Mechanism '+topicId+' '+width+' completes all stages without mastery claim',async()=>await bioEval("root.querySelector('.bio-mechanism').textContent.includes('completed exercise, not a mastery score')&&!root.querySelector('.bio-mechanism-next')"));
+      await bioEval("(root.querySelector('.bio-mechanism button').click(),true)");await sleep(70);
+      await check('Mechanism '+topicId+' '+width+' can restart from a cleared first stage',async()=>await bioEval("root.querySelector('.bio-mechanism').textContent.includes('STEP 1 OF 3')&&root.querySelector('.bio-mechanism-next').disabled"));
+
     }
   }
 
@@ -731,13 +740,16 @@ try{
         await bioEval(`(root.querySelector(${JSON.stringify(selector)}).scrollIntoView({block:'center',behavior:'instant'}),true)`);await sleep(60);
         const pt=await bioEval(`(()=>{const r=root.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
         if(pt.y<0||pt.y>844||pt.x<0||pt.x>320)throw new Error('Touch target outside viewport');
-        await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(90);
+        await command('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt]});await command('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(350);
       }
       await tap('.bio-toc summary');
+      console.log('Phase 4 touch menu '+t.id+' '+JSON.stringify(await bioEval("({open:root.querySelector('.bio-toc').open,scrollY,active:root.activeElement?.tagName})")));
       if(!await bioEval("root.querySelector('.bio-toc').open"))return false;
       const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(join(outputDir,`phase4-${t.id}-sections-touch-320.png`),Buffer.from(shot.data,'base64'));
       await tap('.bio-lesson-nav li:nth-child(2) button');
       await command('Emulation.setTouchEmulationEnabled',{enabled:false});
+      for(let retry=0;retry<20;retry++){if(await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId==='${t.id}.2'&&!root.querySelector('.bio-toc').open`))break;await sleep(50)}
+      console.log('Phase 4 touch selected '+t.id+' '+JSON.stringify(await bioEval("({id:root.querySelector('.bio-lesson-content').dataset.understandingId,open:root.querySelector('.bio-toc').open,scrollY})")));
       return await bioEval(`root.querySelector('.bio-lesson-content').dataset.understandingId==='${t.id}.2'&&!root.querySelector('.bio-toc').open`);
     });
   }
