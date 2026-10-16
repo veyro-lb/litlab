@@ -1,0 +1,20 @@
+name: Biology Phase 7 Batch 3 Standalone Tests
+on:
+  push:
+    branches:
+      - feature/biology-phase7-batch3-content-20261016
+  workflow_dispatch:
+jobs:
+  validate-phase7:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Standalone B2.1 and B2.2 validation
+        run: node scripts/validate-phase7-batch3.mjs
+      - name: Isolated positive and negative tests
+        run: node --test scripts/validate-phase7-batch3.test.mjs
