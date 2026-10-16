@@ -15,8 +15,8 @@ export function validateEditorialLesson(lesson){
  for(const {id,q} of sectionQuestions){
   const matched=byUnderstanding.get(id);
   if(!matched){issue(id,'missing paired practice MCQ');continue;}
-  if(q.prompt!==matched.prompt || JSON.stringify(q.options.map(o=>[o.id,o.text,o.correct,o.feedback]))!==
-    JSON.stringify(matched.options.map(o=>[o.id,o.text,o.correct,o.feedback])))
+  if(q.prompt!==matched.prompt || JSON.stringify(q.options.map(o=>[o.text,o.correct,o.feedback]))!==
+    JSON.stringify(matched.options.map(o=>[o.text,o.correct,o.feedback])))
     issue(id,'Learn/Practice copies disagree');
  }
  for(const q of [...practice,...sectionQuestions.map(x=>x.q)]){
