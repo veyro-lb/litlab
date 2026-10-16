@@ -5,6 +5,7 @@ export interface Choice {kind:'selection';id:string;prompt:string;understandingI
 export interface Recall {enrichment?:boolean;kind:'recall';id:string;prompt:string;answer:string;explanation:string;understandingIds:string[]}
 export interface Asset {id:string;kind:string;src:string;recallSrc?:string;mobileSrc?:string;recallMobileSrc?:string;alt:string;captionTitle:string;attribution:string;license:string;permissionEvidence:string;referenceIds:string[];level:Scope;review:ReviewStatus;sourceUrl?:string;originalUrl?:string;termsUrl?:string}
 export interface TeachingBlock {title:string;explanation:string;referenceIds:string[]}
+export interface MechanismChallenge {title:string;instructions:string;stages:{id:string;prompt:string;options:{id:string;text:string;correct:boolean;feedback:string}[];explanation:string}[]}
 export interface Section {
  id:string;understandingIds:string[];level:Scope;guidingQuestion:string;explanation:string;revisionSummary:string;
  terms:string[];workedExample:string;misconceptions:{misconception:string;correction:string}[];
@@ -13,6 +14,7 @@ export interface Section {
  textbook?:{referenceId:string;printedPages:number[];pdfPages:number[]};
  teachingBlocks?:TeachingBlock[];enrichment?:{title:string;text:string;referenceIds:string[]};
  explorer?:{title:string;prompt?:string;features:{id:string;label:string;explanation:string}[]};
+ mechanismChallenge?:MechanismChallenge;
 }
 export interface Question {
  id:string;paper:'1A'|'1B'|'2';kind:string;original:true;understandingIds:string[];level:Scope;prompt:string;marks:number;

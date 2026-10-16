@@ -80,3 +80,18 @@
 .bio-explorer .bio-actions{display:flex;flex-wrap:wrap;gap:8px}
 .bio-explorer .bio-actions button{min-height:44px;white-space:normal;text-align:left}
 .bio-explorer .bio-actions button[aria-pressed=true]{outline:2px solid var(--bio-green);outline-offset:1px}
+
+/* Phase 3.2: a keyboard/touch-accessible prediction challenge, not a passive disclosure card. */
+.bio-mechanism{border:1px solid var(--line,#dfe2eb);border-radius:14px;background:var(--surface,#fff);padding:22px;margin:25px 0}
+.bio-mechanism h3{font-size:19px;margin-bottom:10px}
+.bio-mechanism>p{color:var(--muted,#60677b);font-size:13px}
+.bio-mechanism .bio-mechanism-question{font-weight:720;color:var(--ink,#202439);font-size:15px}
+.bio-mechanism-choices{display:grid;gap:8px;margin:15px 0}
+.bio-mechanism-choices button{text-align:left;min-height:42px;line-height:1.4;font-size:13px}
+.bio-mechanism-choices button[aria-pressed=true]{border:2px solid var(--bio-green);background:color-mix(in srgb,var(--bio-green) 9%,var(--surface))}
+.bio-mechanism-feedback{min-height:60px;color:var(--muted,#60677b);font-size:13px}
+.bio-mechanism-feedback strong{color:var(--ink,#202439)}
+.bio-mechanism-feedback p{font-size:13px;margin:6px 0 12px;line-height:1.6}
+.bio-mechanism-next{background:var(--bio-green);color:var(--bg,#fff);min-height:43px;font-weight:750}
+.bio-mechanism-next:disabled{opacity:.48;cursor:not-allowed}
+@media(max-width:560px){.bio-mechanism{padding:16px}.bio-mechanism-choices button{min-height:46px}}
