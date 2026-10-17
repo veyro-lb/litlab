@@ -49,9 +49,12 @@ try {
    await p.getByRole('button',{name:/Find a topic/i}).click();
    await expect(p.locator('#bio-topic-search')).toBeFocused();
  });
- await check('Ctrl+K focuses topic search and search filters actual syllabus codes',async()=>{
+ await check('Ctrl+K and Cmd+K focus real topic search and filter syllabus codes',async()=>{
    await navigate(p,'#biology');
    await p.keyboard.press('Control+k');
+   await expect(p.locator('#bio-topic-search')).toBeFocused();
+   await p.locator('#bio-topic-search').blur();
+   await p.keyboard.press('Meta+k');
    await expect(p.locator('#bio-topic-search')).toBeFocused();
    await p.locator('#bio-topic-search').fill('A1.1');
    await expect(p.locator('.bio-discovery-topic[data-topic-id="A1.1"]')).toHaveCount(1);
