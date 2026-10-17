@@ -4,6 +4,9 @@ on:
     branches:
       - feature/biolab-complete-scientific-visual-redesign-20261018
   workflow_dispatch:
+concurrency:
+  group: biolab-scientific-visual-redesign-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
