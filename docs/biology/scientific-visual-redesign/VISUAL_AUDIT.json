@@ -12,17 +12,17 @@
   "counts": {
     "topics": 40,
     "uniqueUnderstandingIds": 553,
-    "registeredAssets": 163,
+    "registeredAssets": 164,
     "inlineLearningVisuals": 230,
-    "physicalImageFiles": 277,
+    "physicalImageFiles": 281,
     "unregisteredPhysicalFiles": 9,
     "assetInventoryDecisions": {
       "KEEP": 159,
       "REPLACE": 1,
-      "ADD MISSING": 3
+      "ADD MISSING": 4
     },
-    "newRegisteredFigures": 3,
-    "sourceFilesAdded": 15,
+    "newRegisteredFigures": 4,
+    "sourceFilesAdded": 19,
     "sourceFiguresReplaced": 1
   },
   "assetInventory": [
@@ -8216,6 +8216,54 @@
         "sourceUrl": "https://science.nasa.gov/resource/europas-stunning-surface/"
       },
       "remainingExpertVerification": "Anatomy, labelling, scale, diagram integrity and licensing as applicable"
+    },
+    {
+      "topicId": "A2.2",
+      "assetId": "a22-plant-palisade",
+      "understandingIds": [
+        "A2.2.8"
+      ],
+      "existingAssetPath": null,
+      "assetPath": "public/biology/cell-structure/a22-plant-palisade.svg",
+      "figurePurpose": "Leaf palisade cell: organelles, wall and sap vacuole",
+      "kind": "diagram",
+      "placements": [
+        {
+          "understandingIds": [
+            "A2.2.8"
+          ],
+          "sectionId": "a22-8",
+          "afterBlock": 0
+        }
+      ],
+      "decision": "ADD MISSING",
+      "decisionConfidence": "Implemented but expert review pending",
+      "actionTaken": "Original labelled/recall and mobile variants",
+      "scientificReview": "Pending independent visual-scientific sign-off",
+      "visualQuality": "Browser inspection pending",
+      "labelAccuracy": "Not independently signed off",
+      "accessibility": {
+        "alt": "Original labelled palisade leaf plant cell with cellulose wall, plasma membrane, nucleus, chloroplasts, large sap vacuole, mitochondrion, smooth/rough ER, Golgi apparatus and free ribosomes.",
+        "altPresent": true,
+        "recallSrc": "/biology/cell-structure/a22-plant-palisade-recall.svg",
+        "mobileSrc": "/biology/cell-structure/a22-plant-palisade-mobile.svg",
+        "recallMobileSrc": "/biology/cell-structure/a22-plant-palisade-mobile-recall.svg"
+      },
+      "technicalStatus": {
+        "fileExists": true,
+        "browserRendered": false
+      },
+      "provenance": {
+        "attribution": "Original BioLab vector illustration 2026-10-18",
+        "license": "Original project artwork; commercial reuse review pending",
+        "permissionEvidence": "Independently authored SVG paths, no traced source",
+        "referenceIds": [
+          "ib-a22",
+          "hodder-a22",
+          "ncbi-visualizing"
+        ]
+      },
+      "remainingExpertVerification": "Confirm chloroplasts, membrane boundaries, organelles, scale conventions and illustrative accuracy"
     }
   ],
   "inlineTeachingVisuals": [
@@ -10983,9 +11031,9 @@
       "requirement": "Palisade plant cell",
       "understandingId": "A2.2.8",
       "assets": [
-        "/biology/cell-structure/a22-groups.svg"
+        "/biology/cell-structure/a22-plant-palisade.svg"
       ],
-      "status": "OPEN GAP: dedicated comprehensive plant-cell diagram not confirmed"
+      "status": "ADDED dedicated labelled palisade cell and recall/mobile variants; expert and screenshot QA pending"
     },
     {
       "page": 6,
@@ -11081,7 +11129,7 @@
     "Run Node validators, npm ci, quality, build and non-deploying browser CI",
     "Inspect screenshots at 320,390,768,1024,1440,1920 for clipped leaders/text, recall parity and dark mode",
     "Verify every original SVG with appropriate disciplinary expertise",
-    "Investigate unregistered static images and incomplete plant-cell drawings",
+    "Investigate unregistered static images and remaining organelle-specific diagram gaps",
     "Complete 40-topic scientific detail verification (not just structural inventory)"
   ]
 }
