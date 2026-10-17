@@ -216,7 +216,33 @@
             "explanation": "development of specialized cellular features and functions. Morphogen concentration gradients can alter expression patterns and influence early cell fates. Position-dependent signals alter gene expression while the inherited genome usually remains the same."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "From position to specialized function",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Positional signal",
+              "description": "Embryonic cells encounter different concentrations of a morphogen."
+            },
+            {
+              "title": "Gene regulation",
+              "description": "Signal pathways alter which genes are expressed."
+            },
+            {
+              "title": "Protein changes",
+              "description": "Different proteins and activities develop inside cells."
+            },
+            {
+              "title": "Differentiation",
+              "description": "Cells acquire distinct structures and roles."
+            }
+          ],
+          "note": "A simplified causal chain; cell competence and developmental history also influence the response."
+        }
+      ]
     },
     {
       "id": "b23-2",
@@ -831,7 +857,37 @@
             "explanation": "group of cells inside a mammalian blastocyst that contributes to the embryo. Totipotent potential is broader than pluripotent, which is broader than multipotent. Totipotency includes the ability to generate all necessary embryonic and extraembryonic lineages; pluripotency does not."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Totipotent, pluripotent and multipotent",
+          "afterBlock": 1,
+          "headers": [
+            "Potency",
+            "Potential",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Totipotent",
+              "Can contribute to embryonic and necessary extraembryonic tissues",
+              "Zygote and some very early blastomeres"
+            ],
+            [
+              "Pluripotent",
+              "Can form cell types of the three embryonic germ layers, but not alone all tissues needed for a complete organism",
+              "Embryonic stem cells from the inner cell mass"
+            ],
+            [
+              "Multipotent",
+              "Can form a restricted family of related cell types",
+              "Haematopoietic stem cells forming blood lineages"
+            ]
+          ],
+          "note": "Potency describes developmental potential, not a promise that any cultured cell will form every listed lineage."
+        }
+      ]
     },
     {
       "id": "b23-5",
@@ -1400,7 +1456,30 @@
             "explanation": "a stated simplification used to analyse a system. For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge. Area scales with side length squared and volume with its cube; SA:V falls as 1/L."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "bars",
+          "title": "A growing cube has less surface area per volume",
+          "afterBlock": 1,
+          "unit": "µm⁻¹ (SA divided by V)",
+          "values": [
+            {
+              "label": "1 µm cube",
+              "value": 6
+            },
+            {
+              "label": "2 µm cube",
+              "value": 3
+            },
+            {
+              "label": "4 µm cube",
+              "value": 1.5
+            }
+          ],
+          "note": "Calculated geometric model: SA = 6L², V = L³, so SA/V = 6/L. Equal-shaped cubes, not experimental cell measurements."
+        }
+      ]
     },
     {
       "id": "b23-7",
