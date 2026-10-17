@@ -1485,6 +1485,44 @@
             }
           ],
           "note": "Values at 20°C and 1 atm from the coursebook's physical-properties table. Equal mass and temperature change; this is a comparison, not a heating experiment."
+        },
+        {
+          "kind": "comparison",
+          "title": "Four physical properties: water compared with air",
+          "afterBlock": 3,
+          "headers": [
+            "Property (at 20 °C, 1 atm)",
+            "Liquid water",
+            "Air",
+            "Implication for an aquatic animal"
+          ],
+          "rows": [
+            [
+              "Density (kg m⁻³)",
+              "998.21",
+              "1.204",
+              "Greater buoyant force for equal displaced volume"
+            ],
+            [
+              "Dynamic viscosity (Pa s)",
+              "1.002 × 10⁻³",
+              "1.825 × 10⁻⁵",
+              "Fluid resistance contributes to locomotion costs; drag also depends on speed and shape"
+            ],
+            [
+              "Thermal conductivity (W m⁻¹ K⁻¹)",
+              "0.598",
+              "0.02154",
+              "Uninsulated animals can transfer heat through water more readily"
+            ],
+            [
+              "Specific heat capacity (J kg⁻¹ K⁻¹)",
+              "4184",
+              "1007",
+              "More thermal energy is required to warm the same mass of water by 1 K"
+            ]
+          ],
+          "note": "Published reference values at 20 °C and 1 atm (Clegg, Davis & Talbot, Biology for the IB Diploma, 3rd ed., Table A1.1.1). Values are reference data, not results from a simulated experiment; conduction and heat capacity are distinct."
         }
       ]
     },
@@ -2450,7 +2488,7 @@
         "A1.1.6"
       ],
       "sectionId": "water-6",
-      "prompt": "Each equal-mass sample absorbs 100 J. Calculate both temperature rises using ΔT = Q/(mc). Explain what the comparison shows and why it cannot compare thermal conductivity.",
+      "prompt": "At constant pressure, two idealized samples of equal mass (0.010 kg each) each absorb 100 J without a phase change. At 20 °C, use specific heat capacities of 4184 J kg⁻¹ K⁻¹ for water and 1007 J kg⁻¹ K⁻¹ for air. Calculate both temperature rises using ΔT = Q/(mc), giving sensible precision. Explain what the comparison shows and why the same calculation cannot compare thermal conductivity.",
       "marks": 4,
       "data": {
         "caption": "Illustrative simplified constants for teaching; not measured results. No phase change or heat loss. Air at constant pressure.",
@@ -2473,12 +2511,12 @@
         ]
       },
       "markingPoints": [
-        "Water: 100/(10 × 4.2) = 2.38 K, approximately 2.4 K (1).",
-        "Air: 100/(10 × 1.0) = 10 K (1).",
-        "Higher specific heat capacity produces a smaller rise for equal mass and energy (1).",
-        "Conductivity requires evidence about heat transfer across a gradient; this calculation measures temperature response (1)."
+        "Correct water substitution and rise: 100/(0.010 × 4184) ≈ 2.39 K (1).",
+        "Correct air substitution and rise: 100/(0.010 × 1007) ≈ 9.93 K (1).",
+        "Correctly links smaller water temperature change to larger specific heat capacity at equal mass and energy (1).",
+        "Distinguishes thermal conductivity (rate of heat transfer under a gradient) from specific heat capacity; these temperature-rise data alone cannot determine conductivity (1)."
       ],
-      "answer": "Water warms by about 2.4 K and air by 10 K. A temperature difference of 1 K equals 1 °C. This illustrates heat capacity, not the rate of conduction.",
+      "answer": "Using equal masses m = 0.010 kg: ΔT(water) = 100/(0.010 × 4184) = 2.39 K; ΔT(air) = 100/(0.010 × 1007) = 9.93 K. For the same energy and mass, water undergoes a smaller temperature rise because its specific heat capacity is higher. Thermal conductivity describes heat flow across a temperature gradient, not the energy required to change temperature. This is an idealized comparison, not observed heating data.",
       "referenceIds": [
         "heat",
         "conduction",
