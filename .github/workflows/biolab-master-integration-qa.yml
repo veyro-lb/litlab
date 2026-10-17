@@ -40,6 +40,8 @@ jobs:
       - name: Standard site quality
         run: npm run quality 2>&1 | tee qa-quality.log
       - name: Run existing course checks
+        id: existing
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -73,6 +75,8 @@ jobs:
             node --test src/biology/learning/*/*.test.mjs
           } 2>&1 | tee qa-existing.log
       - name: All imported specialist and negative validation suites
+        id: specialists
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -95,8 +99,12 @@ jobs:
             node scripts/biology/parallel-student-qa/audit.mjs
           } 2>&1 | tee qa-specialists.log
       - name: Build integrated application
+        id: build
+        continue-on-error: true
         run: npm run build 2>&1 | tee qa-build.log
       - name: Build original source for visual before comparisons
+        id: baseline
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -105,6 +113,9 @@ jobs:
           ln -s ../node_modules .qa-baseline/node_modules
           npm run build --prefix .qa-baseline 2>&1 | tee qa-baseline-build.log
       - name: Run browser suites in a non-networked Chromium container
+        id: browser
+        if: steps.build.outcome == 'success' && steps.baseline.outcome == 'success'
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -137,3 +148,17 @@ jobs:
             docs/biology/parallel-student-qa/evidence/
           if-no-files-found: warn
           retention-days: 21
+
+      - name: Fail closed on any incomplete integration gate
+        if: always()
+        env:
+          EXISTING: ${{ steps.existing.outcome }}
+          SPECIALISTS: ${{ steps.specialists.outcome }}
+          BUILD: ${{ steps.build.outcome }}
+          BASELINE: ${{ steps.baseline.outcome }}
+          BROWSER: ${{ steps.browser.outcome }}
+        run: |
+          printf 'existing=%s specialists=%s build=%s baseline=%s browser=%s\n' "$EXISTING" "$SPECIALISTS" "$BUILD" "$BASELINE" "$BROWSER"
+          for state in "$EXISTING" "$SPECIALISTS" "$BUILD" "$BASELINE" "$BROWSER"; do
+            test "$state" = success || exit 1
+          done
