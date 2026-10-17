@@ -2678,7 +2678,7 @@
           "id": "c41-q2-o1",
           "text": "It requires no definition of the sampling area.",
           "correct": false,
-          "feedback": "Incorrect. Random selection reduces bias but leaves natural sampling variability."
+          "feedback": "Random sampling still requires a defined population area and sampling frame; otherwise random coordinates have no meaningful boundary."
         },
         {
           "id": "c41-q2-o2",
@@ -2690,13 +2690,13 @@
           "id": "c41-q2-o3",
           "text": "It guarantees the same number in every sample.",
           "correct": false,
-          "feedback": "Incorrect. Random selection reduces bias but leaves natural sampling variability."
+          "feedback": "Random selection makes locations unbiased in expectation, not identical: genuine differences in distribution cause quadrat counts to vary."
         },
         {
           "id": "c41-q2-o4",
           "text": "It removes all natural variation.",
           "correct": false,
-          "feedback": "Incorrect. Random selection reduces bias but leaves natural sampling variability."
+          "feedback": "Randomization reduces selection bias but does not eliminate natural ecological variation or sampling uncertainty."
         }
       ],
       "review": "source-mapped"
@@ -2751,19 +2751,19 @@
           "id": "c41-q3-o2",
           "text": "All quadrats contain exactly the same number.",
           "correct": false,
-          "feedback": "Incorrect. Multiply estimated density by the total study area, accounting for quadrat area."
+          "feedback": "Identical counts would give a standard deviation of zero, not a large standard deviation."
         },
         {
           "id": "c41-q3-o3",
           "text": "The study area has no organisms.",
           "correct": false,
-          "feedback": "Incorrect. Multiply estimated density by the total study area, accounting for quadrat area."
+          "feedback": "An all-zero sample would also have zero dispersion; a large standard deviation indicates differing counts between plots."
         },
         {
           "id": "c41-q3-o4",
           "text": "The true population is equal to the sample count.",
           "correct": false,
-          "feedback": "Incorrect. Multiply estimated density by the total study area, accounting for quadrat area."
+          "feedback": "Quadrat counts cover only sampled area. Abundance must be estimated using sample area and the total habitat area."
         }
       ],
       "review": "source-mapped"
@@ -2812,13 +2812,13 @@
           "id": "c41-q4-o1",
           "text": "100 individuals.",
           "correct": false,
-          "feedback": "Incorrect. Mark loss reduces observed R and can inflate the estimate."
+          "feedback": "Do not divide the marked count by the entire recaptured sample. Use M × N ÷ R = 50 × 40 ÷ 10."
         },
         {
           "id": "c41-q4-o2",
           "text": "2,000 individuals.",
           "correct": false,
-          "feedback": "Incorrect. Mark loss reduces observed R and can inflate the estimate."
+          "feedback": "Do not multiply marked and recaptured counts without dividing by the marked recaptures: 50 × 40 ÷ 10 = 200."
         },
         {
           "id": "c41-q4-o3",
@@ -2830,7 +2830,7 @@
           "id": "c41-q4-o4",
           "text": "20 individuals.",
           "correct": false,
-          "feedback": "Incorrect. Mark loss reduces observed R and can inflate the estimate."
+          "feedback": "The 10 recaptured marked animals are a fraction (10/40) of the estimated population, not the population itself."
         }
       ],
       "review": "source-mapped"
@@ -3013,7 +3013,7 @@
           "id": "c41-q7-o1",
           "text": "Only a bar showing final population size.",
           "correct": false,
-          "feedback": "Incorrect. Exponential growth is assessed through multiplicative change and a semi-log pattern."
+          "feedback": "A final-size bar provides no sequence of counts over time and cannot reveal whether proportional growth is constant."
         },
         {
           "id": "c41-q7-o2",
@@ -3025,13 +3025,13 @@
           "id": "c41-q7-o3",
           "text": "Time on both axes.",
           "correct": false,
-          "feedback": "Incorrect. Exponential growth is assessed through multiplicative change and a semi-log pattern."
+          "feedback": "Time on both axes cannot show a relationship between population size and elapsed time."
         },
         {
           "id": "c41-q7-o4",
           "text": "An unlabeled pie chart.",
           "correct": false,
-          "feedback": "Incorrect. Exponential growth is assessed through multiplicative change and a semi-log pattern."
+          "feedback": "A pie chart shows parts of a whole, not a time trend. A log population axis against linear time tests exponential growth."
         }
       ],
       "review": "source-mapped"
@@ -3080,13 +3080,13 @@
           "id": "c41-q8-o1",
           "text": "An unlimited supply of food.",
           "correct": false,
-          "feedback": "Incorrect. Real populations vary and can overshoot, fluctuate or change their carrying capacity."
+          "feedback": "An unlimited food supply would remove one density-dependent brake on growth; levelling suggests increasing constraints."
         },
         {
           "id": "c41-q8-o2",
           "text": "Population becoming immune to all disease.",
           "correct": false,
-          "feedback": "Incorrect. Real populations vary and can overshoot, fluctuate or change their carrying capacity."
+          "feedback": "A sigmoid plateau reflects net births and immigration approximately balancing losses, not immunity to every pathogen."
         },
         {
           "id": "c41-q8-o3",
@@ -3098,7 +3098,7 @@
           "id": "c41-q8-o4",
           "text": "Cells losing all genetic variation.",
           "correct": false,
-          "feedback": "Incorrect. Real populations vary and can overshoot, fluctuate or change their carrying capacity."
+          "feedback": "Loss of genetic diversity is neither required by nor what the plateau of a sigmoid model represents."
         }
       ],
       "review": "source-mapped"
@@ -3555,19 +3555,19 @@
           "id": "c41-q15-o2",
           "text": "One species must be a predator of the other.",
           "correct": false,
-          "feedback": "Incorrect. It provides evidence of association, not proof of the underlying ecological cause."
+          "feedback": "A negative association does not identify predator–prey interactions or prove the reason the species rarely co-occur."
         },
         {
           "id": "c41-q15-o3",
           "text": "Both species are certainly absent from all other habitats.",
           "correct": false,
-          "feedback": "Incorrect. It provides evidence of association, not proof of the underlying ecological cause."
+          "feedback": "The test concerns only sampled quadrats and cannot establish either species' distribution outside the study area."
         },
         {
           "id": "c41-q15-o4",
           "text": "The sampling method has no limitations.",
           "correct": false,
-          "feedback": "Incorrect. It provides evidence of association, not proof of the underlying ecological cause."
+          "feedback": "A statistically significant result still depends on representative independent samples and valid expected frequencies."
         }
       ],
       "review": "source-mapped"
@@ -3931,7 +3931,8 @@
       "Real ecological examples (hare–lynx, corals, Hawaiian plants, sea otters, walnut and Penicillium) require independent qualified review of evidence and specificity.",
       "Statistical association is not treated as proof of interspecific competition.",
       "No independent Biology, assessment, accessibility or rights approval.",
-      "Sprint 8: source-led clarifications for C4.1.2, .3, .4, .7, .15 and .18; constructed numerical calculations and hypothesis limits added, no field records represented as observed."
+      "Sprint 8: source-led clarifications for C4.1.2, .3, .4, .7, .15 and .18; constructed numerical calculations and hypothesis limits added, no field records represented as observed.",
+      "Sprint 8: 18 misconception-specific distractor explanations replace repeated generic feedback in six ecological MCQs, including sampling, Lincoln index, graphical axes and chi-squared inference."
     ]
   }
 }
