@@ -549,7 +549,32 @@
             "explanation": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Factors affecting conduction speed",
+          "afterBlock": 0,
+          "headers": [
+            "Comparison",
+            "Mechanism",
+            "Typical outcome"
+          ],
+          "rows": [
+            [
+              "Wide vs narrow unmyelinated axon",
+              "Larger diameter reduces internal axial resistance",
+              "Wider is typically faster"
+            ],
+            [
+              "Myelinated vs unmyelinated of similar diameter",
+              "Myelin reduces current loss and enables saltatory conduction",
+              "Myelinated typically faster"
+            ]
+          ],
+          "note": "Qualitative comparison only: no invented conduction-speed measurements."
+        }
+      ]
     },
     {
       "id": "c22-5",
@@ -1085,7 +1110,33 @@
             "explanation": "When membrane depolarization reaches threshold, voltage-gated Na⁺ channels rapidly open. Na⁺ enters, creating a steep rising phase and often briefly making the inside positive; Na⁺ channels then inactivate."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Voltage-gated channel events in one action potential",
+          "afterBlock": 0,
+          "steps": [
+            {
+              "title": "Threshold",
+              "description": "Membrane reaches a sufficiently depolarized voltage to activate voltage-gated Na⁺ channels."
+            },
+            {
+              "title": "Depolarization",
+              "description": "Na⁺ enters through rapidly opening channels; membrane voltage rises."
+            },
+            {
+              "title": "Repolarization",
+              "description": "Na⁺ channels inactivate; voltage-gated K⁺ channels permit K⁺ efflux."
+            },
+            {
+              "title": "After-hyperpolarization",
+              "description": "K⁺ conductance remains elevated briefly and resting voltage returns."
+            }
+          ],
+          "note": "Schematic phase order, not a fixed timing record."
+        }
+      ]
     },
     {
       "id": "c22-9",
@@ -1356,6 +1407,33 @@
         {
           "assetId": "action-potential-trace",
           "afterBlock": 0
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Worked counting example: five discrete spikes in 0.25 s is a calculation, not experimental measurement.",
+          "headers": [
+            "Quantity",
+            "Worked value",
+            "Unit"
+          ],
+          "rows": [
+            [
+              "Action potentials",
+              5,
+              "count"
+            ],
+            [
+              "Recording interval",
+              0.25,
+              "s"
+            ],
+            [
+              "Frequency (count / interval)",
+              20,
+              "Hz"
+            ]
+          ]
         }
       ]
     },
