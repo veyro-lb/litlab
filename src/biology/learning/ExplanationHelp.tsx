@@ -6,7 +6,7 @@ export default function ExplanationHelp({section}:{section:Section}){
  const [mode,setMode]=useState<Mode|null>(null),[query,setQuery]=useState('');
  const output=useRef<HTMLDivElement>(null);
  const support=section.support;
- const tokens=query.toLowerCase().match(/[\p{L}\p{N}]+/gu)??[];
+ const tokens:string[]=query.toLowerCase().match(/[\p{L}\p{N}]+/gu)??[];
  const ranked=(support?.concepts??[]).map(c=>({c,score:c.keywords.reduce((n,k)=>n+((k.toLowerCase().match(/[\p{L}\p{N}]+/gu)??[]).every(t=>tokens.includes(t))?1:0),0)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
  function show(next:Mode){setMode(next);requestAnimationFrame(()=>output.current?.focus({preventScroll:true}))}
  const titles={simple:'The idea in simpler language',example:'Start with a concrete example',words:'The words used here',different:'Another way into the concept',match:'An explanation matched to your words'};
