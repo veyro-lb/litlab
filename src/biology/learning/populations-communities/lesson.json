@@ -908,7 +908,9 @@
         "ib-c41",
         "hodder-c41"
       ],
-      "assets": [],
+      "assets": [
+        "exponential-semilog"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1021,6 +1023,12 @@
               "Density-dependent limitation"
             ]
           ]
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "exponential-semilog",
+          "afterBlock": 1
         }
       ]
     },
@@ -3888,6 +3896,22 @@
       "attribution": "Original BioLab SVG diagram; illustrative model values, not field or laboratory data",
       "license": "Original BioLab artwork; no third-party figure reused",
       "permissionEvidence": "Original source SVG authored for this branch; all displayed numerical values explicitly constructed",
+      "referenceIds": [
+        "ib-c41",
+        "hodder-c41"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "exponential-semilog",
+      "kind": "diagram",
+      "src": "/biology/populations-communities/exponential-semilog.svg",
+      "alt": "Semi-logarithmic graph of constructed exponentially doubling population counts: 10, 20, 40 and 80 individuals at times 0, 1, 2, and 3; time has a linear scale and the population axis has equal increments per doubling.",
+      "captionTitle": "Exponential growth appears linear on a logarithmic population axis",
+      "attribution": "Original BioLab teaching SVG; mathematical illustration, not observed field or culture records",
+      "license": "Original BioLab artwork; no third-party figure reused",
+      "permissionEvidence": "New vector illustration with manually verified coordinates and transparent constructed data provenance",
       "referenceIds": [
         "ib-c41",
         "hodder-c41"
