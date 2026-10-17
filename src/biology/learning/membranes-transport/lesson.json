@@ -1557,7 +1557,37 @@
             "explanation": "Primary active transport means direct energy coupling. A channel permits downhill transport; a pump couples a conformational cycle to energy to move solutes uphill."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Three ways across a membrane",
+          "afterBlock": 1,
+          "headers": [
+            "Pathway",
+            "Protein required?",
+            "Direction and energy"
+          ],
+          "rows": [
+            [
+              "Simple diffusion",
+              "No",
+              "Down a gradient, without ATP coupling"
+            ],
+            [
+              "Ion channel",
+              "Yes, a selective pore",
+              "Down the ion's electrochemical gradient, without ATP coupling"
+            ],
+            [
+              "ATP-driven pump",
+              "Yes, a cycling transporter",
+              "Can move ions uphill by coupling transport to ATP hydrolysis"
+            ]
+          ],
+          "note": "Opening a channel does not turn it into a pump. Specificity, direction and energy coupling must be considered separately."
+        }
+      ]
     },
     {
       "id": "membrane-8",
