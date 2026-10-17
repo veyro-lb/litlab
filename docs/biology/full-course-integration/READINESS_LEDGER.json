@@ -795,6 +795,81 @@
       ],
       "rejected": [],
       "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Phase 5 focused review",
+      "sourceSha": "da0e6a0b475eb513563de9dd9fde9fa586729c57",
+      "registeredTopics": 40,
+      "registeredUnderstandings": 553,
+      "accepted": [
+        {
+          "id": "C3.2",
+          "sections": 18,
+          "questions": 36,
+          "status": "targeted editorial changes; draft remains unapproved"
+        }
+      ],
+      "status": "No approval or release; exact-commit CI pending"
     }
-  ]
+  ],
+  "phase5": {
+    "asOf": "2026-10-17",
+    "startingHead": "e9090a1db0bc535f407a6fe1e86c0ca6fe160c01",
+    "scopedContentCommit": "da0e6a0b475eb513563de9dd9fde9fa586729c57",
+    "understandingAuditCommit": "4a989c74dacea41695524648079cef5bad5a8667",
+    "cataloguedTopics": 40,
+    "registeredUnderstandings": 553,
+    "contentEditoriallyTouched": [
+      "C3.2.1",
+      "C3.2.2",
+      "C3.2.3",
+      "C3.2.4",
+      "C3.2.5",
+      "C3.2.6",
+      "C3.2.7",
+      "C3.2.8",
+      "C3.2.9",
+      "C3.2.10",
+      "C3.2.11",
+      "C3.2.12",
+      "C3.2.13",
+      "C3.2.14",
+      "C3.2.15",
+      "C3.2.16",
+      "C3.2.17",
+      "C3.2.18"
+    ],
+    "editorialActions": {
+      "diagnosticIncorrectDistractors": 54,
+      "updatedFeedbackOccurrences": 108,
+      "addedOriginalVisuals": 5,
+      "newVisualLocations": [
+        "C3.2.5 phagocytosis sequence",
+        "C3.2.6 lymphocyte comparison",
+        "C3.2.12 HIV and AIDS comparison",
+        "C3.2.14 antibiotic selection sequence",
+        "C3.2.18 percentage method comparison"
+      ],
+      "numericAssessment": "C3.2.18 worked five-mark question with explicit hypothetical-data warning"
+    },
+    "chapterEditorialComparison": "targeted topical cross-check against official Guide printed pp. 78–80 and Hodder chapter beginning printed p. 517; NOT a qualified complete chapter-level independent line-by-line review",
+    "machineReadableAudit": "docs/biology/full-course-integration/PHASE5_UNDERSTANDING_AUDIT.json",
+    "remainingToReviewIndividually": 535,
+    "humanApprovalsGranted": 0,
+    "validation": {
+      "inRepoManualInvariantCheck": "C3.2 18 sections, 36 questions, 108 corrected incorrect-response instances; no mismatched references, scope, markingPoint counts or visual shapes",
+      "npmQuality": "not run locally; exact-branch Actions run required",
+      "npmBuild": "not run locally; exact-branch Actions run required",
+      "fullBrowser": "not run locally; exact-branch Actions run required",
+      "exactFinalHeadCi": "awaiting result"
+    },
+    "remainingBlockers": [
+      "All 553 qualified editorial and scientific comparisons remain incomplete",
+      "C3.2 still lacks independent scientific, assessment, educational, licensing and accessibility sign-off",
+      "Other 535 understandings not individually inspected in this Phase 5 batch",
+      "Authentic microscopy and observational image gaps in earlier audits remain outstanding",
+      "Full branch-specific automated checks must be checked against final HEAD before review"
+    ]
+  }
 }
