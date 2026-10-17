@@ -177,6 +177,15 @@
             "hodder-b22",
             "ib-guide-b22"
           ]
+        },
+        {
+          "title": "Use separation rather than membrane alone",
+          "explanation": "A ribosome is an organelle without a surrounding membrane; nuclei, vesicles and plasma membrane also count in the IB classification. A cell wall and cytoskeleton are functional cell structures but not organelles here. Fractionation evidence also requires checking contamination between fractions.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-compartment"
+          ]
         }
       ],
       "scaffold": "A cell contains both membrane-bounded spaces and non-membrane structures. A biochemical marker is an activity associated with a structure; a high marker signal is evidence of enrichment, not proof of purity.",
@@ -388,6 +397,15 @@
             "hodder-b22",
             "ib-guide-b22"
           ]
+        },
+        {
+          "title": "Track a transcript before translation",
+          "explanation": "A nascent eukaryotic pre-mRNA can be spliced and processed in the nucleus before mature mRNA crosses a nuclear pore to meet cytoplasmic ribosomes. In prokaryotes, translation can begin on RNA as it is being transcribed, because there is no nuclear boundary.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-compartment"
+          ]
         }
       ],
       "scaffold": "DNA stores information. Transcription makes RNA from DNA; translation makes a polypeptide from mRNA. Exons are retained in the mature message; introns can be removed during processing.",
@@ -597,6 +615,15 @@
           "referenceIds": [
             "hodder-b22",
             "ib-guide-b22"
+          ]
+        },
+        {
+          "title": "Make an incompatible-reaction prediction",
+          "explanation": "A phagocyte engulfs a bacterium: a phagosome fuses with a lysosome so acid hydrolases digest cargo in a bounded lumen. Enclosing those enzymes both concentrates active components and limits inappropriate exposure of cytosolic targets.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-compartment"
           ]
         }
       ],
@@ -864,6 +891,15 @@
             "hodder-b22",
             "ib-guide-b22"
           ]
+        },
+        {
+          "title": "Trace the mitochondrial proton path",
+          "explanation": "Respiratory complexes of the inner membrane pump H⁺ from matrix to intermembrane space. ATP synthase permits H⁺ return toward matrix to make ATP; matrix enzymes catalyse the Krebs cycle. The outer membrane must not be drawn as the main proton-pumping membrane.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-organellar"
+          ]
         }
       ],
       "scaffold": "ATP couples energy-releasing processes to cellular work. An electrochemical gradient includes both concentration and electrical differences. A membrane protein can move ions across an otherwise restrictive bilayer.",
@@ -1077,6 +1113,15 @@
             "hodder-b22",
             "ib-guide-b22"
           ]
+        },
+        {
+          "title": "Trace the chloroplast proton path",
+          "explanation": "Photosynthetic electron transport raises H⁺ concentration inside the thylakoid lumen. H⁺ flows through ATP synthase toward the stroma as ATP is generated; Calvin-cycle reactions occur in the stroma. Do not interchange thylakoid lumen and mitochondrial matrix.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-organellar"
+          ]
         }
       ],
       "scaffold": "Photosynthesis uses light energy to support carbon fixation. The thylakoid lumen is inside the thylakoid; stroma surrounds it. ATP synthase uses proton flow across a membrane.",
@@ -1288,6 +1333,15 @@
           "referenceIds": [
             "hodder-b22",
             "ib-guide-b22"
+          ]
+        },
+        {
+          "title": "Follow an RNA molecule through a pore",
+          "explanation": "The nuclear pore complex spans the two nuclear-envelope membranes, allowing regulated traffic. During open mitosis, the envelope reorganizes to permit chromosome access by the spindle; it is not accurate to claim all eukaryotes always dissolve their nuclear envelopes.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-compartment"
           ]
         }
       ],
@@ -1502,6 +1556,15 @@
           "referenceIds": [
             "hodder-b22",
             "ib-guide-b22"
+          ]
+        },
+        {
+          "title": "Use a destination to infer ribosome location",
+          "explanation": "A secreted digestive enzyme is translated into the rough-ER pathway; a soluble glycolytic enzyme normally remains cytosolic after free-ribosome translation. Both use comparable ribosomes. Many nuclear or mitochondrial proteins also originate at free cytosolic ribosomes.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-compartment"
           ]
         }
       ],
@@ -1768,6 +1831,15 @@
           "referenceIds": [
             "hodder-b22",
             "ib-guide-b22"
+          ]
+        },
+        {
+          "title": "Follow one secretory cargo",
+          "explanation": "For a secreted protein, follow ribosome/RER → carrier vesicle → cis Golgi → Golgi processing/sorting → trans Golgi → secretory vesicle → cell exterior. This is a functional route; Golgi modifications do not mean peptide synthesis occurs in the Golgi.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-compartment"
           ]
         }
       ],
@@ -2061,6 +2133,15 @@
           "referenceIds": [
             "hodder-b22",
             "ib-guide-b22"
+          ]
+        },
+        {
+          "title": "Keep clathrin outside the vesicle lumen",
+          "explanation": "A receptor binds external cargo; adaptors recruit clathrin to the cytosolic side of a forming pit. After membrane scission and uncoating, the vesicle carries enclosed cargo onward. Clathrin is a coat component, not the internal cargo or a universal coat on all vesicles.",
+          "referenceIds": [
+            "ib-guide-b22",
+            "hodder-b22",
+            "ncbi-compartment"
           ]
         }
       ],
@@ -2810,6 +2891,58 @@
         ]
       },
       "review": "source-mapped"
+    },
+    {
+      "id": "b22-application-vesicle",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.2.9"
+      ],
+      "level": "HL",
+      "sectionId": "organelle-9",
+      "prompt": "A cell takes up an extracellular ligand using a clathrin-coated pit. Describe where the cargo and clathrin are located before scission, and what normally happens to the coat after a vesicle forms.",
+      "marks": 4,
+      "referenceIds": [
+        "ib-guide-b22",
+        "hodder-b22",
+        "ncbi-compartment"
+      ],
+      "answer": "The ligand binds a surface receptor facing extracellular space and becomes located inside the invaginating pit's lumen. Clathrin assembles on the cytosolic membrane surface via adaptor interactions. Membrane scission releases a coated vesicle, which generally uncoats before subsequent targeting/fusion.",
+      "markingPoints": [
+        "Locate ligand at extracellular-facing receptor and within future vesicle lumen.",
+        "Locate clathrin on the cytosolic surface, not lumen.",
+        "Explain scission releases a membrane-bound vesicle.",
+        "Describe uncoating before subsequent trafficking."
+      ],
+      "review": "editorial-reviewed-20261017"
+    },
+    {
+      "id": "b22-application-chemiosmosis",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.2.4"
+      ],
+      "level": "HL",
+      "sectionId": "organelle-4",
+      "prompt": "A mitochondrion loses the capacity to keep H⁺ concentrated in its intermembrane space. Explain which membrane establishes this gradient, its normal direction of H⁺ pumping, and why ATP production by chemiosmosis is impaired.",
+      "marks": 4,
+      "referenceIds": [
+        "ib-guide-b22",
+        "hodder-b22",
+        "ncbi-organellar"
+      ],
+      "answer": "Inner-membrane respiratory complexes pump H⁺ from matrix to intermembrane space. Cristae enlarge the inner-membrane area available. Without a proton electrochemical gradient, inward H⁺ flow through ATP synthase provides less energy for ATP synthesis.",
+      "markingPoints": [
+        "Identify inner mitochondrial membrane as site of proton pumping/ATP synthase.",
+        "Specify H⁺ pumping from matrix toward intermembrane space.",
+        "Connect cristae to increased inner-membrane surface area.",
+        "Explain collapsed proton-motive force impairs ATP synthesis."
+      ],
+      "review": "editorial-reviewed-20261017"
     }
   ],
   "references": [
