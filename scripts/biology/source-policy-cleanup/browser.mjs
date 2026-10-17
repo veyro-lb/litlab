@@ -28,7 +28,7 @@ try{
     const content=await section.innerText();
     assert.ok(content.toLowerCase().includes(c.expected.toLowerCase()),c.id+': required explanation missing');
     if(c.absent)assert.doesNotMatch(content,c.absent,c.id+': unnecessary source material visible');
-    if(c.figure){const figure=section.locator('[data-asset-id="'+c.figure+'"] img');await figure.waitFor({timeout:10000});
+    if(c.figure){const figure=section.locator('[data-asset-id="'+c.figure+'"] .bio-figure-image img');await figure.waitFor({timeout:10000});
      const loaded=await figure.evaluate(x=>x.complete&&x.naturalWidth>0);assert.ok(loaded,c.id+': monthly observation figure not loaded');}
     const html=await page.locator('.bio-reading-passage').count();assert.ok(html>=1,c.id+': core paragraphs not rendered');
     if(width===390||c.figure)await section.screenshot({path:'qa-artifacts/source-policy-cleanup/'+c.id.replaceAll('.','-')+'-'+width+'.png',animations:'disabled'});
