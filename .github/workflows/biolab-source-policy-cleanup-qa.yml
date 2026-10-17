@@ -1,0 +1,83 @@
+name: BioLab Scientific Source Policy Cleanup QA (isolated)
+
+on:
+  push:
+    branches:
+      - feature/biolab-source-policy-cleanup-20261018
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-policy-verification:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 50
+    env:
+      CI: 'true'
+    steps:
+      - name: Checkout isolated source-policy branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify checked-out branch and source commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "feature/biolab-source-policy-cleanup-20261018"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          echo "Source-policy SHA: $GITHUB_SHA"
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Lockfile-only dependency install
+        run: npm ci
+      - name: Existing website quality
+        run: npm run quality
+      - name: Validate 40 topics, 553 understandings, scope, sources and assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/biology/full-course/readiness-audit.mjs
+          node scripts/validate-biology.mjs
+          node scripts/validate-lessons.mjs
+          node scripts/biology/source-policy-cleanup/verify.mjs
+          node --test scripts/biology/source-policy-cleanup/verify.test.mjs
+      - name: Existing specialist and negative controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/biology/final-d3-d4/validate.mjs
+          node --test scripts/biology/final-a1-a2/verify.test.mjs
+          node scripts/biology/final-b1-b2/verify.mjs
+          node scripts/biology/final-c1-c2/validate.mjs
+          node scripts/biology/final-c3-c4/validate-final-sprint.mjs
+          node --test scripts/biology/final-c3-c4/validate-final-sprint.test.mjs
+          node --test scripts/biology/full-course/integration-negative.test.mjs
+      - name: Production build (not deployment)
+        run: npm run build
+      - name: Install isolated Chromium test runtime
+        run: npx playwright install --with-deps chromium
+      - name: Check edited lessons in a locally running production preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/source-policy-cleanup
+          npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/source-policy-cleanup/preview.log 2>&1 &
+          for attempt in $(seq 1 50); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4173/ >/dev/null
+          node scripts/biology/source-policy-cleanup/browser.mjs
+      - name: Preserve source-policy browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-source-policy-qa
+          path: qa-artifacts/source-policy-cleanup/
+          if-no-files-found: warn
+          retention-days: 14
