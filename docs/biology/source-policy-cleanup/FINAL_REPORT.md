@@ -82,11 +82,34 @@ Columns explicitly record the **original issue**, **actual correction / source r
 
 **Focused negative controls:** `node --test scripts/biology/source-policy-cleanup/verify.test.mjs` verifies that reintroducing NASA/noaa irrelevant evidence, removing FACE from C1.3.8, removing the observed CO₂ graph, or deleting HL Goldilocks is detected. The cleanup script validates every one of 553 IDs and graph file paths.
 
-**Actual CI run outcomes:** to be filled from the isolated GitHub Actions run and its logs before handoff. A software PASS does **not** mean independent IB-examiner approval or grant rights to reproduce copyrighted textbook material.
+**Executed results, actual GitHub Actions run:** [source-policy QA run 39072293198](https://github.com/veyro-lb/litlab/actions/runs/39072293198), tested lesson/validator SHA `2b40f99eb9c233e4319605e976db762ef96ed413`. Results below are taken from the runner's actual command output, not extrapolated from static code inspection.
+
+| Execution | Verified result |
+|---|---|
+| `npm ci` on Node.js 22 | **PASS** — installed 112 npm packages using lockfile. npm audit reported **7 dependency vulnerabilities (1 moderate, 6 high)**; dependency edits are outside the assigned lesson/source-policy boundaries. |
+| `npm run quality` | **PASS** — site-quality checks across **368** source files. |
+| `node scripts/biology/full-course/readiness-audit.mjs` | **PASS** — 40/40 registered topics, 553/553 unique understanding IDs; **337 shared + 216 HL**. Script explicitly reports `publicRelease: NO-GO`, `scientificApproval: NOT ASSESSED`, so its technical success is not a public-release certification. |
+| `node scripts/validate-biology.mjs` | **PASS** — registry IDs and levels. |
+| `node scripts/validate-lessons.mjs` | **PASS** — all 40 packages passed content, scope, references, figures and assignment mappings. |
+| `node scripts/biology/source-policy-cleanup/verify.mjs` | **PASS** — 40 topics, 553 understandings, **997 original assessment questions**, **160 registered assets** and 24 genuine plotted monthly NOAA values. |
+| `node --test scripts/biology/source-policy-cleanup/verify.test.mjs` | **PASS 6/6** — current-state coverage and five science/source negative mutations detected. |
+| `node scripts/biology/final-d3-d4/validate.mjs` | **PASS** — D3/D4 94 understandings, 94 written, 74 selection and 24 existing negative controls. |
+| `node scripts/biology/final-b1-b2/verify.mjs` | **PASS** — five topics, 61 understandings and 102 questions. |
+| `node scripts/biology/final-c1-c2/validate.mjs` | **PASS** — 83 understandings, 159 assessments, 664 answer options and 83 ledger entries. |
+| `node scripts/biology/final-c3-c4/validate-final-sprint.mjs` and C3/C4 negative tests | **PASS** — four topics incl. corrected C4.2; historical NOAA annual values preserved; the plotted SVG uses the existing `diagram` asset contract. |
+| `node --test scripts/biology/full-course/integration-negative.test.mjs` | **PASS 3/3** — registry, mapping and negative integrity. |
+| `npm run build` | **PASS** — TypeScript `tsc -b` and production Vite build (without deployment). |
+| `npx playwright install --with-deps chromium` + locally served `npm run preview` + `node scripts/biology/source-policy-cleanup/browser.mjs` | **PASS 10/10** — D4.3.1, D4.3.4, A1.1.7, C4.2.20 and C1.3.8 at **390 px mobile** and **1440 px desktop**, including real monthly CO₂ image loaded. Screenshot/test evidence is uploaded as GitHub Actions artifact; no public site touched. |
+| `node --test scripts/biology/final-a1-a2/verify.test.mjs` | **FAIL 7/8** due to an **existing defective A2.1.2 assertion**, unrelated to edits: line 49 tests `q.options.every(o => o.feedback && o.feedback !== q.options[0].feedback)`, necessarily false for its first element. The test file blob `c0a861241440c20c72c7616638bad0277bf5e35d` is **identical** on the verified integration base and cleanup branch. This is a pre-existing QA-test defect, not missing A2.1.2 teaching. |
+| **Aggregate GitHub Actions release gate** | **FAIL/BLOCKED by that unchanged A1.2/A2.1 QA assertion**, intentionally enforced after build/browser. The failing test has not been modified, disabled, skipped or misrepresented as passing. |
+
+The pre-existing test failure requires a **separate, authorized QA correction** to assert that distractors have distinct feedback (for example by comparing each feedback with the first only for indices greater than zero). This report does **not** change that unrelated file due to the user's strict ownership boundaries. Until that fix and independent scientific/copyright review are completed, a fully green final-release acceptance should not be claimed.
+
+**Scope of corrected source findings:** all 41 flagged reference occurrences were addressed in their relevant teaching/assessment contexts. Original figure provenance was retained where scientifically applicable; automated source metadata and all 40 lessons remain mapped. A software PASS does **not** mean independent IB-examiner approval or grant rights to reproduce copyrighted textbook material.
 
 ## Restricted-file boundary and handoff
 
-All changes are confined to the five affected lesson JSON packages (`water`, `cell-specialization`, `photosynthesis`, `transfers-energy-matter`, `climate-change`), the new NOAA monthly graph, dedicated source-policy tests, dedicated source-policy CI workflow and this report. No authentication, app shell, premium interface, central registry, shared navigation, ordinary QA tests, public English site or deployment configuration is edited. **No force-push, merge or deployment.**
+All changes are confined to the five affected lesson JSON packages (`water`, `cell-specialization`, `photosynthesis`, `transfers-energy-matter`, `climate-change`), the new NOAA monthly graph and directly related original-figure provenance metadata, dedicated source-policy tests, dedicated source-policy CI workflow and this report. No authentication, app shell, premium interface, central registry, shared navigation, ordinary QA tests, public English site or deployment configuration is edited. **No force-push, merge or deployment.**
 
 The final-release integrator should compare this branch against the latest integration branch (which may have moved concurrently), cherry-pick or otherwise integrate only the scoped commits after conflict review, rerun its full integration QA and obtain separate scientific/copyright approval before any public launch.
 
