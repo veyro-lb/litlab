@@ -46,7 +46,8 @@ test('A2.1.2 has one correct, semantically aligned virus-autonomy answer', () =>
   assert.ok(q?.prompt.includes('bacteriophage lambda'));
   assert.equal(q.options.filter(o => o.correct).length, 1);
   assert.match(q.options.find(o => o.correct).text, /requires a host bacterium/i);
-  assert.ok(q.options.every(o => o.feedback && o.feedback !== q.options[0].feedback));
+  assert.ok(q.options.every(o => typeof o.feedback === 'string' && o.feedback.trim().length > 20));
+  assert.equal(new Set(q.options.map(o => o.feedback)).size,q.options.length,'Every option needs distinct causal feedback');
   assert.match(lesson.sections.find(s => s.understandingIds[0] === 'A2.1.2').explanation,
     /lack cytoplasm, ribosomes and independent energy metabolism/);
 });
