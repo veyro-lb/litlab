@@ -1,0 +1,57 @@
+# npm audit report
+
+esbuild  <=0.24.2
+Severity: moderate
+esbuild enables any website to send any requests to the development server and read the response - https://github.com/advisories/GHSA-67mh-4wv8-2f99
+fix available via `npm audit fix --force`
+Will install vite@6.4.4, which is outside the stated dependency range
+node_modules/esbuild
+  vite  <=6.4.2
+  Depends on vulnerable versions of esbuild
+  node_modules/vite
+
+sharp  <=0.35.5-rc.1
+Severity: high
+sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545 - https://github.com/advisories/GHSA-rgj7-g3m4-5g8c
+sharp : Vulnerability in librsvg dependency CVE-2026-96889 - https://github.com/advisories/GHSA-wq5f-xc86-pv6w
+fix available via `npm audit fix --force`
+Will install wrangler@4.151.1, which is outside the stated dependency range
+node_modules/sharp
+  miniflare  <=0.0.0-fec45ed61 || 4.20250508.3 - 5.20260926.0-alpha
+  Depends on vulnerable versions of sharp
+  Depends on vulnerable versions of undici
+  node_modules/miniflare
+    wrangler  <=0.0.0-7ae5dd357 || 4.16.0 - 4.130.0
+    Depends on vulnerable versions of miniflare
+    node_modules/wrangler
+
+source-map-js  1.0.0 - 1.2.1
+Severity: high
+source-map-js allows event-loop denial of service through indexed source-map section offsets - https://github.com/advisories/GHSA-68fv-2mgg-jv7q
+fix available via `npm audit fix`
+node_modules/source-map-js
+
+undici  7.0.0 - 7.29.0
+Severity: high
+undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression - https://github.com/advisories/GHSA-3wwx-pv8p-q78v
+undici vulnerable to Denial of Service via orphaned RetryHandler response body - https://github.com/advisories/GHSA-pmjh-fq2x-6v4x
+undici vulnerable to downstream response splitting via retry interceptor - https://github.com/advisories/GHSA-r53p-7pc4-xj5r
+undici vulnerable to Denial of Service via unrequested WebSocket subprotocol - https://github.com/advisories/GHSA-rfgv-xxqx-mfg5
+undici vulnerable to Denial of Service via unbounded decompression of compressed responses - https://github.com/advisories/GHSA-3xpg-4rpp-hhhm
+undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches - https://github.com/advisories/GHSA-2jfj-6hjv-fm6j
+undici vulnerable to response truncation via oversized chunked responses in the dump interceptor - https://github.com/advisories/GHSA-2gqq-gqf2-x968
+undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool - https://github.com/advisories/GHSA-w293-vg96-wgc3
+undici vulnerable to caching and replay of unsafe HTTP method responses - https://github.com/advisories/GHSA-8436-99hf-9mmv
+undici vulnerable to Denial of Service via WebSocketStream unclean close - https://github.com/advisories/GHSA-rx4f-c7p8-82vq
+fix available via `npm audit fix --force`
+Will install wrangler@4.151.1, which is outside the stated dependency range
+node_modules/undici
+
+
+7 vulnerabilities (1 moderate, 6 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
