@@ -1,0 +1,768 @@
+{
+  "title": "BioLab Full IB Biology Course Integration — evidence-based readiness ledger",
+  "asOf": "2026-10-17",
+  "integrationBranch": "feature/biolab-complete-course-integration-20261017",
+  "verifiedGreenBaseSha": "7492d63cdc1d568e43d57edd5bf539c4317cb96c",
+  "verifiedGreenCiRun": "https://github.com/veyro-lb/litlab/actions/runs/39010840459",
+  "courseRegistry": {
+    "topics": 40,
+    "understandings": 553,
+    "shared": 337,
+    "hlOnly": 216
+  },
+  "registeredDrafts": {
+    "topics": 8,
+    "understandings": 101,
+    "shared": 63,
+    "hlOnly": 38,
+    "ids": [
+      "A1.1",
+      "A1.2",
+      "B1.1",
+      "B1.2",
+      "B2.1",
+      "B2.2",
+      "B2.3",
+      "C1.1"
+    ],
+    "educationallyApproved": 0
+  },
+  "sourceBranches": [
+    {
+      "name": "feature/biolab-learning-experience-redesign-20261016",
+      "sha": "291491804864e7b1f55d8de8ff81d96880f3d24b",
+      "integrationStatus": "upstream newer commits deferred; latest green ancestral commit pinned"
+    },
+    {
+      "name": "feature/biolab-complete-theme-a-20261017",
+      "sha": "2435130294ea0fb5ffc024109cf031402cbcdc58",
+      "integrationStatus": "requires topic package QA"
+    },
+    {
+      "name": "feature/biolab-complete-theme-b-20261017",
+      "sha": null,
+      "integrationStatus": "BLOCKED: branch absent"
+    },
+    {
+      "name": "feature/biolab-complete-theme-c1-20261017",
+      "sha": null,
+      "integrationStatus": "BLOCKED: branch absent"
+    },
+    {
+      "name": "feature/biolab-complete-theme-c2-20261017",
+      "sha": null,
+      "integrationStatus": "BLOCKED: branch absent"
+    },
+    {
+      "name": "feature/biolab-complete-theme-d1-20261017",
+      "sha": "2435130294ea0fb5ffc024109cf031402cbcdc58",
+      "integrationStatus": "requires topic package QA"
+    },
+    {
+      "name": "feature/biolab-complete-theme-d2-20261017",
+      "sha": null,
+      "integrationStatus": "BLOCKED: branch absent"
+    }
+  ],
+  "plannedTopics": [
+    {
+      "id": "A2.1",
+      "title": "Origins of cells",
+      "understandings": 9,
+      "shared": 0,
+      "hlOnly": 9
+    },
+    {
+      "id": "A2.2",
+      "title": "Cell structure",
+      "understandings": 14,
+      "shared": 11,
+      "hlOnly": 3
+    },
+    {
+      "id": "A2.3",
+      "title": "Viruses",
+      "understandings": 6,
+      "shared": 0,
+      "hlOnly": 6
+    },
+    {
+      "id": "A3.1",
+      "title": "Diversity of organisms",
+      "understandings": 15,
+      "shared": 11,
+      "hlOnly": 4
+    },
+    {
+      "id": "A3.2",
+      "title": "Classification and cladistics",
+      "understandings": 9,
+      "shared": 0,
+      "hlOnly": 9
+    },
+    {
+      "id": "A4.1",
+      "title": "Evolution and speciation",
+      "understandings": 11,
+      "shared": 7,
+      "hlOnly": 4
+    },
+    {
+      "id": "A4.2",
+      "title": "Conservation of biodiversity",
+      "understandings": 8,
+      "shared": 8,
+      "hlOnly": 0
+    },
+    {
+      "id": "B3.1",
+      "title": "Gas exchange",
+      "understandings": 13,
+      "shared": 10,
+      "hlOnly": 3
+    },
+    {
+      "id": "B3.2",
+      "title": "Transport",
+      "understandings": 18,
+      "shared": 10,
+      "hlOnly": 8
+    },
+    {
+      "id": "B3.3",
+      "title": "Muscle and motility",
+      "understandings": 10,
+      "shared": 0,
+      "hlOnly": 10
+    },
+    {
+      "id": "B4.1",
+      "title": "Adaptation to environment",
+      "understandings": 8,
+      "shared": 8,
+      "hlOnly": 0
+    },
+    {
+      "id": "B4.2",
+      "title": "Ecological niches",
+      "understandings": 13,
+      "shared": 13,
+      "hlOnly": 0
+    },
+    {
+      "id": "C1.2",
+      "title": "Cell respiration",
+      "understandings": 17,
+      "shared": 6,
+      "hlOnly": 11
+    },
+    {
+      "id": "C1.3",
+      "title": "Photosynthesis",
+      "understandings": 19,
+      "shared": 8,
+      "hlOnly": 11
+    },
+    {
+      "id": "C2.1",
+      "title": "Chemical signalling",
+      "understandings": 14,
+      "shared": 0,
+      "hlOnly": 14
+    },
+    {
+      "id": "C2.2",
+      "title": "Neural signalling",
+      "understandings": 16,
+      "shared": 7,
+      "hlOnly": 9
+    },
+    {
+      "id": "C3.1",
+      "title": "Integration of body systems",
+      "understandings": 23,
+      "shared": 16,
+      "hlOnly": 7
+    },
+    {
+      "id": "C3.2",
+      "title": "Defence against disease",
+      "understandings": 18,
+      "shared": 18,
+      "hlOnly": 0
+    },
+    {
+      "id": "C4.1",
+      "title": "Populations and communities",
+      "understandings": 18,
+      "shared": 18,
+      "hlOnly": 0
+    },
+    {
+      "id": "C4.2",
+      "title": "Transfers of energy and matter",
+      "understandings": 22,
+      "shared": 22,
+      "hlOnly": 0
+    },
+    {
+      "id": "D1.1",
+      "title": "DNA replication",
+      "understandings": 9,
+      "shared": 5,
+      "hlOnly": 4
+    },
+    {
+      "id": "D1.2",
+      "title": "Protein synthesis",
+      "understandings": 19,
+      "shared": 11,
+      "hlOnly": 8
+    },
+    {
+      "id": "D1.3",
+      "title": "Mutation and gene editing",
+      "understandings": 10,
+      "shared": 7,
+      "hlOnly": 3
+    },
+    {
+      "id": "D2.1",
+      "title": "Cell and nuclear division",
+      "understandings": 17,
+      "shared": 11,
+      "hlOnly": 6
+    },
+    {
+      "id": "D2.2",
+      "title": "Gene expression",
+      "understandings": 11,
+      "shared": 0,
+      "hlOnly": 11
+    },
+    {
+      "id": "D2.3",
+      "title": "Water potential",
+      "understandings": 11,
+      "shared": 7,
+      "hlOnly": 4
+    },
+    {
+      "id": "D3.1",
+      "title": "Reproduction",
+      "understandings": 20,
+      "shared": 12,
+      "hlOnly": 8
+    },
+    {
+      "id": "D3.2",
+      "title": "Inheritance",
+      "understandings": 21,
+      "shared": 15,
+      "hlOnly": 6
+    },
+    {
+      "id": "D3.3",
+      "title": "Homeostasis",
+      "understandings": 11,
+      "shared": 6,
+      "hlOnly": 5
+    },
+    {
+      "id": "D4.1",
+      "title": "Natural selection",
+      "understandings": 15,
+      "shared": 8,
+      "hlOnly": 7
+    },
+    {
+      "id": "D4.2",
+      "title": "Stability and change",
+      "understandings": 15,
+      "shared": 11,
+      "hlOnly": 4
+    },
+    {
+      "id": "D4.3",
+      "title": "Climate change",
+      "understandings": 12,
+      "shared": 8,
+      "hlOnly": 4
+    }
+  ],
+  "topicAcceptance": [
+    {
+      "id": "A1.1",
+      "title": "Water",
+      "understandings": 8,
+      "shared": 6,
+      "hlOnly": 2,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A1.2",
+      "title": "Nucleic acids",
+      "understandings": 15,
+      "shared": 10,
+      "hlOnly": 5,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A2.1",
+      "title": "Origins of cells",
+      "understandings": 9,
+      "shared": 0,
+      "hlOnly": 9,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A2.2",
+      "title": "Cell structure",
+      "understandings": 14,
+      "shared": 11,
+      "hlOnly": 3,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A2.3",
+      "title": "Viruses",
+      "understandings": 6,
+      "shared": 0,
+      "hlOnly": 6,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A3.1",
+      "title": "Diversity of organisms",
+      "understandings": 15,
+      "shared": 11,
+      "hlOnly": 4,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A3.2",
+      "title": "Classification and cladistics",
+      "understandings": 9,
+      "shared": 0,
+      "hlOnly": 9,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A4.1",
+      "title": "Evolution and speciation",
+      "understandings": 11,
+      "shared": 7,
+      "hlOnly": 4,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A4.2",
+      "title": "Conservation of biodiversity",
+      "understandings": 8,
+      "shared": 8,
+      "hlOnly": 0,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B1.1",
+      "title": "Carbohydrates and lipids",
+      "understandings": 13,
+      "shared": 13,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B1.2",
+      "title": "Proteins",
+      "understandings": 12,
+      "shared": 5,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B2.1",
+      "title": "Membranes and membrane transport",
+      "understandings": 17,
+      "shared": 10,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B2.2",
+      "title": "Organelles and compartmentalization",
+      "understandings": 9,
+      "shared": 3,
+      "hlOnly": 6,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B2.3",
+      "title": "Cell specialization",
+      "understandings": 10,
+      "shared": 6,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B3.1",
+      "title": "Gas exchange",
+      "understandings": 13,
+      "shared": 10,
+      "hlOnly": 3,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B3.2",
+      "title": "Transport",
+      "understandings": 18,
+      "shared": 10,
+      "hlOnly": 8,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B3.3",
+      "title": "Muscle and motility",
+      "understandings": 10,
+      "shared": 0,
+      "hlOnly": 10,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B4.1",
+      "title": "Adaptation to environment",
+      "understandings": 8,
+      "shared": 8,
+      "hlOnly": 0,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B4.2",
+      "title": "Ecological niches",
+      "understandings": 13,
+      "shared": 13,
+      "hlOnly": 0,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C1.1",
+      "title": "Enzymes and metabolism",
+      "understandings": 17,
+      "shared": 10,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; human review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C1.2",
+      "title": "Cell respiration",
+      "understandings": 17,
+      "shared": 6,
+      "hlOnly": 11,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C1.3",
+      "title": "Photosynthesis",
+      "understandings": 19,
+      "shared": 8,
+      "hlOnly": 11,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C2.1",
+      "title": "Chemical signalling",
+      "understandings": 14,
+      "shared": 0,
+      "hlOnly": 14,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C2.2",
+      "title": "Neural signalling",
+      "understandings": 16,
+      "shared": 7,
+      "hlOnly": 9,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C3.1",
+      "title": "Integration of body systems",
+      "understandings": 23,
+      "shared": 16,
+      "hlOnly": 7,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C3.2",
+      "title": "Defence against disease",
+      "understandings": 18,
+      "shared": 18,
+      "hlOnly": 0,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C4.1",
+      "title": "Populations and communities",
+      "understandings": 18,
+      "shared": 18,
+      "hlOnly": 0,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C4.2",
+      "title": "Transfers of energy and matter",
+      "understandings": 22,
+      "shared": 22,
+      "hlOnly": 0,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D1.1",
+      "title": "DNA replication",
+      "understandings": 9,
+      "shared": 5,
+      "hlOnly": 4,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D1.2",
+      "title": "Protein synthesis",
+      "understandings": 19,
+      "shared": 11,
+      "hlOnly": 8,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D1.3",
+      "title": "Mutation and gene editing",
+      "understandings": 10,
+      "shared": 7,
+      "hlOnly": 3,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D2.1",
+      "title": "Cell and nuclear division",
+      "understandings": 17,
+      "shared": 11,
+      "hlOnly": 6,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D2.2",
+      "title": "Gene expression",
+      "understandings": 11,
+      "shared": 0,
+      "hlOnly": 11,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D2.3",
+      "title": "Water potential",
+      "understandings": 11,
+      "shared": 7,
+      "hlOnly": 4,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D3.1",
+      "title": "Reproduction",
+      "understandings": 20,
+      "shared": 12,
+      "hlOnly": 8,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D3.2",
+      "title": "Inheritance",
+      "understandings": 21,
+      "shared": 15,
+      "hlOnly": 6,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D3.3",
+      "title": "Homeostasis",
+      "understandings": 11,
+      "shared": 6,
+      "hlOnly": 5,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D4.1",
+      "title": "Natural selection",
+      "understandings": 15,
+      "shared": 8,
+      "hlOnly": 7,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D4.2",
+      "title": "Stability and change",
+      "understandings": 15,
+      "shared": 11,
+      "hlOnly": 4,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D4.3",
+      "title": "Climate change",
+      "understandings": 12,
+      "shared": 8,
+      "hlOnly": 4,
+      "cataloguedDraft": false,
+      "editorialStatus": "not integrated; no release claim",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    }
+  ],
+  "knownNewerUnverifiedRedesign": {
+    "sha": "bc434f16e041b6018d670a76593e8a1ea9bf01f5",
+    "documentedDraftTopics": 9,
+    "documentedDraftUnderstandings": 115,
+    "ciStatusAtPreflight": "in_progress",
+    "lastObservedFailedExample": "7010e5c799761d8cc299cea429826c91709b82aa",
+    "lastFailedCi": "https://github.com/veyro-lb/litlab/actions/runs/39017825191",
+    "caveat": "head and CI may change; re-read before integrating"
+  },
+  "qualityGates": {
+    "all40Topics": false,
+    "all553TeachingLessons": false,
+    "independentScientificApproval": false,
+    "independentAssessmentApproval": false,
+    "authenticImageAndRightsApproval": false,
+    "ownerApproval": false,
+    "privatePreview40TopicVerified": false,
+    "EnglishRegressionGreenOnPinnedBase": true,
+    "greenIsolatedBrowserOnPinnedBase": true,
+    "fullDependencyTreeZeroAdvisories": false,
+    "publicRelease": "NO-GO"
+  },
+  "safety": {
+    "publicBranchModified": false,
+    "sourceBranchOverwritten": false,
+    "topicPackagesArtificiallyRegistered": false,
+    "publicDeploymentTriggered": false
+  },
+  "notes": [
+    "This is a status record, not evidence of scientific certification.",
+    "Some drafts have open schematic and image issues; four original figures are withheld in the pinned baseline.",
+    "Further commits must be rechecked against the exact integration SHA."
+  ]
+}
