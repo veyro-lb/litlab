@@ -159,6 +159,42 @@ try {
      await expect(figure).toBeFocused();
    }else{report.accessibilityLimitations.push('A1.1 had no available lightbox to test')}
  });
+
+ await check('Global English subject navigation and actual appearance toggle work',async()=>{
+   await navigate(p,'#biology');
+   const before=await p.locator('html').getAttribute('data-theme');
+   await p.locator('.topbar .icon-btn').click();
+   const after=await p.locator('html').getAttribute('data-theme');
+   expect(after).not.toBe(before);
+   await p.locator('.topbar .icon-btn').click();
+   await expect(p.locator('html')).toHaveAttribute('data-theme',before);
+   await p.locator('.topbar .bio-subject-return').click();
+   await expect(p).toHaveURL(/#home$/);
+   await expect(p.locator('.topbar')).toHaveAttribute('data-subject','english');
+   await navigate(p,'#biology');
+   await expect(p.locator('.topbar')).toHaveAttribute('data-subject','biology');
+ });
+ await check('Authentication entry opens a labelled dialog and Escape restores control focus',async()=>{
+   await navigate(p,'#biology');
+   const trigger=p.locator('[data-auth-open]');
+   await expect(trigger).toHaveAttribute('aria-label','Sign in to LitLab');
+   await trigger.click();
+   await expect(p.locator('[data-auth-modal][role=dialog]')).toBeVisible();
+   await expect(p.locator('[data-auth-google]')).toBeFocused();
+   await p.keyboard.press('Escape');
+   await expect(p.locator('[data-auth-modal]')).toHaveCount(0);
+   await expect(p.locator('[data-auth-open]')).toBeFocused();
+ });
+ await check('Reduced motion and focus visibility in actual keyboard navigation',async()=>{
+   await navigate(p,'#biology');
+   const duration=await p.locator('.bio-discovery-theme-A').evaluate(el=>getComputedStyle(el).transitionDuration);
+   expect(duration).toBe('0s');
+   await p.locator('#bio-topic-search').focus();
+   await p.keyboard.press('Tab');
+   const focus=await p.evaluate(()=>{const el=document.querySelector('[data-biology-host]').shadowRoot.activeElement;return {tag:el?.tagName,style:el?getComputedStyle(el).outlineStyle:'none'}});
+   expect(['A','BUTTON']).toContain(focus.tag);
+   expect(focus.style).not.toBe('none');
+ });
  await c.close();
 
  for(const width of report.viewportWidths){
