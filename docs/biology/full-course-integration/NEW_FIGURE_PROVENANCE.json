@@ -1,0 +1,39 @@
+{
+  "asOf": "2026-10-17",
+  "branch": "feature/biolab-complete-course-integration-20261017",
+  "reviewStatus": "internally authored and structurally checked; independent science/rights/accessibility approval not claimed",
+  "assets": [
+    {
+      "assetId": "sigmoid-model",
+      "understandingId": "C4.1.8",
+      "path": "public/biology/populations-communities/sigmoid-model.svg",
+      "type": "Original vector plot",
+      "dataOrigin": "Constructed model: population values 10,18,31,45,53,55 over times 0–5, with model carrying capacity approximately 60.",
+      "axes": "Time (arbitrary units); population (individuals)",
+      "copyright": "Created in project as original SVG, no external image reused",
+      "licenseEvidence": "Original SVG authoring commit a915cf4dfb5a20e67b71cfa6e19b6633a36212d1",
+      "scientificChecks": [
+        "Y values monotonically rise to 55 and approach a 60 model capacity",
+        "Axis quantities and constructed-data status are explicitly labelled"
+      ],
+      "independentApproval": false
+    },
+    {
+      "assetId": "meadow-food-web",
+      "understandingId": "C4.2.4",
+      "path": "public/biology/transfers-energy-matter/meadow-food-web.svg",
+      "type": "Original schematic food web",
+      "dataOrigin": "Illustrative feeding relationships; not a named observed ecosystem",
+      "arrows": "Food or prey → consumer, representing chemical energy and biomass transfer",
+      "copyright": "Created in project as original SVG, no external image reused",
+      "licenseEvidence": "Original SVG authoring commit a915cf4dfb5a20e67b71cfa6e19b6633a36212d1",
+      "scientificChecks": [
+        "Grass points to grasshoppers and rabbits",
+        "Grasshoppers point to insect-eating songbirds",
+        "Rabbits and songbirds point to foxes",
+        "Decomposers acknowledged as omitted from grazing links"
+      ],
+      "independentApproval": false
+    }
+  ]
+}
