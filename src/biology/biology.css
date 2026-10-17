@@ -236,3 +236,111 @@
 .bio-visual-sequence li strong{font-size:13px}
 .bio-visual-sequence li span{font-size:12px;line-height:1.65}
 @media(max-width:560px){.bio-visual-bar-row{grid-template-columns:1fr auto;gap:4px 12px}.bio-visual-bar-track{grid-column:1 / -1;grid-row:2}.bio-visual-sequence{grid-template-columns:1fr}.bio-figure-dialog{padding:12px}}
+
+
+/* BioLab premium reading and control system (scoped inside its shadow root). */
+.bio-app{--bio-focus:#1268a7;--bio-primary-bg:#176b5b;--bio-primary-ink:#fff;--bio-radius:9px;
+font:400 16px/1.65 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+:host-context([data-theme=dark]) .bio-app{--bio-focus:#9acfff;--bio-primary-bg:#90dcca;--bio-primary-ink:#132c27}
+.bio-app :is(h1,h2,h3,h4){letter-spacing:-.025em;text-wrap:balance}
+.bio-app :is(p,li,td,dd){overflow-wrap:break-word}
+.bio-app :is(button,a,input,textarea,summary):focus-visible{outline:3px solid var(--bio-focus);outline-offset:3px}
+.bio-app :is(button,a,summary){touch-action:manipulation}
+.bio-app button{min-height:44px}
+.bio-app button:disabled,.bio-app button[aria-disabled=true]{opacity:.55;cursor:not-allowed}
+.bio-app button:not(:disabled):active,.bio-app .bio-primary:active{transform:translateY(1px)}
+.bio-app :is(.bio-primary,.bio-btn-primary){display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:46px;max-width:100%;padding:11px 18px;border:1px solid transparent;border-radius:var(--bio-radius);background:var(--bio-primary-bg);color:var(--bio-primary-ink);font-size:14px;font-weight:750;line-height:1.4;text-align:center;text-decoration:none}
+.bio-app :is(.bio-primary,.bio-btn-primary):not(:disabled):hover{filter:none;background:color-mix(in srgb,var(--bio-primary-bg) 88%,var(--ink))}
+.bio-app .bio-btn-quiet{border:1px solid var(--line);border-radius:var(--bio-radius);background:var(--surface);color:var(--ink);font-size:14px;font-weight:650}
+.bio-app .bio-btn-quiet:not(:disabled):hover{border-color:var(--bio-green);background:var(--surface-2)}
+.bio-app .bio-btn-quiet[aria-pressed=true]{border-color:var(--bio-green);background:color-mix(in srgb,var(--bio-green) 12%,var(--surface));font-weight:750}
+.bio-app .bio-toolbar{margin-bottom:29px;padding:14px 0;min-height:65px;flex-wrap:wrap}
+.bio-app .bio-toolbar nav{font-size:14px;line-height:1.5;min-width:0}
+.bio-app .bio-toolbar nav>span:last-child{min-width:0;overflow-wrap:anywhere}
+.bio-app .bio-level{align-items:center;border-radius:var(--bio-radius);gap:3px}
+.bio-app .bio-level label>span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 14px;border-radius:7px;font-size:13px}
+.bio-app .bio-level input:checked+span{background:var(--bio-primary-bg);color:var(--bio-primary-ink)}
+.bio-app .bio-level input:focus-visible+span{outline:3px solid var(--bio-focus);outline-offset:3px}
+.bio-app .bio-back{display:inline-flex;align-items:center;min-height:44px;margin-bottom:15px;font-size:14px;font-weight:650;text-underline-offset:3px}
+.bio-app .bio-back:hover{text-decoration:underline}
+.bio-app .bio-course-header{max-width:800px;margin:22px 0}
+.bio-app .bio-course-header h1{font-size:clamp(30px,3.5vw,44px);line-height:1.17;letter-spacing:-.04em}
+.bio-app .bio-course-header p{font-size:clamp(16px,1.45vw,18px);line-height:1.7}
+.bio-app .bio-course-header small{font-size:13px;line-height:1.6}
+.bio-app .bio-topic-start{margin:4px 0 20px}
+.bio-app .bio-resource-nav{gap:0 18px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;scroll-padding-inline:8px;overscroll-behavior-inline:contain}
+.bio-app .bio-resource-nav>a{flex:0 0 auto;white-space:nowrap;min-height:48px;font-size:14px;font-weight:650;border-bottom-width:3px}
+.bio-app .bio-resource-nav>a:hover{color:var(--bio-green);border-bottom-color:color-mix(in srgb,var(--bio-green) 42%,transparent)}
+.bio-app .bio-resource-nav>a[aria-current=page]{color:var(--bio-green);font-weight:800;border-bottom-color:var(--bio-green)}
+.bio-app .bio-library-search{max-width:520px;border-radius:var(--bio-radius)}
+.bio-app .bio-library-search input{min-height:48px;font-size:15px}
+.bio-app .bio-library-search button{font-size:13px;font-weight:700}
+.bio-app .bio-library-theme>summary:hover,.bio-app .bio-library-topic>summary:hover{background:color-mix(in srgb,var(--bio-green) 5%,var(--surface))}
+.bio-app .bio-library-theme h2{font-size:clamp(18px,2vw,21px)}
+.bio-app .bio-library-topic>summary>span{font-size:15px}
+.bio-app .bio-library-topic>summary>small{font-size:12px;line-height:1.5}
+.bio-app .bio-understanding-rows a{min-height:62px;gap:12px;border-radius:7px}
+.bio-app .bio-understanding-rows a>span:nth-child(2){font-size:15px;line-height:1.55}
+.bio-app .bio-understanding-rows small{font-size:11px}
+.bio-app .bio-understanding-rows a:hover{background:color-mix(in srgb,var(--bio-green) 7%,var(--surface))}
+.bio-app .bio-lesson-hero{margin-bottom:18px}
+.bio-app .bio-lesson-hero h1{font-size:clamp(28px,3.3vw,43px);line-height:1.18;letter-spacing:-.04em;max-width:25ch;margin-bottom:12px}
+.bio-app .bio-lesson-hero>div>p{font-size:16px;line-height:1.72;max-width:68ch}
+.bio-app .bio-lesson-meta span{font-size:12px;padding:4px 7px;border:0;border-radius:4px;background:var(--surface-2)}
+.bio-app .bio-eyebrow{font-size:11px;line-height:1.5;letter-spacing:.075em}
+.bio-app .bio-lesson-content h2{font-size:clamp(25px,2.5vw,34px);line-height:1.27;letter-spacing:-.035em;max-width:34ch}
+.bio-app .bio-lesson-content>.bio-guiding-question{font-size:clamp(16px,1.5vw,18px);line-height:1.7;max-width:64ch}
+.bio-app .bio-reading{max-width:100%}
+.bio-app .bio-reading h3{font-size:clamp(20px,1.9vw,24px);line-height:1.35;letter-spacing:-.025em}
+.bio-app .bio-reading p{font-size:17px;line-height:1.78;max-width:66ch}
+.bio-app .bio-reading-passage>section{margin:33px 0 20px}
+.bio-app .bio-reading .bio-figure img{max-width:100%}
+.bio-app .bio-learning-visual h4{font-size:17px}
+.bio-app .bio-learning-visual :is(td,th){font-size:14px;line-height:1.55}
+.bio-app .bio-learning-visual .bio-visual-note{font-size:13px!important;line-height:1.7}
+.bio-app .bio-toc summary{min-height:48px;font-size:14px;line-height:1.5}
+.bio-app .bio-toc button{min-height:44px}
+.bio-app .bio-toc button[aria-current=step]{border-left:3px solid var(--bio-green);background:color-mix(in srgb,var(--bio-green) 12%,var(--surface));font-weight:750}
+.bio-app .bio-toc button:hover{background:color-mix(in srgb,var(--bio-green) 7%,var(--surface))}
+.bio-app .bio-inline-help{margin:35px 0;padding:18px 0;border-block:1px solid var(--line)}
+.bio-app .bio-help-top{font-size:15px;line-height:1.5}
+.bio-app .bio-help-top>button{min-height:44px;font-size:13px}
+.bio-app .bio-help-controls{gap:8px;margin:14px 0}
+.bio-app .bio-help-controls button{min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:var(--bio-radius);background:var(--surface);color:var(--bio-green);font-size:13px;line-height:1.4;font-weight:700;text-decoration:none;text-align:center}
+.bio-app .bio-help-controls button:hover{border-color:var(--bio-green);background:color-mix(in srgb,var(--bio-green) 5%,var(--surface))}
+.bio-app .bio-help-controls button[aria-pressed=true]{border-color:var(--bio-green);background:color-mix(in srgb,var(--bio-green) 14%,var(--surface));box-shadow:inset 0 -2px 0 var(--bio-green)}
+.bio-app .bio-help-match input{font-size:15px}
+.bio-app .bio-help-match button{min-height:44px;border:1px solid transparent;border-radius:var(--bio-radius);background:var(--bio-primary-bg);color:var(--bio-primary-ink);font-size:14px;font-weight:700}
+.bio-app .bio-help-output{border-left:3px solid var(--bio-green);background:color-mix(in srgb,var(--bio-green) 6%,var(--surface))}
+.bio-app .bio-help-output p{font-size:16px;line-height:1.75}
+.bio-app .bio-help-output .bio-help-limit{font-size:12px}
+.bio-app .bio-activity-heading>p{font-size:15px;line-height:1.65}
+.bio-app .bio-check{padding:20px;border-radius:var(--bio-radius)}
+.bio-app .bio-check legend{font-size:17px;line-height:1.55}
+.bio-app .bio-check-instruction{font-size:13px!important;color:var(--muted);margin:0 0 12px!important}
+.bio-app .bio-options label{min-height:50px;padding:12px 14px;border-radius:8px;background:var(--surface);font-size:15px;line-height:1.5;align-items:center}
+.bio-app .bio-options label:has(input:checked){border-color:var(--bio-green);background:color-mix(in srgb,var(--bio-green) 9%,var(--surface));box-shadow:inset 3px 0 0 var(--bio-green)}
+.bio-app .bio-options label:hover{border-color:var(--bio-green)}
+.bio-app .bio-options input{width:18px;height:18px;accent-color:var(--bio-primary-bg)}
+.bio-app .bio-answer-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
+.bio-app .bio-feedback{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:15px;line-height:1.7}
+.bio-app .bio-feedback>strong{display:block;color:var(--ink);margin-bottom:4px}
+.bio-app .bio-feedback[data-outcome=correct]{border-top-color:var(--bio-green)}
+.bio-app .bio-feedback .bio-actions{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
+.bio-app .bio-feedback .bio-actions button{border-radius:var(--bio-radius);font-size:14px}
+.bio-app .bio-feedback details summary{display:flex;align-items:center;min-height:44px;font-size:14px}
+.bio-app .bio-section-controls{gap:13px;flex-wrap:wrap;padding-top:17px;border-top:1px solid var(--line)}
+.bio-app .bio-section-controls button,.bio-app .bio-section-controls a{min-height:46px;padding:11px 14px;border-radius:var(--bio-radius);font-size:14px;line-height:1.4}
+.bio-app .bio-section-controls>span{font-size:13px}
+.bio-app .bio-section-controls .bio-next-label{max-width:32ch;text-align:left;overflow-wrap:anywhere}
+.bio-app .bio-related-study{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
+.bio-app .bio-related-study a{font-size:14px;font-weight:650;text-underline-offset:3px}
+.bio-app .bio-related-study a:hover{text-decoration:underline}
+.bio-app .bio-worked-example p{font-size:16px}
+.bio-app .bio-reading textarea,.bio-app .bio-written textarea{font-size:16px}
+.bio-app .bio-figure-clean>.bio-figure-image{min-height:0}
+.bio-app .bio-figure-clean>.bio-figure-image:hover{box-shadow:0 0 0 2px color-mix(in srgb,var(--bio-green) 38%,transparent)}
+@media(max-width:760px){.bio-app{padding-inline:16px}.bio-app .bio-toolbar{margin-bottom:20px;gap:8px}.bio-app .bio-toolbar nav{flex:1 1 170px;font-size:13px}.bio-app .bio-lesson-nav{position:static;max-height:none}.bio-app .bio-lesson-hero h1{font-size:clamp(27px,6vw,35px)}.bio-app .bio-reading p{font-size:16px;line-height:1.78}.bio-app .bio-help-match input{flex-basis:100%}.bio-app .bio-help-match button{width:100%}.bio-app .bio-section-controls .bio-next-label{max-width:23ch}.bio-app .bio-understanding-rows a>span:nth-child(2){font-size:14px}}
+@media(max-width:380px){.bio-app{padding-inline:12px}.bio-app .bio-toolbar nav>span:last-child{font-size:12px}.bio-app .bio-level label>span{padding:7px 11px}.bio-app .bio-resource-nav{gap:0 14px}.bio-app .bio-resource-nav>a{font-size:13px}.bio-app .bio-library-topic>summary{gap:8px}.bio-app .bio-library-topic>summary>span{font-size:14px;min-width:0}.bio-app .bio-options label{font-size:14px;padding:11px}.bio-app .bio-help-controls button{flex:1 1 44%}.bio-app .bio-section-controls{display:grid;grid-template-columns:1fr 1fr}.bio-app .bio-section-controls>span{grid-column:1/-1;grid-row:1;text-align:center}.bio-app .bio-section-controls button,.bio-app .bio-section-controls a{width:100%;min-width:0;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.bio-app :is(button,.bio-primary){transition:none!important;transform:none!important}}

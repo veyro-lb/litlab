@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useRef,useState} from 'react';
 import UnderstandingLabel from './UnderstandingLabel';
 import type {Topic} from '../curriculum/schema';
 import type {Choice, Question, StudyState} from './content';
@@ -6,12 +6,19 @@ export type UpdateStudy = (fn: (previous: StudyState) => StudyState) => void;
 export function ChoiceQuestion({item,study,update,returnTo}: {item: Choice; study: StudyState; update: UpdateStudy; returnTo?: () => void}) {
   const fieldset=useRef<HTMLFieldSetElement>(null);
   const selected=study.answers[item.id];
+  const [draft,setDraft]=useState<string|undefined>(()=>selected);
   const answer=item.options.find(o=>o.id===selected);
   return <fieldset ref={fieldset} className="bio-check" data-question-id={item.id}><legend>{item.prompt}</legend>
-    <div className="bio-options">{item.options.map((o,i)=><label key={o.id}><input type="radio" name={item.id} value={o.id} checked={selected===o.id} onChange={()=>update(s=>({...s,answers:{...s.answers,[item.id]:o.id}}))}/><span><b>{String.fromCharCode(65+i)}.</b> {o.text}</span></label>)}</div>
-    {answer && <div className="bio-feedback" role="status"><strong>{answer.correct ? 'Correct. ' : 'Reconsider. '}</strong>{answer.feedback}
+    <p className="bio-check-instruction">Choose an answer, then check your reasoning.</p>
+    <div className="bio-options">{item.options.map((o,i)=><label key={o.id}><input type="radio" name={item.id} value={o.id} checked={draft===o.id} onChange={()=>{
+      setDraft(o.id);
+      if(selected)update(s=>{const answers={...s.answers};delete answers[item.id];return {...s,answers}});
+    }}/><span><b>{String.fromCharCode(65+i)}.</b> {o.text}</span></label>)}</div>
+    {!answer&&<div className="bio-answer-controls"><button type="button" className="bio-btn-primary" disabled={!draft} onClick={()=>{if(draft)update(s=>({...s,answers:{...s.answers,[item.id]:draft}}))}}>Check my answer</button></div>}
+    {answer&&<div className="bio-feedback" data-outcome={answer.correct?'correct':'retry'} role="status"><strong>{answer.correct ? 'Correct. ' : 'Reconsider. '}</strong>{answer.feedback}
       <details><summary>Explain every choice</summary>{item.options.map((o,i)=><p key={o.id}><b>{String.fromCharCode(65+i)}. {o.correct ? 'Correct' : 'Incorrect'}:</b> {o.feedback}</p>)}</details>
-      <div className="bio-actions"><button type="button" onClick={()=>{update(s=>{const a={...s.answers};delete a[item.id];return {...s,answers:a}});fieldset.current?.querySelector<HTMLInputElement>('input')?.focus()}}>Try again</button>{returnTo && <button type="button" onClick={returnTo}>Revisit explanation</button>}</div></div>}
+      <div className="bio-actions"><button type="button" className="bio-btn-quiet" onClick={()=>{update(s=>{const answers={...s.answers};delete answers[item.id];return {...s,answers}});setDraft(undefined);fieldset.current?.querySelector<HTMLInputElement>('input')?.focus()}}>Try again</button>{returnTo&&<button type="button" className="bio-btn-quiet" onClick={returnTo}>Revisit explanation</button>}</div>
+    </div>}
   </fieldset>;
 }
 export function RecallQuestion({item,study,update}: {item: {id:string;prompt:string;answer:string;enrichment?:boolean};study:StudyState;update:UpdateStudy}) {
