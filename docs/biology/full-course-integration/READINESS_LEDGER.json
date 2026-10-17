@@ -11,10 +11,10 @@
     "hlOnly": 216
   },
   "registeredDrafts": {
-    "topics": 15,
-    "understandings": 173,
-    "shared": 100,
-    "hlOnly": 73,
+    "topics": 20,
+    "understandings": 235,
+    "shared": 141,
+    "hlOnly": 94,
     "ids": [
       "A1.1",
       "A1.2",
@@ -30,6 +30,11 @@
       "B2.1",
       "B2.2",
       "B2.3",
+      "B3.1",
+      "B3.2",
+      "B3.3",
+      "B4.1",
+      "B4.2",
       "C1.1"
     ],
     "educationallyApproved": 0
@@ -48,7 +53,7 @@
     {
       "name": "feature/biolab-complete-theme-b-20261017",
       "sha": "a6ccd93b44bb84a0be64e8e3215208f595b2cde0",
-      "integrationStatus": "Source HEAD verified; package intake pending"
+      "integrationStatus": "5 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
     },
     {
       "name": "feature/biolab-complete-theme-c1-20261017",
@@ -72,41 +77,6 @@
     }
   ],
   "plannedTopics": [
-    {
-      "id": "B3.1",
-      "title": "Gas exchange",
-      "understandings": 13,
-      "shared": 10,
-      "hlOnly": 3
-    },
-    {
-      "id": "B3.2",
-      "title": "Transport",
-      "understandings": 18,
-      "shared": 10,
-      "hlOnly": 8
-    },
-    {
-      "id": "B3.3",
-      "title": "Muscle and motility",
-      "understandings": 10,
-      "shared": 0,
-      "hlOnly": 10
-    },
-    {
-      "id": "B4.1",
-      "title": "Adaptation to environment",
-      "understandings": 8,
-      "shared": 8,
-      "hlOnly": 0
-    },
-    {
-      "id": "B4.2",
-      "title": "Ecological niches",
-      "understandings": 13,
-      "shared": 13,
-      "hlOnly": 0
-    },
     {
       "id": "C1.2",
       "title": "Cell respiration",
@@ -409,8 +379,8 @@
       "understandings": 13,
       "shared": 10,
       "hlOnly": 3,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -420,8 +390,8 @@
       "understandings": 18,
       "shared": 10,
       "hlOnly": 8,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -431,8 +401,8 @@
       "understandings": 10,
       "shared": 0,
       "hlOnly": 10,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -442,8 +412,8 @@
       "understandings": 8,
       "shared": 8,
       "hlOnly": 0,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -453,8 +423,8 @@
       "understandings": 13,
       "shared": 13,
       "hlOnly": 0,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -769,6 +739,42 @@
           "id": "A4.2",
           "sections": 8,
           "questions": 17
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme B",
+      "sourceSha": "a6ccd93b44bb84a0be64e8e3215208f595b2cde0",
+      "registeredTopics": 20,
+      "registeredUnderstandings": 235,
+      "accepted": [
+        {
+          "id": "B3.1",
+          "sections": 13,
+          "questions": 16
+        },
+        {
+          "id": "B3.2",
+          "sections": 18,
+          "questions": 21
+        },
+        {
+          "id": "B3.3",
+          "sections": 10,
+          "questions": 12
+        },
+        {
+          "id": "B4.1",
+          "sections": 8,
+          "questions": 9
+        },
+        {
+          "id": "B4.2",
+          "sections": 13,
+          "questions": 14
         }
       ],
       "rejected": [],
