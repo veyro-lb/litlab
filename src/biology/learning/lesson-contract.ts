@@ -12,7 +12,7 @@ export type LearningVisual =
  | {kind:'sequence'; title:string; afterBlock:number; steps:{title:string;description:string}[]; note?:string}
  | {kind:'bars'; title:string; afterBlock:number; unit:string; values:{label:string;value:number}[]; note:string};
 export interface AuthenticMicrograph {
- id:string; title:string; specimen:string; modality:'light'|'TEM';
+ id:string; title:string; specimen:string; modality:'light'|'TEM'; referenceId:string;
  imageUrl:string; sourceUrl:string; author:string; license:string; licenseUrl:string;
  observationPrompt:string; expectedEvidence:string; scaleNote:string; limitation:string;
 }
