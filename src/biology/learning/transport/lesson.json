@@ -1627,7 +1627,37 @@
           323,
           324
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Capillary fluid movement: syllabus model and physiological qualification",
+          "afterBlock": 1,
+          "headers": [
+            "Point",
+            "Simplified IB account",
+            "Physiological qualification"
+          ],
+          "rows": [
+            [
+              "Arteriolar side",
+              "Higher hydrostatic pressure favours filtration",
+              "Filtration depends on net hydrostatic and oncotic forces"
+            ],
+            [
+              "Venular side",
+              "Lower pressure can permit fluid re-entry",
+              "Sustained venular reabsorption is often limited in systemic beds"
+            ],
+            [
+              "Excess interstitial fluid",
+              "Must be cleared",
+              "Lymphatic drainage is physiologically essential"
+            ]
+          ],
+          "note": "The first column states the syllabus scope; the second prevents an overly universal claim about capillary reabsorption."
+        }
+      ]
     },
     {
       "id": "b32-12",
@@ -2048,7 +2078,37 @@
           325,
           326
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Single and double circulation",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Bony fish",
+            "Mammal"
+          ],
+          "rows": [
+            [
+              "Path",
+              "Heart → gills → body → heart",
+              "Right heart → lungs → left heart → body → right heart"
+            ],
+            [
+              "Capillary beds before systemic tissues",
+              "Gills, then systemic beds in series",
+              "Pulmonary beds, then heart before systemic beds"
+            ],
+            [
+              "Pressure consequence",
+              "Pressure falls across gills before body",
+              "Separate pumping allows higher systemic pressure"
+            ]
+          ],
+          "note": "Schematic pathways; no measured pressure data."
+        }
+      ]
     },
     {
       "id": "b32-15",
@@ -2069,6 +2129,10 @@
         {
           "misconception": "The heart septum directly transfers oxygen into blood.",
           "correction": "Valves maintain directional flow, while myocardium generates pressure."
+        },
+        {
+          "misconception": "Pulmonary veins carry blood away from the right ventricle because veins always carry deoxygenated blood.",
+          "correction": "Pulmonary veins carry oxygenated blood from lungs into the left atrium; vessel classes are named by direction relative to the heart."
         }
       ],
       "referenceIds": [
@@ -2098,8 +2162,15 @@
           ]
         }
       ],
-      "assets": [],
-      "figurePlacements": [],
+      "assets": [
+        "b32-heart-frontal"
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "b32-heart-frontal",
+          "afterBlock": 1
+        }
+      ],
       "teachingBlocks": [
         {
           "title": "The four chambers and their roles",
@@ -2629,7 +2700,47 @@
           336,
           337
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Xylem and phloem — do not confuse their transport mechanisms",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Xylem",
+            "Phloem"
+          ],
+          "rows": [
+            [
+              "Principal cargo",
+              "Water and dissolved mineral ions",
+              "Sucrose and other assimilates in sap"
+            ],
+            [
+              "Conducting cells",
+              "Mature dead vessel elements",
+              "Living sieve elements with companion cells"
+            ],
+            [
+              "Main driving force",
+              "Evaporation-generated tension (negative pressure potential)",
+              "Source–sink turgor-pressure gradient"
+            ],
+            [
+              "Characteristic direction",
+              "Usually roots toward leaves during transpiration",
+              "Depends on source and sink in each sieve tube"
+            ],
+            [
+              "Structural adaptations",
+              "Lignified hollow walls and pits",
+              "Sieve plates, reduced sieve-element contents, companion-cell metabolism"
+            ]
+          ],
+          "note": "Comparative synthesis of B3.2.7, B3.2.8, B3.2.17 and B3.2.18; not a numerical graph."
+        }
+      ]
     }
   ],
   "questions": [
@@ -3584,6 +3695,22 @@
       "attribution": "Original BioLab scientific diagram 2026; no copied source artwork",
       "license": "Original vector authorship; qualified rights/science review pending",
       "permissionEvidence": "Newly drawn SVG geometric primitives; no third-party assets or copyrighted diagrams reproduced",
+      "referenceIds": [
+        "ib-guide-b32",
+        "hodder-b32"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "b32-heart-frontal",
+      "kind": "original-schematic",
+      "src": "/biology/transport/heart-frontal.svg",
+      "alt": "Simplified frontal-plane mammalian heart: anatomical right on viewer left; venae cavae to right atrium and tricuspid valve then right ventricle, pulmonary valve and artery to lungs; pulmonary veins to left atrium then mitral valve, left ventricle, aortic valve and aorta. Blue shows relatively deoxygenated blood and red oxygenated blood. Arrows indicate flow; model not to scale.",
+      "captionTitle": "Mammalian heart — chambers, valves and directed blood flow",
+      "attribution": "Original BioLab schematic authored 2026-10-17",
+      "license": "Original educational vector; specialist anatomy, accessibility and rights review pending",
+      "permissionEvidence": "Composed with newly authored SVG primitives; no source-image copying or external datasets",
       "referenceIds": [
         "ib-guide-b32",
         "hodder-b32"
