@@ -37,9 +37,9 @@ try{
   await page.setViewportSize({width,height:900});
   try{
    await page.goto(origin+'/#biology/topic/D3.1/revision?understanding=D3.1.4');
-   await page.locator('.bio-figure-image').first().waitFor();await page.getByRole('button',{name:'Hide figure labels for recall'}).click();
+   await page.locator('.bio-figure-image').first().waitFor();const hide=page.getByRole('button',{name:'Hide figure labels for recall'});if(await hide.count())await hide.click();
    const images=page.locator('.bio-figure-image img');
-   for(let i=0;i<3;i++){const src=await images.nth(i).evaluate(img=>img.currentSrc);if(!src.includes('recall.svg'))throw Error('recall source not selected '+src);}
+   for(let i=0;i<3;i++){await images.nth(i).scrollIntoViewIfNeeded();await images.nth(i).evaluate(async img=>{img.loading='eager';await img.decode()});const src=await images.nth(i).evaluate(img=>img.currentSrc);if(!src.includes('recall.svg'))throw Error('recall source not selected '+src);}
    await page.locator('.bio-figure-image').first().screenshot({path:out+'/recall-'+width+'.png'});shots.push('recall-'+width+'.png');
    await page.getByRole('button',{name:'Reveal figure labels'}).click();
   }catch(e){issues.push('recall '+width+': '+String(e));}
@@ -50,7 +50,7 @@ try{
    const file=stem+suffix+'.svg';
    try{
     await page.goto(origin+'/biology/reproduction/'+file);
-    const clipped=await page.evaluate(()=>{const svg=document.querySelector('svg');if(!svg)return ['missing svg'];const v=svg.viewBox.baseVal;return [...svg.querySelectorAll('text')].filter(t=>{let b=t.getBBox();return b.x<0||b.y<0||b.x+b.width>v.width+2||b.y+b.height>v.height+2}).map(t=>t.textContent)});
+    const clipped=await page.evaluate(()=>{const svg=document.querySelector('svg');if(!svg)return ['missing svg'];const sr=svg.getBoundingClientRect();return [...svg.querySelectorAll('text')].filter(t=>{const b=t.getBoundingClientRect();return b.left<sr.left-2||b.top<sr.top-2||b.right>sr.right+2||b.bottom>sr.bottom+2}).map(t=>t.textContent)});
     if(clipped.length)issues.push('SVG label outside viewBox '+file+': '+clipped.join(', '));
    }catch(e){issues.push('svg '+file+': '+String(e))}
   }
