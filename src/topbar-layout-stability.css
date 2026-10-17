@@ -101,3 +101,8 @@ html[data-theme=dark] .bio-brand{color:#91e2bf}
  .bio-subject-return{font-size:11px;padding:8px 6px}
  .topbar .litlab-account-menu{position:fixed;top:80px;right:14px;left:auto;max-height:calc(100dvh - 100px)}
 }
+/* Menus follow the actual wrapped header height, including at browser zoom. */
+.mobile-menu{top:calc(var(--litlab-header-height,78px) + 8px)!important;max-height:calc(100dvh - var(--litlab-header-height,78px) - 24px);overflow-y:auto}
+@media(max-width:600px){.topbar .litlab-account-menu{top:calc(var(--litlab-header-height,78px) + 8px)}}
+/* On reading pages feedback remains available at the page end, outside the text. */
+html[data-litlab-subject=biology] .ll-feedback-trigger{position:relative!important;inset:auto!important;transform:none!important;margin:20px auto 28px;max-width:calc(100% - 32px);z-index:1!important}

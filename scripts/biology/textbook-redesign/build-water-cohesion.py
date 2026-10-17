@@ -6,7 +6,7 @@ def arrow(x,y,x2,y2):return f'<path d="M{x} {y} L{x2} {y2}" fill="none" stroke="
 def draw(mobile=False):
  w,h=(450,860) if mobile else (900,560)
  s=f'<svg xmlns="{ns}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="title desc"><title id="title">Cohesion: a continuous column and a deformable interface</title><desc id="desc">Original not-to-scale xylem and water-strider schematic. Evaporation generates xylem tension; cohesion helps transmit the pull along a continuous liquid column. Water-repellent legs deform an air-water interface supported by surface tension. No individual molecule count, measured force or anatomical scale is represented.</desc><defs><marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#287868"/></marker></defs><rect width="100%" height="100%" fill="#f1f7f6"/><g font-family="Arial,sans-serif" fill="#203a39">'
- s+=text(25,38,'A pull through water; support at a surface',23,False)
+ s+=text(25,38,'Two effects of cohesion' if mobile else 'A pull through water; support at a surface',23,False)
  if mobile:
   s+=text(25,83,'In a xylem vessel',23)+f'<path d="M120 135 V365 M190 135 V365" fill="none" stroke="#456f68" stroke-width="7"/><path d="M124 136 H186 V365 H124 Z" fill="#a8d6df"/>'+arrow(155,311,155,176)
   s+=f'<path d="M123 135 Q80 83 152 105 Q206 85 190 135" fill="#bdddc9" stroke="#456f68" stroke-width="3"/>'+arrow(154,104,154,66)
