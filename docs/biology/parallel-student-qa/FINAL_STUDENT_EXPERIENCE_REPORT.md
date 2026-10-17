@@ -1,76 +1,78 @@
-# BioLab — Independent Student Experience and Quality Assurance Report
+# BioLab — Final Independent Student Experience QA Execution Report
 
-**Audit baseline:** `2c321ae547baa2a97294728b337a4dfa46e64408`  
-**Source branch (read only):** `feature/biolab-complete-course-integration-20261017`  
-**Isolated QA branch:** `feature/biolab-independent-student-qa-20261017`  
-**QA content checkpoint before this report:** `70067825f229b9cd1aa214d0e8dc982b7e156071`  
-**Report-bearing branch SHA:** Resolve the authoritative SHA from the above QA branch after the report commit (`git rev-parse HEAD` or GitHub branch view). A commit cannot include its own resulting SHA in its tracked content.  
-**Release recommendation:** **NO-GO for scientific/assessment approval**; this QA report is a technical and source-data handoff, not an IB or scientific certification.
+**Date:** 2026-10-17  
+**Repository:** `veyro-lb/litlab`  
+**QA branch only:** `feature/biolab-independent-student-qa-20261017`  
+**Original content integration baseline (source reference):** `2c321ae547baa2a97294728b337a4dfa46e64408`  
+**QA branch starting HEAD verified through GitHub:** `98ee2a0bcad78d9181c7d18ef4de5cacfd5c44de`  
+**Executed code and test SHA:** `71269544c9200316e6c52900e4ae61405717c0af`  
+**Successful independent workflow:** [GitHub Actions run 39068267974](https://github.com/veyro-lb/litlab/actions/runs/39068267974)  
+**Authentic logs, 19 screenshots and machine findings:** [artifact 12114455877](https://github.com/veyro-lb/litlab/actions/runs/39068267974/artifacts/12114455877)  
+**Final branch SHA:** This report is committed after the successful tested SHA. The authoritative later report-containing HEAD is the live GitHub branch ref; a tracked document cannot include its own resulting Git commit SHA. Final commit SHA must be recorded in the handoff message.
 
-## Executive summary and provenance
+## Executive decision
 
-The source integration branch was verified at the exact baseline SHA above before the new QA branch was created. The existing **BioLab Complete Course Integration Isolated QA** GitHub Actions run [39062991528](https://github.com/veyro-lb/litlab/actions/runs/39062991528) completed **successfully for that baseline SHA**. Its 2026-10-17 job log records successful dependency installation, quality checks, production build, source validators, isolated Chromium smoke checks across 40 desktop lessons, mobile checks at 320/390/768px, practice/sources/flashcards on representative routes and twelve generated screenshots. Its existing additional browser audit reports a keyboard/touch and reflow pass at 320/390/768/1024/1440/1920px and an explicitly labelled 200% reflow check.
+**Technical QA toolkit: READY for isolated integration review. Biology assessment/scientific approval: NO-GO pending qualified review.** The new negative tests, static audit and browser tests have now actually executed on GitHub-hosted Linux at the exact SHA above. The workflow is read-only and does not deploy, merge or modify lessons. Browser, build and structural checks passed; they do not imply the scientific correctness of the 957 questions or the lesson prose.
 
-Those are **existing CI results, not executions of the independent scripts committed on this QA branch**. See [CI run and artifact](https://github.com/veyro-lb/litlab/actions/runs/39062991528); actual earlier screenshots are stored in the `biolab-course-integration-qa` artifact, not re-authored or represented as new QA evidence.
+| Executed gate | Result at tested SHA |
+|---|---|
+| Exact isolated checkout, lockfile install | PASS |
+| Existing quality, Biology validators and negative suites | PASS |
+| Production `npm run build` | PASS |
+| Independent negative fixtures | PASS — 4/4 |
+| Independent 40-topic static audit | PASS — 40 lessons, 553 understandings, 957 questions, 0 high structural findings |
+| Independent real Chromium browser suite | PASS — 79/79, 0 failed, 0 page JavaScript runtime exceptions |
+| Responsive Chromium width checks | PASS — 320, 390, 768, 1024, 1440 and 1920 CSS pixels |
+| Native browser 200% zoom | NOT VERIFIED; separate CSS `zoom:200%` approximation passed |
+| Actual screen reader and full WCAG conformance | NOT VERIFIED |
+| Qualified IB scientific/answer-key validation | NOT VERIFIED; issue PQA-001 requires correction |
 
-In this independent session, repository-content inspection was carried out against the pinned baseline for **40 lesson JSON files**, comprising **553 individual lesson sections, 957 assessment questions and 146 declared assets**. The pre-existing code's rendering, routing and study-state behavior was read in detail. Three findings have been entered in [FINDINGS.json](./FINDINGS.json). The [40-topic source scan](./COURSE_SOURCE_SCAN.json) preserves per-topic counts (553 sections, 957 questions, 146 declared assets, 89 authored visuals) and flags **420 selection items with repeated incorrect-answer feedback** for editorial review; these are heuristic review candidates, not 420 established scientific errors. The new reproducible audit and browser toolkit have been committed. **The new scripts, local build and independent browser sweep have not been executed in this session**, because this execution environment has no network path to clone the GitHub checkout into a runnable local workspace. Existing GitHub CI is evidence for the original baseline only.
+### Reproducible execution and environment
 
-## Student journeys and code paths
+The session first attempted the actual local command:
 
-The application uses the approved **Theme → Topic → Lesson** navigation model. Source paths reviewed include:
+```bash
+git clone --single-branch --branch feature/biolab-independent-student-qa-20261017 --depth 1 https://github.com/veyro-lb/litlab.git biolab-qa-checkout
+```
 
-- `src/biology/BiologyApp.tsx`, `src/biology/routes.ts`, `src/biology/components/BiologyDashboard.tsx`, `src/biology/components/CurriculumOverview.tsx`, `src/biology/components/TopicOverview.tsx` and `src/biology/curriculum/manifest.ts`: entry, search, level scope, routing and available topic presentation.
-- `src/biology/learning/LessonLoader.tsx`, `LessonView.tsx`, `ReadingUnderstanding.tsx`, `LearningVisual.tsx` and `ScientificFigure.tsx`: lesson content, sections, charts, tables, figure enlargement and transitions.
-- `src/biology/learning/StudyQuestion.tsx`, `FlashcardStudy.tsx`, `content.ts` and `src/biology/progress/contract.ts`: answer feedback, recall, written self-review, session lifetime and level preferences.
+It failed with `Could not resolve host: github.com`. Node v22.16.0, npm 10.9.2 and Git 2.47.3 were available locally. To avoid misreporting an untested local checkout, a dedicated isolated workflow `.github/workflows/biolab-independent-student-qa.yml` was created on the existing QA branch. Real GitHub Actions concluded **success** at run `39068267974`, job `117500346349`, after checking `git rev-parse HEAD == GITHUB_SHA` and a clean checkout.
 
-The *existing* CI log documents browser exercise of all 40 direct lesson routes, representative sources/practice/flashcard paths, HL-only exclusion at SL, three small viewports, and image enlargement. It does **not** independently establish conceptual accuracy, assessment quality, actual learning gains, full accessibility, or full page-by-page figure loading for all 553 understandings.
+The GitHub-hosted runner actually executed `npm ci`, `npm run quality`, the existing Biology validator and test commands listed in the committed workflow, `npm run build`, `node --test scripts/biology/parallel-student-qa/audit.test.mjs` and `node scripts/biology/parallel-student-qa/audit.mjs`. Its browser stage ran `npm run preview -- --host 127.0.0.1 --port 4173` followed by `node scripts/biology/parallel-student-qa/browser.mjs`, using Chromium from `mcr.microsoft.com/playwright:v1.56.1-noble`. The container was `--network none`, with loopback only, a disposable runtime, read-only source mount and separate writable artifact directories. No student sign-in or remote service was exercised.
 
-The new `browser.mjs` independently specifies: 40 HL direct lesson routes, search, four theme samples (A1.1, B2.1, C3.1, D3.2) with correct/incorrect responses and detailed option feedback, in-tab answer retention, flashcards, revision, section deep links and refresh, back/forward, modal focus restoration, SL exclusion, an invalid route, width testing at 320/390/768/1024/1440/1920px, and actual screenshot creation. All of these **remain pending execution on the new QA branch**. A 200% CSS zoom reflow simulation is explicitly labelled an approximation, not a native browser zoom compliance result.
+**Full command records:** `.github/workflows/biolab-independent-student-qa.yml` and archived `qa-existing.log`, `qa-build.log`, `qa-negative.log`, `qa-static.log`, `qa-artifacts/parallel-student-qa/browser-console.log` and `qa-checkout.txt` in the linked evidence artifact.
 
-## Findings, priorities and exact reproduction
+The first newly created workflow at `da36fe8` passed its 73 original browser cases. The expanded run at `4888978` produced 78 passes and one *test locator* failure: a nested Playwright `filter({has: ...})` was incorrectly scoped. That test locator was corrected **without changing application code or weakening the assertion**. The final run at `71269544c9200316e6c52900e4ae61405717c0af` passed all 79 cases and all workflow gates. Earlier failed runs are retained as audit history, not represented as final app regressions.
 
-### High — PQA-001: A2.1.2 exam-question stem conflicts with its keyed option
+### Exact static audit results
 
-**Location:** `src/biology/learning/origins-cells/lesson.json`, assessment ID `a21-p1a-2`; intended route `#biology/topic/A2.1/practice` in HL mode. The item asks why **cells** are independently living units, but the sole keyed-correct option describes dependence on a **host's metabolic and translational machinery**—characteristic of a virus. This is a source-observed internal contradiction and a **qualified biology/assessment review priority**, not a verdict that the whole topic is incorrect. Reproduce by locating the exact ID and comparing stem, flagged correct option and feedback; then confirm in the disposable preview. **Proposed fix:** review and rewrite the stem/options/explanations as a coherent complete item. Do not simply invert an answer-key boolean without science review.
+The independent audit read 40 catalogued lesson JSON files and validated their mapping against 553 syllabus understandings: **337 shared SL/HL and 216 additional HL**. It examined **957 assessment questions**. The resulting `static-audit.json` lists **0 high, 420 medium and 0 low** findings. All 420 medium entries are the `choice-feedback-generic` *editorial heuristic*, not 420 distinct science errors. Structural checks include understanding coverage, level scope, question keys, option ID uniqueness, exact option duplication, feedback presence, written marking guidance, local asset paths, placement and table/chart geometry. Negative fixture tests verified that malformed keys, exact duplicates, generic feedback warnings and coverage/asset/table errors are detected; capitalization-only binomial differences are not falsely called identical.
 
-### Medium — PQA-002: Reused incorrect-answer feedback
+### Authentic student-experience and browser coverage
 
-**Exact examples:** `a21-p1a-1` (A2.1), `a23-p1a-1` (A2.3), `c22-mcq-1` (C2.2), `c41-mcq-1` (C4.1), `c42-mcq-1` (C4.2), `d11-mcq-1` (D1.1) and `d22-mcq-1` (D2.2). In each cited source item, multiple distinct wrong options carry identical feedback. A full source-data heuristic flagged hundreds of selections for assessment review; this does not invalidate their single correct keys. **Proposed fix:** after instructor review, make explanations diagnostic of the selected misconception rather than repeating one generic correction. `audit.mjs` creates an exact per-question ledger when executed, so the integration engineer can prioritize all affected IDs.
+The final `browser-report.json` documents **79 passing cases**, including all 40 HL direct lesson routes, the four theme groups, topic search, section deep-link/refresh restoration, back/forward and invalid-route handling, and SL denial of HL-only topics and sections. Four representative lesson journeys (A1.1, B2.1, C3.1 and D3.2) tested correct and incorrect question submission, retry, choice-level explanations, navigation retention, flashcards, revision, figure interaction when a figure was available, and keyboard Escape/focus return. Four additional cases verified written drafts, self-review/marking guidance, in-tab retention and loss after refresh.
 
-**False-positive control:** `a31-p1a-3` and `a31-c3` in topic A3.1 intentionally differ by capitalization when testing binomial names. A preliminary case-insensitive duplicate test wrongly flagged them; the committed audit checks *exact* option duplicates and explicitly has a negative fixture preserving case distinctions. These A3.1 examples are **not** confirmed duplicate-option defects.
+For every width **320, 390, 768, 1024, 1440 and 1920px**, Chromium captured the library and a representative long C3.1 lesson and found no document-level horizontal overflow. A CSS 200% reflow approximation at the 1024px viewport passed. **Native browser zoom is a separate unexecuted accessibility requirement.** Screenshots visually confirm real rendering but cannot establish readable text size, color contrast, touch target size or WCAG compliance.
 
-### Medium — PQA-003: Student study state is ephemeral by design
+**Authentic screenshots (inside the artifact):** `hl-library-1440.png`; `library-{320,390,768,1024,1440,1920}.png`; `lesson-c3-1-{320,390,768,1024,1440,1920}.png`; `lesson-a1-1-1440.png`; `lesson-b2-1-1440.png`; `lesson-d3-2-1440.png`; `css-zoom-200-1024.png`; and `pqa-001-a2-1-2-keyed-contradiction-1440.png`. All are Playwright captures from the running app, not generated mockups. Machine manifest: `docs/biology/parallel-student-qa/QA_EXECUTION_EVIDENCE.json`.
 
-**Locations:** `src/biology/learning/content.ts`, `LessonView.tsx` and `StudyQuestion.tsx`. The `sessions` Map preserves submitted choices, written drafts, reveal state and section position while changing routes within an active tab, but not after refreshing or closing that tab. The UI already warns about this, so it is a **documented experience limitation**, not a secretly regressed persistence feature. Learners may nevertheless expect drafts to survive accidental reloads. **Proposed fix:** product owner to decide whether practice is intentionally temporary; consider explicit session status, export, or opt-in persistent storage following a privacy review. QA must not change the shared student progress implementation while Phase 5 runs.
+### Reproduced findings and required handoff
 
-### Critical, low, and unverified categories
+**PQA-001 — HIGH, A2.1.2 question content contradiction; science/assessment owner.** Exact item `a21-p1a-2`, `src/biology/learning/origins-cells/lesson.json`, HL `#biology/topic/A2.1/practice`. The stem asks why cells are independently living units. The keyed choice says they depend on a host's metabolic/translational machinery, followed by virus-like explanatory feedback. In **real Chromium**, selecting this choice was rewarded as correct. This is an internally contradictory assessment item **confirmed as rendered and keyed**; a qualified Biology reviewer must revise stem, options, key and all explanations as one complete item. Do not merely flip a boolean. Screenshot and full reproduced values are in the artifact.
 
-No **critical** defect has been established by this inspection. No additional confirmed **low** defects are asserted without reproductions. Source-code concerns are not converted into confirmed mobile or accessibility failures unless actually observed in a browser. Machine-readable severity, IDs, paths, reproductions and evidence types are recorded in `FINDINGS.json`.
+**PQA-002 — MEDIUM, non-diagnostic repeated distractor feedback; assessment authors across topics.** In `a21-p1a-1`, the two different wrong options `2` and `3` were independently selected in Chromium; both returned the same incorrect-answer explanation. The 420-item audit ledger provides exact IDs/locations for triage. Prioritized examples also include `a23-p1a-1`, `c22-mcq-1`, `c41-mcq-1`, `c42-mcq-1`, `d11-mcq-1` and `d22-mcq-1`. Identical feedback can be legitimate; each item needs editorial/scientific review, not bulk automatic rewriting.
 
-## New automated toolkit and result truthfulness
+**PQA-003 — MEDIUM, expected temporary study-state behavior; product owner.** Written responses in A1.1, B2.1, C3.1 and D3.2 persisted after navigating away and returning in the same browser tab, but were cleared by refresh. The existing UI explicitly warns of this. This is a **reproduced documented design limitation**, not an unannounced persistence regression. Decide whether export or opt-in durable storage is required; do not silently change progress or privacy behavior.
 
-| File | Intended coverage | Status |
-| --- | --- | --- |
-| `scripts/biology/parallel-student-qa/audit.mjs` | 40-topic and 553-understanding consistency, SL/HL target mapping, question keys, data and visual structure, declared figures | Committed; **not executed** |
-| `scripts/biology/parallel-student-qa/audit.test.mjs` | Negative fixtures for answer keys, exact duplicates, feedback and section/visual mapping | Committed; **not executed** |
-| `scripts/biology/parallel-student-qa/browser.mjs` | Real Chromium course, quiz, navigation, figure and six-width screenshot checks | Committed; **not executed** |
-| `scripts/biology/parallel-student-qa/README.md` | Reproducible run commands, safety and interpretation | Committed |
-| `docs/biology/parallel-student-qa/FINDINGS.json` | Curated source-observed assessment and usability findings | Committed |
-| Existing integration CI at the pinned baseline | npm ci, npm run quality, npm run build, existing validators/browser smoke | **PASS**, verified from GitHub Actions logs, only on `2c321ae…` |
+**False-positive guard:** A3.1 `a31-p1a-3` and `a31-c3` deliberately distinguish binomial-name capitalization. They are not duplicate-option findings.
 
-No project dependency, shared workflow, deployment, source registry, lesson prose, image, answer bank or progress file was modified. Real screenshots are to be generated by `browser.mjs` into `docs/biology/parallel-student-qa/evidence/` **when the new suite actually runs**. This report does not fabricate screenshot paths or pretend that they already exist.
+### Console/network observations and accessibility limits
 
-## Accessibility, responsive design and learning efficiency
+The final browser report contains **0 page-level JavaScript exceptions**, but also **32 console resource errors**. The runner deliberately blocked external requests: **16 to Google Fonts** and **16 to Supabase auth settings**, each logged as `ERR_BLOCKED_BY_CLIENT.Inspector`. Two local favicon requests ended `ERR_ABORTED` during navigation. These do not demonstrate a live production outage. They mean screenshots used fallback typography and no external authentication connectivity was verified. Review before production acceptance.
 
-The existing renderer provides labelled radio groups, text feedback with live status, answer explanations, keyboard-operable figure buttons, a labelled modal dialog with Escape closure and focus restoration, navigable tables in scroll regions, and a separate SL/HL selector. These are **code-observed capabilities**; existing isolated CI exercised a subset of behaviors, but independent assistive-technology testing remains outstanding. No WCAG conformance claim is made.
+This suite does **not** verify manual screen-reader output, all keyboard tab sequences, automated contrast ratios, native 200% browser zoom, actual phone devices, logged-in student progress, remotely hosted imagery across every section, scientifically correct diagrams, every individual question in a browser, or real student learning gain. Accessible controls observed in the browser are evidence for the specific paths tested, not a WCAG certificate. Figure checks skip topics with no visible figure; a passing journey for such a topic is not evidence that a figure was enlarged there.
 
-The source-based learning-efficiency review suggests retaining the uncluttered reading path, topic search, separate retrieval and practice modes, short labelled sections and contextual comparison/sequence/bars visuals. Assessment feedback should more directly address selected misconceptions (PQA-002). The absence of durable answer drafts after refresh (PQA-003) is a product-policy decision. Long-lesson overflow, diagram legibility at narrow viewports, touch hit area measurements, light/dark color contrast, native 200% zoom, actual screen readers and real student comprehension require new empirical evidence. The new runner collects the browser baseline; an experienced accessibility reviewer and actual IB students must supplement it.
+### Integration readiness and preservation
 
-## Next steps and conflict-free handoff
+The **independent QA toolkit itself is ready for integration review**, with recorded passing build, structural checks and real browser execution at the tested SHA. The **course is not scientifically or assessment approved** until PQA-001 is resolved by the A2.1 owner and PQA-002 is triaged by the topic/assessment authors. PQA-003 needs a product policy decision, not an undocumented persistence change. Run native browser zoom, manual assistive-technology evaluation and targeted content review before any production release decision.
 
-1. On the **isolated QA branch**, obtain a clean checkout and record the actual SHA. Run `npm ci`, `npm run quality`, the pre-existing Biology validators and `npm run build` before running new tests. Run `node --test scripts/biology/parallel-student-qa/audit.test.mjs` and `node scripts/biology/parallel-student-qa/audit.mjs`; examine the generated machine ledger, particularly high-severity structural errors.
-2. Start `npm run preview -- --host 127.0.0.1 --port 4173` without external student accounts, then run `CHROME_BIN=/path/to/chromium node scripts/biology/parallel-student-qa/browser.mjs`. Preserve `browser-report.json`, console/runtime findings and actual screenshot images, with the tested SHA. Reproduce problems at the exact route/viewport in the generated report. Verify native 200% browser zoom and actual screen-reader semantics separately.
-3. Ask a **qualified IB Biology reviewer** to resolve PQA-001 and evaluate PQA-002 before characterizing the assessment as reliable. Ask a product owner to decide PQA-003. Independent software QA cannot certify scientific accuracy, student engagement or exam markscheme alignment.
-4. Hand the toolkit and its evidence to the Phase 5 integration engineer for review **without automatically merging, resetting, cherry-picking or deploying**. Rebase-free integration planning is needed because the Phase 5 branch can advance. Only the dedicated QA scripts/reports are proposed for integration; teaching content remains under Phase 5 ownership.
-
-**Acceptance status:** The isolated branch and reusable checks exist, 40 source lesson files were inspected, and the pinned integration baseline CI success was verified. The **new independent tests, new screenshots, comprehensive accessibility audit and real-student research are outstanding**. The assignment is therefore **partially completed**, not reported as a full QA acceptance.
+All new code and documentation remain on `feature/biolab-independent-student-qa-20261017`. No biology lesson file, shared teaching component, main branch, application data, deployment file or live environment was modified. No public deployment or merge was performed.

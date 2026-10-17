@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "authentic GitHub-hosted Chromium test artifacts and scripts",
+  "originalBranchHead": "98ee2a0bcad78d9181c7d18ef4de5cacfd5c44de",
+  "testCommit": "71269544c9200316e6c52900e4ae61405717c0af",
+  "workflowRunId": 39068267974,
+  "workflowRunConclusion": "success",
+  "artifactId": 12114455877,
+  "artifactUrl": "https://github.com/veyro-lb/litlab/actions/runs/39068267974/artifacts/12114455877",
+  "artifactSha256": "5d3a7abe4025e0bc17aab53dc8493f4c9a832b92b2442fde7376001ffaea593a",
+  "tests": {
+    "browserPassed": 79,
+    "browserFailed": 0,
+    "negativePassed": 4,
+    "staticHigh": 0,
+    "staticMedium": 420,
+    "staticLow": 0,
+    "topics": 40,
+    "understandings": 553,
+    "questions": 957,
+    "screenshots": 19,
+    "pageJavascriptErrors": 0,
+    "blockedExternalConsoleErrors": 32
+  },
+  "viewports": [
+    320,
+    390,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "nativeZoom200Verified": false,
+  "cssZoomApproximation200Verified": true,
+  "screenshotFolderInArtifact": "docs/biology/parallel-student-qa/evidence/",
+  "screenshotNames": [
+    "hl-library-1440.png",
+    "lesson-a1-1-1440.png",
+    "lesson-b2-1-1440.png",
+    "lesson-c3-1-1440.png",
+    "lesson-d3-2-1440.png",
+    "library-320.png",
+    "lesson-c3-1-320.png",
+    "library-390.png",
+    "lesson-c3-1-390.png",
+    "library-768.png",
+    "lesson-c3-1-768.png",
+    "library-1024.png",
+    "lesson-c3-1-1024.png",
+    "css-zoom-200-1024.png",
+    "library-1440.png",
+    "lesson-c3-1-1440.png",
+    "library-1920.png",
+    "lesson-c3-1-1920.png",
+    "pqa-001-a2-1-2-keyed-contradiction-1440.png"
+  ],
+  "screenshotSHA256": {
+    "pqa-001-a2-1-2-keyed-contradiction-1440.png": "dfa0945bb23ff30391e29604d06d234341b805939b74be5078f9e2ac4d0c42c4",
+    "library-320.png": "a04ef2e89296c3f17c9f4aa278fb29567a6c0a08183453b2cbc2dc21fb4d0b26",
+    "library-390.png": "bae7bfe980264f8727347dc5db10722748b58a465e5e44f409e1362791a129ce",
+    "lesson-c3-1-320.png": "950124d5a33d1e63b80b0c1fa41556ef414da517fc5bafd6623be8c32806ab7b",
+    "lesson-a1-1-1440.png": "56b7ddfb8ce10a13acbf3f7882bb2e469b882ec70909df98a32d361b45f70738",
+    "css-zoom-200-1024.png": "a3899f4be4eb77389ce4dafe6cd12f3b535e2090129f7a6d7c00490d55cef78c"
+  },
+  "evidenceLimitations": [
+    "Screenshots and detailed machine reports are attached to the GitHub Actions run; the branch tracks only this authentic evidence manifest, not the binary PNGs",
+    "Native zoom, screen reader, remote services and scientific correctness not certified",
+    "32 console errors correspond to deliberately blocked external font and auth-settings requests"
+  ],
+  "initialCompletePass": {
+    "runId": 39067917680,
+    "sha": "da36fe8fb428cf419170c5065bf56bae86b45e95",
+    "browserCasesPassed": 73
+  },
+  "intermediateLocatorFailure": {
+    "runId": 39068147061,
+    "sha": "4888978b1c61029fe42f41fcaef462393c72d3e6",
+    "reason": "QA selector incorrectly scoped nested Playwright has locator",
+    "fixedInCommit": "71269544c9200316e6c52900e4ae61405717c0af"
+  }
+}

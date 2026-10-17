@@ -3,14 +3,14 @@
   "project": "BioLab independent student QA",
   "baselineCommit": "2c321ae547baa2a97294728b337a4dfa46e64408",
   "qaBranch": "feature/biolab-independent-student-qa-20261017",
-  "evidenceMethod": "Repository-content inspection of all 40 lesson JSON files plus exact-sha existing CI logs; new independent runner not yet executed",
-  "note": "These are source-observed risks and review candidates, not issues verified in a new browser execution. Machine-generated exhaustive findings will be in qa-artifacts/parallel-student-qa/static-audit.json after audit.mjs runs.",
+  "evidenceMethod": "Full isolated GitHub Actions real-Chromium browser run 39068267974 at 71269544c9200316e6c52900e4ae61405717c0af; 40-topic Node static audit; original pinned source inspection",
+  "note": "At the tested SHA: 79 browser cases passed and 0 failed; 4/4 independent negative fixtures passed; 0 high structural and 420 medium feedback-review flags. Scientific correctness remains unapproved.",
   "findings": [
     {
       "id": "PQA-001",
       "severity": "high",
       "kind": "assessment-content-inconsistency",
-      "status": "requires-specialist-review",
+      "status": "reproduced-in-browser-requires-qualified-science-review",
       "topic": "A2.1",
       "itemId": "a21-p1a-2",
       "level": "HL",
@@ -20,13 +20,16 @@
       "risk": "An HL student may be rewarded for a response that contradicts the question's stated subject.",
       "reproduction": "Inspect the selection item a21-p1a-2 in the lesson's questions array; in a local QA browser use HL mode, navigate to the practice route and identify its stem and keyed feedback.",
       "recommendation": "A qualified IB Biology reviewer should correct or clarify the stem, options and feedback as a complete item; do not flip the boolean key without reviewing the item.",
-      "verifiedInBrowser": false
+      "verifiedInBrowser": true,
+      "browserEvidence": "https://github.com/veyro-lb/litlab/actions/runs/39068267974/artifacts/12114455877",
+      "confirmedBehavior": "In real Chromium the host-dependent keyed choice is displayed for a stem about independently living cells and the app marks that selection correct.",
+      "screenshot": "docs/biology/parallel-student-qa/evidence/pqa-001-a2-1-2-keyed-contradiction-1440.png"
     },
     {
       "id": "PQA-002",
       "severity": "medium",
       "kind": "assessment-feedback-depth",
-      "status": "needs-assessment-review",
+      "status": "representative-issue-reproduced-bulk-review-pending",
       "topic": "multiple",
       "itemIds": [
         "a21-p1a-1",
@@ -50,13 +53,18 @@
       "risk": "Students may be told the correct concept without learning why their particular misconception is incorrect.",
       "reproduction": "Review any listed item and compare feedback values for all incorrect options. In the browser, choose two different incorrect answers after using Try again.",
       "recommendation": "Prioritize high-frequency and conceptually difficult questions for distinct, diagnostic distractor explanations; retain correct science and original item IDs.",
-      "verifiedInBrowser": false
+      "verifiedInBrowser": true,
+      "browserEvidence": "https://github.com/veyro-lb/litlab/actions/runs/39068267974/artifacts/12114455877",
+      "browserVerifiedQuestionIds": [
+        "a21-p1a-1"
+      ],
+      "confirmedBehavior": "Wrong option IDs 2 and 3 of a21-p1a-1 were separately submitted in Chromium and received identical feedback. 420 medium static findings remain editorial review candidates."
     },
     {
       "id": "PQA-003",
       "severity": "medium",
       "kind": "study-state-lifetime",
-      "status": "documented-design-limitation",
+      "status": "reproduced-intentional-temporary-state",
       "topic": "all",
       "route": "#biology/topic/A1.1/practice",
       "sourcePaths": [
@@ -68,7 +76,15 @@
       "risk": "Students can lose unsaved answers, response drafts or flashcard position on page refresh, close or tab crash, even though route navigation preserves them.",
       "reproduction": "In a disposable local browser, enter a written response or attempt MCQ, navigate away and back to check in-tab retention, then refresh to confirm loss.",
       "recommendation": "Decide explicitly whether this is intended ephemeral practice. If longer persistence is desired, propose opt-in local storage or authenticated persistence with privacy review; do not modify shared progress implementation on QA branch.",
-      "verifiedInBrowser": false
+      "verifiedInBrowser": true,
+      "browserEvidence": "https://github.com/veyro-lb/litlab/actions/runs/39068267974/artifacts/12114455877",
+      "browserVerifiedTopics": [
+        "A1.1",
+        "B2.1",
+        "C3.1",
+        "D3.2"
+      ],
+      "confirmedBehavior": "A written response persisted after route changes within the current tab and disappeared after browser refresh; self-review marking guidance was shown."
     }
   ],
   "validatedNoIssue": [
@@ -82,5 +98,8 @@
       "topic": "A3.1",
       "note": "Same intentional capitalization distinction; not an exact repeated option."
     }
-  ]
+  ],
+  "testedSha": "71269544c9200316e6c52900e4ae61405717c0af",
+  "verifiedRunUrl": "https://github.com/veyro-lb/litlab/actions/runs/39068267974",
+  "artifactUrl": "https://github.com/veyro-lb/litlab/actions/runs/39068267974/artifacts/12114455877"
 }
