@@ -3,15 +3,15 @@
   "createdAt": "2026-10-17",
   "branch": "feature/biolab-themes-ab-final-completion-20261017",
   "startingSha": "2c321ae547baa2a97294728b337a4dfa46e64408",
-  "lastTeachingContentSha": "1627e2ff358a788050bbac0cd537229008c6accf",
+  "lastTeachingContentSha": "eed5f0cef947b54812df7b6c9e0930327426d47d",
   "definition": "Targeted internal content review means the specific identified mechanism and its source context were checked and edited. It does not mean fully qualified chapter review. All other sections remain pending; registry metadata is not a source-read certification.",
   "totals": {
     "topics": 19,
     "understandings": 218,
     "A": 95,
     "B": 123,
-    "targetedReviewed": 11,
-    "pending": 207
+    "targetedReviewed": 13,
+    "pending": 205
   },
   "topics": [
     {
@@ -38,8 +38,8 @@
     {
       "topicId": "A2.2",
       "expected": 14,
-      "targetedReviewed": 0,
-      "contentStatus": "unchanged_requires_individual_review",
+      "targetedReviewed": 2,
+      "contentStatus": "partially_improved",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json"
     },
     {
@@ -888,18 +888,40 @@
       "level": "shared",
       "title": "Preparing and observing microscopic specimens",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "sourceLocationsChecked": [],
+      "sourceLocationsChecked": [
+        {
+          "source": "IB Biology Guide, first assessment 2025",
+          "location": "IB Guide A2.2.2, printed p.39",
+          "checked": "2026-10-17"
+        },
+        {
+          "source": "Clegg, Davis & Talbot (2023), third edition",
+          "location": "Hodder chapter A2.2, printed pp.54–56.",
+          "checked": "2026-10-17"
+        }
+      ],
       "preexistingGuidePageLocatorNotReverified": 39,
-      "scientificIssuesFound": [],
-      "editorialChangesMade": [],
-      "visualsReviewedOrAdded": [],
-      "questionImprovements": [],
-      "structuralTestEvidence": [],
+      "scientificIssuesFound": [
+        "Existing microscopy instructions lacked a second-objective applied calibration and explicit re-calibration marking task."
+      ],
+      "editorialChangesMade": [
+        "Added original hypothetical two-objective graticule table (100µm spans 40 or 80 divisions), four-stage microscopy calibration sequence and a five-mark worked measurement exercise."
+      ],
+      "visualsReviewedOrAdded": [
+        "Eyepiece-graticule calibration process sequence and numerical table (calculated model, not observed data)."
+      ],
+      "questionImprovements": [
+        "a22-graticule-calibration, original 5-mark written question."
+      ],
+      "structuralTestEvidence": [
+        "2026-10-17: 14 unchanged understanding IDs/levels; claim and teaching block alignment; graph/table dimensions; question answer keys and mark points checked on the edited JSON."
+      ],
       "outstandingObservationOrLicensingRequirements": [
         "Complete authentic observational asset, scale and licensing review."
       ],
-      "reviewStatus": "pending_individual_scientific_and_educational_review",
-      "independentExpertReviewStatus": "not_performed"
+      "reviewStatus": "targeted_internal_content_review",
+      "independentExpertReviewStatus": "not_performed",
+      "notes": "Targeted editorial check, not independent subject-teacher certification."
     },
     {
       "syllabusIdentifier": "A2.2.3",
@@ -1021,18 +1043,40 @@
       "level": "shared",
       "title": "Unusual eukaryotic cell structures",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "sourceLocationsChecked": [],
+      "sourceLocationsChecked": [
+        {
+          "source": "IB Biology Guide, first assessment 2025",
+          "location": "IB Guide A2.2.9, printed p.40",
+          "checked": "2026-10-17"
+        },
+        {
+          "source": "Clegg, Davis & Talbot (2023), third edition",
+          "location": "Hodder chapter A2.2, printed pp.77–79.",
+          "checked": "2026-10-17"
+        }
+      ],
       "preexistingGuidePageLocatorNotReverified": 40,
-      "scientificIssuesFound": [],
-      "editorialChangesMade": [],
-      "visualsReviewedOrAdded": [],
-      "questionImprovements": [],
-      "structuralTestEvidence": [],
+      "scientificIssuesFound": [
+        "Atypical nucleus arrangements benefited from side-by-side comparison of all four prescribed examples."
+      ],
+      "editorialChangesMade": [
+        "Added comparative table explaining multinucleate aseptate fungal hyphae and skeletal muscle, anucleate mature mammalian erythrocytes and mature phloem sieve-tube elements; added reasoned question."
+      ],
+      "visualsReviewedOrAdded": [
+        "Four-eukaryote atypical nuclear condition comparison."
+      ],
+      "questionImprovements": [
+        "a22-atypical-reasoning, original 4-mark written question."
+      ],
+      "structuralTestEvidence": [
+        "2026-10-17: 14 unchanged understanding IDs/levels; claim and teaching block alignment; graph/table dimensions; question answer keys and mark points checked on the edited JSON."
+      ],
       "outstandingObservationOrLicensingRequirements": [
         "Complete authentic observational asset, scale and licensing review."
       ],
-      "reviewStatus": "pending_individual_scientific_and_educational_review",
-      "independentExpertReviewStatus": "not_performed"
+      "reviewStatus": "targeted_internal_content_review",
+      "independentExpertReviewStatus": "not_performed",
+      "notes": "Targeted editorial check, not independent subject-teacher certification."
     },
     {
       "syllabusIdentifier": "A2.2.10",
