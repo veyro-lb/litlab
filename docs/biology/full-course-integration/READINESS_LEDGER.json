@@ -11,10 +11,10 @@
     "hlOnly": 216
   },
   "registeredDrafts": {
-    "topics": 24,
-    "understandings": 301,
-    "shared": 162,
-    "hlOnly": 139,
+    "topics": 25,
+    "understandings": 324,
+    "shared": 178,
+    "hlOnly": 146,
     "ids": [
       "A1.1",
       "A1.2",
@@ -39,7 +39,8 @@
       "C1.2",
       "C1.3",
       "C2.1",
-      "C2.2"
+      "C2.2",
+      "C3.1"
     ],
     "educationallyApproved": 0
   },
@@ -67,7 +68,7 @@
     {
       "name": "feature/biolab-complete-theme-c2-20261017",
       "sha": "286841f2d2785a9d4c38de4cb5fd0f5fe13ca997",
-      "integrationStatus": "Source HEAD verified; package intake pending"
+      "integrationStatus": "1 valid draft integrated; C3.2/C4.1/C4.2 missing; full course NO-GO"
     },
     {
       "name": "feature/biolab-complete-theme-d1-20261017",
@@ -81,13 +82,6 @@
     }
   ],
   "plannedTopics": [
-    {
-      "id": "C3.1",
-      "title": "Integration of body systems",
-      "understandings": 23,
-      "shared": 16,
-      "hlOnly": 7
-    },
     {
       "id": "C3.2",
       "title": "Defence against disease",
@@ -465,8 +459,8 @@
       "understandings": 23,
       "shared": 16,
       "hlOnly": 7,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -785,6 +779,27 @@
         }
       ],
       "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme C2",
+      "sourceSha": "286841f2d2785a9d4c38de4cb5fd0f5fe13ca997",
+      "registeredTopics": 25,
+      "registeredUnderstandings": 324,
+      "accepted": [
+        {
+          "id": "C3.1",
+          "sections": 23,
+          "questions": 31
+        }
+      ],
+      "rejected": [],
+      "missing": [
+        "C3.2",
+        "C4.1",
+        "C4.2"
+      ],
       "status": "draft integrated; CI pending"
     }
   ]
