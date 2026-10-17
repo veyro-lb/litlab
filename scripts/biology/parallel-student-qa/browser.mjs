@@ -160,7 +160,7 @@ try{
     await visit(page,'biology/topic/A2.1/practice');
     const card=page.locator('[data-question-id="a21-p1a-2"]');
     await expect(card.locator('legend')).toContainText('cells are independently living units');
-    await expect(card.locator('label').filter({has:card.locator('input[value="'+keyed.id+'"]')})).toContainText('host');
+    await expect(card.locator('input[value="'+keyed.id+'"]').locator('..')).toContainText('host');
     await card.locator('input[value="'+keyed.id+'"]').check();
     await card.getByRole('button',{name:'Check my answer'}).click();
     await expect(card.locator('.bio-feedback[data-outcome="correct"]')).toBeVisible();
