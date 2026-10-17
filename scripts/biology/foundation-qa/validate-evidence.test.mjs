@@ -35,3 +35,9 @@ test('assessment and actual micrograph provenance are checked',()=>{
  assert.ok(errors.some(e=>e.includes('assessment coverage drift')));
  assert.ok(errors.some(e=>e.includes('Figure provenance or withholding drift')));
 });
+test('licensed microscopy assignments and source rights cannot drift',()=>{
+ const d=base(),x=d.records.find(x=>x.understandingId==='A2.2.10');
+ assert.ok(x.authenticMicroscopy?.length>=2);
+ x.authenticMicroscopy[0].sourceUrl='https://example.com/unverified-image';
+ assert.ok(validateEvidence(d).some(e=>e.includes('Licensed microscopy evidence drift')));
+});
