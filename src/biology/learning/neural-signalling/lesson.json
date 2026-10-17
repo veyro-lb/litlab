@@ -1,0 +1,3242 @@
+{
+  "schemaVersion": 1,
+  "id": "c2-2-neural-signalling-v1",
+  "topicId": "C2.2",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Neural signalling",
+  "introduction": "Read how electrical changes arise at neuronal membranes and how chemical synapses pass information. HL sections extend threshold mechanisms, impulse traces, saltatory conduction, drugs, inhibition and emergent consciousness.",
+  "learningPath": [
+    "Neuron form and resting voltage",
+    "Conduction and chemical synapses",
+    "HL action potentials and graph interpretation",
+    "HL synaptic integration and sensory perception"
+  ],
+  "prerequisites": [
+    "Membrane phospholipids and channels",
+    "ATP-driven active transport",
+    "Difference between concentration and electrical gradients"
+  ],
+  "objectives": [
+    "Explain resting potential and synaptic transmitter release",
+    "Interpret speed variation and chemical synaptic direction",
+    "HL: interpret action-potential voltage traces and impulse frequency",
+    "HL: compare summation, inhibition, chemicals and perception"
+  ],
+  "sections": [
+    {
+      "id": "c22-1",
+      "understandingIds": [
+        "C2.2.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which neuronal structure commonly conducts action potentials over long distances?",
+      "explanation": "Neurons have a cell body containing the nucleus and cytoplasm. Multiple branched dendrites commonly receive inputs, whereas a single long axon conducts action potentials toward terminal branches. Neurons vary greatly in shape and axon length according to their roles.\n\nThe membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland.",
+      "revisionSummary": "The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland.",
+      "terms": [
+        "Neuron structure and function"
+      ],
+      "workedExample": "A sensory neuron can carry information from a heat receptor in skin toward the central nervous system.",
+      "misconceptions": [
+        {
+          "misconception": "Dendrites and axons are identical short extensions",
+          "correction": "Dendrites typically receive inputs; an axon conducts impulses away from the cell body."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Neurons have a cell body containing the nucleus and cytoplasm. Multiple branched dendrites commonly receive inputs, whereas a single long axon conducts action potentials toward terminal branches. Neurons vary greatly in shape and axon length according to their roles.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-1",
+          "prompt": "Which neuronal structure commonly conducts action potentials over long distances?",
+          "understandingIds": [
+            "C2.2.1"
+          ],
+          "options": [
+            {
+              "id": "c22-1-o1",
+              "text": "Axon",
+              "correct": true,
+              "feedback": "Correct: The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+            },
+            {
+              "id": "c22-1-o2",
+              "text": "Nucleus",
+              "correct": false,
+              "feedback": "Incorrect: Dendrites typically receive inputs; an axon conducts impulses away from the cell body. The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+            },
+            {
+              "id": "c22-1-o3",
+              "text": "Dendritic spine alone",
+              "correct": false,
+              "feedback": "Incorrect: Dendrites typically receive inputs; an axon conducts impulses away from the cell body. The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+            },
+            {
+              "id": "c22-1-o4",
+              "text": "Golgi apparatus",
+              "correct": false,
+              "feedback": "Incorrect: Dendrites typically receive inputs; an axon conducts impulses away from the cell body. The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-1",
+          "prompt": "Explain neuron structure and function with a mechanism and outcome.",
+          "answer": "Neurons have a cell body containing the nucleus and cytoplasm. Multiple branched dendrites commonly receive inputs, whereas a single long axon conducts action potentials toward terminal branches. Neurons vary greatly in shape and axon length according to their roles. The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.1"
+          ]
+        }
+      ],
+      "guidePage": 74,
+      "pdfPage": 80,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          467
+        ],
+        "pdfPages": [
+          479
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Neuron structure and function",
+          "explanation": "Neurons have a cell body containing the nucleus and cytoplasm. Multiple branched dendrites commonly receive inputs, whereas a single long axon conducts action potentials toward terminal branches. Neurons vary greatly in shape and axon length according to their roles.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Neurons have a cell body containing the nucleus and cytoplasm. Multiple branched dendrites commonly receive inputs, whereas a single long axon conducts action potentials toward terminal branches. Neurons vary greatly in shape and axon length according to their roles.",
+        "example": "A sensory neuron can carry information from a heat receptor in skin toward the central nervous system.",
+        "different": "Dendrites typically receive inputs; an axon conducts impulses away from the cell body.",
+        "concepts": [
+          {
+            "title": "Neuron structure and function",
+            "keywords": [
+              "Neuron"
+            ],
+            "explanation": "Neurons have a cell body containing the nucleus and cytoplasm. Multiple branched dendrites commonly receive inputs, whereas a single long axon conducts action potentials toward terminal branches. Neurons vary greatly in shape and axon length according to their roles."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-2",
+      "understandingIds": [
+        "C2.2.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What directly sustains Na⁺ and K⁺ concentration gradients over time?",
+      "explanation": "At rest a neuron typically maintains more Na⁺ outside and more K⁺ inside its plasma membrane. The Na⁺/K⁺-ATPase hydrolyses ATP to move three Na⁺ out and two K⁺ in per pumping cycle, both against their electrochemical gradients.\n\nPotassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage.",
+      "revisionSummary": "Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage.",
+      "terms": [
+        "The sodium-potassium pump and resting potential"
+      ],
+      "workedExample": "If ATP production stops for long enough, ion gradients erode and normal excitability is lost.",
+      "misconceptions": [
+        {
+          "misconception": "The pump moves three K⁺ out and two Na⁺ in",
+          "correction": "It moves three Na⁺ out and two K⁺ in using ATP."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "At rest a neuron typically maintains more Na⁺ outside and more K⁺ inside its plasma membrane. The Na⁺/K⁺-ATPase hydrolyses ATP to move three Na⁺ out and two K⁺ in per pumping cycle, both against their electrochemical gradients.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-2",
+          "prompt": "What directly sustains Na⁺ and K⁺ concentration gradients over time?",
+          "understandingIds": [
+            "C2.2.2"
+          ],
+          "options": [
+            {
+              "id": "c22-2-o1",
+              "text": "Na⁺/K⁺-ATPase using ATP",
+              "correct": true,
+              "feedback": "Correct: Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+            },
+            {
+              "id": "c22-2-o2",
+              "text": "Passive oxygen diffusion",
+              "correct": false,
+              "feedback": "Incorrect: It moves three Na⁺ out and two K⁺ in using ATP. Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+            },
+            {
+              "id": "c22-2-o3",
+              "text": "DNA transcription alone",
+              "correct": false,
+              "feedback": "Incorrect: It moves three Na⁺ out and two K⁺ in using ATP. Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+            },
+            {
+              "id": "c22-2-o4",
+              "text": "Vesicle exocytosis",
+              "correct": false,
+              "feedback": "Incorrect: It moves three Na⁺ out and two K⁺ in using ATP. Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-2",
+          "prompt": "Explain the sodium-potassium pump and resting potential with a mechanism and outcome.",
+          "answer": "At rest a neuron typically maintains more Na⁺ outside and more K⁺ inside its plasma membrane. The Na⁺/K⁺-ATPase hydrolyses ATP to move three Na⁺ out and two K⁺ in per pumping cycle, both against their electrochemical gradients. Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.2"
+          ]
+        }
+      ],
+      "guidePage": 74,
+      "pdfPage": 80,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          468
+        ],
+        "pdfPages": [
+          480
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "The sodium-potassium pump and resting potential",
+          "explanation": "At rest a neuron typically maintains more Na⁺ outside and more K⁺ inside its plasma membrane. The Na⁺/K⁺-ATPase hydrolyses ATP to move three Na⁺ out and two K⁺ in per pumping cycle, both against their electrochemical gradients.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "At rest a neuron typically maintains more Na⁺ outside and more K⁺ inside its plasma membrane. The Na⁺/K⁺-ATPase hydrolyses ATP to move three Na⁺ out and two K⁺ in per pumping cycle, both against their electrochemical gradients.",
+        "example": "If ATP production stops for long enough, ion gradients erode and normal excitability is lost.",
+        "different": "It moves three Na⁺ out and two K⁺ in using ATP.",
+        "concepts": [
+          {
+            "title": "The sodium-potassium pump and resting potential",
+            "keywords": [
+              "The"
+            ],
+            "explanation": "At rest a neuron typically maintains more Na⁺ outside and more K⁺ inside its plasma membrane. The Na⁺/K⁺-ATPase hydrolyses ATP to move three Na⁺ out and two K⁺ in per pumping cycle, both against their electrochemical gradients."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-3",
+      "understandingIds": [
+        "C2.2.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What carries the local current involved in nerve impulses?",
+      "explanation": "An action potential is a brief regenerative change in membrane voltage caused by ion currents. It is electrical because charged ions move across the axonal membrane, changing the voltage difference between the cytoplasm and extracellular fluid.\n\nOnce initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon.",
+      "revisionSummary": "Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon.",
+      "terms": [
+        "Action potentials as electrical nerve impulses"
+      ],
+      "workedExample": "An impulse can travel from a neuron's initial segment to its synaptic terminal.",
+      "misconceptions": [
+        {
+          "misconception": "An impulse is a stream of electrons moving down the axon",
+          "correction": "Membrane ion flux produces and propagates a voltage change."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An action potential is a brief regenerative change in membrane voltage caused by ion currents. It is electrical because charged ions move across the axonal membrane, changing the voltage difference between the cytoplasm and extracellular fluid.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-3",
+          "prompt": "What carries the local current involved in nerve impulses?",
+          "understandingIds": [
+            "C2.2.3"
+          ],
+          "options": [
+            {
+              "id": "c22-3-o1",
+              "text": "Movement of ions such as Na⁺ and K⁺",
+              "correct": true,
+              "feedback": "Correct: Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+            },
+            {
+              "id": "c22-3-o2",
+              "text": "Free electrons flowing down cytoplasm like a copper wire",
+              "correct": false,
+              "feedback": "Incorrect: Membrane ion flux produces and propagates a voltage change. Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+            },
+            {
+              "id": "c22-3-o3",
+              "text": "DNA strands passing between cells",
+              "correct": false,
+              "feedback": "Incorrect: Membrane ion flux produces and propagates a voltage change. Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+            },
+            {
+              "id": "c22-3-o4",
+              "text": "ATP vesicles moving along microtubules",
+              "correct": false,
+              "feedback": "Incorrect: Membrane ion flux produces and propagates a voltage change. Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-3",
+          "prompt": "Explain action potentials as electrical nerve impulses with a mechanism and outcome.",
+          "answer": "An action potential is a brief regenerative change in membrane voltage caused by ion currents. It is electrical because charged ions move across the axonal membrane, changing the voltage difference between the cytoplasm and extracellular fluid. Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.3"
+          ]
+        }
+      ],
+      "guidePage": 74,
+      "pdfPage": 80,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          469
+        ],
+        "pdfPages": [
+          481
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Action potentials as electrical nerve impulses",
+          "explanation": "An action potential is a brief regenerative change in membrane voltage caused by ion currents. It is electrical because charged ions move across the axonal membrane, changing the voltage difference between the cytoplasm and extracellular fluid.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "An action potential is a brief regenerative change in membrane voltage caused by ion currents. It is electrical because charged ions move across the axonal membrane, changing the voltage difference between the cytoplasm and extracellular fluid.",
+        "example": "An impulse can travel from a neuron's initial segment to its synaptic terminal.",
+        "different": "Membrane ion flux produces and propagates a voltage change.",
+        "concepts": [
+          {
+            "title": "Action potentials as electrical nerve impulses",
+            "keywords": [
+              "Action"
+            ],
+            "explanation": "An action potential is a brief regenerative change in membrane voltage caused by ion currents. It is electrical because charged ions move across the axonal membrane, changing the voltage difference between the cytoplasm and extracellular fluid."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-4",
+      "understandingIds": [
+        "C2.2.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which change typically increases conduction speed?",
+      "explanation": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly.\n\nMyelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+      "revisionSummary": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+      "terms": [
+        "Axon diameter, myelin and transmission speed"
+      ],
+      "workedExample": "Comparing two axons of similar diameter, the myelinated axon usually transmits impulses faster.",
+      "misconceptions": [
+        {
+          "misconception": "All axons conduct at the same speed",
+          "correction": "Diameter and myelination both influence conduction speed."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-4",
+          "prompt": "Which change typically increases conduction speed?",
+          "understandingIds": [
+            "C2.2.4"
+          ],
+          "options": [
+            {
+              "id": "c22-4-o1",
+              "text": "Increasing axon diameter while other factors remain comparable",
+              "correct": true,
+              "feedback": "Correct: Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+            },
+            {
+              "id": "c22-4-o2",
+              "text": "Reducing axon diameter",
+              "correct": false,
+              "feedback": "Incorrect: Diameter and myelination both influence conduction speed. Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+            },
+            {
+              "id": "c22-4-o3",
+              "text": "Removing myelin from a healthy fibre",
+              "correct": false,
+              "feedback": "Incorrect: Diameter and myelination both influence conduction speed. Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+            },
+            {
+              "id": "c22-4-o4",
+              "text": "Destroying nodal voltage-gated channels",
+              "correct": false,
+              "feedback": "Incorrect: Diameter and myelination both influence conduction speed. Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-4",
+          "prompt": "Explain axon diameter, myelin and transmission speed with a mechanism and outcome.",
+          "answer": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly. Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.4"
+          ]
+        }
+      ],
+      "guidePage": 74,
+      "pdfPage": 80,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          470
+        ],
+        "pdfPages": [
+          482
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Axon diameter, myelin and transmission speed",
+          "explanation": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly.",
+        "example": "Comparing two axons of similar diameter, the myelinated axon usually transmits impulses faster.",
+        "different": "Diameter and myelination both influence conduction speed.",
+        "concepts": [
+          {
+            "title": "Axon diameter, myelin and transmission speed",
+            "keywords": [
+              "Axon"
+            ],
+            "explanation": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-5",
+      "understandingIds": [
+        "C2.2.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What makes a typical chemical synapse directional?",
+      "explanation": "A chemical synapse has a presynaptic terminal, a narrow synaptic cleft and a postsynaptic membrane with receptors. At a typical synapse neurotransmitter vesicles are concentrated presynaptically while transmitter-sensitive receptors are located postsynaptically.\n\nBecause secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell.",
+      "revisionSummary": "Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell.",
+      "terms": [
+        "Chemical synapses and directional transfer"
+      ],
+      "workedExample": "A motor neuron communicates to a muscle fibre at a neuromuscular junction.",
+      "misconceptions": [
+        {
+          "misconception": "A typical chemical synapse transmits identically in both directions",
+          "correction": "Release and receptor machinery are polarized across the cleft."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A chemical synapse has a presynaptic terminal, a narrow synaptic cleft and a postsynaptic membrane with receptors. At a typical synapse neurotransmitter vesicles are concentrated presynaptically while transmitter-sensitive receptors are located postsynaptically.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-5",
+          "prompt": "What makes a typical chemical synapse directional?",
+          "understandingIds": [
+            "C2.2.5"
+          ],
+          "options": [
+            {
+              "id": "c22-5-o1",
+              "text": "Presynaptic release machinery faces postsynaptic transmitter receptors",
+              "correct": true,
+              "feedback": "Correct: Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+            },
+            {
+              "id": "c22-5-o2",
+              "text": "The axon lacks a plasma membrane",
+              "correct": false,
+              "feedback": "Incorrect: Release and receptor machinery are polarized across the cleft. Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+            },
+            {
+              "id": "c22-5-o3",
+              "text": "Both cells must release transmitter simultaneously",
+              "correct": false,
+              "feedback": "Incorrect: Release and receptor machinery are polarized across the cleft. Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+            },
+            {
+              "id": "c22-5-o4",
+              "text": "The cleft is filled with DNA",
+              "correct": false,
+              "feedback": "Incorrect: Release and receptor machinery are polarized across the cleft. Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-5",
+          "prompt": "Explain chemical synapses and directional transfer with a mechanism and outcome.",
+          "answer": "A chemical synapse has a presynaptic terminal, a narrow synaptic cleft and a postsynaptic membrane with receptors. At a typical synapse neurotransmitter vesicles are concentrated presynaptically while transmitter-sensitive receptors are located postsynaptically. Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.5"
+          ]
+        }
+      ],
+      "guidePage": 74,
+      "pdfPage": 80,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          471
+        ],
+        "pdfPages": [
+          483
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Chemical synapses and directional transfer",
+          "explanation": "A chemical synapse has a presynaptic terminal, a narrow synaptic cleft and a postsynaptic membrane with receptors. At a typical synapse neurotransmitter vesicles are concentrated presynaptically while transmitter-sensitive receptors are located postsynaptically.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A chemical synapse has a presynaptic terminal, a narrow synaptic cleft and a postsynaptic membrane with receptors. At a typical synapse neurotransmitter vesicles are concentrated presynaptically while transmitter-sensitive receptors are located postsynaptically.",
+        "example": "A motor neuron communicates to a muscle fibre at a neuromuscular junction.",
+        "different": "Release and receptor machinery are polarized across the cleft.",
+        "concepts": [
+          {
+            "title": "Chemical synapses and directional transfer",
+            "keywords": [
+              "Chemical"
+            ],
+            "explanation": "A chemical synapse has a presynaptic terminal, a narrow synaptic cleft and a postsynaptic membrane with receptors. At a typical synapse neurotransmitter vesicles are concentrated presynaptically while transmitter-sensitive receptors are located postsynaptically."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-6",
+      "understandingIds": [
+        "C2.2.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What ion enters the terminal and triggers neurotransmitter exocytosis?",
+      "explanation": "Arrival of an action potential depolarizes the presynaptic terminal, opening voltage-gated Ca²⁺ channels. Ca²⁺ enters down its electrochemical gradient and acts as an intracellular signal that activates proteins controlling synaptic-vesicle fusion.\n\nVesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane.",
+      "revisionSummary": "Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane.",
+      "terms": [
+        "Calcium-triggered neurotransmitter release"
+      ],
+      "workedExample": "Removing external calcium strongly reduces evoked neurotransmitter exocytosis.",
+      "misconceptions": [
+        {
+          "misconception": "Sodium enters a synaptic vesicle and directly becomes neurotransmitter",
+          "correction": "Cytosolic calcium triggers vesicle fusion after depolarization."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Arrival of an action potential depolarizes the presynaptic terminal, opening voltage-gated Ca²⁺ channels. Ca²⁺ enters down its electrochemical gradient and acts as an intracellular signal that activates proteins controlling synaptic-vesicle fusion.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-6",
+          "prompt": "What ion enters the terminal and triggers neurotransmitter exocytosis?",
+          "understandingIds": [
+            "C2.2.6"
+          ],
+          "options": [
+            {
+              "id": "c22-6-o1",
+              "text": "Ca²⁺",
+              "correct": true,
+              "feedback": "Correct: Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+            },
+            {
+              "id": "c22-6-o2",
+              "text": "Cl⁻",
+              "correct": false,
+              "feedback": "Incorrect: Cytosolic calcium triggers vesicle fusion after depolarization. Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+            },
+            {
+              "id": "c22-6-o3",
+              "text": "O₂",
+              "correct": false,
+              "feedback": "Incorrect: Cytosolic calcium triggers vesicle fusion after depolarization. Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+            },
+            {
+              "id": "c22-6-o4",
+              "text": "DNA",
+              "correct": false,
+              "feedback": "Incorrect: Cytosolic calcium triggers vesicle fusion after depolarization. Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-6",
+          "prompt": "Explain calcium-triggered neurotransmitter release with a mechanism and outcome.",
+          "answer": "Arrival of an action potential depolarizes the presynaptic terminal, opening voltage-gated Ca²⁺ channels. Ca²⁺ enters down its electrochemical gradient and acts as an intracellular signal that activates proteins controlling synaptic-vesicle fusion. Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.6"
+          ]
+        }
+      ],
+      "guidePage": 74,
+      "pdfPage": 80,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          472
+        ],
+        "pdfPages": [
+          484
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Calcium-triggered neurotransmitter release",
+          "explanation": "Arrival of an action potential depolarizes the presynaptic terminal, opening voltage-gated Ca²⁺ channels. Ca²⁺ enters down its electrochemical gradient and acts as an intracellular signal that activates proteins controlling synaptic-vesicle fusion.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Arrival of an action potential depolarizes the presynaptic terminal, opening voltage-gated Ca²⁺ channels. Ca²⁺ enters down its electrochemical gradient and acts as an intracellular signal that activates proteins controlling synaptic-vesicle fusion.",
+        "example": "Removing external calcium strongly reduces evoked neurotransmitter exocytosis.",
+        "different": "Cytosolic calcium triggers vesicle fusion after depolarization.",
+        "concepts": [
+          {
+            "title": "Calcium-triggered neurotransmitter release",
+            "keywords": [
+              "Calcium-triggered"
+            ],
+            "explanation": "Arrival of an action potential depolarizes the presynaptic terminal, opening voltage-gated Ca²⁺ channels. Ca²⁺ enters down its electrochemical gradient and acts as an intracellular signal that activates proteins controlling synaptic-vesicle fusion."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-7",
+      "understandingIds": [
+        "C2.2.7"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is an excitatory postsynaptic potential?",
+      "explanation": "Released acetylcholine diffuses across the synaptic cleft and binds suitable postsynaptic ligand-gated receptors. At the neuromuscular junction nicotinic acetylcholine receptor channels open, permitting cation movement with net positive charge entry near the resting potential.\n\nThe postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated.",
+      "revisionSummary": "The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated.",
+      "terms": [
+        "Excitatory postsynaptic potentials"
+      ],
+      "workedExample": "A small EPSP might not reach threshold alone but can contribute to a larger summed depolarization.",
+      "misconceptions": [
+        {
+          "misconception": "An EPSP always hyperpolarizes the membrane",
+          "correction": "Excitatory transmitter increases the chance of reaching threshold."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Released acetylcholine diffuses across the synaptic cleft and binds suitable postsynaptic ligand-gated receptors. At the neuromuscular junction nicotinic acetylcholine receptor channels open, permitting cation movement with net positive charge entry near the resting potential.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-7",
+          "prompt": "What is an excitatory postsynaptic potential?",
+          "understandingIds": [
+            "C2.2.7"
+          ],
+          "options": [
+            {
+              "id": "c22-7-o1",
+              "text": "A graded depolarization that increases action-potential likelihood",
+              "correct": true,
+              "feedback": "Correct: The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+            },
+            {
+              "id": "c22-7-o2",
+              "text": "An obligatory negative shift far below rest",
+              "correct": false,
+              "feedback": "Incorrect: Excitatory transmitter increases the chance of reaching threshold. The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+            },
+            {
+              "id": "c22-7-o3",
+              "text": "A DNA copy generated after every synapse",
+              "correct": false,
+              "feedback": "Incorrect: Excitatory transmitter increases the chance of reaching threshold. The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+            },
+            {
+              "id": "c22-7-o4",
+              "text": "Movement of insulin into the nucleus",
+              "correct": false,
+              "feedback": "Incorrect: Excitatory transmitter increases the chance of reaching threshold. The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-7",
+          "prompt": "Explain excitatory postsynaptic potentials with a mechanism and outcome.",
+          "answer": "Released acetylcholine diffuses across the synaptic cleft and binds suitable postsynaptic ligand-gated receptors. At the neuromuscular junction nicotinic acetylcholine receptor channels open, permitting cation movement with net positive charge entry near the resting potential. The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.7"
+          ]
+        }
+      ],
+      "guidePage": 74,
+      "pdfPage": 80,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          473
+        ],
+        "pdfPages": [
+          485
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Excitatory postsynaptic potentials",
+          "explanation": "Released acetylcholine diffuses across the synaptic cleft and binds suitable postsynaptic ligand-gated receptors. At the neuromuscular junction nicotinic acetylcholine receptor channels open, permitting cation movement with net positive charge entry near the resting potential.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Released acetylcholine diffuses across the synaptic cleft and binds suitable postsynaptic ligand-gated receptors. At the neuromuscular junction nicotinic acetylcholine receptor channels open, permitting cation movement with net positive charge entry near the resting potential.",
+        "example": "A small EPSP might not reach threshold alone but can contribute to a larger summed depolarization.",
+        "different": "Excitatory transmitter increases the chance of reaching threshold.",
+        "concepts": [
+          {
+            "title": "Excitatory postsynaptic potentials",
+            "keywords": [
+              "Excitatory"
+            ],
+            "explanation": "Released acetylcholine diffuses across the synaptic cleft and binds suitable postsynaptic ligand-gated receptors. At the neuromuscular junction nicotinic acetylcholine receptor channels open, permitting cation movement with net positive charge entry near the resting potential."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-8",
+      "understandingIds": [
+        "C2.2.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which ion current principally drives the rapid upstroke?",
+      "explanation": "When membrane depolarization reaches threshold, voltage-gated Na⁺ channels rapidly open. Na⁺ enters, creating a steep rising phase and often briefly making the inside positive; Na⁺ channels then inactivate.\n\nVoltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period.",
+      "revisionSummary": "Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period.",
+      "terms": [
+        "Voltage-gated channels and the action-potential phases"
+      ],
+      "workedExample": "A schematic trace rises sharply from about −70 mV to positive values, then falls and transiently undershoots rest.",
+      "misconceptions": [
+        {
+          "misconception": "Potassium influx causes the initial rapid depolarization",
+          "correction": "Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "When membrane depolarization reaches threshold, voltage-gated Na⁺ channels rapidly open. Na⁺ enters, creating a steep rising phase and often briefly making the inside positive; Na⁺ channels then inactivate.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-8",
+          "prompt": "Which ion current principally drives the rapid upstroke?",
+          "understandingIds": [
+            "C2.2.8"
+          ],
+          "options": [
+            {
+              "id": "c22-8-o1",
+              "text": "Na⁺ influx through voltage-gated channels",
+              "correct": true,
+              "feedback": "Correct: Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+            },
+            {
+              "id": "c22-8-o2",
+              "text": "K⁺ influx through ATP synthase",
+              "correct": false,
+              "feedback": "Incorrect: Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes. Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+            },
+            {
+              "id": "c22-8-o3",
+              "text": "Cl⁻ export through steroid receptors",
+              "correct": false,
+              "feedback": "Incorrect: Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes. Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+            },
+            {
+              "id": "c22-8-o4",
+              "text": "Glucose diffusion through GLUT4",
+              "correct": false,
+              "feedback": "Incorrect: Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes. Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-8",
+          "prompt": "Explain voltage-gated channels and the action-potential phases with a mechanism and outcome.",
+          "answer": "When membrane depolarization reaches threshold, voltage-gated Na⁺ channels rapidly open. Na⁺ enters, creating a steep rising phase and often briefly making the inside positive; Na⁺ channels then inactivate. Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.8"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          474
+        ],
+        "pdfPages": [
+          486
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Voltage-gated channels and the action-potential phases",
+          "explanation": "When membrane depolarization reaches threshold, voltage-gated Na⁺ channels rapidly open. Na⁺ enters, creating a steep rising phase and often briefly making the inside positive; Na⁺ channels then inactivate.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "When membrane depolarization reaches threshold, voltage-gated Na⁺ channels rapidly open. Na⁺ enters, creating a steep rising phase and often briefly making the inside positive; Na⁺ channels then inactivate.",
+        "example": "A schematic trace rises sharply from about −70 mV to positive values, then falls and transiently undershoots rest.",
+        "different": "Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes.",
+        "concepts": [
+          {
+            "title": "Voltage-gated channels and the action-potential phases",
+            "keywords": [
+              "Voltage-gated"
+            ],
+            "explanation": "When membrane depolarization reaches threshold, voltage-gated Na⁺ channels rapidly open. Na⁺ enters, creating a steep rising phase and often briefly making the inside positive; Na⁺ channels then inactivate."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-9",
+      "understandingIds": [
+        "C2.2.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What allows an action potential to move along the axon?",
+      "explanation": "At one active region Na⁺ entry makes intracellular charge less negative, producing local current that spreads into adjacent resting axon. This current depolarizes the next membrane region to threshold and opens its voltage-gated sodium channels.\n\nThe regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions.",
+      "revisionSummary": "The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions.",
+      "terms": [
+        "Local currents and impulse propagation"
+      ],
+      "workedExample": "A stimulated mid-axon region can initially send action potentials in both directions, but normal initiation at the axon initial segment propagates toward terminals.",
+      "misconceptions": [
+        {
+          "misconception": "One sodium ion physically travels from cell body to terminal as the impulse",
+          "correction": "Local charge movement recruits new channels along the membrane."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "At one active region Na⁺ entry makes intracellular charge less negative, producing local current that spreads into adjacent resting axon. This current depolarizes the next membrane region to threshold and opens its voltage-gated sodium channels.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-9",
+          "prompt": "What allows an action potential to move along the axon?",
+          "understandingIds": [
+            "C2.2.9"
+          ],
+          "options": [
+            {
+              "id": "c22-9-o1",
+              "text": "Local currents depolarize adjacent membrane to threshold",
+              "correct": true,
+              "feedback": "Correct: The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+            },
+            {
+              "id": "c22-9-o2",
+              "text": "One packet of Na⁺ moves untouched from one end to the other",
+              "correct": false,
+              "feedback": "Incorrect: Local charge movement recruits new channels along the membrane. The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+            },
+            {
+              "id": "c22-9-o3",
+              "text": "Glucose channels open in every region",
+              "correct": false,
+              "feedback": "Incorrect: Local charge movement recruits new channels along the membrane. The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+            },
+            {
+              "id": "c22-9-o4",
+              "text": "Neurotransmitter diffuses inside the whole axon",
+              "correct": false,
+              "feedback": "Incorrect: Local charge movement recruits new channels along the membrane. The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-9",
+          "prompt": "Explain local currents and impulse propagation with a mechanism and outcome.",
+          "answer": "At one active region Na⁺ entry makes intracellular charge less negative, producing local current that spreads into adjacent resting axon. This current depolarizes the next membrane region to threshold and opens its voltage-gated sodium channels. The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.9"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          475
+        ],
+        "pdfPages": [
+          487
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Local currents and impulse propagation",
+          "explanation": "At one active region Na⁺ entry makes intracellular charge less negative, producing local current that spreads into adjacent resting axon. This current depolarizes the next membrane region to threshold and opens its voltage-gated sodium channels.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "At one active region Na⁺ entry makes intracellular charge less negative, producing local current that spreads into adjacent resting axon. This current depolarizes the next membrane region to threshold and opens its voltage-gated sodium channels.",
+        "example": "A stimulated mid-axon region can initially send action potentials in both directions, but normal initiation at the axon initial segment propagates toward terminals.",
+        "different": "Local charge movement recruits new channels along the membrane.",
+        "concepts": [
+          {
+            "title": "Local currents and impulse propagation",
+            "keywords": [
+              "Local"
+            ],
+            "explanation": "At one active region Na⁺ entry makes intracellular charge less negative, producing local current that spreads into adjacent resting axon. This current depolarizes the next membrane region to threshold and opens its voltage-gated sodium channels."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-10",
+      "understandingIds": [
+        "C2.2.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the frequency of five action potentials in 0.25 s?",
+      "explanation": "An oscilloscope trace of membrane potential plots voltage, typically in millivolts (mV), against time, typically milliseconds (ms). A resting baseline is negative, an action potential shows a rapid depolarization and repolarization, and after-hyperpolarization can dip below baseline.\n\nCount discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height.",
+      "revisionSummary": "Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height.",
+      "terms": [
+        "Interpreting voltage traces and firing frequency"
+      ],
+      "workedExample": "Five action potentials recorded in 0.25 s correspond to a mean frequency of 20 Hz.",
+      "misconceptions": [
+        {
+          "misconception": "The y axis of an action-potential trace is always current in amperes",
+          "correction": "Membrane voltage uses mV; firing frequency is spikes per second."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An oscilloscope trace of membrane potential plots voltage, typically in millivolts (mV), against time, typically milliseconds (ms). A resting baseline is negative, an action potential shows a rapid depolarization and repolarization, and after-hyperpolarization can dip below baseline.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-10",
+          "prompt": "What is the frequency of five action potentials in 0.25 s?",
+          "understandingIds": [
+            "C2.2.10"
+          ],
+          "options": [
+            {
+              "id": "c22-10-o1",
+              "text": "20 Hz",
+              "correct": true,
+              "feedback": "Correct: Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+            },
+            {
+              "id": "c22-10-o2",
+              "text": "1.25 Hz",
+              "correct": false,
+              "feedback": "Incorrect: Membrane voltage uses mV; firing frequency is spikes per second. Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+            },
+            {
+              "id": "c22-10-o3",
+              "text": "5 mV",
+              "correct": false,
+              "feedback": "Incorrect: Membrane voltage uses mV; firing frequency is spikes per second. Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+            },
+            {
+              "id": "c22-10-o4",
+              "text": "0.05 Hz",
+              "correct": false,
+              "feedback": "Incorrect: Membrane voltage uses mV; firing frequency is spikes per second. Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-10",
+          "prompt": "Explain interpreting voltage traces and firing frequency with a mechanism and outcome.",
+          "answer": "An oscilloscope trace of membrane potential plots voltage, typically in millivolts (mV), against time, typically milliseconds (ms). A resting baseline is negative, an action potential shows a rapid depolarization and repolarization, and after-hyperpolarization can dip below baseline. Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.10"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          476
+        ],
+        "pdfPages": [
+          488
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Interpreting voltage traces and firing frequency",
+          "explanation": "An oscilloscope trace of membrane potential plots voltage, typically in millivolts (mV), against time, typically milliseconds (ms). A resting baseline is negative, an action potential shows a rapid depolarization and repolarization, and after-hyperpolarization can dip below baseline.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "An oscilloscope trace of membrane potential plots voltage, typically in millivolts (mV), against time, typically milliseconds (ms). A resting baseline is negative, an action potential shows a rapid depolarization and repolarization, and after-hyperpolarization can dip below baseline.",
+        "example": "Five action potentials recorded in 0.25 s correspond to a mean frequency of 20 Hz.",
+        "different": "Membrane voltage uses mV; firing frequency is spikes per second.",
+        "concepts": [
+          {
+            "title": "Interpreting voltage traces and firing frequency",
+            "keywords": [
+              "Interpreting"
+            ],
+            "explanation": "An oscilloscope trace of membrane potential plots voltage, typically in millivolts (mV), against time, typically milliseconds (ms). A resting baseline is negative, an action potential shows a rapid depolarization and repolarization, and after-hyperpolarization can dip below baseline."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-11",
+      "understandingIds": [
+        "C2.2.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Where are action potentials regenerated along a myelinated axon?",
+      "explanation": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node.\n\nNew action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance.",
+      "revisionSummary": "New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance.",
+      "terms": [
+        "Saltatory conduction at nodes of Ranvier"
+      ],
+      "workedExample": "The electrical signal appears to jump from one node to the next, although local currents flow through the internode.",
+      "misconceptions": [
+        {
+          "misconception": "Action potentials are regenerated uniformly throughout compact myelin",
+          "correction": "Nodes are the sites where channel-rich membrane regenerates spikes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-11",
+          "prompt": "Where are action potentials regenerated along a myelinated axon?",
+          "understandingIds": [
+            "C2.2.11"
+          ],
+          "options": [
+            {
+              "id": "c22-11-o1",
+              "text": "Nodes of Ranvier",
+              "correct": true,
+              "feedback": "Correct: New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+            },
+            {
+              "id": "c22-11-o2",
+              "text": "Within compact myelin layers",
+              "correct": false,
+              "feedback": "Incorrect: Nodes are the sites where channel-rich membrane regenerates spikes. New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+            },
+            {
+              "id": "c22-11-o3",
+              "text": "In the nucleus only",
+              "correct": false,
+              "feedback": "Incorrect: Nodes are the sites where channel-rich membrane regenerates spikes. New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+            },
+            {
+              "id": "c22-11-o4",
+              "text": "Inside axonal mitochondria only",
+              "correct": false,
+              "feedback": "Incorrect: Nodes are the sites where channel-rich membrane regenerates spikes. New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-11",
+          "prompt": "Explain saltatory conduction at nodes of ranvier with a mechanism and outcome.",
+          "answer": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node. New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.11"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          477
+        ],
+        "pdfPages": [
+          489
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Saltatory conduction at nodes of Ranvier",
+          "explanation": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node.",
+        "example": "The electrical signal appears to jump from one node to the next, although local currents flow through the internode.",
+        "different": "Nodes are the sites where channel-rich membrane regenerates spikes.",
+        "concepts": [
+          {
+            "title": "Saltatory conduction at nodes of Ranvier",
+            "keywords": [
+              "Saltatory"
+            ],
+            "explanation": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-12",
+      "understandingIds": [
+        "C2.2.12"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How does cocaine chiefly modify monoamine synaptic signalling?",
+      "explanation": "Exogenous compounds can change neurotransmission by binding receptors or altering transmitter clearance. Neonicotinoids are insecticides that bind insect nicotinic acetylcholine receptors and disrupt normal cholinergic transmission, typically by persistent receptor activation and subsequent functional impairment.\n\nCocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition.",
+      "revisionSummary": "Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition.",
+      "terms": [
+        "Exogenous chemicals affecting synapses"
+      ],
+      "workedExample": "Blocking dopamine reuptake can prolong dopamine activity in a synaptic cleft.",
+      "misconceptions": [
+        {
+          "misconception": "Neonicotinoids primarily work by blocking acetylcholine synthesis inside DNA",
+          "correction": "They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Exogenous compounds can change neurotransmission by binding receptors or altering transmitter clearance. Neonicotinoids are insecticides that bind insect nicotinic acetylcholine receptors and disrupt normal cholinergic transmission, typically by persistent receptor activation and subsequent functional impairment.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-12",
+          "prompt": "How does cocaine chiefly modify monoamine synaptic signalling?",
+          "understandingIds": [
+            "C2.2.12"
+          ],
+          "options": [
+            {
+              "id": "c22-12-o1",
+              "text": "It inhibits reuptake transporters",
+              "correct": true,
+              "feedback": "Correct: Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+            },
+            {
+              "id": "c22-12-o2",
+              "text": "It converts dopamine to ATP",
+              "correct": false,
+              "feedback": "Incorrect: They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake. Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+            },
+            {
+              "id": "c22-12-o3",
+              "text": "It blocks every postsynaptic ion channel irreversibly",
+              "correct": false,
+              "feedback": "Incorrect: They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake. Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+            },
+            {
+              "id": "c22-12-o4",
+              "text": "It increases myelin thickness",
+              "correct": false,
+              "feedback": "Incorrect: They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake. Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-12",
+          "prompt": "Explain exogenous chemicals affecting synapses with a mechanism and outcome.",
+          "answer": "Exogenous compounds can change neurotransmission by binding receptors or altering transmitter clearance. Neonicotinoids are insecticides that bind insect nicotinic acetylcholine receptors and disrupt normal cholinergic transmission, typically by persistent receptor activation and subsequent functional impairment. Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.12"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          478
+        ],
+        "pdfPages": [
+          490
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Exogenous chemicals affecting synapses",
+          "explanation": "Exogenous compounds can change neurotransmission by binding receptors or altering transmitter clearance. Neonicotinoids are insecticides that bind insect nicotinic acetylcholine receptors and disrupt normal cholinergic transmission, typically by persistent receptor activation and subsequent functional impairment.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Exogenous compounds can change neurotransmission by binding receptors or altering transmitter clearance. Neonicotinoids are insecticides that bind insect nicotinic acetylcholine receptors and disrupt normal cholinergic transmission, typically by persistent receptor activation and subsequent functional impairment.",
+        "example": "Blocking dopamine reuptake can prolong dopamine activity in a synaptic cleft.",
+        "different": "They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake.",
+        "concepts": [
+          {
+            "title": "Exogenous chemicals affecting synapses",
+            "keywords": [
+              "Exogenous"
+            ],
+            "explanation": "Exogenous compounds can change neurotransmission by binding receptors or altering transmitter clearance. Neonicotinoids are insecticides that bind insect nicotinic acetylcholine receptors and disrupt normal cholinergic transmission, typically by persistent receptor activation and subsequent functional impairment."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-13",
+      "understandingIds": [
+        "C2.2.13"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the typical effect of an IPSP?",
+      "explanation": "An inhibitory neurotransmitter can increase postsynaptic conductance to ions such as Cl⁻ or K⁺, generally making the membrane voltage more negative or stabilizing it below excitation threshold. The resulting inhibitory postsynaptic potential (IPSP) lowers the likelihood of an action potential.\n\nFor example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization.",
+      "revisionSummary": "For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization.",
+      "terms": [
+        "Inhibitory postsynaptic potentials"
+      ],
+      "workedExample": "An inhibitory input can counteract a simultaneous excitatory input at the axon initial segment.",
+      "misconceptions": [
+        {
+          "misconception": "An IPSP always makes the inside more positive",
+          "correction": "Inhibition tends to reduce excitability, commonly by hyperpolarization."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An inhibitory neurotransmitter can increase postsynaptic conductance to ions such as Cl⁻ or K⁺, generally making the membrane voltage more negative or stabilizing it below excitation threshold. The resulting inhibitory postsynaptic potential (IPSP) lowers the likelihood of an action potential.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-13",
+          "prompt": "What is the typical effect of an IPSP?",
+          "understandingIds": [
+            "C2.2.13"
+          ],
+          "options": [
+            {
+              "id": "c22-13-o1",
+              "text": "Reduced likelihood of reaching action-potential threshold",
+              "correct": true,
+              "feedback": "Correct: For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+            },
+            {
+              "id": "c22-13-o2",
+              "text": "Guaranteed extra firing regardless of excitation",
+              "correct": false,
+              "feedback": "Incorrect: Inhibition tends to reduce excitability, commonly by hyperpolarization. For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+            },
+            {
+              "id": "c22-13-o3",
+              "text": "Release of insulin into blood",
+              "correct": false,
+              "feedback": "Incorrect: Inhibition tends to reduce excitability, commonly by hyperpolarization. For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+            },
+            {
+              "id": "c22-13-o4",
+              "text": "Production of a larger neuron nucleus",
+              "correct": false,
+              "feedback": "Incorrect: Inhibition tends to reduce excitability, commonly by hyperpolarization. For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-13",
+          "prompt": "Explain inhibitory postsynaptic potentials with a mechanism and outcome.",
+          "answer": "An inhibitory neurotransmitter can increase postsynaptic conductance to ions such as Cl⁻ or K⁺, generally making the membrane voltage more negative or stabilizing it below excitation threshold. The resulting inhibitory postsynaptic potential (IPSP) lowers the likelihood of an action potential. For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.13"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          479
+        ],
+        "pdfPages": [
+          491
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Inhibitory postsynaptic potentials",
+          "explanation": "An inhibitory neurotransmitter can increase postsynaptic conductance to ions such as Cl⁻ or K⁺, generally making the membrane voltage more negative or stabilizing it below excitation threshold. The resulting inhibitory postsynaptic potential (IPSP) lowers the likelihood of an action potential.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "An inhibitory neurotransmitter can increase postsynaptic conductance to ions such as Cl⁻ or K⁺, generally making the membrane voltage more negative or stabilizing it below excitation threshold. The resulting inhibitory postsynaptic potential (IPSP) lowers the likelihood of an action potential.",
+        "example": "An inhibitory input can counteract a simultaneous excitatory input at the axon initial segment.",
+        "different": "Inhibition tends to reduce excitability, commonly by hyperpolarization.",
+        "concepts": [
+          {
+            "title": "Inhibitory postsynaptic potentials",
+            "keywords": [
+              "Inhibitory"
+            ],
+            "explanation": "An inhibitory neurotransmitter can increase postsynaptic conductance to ions such as Cl⁻ or K⁺, generally making the membrane voltage more negative or stabilizing it below excitation threshold. The resulting inhibitory postsynaptic potential (IPSP) lowers the likelihood of an action potential."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-14",
+      "understandingIds": [
+        "C2.2.14"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What describes spatial summation?",
+      "explanation": "Each excitatory or inhibitory input causes a graded postsynaptic voltage change. Spatial summation combines inputs arriving at different synapses within a short interval; temporal summation combines closely spaced inputs at the same synapse.\n\nAt the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size.",
+      "revisionSummary": "At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size.",
+      "terms": [
+        "Spatial and temporal synaptic summation"
+      ],
+      "workedExample": "Two simultaneous EPSPs can reach threshold together; a concurrent IPSP can prevent this.",
+      "misconceptions": [
+        {
+          "misconception": "Postsynaptic potentials are all-or-nothing spikes",
+          "correction": "Graded signals sum before the threshold decision."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Each excitatory or inhibitory input causes a graded postsynaptic voltage change. Spatial summation combines inputs arriving at different synapses within a short interval; temporal summation combines closely spaced inputs at the same synapse.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-14",
+          "prompt": "What describes spatial summation?",
+          "understandingIds": [
+            "C2.2.14"
+          ],
+          "options": [
+            {
+              "id": "c22-14-o1",
+              "text": "Combining signals from different synapses at similar times",
+              "correct": true,
+              "feedback": "Correct: At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+            },
+            {
+              "id": "c22-14-o2",
+              "text": "Repeated signals from one synapse over time",
+              "correct": false,
+              "feedback": "Incorrect: Graded signals sum before the threshold decision. At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+            },
+            {
+              "id": "c22-14-o3",
+              "text": "Sodium pumping into the nucleus",
+              "correct": false,
+              "feedback": "Incorrect: Graded signals sum before the threshold decision. At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+            },
+            {
+              "id": "c22-14-o4",
+              "text": "A signal crossing a myelin membrane",
+              "correct": false,
+              "feedback": "Incorrect: Graded signals sum before the threshold decision. At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-14",
+          "prompt": "Explain spatial and temporal synaptic summation with a mechanism and outcome.",
+          "answer": "Each excitatory or inhibitory input causes a graded postsynaptic voltage change. Spatial summation combines inputs arriving at different synapses within a short interval; temporal summation combines closely spaced inputs at the same synapse. At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.14"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          480
+        ],
+        "pdfPages": [
+          492
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Spatial and temporal synaptic summation",
+          "explanation": "Each excitatory or inhibitory input causes a graded postsynaptic voltage change. Spatial summation combines inputs arriving at different synapses within a short interval; temporal summation combines closely spaced inputs at the same synapse.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Each excitatory or inhibitory input causes a graded postsynaptic voltage change. Spatial summation combines inputs arriving at different synapses within a short interval; temporal summation combines closely spaced inputs at the same synapse.",
+        "example": "Two simultaneous EPSPs can reach threshold together; a concurrent IPSP can prevent this.",
+        "different": "Graded signals sum before the threshold decision.",
+        "concepts": [
+          {
+            "title": "Spatial and temporal synaptic summation",
+            "keywords": [
+              "Spatial"
+            ],
+            "explanation": "Each excitatory or inhibitory input causes a graded postsynaptic voltage change. Spatial summation combines inputs arriving at different synapses within a short interval; temporal summation combines closely spaced inputs at the same synapse."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-15",
+      "understandingIds": [
+        "C2.2.15"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What directly starts excitation of a capsaicin-sensitive free nerve ending?",
+      "explanation": "Free nerve endings in the skin can act as nociceptors. Receptor channels responding to potentially damaging heat, acidic conditions or capsaicin open and allow inward positive ion current, producing a generator potential.\n\nIf the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself.",
+      "revisionSummary": "If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself.",
+      "terms": [
+        "Nociceptors and pain perception"
+      ],
+      "workedExample": "Capsaicin activates TRPV1 channels in some nociceptors and can produce a burning sensation.",
+      "misconceptions": [
+        {
+          "misconception": "Pain is consciously perceived by the receptor ending itself",
+          "correction": "Transduction occurs at the ending; conscious perception requires brain processing."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Free nerve endings in the skin can act as nociceptors. Receptor channels responding to potentially damaging heat, acidic conditions or capsaicin open and allow inward positive ion current, producing a generator potential.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-15",
+          "prompt": "What directly starts excitation of a capsaicin-sensitive free nerve ending?",
+          "understandingIds": [
+            "C2.2.15"
+          ],
+          "options": [
+            {
+              "id": "c22-15-o1",
+              "text": "Opening of cation-permeable receptor channels",
+              "correct": true,
+              "feedback": "Correct: If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+            },
+            {
+              "id": "c22-15-o2",
+              "text": "Immediate hormone secretion from liver",
+              "correct": false,
+              "feedback": "Incorrect: Transduction occurs at the ending; conscious perception requires brain processing. If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+            },
+            {
+              "id": "c22-15-o3",
+              "text": "Myelin synthesis at the skin surface",
+              "correct": false,
+              "feedback": "Incorrect: Transduction occurs at the ending; conscious perception requires brain processing. If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+            },
+            {
+              "id": "c22-15-o4",
+              "text": "Insulin binding to a synaptic vesicle",
+              "correct": false,
+              "feedback": "Incorrect: Transduction occurs at the ending; conscious perception requires brain processing. If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-15",
+          "prompt": "Explain nociceptors and pain perception with a mechanism and outcome.",
+          "answer": "Free nerve endings in the skin can act as nociceptors. Receptor channels responding to potentially damaging heat, acidic conditions or capsaicin open and allow inward positive ion current, producing a generator potential. If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.15"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          481
+        ],
+        "pdfPages": [
+          493
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Nociceptors and pain perception",
+          "explanation": "Free nerve endings in the skin can act as nociceptors. Receptor channels responding to potentially damaging heat, acidic conditions or capsaicin open and allow inward positive ion current, producing a generator potential.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Free nerve endings in the skin can act as nociceptors. Receptor channels responding to potentially damaging heat, acidic conditions or capsaicin open and allow inward positive ion current, producing a generator potential.",
+        "example": "Capsaicin activates TRPV1 channels in some nociceptors and can produce a burning sensation.",
+        "different": "Transduction occurs at the ending; conscious perception requires brain processing.",
+        "concepts": [
+          {
+            "title": "Nociceptors and pain perception",
+            "keywords": [
+              "Nociceptors"
+            ],
+            "explanation": "Free nerve endings in the skin can act as nociceptors. Receptor channels responding to potentially damaging heat, acidic conditions or capsaicin open and allow inward positive ion current, producing a generator potential."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c22-16",
+      "understandingIds": [
+        "C2.2.16"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why is consciousness classified as emergent?",
+      "explanation": "An individual neuron can generate impulses and communicate with its neighbours, but no single neuron has all the properties of conscious experience. Networks of interconnected neurons integrate sensory information, attention and internal states across distributed brain systems.\n\nConsciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory.",
+      "revisionSummary": "Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory.",
+      "terms": [
+        "Consciousness as an emergent property"
+      ],
+      "workedExample": "A coordinated neural network can integrate visual inputs, memories and decisions in ways one isolated neuron cannot.",
+      "misconceptions": [
+        {
+          "misconception": "A single neuron contains a complete conscious mind",
+          "correction": "Conscious functions arise from interactions of many neurons."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An individual neuron can generate impulses and communicate with its neighbours, but no single neuron has all the properties of conscious experience. Networks of interconnected neurons integrate sensory information, attention and internal states across distributed brain systems.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "claim": "Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c22-check-16",
+          "prompt": "Why is consciousness classified as emergent?",
+          "understandingIds": [
+            "C2.2.16"
+          ],
+          "options": [
+            {
+              "id": "c22-16-o1",
+              "text": "Network interactions produce system properties absent from an isolated neuron",
+              "correct": true,
+              "feedback": "Correct: Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+            },
+            {
+              "id": "c22-16-o2",
+              "text": "Each neuron independently generates full awareness",
+              "correct": false,
+              "feedback": "Incorrect: Conscious functions arise from interactions of many neurons. Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+            },
+            {
+              "id": "c22-16-o3",
+              "text": "Consciousness requires no neuronal activity",
+              "correct": false,
+              "feedback": "Incorrect: Conscious functions arise from interactions of many neurons. Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+            },
+            {
+              "id": "c22-16-o4",
+              "text": "Every action potential has identical personal meaning",
+              "correct": false,
+              "feedback": "Incorrect: Conscious functions arise from interactions of many neurons. Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c22-recall-16",
+          "prompt": "Explain consciousness as an emergent property with a mechanism and outcome.",
+          "answer": "An individual neuron can generate impulses and communicate with its neighbours, but no single neuron has all the properties of conscious experience. Networks of interconnected neurons integrate sensory information, attention and internal states across distributed brain systems. Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory.",
+          "explanation": "Compare direction, ionic species and relevant membrane compartment.",
+          "understandingIds": [
+            "C2.2.16"
+          ]
+        }
+      ],
+      "guidePage": 75,
+      "pdfPage": 81,
+      "textbook": {
+        "referenceId": "hodder-c22",
+        "printedPages": [
+          482
+        ],
+        "pdfPages": [
+          494
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Consciousness as an emergent property",
+          "explanation": "An individual neuron can generate impulses and communicate with its neighbours, but no single neuron has all the properties of conscious experience. Networks of interconnected neurons integrate sensory information, attention and internal states across distributed brain systems.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        },
+        {
+          "title": "Physiological significance",
+          "explanation": "Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory.",
+          "referenceIds": [
+            "ib-c22",
+            "hodder-c22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "An individual neuron can generate impulses and communicate with its neighbours, but no single neuron has all the properties of conscious experience. Networks of interconnected neurons integrate sensory information, attention and internal states across distributed brain systems.",
+        "example": "A coordinated neural network can integrate visual inputs, memories and decisions in ways one isolated neuron cannot.",
+        "different": "Conscious functions arise from interactions of many neurons.",
+        "concepts": [
+          {
+            "title": "Consciousness as an emergent property",
+            "keywords": [
+              "Consciousness"
+            ],
+            "explanation": "An individual neuron can generate impulses and communicate with its neighbours, but no single neuron has all the properties of conscious experience. Networks of interconnected neurons integrate sensory information, attention and internal states across distributed brain systems."
+          }
+        ]
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "c22-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.1"
+      ],
+      "level": "shared",
+      "prompt": "Which neuronal structure commonly conducts action potentials over long distances?",
+      "marks": 1,
+      "sectionId": "c22-1",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-1-assess-o1",
+          "text": "Axon",
+          "correct": true,
+          "feedback": "Correct: The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+        },
+        {
+          "id": "c22-1-assess-o2",
+          "text": "Nucleus",
+          "correct": false,
+          "feedback": "Incorrect: Dendrites typically receive inputs; an axon conducts impulses away from the cell body. The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+        },
+        {
+          "id": "c22-1-assess-o3",
+          "text": "Dendritic spine alone",
+          "correct": false,
+          "feedback": "Incorrect: Dendrites typically receive inputs; an axon conducts impulses away from the cell body. The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+        },
+        {
+          "id": "c22-1-assess-o4",
+          "text": "Golgi apparatus",
+          "correct": false,
+          "feedback": "Incorrect: Dendrites typically receive inputs; an axon conducts impulses away from the cell body. The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-1",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.1"
+      ],
+      "level": "shared",
+      "prompt": "Explain neuron structure and function, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-1",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland. A sensory neuron can carry information from a heat receptor in skin toward the central nervous system.",
+      "markingPoints": [
+        "The membranes of these cells contain ion channels and pumps that allow changes in voltage to carry information along nerve fibres. At terminals, electrical activity may initiate chemical signalling to another neuron, muscle or gland.",
+        "A sensory neuron can carry information from a heat receptor in skin toward the central nervous system."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.2"
+      ],
+      "level": "shared",
+      "prompt": "What directly sustains Na⁺ and K⁺ concentration gradients over time?",
+      "marks": 1,
+      "sectionId": "c22-2",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-2-assess-o1",
+          "text": "Na⁺/K⁺-ATPase using ATP",
+          "correct": true,
+          "feedback": "Correct: Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+        },
+        {
+          "id": "c22-2-assess-o2",
+          "text": "Passive oxygen diffusion",
+          "correct": false,
+          "feedback": "Incorrect: It moves three Na⁺ out and two K⁺ in using ATP. Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+        },
+        {
+          "id": "c22-2-assess-o3",
+          "text": "DNA transcription alone",
+          "correct": false,
+          "feedback": "Incorrect: It moves three Na⁺ out and two K⁺ in using ATP. Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+        },
+        {
+          "id": "c22-2-assess-o4",
+          "text": "Vesicle exocytosis",
+          "correct": false,
+          "feedback": "Incorrect: It moves three Na⁺ out and two K⁺ in using ATP. Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-2",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.2"
+      ],
+      "level": "shared",
+      "prompt": "Explain the sodium-potassium pump and resting potential, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-2",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage. If ATP production stops for long enough, ion gradients erode and normal excitability is lost.",
+      "markingPoints": [
+        "Potassium leak conductance, impermeant intracellular anions and ion gradients help leave the inside negative relative to the outside (often approximately −70 mV in illustrative neurons). Pumps maintain the gradients over time; they do not alone cause every moment of membrane voltage.",
+        "If ATP production stops for long enough, ion gradients erode and normal excitability is lost."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.3"
+      ],
+      "level": "shared",
+      "prompt": "What carries the local current involved in nerve impulses?",
+      "marks": 1,
+      "sectionId": "c22-3",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-3-assess-o1",
+          "text": "Movement of ions such as Na⁺ and K⁺",
+          "correct": true,
+          "feedback": "Correct: Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+        },
+        {
+          "id": "c22-3-assess-o2",
+          "text": "Free electrons flowing down cytoplasm like a copper wire",
+          "correct": false,
+          "feedback": "Incorrect: Membrane ion flux produces and propagates a voltage change. Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+        },
+        {
+          "id": "c22-3-assess-o3",
+          "text": "DNA strands passing between cells",
+          "correct": false,
+          "feedback": "Incorrect: Membrane ion flux produces and propagates a voltage change. Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+        },
+        {
+          "id": "c22-3-assess-o4",
+          "text": "ATP vesicles moving along microtubules",
+          "correct": false,
+          "feedback": "Incorrect: Membrane ion flux produces and propagates a voltage change. Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-3",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.3"
+      ],
+      "level": "shared",
+      "prompt": "Explain action potentials as electrical nerve impulses, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-3",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon. An impulse can travel from a neuron's initial segment to its synaptic terminal.",
+      "markingPoints": [
+        "Once initiated, the action potential propagates along an axon without continuously decreasing in amplitude under normal conditions; energy is needed to maintain ion gradients across many impulses, not to physically carry electrons down the axon.",
+        "An impulse can travel from a neuron's initial segment to its synaptic terminal."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.4"
+      ],
+      "level": "shared",
+      "prompt": "Which change typically increases conduction speed?",
+      "marks": 1,
+      "sectionId": "c22-4",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-4-assess-o1",
+          "text": "Increasing axon diameter while other factors remain comparable",
+          "correct": true,
+          "feedback": "Correct: Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+        },
+        {
+          "id": "c22-4-assess-o2",
+          "text": "Reducing axon diameter",
+          "correct": false,
+          "feedback": "Incorrect: Diameter and myelination both influence conduction speed. Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+        },
+        {
+          "id": "c22-4-assess-o3",
+          "text": "Removing myelin from a healthy fibre",
+          "correct": false,
+          "feedback": "Incorrect: Diameter and myelination both influence conduction speed. Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+        },
+        {
+          "id": "c22-4-assess-o4",
+          "text": "Destroying nodal voltage-gated channels",
+          "correct": false,
+          "feedback": "Incorrect: Diameter and myelination both influence conduction speed. Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-4",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.4"
+      ],
+      "level": "shared",
+      "prompt": "Explain axon diameter, myelin and transmission speed, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-4",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets. Comparing two axons of similar diameter, the myelinated axon usually transmits impulses faster.",
+      "markingPoints": [
+        "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+        "Comparing two axons of similar diameter, the myelinated axon usually transmits impulses faster."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.5"
+      ],
+      "level": "shared",
+      "prompt": "What makes a typical chemical synapse directional?",
+      "marks": 1,
+      "sectionId": "c22-5",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-5-assess-o1",
+          "text": "Presynaptic release machinery faces postsynaptic transmitter receptors",
+          "correct": true,
+          "feedback": "Correct: Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+        },
+        {
+          "id": "c22-5-assess-o2",
+          "text": "The axon lacks a plasma membrane",
+          "correct": false,
+          "feedback": "Incorrect: Release and receptor machinery are polarized across the cleft. Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+        },
+        {
+          "id": "c22-5-assess-o3",
+          "text": "Both cells must release transmitter simultaneously",
+          "correct": false,
+          "feedback": "Incorrect: Release and receptor machinery are polarized across the cleft. Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+        },
+        {
+          "id": "c22-5-assess-o4",
+          "text": "The cleft is filled with DNA",
+          "correct": false,
+          "feedback": "Incorrect: Release and receptor machinery are polarized across the cleft. Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-5",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.5"
+      ],
+      "level": "shared",
+      "prompt": "Explain chemical synapses and directional transfer, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-5",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell. A motor neuron communicates to a muscle fibre at a neuromuscular junction.",
+      "markingPoints": [
+        "Because secretion and detection are arranged asymmetrically, signalling normally crosses this junction in one direction. Synapses can join two neurons or a neuron and an effector such as a muscle cell.",
+        "A motor neuron communicates to a muscle fibre at a neuromuscular junction."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.6"
+      ],
+      "level": "shared",
+      "prompt": "What ion enters the terminal and triggers neurotransmitter exocytosis?",
+      "marks": 1,
+      "sectionId": "c22-6",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-6-assess-o1",
+          "text": "Ca²⁺",
+          "correct": true,
+          "feedback": "Correct: Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+        },
+        {
+          "id": "c22-6-assess-o2",
+          "text": "Cl⁻",
+          "correct": false,
+          "feedback": "Incorrect: Cytosolic calcium triggers vesicle fusion after depolarization. Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+        },
+        {
+          "id": "c22-6-assess-o3",
+          "text": "O₂",
+          "correct": false,
+          "feedback": "Incorrect: Cytosolic calcium triggers vesicle fusion after depolarization. Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+        },
+        {
+          "id": "c22-6-assess-o4",
+          "text": "DNA",
+          "correct": false,
+          "feedback": "Incorrect: Cytosolic calcium triggers vesicle fusion after depolarization. Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-6",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.6"
+      ],
+      "level": "shared",
+      "prompt": "Explain calcium-triggered neurotransmitter release, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-6",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane. Removing external calcium strongly reduces evoked neurotransmitter exocytosis.",
+      "markingPoints": [
+        "Vesicles merge with the presynaptic membrane and release transmitter by exocytosis into the cleft. Neurotransmitter release therefore depends on voltage-gated calcium entry rather than direct movement of neurotransmitter through the axon membrane.",
+        "Removing external calcium strongly reduces evoked neurotransmitter exocytosis."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.7"
+      ],
+      "level": "shared",
+      "prompt": "What is an excitatory postsynaptic potential?",
+      "marks": 1,
+      "sectionId": "c22-7",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-7-assess-o1",
+          "text": "A graded depolarization that increases action-potential likelihood",
+          "correct": true,
+          "feedback": "Correct: The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+        },
+        {
+          "id": "c22-7-assess-o2",
+          "text": "An obligatory negative shift far below rest",
+          "correct": false,
+          "feedback": "Incorrect: Excitatory transmitter increases the chance of reaching threshold. The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+        },
+        {
+          "id": "c22-7-assess-o3",
+          "text": "A DNA copy generated after every synapse",
+          "correct": false,
+          "feedback": "Incorrect: Excitatory transmitter increases the chance of reaching threshold. The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+        },
+        {
+          "id": "c22-7-assess-o4",
+          "text": "Movement of insulin into the nucleus",
+          "correct": false,
+          "feedback": "Incorrect: Excitatory transmitter increases the chance of reaching threshold. The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-7",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.7"
+      ],
+      "level": "shared",
+      "prompt": "Explain excitatory postsynaptic potentials, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-7",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated. A small EPSP might not reach threshold alone but can contribute to a larger summed depolarization.",
+      "markingPoints": [
+        "The postsynaptic voltage becomes less negative: this graded depolarization is an excitatory postsynaptic potential or end-plate potential. If sufficient depolarization reaches an excitable membrane's threshold, a new action potential may be initiated.",
+        "A small EPSP might not reach threshold alone but can contribute to a larger summed depolarization."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.8"
+      ],
+      "level": "HL",
+      "prompt": "Which ion current principally drives the rapid upstroke?",
+      "marks": 1,
+      "sectionId": "c22-8",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-8-assess-o1",
+          "text": "Na⁺ influx through voltage-gated channels",
+          "correct": true,
+          "feedback": "Correct: Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+        },
+        {
+          "id": "c22-8-assess-o2",
+          "text": "K⁺ influx through ATP synthase",
+          "correct": false,
+          "feedback": "Incorrect: Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes. Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+        },
+        {
+          "id": "c22-8-assess-o3",
+          "text": "Cl⁻ export through steroid receptors",
+          "correct": false,
+          "feedback": "Incorrect: Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes. Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+        },
+        {
+          "id": "c22-8-assess-o4",
+          "text": "Glucose diffusion through GLUT4",
+          "correct": false,
+          "feedback": "Incorrect: Rapid Na⁺ influx drives the upstroke; delayed K⁺ efflux repolarizes. Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-8",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.8"
+      ],
+      "level": "HL",
+      "prompt": "Explain voltage-gated channels and the action-potential phases, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-8",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period. A schematic trace rises sharply from about −70 mV to positive values, then falls and transiently undershoots rest.",
+      "markingPoints": [
+        "Voltage-gated K⁺ channels open more slowly; outward K⁺ current repolarizes the membrane and may cause an after-hyperpolarization before resting voltage is re-established. Channel inactivation and delayed recovery contribute to the refractory period.",
+        "A schematic trace rises sharply from about −70 mV to positive values, then falls and transiently undershoots rest."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.9"
+      ],
+      "level": "HL",
+      "prompt": "What allows an action potential to move along the axon?",
+      "marks": 1,
+      "sectionId": "c22-9",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-9-assess-o1",
+          "text": "Local currents depolarize adjacent membrane to threshold",
+          "correct": true,
+          "feedback": "Correct: The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+        },
+        {
+          "id": "c22-9-assess-o2",
+          "text": "One packet of Na⁺ moves untouched from one end to the other",
+          "correct": false,
+          "feedback": "Incorrect: Local charge movement recruits new channels along the membrane. The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+        },
+        {
+          "id": "c22-9-assess-o3",
+          "text": "Glucose channels open in every region",
+          "correct": false,
+          "feedback": "Incorrect: Local charge movement recruits new channels along the membrane. The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+        },
+        {
+          "id": "c22-9-assess-o4",
+          "text": "Neurotransmitter diffuses inside the whole axon",
+          "correct": false,
+          "feedback": "Incorrect: Local charge movement recruits new channels along the membrane. The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-9",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.9"
+      ],
+      "level": "HL",
+      "prompt": "Explain local currents and impulse propagation, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-9",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions. A stimulated mid-axon region can initially send action potentials in both directions, but normal initiation at the axon initial segment propagates toward terminals.",
+      "markingPoints": [
+        "The regenerative wave advances along the axon. Sodium-channel inactivation behind the wave creates a refractory region, helping prevent immediate backward re-excitation under ordinary physiological conditions.",
+        "A stimulated mid-axon region can initially send action potentials in both directions, but normal initiation at the axon initial segment propagates toward terminals."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.10"
+      ],
+      "level": "HL",
+      "prompt": "What is the frequency of five action potentials in 0.25 s?",
+      "marks": 1,
+      "sectionId": "c22-10",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-10-assess-o1",
+          "text": "20 Hz",
+          "correct": true,
+          "feedback": "Correct: Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+        },
+        {
+          "id": "c22-10-assess-o2",
+          "text": "1.25 Hz",
+          "correct": false,
+          "feedback": "Incorrect: Membrane voltage uses mV; firing frequency is spikes per second. Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+        },
+        {
+          "id": "c22-10-assess-o3",
+          "text": "5 mV",
+          "correct": false,
+          "feedback": "Incorrect: Membrane voltage uses mV; firing frequency is spikes per second. Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+        },
+        {
+          "id": "c22-10-assess-o4",
+          "text": "0.05 Hz",
+          "correct": false,
+          "feedback": "Incorrect: Membrane voltage uses mV; firing frequency is spikes per second. Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-10",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.10"
+      ],
+      "level": "HL",
+      "prompt": "Explain interpreting voltage traces and firing frequency, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-10",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height. Five action potentials recorded in 0.25 s correspond to a mean frequency of 20 Hz.",
+      "markingPoints": [
+        "Count discrete action-potential peaks during a defined observation interval to calculate frequency: number of impulses divided by elapsed time in seconds, giving hertz (Hz). Increasing stimulus intensity often changes spike frequency rather than spike height.",
+        "Five action potentials recorded in 0.25 s correspond to a mean frequency of 20 Hz."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.11"
+      ],
+      "level": "HL",
+      "prompt": "Where are action potentials regenerated along a myelinated axon?",
+      "marks": 1,
+      "sectionId": "c22-11",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-11-assess-o1",
+          "text": "Nodes of Ranvier",
+          "correct": true,
+          "feedback": "Correct: New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+        },
+        {
+          "id": "c22-11-assess-o2",
+          "text": "Within compact myelin layers",
+          "correct": false,
+          "feedback": "Incorrect: Nodes are the sites where channel-rich membrane regenerates spikes. New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+        },
+        {
+          "id": "c22-11-assess-o3",
+          "text": "In the nucleus only",
+          "correct": false,
+          "feedback": "Incorrect: Nodes are the sites where channel-rich membrane regenerates spikes. New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+        },
+        {
+          "id": "c22-11-assess-o4",
+          "text": "Inside axonal mitochondria only",
+          "correct": false,
+          "feedback": "Incorrect: Nodes are the sites where channel-rich membrane regenerates spikes. New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-11",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.11"
+      ],
+      "level": "HL",
+      "prompt": "Explain saltatory conduction at nodes of ranvier, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-11",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance. The electrical signal appears to jump from one node to the next, although local currents flow through the internode.",
+      "markingPoints": [
+        "New action potentials are regenerated at successive nodes rather than every small length of membrane. This saltatory pattern greatly increases speed and can reduce ionic pumping costs for a given propagation distance.",
+        "The electrical signal appears to jump from one node to the next, although local currents flow through the internode."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-12",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.12"
+      ],
+      "level": "HL",
+      "prompt": "How does cocaine chiefly modify monoamine synaptic signalling?",
+      "marks": 1,
+      "sectionId": "c22-12",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-12-assess-o1",
+          "text": "It inhibits reuptake transporters",
+          "correct": true,
+          "feedback": "Correct: Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+        },
+        {
+          "id": "c22-12-assess-o2",
+          "text": "It converts dopamine to ATP",
+          "correct": false,
+          "feedback": "Incorrect: They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake. Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+        },
+        {
+          "id": "c22-12-assess-o3",
+          "text": "It blocks every postsynaptic ion channel irreversibly",
+          "correct": false,
+          "feedback": "Incorrect: They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake. Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+        },
+        {
+          "id": "c22-12-assess-o4",
+          "text": "It increases myelin thickness",
+          "correct": false,
+          "feedback": "Incorrect: They disrupt nicotinic receptor signalling; cocaine blocks transmitter reuptake. Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-12",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.12"
+      ],
+      "level": "HL",
+      "prompt": "Explain exogenous chemicals affecting synapses, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-12",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition. Blocking dopamine reuptake can prolong dopamine activity in a synaptic cleft.",
+      "markingPoints": [
+        "Cocaine inhibits monoamine neurotransmitter transporters, prominently the dopamine transporter, reducing reuptake of released transmitter. The increased extracellular transmitter prolongs signalling. These are different mechanisms: receptor targeting versus transporter inhibition.",
+        "Blocking dopamine reuptake can prolong dopamine activity in a synaptic cleft."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-13",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.13"
+      ],
+      "level": "HL",
+      "prompt": "What is the typical effect of an IPSP?",
+      "marks": 1,
+      "sectionId": "c22-13",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-13-assess-o1",
+          "text": "Reduced likelihood of reaching action-potential threshold",
+          "correct": true,
+          "feedback": "Correct: For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+        },
+        {
+          "id": "c22-13-assess-o2",
+          "text": "Guaranteed extra firing regardless of excitation",
+          "correct": false,
+          "feedback": "Incorrect: Inhibition tends to reduce excitability, commonly by hyperpolarization. For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+        },
+        {
+          "id": "c22-13-assess-o3",
+          "text": "Release of insulin into blood",
+          "correct": false,
+          "feedback": "Incorrect: Inhibition tends to reduce excitability, commonly by hyperpolarization. For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+        },
+        {
+          "id": "c22-13-assess-o4",
+          "text": "Production of a larger neuron nucleus",
+          "correct": false,
+          "feedback": "Incorrect: Inhibition tends to reduce excitability, commonly by hyperpolarization. For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-13",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.13"
+      ],
+      "level": "HL",
+      "prompt": "Explain inhibitory postsynaptic potentials, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-13",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization. An inhibitory input can counteract a simultaneous excitatory input at the axon initial segment.",
+      "markingPoints": [
+        "For example, activation of some GABA receptors increases chloride conductance in mature neurons. The precise voltage effect depends on the ion gradients; shunting inhibition can reduce excitation without a large visible hyperpolarization.",
+        "An inhibitory input can counteract a simultaneous excitatory input at the axon initial segment."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-14",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.14"
+      ],
+      "level": "HL",
+      "prompt": "What describes spatial summation?",
+      "marks": 1,
+      "sectionId": "c22-14",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-14-assess-o1",
+          "text": "Combining signals from different synapses at similar times",
+          "correct": true,
+          "feedback": "Correct: At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+        },
+        {
+          "id": "c22-14-assess-o2",
+          "text": "Repeated signals from one synapse over time",
+          "correct": false,
+          "feedback": "Incorrect: Graded signals sum before the threshold decision. At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+        },
+        {
+          "id": "c22-14-assess-o3",
+          "text": "Sodium pumping into the nucleus",
+          "correct": false,
+          "feedback": "Incorrect: Graded signals sum before the threshold decision. At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+        },
+        {
+          "id": "c22-14-assess-o4",
+          "text": "A signal crossing a myelin membrane",
+          "correct": false,
+          "feedback": "Incorrect: Graded signals sum before the threshold decision. At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-14",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.14"
+      ],
+      "level": "HL",
+      "prompt": "Explain spatial and temporal synaptic summation, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-14",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size. Two simultaneous EPSPs can reach threshold together; a concurrent IPSP can prevent this.",
+      "markingPoints": [
+        "At the axon initial segment the net effects of depolarizing and inhibiting inputs determine whether threshold is reached. An action potential is all-or-nothing once threshold is crossed, even though contributing postsynaptic potentials have variable size.",
+        "Two simultaneous EPSPs can reach threshold together; a concurrent IPSP can prevent this."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-15",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.15"
+      ],
+      "level": "HL",
+      "prompt": "What directly starts excitation of a capsaicin-sensitive free nerve ending?",
+      "marks": 1,
+      "sectionId": "c22-15",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-15-assess-o1",
+          "text": "Opening of cation-permeable receptor channels",
+          "correct": true,
+          "feedback": "Correct: If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+        },
+        {
+          "id": "c22-15-assess-o2",
+          "text": "Immediate hormone secretion from liver",
+          "correct": false,
+          "feedback": "Incorrect: Transduction occurs at the ending; conscious perception requires brain processing. If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+        },
+        {
+          "id": "c22-15-assess-o3",
+          "text": "Myelin synthesis at the skin surface",
+          "correct": false,
+          "feedback": "Incorrect: Transduction occurs at the ending; conscious perception requires brain processing. If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+        },
+        {
+          "id": "c22-15-assess-o4",
+          "text": "Insulin binding to a synaptic vesicle",
+          "correct": false,
+          "feedback": "Incorrect: Transduction occurs at the ending; conscious perception requires brain processing. If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-15",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.15"
+      ],
+      "level": "HL",
+      "prompt": "Explain nociceptors and pain perception, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-15",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself. Capsaicin activates TRPV1 channels in some nociceptors and can produce a burning sensation.",
+      "markingPoints": [
+        "If the depolarization reaches threshold the sensory neuron fires action potentials. Neural pathways carry information to the central nervous system, and perception of pain arises through processing in the brain rather than within the skin ending itself.",
+        "Capsaicin activates TRPV1 channels in some nociceptors and can produce a burning sensation."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-mcq-16",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C2.2.16"
+      ],
+      "level": "HL",
+      "prompt": "Why is consciousness classified as emergent?",
+      "marks": 1,
+      "sectionId": "c22-16",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "options": [
+        {
+          "id": "c22-16-assess-o1",
+          "text": "Network interactions produce system properties absent from an isolated neuron",
+          "correct": true,
+          "feedback": "Correct: Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+        },
+        {
+          "id": "c22-16-assess-o2",
+          "text": "Each neuron independently generates full awareness",
+          "correct": false,
+          "feedback": "Incorrect: Conscious functions arise from interactions of many neurons. Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+        },
+        {
+          "id": "c22-16-assess-o3",
+          "text": "Consciousness requires no neuronal activity",
+          "correct": false,
+          "feedback": "Incorrect: Conscious functions arise from interactions of many neurons. Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+        },
+        {
+          "id": "c22-16-assess-o4",
+          "text": "Every action potential has identical personal meaning",
+          "correct": false,
+          "feedback": "Incorrect: Conscious functions arise from interactions of many neurons. Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-written-16",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C2.2.16"
+      ],
+      "level": "HL",
+      "prompt": "Explain consciousness as an emergent property, giving one relevant biological example. [2]",
+      "marks": 2,
+      "sectionId": "c22-16",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "answer": "Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory. A coordinated neural network can integrate visual inputs, memories and decisions in ways one isolated neuron cannot.",
+      "markingPoints": [
+        "Consciousness is described as an emergent property because it depends on coordinated interactions at the network scale. The complete neuronal explanation of subjective awareness remains an active research question; this curriculum concept does not require asserting one settled theory.",
+        "A coordinated neural network can integrate visual inputs, memories and decisions in ways one isolated neuron cannot."
+      ],
+      "review": "scientific-review"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-c22",
+      "title": "International Baccalaureate, Biology guide (first assessment 2025)",
+      "locator": "C2.2 Neural signalling, printed pp. 73–75; PDF pp. 79–81",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-c22",
+      "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+      "locator": "C2.2 Neural signalling, printed pp. 467–489; supplied PDF pp. 479–501",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    }
+  ],
+  "assets": [],
+  "summary": "Ion gradients enable signals in nerve fibres, calcium mediates neurotransmitter release, and graded postsynaptic changes determine threshold crossing. HL adds voltage-channel phases, myelination, inhibitory summation and network emergence.",
+  "review": {
+    "status": "scientific-review",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "SL/HL boundaries from IB Guide C2.2 pp. 73–75: IDs 1–7 shared; IDs 8–16 HL.",
+      "Illustrative resting potential and spike voltage are typical schematic values, not experimental data.",
+      "Neonicotinoids often activate nicotinic receptors persistently, leading to signalling disruption; avoid unqualified claim of simple receptor blockade.",
+      "Textbook C2.2 printed 467–489 / PDF 479–501; qualified review and assessment calibration pending."
+    ]
+  }
+}
