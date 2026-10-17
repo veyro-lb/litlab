@@ -783,6 +783,14 @@
             "ib-d42",
             "hodder-d42"
           ]
+        },
+        {
+          "title": "Compare harvesting and stock replacement",
+          "explanation": "In a hypothetical simplified fishery with 120 recruited fish/year and no other changes, harvest of 80 gives net +40 fish/year, whereas harvest of 150 gives −30 fish/year. These numbers are illustrative and do not establish actual sustainability: measure recruitment, natural mortality, ecological interactions and several years of environmental variation.",
+          "referenceIds": [
+            "ib-d42",
+            "hodder-d42"
+          ]
         }
       ],
       "support": {
@@ -1085,6 +1093,14 @@
             "ib-d42",
             "hodder-d42",
             "epa-nutrients"
+          ]
+        },
+        {
+          "title": "BOD and oxygen concentration are different measures",
+          "explanation": "Nitrogen and phosphate leaching can increase algal productivity. Dying algal material supports aerobic microbial decomposition, raising biochemical oxygen demand (BOD). Increased oxygen consumption can lower dissolved oxygen, causing hypoxia and animal mortality. A higher BOD is not itself a measured rise in dissolved oxygen.",
+          "referenceIds": [
+            "ib-d42",
+            "hodder-d42"
           ]
         }
       ],
@@ -2608,7 +2624,7 @@
         "D4.2.6"
       ],
       "level": "shared",
-      "prompt": "Explain sustainable harvesting with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "For an illustrative fish stock with recruitment 120/year, calculate net changes with harvest 80 and 150/year, and state one ecological limitation.",
       "marks": 3,
       "sectionId": "stability-change-6",
       "referenceIds": [
@@ -2617,9 +2633,9 @@
       ],
       "answer": "Sustainable harvesting requires removal rates that can be replenished without long-term depletion of the natural population or its ecosystem functions. Regrowth of terrestrial plant resources and recruitment to a marine fish population are examples of replacement processes, but rates vary with age, climate and reproductive conditions.\nA forest adding 200 tonnes of harvestable biomass each year cannot sustainably support repeated harvest of 300 tonnes per year under constant conditions.",
       "markingPoints": [
-        "Long-term harvest must not exceed regeneration, accounting for stock and ecosystem uncertainty.",
-        "Sustainable harvesting requires removal rates that can be replenished without long-term depletion of the natural population or its ecosystem functions.",
-        "A forest adding 200 tonnes of harvestable biomass each year cannot sustainably support repeated harvest of 300 tonnes per year under constant conditions."
+        "120 − 80 = +40 fish per year in illustrative case.",
+        "120 − 150 = −30 fish per year.",
+        "Explain how mortality/variable recruitment limits inference."
       ],
       "data": {
         "caption": "Illustrative ecosystem scenario",
