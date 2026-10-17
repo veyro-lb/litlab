@@ -2891,6 +2891,57 @@
         "Glucose-dependent insulin release illustrates negative feedback; sustained oestradiol stimulation of the LH surge illustrates positive feedback."
       ],
       "review": "scientific-review"
+    },
+    {
+      "id": "c21-data-second-messenger-20261017",
+      "paper": "2",
+      "kind": "structured",
+      "understandingIds": [
+        "C2.1.9",
+        "C2.1.10"
+      ],
+      "level": "HL",
+      "prompt": "Cultured cells with an epinephrine-sensitive Gs receptor are treated with compounds. A lab measures downstream PKA-substrate phosphorylation in arbitrary units. Use these hypothetical results to explain how a cell-permeant cAMP analogue can bypass a receptor inhibitor and state one inference the data do not prove. [5]",
+      "marks": 5,
+      "sectionId": "c21-10",
+      "referenceIds": [
+        "ib-c21",
+        "hodder-c21"
+      ],
+      "data": {
+        "caption": "Invented comparative reporter results (arbitrary units, AU), not empirical observations.",
+        "headers": [
+          "Treatment",
+          "PKA-substrate phosphorylation (AU)"
+        ],
+        "rows": [
+          [
+            "Vehicle",
+            100
+          ],
+          [
+            "Epinephrine",
+            450
+          ],
+          [
+            "Epinephrine + receptor blocker",
+            110
+          ],
+          [
+            "Cell-permeant cAMP analogue + receptor blocker",
+            420
+          ]
+        ]
+      },
+      "answer": "Epinephrine increases the downstream signal; receptor blockade prevents it, while a cell-permeant cAMP analogue restores phosphorylation downstream of the blocked receptor. The pattern is consistent with cAMP acting between receptor activation and PKA; it does not establish every molecular step or rule out off-target effects.",
+      "markingPoints": [
+        "Epinephrine raises signal from 100 to 450 AU.",
+        "Receptor inhibitor largely blocks epinephrine response (110 AU).",
+        "cAMP analogue retains a high response in the presence of receptor inhibitor (420 AU).",
+        "This is compatible with cAMP acting downstream of the receptor and upstream of PKA output.",
+        "Data alone do not prove physical binding or exclude off-target actions; appropriate controls/replicates are necessary."
+      ],
+      "review": "scientific-review"
     }
   ],
   "references": [
