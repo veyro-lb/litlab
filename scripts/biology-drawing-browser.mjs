@@ -29,10 +29,10 @@ try{
   await expect(img).toHaveAttribute('src','/biology/water/bonding-recall.svg');
   await expect.poll(()=>img.evaluate(x=>x.complete&&x.naturalWidth>0)).toBe(true);
   await page.locator('.bio-drawing-figure-head').getByRole('button',{name:'Reveal labels'}).click();
-  await expect(page.locator('.bio-drawing-identify .bio-figure img')).toHaveAttribute('src','/biology/water/bonding.svg');
+  await expect(page.locator('.bio-drawing-identify .bio-figure-image img').first()).toHaveAttribute('src','/biology/water/bonding.svg');
   await expect(page.locator('.bio-drawing-reference dt')).toHaveCount(5);
   await page.locator('.bio-drawing-figure-head').getByRole('button',{name:'Hide labels'}).click();
-  await expect(page.locator('.bio-drawing-identify .bio-figure img')).toHaveAttribute('src','/biology/water/bonding-recall.svg');
+  await expect(page.locator('.bio-drawing-identify .bio-figure-image img').first()).toHaveAttribute('src','/biology/water/bonding-recall.svg');
  });
  await test('Correct synonyms match; swapped bonding terms do not',async()=>{
   await visit(page,'#biology/topic/A1.1/drawing');
@@ -68,6 +68,7 @@ try{
  });
  await test('Figure enlargement supports keyboard and Escape restores focus',async()=>{
   await visit(page,'#biology/topic/A1.1/drawing');
+  await page.getByRole('button',{name:'Identify & label'}).click();
   const figure=page.locator('.bio-drawing-identify .bio-figure-image');
   await figure.focus();await page.keyboard.press('Enter');
   await expect(page.locator('.bio-figure-dialog[open]')).toBeVisible();
