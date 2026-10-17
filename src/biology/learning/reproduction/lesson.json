@@ -449,7 +449,9 @@
         "ib-d31",
         "hodder-d31"
       ],
-      "assets": [],
+      "assets": [
+        "d31-cycle-feedback"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -516,7 +518,13 @@
         }
       ],
       "exampleTitle": "Apply the mechanism",
-      "activityTitle": "Check your reasoning"
+      "activityTitle": "Check your reasoning",
+      "figurePlacements": [
+        {
+          "assetId": "d31-cycle-feedback",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "reproduction-6",
@@ -2502,7 +2510,25 @@
       "level": "shared"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "d31-cycle-feedback",
+      "kind": "diagram",
+      "src": "/biology/reproduction/d31-cycle-feedback.svg",
+      "alt": "Causal flowchart: pituitary FSH and LH act on the ovarian follicle; oestradiol supports the pre-ovulatory LH surge; the corpus luteum supplies progesterone, and when it regresses hormone levels fall and menstruation follows.",
+      "captionTitle": "Hormonal feedback and the menstrual cycle",
+      "interpretation": "Conceptual sequence; not a graph of concentration against cycle day. Ovulation follows the LH surge; progesterone supports the endometrium. Negative and positive feedback act at different phases.",
+      "attribution": "Original BioLab diagram, produced for this draft (2026-10-17)",
+      "license": "Original project work; no imported images",
+      "permissionEvidence": "Constructed as new SVG from biological relationships described in the guide and referenced teaching material; awaiting scientific review.",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    }
+  ],
   "summary": "Reproduction preserves continuity through gametes, fertilization and development, and generates change through recombination, assortment and gamete fusion. Hormonal coordination and compatibility systems determine when reproduction succeeds; sound evidence distinguishes mechanisms from unsupported causal claims.",
   "review": {
     "status": "source-mapped",
