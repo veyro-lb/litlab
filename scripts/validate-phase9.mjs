@@ -28,18 +28,14 @@ export function checkScientificRegressions(lessons){
  }
  return e;
 }
+const byTopicId=(id,lessons)=>lessons.find(l=>l.topicId===id);
 export function validatePhase9(){
  const errors=[],registry=read('src/biology/curriculum/registry.json'),catalog=read('src/biology/learning/catalog.json'),lessons=readNew();
- const expected=['A1.1','A1.2','B1.1','B1.2','B2.1','B2.2','B2.3','C1.1'];
- if(Object.keys(catalog).length!==8||expected.some(id=>!Object.values(catalog).some(x=>x.topicId===id)))errors.push('Expected eight accepted drafts');
- const cell=registry.find(t=>t.id==='A2.2');if(cell.availability!=='planned'||cell.lessonId||Object.values(catalog).some(x=>x.topicId==='A2.2'))errors.push('Incomplete A2.2 activated');
+ const expected=['A1.1','A1.2','A2.2','B1.1','B1.2','B2.1','B2.2','B2.3','C1.1'];
+ if(Object.keys(catalog).length!==9||expected.some(id=>!Object.values(catalog).some(x=>x.topicId===id)))errors.push('Expected nine source-mapped drafts');
+ const cell=registry.find(t=>t.id==='A2.2');if(cell.availability!=='draft'||cell.lessonId!==byTopicId('A2.2',lessons)?.id||!Object.values(catalog).some(x=>x.topicId==='A2.2'))errors.push('A2.2 draft catalog/registry drift');
  for(const l of lessons){
   const t=structuredClone(registry.find(t=>t.id===l.topicId));
-  if(l.topicId==='A2.2'){
-   // Validate the imported candidate contract without changing live availability.
-   const titles=Object.fromEntries(fs.readFileSync(path.join(root,'docs/biology/phase8/coverage-ledger.md'),'utf8').split('\n').filter(s=>s.startsWith('| A2.2.')).map(s=>{const a=s.split('|').map(x=>x.trim());return [a[1],a[2]]}));
-   t.lessonId=l.id;for(const u of t.understandings)u.studentTitle=titles[u.id];
-  }
   errors.push(...validateLesson(l,t).map(e=>l.topicId+': '+e));
  }
  errors.push(...checkScientificRegressions(lessons));
@@ -49,6 +45,6 @@ export function validatePhase9(){
  const provenance=read('docs/biology/phase9/MICROSCOPY_PROVENANCE.json');
  for(const p of provenance){const file=path.join(root,'public/biology/cell-structure/cucumber-leaf-tem.webp');if(createHash('sha256').update(fs.readFileSync(file)).digest('hex')!==p.localWebpSHA256||!p.pixelEqualityVerified||p.humanReviewer!==null)errors.push('Microscopy provenance integrity');}
  const active=registry.filter(t=>t.availability==='draft');
- return {errors,summary:{topics:registry.length,understandings:registry.reduce((n,t)=>n+t.understandings.length,0),activeTopics:active.length,activeUnderstandings:active.reduce((n,t)=>n+t.understandings.length,0),shared:active.flatMap(t=>t.understandings).filter(u=>u.level==='shared').length,HL:active.flatMap(t=>t.understandings).filter(u=>u.level==='HL').length,importedIncomplete:['A2.2'],registryDigest:digest}};
+ return {errors,summary:{topics:registry.length,understandings:registry.reduce((n,t)=>n+t.understandings.length,0),activeTopics:active.length,activeUnderstandings:active.reduce((n,t)=>n+t.understandings.length,0),shared:active.flatMap(t=>t.understandings).filter(u=>u.level==='shared').length,HL:active.flatMap(t=>t.understandings).filter(u=>u.level==='HL').length,requiresQualifiedReview:active.filter(t=>t.id==='A2.2').map(t=>t.id),registryDigest:digest}};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){const r=validatePhase9();console.log(JSON.stringify(r,null,2));if(r.errors.length)process.exitCode=1;}
