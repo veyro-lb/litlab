@@ -1,0 +1,75 @@
+name: BioLab Premium Student Interface QA
+on:
+  push:
+    branches:
+      - feature/biolab-premium-student-interface-20261017
+permissions:
+  contents: read
+jobs:
+  verify:
+    name: Quality, build, browser and screenshots
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify branch and checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "feature/biolab-premium-student-interface-20261017" || test -n "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          git rev-parse HEAD
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Site quality
+        run: npm run quality
+      - name: Biology structural and readiness validation
+        run: |
+          node scripts/biology/full-course/readiness-audit.mjs
+          node scripts/validate-biology.mjs
+          node scripts/validate-lessons.mjs
+          node --test scripts/biology/full-course/integration-negative.test.mjs
+      - name: Production build
+        run: npm run build
+      - name: Build exact source-branch baseline for screenshot comparison
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .qa-baseline
+          git archive 2c321ae547baa2a97294728b337a4dfa46e64408 | tar -x -C .qa-baseline
+          ln -s ../node_modules .qa-baseline/node_modules
+          npm run build --prefix .qa-baseline
+      - name: Isolated browser interactions and responsive screenshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/premium-interface node_modules/.vite-temp .qa-baseline/node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm --network none --cap-drop ALL             --user "$(id -u):$(id -g)" --env HOME=/tmp             --security-opt no-new-privileges --read-only             --tmpfs /tmp:rw,nosuid,size=768m --shm-size=1g             --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly"             --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts"             --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp"             --workdir /work mcr.microsoft.com/playwright:v1.56.1-noble             bash -euo pipefail -c '
+              export CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              test -n "$CHROME_BIN"
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/premium-interface/preview.log 2>&1 &
+              npm run preview --prefix .qa-baseline -- --host 127.0.0.1 --port 4174 > qa-artifacts/premium-interface/baseline.log 2>&1 &
+              for attempt in $(seq 1 40); do
+                if node -e "Promise.all([fetch(\"http://127.0.0.1:4173/\"),fetch(\"http://127.0.0.1:4174/\")]).then(r=>process.exit(r.every(x=>x.ok)?0:1)).catch(()=>process.exit(1))"; then break; fi
+                sleep 1
+              done
+              node scripts/biology-premium-interface-smoke.mjs
+            '
+      - name: Upload actual browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-premium-interface-evidence
+          path: qa-artifacts/premium-interface/
+          if-no-files-found: warn
+          retention-days: 14
