@@ -337,7 +337,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What biological mechanism explains hormonal control of blood glucose, and what changes when the stimulus is reversed?",
-      "explanation": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.\n\nWhen blood glucose drops, pancreatic alpha cells increase glucagon secretion. Glucagon acts chiefly on the liver, stimulating glycogen breakdown and glucose production/release to help restore blood glucose. Both loops provide negative feedback, but the receptor–control functions reside largely in pancreatic endocrine cells rather than a simplistic single brain centre.",
+      "explanation": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.\n\nWhen blood glucose drops, pancreatic alpha cells increase glucagon secretion. Glucagon acts chiefly on the liver, stimulating glycogen breakdown and glucose production/release to help restore blood glucose. Both loops provide negative feedback, but the receptor–control functions reside largely in pancreatic endocrine cells rather than a simplistic single brain centre.\n\nA rise in blood glucose stimulates pancreatic beta-cell insulin release, promoting uptake and glycogen storage to lower blood glucose. A fall stimulates alpha-cell glucagon secretion, increasing hepatic glycogen breakdown and glucose production. Each response opposes the starting deviation; glucagon does not cause skeletal muscle to release free glucose into blood.",
       "revisionSummary": "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
       "terms": [
         "Hormonal control of blood glucose"
@@ -363,13 +363,22 @@
             "ib-d33",
             "hodder-d33"
           ]
+        },
+        {
+          "claim": "A rise in blood glucose stimulates pancreatic beta-cell insulin release, promoting uptake and glycogen storage to lower blood glucose. A fall stimulates alpha-cell glucagon secretion, increasing hepatic glycogen breakdown and glucose production. Each response opposes the starting deviation; glucagon does not cause skeletal muscle to release free glucose into blood.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
         }
       ],
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "assets": [],
+      "assets": [
+        "d33-glucose-feedback"
+      ],
       "teachingBlocks": [
         {
           "title": "Hormonal correction of blood glucose",
@@ -382,6 +391,14 @@
         {
           "title": "Feedback, consequences and limits",
           "explanation": "When blood glucose drops, pancreatic alpha cells increase glucagon secretion. Glucagon acts chiefly on the liver, stimulating glycogen breakdown and glucose production/release to help restore blood glucose. Both loops provide negative feedback, but the receptor–control functions reside largely in pancreatic endocrine cells rather than a simplistic single brain centre.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Compare insulin and glucagon loops",
+          "explanation": "A rise in blood glucose stimulates pancreatic beta-cell insulin release, promoting uptake and glycogen storage to lower blood glucose. A fall stimulates alpha-cell glucagon secretion, increasing hepatic glycogen breakdown and glucose production. Each response opposes the starting deviation; glucagon does not cause skeletal muscle to release free glucose into blood.",
           "referenceIds": [
             "ib-d33",
             "hodder-d33"
@@ -1085,7 +1102,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What biological mechanism explains filtration and proximal reabsorption, and what changes when the stimulus is reversed?",
-      "explanation": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.\n\nSodium reabsorption helps establish gradients enabling cotransport of solutes, while water follows osmotically. Filtration is therefore bulk, size/charge-selective entry into the nephron, whereas reabsorption selects substances to retain. Tubular secretion can add unwanted solutes to the lumen later. The eventual urine composition depends on all of these processes, not glomerular filtration alone.",
+      "explanation": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.\n\nSodium reabsorption helps establish gradients enabling cotransport of solutes, while water follows osmotically. Filtration is therefore bulk, size/charge-selective entry into the nephron, whereas reabsorption selects substances to retain. Tubular secretion can add unwanted solutes to the lumen later. The eventual urine composition depends on all of these processes, not glomerular filtration alone.\n\nGlomerular hydrostatic pressure drives water and small solutes through the filtration barrier into Bowman's space, while cells and most proteins remain in the blood. The proximal tubule then selectively reabsorbs useful solutes; water follows osmotically. Do not describe filtration as active transport of glucose.",
       "revisionSummary": "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
       "terms": [
         "Filtration and proximal reabsorption"
@@ -1113,6 +1130,13 @@
             "hodder-d33",
             "niddk-kidney"
           ]
+        },
+        {
+          "claim": "Glomerular hydrostatic pressure drives water and small solutes through the filtration barrier into Bowman's space, while cells and most proteins remain in the blood. The proximal tubule then selectively reabsorbs useful solutes; water follows osmotically. Do not describe filtration as active transport of glucose.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
         }
       ],
       "referenceIds": [
@@ -1138,6 +1162,14 @@
             "ib-d33",
             "hodder-d33",
             "niddk-kidney"
+          ]
+        },
+        {
+          "title": "Filtration versus selective reabsorption",
+          "explanation": "Glomerular hydrostatic pressure drives water and small solutes through the filtration barrier into Bowman's space, while cells and most proteins remain in the blood. The proximal tubule then selectively reabsorbs useful solutes; water follows osmotically. Do not describe filtration as active transport of glucose.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
           ]
         }
       ],
@@ -1364,7 +1396,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What biological mechanism explains adh and water recovery in collecting ducts, and what changes when the stimulus is reversed?",
-      "explanation": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.\n\nMore water can then enter cells from tubular fluid and return to blood across basolateral pathways down the osmotic gradient established in the medulla. Urine becomes smaller in volume and more concentrated, helping reverse the original osmotic rise. When plasma osmotic concentration falls, ADH secretion decreases, aquaporin-2 channels are internalized and more dilute urine can be excreted. This is a two-direction negative-feedback system.",
+      "explanation": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.\n\nMore water can then enter cells from tubular fluid and return to blood across basolateral pathways down the osmotic gradient established in the medulla. Urine becomes smaller in volume and more concentrated, helping reverse the original osmotic rise. When plasma osmotic concentration falls, ADH secretion decreases, aquaporin-2 channels are internalized and more dilute urine can be excreted. This is a two-direction negative-feedback system.\n\nHigh plasma osmolality activates hypothalamic osmoreceptors. The posterior pituitary releases ADH, which stimulates aquaporin-2 insertion into the apical membrane of collecting-duct cells. Water then follows an existing medullary gradient by osmosis, producing more concentrated urine; low ADH reduces collecting-duct water permeability.",
       "revisionSummary": "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
       "terms": [
         "ADH and water recovery in collecting ducts"
@@ -1390,6 +1422,13 @@
             "ib-d33",
             "hodder-d33"
           ]
+        },
+        {
+          "claim": "High plasma osmolality activates hypothalamic osmoreceptors. The posterior pituitary releases ADH, which stimulates aquaporin-2 insertion into the apical membrane of collecting-duct cells. Water then follows an existing medullary gradient by osmosis, producing more concentrated urine; low ADH reduces collecting-duct water permeability.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
         }
       ],
       "referenceIds": [
@@ -1411,6 +1450,14 @@
         {
           "title": "Feedback, consequences and limits",
           "explanation": "More water can then enter cells from tubular fluid and return to blood across basolateral pathways down the osmotic gradient established in the medulla. Urine becomes smaller in volume and more concentrated, helping reverse the original osmotic rise. When plasma osmotic concentration falls, ADH secretion decreases, aquaporin-2 channels are internalized and more dilute urine can be excreted. This is a two-direction negative-feedback system.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "ADH pathway from stimulus to effect",
+          "explanation": "High plasma osmolality activates hypothalamic osmoreceptors. The posterior pituitary releases ADH, which stimulates aquaporin-2 insertion into the apical membrane of collecting-duct cells. Water then follows an existing medullary gradient by osmosis, producing more concentrated urine; low ADH reduces collecting-duct water permeability.",
           "referenceIds": [
             "ib-d33",
             "hodder-d33"
@@ -1736,10 +1783,10 @@
       "answer": "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance. Human examples include core temperature, blood glucose concentration, blood pH and plasma osmotic concentration. Homeostasis does not mean that values never change: each regulated variable fluctuates about a set point or operating range, and different physiological states may change the target.\nBlood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage.",
       "markingPoints": [
         "Homeostasis maintains controlled ranges, not perfectly constant values.",
-        "Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage.",
-        "Living systems have normal fluctuations while feedback keeps variables within physiologically acceptable limits."
+        "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance.",
+        "Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-2",
@@ -1804,8 +1851,8 @@
       "answer": "A negative-feedback loop begins when a controlled variable deviates from a set point. A receptor or sensor detects the change and conveys information to a control system, which compares the measured value with the desired state and signals effectors. The effector produces a response that opposes the original deviation, reducing the error. For a variable above its set point, the response tends to lower it; for a variable below, the response tends to raise it.\nCore temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
       "markingPoints": [
         "A response that reduces the original deviation is negative feedback.",
-        "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
-        "Negative refers to opposing an error; an effector may either increase or decrease its activity."
+        "A negative-feedback loop begins when a controlled variable deviates from a set point.",
+        "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature."
       ],
       "data": {
         "caption": "Conceptual stimulus-response pair",
@@ -1820,7 +1867,7 @@
           ]
         ]
       },
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-3",
@@ -1875,7 +1922,7 @@
         "D3.3.3"
       ],
       "level": "shared",
-      "prompt": "Explain the sequence of causes and effects in hormonal control of blood glucose, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Explain how pancreatic beta and alpha cells, their hormones and target organs oppose glucose changes after meals and during fasting.",
       "marks": 3,
       "sectionId": "homeostasis-3",
       "referenceIds": [
@@ -1884,9 +1931,9 @@
       ],
       "answer": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.\nPost-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
       "markingPoints": [
-        "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
-        "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
-        "They usually have opposing net effects on blood glucose and respond to different glucose states."
+        "Beta cells release insulin with glucose elevation.",
+        "Insulin promotes uptake/storage and lowers blood glucose.",
+        "Alpha cells release glucagon with glucose decline, increasing hepatic glucose output."
       ],
       "data": {
         "caption": "Conceptual stimulus-response pair",
@@ -1901,7 +1948,7 @@
           ]
         ]
       },
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-4",
@@ -1968,10 +2015,10 @@
       "answer": "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin. Without sufficient insulin, blood glucose cannot be regulated normally and affected people need replacement insulin. The condition is not caused simply by eating sugar and currently cannot reliably be prevented by lifestyle measures. Type 2 diabetes commonly begins with decreased responsiveness of liver, muscle and adipose tissue to insulin and may progress to insufficient beta-cell output.\nA person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand.",
       "markingPoints": [
         "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
-        "A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand.",
-        "Type 2 has multiple biological and social risk factors; individual blame misrepresents causation."
+        "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin.",
+        "A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-5",
@@ -2036,10 +2083,10 @@
       "answer": "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature. Hypothalamic thermoregulatory circuits integrate these signals with the defended core-temperature range and coordinate effectors through autonomic and somatic pathways. Increased heat activates skin vasodilation and sweating; cooling activates heat conservation and production pathways such as vasoconstriction and shivering. Each response reduces the temperature deviation.\nCore temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation.",
       "markingPoints": [
         "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
-        "Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation.",
-        "Fast neural responses and slower hormonal metabolic effects contribute on different timescales."
+        "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature.",
+        "Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-6",
@@ -2104,10 +2151,10 @@
       "answer": "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible. In cold conditions, vasoconstriction reduces skin heat transfer while involuntary skeletal-muscle shivering generates heat through ATP use. Brown adipose tissue can release energy as heat through mitochondrial uncoupling protein UCP1 rather than driving ATP synthesis. Erection of body hairs can trap insulating air in furry mammals but offers little insulation for sparsely haired humans.\nHigh humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise.",
       "markingPoints": [
         "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
-        "High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise.",
-        "Evaporation of liquid water from the skin consumes heat and drives cooling."
+        "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible.",
+        "High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-7",
@@ -2174,10 +2221,10 @@
       "answer": "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance. The kidneys perform both through filtration, selective reabsorption, secretion and adjustable water recovery. Plasma osmotic concentration is measured in osmoles per litre (osmol L⁻¹), often expressed clinically as mOsm/kg for osmolality; these units are not interchangeable without assumptions.\nFollowing dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated.",
       "markingPoints": [
         "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
-        "Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated.",
-        "Urine concentration can rise because proportionally more water is recovered from the filtrate."
+        "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance.",
+        "Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-8",
@@ -2244,10 +2291,10 @@
       "answer": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.\nGlucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded.",
       "markingPoints": [
         "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
-        "Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded.",
-        "Filtered solutes can be selectively reabsorbed before urine formation."
+        "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space.",
+        "Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-9",
@@ -2312,10 +2359,10 @@
       "answer": "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla. The descending limb is permeable to water, allowing water to leave into progressively more concentrated medullary tissue. Opposing flows in the limbs act as a countercurrent multiplier, establishing a corticomedullary osmotic gradient.\nAs salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct.",
       "markingPoints": [
         "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
-        "As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct.",
-        "Water moves by osmosis; ATP-dependent solute transport creates the driving gradient."
+        "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla.",
+        "As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-10",
@@ -2380,8 +2427,8 @@
       "answer": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.\nHigh plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
       "markingPoints": [
         "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
-        "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
-        "ADH changes membrane permeability, allowing osmosis along the existing gradient."
+        "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration.",
+        "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases."
       ],
       "data": {
         "caption": "Conceptual stimulus-response pair",
@@ -2396,7 +2443,7 @@
           ]
         ]
       },
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
     {
       "id": "d33-mcq-11",
@@ -2461,10 +2508,10 @@
       "answer": "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output. During vigorous exercise, blood flow to working skeletal muscle rises markedly, while splanchnic (including gut) and renal perfusion commonly decline relative to resting conditions. Cerebral blood supply remains a critical priority and is regulated tightly, although it can vary with activity and carbon dioxide concentration.\nDuring strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs.",
       "markingPoints": [
         "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
-        "During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs.",
-        "Acute changes in vessel tone and cardiac output alter flow within seconds or minutes."
+        "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output.",
+        "During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs."
       ],
-      "review": "source-mapped"
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     }
   ],
   "references": [
@@ -2533,6 +2580,23 @@
       ],
       "level": "HL",
       "review": "source-mapped"
+    },
+    {
+      "id": "d33-glucose-feedback",
+      "kind": "diagram",
+      "src": "/biology/homeostasis/d33-glucose-feedback.svg",
+      "alt": "Two parallel negative-feedback pathways from high or low blood glucose through pancreatic cells and hormones to target-organ responses.",
+      "captionTitle": "Opposing insulin and glucagon responses",
+      "interpretation": "Two parallel negative-feedback pathways from high or low blood glucose through pancreatic cells and hormones to target-organ responses.",
+      "attribution": "Original BioLab scientific SVG, 2026-10-17",
+      "license": "Original project work; no textbook figure reused",
+      "permissionEvidence": "Created from original geometric shapes and explanatory labels; independent visual/scientific review pending",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "level": "shared",
+      "review": "sprint9-source-mapped"
     }
   ],
   "summary": "Homeostasis uses sensors and negative feedback to keep variables within defended ranges. Pancreatic hormones, neural and thyroid thermoregulation, renal tubular transport and ADH illustrate distinct but coordinated control mechanisms.",
@@ -2546,7 +2610,8 @@
       "Diabetes material provides educational information, not individualized medical guidance.",
       "Relative perfusion differences are qualitative, avoiding unsupported universal percentages.",
       "Original SVG figures and test cases still require executed automated, visual and accessibility checks.",
-      "Assessment quality update: correct-option positions balanced across four choices; distractor feedback and biological content retained. Qualified examiner review remains pending."
+      "Assessment quality update: correct-option positions balanced across four choices; distractor feedback and biological content retained. Qualified examiner review remains pending.",
+      "Sprint 9: all understanding-level structured-response marking points replaced with content-specific scientific statements; independent content and examiner review outstanding."
     ]
   }
 }
