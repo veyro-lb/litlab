@@ -4400,6 +4400,68 @@
         "Penicillin acylates bacterial PBP transpeptidase; altered PBPs can confer resistance."
       ],
       "review": "scientific-review"
+    },
+    {
+      "id": "c11-data-inhibition-comparison-20261017",
+      "paper": "1B",
+      "kind": "written",
+      "understandingIds": [
+        "C1.1.14",
+        "C1.1.15"
+      ],
+      "level": "HL",
+      "prompt": "The table contains invented illustrative initial enzyme rates at fixed enzyme concentration, temperature and pH. Compare inhibition at low and high substrate concentration. Identify the pattern consistent with reversible competitive inhibition and explain why rate data alone cannot establish the binding site. [5]",
+      "marks": 5,
+      "sectionId": "c11-15",
+      "referenceIds": [
+        "ib-c11",
+        "hodder-c11",
+        "ncbi-allostery"
+      ],
+      "data": {
+        "caption": "Hypothetical initial-rate model; not experimental measurements. Rates are μmol product min⁻¹.",
+        "headers": [
+          "Substrate (mmol L⁻¹)",
+          "No inhibitor (μmol min⁻¹)",
+          "Inhibitor A (μmol min⁻¹)",
+          "Inhibitor B (μmol min⁻¹)"
+        ],
+        "rows": [
+          [
+            0.5,
+            2,
+            1.1,
+            1
+          ],
+          [
+            1,
+            3.4,
+            2.2,
+            1.7
+          ],
+          [
+            4,
+            6.4,
+            5.2,
+            3.2
+          ],
+          [
+            16,
+            7.8,
+            7.4,
+            3.9
+          ]
+        ]
+      },
+      "answer": "Inhibitor A fits reversible competition: increasing substrate largely reduces its effect (7.8 versus 7.4 μmol min⁻¹ at 16 mmol L⁻¹); B retains an approximately 50% reduction at high substrate, compatible with a noncompetitive model. A pattern is not direct proof of molecular binding.",
+      "markingPoints": [
+        "At low substrate, rates with inhibitors A and B are both below uninhibited rate.",
+        "At high substrate, inhibitor A approaches the uninhibited rate (7.4 versus 7.8 μmol min⁻¹).",
+        "Increased substrate can outcompete a reversible active-site inhibitor, so A is the competitive-like pattern.",
+        "B maintains lower rate at high substrate (3.9 versus 7.8 μmol min⁻¹), consistent with reduced effective catalytic capacity.",
+        "Curve shape supports a model but cannot alone prove inhibitor binding location; independent binding or mechanistic evidence is needed."
+      ],
+      "review": "scientific-review"
     }
   ],
   "references": [
