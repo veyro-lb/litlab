@@ -77,13 +77,13 @@
               "id": "c32-1-o3",
               "text": "Every microorganism causes human disease.",
               "correct": false,
-              "feedback": "Not quite. Revisit cause and evidence and compare the mechanism to this option."
+              "feedback": "Microorganisms include many harmless or beneficial species; pathogenicity is not universal."
             },
             {
               "id": "c32-1-o4",
               "text": "All infections immediately cause symptoms.",
               "correct": false,
-              "feedback": "Not quite. Revisit cause and evidence and compare the mechanism to this option."
+              "feedback": "Some infections can be asymptomatic. Symptoms do not define whether a microbe has infected a host."
             },
             {
               "id": "c32-1-o1",
@@ -95,7 +95,7 @@
               "id": "c32-1-o2",
               "text": "Archaea cannot undergo metabolism.",
               "correct": false,
-              "feedback": "Not quite. Revisit cause and evidence and compare the mechanism to this option."
+              "feedback": "Archaea are metabolically diverse; the absence of confirmed human archaeal pathogens is not evidence of an inability to metabolize."
             }
           ]
         }
@@ -212,19 +212,19 @@
               "id": "c32-2-o2",
               "text": "Damage makes all antibodies disappear.",
               "correct": false,
-              "feedback": "Not quite. Revisit the first line of defence and compare the mechanism to this option."
+              "feedback": "Damage to one epithelial barrier does not erase circulating antibodies. It makes invasion more likely."
             },
             {
               "id": "c32-2-o3",
               "text": "Cilia make pathogens replicate faster.",
               "correct": false,
-              "feedback": "Not quite. Revisit the first line of defence and compare the mechanism to this option."
+              "feedback": "Cilia move mucus and trapped particles away from vulnerable airways; they do not drive pathogen reproduction."
             },
             {
               "id": "c32-2-o4",
               "text": "Mucus normally transports microbes deeper into tissues.",
               "correct": false,
-              "feedback": "Not quite. Revisit the first line of defence and compare the mechanism to this option."
+              "feedback": "In the respiratory tract, ciliary movement normally moves mucus toward the throat, not deeper into the alveoli."
             }
           ]
         }
@@ -335,7 +335,7 @@
               "id": "c32-3-o4",
               "text": "Lymphocytes convert collagen into thrombin.",
               "correct": false,
-              "feedback": "Not quite. Revisit the clotting sequence and compare the mechanism to this option."
+              "feedback": "Lymphocytes make specific immune responses; they do not convert collagen to thrombin during clot formation."
             },
             {
               "id": "c32-3-o1",
@@ -347,13 +347,13 @@
               "id": "c32-3-o2",
               "text": "Fibrin is converted into haemoglobin.",
               "correct": false,
-              "feedback": "Not quite. Revisit the clotting sequence and compare the mechanism to this option."
+              "feedback": "Fibrin is the insoluble product formed from fibrinogen, not a precursor of haemoglobin."
             },
             {
               "id": "c32-3-o3",
               "text": "Antibodies convert platelets into erythrocytes.",
               "correct": false,
-              "feedback": "Not quite. Revisit the clotting sequence and compare the mechanism to this option."
+              "feedback": "Antibodies do not transform platelets into red blood cells. Platelet-associated factors initiate the clotting cascade."
             }
           ]
         }
@@ -485,19 +485,19 @@
               "id": "c32-4-o2",
               "text": "The presence of blood in the body.",
               "correct": false,
-              "feedback": "Not quite. Revisit specificity and memory and compare the mechanism to this option."
+              "feedback": "Blood transports immune cells, but its presence cannot distinguish innate from adaptive mechanisms."
             },
             {
               "id": "c32-4-o3",
               "text": "The ability to recognize any surface.",
               "correct": false,
-              "feedback": "Not quite. Revisit specificity and memory and compare the mechanism to this option."
+              "feedback": "Innate receptors respond broadly; adaptive receptors are antigen-specific, not able to recognize literally any surface."
             },
             {
               "id": "c32-4-o4",
               "text": "The existence of a physical skin barrier.",
               "correct": false,
-              "feedback": "Not quite. Revisit specificity and memory and compare the mechanism to this option."
+              "feedback": "Skin is a physical first-line barrier, whereas immunological memory comes from adaptive lymphocytes."
             },
             {
               "id": "c32-4-o1",
@@ -643,13 +643,13 @@
               "id": "c32-5-o3",
               "text": "Only after an antibody becomes a memory cell.",
               "correct": false,
-              "feedback": "Not quite. Revisit the sequence inside a phagocyte and compare the mechanism to this option."
+              "feedback": "Memory cells belong to adaptive immunity; lysosomal digestion occurs after a phagocyte has internalized its prey."
             },
             {
               "id": "c32-5-o4",
               "text": "During bacterial reproduction outside the phagocyte.",
               "correct": false,
-              "feedback": "Not quite. Revisit the sequence inside a phagocyte and compare the mechanism to this option."
+              "feedback": "Digestion occurs in the phagocyte's vesicular compartments, not by lysosomal enzymes acting on bacteria reproducing outside it."
             },
             {
               "id": "c32-5-o1",
@@ -661,7 +661,7 @@
               "id": "c32-5-o2",
               "text": "Before the cell identifies any target.",
               "correct": false,
-              "feedback": "Not quite. Revisit the sequence inside a phagocyte and compare the mechanism to this option."
+              "feedback": "Recognition and membrane engulfment come before delivery of lysosomal enzymes to the enclosed microbe."
             }
           ]
         }
@@ -715,7 +715,33 @@
             "explanation": "Phagocytes move to infection, swallow microbes and digest them."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Phagocytosis: recognition to digestion",
+          "afterBlock": 0,
+          "note": "Conceptual sequence; a phagocyte digests microbes inside vesicles rather than secreting antibodies.",
+          "steps": [
+            {
+              "title": "Travel",
+              "description": "Phagocyte leaves the blood and moves by amoeboid motion toward infected tissue."
+            },
+            {
+              "title": "Recognize",
+              "description": "Surface cues on the pathogen prompt the cell to extend its membrane."
+            },
+            {
+              "title": "Engulf",
+              "description": "The membrane encloses the microorganism in an intracellular vesicle."
+            },
+            {
+              "title": "Digest",
+              "description": "Lysosomal enzymes act on the internalized microbe and its components."
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "c32-6",
@@ -778,19 +804,19 @@
               "id": "c32-6-o2",
               "text": "Each lymph node contains only one antibody.",
               "correct": false,
-              "feedback": "Not quite. Revisit repertoire and cooperation and compare the mechanism to this option."
+              "feedback": "A lymph node contains many lymphocytes with different receptor specificities, not a single antibody type."
             },
             {
               "id": "c32-6-o3",
               "text": "One B-cell changes the structure of every pathogen.",
               "correct": false,
-              "feedback": "Not quite. Revisit repertoire and cooperation and compare the mechanism to this option."
+              "feedback": "B-cell receptors recognize antigens; they do not remodel every pathogen into a different species."
             },
             {
               "id": "c32-6-o4",
               "text": "B-cells are needed solely for blood clotting.",
               "correct": false,
-              "feedback": "Not quite. Revisit repertoire and cooperation and compare the mechanism to this option."
+              "feedback": "B-cell clonal selection drives antibody responses, not the physical coagulation of blood."
             }
           ]
         }
@@ -844,7 +870,42 @@
             "explanation": "Many different B-cell clones let us recognize many different antigens."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Different lymphocytes, different roles",
+          "afterBlock": 0,
+          "note": "Functional comparison in this topic; plasma and memory cells develop from selected B-cell clones.",
+          "headers": [
+            "Cell",
+            "Main role",
+            "What makes it important"
+          ],
+          "rows": [
+            [
+              "Antigen-specific B-cell",
+              "Recognizes its matching antigen",
+              "Can activate and expand after suitable helper signals"
+            ],
+            [
+              "Helper T-cell",
+              "Cooperates in B-cell activation",
+              "Supports matching B-cell responses"
+            ],
+            [
+              "Plasma cell",
+              "Secretes matching antibodies",
+              "Provides large amounts of antibody during a response"
+            ],
+            [
+              "Memory B-cell",
+              "Persists after an immune response",
+              "Supports a faster response to the same antigen later"
+            ]
+          ]
+        }
+      ]
     },
     {
       "id": "c32-7",
@@ -901,19 +962,19 @@
               "id": "c32-7-o2",
               "text": "Erythrocytes reproduce like bacteria in the recipient.",
               "correct": false,
-              "feedback": "Not quite. Revisit molecular recognition and compare the mechanism to this option."
+              "feedback": "Mature human erythrocytes do not reproduce in the recipient; transfusion reactions involve surface antigen incompatibility."
             },
             {
               "id": "c32-7-o3",
               "text": "Red cells secrete viral proteins.",
               "correct": false,
-              "feedback": "Not quite. Revisit molecular recognition and compare the mechanism to this option."
+              "feedback": "Erythrocyte blood-group antigens are not viral proteins secreted by donor cells."
             },
             {
               "id": "c32-7-o4",
               "text": "All donor red cells contain infectious viruses.",
               "correct": false,
-              "feedback": "Not quite. Revisit molecular recognition and compare the mechanism to this option."
+              "feedback": "Transfusion incompatibility can occur without infection, due to recipient recognition of donor blood-group antigens."
             },
             {
               "id": "c32-7-o1",
@@ -1030,7 +1091,7 @@
               "id": "c32-8-o4",
               "text": "B-cell destruction and immediate replacement by red blood cells.",
               "correct": false,
-              "feedback": "Not quite. Revisit coincident antigen recognition and compare the mechanism to this option."
+              "feedback": "Recognition and activation do not require destroying the B-cell or turning it into an erythrocyte."
             },
             {
               "id": "c32-8-o1",
@@ -1042,13 +1103,13 @@
               "id": "c32-8-o2",
               "text": "Platelet activation and fibrin formation.",
               "correct": false,
-              "feedback": "Not quite. Revisit coincident antigen recognition and compare the mechanism to this option."
+              "feedback": "Platelets and fibrin act in wound closure; they do not supply the antigen-matched helper T-cell signal."
             },
             {
               "id": "c32-8-o3",
               "text": "Skin keratinization and mucus secretion.",
               "correct": false,
-              "feedback": "Not quite. Revisit coincident antigen recognition and compare the mechanism to this option."
+              "feedback": "Skin and mucus prevent entry but do not provide the antigen-specific cell contact required for B-cell activation."
             }
           ]
         }
@@ -1180,13 +1241,13 @@
               "id": "c32-9-o3",
               "text": "To remove the antigen from the DNA of the lymphocyte.",
               "correct": false,
-              "feedback": "Not quite. Revisit selection and amplification and compare the mechanism to this option."
+              "feedback": "Clonal expansion increases the population of correctly selected cells; it does not delete the antigen from their DNA."
             },
             {
               "id": "c32-9-o4",
               "text": "To make all antibody-binding sites identical across all clones.",
               "correct": false,
-              "feedback": "Not quite. Revisit selection and amplification and compare the mechanism to this option."
+              "feedback": "Clones share specificity with their parent, but unrelated B-cell clones need not have identical antibody-binding sites."
             },
             {
               "id": "c32-9-o1",
@@ -1198,7 +1259,7 @@
               "id": "c32-9-o2",
               "text": "To produce erythrocytes for the clot.",
               "correct": false,
-              "feedback": "Not quite. Revisit selection and amplification and compare the mechanism to this option."
+              "feedback": "Erythrocytes arise by blood-cell development, not from dividing antibody-activated B lymphocytes."
             }
           ]
         }
@@ -1330,19 +1391,19 @@
               "id": "c32-10-o2",
               "text": "They convert all viruses into bacteria.",
               "correct": false,
-              "feedback": "Not quite. Revisit long-lived specific protection and compare the mechanism to this option."
+              "feedback": "Memory B-cells do not change viral identity; they support a targeted response to a previously encountered antigen."
             },
             {
               "id": "c32-10-o3",
               "text": "They replace skin and mucous membranes.",
               "correct": false,
-              "feedback": "Not quite. Revisit long-lived specific protection and compare the mechanism to this option."
+              "feedback": "Physical barriers remain important, but memory cells do not replace epithelial tissue."
             },
             {
               "id": "c32-10-o4",
               "text": "They remove every pathogen before it enters the body.",
               "correct": false,
-              "feedback": "Not quite. Revisit long-lived specific protection and compare the mechanism to this option."
+              "feedback": "A pathogen may enter despite immunity; memory usually speeds its subsequent control or elimination."
             },
             {
               "id": "c32-10-o1",
@@ -1465,19 +1526,19 @@
               "id": "c32-11-o2",
               "text": "Sharing a classroom desk.",
               "correct": false,
-              "feedback": "Not quite. Revisit risk depends on exposure and compare the mechanism to this option."
+              "feedback": "An ordinary desk is not a route for infectious HIV-containing body fluids to enter another person's bloodstream or mucosa."
             },
             {
               "id": "c32-11-o3",
               "text": "Speaking to another person across a table.",
               "correct": false,
-              "feedback": "Not quite. Revisit risk depends on exposure and compare the mechanism to this option."
+              "feedback": "HIV does not spread through conversation or the air. It requires particular routes involving infectious body fluids."
             },
             {
               "id": "c32-11-o4",
               "text": "Shaking hands.",
               "correct": false,
-              "feedback": "Not quite. Revisit risk depends on exposure and compare the mechanism to this option."
+              "feedback": "Intact-skin handshakes do not provide the body-fluid exposure needed for HIV transmission."
             }
           ]
         }
@@ -1588,7 +1649,7 @@
               "id": "c32-12-o4",
               "text": "Viruses are converted into harmless antigens.",
               "correct": false,
-              "feedback": "Not quite. Revisit immune coordination and disease and compare the mechanism to this option."
+              "feedback": "Antigens are immune recognition targets; HIV does not protect the host by converting viruses into harmless antigens."
             },
             {
               "id": "c32-12-o1",
@@ -1600,13 +1661,13 @@
               "id": "c32-12-o2",
               "text": "All skin cells cease to divide immediately.",
               "correct": false,
-              "feedback": "Not quite. Revisit immune coordination and disease and compare the mechanism to this option."
+              "feedback": "HIV impairs selected immune cells, particularly CD4 helper T-cells, rather than halting all skin-cell division."
             },
             {
               "id": "c32-12-o3",
               "text": "Blood can no longer contain plasma.",
               "correct": false,
-              "feedback": "Not quite. Revisit immune coordination and disease and compare the mechanism to this option."
+              "feedback": "Blood retains plasma in HIV infection; the important problem is loss or dysfunction of immune coordination."
             }
           ]
         }
@@ -1660,7 +1721,37 @@
             "explanation": "HIV weakens helper T-cell coordination and may progress to AIDS without treatment."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "HIV infection and AIDS are not synonyms",
+          "afterBlock": 1,
+          "note": "Untreated infection may progress, but antiretroviral treatment can prevent or delay advanced immune deficiency.",
+          "headers": [
+            "Feature",
+            "HIV infection",
+            "AIDS"
+          ],
+          "rows": [
+            [
+              "Meaning",
+              "Infection with human immunodeficiency virus",
+              "Advanced immune-deficiency syndrome associated with HIV"
+            ],
+            [
+              "Immune status",
+              "May be preserved or gradually impaired",
+              "Severe immune suppression and/or defining opportunistic illness"
+            ],
+            [
+              "Relation to time",
+              "Begins after acquisition of HIV",
+              "Not an inevitable immediate outcome of infection"
+            ]
+          ]
+        }
+      ]
     },
     {
       "id": "c32-13",
@@ -1717,19 +1808,19 @@
               "id": "c32-13-o2",
               "text": "Viruses have thicker peptidoglycan than bacteria.",
               "correct": false,
-              "feedback": "Not quite. Revisit selective bacterial targets and compare the mechanism to this option."
+              "feedback": "Influenza viruses have no peptidoglycan; this is a bacterial cell-wall target."
             },
             {
               "id": "c32-13-o3",
               "text": "Every virus contains a bacterial ribosome.",
               "correct": false,
-              "feedback": "Not quite. Revisit selective bacterial targets and compare the mechanism to this option."
+              "feedback": "Viruses use host-cell translational machinery and do not contain functional bacterial ribosomes."
             },
             {
               "id": "c32-13-o4",
               "text": "Antibiotics are unable to dissolve in body fluids.",
               "correct": false,
-              "feedback": "Not quite. Revisit selective bacterial targets and compare the mechanism to this option."
+              "feedback": "Many antibiotics circulate in body fluids; the limitation is absence of their bacterial molecular targets in viruses."
             },
             {
               "id": "c32-13-o1",
@@ -1846,13 +1937,13 @@
               "id": "c32-14-o3",
               "text": "All bacterial DNA becomes identical.",
               "correct": false,
-              "feedback": "Not quite. Revisit variation followed by selection and compare the mechanism to this option."
+              "feedback": "Antibiotic exposure changes the proportions of variants; it does not make all bacterial genomes identical."
             },
             {
               "id": "c32-14-o4",
               "text": "Antibiotics cause viruses to grow bacterial cell walls.",
               "correct": false,
-              "feedback": "Not quite. Revisit variation followed by selection and compare the mechanism to this option."
+              "feedback": "Antibiotic selection acts on bacteria, not by causing viruses to build bacterial cell walls."
             },
             {
               "id": "c32-14-o1",
@@ -1864,7 +1955,7 @@
               "id": "c32-14-o2",
               "text": "Every surviving bacterium independently chooses the same mutation.",
               "correct": false,
-              "feedback": "Not quite. Revisit variation followed by selection and compare the mechanism to this option."
+              "feedback": "Mutations do not arise by conscious choice. Resistant variants can pre-exist or arise and then be selected."
             }
           ]
         }
@@ -1918,7 +2009,33 @@
             "explanation": "Antibiotics select resistant bacteria; they do not teach bacteria how to resist."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "How resistance becomes more common",
+          "afterBlock": 0,
+          "note": "Selection changes the frequency of resistant variants; it does not create a needed mutation on demand.",
+          "steps": [
+            {
+              "title": "Variation exists",
+              "description": "Some bacteria have resistance through mutation or previously acquired genes."
+            },
+            {
+              "title": "Antibiotic exposure",
+              "description": "Susceptible cells are inhibited or killed more effectively than resistant cells."
+            },
+            {
+              "title": "Differential survival",
+              "description": "Survivors reproduce or transfer resistance, increasing its prevalence."
+            },
+            {
+              "title": "Repeated selection",
+              "description": "Exposure to different drugs can favour bacteria resistant to several drug classes."
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "c32-15",
@@ -1981,19 +2098,19 @@
               "id": "c32-15-o2",
               "text": "A person inheriting a genetic variant.",
               "correct": false,
-              "feedback": "Not quite. Revisit routes across species and compare the mechanism to this option."
+              "feedback": "Inheritance of a human genetic variant is not a transmissible infection originating from another animal species."
             },
             {
               "id": "c32-15-o3",
               "text": "Skin producing its own collagen.",
               "correct": false,
-              "feedback": "Not quite. Revisit routes across species and compare the mechanism to this option."
+              "feedback": "Skin collagen production is a normal physiological process, not animal-to-human pathogen transmission."
             },
             {
               "id": "c32-15-o4",
               "text": "A virus replicating in an isolated cell culture.",
               "correct": false,
-              "feedback": "Not quite. Revisit routes across species and compare the mechanism to this option."
+              "feedback": "Replication in isolated culture demonstrates a laboratory event, not a vector carrying infection from animals to humans."
             }
           ]
         }
@@ -2104,7 +2221,7 @@
               "id": "c32-16-o4",
               "text": "Antigens become permanently attached to erythrocytes.",
               "correct": false,
-              "feedback": "Not quite. Revisit antigen exposure and memory and compare the mechanism to this option."
+              "feedback": "Antigen-specific lymphocyte memory, not permanent antigen attachment to erythrocytes, supports vaccination."
             },
             {
               "id": "c32-16-o1",
@@ -2116,13 +2233,13 @@
               "id": "c32-16-o2",
               "text": "Every vaccine kills every microbe already in the environment.",
               "correct": false,
-              "feedback": "Not quite. Revisit antigen exposure and memory and compare the mechanism to this option."
+              "feedback": "Vaccines prepare host immunity; they do not instantly sterilize the entire environment."
             },
             {
               "id": "c32-16-o3",
               "text": "Vaccines convert innate immunity into a skin membrane.",
               "correct": false,
-              "feedback": "Not quite. Revisit antigen exposure and memory and compare the mechanism to this option."
+              "feedback": "Vaccination engages adaptive lymphocytes; it does not transform innate immunity into a new skin membrane."
             }
           ]
         }
@@ -2233,19 +2350,19 @@
               "id": "c32-17-o2",
               "text": "The same immune percentage forces every contact pattern to be identical.",
               "correct": false,
-              "feedback": "Not quite. Revisit transmission is a network and compare the mechanism to this option."
+              "feedback": "Average immune coverage does not describe how contacts occur; susceptible clusters can still sustain chains of infection."
             },
             {
               "id": "c32-17-o3",
               "text": "Vaccines have no effect on transmission.",
               "correct": false,
-              "feedback": "Not quite. Revisit transmission is a network and compare the mechanism to this option."
+              "feedback": "Vaccination can reduce susceptibility and/or infectious transmission, although effects vary between pathogens and vaccines."
             },
             {
               "id": "c32-17-o4",
               "text": "An epidemic requires everyone to be infected.",
               "correct": false,
-              "feedback": "Not quite. Revisit transmission is a network and compare the mechanism to this option."
+              "feedback": "An epidemic means incidence rises above expected levels, not that every single person must be infected."
             },
             {
               "id": "c32-17-o1",
@@ -2362,13 +2479,13 @@
               "id": "c32-18-o3",
               "text": "Reported cases are identical to all infections.",
               "correct": false,
-              "feedback": "Not quite. Revisit measures, denominators and limits and compare the mechanism to this option."
+              "feedback": "Testing misses some infections, especially asymptomatic or untested cases, so reported cases are not automatically all infections."
             },
             {
               "id": "c32-18-o4",
               "text": "Larger populations always have lower case counts.",
               "correct": false,
-              "feedback": "Not quite. Revisit measures, denominators and limits and compare the mechanism to this option."
+              "feedback": "A larger population often produces more raw cases even at the same incidence rate; a denominator is needed."
             },
             {
               "id": "c32-18-o1",
@@ -2380,7 +2497,7 @@
               "id": "c32-18-o2",
               "text": "A percentage can never describe disease.",
               "correct": false,
-              "feedback": "Not quite. Revisit measures, denominators and limits and compare the mechanism to this option."
+              "feedback": "Percentages and rates are valuable disease measures when the numerator, denominator and period are specified."
             }
           ]
         }
@@ -2456,6 +2573,31 @@
             ]
           ]
         }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Two percentages answer different questions",
+          "afterBlock": 1,
+          "note": "Hypothetical classroom values only — no real COVID-19 surveillance figures.",
+          "headers": [
+            "Question",
+            "Calculation",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Change from 120 to 90 cases",
+              "(90 − 120) ÷ 120 × 100",
+              "−25% (a decrease)"
+            ],
+            [
+              "Difference between 90 and 60 cases",
+              "|90 − 60| ÷ ((90 + 60) ÷ 2) × 100",
+              "40% (symmetric difference)"
+            ]
+          ]
+        }
       ]
     }
   ],
@@ -2481,13 +2623,13 @@
           "id": "c32-q1-o1",
           "text": "Every microorganism causes human disease.",
           "correct": false,
-          "feedback": "Not quite. Revisit cause and evidence and compare the mechanism to this option."
+          "feedback": "Microorganisms include many harmless or beneficial species; pathogenicity is not universal."
         },
         {
           "id": "c32-q1-o2",
           "text": "All infections immediately cause symptoms.",
           "correct": false,
-          "feedback": "Not quite. Revisit cause and evidence and compare the mechanism to this option."
+          "feedback": "Some infections can be asymptomatic. Symptoms do not define whether a microbe has infected a host."
         },
         {
           "id": "c32-q1-o3",
@@ -2499,7 +2641,7 @@
           "id": "c32-q1-o4",
           "text": "Archaea cannot undergo metabolism.",
           "correct": false,
-          "feedback": "Not quite. Revisit cause and evidence and compare the mechanism to this option."
+          "feedback": "Archaea are metabolically diverse; the absence of confirmed human archaeal pathogens is not evidence of an inability to metabolize."
         }
       ],
       "review": "source-mapped"
@@ -2554,19 +2696,19 @@
           "id": "c32-q2-o2",
           "text": "Damage makes all antibodies disappear.",
           "correct": false,
-          "feedback": "Not quite. Revisit the first line of defence and compare the mechanism to this option."
+          "feedback": "Damage to one epithelial barrier does not erase circulating antibodies. It makes invasion more likely."
         },
         {
           "id": "c32-q2-o3",
           "text": "Cilia make pathogens replicate faster.",
           "correct": false,
-          "feedback": "Not quite. Revisit the first line of defence and compare the mechanism to this option."
+          "feedback": "Cilia move mucus and trapped particles away from vulnerable airways; they do not drive pathogen reproduction."
         },
         {
           "id": "c32-q2-o4",
           "text": "Mucus normally transports microbes deeper into tissues.",
           "correct": false,
-          "feedback": "Not quite. Revisit the first line of defence and compare the mechanism to this option."
+          "feedback": "In the respiratory tract, ciliary movement normally moves mucus toward the throat, not deeper into the alveoli."
         }
       ],
       "review": "source-mapped"
@@ -2615,7 +2757,7 @@
           "id": "c32-q3-o1",
           "text": "Lymphocytes convert collagen into thrombin.",
           "correct": false,
-          "feedback": "Not quite. Revisit the clotting sequence and compare the mechanism to this option."
+          "feedback": "Lymphocytes make specific immune responses; they do not convert collagen to thrombin during clot formation."
         },
         {
           "id": "c32-q3-o2",
@@ -2627,13 +2769,13 @@
           "id": "c32-q3-o3",
           "text": "Fibrin is converted into haemoglobin.",
           "correct": false,
-          "feedback": "Not quite. Revisit the clotting sequence and compare the mechanism to this option."
+          "feedback": "Fibrin is the insoluble product formed from fibrinogen, not a precursor of haemoglobin."
         },
         {
           "id": "c32-q3-o4",
           "text": "Antibodies convert platelets into erythrocytes.",
           "correct": false,
-          "feedback": "Not quite. Revisit the clotting sequence and compare the mechanism to this option."
+          "feedback": "Antibodies do not transform platelets into red blood cells. Platelet-associated factors initiate the clotting cascade."
         }
       ],
       "review": "source-mapped"
@@ -2682,19 +2824,19 @@
           "id": "c32-q4-o1",
           "text": "The presence of blood in the body.",
           "correct": false,
-          "feedback": "Not quite. Revisit specificity and memory and compare the mechanism to this option."
+          "feedback": "Blood transports immune cells, but its presence cannot distinguish innate from adaptive mechanisms."
         },
         {
           "id": "c32-q4-o2",
           "text": "The ability to recognize any surface.",
           "correct": false,
-          "feedback": "Not quite. Revisit specificity and memory and compare the mechanism to this option."
+          "feedback": "Innate receptors respond broadly; adaptive receptors are antigen-specific, not able to recognize literally any surface."
         },
         {
           "id": "c32-q4-o3",
           "text": "The existence of a physical skin barrier.",
           "correct": false,
-          "feedback": "Not quite. Revisit specificity and memory and compare the mechanism to this option."
+          "feedback": "Skin is a physical first-line barrier, whereas immunological memory comes from adaptive lymphocytes."
         },
         {
           "id": "c32-q4-o4",
@@ -2749,13 +2891,13 @@
           "id": "c32-q5-o1",
           "text": "Only after an antibody becomes a memory cell.",
           "correct": false,
-          "feedback": "Not quite. Revisit the sequence inside a phagocyte and compare the mechanism to this option."
+          "feedback": "Memory cells belong to adaptive immunity; lysosomal digestion occurs after a phagocyte has internalized its prey."
         },
         {
           "id": "c32-q5-o2",
           "text": "During bacterial reproduction outside the phagocyte.",
           "correct": false,
-          "feedback": "Not quite. Revisit the sequence inside a phagocyte and compare the mechanism to this option."
+          "feedback": "Digestion occurs in the phagocyte's vesicular compartments, not by lysosomal enzymes acting on bacteria reproducing outside it."
         },
         {
           "id": "c32-q5-o3",
@@ -2767,7 +2909,7 @@
           "id": "c32-q5-o4",
           "text": "Before the cell identifies any target.",
           "correct": false,
-          "feedback": "Not quite. Revisit the sequence inside a phagocyte and compare the mechanism to this option."
+          "feedback": "Recognition and membrane engulfment come before delivery of lysosomal enzymes to the enclosed microbe."
         }
       ],
       "review": "source-mapped"
@@ -2822,19 +2964,19 @@
           "id": "c32-q6-o2",
           "text": "Each lymph node contains only one antibody.",
           "correct": false,
-          "feedback": "Not quite. Revisit repertoire and cooperation and compare the mechanism to this option."
+          "feedback": "A lymph node contains many lymphocytes with different receptor specificities, not a single antibody type."
         },
         {
           "id": "c32-q6-o3",
           "text": "One B-cell changes the structure of every pathogen.",
           "correct": false,
-          "feedback": "Not quite. Revisit repertoire and cooperation and compare the mechanism to this option."
+          "feedback": "B-cell receptors recognize antigens; they do not remodel every pathogen into a different species."
         },
         {
           "id": "c32-q6-o4",
           "text": "B-cells are needed solely for blood clotting.",
           "correct": false,
-          "feedback": "Not quite. Revisit repertoire and cooperation and compare the mechanism to this option."
+          "feedback": "B-cell clonal selection drives antibody responses, not the physical coagulation of blood."
         }
       ],
       "review": "source-mapped"
@@ -2883,19 +3025,19 @@
           "id": "c32-q7-o1",
           "text": "Erythrocytes reproduce like bacteria in the recipient.",
           "correct": false,
-          "feedback": "Not quite. Revisit molecular recognition and compare the mechanism to this option."
+          "feedback": "Mature human erythrocytes do not reproduce in the recipient; transfusion reactions involve surface antigen incompatibility."
         },
         {
           "id": "c32-q7-o2",
           "text": "Red cells secrete viral proteins.",
           "correct": false,
-          "feedback": "Not quite. Revisit molecular recognition and compare the mechanism to this option."
+          "feedback": "Erythrocyte blood-group antigens are not viral proteins secreted by donor cells."
         },
         {
           "id": "c32-q7-o3",
           "text": "All donor red cells contain infectious viruses.",
           "correct": false,
-          "feedback": "Not quite. Revisit molecular recognition and compare the mechanism to this option."
+          "feedback": "Transfusion incompatibility can occur without infection, due to recipient recognition of donor blood-group antigens."
         },
         {
           "id": "c32-q7-o4",
@@ -2950,7 +3092,7 @@
           "id": "c32-q8-o1",
           "text": "B-cell destruction and immediate replacement by red blood cells.",
           "correct": false,
-          "feedback": "Not quite. Revisit coincident antigen recognition and compare the mechanism to this option."
+          "feedback": "Recognition and activation do not require destroying the B-cell or turning it into an erythrocyte."
         },
         {
           "id": "c32-q8-o2",
@@ -2962,13 +3104,13 @@
           "id": "c32-q8-o3",
           "text": "Platelet activation and fibrin formation.",
           "correct": false,
-          "feedback": "Not quite. Revisit coincident antigen recognition and compare the mechanism to this option."
+          "feedback": "Platelets and fibrin act in wound closure; they do not supply the antigen-matched helper T-cell signal."
         },
         {
           "id": "c32-q8-o4",
           "text": "Skin keratinization and mucus secretion.",
           "correct": false,
-          "feedback": "Not quite. Revisit coincident antigen recognition and compare the mechanism to this option."
+          "feedback": "Skin and mucus prevent entry but do not provide the antigen-specific cell contact required for B-cell activation."
         }
       ],
       "review": "source-mapped"
@@ -3017,13 +3159,13 @@
           "id": "c32-q9-o1",
           "text": "To remove the antigen from the DNA of the lymphocyte.",
           "correct": false,
-          "feedback": "Not quite. Revisit selection and amplification and compare the mechanism to this option."
+          "feedback": "Clonal expansion increases the population of correctly selected cells; it does not delete the antigen from their DNA."
         },
         {
           "id": "c32-q9-o2",
           "text": "To make all antibody-binding sites identical across all clones.",
           "correct": false,
-          "feedback": "Not quite. Revisit selection and amplification and compare the mechanism to this option."
+          "feedback": "Clones share specificity with their parent, but unrelated B-cell clones need not have identical antibody-binding sites."
         },
         {
           "id": "c32-q9-o3",
@@ -3035,7 +3177,7 @@
           "id": "c32-q9-o4",
           "text": "To produce erythrocytes for the clot.",
           "correct": false,
-          "feedback": "Not quite. Revisit selection and amplification and compare the mechanism to this option."
+          "feedback": "Erythrocytes arise by blood-cell development, not from dividing antibody-activated B lymphocytes."
         }
       ],
       "review": "source-mapped"
@@ -3084,19 +3226,19 @@
           "id": "c32-q10-o1",
           "text": "They convert all viruses into bacteria.",
           "correct": false,
-          "feedback": "Not quite. Revisit long-lived specific protection and compare the mechanism to this option."
+          "feedback": "Memory B-cells do not change viral identity; they support a targeted response to a previously encountered antigen."
         },
         {
           "id": "c32-q10-o2",
           "text": "They replace skin and mucous membranes.",
           "correct": false,
-          "feedback": "Not quite. Revisit long-lived specific protection and compare the mechanism to this option."
+          "feedback": "Physical barriers remain important, but memory cells do not replace epithelial tissue."
         },
         {
           "id": "c32-q10-o3",
           "text": "They remove every pathogen before it enters the body.",
           "correct": false,
-          "feedback": "Not quite. Revisit long-lived specific protection and compare the mechanism to this option."
+          "feedback": "A pathogen may enter despite immunity; memory usually speeds its subsequent control or elimination."
         },
         {
           "id": "c32-q10-o4",
@@ -3157,19 +3299,19 @@
           "id": "c32-q11-o2",
           "text": "Sharing a classroom desk.",
           "correct": false,
-          "feedback": "Not quite. Revisit risk depends on exposure and compare the mechanism to this option."
+          "feedback": "An ordinary desk is not a route for infectious HIV-containing body fluids to enter another person's bloodstream or mucosa."
         },
         {
           "id": "c32-q11-o3",
           "text": "Speaking to another person across a table.",
           "correct": false,
-          "feedback": "Not quite. Revisit risk depends on exposure and compare the mechanism to this option."
+          "feedback": "HIV does not spread through conversation or the air. It requires particular routes involving infectious body fluids."
         },
         {
           "id": "c32-q11-o4",
           "text": "Shaking hands.",
           "correct": false,
-          "feedback": "Not quite. Revisit risk depends on exposure and compare the mechanism to this option."
+          "feedback": "Intact-skin handshakes do not provide the body-fluid exposure needed for HIV transmission."
         }
       ],
       "review": "source-mapped"
@@ -3218,7 +3360,7 @@
           "id": "c32-q12-o1",
           "text": "Viruses are converted into harmless antigens.",
           "correct": false,
-          "feedback": "Not quite. Revisit immune coordination and disease and compare the mechanism to this option."
+          "feedback": "Antigens are immune recognition targets; HIV does not protect the host by converting viruses into harmless antigens."
         },
         {
           "id": "c32-q12-o2",
@@ -3230,13 +3372,13 @@
           "id": "c32-q12-o3",
           "text": "All skin cells cease to divide immediately.",
           "correct": false,
-          "feedback": "Not quite. Revisit immune coordination and disease and compare the mechanism to this option."
+          "feedback": "HIV impairs selected immune cells, particularly CD4 helper T-cells, rather than halting all skin-cell division."
         },
         {
           "id": "c32-q12-o4",
           "text": "Blood can no longer contain plasma.",
           "correct": false,
-          "feedback": "Not quite. Revisit immune coordination and disease and compare the mechanism to this option."
+          "feedback": "Blood retains plasma in HIV infection; the important problem is loss or dysfunction of immune coordination."
         }
       ],
       "review": "source-mapped"
@@ -3285,19 +3427,19 @@
           "id": "c32-q13-o1",
           "text": "Viruses have thicker peptidoglycan than bacteria.",
           "correct": false,
-          "feedback": "Not quite. Revisit selective bacterial targets and compare the mechanism to this option."
+          "feedback": "Influenza viruses have no peptidoglycan; this is a bacterial cell-wall target."
         },
         {
           "id": "c32-q13-o2",
           "text": "Every virus contains a bacterial ribosome.",
           "correct": false,
-          "feedback": "Not quite. Revisit selective bacterial targets and compare the mechanism to this option."
+          "feedback": "Viruses use host-cell translational machinery and do not contain functional bacterial ribosomes."
         },
         {
           "id": "c32-q13-o3",
           "text": "Antibiotics are unable to dissolve in body fluids.",
           "correct": false,
-          "feedback": "Not quite. Revisit selective bacterial targets and compare the mechanism to this option."
+          "feedback": "Many antibiotics circulate in body fluids; the limitation is absence of their bacterial molecular targets in viruses."
         },
         {
           "id": "c32-q13-o4",
@@ -3352,13 +3494,13 @@
           "id": "c32-q14-o1",
           "text": "All bacterial DNA becomes identical.",
           "correct": false,
-          "feedback": "Not quite. Revisit variation followed by selection and compare the mechanism to this option."
+          "feedback": "Antibiotic exposure changes the proportions of variants; it does not make all bacterial genomes identical."
         },
         {
           "id": "c32-q14-o2",
           "text": "Antibiotics cause viruses to grow bacterial cell walls.",
           "correct": false,
-          "feedback": "Not quite. Revisit variation followed by selection and compare the mechanism to this option."
+          "feedback": "Antibiotic selection acts on bacteria, not by causing viruses to build bacterial cell walls."
         },
         {
           "id": "c32-q14-o3",
@@ -3370,7 +3512,7 @@
           "id": "c32-q14-o4",
           "text": "Every surviving bacterium independently chooses the same mutation.",
           "correct": false,
-          "feedback": "Not quite. Revisit variation followed by selection and compare the mechanism to this option."
+          "feedback": "Mutations do not arise by conscious choice. Resistant variants can pre-exist or arise and then be selected."
         }
       ],
       "review": "source-mapped"
@@ -3425,19 +3567,19 @@
           "id": "c32-q15-o2",
           "text": "A person inheriting a genetic variant.",
           "correct": false,
-          "feedback": "Not quite. Revisit routes across species and compare the mechanism to this option."
+          "feedback": "Inheritance of a human genetic variant is not a transmissible infection originating from another animal species."
         },
         {
           "id": "c32-q15-o3",
           "text": "Skin producing its own collagen.",
           "correct": false,
-          "feedback": "Not quite. Revisit routes across species and compare the mechanism to this option."
+          "feedback": "Skin collagen production is a normal physiological process, not animal-to-human pathogen transmission."
         },
         {
           "id": "c32-q15-o4",
           "text": "A virus replicating in an isolated cell culture.",
           "correct": false,
-          "feedback": "Not quite. Revisit routes across species and compare the mechanism to this option."
+          "feedback": "Replication in isolated culture demonstrates a laboratory event, not a vector carrying infection from animals to humans."
         }
       ],
       "review": "source-mapped"
@@ -3486,7 +3628,7 @@
           "id": "c32-q16-o1",
           "text": "Antigens become permanently attached to erythrocytes.",
           "correct": false,
-          "feedback": "Not quite. Revisit antigen exposure and memory and compare the mechanism to this option."
+          "feedback": "Antigen-specific lymphocyte memory, not permanent antigen attachment to erythrocytes, supports vaccination."
         },
         {
           "id": "c32-q16-o2",
@@ -3498,13 +3640,13 @@
           "id": "c32-q16-o3",
           "text": "Every vaccine kills every microbe already in the environment.",
           "correct": false,
-          "feedback": "Not quite. Revisit antigen exposure and memory and compare the mechanism to this option."
+          "feedback": "Vaccines prepare host immunity; they do not instantly sterilize the entire environment."
         },
         {
           "id": "c32-q16-o4",
           "text": "Vaccines convert innate immunity into a skin membrane.",
           "correct": false,
-          "feedback": "Not quite. Revisit antigen exposure and memory and compare the mechanism to this option."
+          "feedback": "Vaccination engages adaptive lymphocytes; it does not transform innate immunity into a new skin membrane."
         }
       ],
       "review": "source-mapped"
@@ -3553,19 +3695,19 @@
           "id": "c32-q17-o1",
           "text": "The same immune percentage forces every contact pattern to be identical.",
           "correct": false,
-          "feedback": "Not quite. Revisit transmission is a network and compare the mechanism to this option."
+          "feedback": "Average immune coverage does not describe how contacts occur; susceptible clusters can still sustain chains of infection."
         },
         {
           "id": "c32-q17-o2",
           "text": "Vaccines have no effect on transmission.",
           "correct": false,
-          "feedback": "Not quite. Revisit transmission is a network and compare the mechanism to this option."
+          "feedback": "Vaccination can reduce susceptibility and/or infectious transmission, although effects vary between pathogens and vaccines."
         },
         {
           "id": "c32-q17-o3",
           "text": "An epidemic requires everyone to be infected.",
           "correct": false,
-          "feedback": "Not quite. Revisit transmission is a network and compare the mechanism to this option."
+          "feedback": "An epidemic means incidence rises above expected levels, not that every single person must be infected."
         },
         {
           "id": "c32-q17-o4",
@@ -3620,13 +3762,13 @@
           "id": "c32-q18-o1",
           "text": "Reported cases are identical to all infections.",
           "correct": false,
-          "feedback": "Not quite. Revisit measures, denominators and limits and compare the mechanism to this option."
+          "feedback": "Testing misses some infections, especially asymptomatic or untested cases, so reported cases are not automatically all infections."
         },
         {
           "id": "c32-q18-o2",
           "text": "Larger populations always have lower case counts.",
           "correct": false,
-          "feedback": "Not quite. Revisit measures, denominators and limits and compare the mechanism to this option."
+          "feedback": "A larger population often produces more raw cases even at the same incidence rate; a denominator is needed."
         },
         {
           "id": "c32-q18-o3",
@@ -3638,7 +3780,7 @@
           "id": "c32-q18-o4",
           "text": "A percentage can never describe disease.",
           "correct": false,
-          "feedback": "Not quite. Revisit measures, denominators and limits and compare the mechanism to this option."
+          "feedback": "Percentages and rates are valuable disease measures when the numerator, denominator and period are specified."
         }
       ],
       "review": "source-mapped"
@@ -3652,17 +3794,20 @@
         "C3.2.18"
       ],
       "level": "shared",
-      "prompt": "Explain the biological reasoning behind: When does a comparison support a conclusion about pandemic trends?",
-      "marks": 2,
+      "prompt": "The following are constructed classroom values, not observed COVID-19 surveillance data. One hypothetical district reports 120 cases in week 1 and 90 cases in week 2; another reports 60 cases in week 2. (a) Calculate the percentage change for the first district from week 1 to week 2. [2] (b) Calculate the symmetric percentage difference between the two districts' week-2 case counts. [2] (c) State one reason the two raw case counts alone do not establish different infection risks. [1]",
+      "marks": 5,
       "sectionId": "c32-18",
       "referenceIds": [
         "ib-c32",
         "hodder-c32"
       ],
-      "answer": "An absolute case count is affected by testing access, reporting delays, case definitions and population size. Comparisons across places or dates therefore need clear units and denominators. A rate per 100,000 residents may be more useful than raw cases for differently sized populations; hospitalization and mortality trends have their own delays and confounders. A correlation between policy and cases is not by itself proof of causation. Percentage change uses the earlier value as its denominator: (new − old) ÷ old × 100. Percentage difference compares two values symmetrically by dividing their absolute difference by their mean: |A − B| ÷ ((A + B) ÷ 2) × 100. These are different questions; always state which measure is being calculated. Any illustrative numbers below are constructed exercises, not historical COVID-19 observations.",
+      "answer": "(a) Percentage change = (90 − 120) ÷ 120 × 100 = −25%; reported cases decreased by 25%. (b) Symmetric percentage difference = |90 − 60| ÷ ((90 + 60) ÷ 2) × 100 = 30 ÷ 75 × 100 = 40%. (c) A valid limitation is that the districts may have different population sizes, testing coverage, case definitions or reporting delays. A percentage based on reported cases does not automatically measure true infection incidence. All numbers here are invented for calculation practice.",
       "markingPoints": [
-        "Correctly describe the mechanism: Use the right percentage formula and check what the data actually measure.",
-        "Link to a valid consequence or example: If weekly reported cases in a hypothetical district change from 120 to 90, the percentage change is −25%. Comparing 90 and 60 reported cases in two hypothetical districts gives a percentage difference of 40%, but differing test coverage could distort interpretation."
+        "Correctly sets up percentage change with the original value (120) as denominator: (90 − 120) ÷ 120 × 100.",
+        "Calculates −25% and interprets it as a decrease of 25%.",
+        "Correctly sets up symmetric percentage difference using the mean of 90 and 60 (= 75) as denominator.",
+        "Calculates 40% as the symmetric percentage difference.",
+        "Identifies a specific comparability limitation such as population denominators, unequal testing, case definitions or reporting delays."
       ],
       "review": "source-mapped"
     }
@@ -3695,7 +3840,8 @@
       "Teaching cross-referenced to Hodder third edition C3.2, printed pp. 517–547 (supplied PDF pp. 529–559); no textbook wording or figures reproduced.",
       "Learning diagrams are locally authored semantic process and comparison tables, not copied assets.",
       "C3.2.18 quantitative examples are clearly labelled hypothetical and must not be reported as COVID-19 surveillance observations.",
-      "No claim of IB endorsement or independent scientific approval."
+      "No claim of IB endorsement or independent scientific approval.",
+      "Phase 5 targeted editorial improvement: 18 C3.2 understanding checks and 18 MCQs received distractor-specific explanations (54 unique diagnostic corrections reused consistently); five original semantic process/comparison visuals were added and C3.2.18 now has a 5-mark numerical interpretation task with an explicit hypothetical-data warning. Original source-mapped status retained; independent science, assessment and accessibility approval pending."
     ]
   }
 }
