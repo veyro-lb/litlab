@@ -89,6 +89,35 @@ try{
   await page.locator('.bio-theme-intro h1').waitFor();
   assert.ok(await page.locator('.bio-discovery-topic').count()>=1);
  });
+ await run('study mode follows theme navigation',async()=>{
+  await page.goto(current+'#biology?resource=practice');
+  await page.locator('.bio-discovery-theme-A').click();
+  await page.waitForURL(/#biology\/theme\/A\?resource=practice$/);
+  await page.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
+  await page.waitForURL(/#biology\/topic\/A1\.1\/practice$/);
+  await page.locator('.bio-practice').waitFor();
+ });
+ await run('topic navigation opens the selected study mode',async()=>{
+  await page.goto(current+'#biology/topic/A1.1');
+  await page.locator('.bio-resource-nav a').filter({hasText:'Flashcards'}).click();
+  await page.waitForURL(/#biology\/topic\/A1\.1\/flashcards$/);
+  await page.locator('.bio-lesson[data-mode="flashcards"]').waitFor();
+ });
+ for(const width of [390,1440]){
+  await run('theme and topic screenshots '+width+'px',async()=>{
+   await page.setViewportSize({width,height:950});
+   await page.goto(current+'#biology/theme/A');
+   await page.locator('.bio-discovery-topic[data-topic-id="A1.1"]').waitFor();
+   const themePath=artifact+'/after-theme-A-'+width+'.png';
+   await page.screenshot({path:themePath,fullPage:true,animations:'disabled'});
+   report.screenshots.push(themePath);
+   await page.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
+   await page.locator('.bio-topic-premium-head').waitFor();
+   const topicPath=artifact+'/after-topic-A1.1-'+width+'.png';
+   await page.screenshot({path:topicPath,fullPage:true,animations:'disabled'});
+   report.screenshots.push(topicPath);
+  });
+ }
  await run('keyboard search shortcut',async()=>{
   await page.goto(current+'#biology');
   await page.keyboard.press('Control+k');
