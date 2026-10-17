@@ -1,0 +1,50 @@
+{
+  "sprint": "BioLab Final Completion Sprint 7 — B1–B2",
+  "checkedAt": "2026-10-17",
+  "sourceBranch": "feature/biolab-themes-ab-final-completion-20261017",
+  "sourceHead": "4cd33a7d54bde055e123bd9052ea59c36aae9232",
+  "developmentBranch": "feature/biolab-final-b1-b2-20261017",
+  "method": "GitHub-connector retrieval and JavaScript structural assertions (not Node/npm or browser execution)",
+  "checkedTopics": [
+    "B1.1",
+    "B1.2",
+    "B2.1",
+    "B2.2",
+    "B2.3"
+  ],
+  "checkedUnderstandingIds": 61,
+  "sharedSLHL": 37,
+  "additionalHL": 24,
+  "lessonQuestions": 102,
+  "selection": 61,
+  "written": 41,
+  "registeredFigures": 48,
+  "addedAppliedBlocks": 61,
+  "newOriginalWrittenQuestions": 11,
+  "compatibilityAssertions": 530,
+  "compatibilityFailures": 0,
+  "integrityErrors": 0,
+  "numericalSpotChecks": {
+    "sodiumPotassiumPump": "25 ATP cycles: 75 Na+ exported, 50 K+ imported, net 25 elementary positive charges outward",
+    "cube5um": "6×5²=150 µm²; 5³=125 µm³; area/volume=1.2 µm^-1",
+    "cube10um": "6×10²=600 µm²; 10³=1000 µm³; area/volume=0.6 µm^-1",
+    "cuboid2x3x5": "2(6+10+15)=62 µm²; volume=30 µm³; ratio≈2.07 µm^-1"
+  },
+  "performed": [
+    "Retrieved five changed lesson JSON packages from exact development branch",
+    "Checked all sequential understanding IDs and SL/HL boundaries against attached IB Biology Guide",
+    "Validated 102 question associations, 61 one-correct-answer selections and 41 written mark schemes",
+    "Confirmed all original teaching paragraphs and claimReferences remain byte-for-byte synchronized after addition",
+    "Checked registered figure paths against complete live Git tree",
+    "Compared development branch to verified source HEAD for ownership"
+  ],
+  "notPerformed": [
+    "npm ci, npm run build or npm run quality in a checked-out repository",
+    "Running the committed verify.mjs script with Node in repository checkout",
+    "Full 19-topic regressions in GitHub Actions",
+    "React/Vite page build or Playwright browser navigation",
+    "Independent scientist proofing of all existing figure geometry and chemical details",
+    "Copyright/licensing clearance for public IB course delivery"
+  ],
+  "claim": "Internal editorial/structural verification only, not comprehensive scientific certification or release approval"
+}
