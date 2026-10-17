@@ -17,7 +17,7 @@ function validate(x){
   for(const id of s.understandingIds){seen.push(id);const m=map.understandings.find(u=>u.id===id);
    if(!m)errors.push('unknown understanding '+id);else if(m.scope!==s.level)errors.push('scope '+id);
   }
-  if(s.claimReferences.map(c=>c.claim).join('\\n\\n')!==s.explanation)errors.push('claim reconstruction '+s.id);
+  if(s.claimReferences.map(c=>c.claim).join(String.fromCharCode(10,10))!==s.explanation)errors.push('claim reconstruction '+s.id);
   if(s.interactions.length<1||s.recall.length<1)errors.push('activities '+s.id);
   if(!s.workedExample||!s.misconceptions.length)errors.push('teaching supports '+s.id);
  }
