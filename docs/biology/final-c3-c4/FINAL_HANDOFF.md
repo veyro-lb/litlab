@@ -47,6 +47,8 @@
 
 Source verification above is a targeted public-source check, not a blanket endorsement or licensing permission.
 
+The machine-readable internal audit snapshot is [INTERNAL_QA_EVIDENCE.json](./INTERNAL_QA_EVIDENCE.json). It confirms preservation of all nine pre-existing C3.2 inline visual definitions, 81 mapped syllabus sections, 158 unique question IDs and all existing figure asset records. No automated CI run was found for this sprint branch at the time of handoff.
+
 ## Checks performed and evidence
 
 **Executed against current GitHub branch via connected repository reads** (as opposed to tests that would require a local checkout):
