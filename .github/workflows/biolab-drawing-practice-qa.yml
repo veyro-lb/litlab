@@ -27,15 +27,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Negative and answer-mapping tests
-        run: node --test src/biology/learning/drawing-practice/data.test.mjs | tee qa-drawing-unit.log
+        run: |
+          set -euo pipefail
+          node --test src/biology/learning/drawing-practice/data.test.mjs 2>&1 | tee qa-drawing-unit.log
       - name: Existing site quality gate
-        run: npm run quality | tee qa-drawing-quality.log
+        run: |
+          set -euo pipefail
+          npm run quality 2>&1 | tee qa-drawing-quality.log
       - name: Existing Biology validation
         run: |
+          set -euo pipefail
           node scripts/validate-biology.mjs
           node --test scripts/validate-biology.test.mjs scripts/validate-lesson.test.mjs | tee qa-drawing-existing.log
       - name: Production build
-        run: npm run build | tee qa-drawing-build.log
+        run: |
+          set -euo pipefail
+          npm run build 2>&1 | tee qa-drawing-build.log
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Integrated browser journeys on local preview
