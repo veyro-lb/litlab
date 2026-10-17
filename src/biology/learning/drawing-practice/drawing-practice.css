@@ -1,0 +1,60 @@
+/* Optional diagram practice lives in the existing BioLab shadow-root, not beneath lesson figures. */
+.bio-drawing{max-width:980px;margin:26px auto 56px;min-width:0;color:var(--ink)}
+.bio-drawing *{box-sizing:border-box}
+.bio-drawing-intro{padding:18px 0 24px;border-bottom:1px solid var(--line)}
+.bio-drawing-intro h2{font-size:clamp(28px,4vw,40px);line-height:1.16;margin:10px 0 12px;letter-spacing:-.035em}
+.bio-drawing p{line-height:1.7;max-width:74ch}
+.bio-drawing-intro p{font-size:15px;color:var(--muted);margin-bottom:0}
+.bio-drawing-exercise-head{display:flex;justify-content:space-between;align-items:flex-start;gap:22px;padding:24px 0 14px}
+.bio-drawing-exercise-head>svg{color:var(--bio-green);flex-shrink:0}
+.bio-drawing-exercise-head h3{font-size:clamp(20px,2.6vw,26px);margin:7px 0}
+.bio-drawing-exercise-head p{color:var(--muted);font-size:14px}
+.bio-drawing-picker{display:grid;gap:8px;max-width:450px;margin:16px 0}
+.bio-drawing-picker label{font-weight:700}
+.bio-drawing-picker select,.bio-drawing-field input{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:11px 13px;min-height:46px;width:100%;min-width:0}
+.bio-drawing-tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin:8px 0 25px}
+.bio-drawing-tabs button{border:0;border-bottom:3px solid transparent;background:transparent;color:var(--muted);border-radius:0;min-height:48px;padding:13px 17px;font:inherit;font-size:14px;font-weight:750;cursor:pointer}
+.bio-drawing-tabs button[aria-pressed=true]{border-bottom-color:var(--bio-green);color:var(--bio-green)}
+.bio-drawing-figure-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+.bio-drawing-figure-head strong{font-size:15px}
+.bio-drawing-figure-head button,.bio-drawing-actions button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.bio-drawing .bio-figure{width:100%;max-width:100%;margin:0 auto 16px}
+.bio-drawing .bio-figure img{max-height:550px;width:100%;height:auto;object-fit:contain}
+.bio-drawing-note{font-size:13px;color:var(--muted)}
+.bio-drawing-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.bio-drawing-field{min-width:0;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.bio-drawing-field label{display:block;min-height:56px;font-weight:650;font-size:14px;line-height:1.55;margin-bottom:10px}
+.bio-drawing-field label span{color:var(--bio-green)}
+.bio-drawing-field p{font-size:12px;margin:7px 0 0}
+.bio-drawing-right{color:var(--bio-green)}
+.bio-drawing-retry{color:var(--ink)}
+.bio-drawing-actions{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}
+.bio-drawing-actions .bio-drawing-primary{background:var(--bio-primary-bg);color:var(--bio-primary-ink);border-color:var(--bio-primary-bg)}
+.bio-drawing-reference{background:color-mix(in srgb,var(--bio-green) 5%,var(--surface));border:1px solid var(--line);border-radius:12px;padding:19px 21px;margin:22px 0}
+.bio-drawing-reference h4{font-size:16px;margin:0 0 15px}
+.bio-drawing-reference dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.bio-drawing-reference dt{font-weight:800;font-size:14px}
+.bio-drawing-reference dd{font-size:13px;line-height:1.65;color:var(--muted);margin:5px 0 0}
+.bio-drawing-steps ol{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:10px 0 30px}
+.bio-drawing-steps li{display:flex;align-items:center;gap:8px;min-width:0;padding-top:11px;border-top:3px solid var(--line);color:var(--muted);font-size:12px}
+.bio-drawing-steps li[aria-current=step]{border-top-color:var(--bio-green);font-weight:800;color:var(--ink)}
+.bio-drawing-steps li span:first-child{border-radius:50%;width:23px;height:23px;flex:0 0 23px;border:1px solid var(--line);display:grid;place-items:center}
+.bio-drawing-paper-content{min-height:230px}
+.bio-drawing-paper-content h4{font-size:23px;margin:8px 0}
+.bio-drawing-paper-content>p{font-size:15px}
+.bio-drawing-hidden{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;background:var(--surface-2);border:1px dashed var(--line);border-radius:12px;min-height:255px;padding:26px}
+.bio-drawing-hidden svg{color:var(--bio-green)}
+.bio-drawing-hidden span{max-width:42ch;font-size:14px;color:var(--muted);line-height:1.65}
+.bio-drawing-label-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 25px;padding-left:25px;font-weight:700;line-height:1.7}
+.bio-drawing-checklist{display:grid;gap:10px;border:1px solid var(--line);border-radius:12px;padding:18px}
+.bio-drawing-checklist legend{font-weight:800;padding:0 8px}
+.bio-drawing-checklist label{display:flex;align-items:flex-start;gap:12px;padding:7px 0;min-height:40px;font-size:14px;line-height:1.6;cursor:pointer}
+.bio-drawing-checklist input{width:19px;height:19px;flex-shrink:0;margin-top:2px;accent-color:var(--bio-green)}
+.bio-drawing-selfcheck{display:flex;align-items:flex-start;gap:9px;padding:15px;border-radius:9px;background:var(--surface-2)}
+.bio-drawing-selfcheck svg{color:var(--bio-green);flex-shrink:0}
+.bio-drawing-footer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid var(--line);padding:20px 0}
+.bio-drawing-footer p{max-width:60ch;color:var(--muted);font-size:12px;margin:0}
+.bio-drawing-footer a,.bio-drawing-empty a{display:inline-flex;align-items:center;gap:8px;color:var(--bio-green);font-weight:750;text-underline-offset:3px}
+.bio-drawing :is(a,button,input,select):focus-visible{outline:3px solid var(--bio-green);outline-offset:3px}
+@media(max-width:650px){.bio-drawing-fields,.bio-drawing-reference dl,.bio-drawing-label-list{grid-template-columns:1fr}.bio-drawing-steps li{flex-direction:column;align-items:center;text-align:center;font-size:10px;overflow-wrap:anywhere}.bio-drawing-actions button{flex:1 1 145px}.bio-drawing-figure-head button{flex:1 1 140px}.bio-drawing-exercise-head{gap:8px}.bio-drawing-tabs button{flex:1 1 50%;padding-inline:8px}.bio-drawing-reference{padding:16px}}
+@media(prefers-reduced-motion:reduce){.bio-drawing *{transition:none!important}}
