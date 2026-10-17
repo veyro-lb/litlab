@@ -11,10 +11,10 @@
     "hlOnly": 216
   },
   "registeredDrafts": {
-    "topics": 31,
-    "understandings": 401,
-    "shared": 219,
-    "hlOnly": 182,
+    "topics": 37,
+    "understandings": 495,
+    "shared": 279,
+    "hlOnly": 216,
     "ids": [
       "A1.1",
       "A1.2",
@@ -46,7 +46,13 @@
       "D1.3",
       "D2.1",
       "D2.2",
-      "D2.3"
+      "D2.3",
+      "D3.1",
+      "D3.2",
+      "D3.3",
+      "D4.1",
+      "D4.2",
+      "D4.3"
     ],
     "educationallyApproved": 0
   },
@@ -84,7 +90,7 @@
     {
       "name": "feature/biolab-complete-theme-d2-20261017",
       "sha": "5d9d8b8e6420708190169c6bb55151f04adf6993",
-      "integrationStatus": "Source HEAD verified; package intake pending"
+      "integrationStatus": "6 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
     }
   ],
   "plannedTopics": [
@@ -108,48 +114,6 @@
       "understandings": 22,
       "shared": 22,
       "hlOnly": 0
-    },
-    {
-      "id": "D3.1",
-      "title": "Reproduction",
-      "understandings": 20,
-      "shared": 12,
-      "hlOnly": 8
-    },
-    {
-      "id": "D3.2",
-      "title": "Inheritance",
-      "understandings": 21,
-      "shared": 15,
-      "hlOnly": 6
-    },
-    {
-      "id": "D3.3",
-      "title": "Homeostasis",
-      "understandings": 11,
-      "shared": 6,
-      "hlOnly": 5
-    },
-    {
-      "id": "D4.1",
-      "title": "Natural selection",
-      "understandings": 15,
-      "shared": 8,
-      "hlOnly": 7
-    },
-    {
-      "id": "D4.2",
-      "title": "Stability and change",
-      "understandings": 15,
-      "shared": 11,
-      "hlOnly": 4
-    },
-    {
-      "id": "D4.3",
-      "title": "Climate change",
-      "understandings": 12,
-      "shared": 8,
-      "hlOnly": 4
     }
   ],
   "topicAcceptance": [
@@ -533,8 +497,8 @@
       "understandings": 20,
       "shared": 12,
       "hlOnly": 8,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -544,8 +508,8 @@
       "understandings": 21,
       "shared": 15,
       "hlOnly": 6,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -555,8 +519,8 @@
       "understandings": 11,
       "shared": 6,
       "hlOnly": 5,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -566,8 +530,8 @@
       "understandings": 15,
       "shared": 8,
       "hlOnly": 7,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -577,8 +541,8 @@
       "understandings": 15,
       "shared": 11,
       "hlOnly": 4,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -588,8 +552,8 @@
       "understandings": 12,
       "shared": 8,
       "hlOnly": 4,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     }
@@ -802,6 +766,47 @@
           "id": "D2.3",
           "sections": 11,
           "questions": 23
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme D2",
+      "sourceSha": "5d9d8b8e6420708190169c6bb55151f04adf6993",
+      "registeredTopics": 37,
+      "registeredUnderstandings": 495,
+      "accepted": [
+        {
+          "id": "D3.1",
+          "sections": 20,
+          "questions": 20
+        },
+        {
+          "id": "D3.2",
+          "sections": 21,
+          "questions": 42
+        },
+        {
+          "id": "D3.3",
+          "sections": 11,
+          "questions": 22
+        },
+        {
+          "id": "D4.1",
+          "sections": 15,
+          "questions": 30
+        },
+        {
+          "id": "D4.2",
+          "sections": 15,
+          "questions": 30
+        },
+        {
+          "id": "D4.3",
+          "sections": 12,
+          "questions": 24
         }
       ],
       "rejected": [],

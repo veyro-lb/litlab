@@ -1,0 +1,2546 @@
+{
+  "schemaVersion": 1,
+  "id": "d3-1-reproduction-v1",
+  "topicId": "D3.1",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Reproduction",
+  "introduction": "How do organisms reproduce reliably while creating variation for future generations? Follow the processes from gamete formation and fertilization to seed development, pregnancy and the scientific evaluation of reproductive medicine.",
+  "learningPath": [
+    "Compare reproductive strategies",
+    "Trace gamete formation and fertilization",
+    "Explain human endocrine cycles and reproductive technologies",
+    "Follow sexual reproduction in flowering plants",
+    "Extend to embryonic development and evidence evaluation"
+  ],
+  "prerequisites": [
+    "Chromosomes, homologous pairs and meiosis",
+    "Cell division and gene inheritance",
+    "Basic endocrine signalling"
+  ],
+  "objectives": [
+    "Explain all 12 shared understandings and 8 HL additions with explicit scope",
+    "Trace causal mechanisms in plant and human reproduction",
+    "Evaluate hormonal evidence without confusing correlation and causation"
+  ],
+  "sections": [
+    {
+      "id": "reproduction-1",
+      "understandingIds": [
+        "D3.1.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why is variation, rather than a guaranteed improvement, a key outcome of sexual reproduction?",
+      "explanation": "Asexual reproduction can produce offspring from one parent without gamete fusion, generally preserving the parent's genotype except for new mutations. Binary fission in bacteria and runners in strawberry plants illustrate distinct asexual mechanisms. Sexual reproduction includes meiosis and fertilization: offspring inherit combinations of alleles from two gametes and are usually genetically different from their parents and siblings. A well-adapted genotype can multiply rapidly through asexual reproduction in a stable environment, but low variation may limit response to new pathogens or changing conditions. Sexual reproduction reshuffles alleles and can provide variation on which selection acts; it is not automatically advantageous in every setting.",
+      "revisionSummary": "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+      "terms": [],
+      "workedExample": "If a pathogen attacks a clonal crop, many plants may share susceptibility, whereas a genetically diverse population may contain resistant individuals.",
+      "misconceptions": [
+        {
+          "misconception": "Asexual offspring are always genetically identical regardless of mutation.",
+          "correction": "Asexual mechanisms generally preserve genotype, but mutation can introduce differences."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Asexual reproduction can produce offspring from one parent without gamete fusion, generally preserving the parent's genotype except for new mutations. Binary fission in bacteria and runners in strawberry plants illustrate distinct asexual mechanisms. Sexual reproduction includes meiosis and fertilization: offspring inherit combinations of alleles from two gametes and are usually genetically different from their parents and siblings. A well-adapted genotype can multiply rapidly through asexual reproduction in a stable environment, but low variation may limit response to new pathogens or changing conditions. Sexual reproduction reshuffles alleles and can provide variation on which selection acts; it is not automatically advantageous in every setting.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-1",
+          "prompt": "Why is variation, rather than a guaranteed improvement, a key outcome of sexual reproduction?",
+          "understandingIds": [
+            "D3.1.1"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+              "correct": true,
+              "feedback": "Correct. New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited."
+            },
+            {
+              "id": "b",
+              "text": "Asexual offspring are always genetically identical regardless of mutation.",
+              "correct": false,
+              "feedback": "Asexual mechanisms generally preserve genotype, but mutation can introduce differences."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-1",
+          "prompt": "Why is variation, rather than a guaranteed improvement, a key outcome of sexual reproduction?",
+          "answer": "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+          "explanation": "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+          "understandingIds": [
+            "D3.1.1"
+          ]
+        }
+      ],
+      "guidePage": 95,
+      "pdfPage": 101,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Reproductive strategies and variation",
+          "explanation": "Asexual reproduction can produce offspring from one parent without gamete fusion, generally preserving the parent's genotype except for new mutations. Binary fission in bacteria and runners in strawberry plants illustrate distinct asexual mechanisms. Sexual reproduction includes meiosis and fertilization: offspring inherit combinations of alleles from two gametes and are usually genetically different from their parents and siblings. A well-adapted genotype can multiply rapidly through asexual reproduction in a stable environment, but low variation may limit response to new pathogens or changing conditions. Sexual reproduction reshuffles alleles and can provide variation on which selection acts; it is not automatically advantageous in every setting.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-2",
+      "understandingIds": [
+        "D3.1.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What restores the diploid chromosome complement?",
+      "explanation": "Meiosis reduces chromosome number from diploid to haploid while separating homologous chromosomes, so gametes receive one allele of each gene. Crossing over and independent assortment during meiosis create combinations unlike either parental chromosome set. Fertilization fuses two haploid gametes and restores diploidy. Which gametes unite adds a further source of variation. Distinguish restoration of the species' characteristic chromosome number from the generation of genetic diversity: both occur in the sexual life cycle, but by different steps. Mitosis after fertilization increases cell number without halving the chromosome complement.",
+      "revisionSummary": "Fusion of two haploid gametes during fertilization.",
+      "terms": [],
+      "workedExample": "In humans, meiosis produces gametes with 23 chromosomes; fusion gives a diploid zygote with 46.",
+      "misconceptions": [
+        {
+          "misconception": "Fertilization itself reduces chromosome number.",
+          "correction": "Meiosis reduces chromosome number; fertilization restores diploidy."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Meiosis reduces chromosome number from diploid to haploid while separating homologous chromosomes, so gametes receive one allele of each gene. Crossing over and independent assortment during meiosis create combinations unlike either parental chromosome set. Fertilization fuses two haploid gametes and restores diploidy. Which gametes unite adds a further source of variation. Distinguish restoration of the species' characteristic chromosome number from the generation of genetic diversity: both occur in the sexual life cycle, but by different steps. Mitosis after fertilization increases cell number without halving the chromosome complement.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-2",
+          "prompt": "What restores the diploid chromosome complement?",
+          "understandingIds": [
+            "D3.1.2"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Fusion of two haploid gametes during fertilization.",
+              "correct": true,
+              "feedback": "Correct. Fusion of two haploid gametes during fertilization."
+            },
+            {
+              "id": "b",
+              "text": "Fertilization itself reduces chromosome number.",
+              "correct": false,
+              "feedback": "Meiosis reduces chromosome number; fertilization restores diploidy."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-2",
+          "prompt": "What restores the diploid chromosome complement?",
+          "answer": "Fusion of two haploid gametes during fertilization.",
+          "explanation": "Fusion of two haploid gametes during fertilization.",
+          "understandingIds": [
+            "D3.1.2"
+          ]
+        }
+      ],
+      "guidePage": 95,
+      "pdfPage": 101,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "The sexual life cycle",
+          "explanation": "Meiosis reduces chromosome number from diploid to haploid while separating homologous chromosomes, so gametes receive one allele of each gene. Crossing over and independent assortment during meiosis create combinations unlike either parental chromosome set. Fertilization fuses two haploid gametes and restores diploidy. Which gametes unite adds a further source of variation. Distinguish restoration of the species' characteristic chromosome number from the generation of genetic diversity: both occur in the sexual life cycle, but by different steps. Mitosis after fertilization increases cell number without halving the chromosome complement.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-3",
+      "understandingIds": [
+        "D3.1.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why are eggs generally larger than sperm?",
+      "explanation": "In anisogamous organisms, the smaller male gamete is generally adapted to travel to the larger female gamete, which usually contains more cytoplasm and stored resources. Large numbers of small gametes can increase the chance of encounters; producing a smaller number of large gametes reflects a different investment per gamete. These contrasts underpin differences in reproductive strategies, but they are not claims that every species has the same mating system or parental-care pattern. Gamete size and mobility are biological definitions here; do not infer an individual's identity or social role from them.",
+      "revisionSummary": "Eggs usually retain much more cytoplasm and nutrient resources to support early development.",
+      "terms": [],
+      "workedExample": "A flowering plant can produce numerous pollen grains to transport male gametes while fewer ovules house female gametes.",
+      "misconceptions": [
+        {
+          "misconception": "Male and female gametes contain different numbers of chromosomes in the same species.",
+          "correction": "Each normally carries a haploid chromosome complement; size and resource allocation are the main differences."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In anisogamous organisms, the smaller male gamete is generally adapted to travel to the larger female gamete, which usually contains more cytoplasm and stored resources. Large numbers of small gametes can increase the chance of encounters; producing a smaller number of large gametes reflects a different investment per gamete. These contrasts underpin differences in reproductive strategies, but they are not claims that every species has the same mating system or parental-care pattern. Gamete size and mobility are biological definitions here; do not infer an individual's identity or social role from them.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-3",
+          "prompt": "Why are eggs generally larger than sperm?",
+          "understandingIds": [
+            "D3.1.3"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Eggs usually retain much more cytoplasm and nutrient resources to support early development.",
+              "correct": true,
+              "feedback": "Correct. Eggs usually retain much more cytoplasm and nutrient resources to support early development."
+            },
+            {
+              "id": "b",
+              "text": "Male and female gametes contain different numbers of chromosomes in the same species.",
+              "correct": false,
+              "feedback": "Each normally carries a haploid chromosome complement; size and resource allocation are the main differences."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-3",
+          "prompt": "Why are eggs generally larger than sperm?",
+          "answer": "Eggs usually retain much more cytoplasm and nutrient resources to support early development.",
+          "explanation": "Eggs usually retain much more cytoplasm and nutrient resources to support early development.",
+          "understandingIds": [
+            "D3.1.3"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Why egg and sperm differ",
+          "explanation": "In anisogamous organisms, the smaller male gamete is generally adapted to travel to the larger female gamete, which usually contains more cytoplasm and stored resources. Large numbers of small gametes can increase the chance of encounters; producing a smaller number of large gametes reflects a different investment per gamete. These contrasts underpin differences in reproductive strategies, but they are not claims that every species has the same mating system or parental-care pattern. Gamete size and mobility are biological definitions here; do not infer an individual's identity or social role from them.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-4",
+      "understandingIds": [
+        "D3.1.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Where does human fertilization usually occur?",
+      "explanation": "In a typical male reproductive system, testes produce sperm and testosterone; sperm mature and are stored in epididymides, pass through sperm ducts (vasa deferentia), and enter the urethra. Accessory glands contribute fluids to semen; the penis transfers semen during intercourse. In a typical female reproductive system, ovaries produce oocytes and hormones; an oviduct commonly receives an ovulated oocyte and is the usual site of fertilization. The uterus supports implantation and fetal development; the endometrium is its inner lining, the cervix connects uterus to vagina, and the vagina receives semen and forms part of the birth canal. Learn anatomical location together with function rather than memorizing an unlabeled inventory.",
+      "revisionSummary": "Within an oviduct rather than the uterus.",
+      "terms": [],
+      "workedExample": "Trace a sperm from the testis through epididymis, vas deferens and urethra; trace an ovulated oocyte from ovary into oviduct toward uterus.",
+      "misconceptions": [
+        {
+          "misconception": "The urethra and vas deferens are identical ducts.",
+          "correction": "The vas deferens transports sperm to the urethra; the urethra carries semen out of the body."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In a typical male reproductive system, testes produce sperm and testosterone; sperm mature and are stored in epididymides, pass through sperm ducts (vasa deferentia), and enter the urethra. Accessory glands contribute fluids to semen; the penis transfers semen during intercourse. In a typical female reproductive system, ovaries produce oocytes and hormones; an oviduct commonly receives an ovulated oocyte and is the usual site of fertilization. The uterus supports implantation and fetal development; the endometrium is its inner lining, the cervix connects uterus to vagina, and the vagina receives semen and forms part of the birth canal. Learn anatomical location together with function rather than memorizing an unlabeled inventory.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-4",
+          "prompt": "Where does human fertilization usually occur?",
+          "understandingIds": [
+            "D3.1.4"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Within an oviduct rather than the uterus.",
+              "correct": true,
+              "feedback": "Correct. Within an oviduct rather than the uterus."
+            },
+            {
+              "id": "b",
+              "text": "The urethra and vas deferens are identical ducts.",
+              "correct": false,
+              "feedback": "The vas deferens transports sperm to the urethra; the urethra carries semen out of the body."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-4",
+          "prompt": "Where does human fertilization usually occur?",
+          "answer": "Within an oviduct rather than the uterus.",
+          "explanation": "Within an oviduct rather than the uterus.",
+          "understandingIds": [
+            "D3.1.4"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Human reproductive systems",
+          "explanation": "In a typical male reproductive system, testes produce sperm and testosterone; sperm mature and are stored in epididymides, pass through sperm ducts (vasa deferentia), and enter the urethra. Accessory glands contribute fluids to semen; the penis transfers semen during intercourse. In a typical female reproductive system, ovaries produce oocytes and hormones; an oviduct commonly receives an ovulated oocyte and is the usual site of fertilization. The uterus supports implantation and fetal development; the endometrium is its inner lining, the cervix connects uterus to vagina, and the vagina receives semen and forms part of the birth canal. Learn anatomical location together with function rather than memorizing an unlabeled inventory.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-5",
+      "understandingIds": [
+        "D3.1.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which endocrine change immediately triggers ovulation?",
+      "explanation": "At the start of a typical menstrual cycle, FSH supports growth of ovarian follicles and secretion of oestradiol. Rising oestradiol promotes proliferation of the uterine endometrium; moderate levels also exert negative feedback on gonadotropin release. Sustained high oestradiol near mid-cycle switches to positive feedback, producing an LH surge that triggers ovulation. The ruptured follicle becomes the corpus luteum, secreting progesterone (and oestradiol), which maintains a secretory endometrium and exerts negative feedback. Without pregnancy the corpus luteum regresses, hormone concentrations fall and the endometrium is shed. Timing varies between individuals and cycles; a 28-day diagram is illustrative, not a fixed biological schedule.",
+      "revisionSummary": "The LH surge following sustained high oestradiol positive feedback.",
+      "terms": [],
+      "workedExample": "Predict that persistently high progesterone after ovulation maintains the endometrium, whereas falling progesterone precedes menstruation.",
+      "misconceptions": [
+        {
+          "misconception": "LH is the hormone that maintains the endometrium during the luteal phase.",
+          "correction": "Progesterone from the corpus luteum is central to maintaining the secretory endometrium."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "At the start of a typical menstrual cycle, FSH supports growth of ovarian follicles and secretion of oestradiol. Rising oestradiol promotes proliferation of the uterine endometrium; moderate levels also exert negative feedback on gonadotropin release. Sustained high oestradiol near mid-cycle switches to positive feedback, producing an LH surge that triggers ovulation. The ruptured follicle becomes the corpus luteum, secreting progesterone (and oestradiol), which maintains a secretory endometrium and exerts negative feedback. Without pregnancy the corpus luteum regresses, hormone concentrations fall and the endometrium is shed. Timing varies between individuals and cycles; a 28-day diagram is illustrative, not a fixed biological schedule.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [
+        "d31-cycle-feedback"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-5",
+          "prompt": "Which endocrine change immediately triggers ovulation?",
+          "understandingIds": [
+            "D3.1.5"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "The LH surge following sustained high oestradiol positive feedback.",
+              "correct": true,
+              "feedback": "Correct. The LH surge following sustained high oestradiol positive feedback."
+            },
+            {
+              "id": "b",
+              "text": "LH is the hormone that maintains the endometrium during the luteal phase.",
+              "correct": false,
+              "feedback": "Progesterone from the corpus luteum is central to maintaining the secretory endometrium."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-5",
+          "prompt": "Which endocrine change immediately triggers ovulation?",
+          "answer": "The LH surge following sustained high oestradiol positive feedback.",
+          "explanation": "The LH surge following sustained high oestradiol positive feedback.",
+          "understandingIds": [
+            "D3.1.5"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Ovarian and uterine cycles",
+          "explanation": "At the start of a typical menstrual cycle, FSH supports growth of ovarian follicles and secretion of oestradiol. Rising oestradiol promotes proliferation of the uterine endometrium; moderate levels also exert negative feedback on gonadotropin release. Sustained high oestradiol near mid-cycle switches to positive feedback, producing an LH surge that triggers ovulation. The ruptured follicle becomes the corpus luteum, secreting progesterone (and oestradiol), which maintains a secretory endometrium and exerts negative feedback. Without pregnancy the corpus luteum regresses, hormone concentrations fall and the endometrium is shed. Timing varies between individuals and cycles; a 28-day diagram is illustrative, not a fixed biological schedule.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning",
+      "figurePlacements": [
+        {
+          "assetId": "d31-cycle-feedback",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "reproduction-6",
+      "understandingIds": [
+        "D3.1.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How does the first mitosis integrate maternal and paternal chromosomes?",
+      "explanation": "A sperm binds to and penetrates the egg's extracellular coverings, then its plasma membrane fuses with that of the oocyte. The sperm nucleus enters the egg cell; the sperm tail and mitochondria are normally broken down, so mitochondrial inheritance is overwhelmingly maternal. The egg completes the relevant meiotic division. Maternal and paternal nuclear envelopes break down, and their condensed chromosomes participate in a joint first mitotic division, yielding two diploid daughter nuclei. Fertilization therefore combines parental nuclear chromosomes, while polyspermy-prevention mechanisms preserve the normal chromosome complement. Avoid the misleading image of two intact nuclei simply fusing into a single permanent nucleus.",
+      "revisionSummary": "Both sets of condensed chromosomes participate in a common division that produces diploid daughter nuclei.",
+      "terms": [],
+      "workedExample": "A sperm contributes its haploid nuclear chromosomes, but ordinarily does not transmit its mitochondrial genome.",
+      "misconceptions": [
+        {
+          "misconception": "The sperm tail becomes the embryo's flagellum.",
+          "correction": "The tail and most sperm organelles are degraded after fertilization."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A sperm binds to and penetrates the egg's extracellular coverings, then its plasma membrane fuses with that of the oocyte. The sperm nucleus enters the egg cell; the sperm tail and mitochondria are normally broken down, so mitochondrial inheritance is overwhelmingly maternal. The egg completes the relevant meiotic division. Maternal and paternal nuclear envelopes break down, and their condensed chromosomes participate in a joint first mitotic division, yielding two diploid daughter nuclei. Fertilization therefore combines parental nuclear chromosomes, while polyspermy-prevention mechanisms preserve the normal chromosome complement. Avoid the misleading image of two intact nuclei simply fusing into a single permanent nucleus.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-6",
+          "prompt": "How does the first mitosis integrate maternal and paternal chromosomes?",
+          "understandingIds": [
+            "D3.1.6"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Both sets of condensed chromosomes participate in a common division that produces diploid daughter nuclei.",
+              "correct": true,
+              "feedback": "Correct. Both sets of condensed chromosomes participate in a common division that produces diploid daughter nuclei."
+            },
+            {
+              "id": "b",
+              "text": "The sperm tail becomes the embryo's flagellum.",
+              "correct": false,
+              "feedback": "The tail and most sperm organelles are degraded after fertilization."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-6",
+          "prompt": "How does the first mitosis integrate maternal and paternal chromosomes?",
+          "answer": "Both sets of condensed chromosomes participate in a common division that produces diploid daughter nuclei.",
+          "explanation": "Both sets of condensed chromosomes participate in a common division that produces diploid daughter nuclei.",
+          "understandingIds": [
+            "D3.1.6"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Fusion of human gametes",
+          "explanation": "A sperm binds to and penetrates the egg's extracellular coverings, then its plasma membrane fuses with that of the oocyte. The sperm nucleus enters the egg cell; the sperm tail and mitochondria are normally broken down, so mitochondrial inheritance is overwhelmingly maternal. The egg completes the relevant meiotic division. Maternal and paternal nuclear envelopes break down, and their condensed chromosomes participate in a joint first mitotic division, yielding two diploid daughter nuclei. Fertilization therefore combines parental nuclear chromosomes, while polyspermy-prevention mechanisms preserve the normal chromosome complement. Avoid the misleading image of two intact nuclei simply fusing into a single permanent nucleus.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-7",
+      "understandingIds": [
+        "D3.1.7"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why is ovulation controlled before egg retrieval?",
+      "explanation": "In vitro fertilization involves collecting oocytes, allowing fertilization in controlled laboratory conditions, culturing early embryos and transferring an embryo to the uterus when appropriate. Hormonal treatment first suppresses or controls the natural cycle, preventing mistimed ovulation. Clinicians then administer carefully timed gonadotropin stimulation to develop multiple ovarian follicles rather than the one that commonly dominates in an unstimulated cycle. A maturation trigger precedes oocyte retrieval. Hormone regimens and decisions vary clinically; the core syllabus principle is the deliberate replacement of endogenous timing with monitored stimulation that produces superovulation. IVF does not guarantee pregnancy, and multiple-embryo transfer carries additional risks.",
+      "revisionSummary": "To prevent spontaneous release and coordinate maturation and collection of oocytes.",
+      "terms": [],
+      "workedExample": "Explain why retrieval becomes more productive if several follicles mature during one stimulation cycle.",
+      "misconceptions": [
+        {
+          "misconception": "IVF uses hormones solely to stop follicle growth.",
+          "correction": "Suppression controls timing; subsequent stimulation promotes growth of multiple follicles."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In vitro fertilization involves collecting oocytes, allowing fertilization in controlled laboratory conditions, culturing early embryos and transferring an embryo to the uterus when appropriate. Hormonal treatment first suppresses or controls the natural cycle, preventing mistimed ovulation. Clinicians then administer carefully timed gonadotropin stimulation to develop multiple ovarian follicles rather than the one that commonly dominates in an unstimulated cycle. A maturation trigger precedes oocyte retrieval. Hormone regimens and decisions vary clinically; the core syllabus principle is the deliberate replacement of endogenous timing with monitored stimulation that produces superovulation. IVF does not guarantee pregnancy, and multiple-embryo transfer carries additional risks.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-7",
+          "prompt": "Why is ovulation controlled before egg retrieval?",
+          "understandingIds": [
+            "D3.1.7"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "To prevent spontaneous release and coordinate maturation and collection of oocytes.",
+              "correct": true,
+              "feedback": "Correct. To prevent spontaneous release and coordinate maturation and collection of oocytes."
+            },
+            {
+              "id": "b",
+              "text": "IVF uses hormones solely to stop follicle growth.",
+              "correct": false,
+              "feedback": "Suppression controls timing; subsequent stimulation promotes growth of multiple follicles."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-7",
+          "prompt": "Why is ovulation controlled before egg retrieval?",
+          "answer": "To prevent spontaneous release and coordinate maturation and collection of oocytes.",
+          "explanation": "To prevent spontaneous release and coordinate maturation and collection of oocytes.",
+          "understandingIds": [
+            "D3.1.7"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "IVF hormone treatment",
+          "explanation": "In vitro fertilization involves collecting oocytes, allowing fertilization in controlled laboratory conditions, culturing early embryos and transferring an embryo to the uterus when appropriate. Hormonal treatment first suppresses or controls the natural cycle, preventing mistimed ovulation. Clinicians then administer carefully timed gonadotropin stimulation to develop multiple ovarian follicles rather than the one that commonly dominates in an unstimulated cycle. A maturation trigger precedes oocyte retrieval. Hormone regimens and decisions vary clinically; the core syllabus principle is the deliberate replacement of endogenous timing with monitored stimulation that produces superovulation. IVF does not guarantee pregnancy, and multiple-embryo transfer carries additional risks.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-8",
+      "understandingIds": [
+        "D3.1.8"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Does pollination itself create a zygote?",
+      "explanation": "Anthers produce pollen grains that carry the male gametophyte; ovules within the ovary contain the female gametophyte and egg cell. Pollination transfers pollen to a receptive stigma, but this is not fertilization. A compatible pollen grain germinates and grows a pollen tube through the style toward an ovule. Male gametes travel within the tube. In the characteristic double fertilization of flowering plants, one sperm fertilizes the egg to form a zygote and the other fuses with the central cell to form endosperm, a nutrient tissue. The ovule becomes a seed and the ovary typically develops into a fruit. A flower with both stamens and carpels can still reproduce sexually because gametes fuse.",
+      "revisionSummary": "No. Fertilization follows pollen germination and sperm delivery to the ovule.",
+      "terms": [],
+      "workedExample": "Pollination happens before the male gametes reach the egg inside an ovule.",
+      "misconceptions": [
+        {
+          "misconception": "Pollen grains are the same structures as seeds.",
+          "correction": "Pollen carries the male gametophyte; the seed develops from a fertilized ovule."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Anthers produce pollen grains that carry the male gametophyte; ovules within the ovary contain the female gametophyte and egg cell. Pollination transfers pollen to a receptive stigma, but this is not fertilization. A compatible pollen grain germinates and grows a pollen tube through the style toward an ovule. Male gametes travel within the tube. In the characteristic double fertilization of flowering plants, one sperm fertilizes the egg to form a zygote and the other fuses with the central cell to form endosperm, a nutrient tissue. The ovule becomes a seed and the ovary typically develops into a fruit. A flower with both stamens and carpels can still reproduce sexually because gametes fuse.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-8",
+          "prompt": "Does pollination itself create a zygote?",
+          "understandingIds": [
+            "D3.1.8"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "No. Fertilization follows pollen germination and sperm delivery to the ovule.",
+              "correct": true,
+              "feedback": "Correct. No. Fertilization follows pollen germination and sperm delivery to the ovule."
+            },
+            {
+              "id": "b",
+              "text": "Pollen grains are the same structures as seeds.",
+              "correct": false,
+              "feedback": "Pollen carries the male gametophyte; the seed develops from a fertilized ovule."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-8",
+          "prompt": "Does pollination itself create a zygote?",
+          "answer": "No. Fertilization follows pollen germination and sperm delivery to the ovule.",
+          "explanation": "No. Fertilization follows pollen germination and sperm delivery to the ovule.",
+          "understandingIds": [
+            "D3.1.8"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Flowering-plant sexual reproduction",
+          "explanation": "Anthers produce pollen grains that carry the male gametophyte; ovules within the ovary contain the female gametophyte and egg cell. Pollination transfers pollen to a receptive stigma, but this is not fertilization. A compatible pollen grain germinates and grows a pollen tube through the style toward an ovule. Male gametes travel within the tube. In the characteristic double fertilization of flowering plants, one sperm fertilizes the egg to form a zygote and the other fuses with the central cell to form endosperm, a nutrient tissue. The ovule becomes a seed and the ovary typically develops into a fruit. A flower with both stamens and carpels can still reproduce sexually because gametes fuse.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-9",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why is the stigma positioned to contact visiting insects?",
+      "explanation": "A typical insect-pollinated flower includes anthers and filaments (stamens), a stigma, style and ovary (carpel), petals, sepals and often nectar-producing tissues. Anthers release pollen. A stigma presents a surface where transferred pollen may adhere and germinate; the style gives a pathway to ovules housed in the ovary. Petals and scent can help attract pollinators, while nectar or pollen rewards them. Sepals often protect the bud before flowering. In a scientific drawing, show relative positions and label the structure and its function; avoid depicting every plant species as identical or implying every insect-pollinated flower has vivid petals.",
+      "revisionSummary": "Its exposed receptive surface allows pollen carried by insects to be deposited.",
+      "terms": [],
+      "workedExample": "An insect brushing anthers may carry pollen to a stigma of another flower while feeding on nectar.",
+      "misconceptions": [
+        {
+          "misconception": "Petals produce the male gametes.",
+          "correction": "Male gametophytes develop within pollen originating in the anthers."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A typical insect-pollinated flower includes anthers and filaments (stamens), a stigma, style and ovary (carpel), petals, sepals and often nectar-producing tissues. Anthers release pollen. A stigma presents a surface where transferred pollen may adhere and germinate; the style gives a pathway to ovules housed in the ovary. Petals and scent can help attract pollinators, while nectar or pollen rewards them. Sepals often protect the bud before flowering. In a scientific drawing, show relative positions and label the structure and its function; avoid depicting every plant species as identical or implying every insect-pollinated flower has vivid petals.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-9",
+          "prompt": "Why is the stigma positioned to contact visiting insects?",
+          "understandingIds": [
+            "D3.1.9"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Its exposed receptive surface allows pollen carried by insects to be deposited.",
+              "correct": true,
+              "feedback": "Correct. Its exposed receptive surface allows pollen carried by insects to be deposited."
+            },
+            {
+              "id": "b",
+              "text": "Petals produce the male gametes.",
+              "correct": false,
+              "feedback": "Male gametophytes develop within pollen originating in the anthers."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-9",
+          "prompt": "Why is the stigma positioned to contact visiting insects?",
+          "answer": "Its exposed receptive surface allows pollen carried by insects to be deposited.",
+          "explanation": "Its exposed receptive surface allows pollen carried by insects to be deposited.",
+          "understandingIds": [
+            "D3.1.9"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Insect-pollinated flower anatomy",
+          "explanation": "A typical insect-pollinated flower includes anthers and filaments (stamens), a stigma, style and ovary (carpel), petals, sepals and often nectar-producing tissues. Anthers release pollen. A stigma presents a surface where transferred pollen may adhere and germinate; the style gives a pathway to ovules housed in the ovary. Petals and scent can help attract pollinators, while nectar or pollen rewards them. Sepals often protect the bud before flowering. In a scientific drawing, show relative positions and label the structure and its function; avoid depicting every plant species as identical or implying every insect-pollinated flower has vivid petals.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-10",
+      "understandingIds": [
+        "D3.1.10"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How does dioecy prevent self-pollination?",
+      "explanation": "Cross-pollination transfers pollen between different plants of the same species. Temporal separation can reduce self-pollination when pollen is shed before or after a flower's stigma is receptive (dichogamy). Spatial separation may involve distinct male and female flowers on one plant or male and female flowers on different plants; dioecy separates sexes across plants, making self-pollination impossible. Wind can carry airborne pollen, while animals move pollen between flowers during visits. Transfer does not guarantee successful fertilization: pollen–stigma compatibility, tube growth and ovule viability still matter. Cross-pollination may increase genetic mixing but is not synonymous with hybridization between species.",
+      "revisionSummary": "Male and female flowers occur on separate individual plants.",
+      "terms": [],
+      "workedExample": "A plant that develops pollen before its stigma becomes receptive reduces opportunities for self-fertilization.",
+      "misconceptions": [
+        {
+          "misconception": "A flower with both reproductive organs must self-fertilize.",
+          "correction": "Timing, separation and incompatibility mechanisms can still favor cross-fertilization."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Cross-pollination transfers pollen between different plants of the same species. Temporal separation can reduce self-pollination when pollen is shed before or after a flower's stigma is receptive (dichogamy). Spatial separation may involve distinct male and female flowers on one plant or male and female flowers on different plants; dioecy separates sexes across plants, making self-pollination impossible. Wind can carry airborne pollen, while animals move pollen between flowers during visits. Transfer does not guarantee successful fertilization: pollen–stigma compatibility, tube growth and ovule viability still matter. Cross-pollination may increase genetic mixing but is not synonymous with hybridization between species.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-10",
+          "prompt": "How does dioecy prevent self-pollination?",
+          "understandingIds": [
+            "D3.1.10"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Male and female flowers occur on separate individual plants.",
+              "correct": true,
+              "feedback": "Correct. Male and female flowers occur on separate individual plants."
+            },
+            {
+              "id": "b",
+              "text": "A flower with both reproductive organs must self-fertilize.",
+              "correct": false,
+              "feedback": "Timing, separation and incompatibility mechanisms can still favor cross-fertilization."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-10",
+          "prompt": "How does dioecy prevent self-pollination?",
+          "answer": "Male and female flowers occur on separate individual plants.",
+          "explanation": "Male and female flowers occur on separate individual plants.",
+          "understandingIds": [
+            "D3.1.10"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Ways plants encourage cross-pollination",
+          "explanation": "Cross-pollination transfers pollen between different plants of the same species. Temporal separation can reduce self-pollination when pollen is shed before or after a flower's stigma is receptive (dichogamy). Spatial separation may involve distinct male and female flowers on one plant or male and female flowers on different plants; dioecy separates sexes across plants, making self-pollination impossible. Wind can carry airborne pollen, while animals move pollen between flowers during visits. Transfer does not guarantee successful fertilization: pollen–stigma compatibility, tube growth and ovule viability still matter. Cross-pollination may increase genetic mixing but is not synonymous with hybridization between species.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-11",
+      "understandingIds": [
+        "D3.1.11"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why can self-incompatibility sustain diversity?",
+      "explanation": "Self-pollination can lead to repeated mating among genetically related gametes, increasing homozygosity and the likelihood that recessive harmful alleles are expressed. Many flowering plants possess genetically determined self-incompatibility systems that recognize pollen carrying an incompatible self-associated allele and block pollen germination or pollen-tube growth. These molecular recognition mechanisms vary across plant lineages. The result is a greater chance that fertilization occurs between different plants, helping maintain genetic variation. Do not claim that every self-fertilization produces weak offspring; inbreeding depression is a population-level tendency dependent on underlying genetic load and breeding history.",
+      "revisionSummary": "It reduces self-fertilization and increases opportunities for mixing alleles from different plants.",
+      "terms": [],
+      "workedExample": "If pollen with a matching self-incompatibility identity fails to grow a tube, it cannot deliver sperm to the ovule.",
+      "misconceptions": [
+        {
+          "misconception": "Self-incompatibility prevents pollen from landing on the stigma.",
+          "correction": "Recognition generally blocks later pollen function or tube growth, even when pollen lands."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Self-pollination can lead to repeated mating among genetically related gametes, increasing homozygosity and the likelihood that recessive harmful alleles are expressed. Many flowering plants possess genetically determined self-incompatibility systems that recognize pollen carrying an incompatible self-associated allele and block pollen germination or pollen-tube growth. These molecular recognition mechanisms vary across plant lineages. The result is a greater chance that fertilization occurs between different plants, helping maintain genetic variation. Do not claim that every self-fertilization produces weak offspring; inbreeding depression is a population-level tendency dependent on underlying genetic load and breeding history.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-11",
+          "prompt": "Why can self-incompatibility sustain diversity?",
+          "understandingIds": [
+            "D3.1.11"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "It reduces self-fertilization and increases opportunities for mixing alleles from different plants.",
+              "correct": true,
+              "feedback": "Correct. It reduces self-fertilization and increases opportunities for mixing alleles from different plants."
+            },
+            {
+              "id": "b",
+              "text": "Self-incompatibility prevents pollen from landing on the stigma.",
+              "correct": false,
+              "feedback": "Recognition generally blocks later pollen function or tube growth, even when pollen lands."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-11",
+          "prompt": "Why can self-incompatibility sustain diversity?",
+          "answer": "It reduces self-fertilization and increases opportunities for mixing alleles from different plants.",
+          "explanation": "It reduces self-fertilization and increases opportunities for mixing alleles from different plants.",
+          "understandingIds": [
+            "D3.1.11"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Self-incompatibility safeguards",
+          "explanation": "Self-pollination can lead to repeated mating among genetically related gametes, increasing homozygosity and the likelihood that recessive harmful alleles are expressed. Many flowering plants possess genetically determined self-incompatibility systems that recognize pollen carrying an incompatible self-associated allele and block pollen germination or pollen-tube growth. These molecular recognition mechanisms vary across plant lineages. The result is a greater chance that fertilization occurs between different plants, helping maintain genetic variation. Do not claim that every self-fertilization produces weak offspring; inbreeding depression is a population-level tendency dependent on underlying genetic load and breeding history.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-12",
+      "understandingIds": [
+        "D3.1.12"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What provides energy before the seedling photosynthesizes sufficiently?",
+      "explanation": "Dispersal moves already formed seeds away from a parent plant, unlike pollination, which moves pollen before fertilization. Fruits or seed structures can enable wind transport, attachment to animals, passage through digestive tracts or water transport. Dispersal may reduce competition with the parent and permit colonization of new sites, but it does not itself guarantee germination. When dormancy is broken and conditions are suitable—usually water, oxygen and an appropriate temperature—the embryo resumes growth. Water uptake activates metabolism; enzymes mobilize stored starch, lipids or proteins from cotyledons or endosperm. The radicle typically emerges first as the young root. Light requirements vary among species.",
+      "revisionSummary": "Mobilized seed reserves stored in cotyledons or endosperm.",
+      "terms": [],
+      "workedExample": "A wind-dispersed seed can travel far but still remain dormant until water and temperature permit germination.",
+      "misconceptions": [
+        {
+          "misconception": "Pollination is the movement of seeds to new habitats.",
+          "correction": "Pollination moves pollen; dispersal moves seeds formed after fertilization."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Dispersal moves already formed seeds away from a parent plant, unlike pollination, which moves pollen before fertilization. Fruits or seed structures can enable wind transport, attachment to animals, passage through digestive tracts or water transport. Dispersal may reduce competition with the parent and permit colonization of new sites, but it does not itself guarantee germination. When dormancy is broken and conditions are suitable—usually water, oxygen and an appropriate temperature—the embryo resumes growth. Water uptake activates metabolism; enzymes mobilize stored starch, lipids or proteins from cotyledons or endosperm. The radicle typically emerges first as the young root. Light requirements vary among species.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-12",
+          "prompt": "What provides energy before the seedling photosynthesizes sufficiently?",
+          "understandingIds": [
+            "D3.1.12"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Mobilized seed reserves stored in cotyledons or endosperm.",
+              "correct": true,
+              "feedback": "Correct. Mobilized seed reserves stored in cotyledons or endosperm."
+            },
+            {
+              "id": "b",
+              "text": "Pollination is the movement of seeds to new habitats.",
+              "correct": false,
+              "feedback": "Pollination moves pollen; dispersal moves seeds formed after fertilization."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-12",
+          "prompt": "What provides energy before the seedling photosynthesizes sufficiently?",
+          "answer": "Mobilized seed reserves stored in cotyledons or endosperm.",
+          "explanation": "Mobilized seed reserves stored in cotyledons or endosperm.",
+          "understandingIds": [
+            "D3.1.12"
+          ]
+        }
+      ],
+      "guidePage": 96,
+      "pdfPage": 102,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "From seed dispersal to germination",
+          "explanation": "Dispersal moves already formed seeds away from a parent plant, unlike pollination, which moves pollen before fertilization. Fruits or seed structures can enable wind transport, attachment to animals, passage through digestive tracts or water transport. Dispersal may reduce competition with the parent and permit colonization of new sites, but it does not itself guarantee germination. When dormancy is broken and conditions are suitable—usually water, oxygen and an appropriate temperature—the embryo resumes growth. Water uptake activates metabolism; enzymes mobilize stored starch, lipids or proteins from cotyledons or endosperm. The radicle typically emerges first as the young root. Light requirements vary among species.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-13",
+      "understandingIds": [
+        "D3.1.13"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which endocrine organ releases GnRH?",
+      "explanation": "Puberty begins when hypothalamic secretion of gonadotropin-releasing hormone (GnRH) becomes more active and pulsatile. GnRH stimulates the anterior pituitary to release LH and FSH. In testes, these gonadotropins support testosterone secretion and sperm development; in ovaries, they stimulate follicular function and oestradiol secretion. Rising sex-steroid concentrations cause many secondary sexual characteristics and reproductive tissue changes. The feedback regulation of the hypothalamic–pituitary–gonadal axis influences the timing and pattern of these changes. Timing varies normally and is affected by multiple biological factors. Puberty is a developmental process, not the instant at which fertility becomes guaranteed.",
+      "revisionSummary": "The hypothalamus.",
+      "terms": [],
+      "workedExample": "Sequence the pathway hypothalamus → GnRH → pituitary LH/FSH → gonads → sex steroids → developmental change.",
+      "misconceptions": [
+        {
+          "misconception": "The pituitary initiates puberty independently of hypothalamic signalling.",
+          "correction": "Increased hypothalamic GnRH activity drives gonadotropin release."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Puberty begins when hypothalamic secretion of gonadotropin-releasing hormone (GnRH) becomes more active and pulsatile. GnRH stimulates the anterior pituitary to release LH and FSH. In testes, these gonadotropins support testosterone secretion and sperm development; in ovaries, they stimulate follicular function and oestradiol secretion. Rising sex-steroid concentrations cause many secondary sexual characteristics and reproductive tissue changes. The feedback regulation of the hypothalamic–pituitary–gonadal axis influences the timing and pattern of these changes. Timing varies normally and is affected by multiple biological factors. Puberty is a developmental process, not the instant at which fertility becomes guaranteed.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-13",
+          "prompt": "Which endocrine organ releases GnRH?",
+          "understandingIds": [
+            "D3.1.13"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "The hypothalamus.",
+              "correct": true,
+              "feedback": "Correct. The hypothalamus."
+            },
+            {
+              "id": "b",
+              "text": "The pituitary initiates puberty independently of hypothalamic signalling.",
+              "correct": false,
+              "feedback": "Increased hypothalamic GnRH activity drives gonadotropin release."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-13",
+          "prompt": "Which endocrine organ releases GnRH?",
+          "answer": "The hypothalamus.",
+          "explanation": "The hypothalamus.",
+          "understandingIds": [
+            "D3.1.13"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Endocrine onset of puberty",
+          "explanation": "Puberty begins when hypothalamic secretion of gonadotropin-releasing hormone (GnRH) becomes more active and pulsatile. GnRH stimulates the anterior pituitary to release LH and FSH. In testes, these gonadotropins support testosterone secretion and sperm development; in ovaries, they stimulate follicular function and oestradiol secretion. Rising sex-steroid concentrations cause many secondary sexual characteristics and reproductive tissue changes. The feedback regulation of the hypothalamic–pituitary–gonadal axis influences the timing and pattern of these changes. Timing varies normally and is affected by multiple biological factors. Puberty is a developmental process, not the instant at which fertility becomes guaranteed.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-14",
+      "understandingIds": [
+        "D3.1.14"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why does oogenesis involve unequal cytokinesis?",
+      "explanation": "Spermatogenesis begins with mitotically maintained germ cells; growing primary spermatocytes undergo meiosis I and II, producing four haploid spermatids that differentiate into sperm. Cytoplasm is reduced and a flagellum and acrosome develop. In oogenesis, meiosis produces unequal products: a single large functional oocyte/ovum retains most cytoplasm, while small polar bodies receive chromosomes with little cytoplasm. Primary oocytes enter meiosis before birth and arrest until later development; a secondary oocyte commonly arrests again until fertilization. The contrast in cell numbers and cytoplasm reflects different gamete functions, not different ploidies of mature gametes. Exact timing and terminology of egg maturation require attention to meiotic arrest.",
+      "revisionSummary": "It preserves cytoplasmic resources in the functional gamete.",
+      "terms": [],
+      "workedExample": "A primary spermatocyte produces four spermatids; a primary oocyte normally yields one large functional egg and polar bodies.",
+      "misconceptions": [
+        {
+          "misconception": "Oogenesis produces four equal-sized mature eggs.",
+          "correction": "Meiotic cytokinesis is unequal in oogenesis, conserving cytoplasm in one cell."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Spermatogenesis begins with mitotically maintained germ cells; growing primary spermatocytes undergo meiosis I and II, producing four haploid spermatids that differentiate into sperm. Cytoplasm is reduced and a flagellum and acrosome develop. In oogenesis, meiosis produces unequal products: a single large functional oocyte/ovum retains most cytoplasm, while small polar bodies receive chromosomes with little cytoplasm. Primary oocytes enter meiosis before birth and arrest until later development; a secondary oocyte commonly arrests again until fertilization. The contrast in cell numbers and cytoplasm reflects different gamete functions, not different ploidies of mature gametes. Exact timing and terminology of egg maturation require attention to meiotic arrest.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-14",
+          "prompt": "Why does oogenesis involve unequal cytokinesis?",
+          "understandingIds": [
+            "D3.1.14"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "It preserves cytoplasmic resources in the functional gamete.",
+              "correct": true,
+              "feedback": "Correct. It preserves cytoplasmic resources in the functional gamete."
+            },
+            {
+              "id": "b",
+              "text": "Oogenesis produces four equal-sized mature eggs.",
+              "correct": false,
+              "feedback": "Meiotic cytokinesis is unequal in oogenesis, conserving cytoplasm in one cell."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-14",
+          "prompt": "Why does oogenesis involve unequal cytokinesis?",
+          "answer": "It preserves cytoplasmic resources in the functional gamete.",
+          "explanation": "It preserves cytoplasmic resources in the functional gamete.",
+          "understandingIds": [
+            "D3.1.14"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Formation of sperm and oocytes",
+          "explanation": "Spermatogenesis begins with mitotically maintained germ cells; growing primary spermatocytes undergo meiosis I and II, producing four haploid spermatids that differentiate into sperm. Cytoplasm is reduced and a flagellum and acrosome develop. In oogenesis, meiosis produces unequal products: a single large functional oocyte/ovum retains most cytoplasm, while small polar bodies receive chromosomes with little cytoplasm. Primary oocytes enter meiosis before birth and arrest until later development; a secondary oocyte commonly arrests again until fertilization. The contrast in cell numbers and cytoplasm reflects different gamete functions, not different ploidies of mature gametes. Exact timing and terminology of egg maturation require attention to meiotic arrest.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-15",
+      "understandingIds": [
+        "D3.1.15"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which reaction helps prevent polyspermy after fertilization begins?",
+      "explanation": "For a normally fertilized human egg, one sperm must contribute its nuclear chromosome set. The acrosome reaction releases or exposes molecules that aid passage through the zona pellucida. After sperm–egg membrane fusion, calcium-dependent cortical granule release modifies the zona pellucida and reduces the capacity of additional sperm to penetrate. This cortical reaction helps prevent polyspermy. If two sperm genomes enter and persist, the embryo can have an abnormal chromosome complement and development is usually disrupted. The acrosome reaction and cortical reaction have opposite roles in the sequence: entry of one sperm versus exclusion of others.",
+      "revisionSummary": "The cortical reaction.",
+      "terms": [],
+      "workedExample": "Identify the acrosome reaction before penetration and the cortical reaction after sperm–egg fusion.",
+      "misconceptions": [
+        {
+          "misconception": "The cortical reaction helps the first sperm penetrate the zona pellucida.",
+          "correction": "The acrosome reaction promotes penetration; cortical changes restrict additional sperm."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "For a normally fertilized human egg, one sperm must contribute its nuclear chromosome set. The acrosome reaction releases or exposes molecules that aid passage through the zona pellucida. After sperm–egg membrane fusion, calcium-dependent cortical granule release modifies the zona pellucida and reduces the capacity of additional sperm to penetrate. This cortical reaction helps prevent polyspermy. If two sperm genomes enter and persist, the embryo can have an abnormal chromosome complement and development is usually disrupted. The acrosome reaction and cortical reaction have opposite roles in the sequence: entry of one sperm versus exclusion of others.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-15",
+          "prompt": "Which reaction helps prevent polyspermy after fertilization begins?",
+          "understandingIds": [
+            "D3.1.15"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "The cortical reaction.",
+              "correct": true,
+              "feedback": "Correct. The cortical reaction."
+            },
+            {
+              "id": "b",
+              "text": "The cortical reaction helps the first sperm penetrate the zona pellucida.",
+              "correct": false,
+              "feedback": "The acrosome reaction promotes penetration; cortical changes restrict additional sperm."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-15",
+          "prompt": "Which reaction helps prevent polyspermy after fertilization begins?",
+          "answer": "The cortical reaction.",
+          "explanation": "The cortical reaction.",
+          "understandingIds": [
+            "D3.1.15"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Blocks to multiple sperm entry",
+          "explanation": "For a normally fertilized human egg, one sperm must contribute its nuclear chromosome set. The acrosome reaction releases or exposes molecules that aid passage through the zona pellucida. After sperm–egg membrane fusion, calcium-dependent cortical granule release modifies the zona pellucida and reduces the capacity of additional sperm to penetrate. This cortical reaction helps prevent polyspermy. If two sperm genomes enter and persist, the embryo can have an abnormal chromosome complement and development is usually disrupted. The acrosome reaction and cortical reaction have opposite roles in the sequence: entry of one sperm versus exclusion of others.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-16",
+      "understandingIds": [
+        "D3.1.16"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which blastocyst layer contributes to the placenta?",
+      "explanation": "After fertilization, mitotic divisions increase cell number while the early embryo travels toward the uterus. It becomes a blastocyst containing an inner cell mass, which contributes to the embryo, and an outer trophoblast, which contributes to placental tissues. A fluid-filled cavity is characteristic. The blastocyst escapes its surrounding zona pellucida and attaches to the hormonally prepared endometrium; trophoblast cells then invade maternal tissue to establish implantation. Successful implantation requires synchronized embryo development and uterine receptivity. It is incorrect to suggest that fertilization normally occurs inside the uterus or that the early embryo already has mature organs.",
+      "revisionSummary": "The trophoblast.",
+      "terms": [],
+      "workedExample": "Differentiate a blastocyst's inner cell mass from its trophoblast when explaining embryonic versus placental contributions.",
+      "misconceptions": [
+        {
+          "misconception": "Implantation is sperm–egg membrane fusion.",
+          "correction": "Implantation is the later attachment and invasion of the uterine endometrium by a blastocyst."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "After fertilization, mitotic divisions increase cell number while the early embryo travels toward the uterus. It becomes a blastocyst containing an inner cell mass, which contributes to the embryo, and an outer trophoblast, which contributes to placental tissues. A fluid-filled cavity is characteristic. The blastocyst escapes its surrounding zona pellucida and attaches to the hormonally prepared endometrium; trophoblast cells then invade maternal tissue to establish implantation. Successful implantation requires synchronized embryo development and uterine receptivity. It is incorrect to suggest that fertilization normally occurs inside the uterus or that the early embryo already has mature organs.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-16",
+          "prompt": "Which blastocyst layer contributes to the placenta?",
+          "understandingIds": [
+            "D3.1.16"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "The trophoblast.",
+              "correct": true,
+              "feedback": "Correct. The trophoblast."
+            },
+            {
+              "id": "b",
+              "text": "Implantation is sperm–egg membrane fusion.",
+              "correct": false,
+              "feedback": "Implantation is the later attachment and invasion of the uterine endometrium by a blastocyst."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-16",
+          "prompt": "Which blastocyst layer contributes to the placenta?",
+          "answer": "The trophoblast.",
+          "explanation": "The trophoblast.",
+          "understandingIds": [
+            "D3.1.16"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Blastocyst formation and implantation",
+          "explanation": "After fertilization, mitotic divisions increase cell number while the early embryo travels toward the uterus. It becomes a blastocyst containing an inner cell mass, which contributes to the embryo, and an outer trophoblast, which contributes to placental tissues. A fluid-filled cavity is characteristic. The blastocyst escapes its surrounding zona pellucida and attaches to the hormonally prepared endometrium; trophoblast cells then invade maternal tissue to establish implantation. Successful implantation requires synchronized embryo development and uterine receptivity. It is incorrect to suggest that fertilization normally occurs inside the uterus or that the early embryo already has mature organs.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-17",
+      "understandingIds": [
+        "D3.1.17"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why can testing too soon produce a negative result?",
+      "explanation": "After implantation begins, trophoblast-derived tissue secretes human chorionic gonadotropin (hCG), which maintains corpus luteum function early in pregnancy and thereby supports progesterone secretion. Many home tests use antibodies that selectively bind hCG in urine. In a lateral-flow test, labelled anti-hCG antibodies form complexes if the hormone is present; capture antibodies immobilize the complexes at a test line, and a separate control line indicates the fluid and reagents functioned. Detection depends on the test's sensitivity and the time since implantation; an early negative result does not conclusively exclude pregnancy. These assays detect a hormone, not an embryo's image.",
+      "revisionSummary": "hCG may still be below the test's detection threshold.",
+      "terms": [],
+      "workedExample": "Explain why a positive test line indicates binding of hCG to assay antibodies and why a control line is needed.",
+      "misconceptions": [
+        {
+          "misconception": "Pregnancy tests measure progesterone with no antibody involvement.",
+          "correction": "Common home assays detect hCG using specific antibodies."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "After implantation begins, trophoblast-derived tissue secretes human chorionic gonadotropin (hCG), which maintains corpus luteum function early in pregnancy and thereby supports progesterone secretion. Many home tests use antibodies that selectively bind hCG in urine. In a lateral-flow test, labelled anti-hCG antibodies form complexes if the hormone is present; capture antibodies immobilize the complexes at a test line, and a separate control line indicates the fluid and reagents functioned. Detection depends on the test's sensitivity and the time since implantation; an early negative result does not conclusively exclude pregnancy. These assays detect a hormone, not an embryo's image.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-17",
+          "prompt": "Why can testing too soon produce a negative result?",
+          "understandingIds": [
+            "D3.1.17"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "hCG may still be below the test's detection threshold.",
+              "correct": true,
+              "feedback": "Correct. hCG may still be below the test's detection threshold."
+            },
+            {
+              "id": "b",
+              "text": "Pregnancy tests measure progesterone with no antibody involvement.",
+              "correct": false,
+              "feedback": "Common home assays detect hCG using specific antibodies."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-17",
+          "prompt": "Why can testing too soon produce a negative result?",
+          "answer": "hCG may still be below the test's detection threshold.",
+          "explanation": "hCG may still be below the test's detection threshold.",
+          "understandingIds": [
+            "D3.1.17"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "How pregnancy tests detect hCG",
+          "explanation": "After implantation begins, trophoblast-derived tissue secretes human chorionic gonadotropin (hCG), which maintains corpus luteum function early in pregnancy and thereby supports progesterone secretion. Many home tests use antibodies that selectively bind hCG in urine. In a lateral-flow test, labelled anti-hCG antibodies form complexes if the hormone is present; capture antibodies immobilize the complexes at a test line, and a separate control line indicates the fluid and reagents functioned. Detection depends on the test's sensitivity and the time since implantation; an early negative result does not conclusively exclude pregnancy. These assays detect a hormone, not an embryo's image.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-18",
+      "understandingIds": [
+        "D3.1.18"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What structural feature increases placental exchange area?",
+      "explanation": "The placenta is a temporary organ supporting exchange between maternal and fetal circulations without normal direct mixing of their blood. Numerous chorionic villi provide a large surface area and short exchange distances. Oxygen and nutrients move toward fetal blood; carbon dioxide and nitrogenous wastes move toward maternal blood, through diffusion or other transport mechanisms according to the substance. Maternal antibodies of certain classes can also cross. The placenta produces hormones that maintain pregnancy. Placental support permits prolonged development in the uterus compared with mammals whose embryos do not develop through an equivalent placental relationship. A placenta is an exchange barrier, not a perfect filter: some pathogens, drugs and harmful substances can cross.",
+      "revisionSummary": "Numerous chorionic villi.",
+      "terms": [],
+      "workedExample": "Explain why abundant branching villi improve total exchange capacity.",
+      "misconceptions": [
+        {
+          "misconception": "Maternal and fetal red blood cells normally mix freely.",
+          "correction": "Exchange occurs across tissue barriers while circulations remain largely separate."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The placenta is a temporary organ supporting exchange between maternal and fetal circulations without normal direct mixing of their blood. Numerous chorionic villi provide a large surface area and short exchange distances. Oxygen and nutrients move toward fetal blood; carbon dioxide and nitrogenous wastes move toward maternal blood, through diffusion or other transport mechanisms according to the substance. Maternal antibodies of certain classes can also cross. The placenta produces hormones that maintain pregnancy. Placental support permits prolonged development in the uterus compared with mammals whose embryos do not develop through an equivalent placental relationship. A placenta is an exchange barrier, not a perfect filter: some pathogens, drugs and harmful substances can cross.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-18",
+          "prompt": "What structural feature increases placental exchange area?",
+          "understandingIds": [
+            "D3.1.18"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Numerous chorionic villi.",
+              "correct": true,
+              "feedback": "Correct. Numerous chorionic villi."
+            },
+            {
+              "id": "b",
+              "text": "Maternal and fetal red blood cells normally mix freely.",
+              "correct": false,
+              "feedback": "Exchange occurs across tissue barriers while circulations remain largely separate."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-18",
+          "prompt": "What structural feature increases placental exchange area?",
+          "answer": "Numerous chorionic villi.",
+          "explanation": "Numerous chorionic villi.",
+          "understandingIds": [
+            "D3.1.18"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Placental exchange",
+          "explanation": "The placenta is a temporary organ supporting exchange between maternal and fetal circulations without normal direct mixing of their blood. Numerous chorionic villi provide a large surface area and short exchange distances. Oxygen and nutrients move toward fetal blood; carbon dioxide and nitrogenous wastes move toward maternal blood, through diffusion or other transport mechanisms according to the substance. Maternal antibodies of certain classes can also cross. The placenta produces hormones that maintain pregnancy. Placental support permits prolonged development in the uterus compared with mammals whose embryos do not develop through an equivalent placental relationship. A placenta is an exchange barrier, not a perfect filter: some pathogens, drugs and harmful substances can cross.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-19",
+      "understandingIds": [
+        "D3.1.19"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What event terminates the labour positive-feedback loop?",
+      "explanation": "Early progesterone secretion from the corpus luteum maintains the endometrium and limits excessive uterine contractility. As pregnancy progresses, the placenta becomes a major source of progesterone and oestrogens. Near birth, changes in functional progesterone signalling and the balance of uterine stimulatory hormones increase responsiveness to oxytocin, while prostaglandins contribute to cervical and uterine changes. Stretching of the cervix during labour stimulates oxytocin release, intensifying contractions and further stretch: a positive feedback loop that ends with delivery. The guide describes a decline in progesterone around childbirth; in humans, distinguish this syllabus model from the more complex idea of functional progesterone withdrawal, because circulating progesterone need not show a major systemic fall.",
+      "revisionSummary": "Delivery removes the cervical-stretch stimulus.",
+      "terms": [],
+      "workedExample": "Map cervical stretch → neural signalling → oxytocin release → stronger uterine contraction → further cervical stretch.",
+      "misconceptions": [
+        {
+          "misconception": "The oxytocin loop is negative feedback that stabilizes cervical stretching.",
+          "correction": "During labour, reinforcing contractions and stretching form a positive feedback loop."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Early progesterone secretion from the corpus luteum maintains the endometrium and limits excessive uterine contractility. As pregnancy progresses, the placenta becomes a major source of progesterone and oestrogens. Near birth, changes in functional progesterone signalling and the balance of uterine stimulatory hormones increase responsiveness to oxytocin, while prostaglandins contribute to cervical and uterine changes. Stretching of the cervix during labour stimulates oxytocin release, intensifying contractions and further stretch: a positive feedback loop that ends with delivery. The guide describes a decline in progesterone around childbirth; in humans, distinguish this syllabus model from the more complex idea of functional progesterone withdrawal, because circulating progesterone need not show a major systemic fall.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-19",
+          "prompt": "What event terminates the labour positive-feedback loop?",
+          "understandingIds": [
+            "D3.1.19"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Delivery removes the cervical-stretch stimulus.",
+              "correct": true,
+              "feedback": "Correct. Delivery removes the cervical-stretch stimulus."
+            },
+            {
+              "id": "b",
+              "text": "The oxytocin loop is negative feedback that stabilizes cervical stretching.",
+              "correct": false,
+              "feedback": "During labour, reinforcing contractions and stretching form a positive feedback loop."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-19",
+          "prompt": "What event terminates the labour positive-feedback loop?",
+          "answer": "Delivery removes the cervical-stretch stimulus.",
+          "explanation": "Delivery removes the cervical-stretch stimulus.",
+          "understandingIds": [
+            "D3.1.19"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Pregnancy and labour hormones",
+          "explanation": "Early progesterone secretion from the corpus luteum maintains the endometrium and limits excessive uterine contractility. As pregnancy progresses, the placenta becomes a major source of progesterone and oestrogens. Near birth, changes in functional progesterone signalling and the balance of uterine stimulatory hormones increase responsiveness to oxytocin, while prostaglandins contribute to cervical and uterine changes. Stretching of the cervix during labour stimulates oxytocin release, intensifying contractions and further stretch: a positive feedback loop that ends with delivery. The guide describes a decline in progesterone around childbirth; in humans, distinguish this syllabus model from the more complex idea of functional progesterone withdrawal, because circulating progesterone need not show a major systemic fall.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    },
+    {
+      "id": "reproduction-20",
+      "understandingIds": [
+        "D3.1.20"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why can randomization change the conclusion of an epidemiological association?",
+      "explanation": "Some early observational studies associated hormone replacement therapy (HRT) use with fewer cases of coronary heart disease (CHD), but the association did not establish that HRT protected the heart. People electing HRT in those samples often differed in income, healthcare access, education and other risk factors from non-users. Such confounding can create a misleading protective association. Randomized controlled trials were better able to balance these differences; results in studied groups and regimens showed a small increase in CHD risk for some hormone treatments rather than the proposed protection. Risks depend on age, timing, route and formulation, so avoid translating one trial result into an unconditional claim about all current HRT use. This is a nature-of-science example of why causal conclusions need appropriate designs.",
+      "revisionSummary": "It reduces systematic differences between treatment and comparison groups.",
+      "terms": [],
+      "workedExample": "A lower CHD rate among clinic-attending HRT users could reflect socioeconomic and health-behaviour differences, not a drug effect.",
+      "misconceptions": [
+        {
+          "misconception": "A correlation in an observational study automatically establishes causation.",
+          "correction": "Confounding can produce an association; randomized comparisons test causal hypotheses more rigorously."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Some early observational studies associated hormone replacement therapy (HRT) use with fewer cases of coronary heart disease (CHD), but the association did not establish that HRT protected the heart. People electing HRT in those samples often differed in income, healthcare access, education and other risk factors from non-users. Such confounding can create a misleading protective association. Randomized controlled trials were better able to balance these differences; results in studied groups and regimens showed a small increase in CHD risk for some hormone treatments rather than the proposed protection. Risks depend on age, timing, route and formulation, so avoid translating one trial result into an unconditional claim about all current HRT use. This is a nature-of-science example of why causal conclusions need appropriate designs.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d31-check-20",
+          "prompt": "Why can randomization change the conclusion of an epidemiological association?",
+          "understandingIds": [
+            "D3.1.20"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "It reduces systematic differences between treatment and comparison groups.",
+              "correct": true,
+              "feedback": "Correct. It reduces systematic differences between treatment and comparison groups."
+            },
+            {
+              "id": "b",
+              "text": "A correlation in an observational study automatically establishes causation.",
+              "correct": false,
+              "feedback": "Confounding can produce an association; randomized comparisons test causal hypotheses more rigorously."
+            },
+            {
+              "id": "c",
+              "text": "The described mechanism always has the same outcome in every organism and setting.",
+              "correct": false,
+              "feedback": "Biological mechanisms depend on species, conditions and developmental context; examine the specific process."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d31-recall-20",
+          "prompt": "Why can randomization change the conclusion of an epidemiological association?",
+          "answer": "It reduces systematic differences between treatment and comparison groups.",
+          "explanation": "It reduces systematic differences between treatment and comparison groups.",
+          "understandingIds": [
+            "D3.1.20"
+          ]
+        }
+      ],
+      "guidePage": 97,
+      "pdfPage": 103,
+      "textbook": {
+        "referenceId": "hodder-d31",
+        "printedPages": [
+          693,
+          724
+        ],
+        "pdfPages": [
+          705,
+          736
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "HRT, coronary disease and causal inference",
+          "explanation": "Some early observational studies associated hormone replacement therapy (HRT) use with fewer cases of coronary heart disease (CHD), but the association did not establish that HRT protected the heart. People electing HRT in those samples often differed in income, healthcare access, education and other risk factors from non-users. Such confounding can create a misleading protective association. Randomized controlled trials were better able to balance these differences; results in studied groups and regimens showed a small increase in CHD risk for some hormone treatments rather than the proposed protection. Risks depend on age, timing, route and formulation, so avoid translating one trial result into an unconditional claim about all current HRT use. This is a nature-of-science example of why causal conclusions need appropriate designs.",
+          "referenceIds": [
+            "ib-d31",
+            "hodder-d31"
+          ]
+        }
+      ],
+      "exampleTitle": "Apply the mechanism",
+      "activityTitle": "Check your reasoning"
+    }
+  ],
+  "questions": [
+    {
+      "id": "d31-q-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.1"
+      ],
+      "level": "shared",
+      "prompt": "Why is variation, rather than a guaranteed improvement, a key outcome of sexual reproduction? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-1",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+      "markingPoints": [
+        "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-2",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.2"
+      ],
+      "level": "shared",
+      "prompt": "What restores the diploid chromosome complement? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-2",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Fusion of two haploid gametes during fertilization.",
+      "markingPoints": [
+        "Fusion of two haploid gametes during fertilization.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-3",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.3"
+      ],
+      "level": "shared",
+      "prompt": "Why are eggs generally larger than sperm? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-3",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Eggs usually retain much more cytoplasm and nutrient resources to support early development.",
+      "markingPoints": [
+        "Eggs usually retain much more cytoplasm and nutrient resources to support early development.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-4",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.4"
+      ],
+      "level": "shared",
+      "prompt": "Where does human fertilization usually occur? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-4",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Within an oviduct rather than the uterus.",
+      "markingPoints": [
+        "Within an oviduct rather than the uterus.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-5",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.5"
+      ],
+      "level": "shared",
+      "prompt": "Which endocrine change immediately triggers ovulation? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-5",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "The LH surge following sustained high oestradiol positive feedback.",
+      "markingPoints": [
+        "The LH surge following sustained high oestradiol positive feedback.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-6",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.6"
+      ],
+      "level": "shared",
+      "prompt": "How does the first mitosis integrate maternal and paternal chromosomes? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-6",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Both sets of condensed chromosomes participate in a common division that produces diploid daughter nuclei.",
+      "markingPoints": [
+        "Both sets of condensed chromosomes participate in a common division that produces diploid daughter nuclei.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-7",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.7"
+      ],
+      "level": "shared",
+      "prompt": "Why is ovulation controlled before egg retrieval? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-7",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "To prevent spontaneous release and coordinate maturation and collection of oocytes.",
+      "markingPoints": [
+        "To prevent spontaneous release and coordinate maturation and collection of oocytes.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-8",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.8"
+      ],
+      "level": "shared",
+      "prompt": "Does pollination itself create a zygote? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-8",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "No. Fertilization follows pollen germination and sperm delivery to the ovule.",
+      "markingPoints": [
+        "No. Fertilization follows pollen germination and sperm delivery to the ovule.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-9",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "level": "shared",
+      "prompt": "Why is the stigma positioned to contact visiting insects? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-9",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Its exposed receptive surface allows pollen carried by insects to be deposited.",
+      "markingPoints": [
+        "Its exposed receptive surface allows pollen carried by insects to be deposited.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-10",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.10"
+      ],
+      "level": "shared",
+      "prompt": "How does dioecy prevent self-pollination? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-10",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Male and female flowers occur on separate individual plants.",
+      "markingPoints": [
+        "Male and female flowers occur on separate individual plants.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-11",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.11"
+      ],
+      "level": "shared",
+      "prompt": "Why can self-incompatibility sustain diversity? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-11",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "It reduces self-fertilization and increases opportunities for mixing alleles from different plants.",
+      "markingPoints": [
+        "It reduces self-fertilization and increases opportunities for mixing alleles from different plants.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-12",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.12"
+      ],
+      "level": "shared",
+      "prompt": "What provides energy before the seedling photosynthesizes sufficiently? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-12",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Mobilized seed reserves stored in cotyledons or endosperm.",
+      "markingPoints": [
+        "Mobilized seed reserves stored in cotyledons or endosperm.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-13",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.13"
+      ],
+      "level": "HL",
+      "prompt": "Which endocrine organ releases GnRH? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-13",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "The hypothalamus.",
+      "markingPoints": [
+        "The hypothalamus.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-14",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.14"
+      ],
+      "level": "HL",
+      "prompt": "Why does oogenesis involve unequal cytokinesis? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-14",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "It preserves cytoplasmic resources in the functional gamete.",
+      "markingPoints": [
+        "It preserves cytoplasmic resources in the functional gamete.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-15",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.15"
+      ],
+      "level": "HL",
+      "prompt": "Which reaction helps prevent polyspermy after fertilization begins? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-15",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "The cortical reaction.",
+      "markingPoints": [
+        "The cortical reaction.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-16",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.16"
+      ],
+      "level": "HL",
+      "prompt": "Which blastocyst layer contributes to the placenta? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-16",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "The trophoblast.",
+      "markingPoints": [
+        "The trophoblast.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-17",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.17"
+      ],
+      "level": "HL",
+      "prompt": "Why can testing too soon produce a negative result? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-17",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "hCG may still be below the test's detection threshold.",
+      "markingPoints": [
+        "hCG may still be below the test's detection threshold.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-18",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.18"
+      ],
+      "level": "HL",
+      "prompt": "What structural feature increases placental exchange area? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-18",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Numerous chorionic villi.",
+      "markingPoints": [
+        "Numerous chorionic villi.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-19",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.19"
+      ],
+      "level": "HL",
+      "prompt": "What event terminates the labour positive-feedback loop? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-19",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "Delivery removes the cervical-stretch stimulus.",
+      "markingPoints": [
+        "Delivery removes the cervical-stretch stimulus.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d31-q-20",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.1.20"
+      ],
+      "level": "HL",
+      "prompt": "Why can randomization change the conclusion of an epidemiological association? Explain your reasoning and use a relevant biological mechanism.",
+      "marks": 3,
+      "sectionId": "reproduction-20",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "It reduces systematic differences between treatment and comparison groups.",
+      "markingPoints": [
+        "It reduces systematic differences between treatment and comparison groups.",
+        "Relevant causal mechanism correctly linked to the outcome",
+        "Biological terms and scope used accurately"
+      ],
+      "review": "source-mapped"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-d31",
+      "title": "International Baccalaureate, Biology guide, first assessment 2025",
+      "locator": "Topic D3.1, printed pp. 95–97; PDF pp. 101–103",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-d31",
+      "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, Third edition (Hodder, 2023)",
+      "locator": "Chapter D3.1, printed pp. 693–724; PDF pp. 705–736",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    }
+  ],
+  "assets": [
+    {
+      "id": "d31-cycle-feedback",
+      "kind": "diagram",
+      "src": "/biology/reproduction/d31-cycle-feedback.svg",
+      "alt": "Causal flowchart: pituitary FSH and LH act on the ovarian follicle; oestradiol supports the pre-ovulatory LH surge; the corpus luteum supplies progesterone, and when it regresses hormone levels fall and menstruation follows.",
+      "captionTitle": "Hormonal feedback and the menstrual cycle",
+      "interpretation": "Conceptual sequence; not a graph of concentration against cycle day. Ovulation follows the LH surge; progesterone supports the endometrium. Negative and positive feedback act at different phases.",
+      "attribution": "Original BioLab diagram, produced for this draft (2026-10-17)",
+      "license": "Original project work; no imported images",
+      "permissionEvidence": "Constructed as new SVG from biological relationships described in the guide and referenced teaching material; awaiting scientific review.",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    }
+  ],
+  "summary": "Reproduction preserves continuity through gametes, fertilization and development, and generates change through recombination, assortment and gamete fusion. Hormonal coordination and compatibility systems determine when reproduction succeeds; sound evidence distinguishes mechanisms from unsupported causal claims.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "Full first-pass original teaching manuscript, not approved for catalog registration or publication.",
+      "Illustrative explanations require scientific and editorial review against complete Hodder chapter and official guidance.",
+      "Required student-drawn anatomy and flower figures not yet created; these represent material outstanding work.",
+      "Questions are provisional and require an independent qualified assessment review.",
+      "In humans, progesterone withdrawal at labour is more complex than a literal systemic concentration drop; flagged explicitly in D3.1.19.",
+      "No reuse of proprietary diagrams, questions or textbook wording."
+    ]
+  }
+}
