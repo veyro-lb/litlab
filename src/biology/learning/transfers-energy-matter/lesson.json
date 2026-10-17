@@ -476,7 +476,9 @@
         "ib-c42",
         "hodder-c42"
       ],
-      "assets": [],
+      "assets": [
+        "meadow-food-web"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -561,7 +563,13 @@
             "explanation": "A food-web arrow points from food to the organism eating it. It shows the direction of biomass and energy transfer."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "meadow-food-web",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c42-5",
@@ -4534,7 +4542,24 @@
       "level": "shared"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "meadow-food-web",
+      "kind": "diagram",
+      "src": "/biology/transfers-energy-matter/meadow-food-web.svg",
+      "alt": "A constructed meadow food web. Arrows point from grass to grasshopper and rabbit, from grasshopper to insect-eating songbird, and from rabbit and songbird to fox, representing biomass and energy transferred to consumers.",
+      "captionTitle": "Constructed meadow food web",
+      "attribution": "Original BioLab SVG conceptual diagram; feeding links are educational examples, not field observations",
+      "license": "Original BioLab artwork; no third-party figure reused",
+      "permissionEvidence": "Original SVG constructed for this branch with no publisher drawings or photographs",
+      "referenceIds": [
+        "ib-c42",
+        "hodder-c42"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    }
+  ],
   "summary": "Solar or chemical energy is captured by autotrophs and transferred through feeding, but conversions release heat at each level. Carbon and other elements move between biotic and abiotic reservoirs and are reused. Observations such as energy pyramids and the Keeling Curve reveal patterns that require careful interpretation.",
   "review": {
     "status": "source-mapped",
