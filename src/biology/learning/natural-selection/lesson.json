@@ -1,0 +1,3358 @@
+{
+  "schemaVersion": 1,
+  "id": "d4-1-natural-selection-v1",
+  "topicId": "D4.1",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Natural selection",
+  "introduction": "Follow the chain from inherited variation, through selection pressures and differential reproduction, to population-level evolution. At HL, measure allele frequencies and test equilibrium assumptions.",
+  "learningPath": [
+    "Sources of variation",
+    "Resources, abiotic and biotic selection",
+    "Fitness and mating success",
+    "Experimental evidence from guppies",
+    "HL: allele frequencies, selection patterns and Hardy–Weinberg"
+  ],
+  "prerequisites": [
+    "Alleles, meiosis and reproduction",
+    "Fitness and basic population ecology",
+    "Ratios and algebra"
+  ],
+  "objectives": [
+    "Teach all eight shared and seven HL understandings",
+    "Distinguish individuals being selected from populations evolving",
+    "Calculate allele frequencies and Hardy–Weinberg predictions"
+  ],
+  "sections": [
+    {
+      "id": "natural-selection-1",
+      "understandingIds": [
+        "D4.1.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of natural selection and evolutionary change?",
+      "explanation": "Natural selection is a mechanism of evolutionary change because individuals with certain heritable traits leave more successful offspring in a particular environment. Selection acts on individuals' phenotypes; the evolutionary result is altered allele frequencies across generations. It has operated throughout the history of life and contributes to biodiversity.\n\nDarwin identified differential survival and reproduction as a persuasive explanation of adaptation, replacing inheritance of acquired characteristics as the dominant mechanism. This replacement of an explanatory framework is a scientific paradigm shift. Mutation, genetic drift and migration also affect evolution and must not be confused with selection.",
+      "revisionSummary": "Population evolution involves inherited differences in reproductive success.",
+      "terms": [
+        "Natural selection and evolutionary change"
+      ],
+      "workedExample": "A heritable drought-tolerant plant can leave more viable seeds during droughts than a susceptible plant.",
+      "misconceptions": [
+        {
+          "misconception": "A single organism changing during its lifetime proves population evolution.",
+          "correction": "Natural selection's genetic consequences are measured across generations."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Natural selection is a mechanism of evolutionary change because individuals with certain heritable traits leave more successful offspring in a particular environment. Selection acts on individuals' phenotypes; the evolutionary result is altered allele frequencies across generations. It has operated throughout the history of life and contributes to biodiversity.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "Darwin identified differential survival and reproduction as a persuasive explanation of adaptation, replacing inheritance of acquired characteristics as the dominant mechanism. This replacement of an explanatory framework is a scientific paradigm shift. Mutation, genetic drift and migration also affect evolution and must not be confused with selection.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Natural selection and evolutionary change",
+          "explanation": "Natural selection is a mechanism of evolutionary change because individuals with certain heritable traits leave more successful offspring in a particular environment. Selection acts on individuals' phenotypes; the evolutionary result is altered allele frequencies across generations. It has operated throughout the history of life and contributes to biodiversity.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Darwin identified differential survival and reproduction as a persuasive explanation of adaptation, replacing inheritance of acquired characteristics as the dominant mechanism. This replacement of an explanatory framework is a scientific paradigm shift. Mutation, genetic drift and migration also affect evolution and must not be confused with selection.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Population evolution involves inherited differences in reproductive success.",
+        "example": "A heritable drought-tolerant plant can leave more viable seeds during droughts than a susceptible plant.",
+        "different": "Natural selection's genetic consequences are measured across generations.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Population evolution involves inherited differences in reproductive success.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-1",
+          "prompt": "Which statement about natural selection and evolutionary change is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.1"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Population evolution involves inherited differences in reproductive success.",
+              "correct": true,
+              "feedback": "Correct: A heritable drought-tolerant plant can leave more viable seeds during droughts than a susceptible plant."
+            },
+            {
+              "id": "b",
+              "text": "Individuals evolve new alleles intentionally.",
+              "correct": false,
+              "feedback": "Natural selection's genetic consequences are measured across generations."
+            },
+            {
+              "id": "c",
+              "text": "Selection guarantees perfect adaptation.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Population evolution involves inherited differences in reproductive success."
+            },
+            {
+              "id": "d",
+              "text": "Only mutation, not reproduction, affects selection.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Population evolution involves inherited differences in reproductive success."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-1",
+          "prompt": "Explain the evolutionary consequence of natural selection and evolutionary change.",
+          "answer": "Population evolution involves inherited differences in reproductive success.",
+          "explanation": "Natural selection is a mechanism of evolutionary change because individuals with certain heritable traits leave more successful offspring in a particular environment. Selection acts on individuals' phenotypes; the evolutionary result is altered allele frequencies across generations. It has operated throughout the history of life and contributes to biodiversity.",
+          "understandingIds": [
+            "D4.1.1"
+          ]
+        }
+      ],
+      "guidePage": 102,
+      "pdfPage": 108,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-2",
+      "understandingIds": [
+        "D4.1.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of sources of heritable variation?",
+      "explanation": "Mutation changes DNA sequence and is the ultimate source of novel alleles. Sexual reproduction generates novel combinations of existing alleles through chromosomal assortment, crossing over and random fertilization. Selection can act upon differences these processes create.\n\nThe usefulness of a variant depends on context; mutations do not arise to meet an organism's needs. Recombination usually redistributes existing alleles rather than creating new base sequences. Some phenotypic variation is environmentally induced and not inherited, so distinguish appearance from genetic variation.",
+      "revisionSummary": "Mutation creates new alleles; sexual reproduction reshuffles them.",
+      "terms": [
+        "Sources of heritable variation"
+      ],
+      "workedExample": "An AaBb parent can pass AB, Ab, aB or ab gametes at independent loci.",
+      "misconceptions": [
+        {
+          "misconception": "Selection creates every beneficial allele at the moment it is needed.",
+          "correction": "Variation precedes selection; mutation supplies novel sequence variants."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Mutation changes DNA sequence and is the ultimate source of novel alleles. Sexual reproduction generates novel combinations of existing alleles through chromosomal assortment, crossing over and random fertilization. Selection can act upon differences these processes create.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "The usefulness of a variant depends on context; mutations do not arise to meet an organism's needs. Recombination usually redistributes existing alleles rather than creating new base sequences. Some phenotypic variation is environmentally induced and not inherited, so distinguish appearance from genetic variation.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Sources of heritable variation",
+          "explanation": "Mutation changes DNA sequence and is the ultimate source of novel alleles. Sexual reproduction generates novel combinations of existing alleles through chromosomal assortment, crossing over and random fertilization. Selection can act upon differences these processes create.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "The usefulness of a variant depends on context; mutations do not arise to meet an organism's needs. Recombination usually redistributes existing alleles rather than creating new base sequences. Some phenotypic variation is environmentally induced and not inherited, so distinguish appearance from genetic variation.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Mutation creates new alleles; sexual reproduction reshuffles them.",
+        "example": "An AaBb parent can pass AB, Ab, aB or ab gametes at independent loci.",
+        "different": "Variation precedes selection; mutation supplies novel sequence variants.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Mutation creates new alleles; sexual reproduction reshuffles them.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-2",
+          "prompt": "Which statement about sources of heritable variation is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.2"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Mutation creates new alleles; sexual reproduction reshuffles them.",
+              "correct": true,
+              "feedback": "Correct: An AaBb parent can pass AB, Ab, aB or ab gametes at independent loci."
+            },
+            {
+              "id": "b",
+              "text": "Mutations appear because organisms need them.",
+              "correct": false,
+              "feedback": "Variation precedes selection; mutation supplies novel sequence variants."
+            },
+            {
+              "id": "c",
+              "text": "Every crossover introduces a novel DNA base.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Mutation creates new alleles; sexual reproduction reshuffles them."
+            },
+            {
+              "id": "d",
+              "text": "Sexual reproduction makes offspring genetically identical.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Mutation creates new alleles; sexual reproduction reshuffles them."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-2",
+          "prompt": "Explain the evolutionary consequence of sources of heritable variation.",
+          "answer": "Mutation creates new alleles; sexual reproduction reshuffles them.",
+          "explanation": "Mutation changes DNA sequence and is the ultimate source of novel alleles. Sexual reproduction generates novel combinations of existing alleles through chromosomal assortment, crossing over and random fertilization. Selection can act upon differences these processes create.",
+          "understandingIds": [
+            "D4.1.2"
+          ]
+        }
+      ],
+      "guidePage": 102,
+      "pdfPage": 108,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-3",
+      "understandingIds": [
+        "D4.1.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of competition and overproduction?",
+      "explanation": "Many organisms produce more young than environmental resources can support. Food, nest sites, water, mineral nutrients and space can limit survival, resulting in intraspecific competition. A species' carrying capacity is the approximate population abundance supportable under prevailing conditions.\n\nResource shortages are selective only if they lead to different reproductive outcomes related to inherited traits. Not every death or population crash is an adaptation. Carrying capacity is dynamic; changes in rainfall, productivity or resource availability can change it. Survival without reproduction does not guarantee high evolutionary fitness.",
+      "revisionSummary": "Overproduction and finite resources can make survival and reproductive success unequal.",
+      "terms": [
+        "Competition and overproduction"
+      ],
+      "workedExample": "Among overcrowded seedlings, inherited differences in shade tolerance may influence seed production.",
+      "misconceptions": [
+        {
+          "misconception": "Any population decline is proof of natural selection.",
+          "correction": "Selection requires heritable variation correlated with differential reproductive outcomes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Many organisms produce more young than environmental resources can support. Food, nest sites, water, mineral nutrients and space can limit survival, resulting in intraspecific competition. A species' carrying capacity is the approximate population abundance supportable under prevailing conditions.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "Resource shortages are selective only if they lead to different reproductive outcomes related to inherited traits. Not every death or population crash is an adaptation. Carrying capacity is dynamic; changes in rainfall, productivity or resource availability can change it. Survival without reproduction does not guarantee high evolutionary fitness.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Competition and overproduction",
+          "explanation": "Many organisms produce more young than environmental resources can support. Food, nest sites, water, mineral nutrients and space can limit survival, resulting in intraspecific competition. A species' carrying capacity is the approximate population abundance supportable under prevailing conditions.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Resource shortages are selective only if they lead to different reproductive outcomes related to inherited traits. Not every death or population crash is an adaptation. Carrying capacity is dynamic; changes in rainfall, productivity or resource availability can change it. Survival without reproduction does not guarantee high evolutionary fitness.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Overproduction and finite resources can make survival and reproductive success unequal.",
+        "example": "Among overcrowded seedlings, inherited differences in shade tolerance may influence seed production.",
+        "different": "Selection requires heritable variation correlated with differential reproductive outcomes.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Overproduction and finite resources can make survival and reproductive success unequal.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-3",
+          "prompt": "Which statement about competition and overproduction is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.3"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Overproduction and finite resources can make survival and reproductive success unequal.",
+              "correct": true,
+              "feedback": "Correct: Among overcrowded seedlings, inherited differences in shade tolerance may influence seed production."
+            },
+            {
+              "id": "b",
+              "text": "Carrying capacity never changes.",
+              "correct": false,
+              "feedback": "Selection requires heritable variation correlated with differential reproductive outcomes."
+            },
+            {
+              "id": "c",
+              "text": "All births yield reproducing adults.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Overproduction and finite resources can make survival and reproductive success unequal."
+            },
+            {
+              "id": "d",
+              "text": "Competition always favours physically largest individuals.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Overproduction and finite resources can make survival and reproductive success unequal."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-3",
+          "prompt": "Explain the evolutionary consequence of competition and overproduction.",
+          "answer": "Overproduction and finite resources can make survival and reproductive success unequal.",
+          "explanation": "Many organisms produce more young than environmental resources can support. Food, nest sites, water, mineral nutrients and space can limit survival, resulting in intraspecific competition. A species' carrying capacity is the approximate population abundance supportable under prevailing conditions.",
+          "understandingIds": [
+            "D4.1.3"
+          ]
+        }
+      ],
+      "guidePage": 102,
+      "pdfPage": 108,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-4",
+      "understandingIds": [
+        "D4.1.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of abiotic selection pressures?",
+      "explanation": "Abiotic pressures are nonliving environmental factors such as temperature extremes, drought, salinity and pH. Severe temperature events can act largely independently of population density and affect how many individuals survive.\n\nWhen tolerance differs among inherited genotypes, abiotic conditions can favour some variants and change their frequencies. Biotic pressures such as predation and competition are distinct, although they may act simultaneously. A plastic response to drought is not automatically inherited, so do not interpret all short-term trait changes as evolution.",
+      "revisionSummary": "Abiotic selection can arise from nonliving conditions such as temperature.",
+      "terms": [
+        "Abiotic selection pressures"
+      ],
+      "workedExample": "A winter freeze may favour inherited cold tolerance among surviving perennial plants.",
+      "misconceptions": [
+        {
+          "misconception": "Every leaf change during drought must be genetic.",
+          "correction": "Short-term plasticity and heritable evolutionary change are different mechanisms."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Abiotic pressures are nonliving environmental factors such as temperature extremes, drought, salinity and pH. Severe temperature events can act largely independently of population density and affect how many individuals survive.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "When tolerance differs among inherited genotypes, abiotic conditions can favour some variants and change their frequencies. Biotic pressures such as predation and competition are distinct, although they may act simultaneously. A plastic response to drought is not automatically inherited, so do not interpret all short-term trait changes as evolution.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Abiotic selection pressures",
+          "explanation": "Abiotic pressures are nonliving environmental factors such as temperature extremes, drought, salinity and pH. Severe temperature events can act largely independently of population density and affect how many individuals survive.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "When tolerance differs among inherited genotypes, abiotic conditions can favour some variants and change their frequencies. Biotic pressures such as predation and competition are distinct, although they may act simultaneously. A plastic response to drought is not automatically inherited, so do not interpret all short-term trait changes as evolution.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Abiotic selection can arise from nonliving conditions such as temperature.",
+        "example": "A winter freeze may favour inherited cold tolerance among surviving perennial plants.",
+        "different": "Short-term plasticity and heritable evolutionary change are different mechanisms.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Abiotic selection can arise from nonliving conditions such as temperature.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-4",
+          "prompt": "Which statement about abiotic selection pressures is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.4"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Abiotic selection can arise from nonliving conditions such as temperature.",
+              "correct": true,
+              "feedback": "Correct: A winter freeze may favour inherited cold tolerance among surviving perennial plants."
+            },
+            {
+              "id": "b",
+              "text": "Abiotic factors are other organisms.",
+              "correct": false,
+              "feedback": "Short-term plasticity and heritable evolutionary change are different mechanisms."
+            },
+            {
+              "id": "c",
+              "text": "Cold temperatures cannot affect genetic evolution.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Abiotic selection can arise from nonliving conditions such as temperature."
+            },
+            {
+              "id": "d",
+              "text": "Density-independent factors are never selective.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Abiotic selection can arise from nonliving conditions such as temperature."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-4",
+          "prompt": "Explain the evolutionary consequence of abiotic selection pressures.",
+          "answer": "Abiotic selection can arise from nonliving conditions such as temperature.",
+          "explanation": "Abiotic pressures are nonliving environmental factors such as temperature extremes, drought, salinity and pH. Severe temperature events can act largely independently of population density and affect how many individuals survive.",
+          "understandingIds": [
+            "D4.1.4"
+          ]
+        }
+      ],
+      "guidePage": 102,
+      "pdfPage": 108,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-5",
+      "understandingIds": [
+        "D4.1.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of differential survival and reproduction?",
+      "explanation": "Evolutionary fitness is an individual's relative genetic contribution to future generations through viable, reproducing offspring. It is not identical to lifespan, strength, speed or physical appearance. Adaptations can increase average survival, mating success, fertility or offspring viability in a given environment.\n\nSelection among members of the same species can favour inherited differences in resource acquisition and reproductive potential. Trait advantage is contextual: a costly defence can be valuable with predators but disadvantageous without them. The best test measures genotype-linked reproductive success over generations rather than just who survives to adulthood.",
+      "revisionSummary": "Fitness means relative reproductive success in a specified environment.",
+      "terms": [
+        "Differential survival and reproduction"
+      ],
+      "workedExample": "A short-lived plant producing many viable seeds can have higher fitness than a long-lived sterile plant.",
+      "misconceptions": [
+        {
+          "misconception": "Adaptation guarantees that every offspring survives.",
+          "correction": "Reproductive success is probabilistic and environmentally dependent."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Evolutionary fitness is an individual's relative genetic contribution to future generations through viable, reproducing offspring. It is not identical to lifespan, strength, speed or physical appearance. Adaptations can increase average survival, mating success, fertility or offspring viability in a given environment.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "Selection among members of the same species can favour inherited differences in resource acquisition and reproductive potential. Trait advantage is contextual: a costly defence can be valuable with predators but disadvantageous without them. The best test measures genotype-linked reproductive success over generations rather than just who survives to adulthood.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Differential survival and reproduction",
+          "explanation": "Evolutionary fitness is an individual's relative genetic contribution to future generations through viable, reproducing offspring. It is not identical to lifespan, strength, speed or physical appearance. Adaptations can increase average survival, mating success, fertility or offspring viability in a given environment.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Selection among members of the same species can favour inherited differences in resource acquisition and reproductive potential. Trait advantage is contextual: a costly defence can be valuable with predators but disadvantageous without them. The best test measures genotype-linked reproductive success over generations rather than just who survives to adulthood.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Fitness means relative reproductive success in a specified environment.",
+        "example": "A short-lived plant producing many viable seeds can have higher fitness than a long-lived sterile plant.",
+        "different": "Reproductive success is probabilistic and environmentally dependent.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Fitness means relative reproductive success in a specified environment.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-5",
+          "prompt": "Which statement about differential survival and reproduction is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.5"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Fitness means relative reproductive success in a specified environment.",
+              "correct": true,
+              "feedback": "Correct: A short-lived plant producing many viable seeds can have higher fitness than a long-lived sterile plant."
+            },
+            {
+              "id": "b",
+              "text": "The physically strongest individual necessarily has greatest fitness.",
+              "correct": false,
+              "feedback": "Reproductive success is probabilistic and environmentally dependent."
+            },
+            {
+              "id": "c",
+              "text": "Survival alone establishes high fitness.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Fitness means relative reproductive success in a specified environment."
+            },
+            {
+              "id": "d",
+              "text": "One genotype is universally best in every habitat.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Fitness means relative reproductive success in a specified environment."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-5",
+          "prompt": "Explain the evolutionary consequence of differential survival and reproduction.",
+          "answer": "Fitness means relative reproductive success in a specified environment.",
+          "explanation": "Evolutionary fitness is an individual's relative genetic contribution to future generations through viable, reproducing offspring. It is not identical to lifespan, strength, speed or physical appearance. Adaptations can increase average survival, mating success, fertility or offspring viability in a given environment.",
+          "understandingIds": [
+            "D4.1.5"
+          ]
+        }
+      ],
+      "guidePage": 102,
+      "pdfPage": 108,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-6",
+      "understandingIds": [
+        "D4.1.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of inheritance is necessary for evolution?",
+      "explanation": "Natural selection can produce a heritable population-level response only when traits affecting fitness have an inherited component. An individual can change characteristics in response to training, nutrition or temperature without making corresponding changes to germline DNA.\n\nIf death occurs randomly with respect to genotype, population abundance falls but adaptive selection need not occur; genetic drift may still change frequencies. A genetically influenced trait may also be affected by environment, and this does not preclude selection. Always separate inherited differences from temporary acquired characteristics.",
+      "revisionSummary": "Heritability connects differential reproduction to evolution.",
+      "terms": [
+        "Inheritance is necessary for evolution"
+      ],
+      "workedExample": "Salt-tolerant plants leaving more seeds may alter allele frequencies; a single sunburn cannot.",
+      "misconceptions": [
+        {
+          "misconception": "Natural selection works on any acquired character identically.",
+          "correction": "Selection produces genetic change only where variation influencing fitness is inherited."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Natural selection can produce a heritable population-level response only when traits affecting fitness have an inherited component. An individual can change characteristics in response to training, nutrition or temperature without making corresponding changes to germline DNA.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "If death occurs randomly with respect to genotype, population abundance falls but adaptive selection need not occur; genetic drift may still change frequencies. A genetically influenced trait may also be affected by environment, and this does not preclude selection. Always separate inherited differences from temporary acquired characteristics.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Inheritance is necessary for evolution",
+          "explanation": "Natural selection can produce a heritable population-level response only when traits affecting fitness have an inherited component. An individual can change characteristics in response to training, nutrition or temperature without making corresponding changes to germline DNA.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "If death occurs randomly with respect to genotype, population abundance falls but adaptive selection need not occur; genetic drift may still change frequencies. A genetically influenced trait may also be affected by environment, and this does not preclude selection. Always separate inherited differences from temporary acquired characteristics.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Heritability connects differential reproduction to evolution.",
+        "example": "Salt-tolerant plants leaving more seeds may alter allele frequencies; a single sunburn cannot.",
+        "different": "Selection produces genetic change only where variation influencing fitness is inherited.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Heritability connects differential reproduction to evolution.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-6",
+          "prompt": "Which statement about inheritance is necessary for evolution is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.6"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Heritability connects differential reproduction to evolution.",
+              "correct": true,
+              "feedback": "Correct: Salt-tolerant plants leaving more seeds may alter allele frequencies; a single sunburn cannot."
+            },
+            {
+              "id": "b",
+              "text": "Exercise-induced muscle size is inherited as a new gene.",
+              "correct": false,
+              "feedback": "Selection produces genetic change only where variation influencing fitness is inherited."
+            },
+            {
+              "id": "c",
+              "text": "Any individual phenotype change is evolution.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Heritability connects differential reproduction to evolution."
+            },
+            {
+              "id": "d",
+              "text": "Only environment-independent traits can be heritable.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Heritability connects differential reproduction to evolution."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-6",
+          "prompt": "Explain the evolutionary consequence of inheritance is necessary for evolution.",
+          "answer": "Heritability connects differential reproduction to evolution.",
+          "explanation": "Natural selection can produce a heritable population-level response only when traits affecting fitness have an inherited component. An individual can change characteristics in response to training, nutrition or temperature without making corresponding changes to germline DNA.",
+          "understandingIds": [
+            "D4.1.6"
+          ]
+        }
+      ],
+      "guidePage": 102,
+      "pdfPage": 108,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-7",
+      "understandingIds": [
+        "D4.1.7"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of sexual selection?",
+      "explanation": "Sexual selection occurs when differences in heritable traits affect success at obtaining mates or fertilizations. Mate choice can favour plumage, songs and courtship displays, while competition for mates can favour size or weapons. Birds-of-paradise illustrate conspicuous display traits.\n\nAttractive signals may have energetic costs or increase vulnerability to predators. Reproductive benefit and survival cost therefore jointly determine fitness. Sexual selection occurs in varied mating systems and is not exclusively a process affecting males. It can change allele frequencies through differences in successful offspring production.",
+      "revisionSummary": "Mate choice can produce evolutionary selection through heritable reproductive differences.",
+      "terms": [
+        "Sexual selection"
+      ],
+      "workedExample": "A conspicuous bird display may attract mates but also be more visible to predators.",
+      "misconceptions": [
+        {
+          "misconception": "Attractiveness alone proves a trait improves fitness.",
+          "correction": "Balance mating success against survival and offspring viability."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Sexual selection occurs when differences in heritable traits affect success at obtaining mates or fertilizations. Mate choice can favour plumage, songs and courtship displays, while competition for mates can favour size or weapons. Birds-of-paradise illustrate conspicuous display traits.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "Attractive signals may have energetic costs or increase vulnerability to predators. Reproductive benefit and survival cost therefore jointly determine fitness. Sexual selection occurs in varied mating systems and is not exclusively a process affecting males. It can change allele frequencies through differences in successful offspring production.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Sexual selection",
+          "explanation": "Sexual selection occurs when differences in heritable traits affect success at obtaining mates or fertilizations. Mate choice can favour plumage, songs and courtship displays, while competition for mates can favour size or weapons. Birds-of-paradise illustrate conspicuous display traits.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Attractive signals may have energetic costs or increase vulnerability to predators. Reproductive benefit and survival cost therefore jointly determine fitness. Sexual selection occurs in varied mating systems and is not exclusively a process affecting males. It can change allele frequencies through differences in successful offspring production.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Mate choice can produce evolutionary selection through heritable reproductive differences.",
+        "example": "A conspicuous bird display may attract mates but also be more visible to predators.",
+        "different": "Balance mating success against survival and offspring viability.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Mate choice can produce evolutionary selection through heritable reproductive differences.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-7",
+          "prompt": "Which statement about sexual selection is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.7"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Mate choice can produce evolutionary selection through heritable reproductive differences.",
+              "correct": true,
+              "feedback": "Correct: A conspicuous bird display may attract mates but also be more visible to predators."
+            },
+            {
+              "id": "b",
+              "text": "Sexual selection affects only survival before mating.",
+              "correct": false,
+              "feedback": "Balance mating success against survival and offspring viability."
+            },
+            {
+              "id": "c",
+              "text": "Bright plumage is always advantageous in every habitat.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Mate choice can produce evolutionary selection through heritable reproductive differences."
+            },
+            {
+              "id": "d",
+              "text": "Sexual selection is restricted to one sex.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Mate choice can produce evolutionary selection through heritable reproductive differences."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-7",
+          "prompt": "Explain the evolutionary consequence of sexual selection.",
+          "answer": "Mate choice can produce evolutionary selection through heritable reproductive differences.",
+          "explanation": "Sexual selection occurs when differences in heritable traits affect success at obtaining mates or fertilizations. Mate choice can favour plumage, songs and courtship displays, while competition for mates can favour size or weapons. Birds-of-paradise illustrate conspicuous display traits.",
+          "understandingIds": [
+            "D4.1.7"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-8",
+      "understandingIds": [
+        "D4.1.8"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the mechanism and population-level consequence of experimental models of selection?",
+      "explanation": "Endler's Trinidadian guppy studies investigated how predator pressure influences the evolution of male ornamental colour patterns. Visually hunting predators can penalize conspicuous males, whereas mate preference may favour conspicuous colour when predation pressure is reduced.\n\nControlled treatments and repeated sampling allow comparison of populations across generations, distinguishing causal predictions from a single field correlation. The experiments do not show fish choosing which alleles to mutate; pre-existing heritable variation is sorted through differential success. Interpret observed trends in conjunction with background habitat and replication.",
+      "revisionSummary": "Controlled predation changes can alter the selection balance on guppy colour.",
+      "terms": [
+        "Experimental models of selection"
+      ],
+      "workedExample": "Male colour conspicuousness increased in some reduced-predation experimental guppy populations over generations.",
+      "misconceptions": [
+        {
+          "misconception": "A single cross-sectional photograph proves Endler's causal model.",
+          "correction": "Experimental comparisons require controls, replicates and time across generations."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Endler's Trinidadian guppy studies investigated how predator pressure influences the evolution of male ornamental colour patterns. Visually hunting predators can penalize conspicuous males, whereas mate preference may favour conspicuous colour when predation pressure is reduced.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "endler"
+          ]
+        },
+        {
+          "claim": "Controlled treatments and repeated sampling allow comparison of populations across generations, distinguishing causal predictions from a single field correlation. The experiments do not show fish choosing which alleles to mutate; pre-existing heritable variation is sorted through differential success. Interpret observed trends in conjunction with background habitat and replication.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "endler"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41",
+        "endler"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Experimental models of selection",
+          "explanation": "Endler's Trinidadian guppy studies investigated how predator pressure influences the evolution of male ornamental colour patterns. Visually hunting predators can penalize conspicuous males, whereas mate preference may favour conspicuous colour when predation pressure is reduced.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "endler"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Controlled treatments and repeated sampling allow comparison of populations across generations, distinguishing causal predictions from a single field correlation. The experiments do not show fish choosing which alleles to mutate; pre-existing heritable variation is sorted through differential success. Interpret observed trends in conjunction with background habitat and replication.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "endler"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Controlled predation changes can alter the selection balance on guppy colour.",
+        "example": "Male colour conspicuousness increased in some reduced-predation experimental guppy populations over generations.",
+        "different": "Experimental comparisons require controls, replicates and time across generations.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Controlled predation changes can alter the selection balance on guppy colour.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-8",
+          "prompt": "Which statement about experimental models of selection is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.8"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Controlled predation changes can alter the selection balance on guppy colour.",
+              "correct": true,
+              "feedback": "Correct: Male colour conspicuousness increased in some reduced-predation experimental guppy populations over generations."
+            },
+            {
+              "id": "b",
+              "text": "A guppy deliberately changes alleles when predators disappear.",
+              "correct": false,
+              "feedback": "Experimental comparisons require controls, replicates and time across generations."
+            },
+            {
+              "id": "c",
+              "text": "One conspicuous guppy proves population evolution.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Controlled predation changes can alter the selection balance on guppy colour."
+            },
+            {
+              "id": "d",
+              "text": "Predators cannot act as selection pressures.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Controlled predation changes can alter the selection balance on guppy colour."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-8",
+          "prompt": "Explain the evolutionary consequence of experimental models of selection.",
+          "answer": "Controlled predation changes can alter the selection balance on guppy colour.",
+          "explanation": "Endler's Trinidadian guppy studies investigated how predator pressure influences the evolution of male ornamental colour patterns. Visually hunting predators can penalize conspicuous males, whereas mate preference may favour conspicuous colour when predation pressure is reduced.",
+          "understandingIds": [
+            "D4.1.8"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic",
+      "graphTables": [
+        {
+          "caption": "Illustrative predictions from contrasting guppy predator treatments",
+          "headers": [
+            "Treatment",
+            "Visual predation cost",
+            "Expected colour tendency"
+          ],
+          "rows": [
+            [
+              "High predator pressure",
+              "High",
+              "Less conspicuous in later generations"
+            ],
+            [
+              "Reduced pressure",
+              "Lower",
+              "Greater conspicuousness may be favoured"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural-selection-9",
+      "understandingIds": [
+        "D4.1.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the mechanism and population-level consequence of the gene pool?",
+      "explanation": "A gene pool includes all genes and their alternative alleles present in a population at a particular time. Allele frequency is the proportion of copies of a locus represented by one allele. At a typical autosomal locus, a population of N diploid individuals contributes 2N gene copies.\n\nSuppose there are 30 AA, 50 Aa and 20 aa individuals among 100 diploids. The A-allele count is 2×30 + 50 = 110 of 200, so p = 0.55; a has 90 copies, so q = 0.45. Phenotype prevalence is not interchangeable with allele frequency; heterozygotes contribute one copy of each allele.",
+      "revisionSummary": "Allele frequencies count copies of alleles, not just affected individuals.",
+      "terms": [
+        "The gene pool"
+      ],
+      "workedExample": "30 AA, 50 Aa and 20 aa give p(A)=110/200=0.55.",
+      "misconceptions": [
+        {
+          "misconception": "Count only homozygotes when estimating p.",
+          "correction": "Both alleles of every diploid genotype contribute to allele counts."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A gene pool includes all genes and their alternative alleles present in a population at a particular time. Allele frequency is the proportion of copies of a locus represented by one allele. At a typical autosomal locus, a population of N diploid individuals contributes 2N gene copies.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "Suppose there are 30 AA, 50 Aa and 20 aa individuals among 100 diploids. The A-allele count is 2×30 + 50 = 110 of 200, so p = 0.55; a has 90 copies, so q = 0.45. Phenotype prevalence is not interchangeable with allele frequency; heterozygotes contribute one copy of each allele.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [
+        "d41-alleles"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "The gene pool",
+          "explanation": "A gene pool includes all genes and their alternative alleles present in a population at a particular time. Allele frequency is the proportion of copies of a locus represented by one allele. At a typical autosomal locus, a population of N diploid individuals contributes 2N gene copies.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Suppose there are 30 AA, 50 Aa and 20 aa individuals among 100 diploids. The A-allele count is 2×30 + 50 = 110 of 200, so p = 0.55; a has 90 copies, so q = 0.45. Phenotype prevalence is not interchangeable with allele frequency; heterozygotes contribute one copy of each allele.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Allele frequencies count copies of alleles, not just affected individuals.",
+        "example": "30 AA, 50 Aa and 20 aa give p(A)=110/200=0.55.",
+        "different": "Both alleles of every diploid genotype contribute to allele counts.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Allele frequencies count copies of alleles, not just affected individuals.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-9",
+          "prompt": "Which statement about the gene pool is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.9"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Allele frequencies count copies of alleles, not just affected individuals.",
+              "correct": true,
+              "feedback": "Correct: 30 AA, 50 Aa and 20 aa give p(A)=110/200=0.55."
+            },
+            {
+              "id": "b",
+              "text": "Heterozygotes contribute two copies of A.",
+              "correct": false,
+              "feedback": "Both alleles of every diploid genotype contribute to allele counts."
+            },
+            {
+              "id": "c",
+              "text": "Population allele frequencies always equal genotype frequencies.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Allele frequencies count copies of alleles, not just affected individuals."
+            },
+            {
+              "id": "d",
+              "text": "A gene pool describes one individual's alleles.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Allele frequencies count copies of alleles, not just affected individuals."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-9",
+          "prompt": "Explain the evolutionary consequence of the gene pool.",
+          "answer": "Allele frequencies count copies of alleles, not just affected individuals.",
+          "explanation": "A gene pool includes all genes and their alternative alleles present in a population at a particular time. Allele frequency is the proportion of copies of a locus represented by one allele. At a typical autosomal locus, a population of N diploid individuals contributes 2N gene copies.",
+          "understandingIds": [
+            "D4.1.9"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic",
+      "figurePlacements": [
+        {
+          "assetId": "d41-alleles",
+          "afterBlock": 0
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Illustrative diploid allele counts",
+          "headers": [
+            "Genotype",
+            "Individuals",
+            "A copies",
+            "a copies"
+          ],
+          "rows": [
+            [
+              "AA",
+              "30",
+              "60",
+              "0"
+            ],
+            [
+              "Aa",
+              "50",
+              "50",
+              "50"
+            ],
+            [
+              "aa",
+              "20",
+              "0",
+              "40"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural-selection-10",
+      "understandingIds": [
+        "D4.1.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the mechanism and population-level consequence of allele frequencies in isolated populations?",
+      "explanation": "Geographically separated populations may diverge in allele frequencies through drift, selection, migration patterns and founder effects. Human genetic databases can report variant frequencies for geographically or ancestrally sampled groups, but these are estimates contingent on inclusion and sampling.\n\nFor example, the distribution of some haemoglobin alleles reflects historical differences in malaria exposure along with migration. Avoid treating regions as uniform genetic groups. Record the gene, variant, reference genome, allele count, sample size, source and access date when interpreting a database rather than inventing exact population percentages.",
+      "revisionSummary": "Geographic separation can permit genetic frequency differences across populations.",
+      "terms": [
+        "Allele frequencies in isolated populations"
+      ],
+      "workedExample": "Different frequencies in two isolated populations can reflect local selection or drift and need not signal different species.",
+      "misconceptions": [
+        {
+          "misconception": "Differences between regional samples describe genetically discrete human races.",
+          "correction": "Human variation is continuous, overlapping and subject to sample composition."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Geographically separated populations may diverge in allele frequencies through drift, selection, migration patterns and founder effects. Human genetic databases can report variant frequencies for geographically or ancestrally sampled groups, but these are estimates contingent on inclusion and sampling.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "For example, the distribution of some haemoglobin alleles reflects historical differences in malaria exposure along with migration. Avoid treating regions as uniform genetic groups. Record the gene, variant, reference genome, allele count, sample size, source and access date when interpreting a database rather than inventing exact population percentages.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Allele frequencies in isolated populations",
+          "explanation": "Geographically separated populations may diverge in allele frequencies through drift, selection, migration patterns and founder effects. Human genetic databases can report variant frequencies for geographically or ancestrally sampled groups, but these are estimates contingent on inclusion and sampling.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "For example, the distribution of some haemoglobin alleles reflects historical differences in malaria exposure along with migration. Avoid treating regions as uniform genetic groups. Record the gene, variant, reference genome, allele count, sample size, source and access date when interpreting a database rather than inventing exact population percentages.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Geographic separation can permit genetic frequency differences across populations.",
+        "example": "Different frequencies in two isolated populations can reflect local selection or drift and need not signal different species.",
+        "different": "Human variation is continuous, overlapping and subject to sample composition.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Geographic separation can permit genetic frequency differences across populations.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-10",
+          "prompt": "Which statement about allele frequencies in isolated populations is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.10"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Geographic separation can permit genetic frequency differences across populations.",
+              "correct": true,
+              "feedback": "Correct: Different frequencies in two isolated populations can reflect local selection or drift and need not signal different species."
+            },
+            {
+              "id": "b",
+              "text": "All human populations have identical allele frequencies.",
+              "correct": false,
+              "feedback": "Human variation is continuous, overlapping and subject to sample composition."
+            },
+            {
+              "id": "c",
+              "text": "A population average specifies every member's genotype.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Geographic separation can permit genetic frequency differences across populations."
+            },
+            {
+              "id": "d",
+              "text": "Geographical isolation always proves natural selection.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Geographic separation can permit genetic frequency differences across populations."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-10",
+          "prompt": "Explain the evolutionary consequence of allele frequencies in isolated populations.",
+          "answer": "Geographic separation can permit genetic frequency differences across populations.",
+          "explanation": "Geographically separated populations may diverge in allele frequencies through drift, selection, migration patterns and founder effects. Human genetic databases can report variant frequencies for geographically or ancestrally sampled groups, but these are estimates contingent on inclusion and sampling.",
+          "understandingIds": [
+            "D4.1.10"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-11",
+      "understandingIds": [
+        "D4.1.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the mechanism and population-level consequence of selection changes allele frequencies?",
+      "explanation": "Selection changes allele frequencies when genotypes differ in average reproductive contribution. A heritable adaptation increases because its carriers contribute more copies of its alleles to the next generation than less successful alternatives.\n\nThe modern evolutionary synthesis connects Darwinian selection with genetics and population-level measures. However, drift and gene flow also shift allele frequencies, so temporal changes alone do not prove their cause. Under drug exposure, susceptible bacteria may decline while previously existing resistant variants survive and reproduce; resistance is not written intentionally into DNA by the drug.",
+      "revisionSummary": "Selection changes the gene pool through genotype-associated reproductive success.",
+      "terms": [
+        "Selection changes allele frequencies"
+      ],
+      "workedExample": "After pesticide exposure, insects with an inherited resistance allele may contribute a larger share of the next generation.",
+      "misconceptions": [
+        {
+          "misconception": "Any change in frequency proves adaptive selection.",
+          "correction": "Genetic drift and migration can yield changes without selective advantage."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Selection changes allele frequencies when genotypes differ in average reproductive contribution. A heritable adaptation increases because its carriers contribute more copies of its alleles to the next generation than less successful alternatives.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "The modern evolutionary synthesis connects Darwinian selection with genetics and population-level measures. However, drift and gene flow also shift allele frequencies, so temporal changes alone do not prove their cause. Under drug exposure, susceptible bacteria may decline while previously existing resistant variants survive and reproduce; resistance is not written intentionally into DNA by the drug.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Selection changes allele frequencies",
+          "explanation": "Selection changes allele frequencies when genotypes differ in average reproductive contribution. A heritable adaptation increases because its carriers contribute more copies of its alleles to the next generation than less successful alternatives.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "The modern evolutionary synthesis connects Darwinian selection with genetics and population-level measures. However, drift and gene flow also shift allele frequencies, so temporal changes alone do not prove their cause. Under drug exposure, susceptible bacteria may decline while previously existing resistant variants survive and reproduce; resistance is not written intentionally into DNA by the drug.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Selection changes the gene pool through genotype-associated reproductive success.",
+        "example": "After pesticide exposure, insects with an inherited resistance allele may contribute a larger share of the next generation.",
+        "different": "Genetic drift and migration can yield changes without selective advantage.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Selection changes the gene pool through genotype-associated reproductive success.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-11",
+          "prompt": "Which statement about selection changes allele frequencies is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.11"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Selection changes the gene pool through genotype-associated reproductive success.",
+              "correct": true,
+              "feedback": "Correct: After pesticide exposure, insects with an inherited resistance allele may contribute a larger share of the next generation."
+            },
+            {
+              "id": "b",
+              "text": "Selection makes individuals rewrite their DNA intentionally.",
+              "correct": false,
+              "feedback": "Genetic drift and migration can yield changes without selective advantage."
+            },
+            {
+              "id": "c",
+              "text": "Allele frequencies change only through natural selection.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Selection changes the gene pool through genotype-associated reproductive success."
+            },
+            {
+              "id": "d",
+              "text": "Drug exposure must create every resistance allele anew.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Selection changes the gene pool through genotype-associated reproductive success."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-11",
+          "prompt": "Explain the evolutionary consequence of selection changes allele frequencies.",
+          "answer": "Selection changes the gene pool through genotype-associated reproductive success.",
+          "explanation": "Selection changes allele frequencies when genotypes differ in average reproductive contribution. A heritable adaptation increases because its carriers contribute more copies of its alleles to the next generation than less successful alternatives.",
+          "understandingIds": [
+            "D4.1.11"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-12",
+      "understandingIds": [
+        "D4.1.12"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the mechanism and population-level consequence of directional, disruptive and stabilizing selection?",
+      "explanation": "Directional selection favours one end of a heritable trait range and can shift its mean. Stabilizing selection favours intermediate traits and tends to reduce variation. Disruptive selection favours both extremes relative to intermediate values, potentially widening or dividing the trait distribution.\n\nThese labels describe fitness patterns, not automatic production of new species. All may affect underlying allele frequencies; a stable trait mean does not imply no selection. When analysing curves, label axes and distinguish conceptual predictions from measurements. A claim about selection requires evidence on inherited traits and successful reproduction.",
+      "revisionSummary": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+      "terms": [
+        "Directional, disruptive and stabilizing selection"
+      ],
+      "workedExample": "If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested.",
+      "misconceptions": [
+        {
+          "misconception": "A diagram of phenotypes alone establishes natural selection.",
+          "correction": "Evidence of differential heritable reproductive success is needed."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Directional selection favours one end of a heritable trait range and can shift its mean. Stabilizing selection favours intermediate traits and tends to reduce variation. Disruptive selection favours both extremes relative to intermediate values, potentially widening or dividing the trait distribution.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "selection-modes"
+          ]
+        },
+        {
+          "claim": "These labels describe fitness patterns, not automatic production of new species. All may affect underlying allele frequencies; a stable trait mean does not imply no selection. When analysing curves, label axes and distinguish conceptual predictions from measurements. A claim about selection requires evidence on inherited traits and successful reproduction.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "selection-modes"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41",
+        "selection-modes"
+      ],
+      "assets": [
+        "d41-selection"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "Directional, disruptive and stabilizing selection",
+          "explanation": "Directional selection favours one end of a heritable trait range and can shift its mean. Stabilizing selection favours intermediate traits and tends to reduce variation. Disruptive selection favours both extremes relative to intermediate values, potentially widening or dividing the trait distribution.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "selection-modes"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "These labels describe fitness patterns, not automatic production of new species. All may affect underlying allele frequencies; a stable trait mean does not imply no selection. When analysing curves, label axes and distinguish conceptual predictions from measurements. A claim about selection requires evidence on inherited traits and successful reproduction.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41",
+            "selection-modes"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+        "example": "If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested.",
+        "different": "Evidence of differential heritable reproductive success is needed.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-12",
+          "prompt": "Which statement about directional, disruptive and stabilizing selection is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.12"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+              "correct": true,
+              "feedback": "Correct: If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested."
+            },
+            {
+              "id": "b",
+              "text": "Stabilizing favours only large extremes.",
+              "correct": false,
+              "feedback": "Evidence of differential heritable reproductive success is needed."
+            },
+            {
+              "id": "c",
+              "text": "Disruptive favours only the mean.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes."
+            },
+            {
+              "id": "d",
+              "text": "Directional selection never changes the mean.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-12",
+          "prompt": "Explain the evolutionary consequence of directional, disruptive and stabilizing selection.",
+          "answer": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+          "explanation": "Directional selection favours one end of a heritable trait range and can shift its mean. Stabilizing selection favours intermediate traits and tends to reduce variation. Disruptive selection favours both extremes relative to intermediate values, potentially widening or dividing the trait distribution.",
+          "understandingIds": [
+            "D4.1.12"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic",
+      "figurePlacements": [
+        {
+          "assetId": "d41-selection",
+          "afterBlock": 0
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Selection type comparison",
+          "headers": [
+            "Directional",
+            "Stabilizing",
+            "Disruptive"
+          ],
+          "rows": [
+            [
+              "One extreme favoured",
+              "Intermediate favoured",
+              "Both extremes favoured"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural-selection-13",
+      "understandingIds": [
+        "D4.1.13"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the mechanism and population-level consequence of hardy–weinberg calculations?",
+      "explanation": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.\n\nIf an appropriate fully penetrant recessive phenotype occurs with frequency 0.09, then q²=0.09, q=0.30, p=0.70 and expected heterozygotes are 2pq=0.42 (42%). The square root is nonnegative. This model predicts population proportions only when assumptions are defensible; it does not specify exact outcomes in each family.",
+      "revisionSummary": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+      "terms": [
+        "Hardy–Weinberg calculations"
+      ],
+      "workedExample": "If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
+      "misconceptions": [
+        {
+          "misconception": "The equations prove real populations cannot evolve.",
+          "correction": "They define a conditional equilibrium model for comparison with observations."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "If an appropriate fully penetrant recessive phenotype occurs with frequency 0.09, then q²=0.09, q=0.30, p=0.70 and expected heterozygotes are 2pq=0.42 (42%). The square root is nonnegative. This model predicts population proportions only when assumptions are defensible; it does not specify exact outcomes in each family.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Hardy–Weinberg calculations",
+          "explanation": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "If an appropriate fully penetrant recessive phenotype occurs with frequency 0.09, then q²=0.09, q=0.30, p=0.70 and expected heterozygotes are 2pq=0.42 (42%). The square root is nonnegative. This model predicts population proportions only when assumptions are defensible; it does not specify exact outcomes in each family.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+        "example": "If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
+        "different": "They define a conditional equilibrium model for comparison with observations.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-13",
+          "prompt": "Which statement about hardy–weinberg calculations is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.13"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+              "correct": true,
+              "feedback": "Correct: If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%."
+            },
+            {
+              "id": "b",
+              "text": "The heterozygote frequency is p².",
+              "correct": false,
+              "feedback": "They define a conditional equilibrium model for comparison with observations."
+            },
+            {
+              "id": "c",
+              "text": "q equals 0.09 when q²=0.09.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold."
+            },
+            {
+              "id": "d",
+              "text": "The model always applies in small selected populations.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-13",
+          "prompt": "Explain the evolutionary consequence of hardy–weinberg calculations.",
+          "answer": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+          "explanation": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.",
+          "understandingIds": [
+            "D4.1.13"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic",
+      "graphTables": [
+        {
+          "caption": "Hardy–Weinberg worked population example",
+          "headers": [
+            "q²",
+            "q",
+            "p",
+            "p²",
+            "2pq"
+          ],
+          "rows": [
+            [
+              "0.09",
+              "0.30",
+              "0.70",
+              "0.49",
+              "0.42"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural-selection-14",
+      "understandingIds": [
+        "D4.1.14"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the mechanism and population-level consequence of hardy–weinberg equilibrium conditions?",
+      "explanation": "Hardy–Weinberg conditions include a very large population, random mating, and negligible selection, migration and mutation at the locus. These assumptions minimize genotype distortion and allele-frequency change due to population processes.\n\nExcess homozygotes can arise through nonrandom mating even with unchanged short-term allele frequencies; selection, migration, genetic drift and scoring errors can also cause discrepancies. A goodness-of-fit result requires biological interpretation. Failure to reject the equilibrium model does not prove that every ideal assumption is satisfied.",
+      "revisionSummary": "Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions.",
+      "terms": [
+        "Hardy–Weinberg equilibrium conditions"
+      ],
+      "workedExample": "Inbreeding can create more homozygotes than predicted by p² and q² without immediately changing p.",
+      "misconceptions": [
+        {
+          "misconception": "An equilibrium fit demonstrates that no evolutionary change ever happened.",
+          "correction": "It only indicates compatibility with assumptions for the sampled locus and time."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Hardy–Weinberg conditions include a very large population, random mating, and negligible selection, migration and mutation at the locus. These assumptions minimize genotype distortion and allele-frequency change due to population processes.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "Excess homozygotes can arise through nonrandom mating even with unchanged short-term allele frequencies; selection, migration, genetic drift and scoring errors can also cause discrepancies. A goodness-of-fit result requires biological interpretation. Failure to reject the equilibrium model does not prove that every ideal assumption is satisfied.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Hardy–Weinberg equilibrium conditions",
+          "explanation": "Hardy–Weinberg conditions include a very large population, random mating, and negligible selection, migration and mutation at the locus. These assumptions minimize genotype distortion and allele-frequency change due to population processes.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Excess homozygotes can arise through nonrandom mating even with unchanged short-term allele frequencies; selection, migration, genetic drift and scoring errors can also cause discrepancies. A goodness-of-fit result requires biological interpretation. Failure to reject the equilibrium model does not prove that every ideal assumption is satisfied.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions.",
+        "example": "Inbreeding can create more homozygotes than predicted by p² and q² without immediately changing p.",
+        "different": "It only indicates compatibility with assumptions for the sampled locus and time.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-14",
+          "prompt": "Which statement about hardy–weinberg equilibrium conditions is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.14"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions.",
+              "correct": true,
+              "feedback": "Correct: Inbreeding can create more homozygotes than predicted by p² and q² without immediately changing p."
+            },
+            {
+              "id": "b",
+              "text": "The conditions require no sexual reproduction.",
+              "correct": false,
+              "feedback": "It only indicates compatibility with assumptions for the sampled locus and time."
+            },
+            {
+              "id": "c",
+              "text": "One deviation proves mutation was the cause.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions."
+            },
+            {
+              "id": "d",
+              "text": "All small populations have perfectly stable frequencies.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-14",
+          "prompt": "Explain the evolutionary consequence of hardy–weinberg equilibrium conditions.",
+          "answer": "Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions.",
+          "explanation": "Hardy–Weinberg conditions include a very large population, random mating, and negligible selection, migration and mutation at the locus. These assumptions minimize genotype distortion and allele-frequency change due to population processes.",
+          "understandingIds": [
+            "D4.1.14"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    },
+    {
+      "id": "natural-selection-15",
+      "understandingIds": [
+        "D4.1.15"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the mechanism and population-level consequence of artificial selection?",
+      "explanation": "Artificial selection is deliberate choice of breeding individuals for desirable heritable characteristics. Repeatedly selecting crop yield, disease resistance or livestock productivity changes which genotypes contribute to later generations.\n\nStrong selection can unintentionally reduce diversity or magnify correlated undesirable traits. Artificial selection differs from natural selection in who sets the reproductive criterion: antibiotic resistance produced by drug exposure is usually natural selection, because people do not intentionally mate resistant bacteria. The same laws of inheritance apply to both.",
+      "revisionSummary": "Artificial selection means deliberately choosing organisms to breed.",
+      "terms": [
+        "Artificial selection"
+      ],
+      "workedExample": "Crossing only high-yield, disease-resistant plant lines over generations changes trait frequencies.",
+      "misconceptions": [
+        {
+          "misconception": "Antibiotic resistance is necessarily artificial breeding.",
+          "correction": "Drug treatment is an environmental selection pressure, not deliberate mate selection."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Artificial selection is deliberate choice of breeding individuals for desirable heritable characteristics. Repeatedly selecting crop yield, disease resistance or livestock productivity changes which genotypes contribute to later generations.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "claim": "Strong selection can unintentionally reduce diversity or magnify correlated undesirable traits. Artificial selection differs from natural selection in who sets the reproductive criterion: antibiotic resistance produced by drug exposure is usually natural selection, because people do not intentionally mate resistant bacteria. The same laws of inheritance apply to both.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Artificial selection",
+          "explanation": "Artificial selection is deliberate choice of breeding individuals for desirable heritable characteristics. Repeatedly selecting crop yield, disease resistance or livestock productivity changes which genotypes contribute to later generations.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Mechanism, evidence and limitations",
+          "explanation": "Strong selection can unintentionally reduce diversity or magnify correlated undesirable traits. Artificial selection differs from natural selection in who sets the reproductive criterion: antibiotic resistance produced by drug exposure is usually natural selection, because people do not intentionally mate resistant bacteria. The same laws of inheritance apply to both.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Artificial selection means deliberately choosing organisms to breed.",
+        "example": "Crossing only high-yield, disease-resistant plant lines over generations changes trait frequencies.",
+        "different": "Drug treatment is an environmental selection pressure, not deliberate mate selection.",
+        "concepts": [
+          {
+            "title": "Selection principle",
+            "explanation": "Artificial selection means deliberately choosing organisms to breed.",
+            "keywords": [
+              "heritable",
+              "selection"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d41-check-15",
+          "prompt": "Which statement about artificial selection is scientifically accurate?",
+          "understandingIds": [
+            "D4.1.15"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Artificial selection means deliberately choosing organisms to breed.",
+              "correct": true,
+              "feedback": "Correct: Crossing only high-yield, disease-resistant plant lines over generations changes trait frequencies."
+            },
+            {
+              "id": "b",
+              "text": "All human-caused evolutionary effects are artificial selection.",
+              "correct": false,
+              "feedback": "Drug treatment is an environmental selection pressure, not deliberate mate selection."
+            },
+            {
+              "id": "c",
+              "text": "Selective breeding creates new alleles without mutation.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Artificial selection means deliberately choosing organisms to breed."
+            },
+            {
+              "id": "d",
+              "text": "Breeding cannot produce undesirable correlated traits.",
+              "correct": false,
+              "feedback": "This is not the mechanism: Artificial selection means deliberately choosing organisms to breed."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d41-recall-15",
+          "prompt": "Explain the evolutionary consequence of artificial selection.",
+          "answer": "Artificial selection means deliberately choosing organisms to breed.",
+          "explanation": "Artificial selection is deliberate choice of breeding individuals for desirable heritable characteristics. Repeatedly selecting crop yield, disease resistance or livestock productivity changes which genotypes contribute to later generations.",
+          "understandingIds": [
+            "D4.1.15"
+          ]
+        }
+      ],
+      "guidePage": 103,
+      "pdfPage": 109,
+      "textbook": {
+        "referenceId": "hodder-d41",
+        "printedPages": [
+          779,
+          797
+        ],
+        "pdfPages": [
+          791,
+          809
+        ]
+      },
+      "exampleTitle": "Apply the evidence",
+      "activityTitle": "Check selection logic"
+    }
+  ],
+  "questions": [
+    {
+      "id": "d41-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.1"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of natural selection and evolutionary change is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-1",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Population evolution involves inherited differences in reproductive success.",
+          "correct": true,
+          "feedback": "Correct: A heritable drought-tolerant plant can leave more viable seeds during droughts than a susceptible plant."
+        },
+        {
+          "id": "b",
+          "text": "Individuals evolve new alleles intentionally.",
+          "correct": false,
+          "feedback": "Natural selection's genetic consequences are measured across generations."
+        },
+        {
+          "id": "c",
+          "text": "Selection guarantees perfect adaptation.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Population evolution involves inherited differences in reproductive success."
+        },
+        {
+          "id": "d",
+          "text": "Only mutation, not reproduction, affects selection.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Population evolution involves inherited differences in reproductive success."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.1"
+      ],
+      "level": "shared",
+      "prompt": "Explain natural selection and evolutionary change using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-1",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Natural selection is a mechanism of evolutionary change because individuals with certain heritable traits leave more successful offspring in a particular environment. Selection acts on individuals' phenotypes; the evolutionary result is altered allele frequencies across generations. It has operated throughout the history of life and contributes to biodiversity.\nA heritable drought-tolerant plant can leave more viable seeds during droughts than a susceptible plant.",
+      "markingPoints": [
+        "Population evolution involves inherited differences in reproductive success.",
+        "A heritable drought-tolerant plant can leave more viable seeds during droughts than a susceptible plant.",
+        "Natural selection's genetic consequences are measured across generations."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.2"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of sources of heritable variation is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-2",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Mutation creates new alleles; sexual reproduction reshuffles them.",
+          "correct": true,
+          "feedback": "Correct: An AaBb parent can pass AB, Ab, aB or ab gametes at independent loci."
+        },
+        {
+          "id": "b",
+          "text": "Mutations appear because organisms need them.",
+          "correct": false,
+          "feedback": "Variation precedes selection; mutation supplies novel sequence variants."
+        },
+        {
+          "id": "c",
+          "text": "Every crossover introduces a novel DNA base.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Mutation creates new alleles; sexual reproduction reshuffles them."
+        },
+        {
+          "id": "d",
+          "text": "Sexual reproduction makes offspring genetically identical.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Mutation creates new alleles; sexual reproduction reshuffles them."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-2",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.2"
+      ],
+      "level": "shared",
+      "prompt": "Explain sources of heritable variation using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-2",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Mutation changes DNA sequence and is the ultimate source of novel alleles. Sexual reproduction generates novel combinations of existing alleles through chromosomal assortment, crossing over and random fertilization. Selection can act upon differences these processes create.\nAn AaBb parent can pass AB, Ab, aB or ab gametes at independent loci.",
+      "markingPoints": [
+        "Mutation creates new alleles; sexual reproduction reshuffles them.",
+        "An AaBb parent can pass AB, Ab, aB or ab gametes at independent loci.",
+        "Variation precedes selection; mutation supplies novel sequence variants."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.3"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of competition and overproduction is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-3",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Overproduction and finite resources can make survival and reproductive success unequal.",
+          "correct": true,
+          "feedback": "Correct: Among overcrowded seedlings, inherited differences in shade tolerance may influence seed production."
+        },
+        {
+          "id": "b",
+          "text": "Carrying capacity never changes.",
+          "correct": false,
+          "feedback": "Selection requires heritable variation correlated with differential reproductive outcomes."
+        },
+        {
+          "id": "c",
+          "text": "All births yield reproducing adults.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Overproduction and finite resources can make survival and reproductive success unequal."
+        },
+        {
+          "id": "d",
+          "text": "Competition always favours physically largest individuals.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Overproduction and finite resources can make survival and reproductive success unequal."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-3",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.3"
+      ],
+      "level": "shared",
+      "prompt": "Explain competition and overproduction using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-3",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Many organisms produce more young than environmental resources can support. Food, nest sites, water, mineral nutrients and space can limit survival, resulting in intraspecific competition. A species' carrying capacity is the approximate population abundance supportable under prevailing conditions.\nAmong overcrowded seedlings, inherited differences in shade tolerance may influence seed production.",
+      "markingPoints": [
+        "Overproduction and finite resources can make survival and reproductive success unequal.",
+        "Among overcrowded seedlings, inherited differences in shade tolerance may influence seed production.",
+        "Selection requires heritable variation correlated with differential reproductive outcomes."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.4"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of abiotic selection pressures is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-4",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Abiotic selection can arise from nonliving conditions such as temperature.",
+          "correct": true,
+          "feedback": "Correct: A winter freeze may favour inherited cold tolerance among surviving perennial plants."
+        },
+        {
+          "id": "b",
+          "text": "Abiotic factors are other organisms.",
+          "correct": false,
+          "feedback": "Short-term plasticity and heritable evolutionary change are different mechanisms."
+        },
+        {
+          "id": "c",
+          "text": "Cold temperatures cannot affect genetic evolution.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Abiotic selection can arise from nonliving conditions such as temperature."
+        },
+        {
+          "id": "d",
+          "text": "Density-independent factors are never selective.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Abiotic selection can arise from nonliving conditions such as temperature."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-4",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.4"
+      ],
+      "level": "shared",
+      "prompt": "Explain abiotic selection pressures using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-4",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Abiotic pressures are nonliving environmental factors such as temperature extremes, drought, salinity and pH. Severe temperature events can act largely independently of population density and affect how many individuals survive.\nA winter freeze may favour inherited cold tolerance among surviving perennial plants.",
+      "markingPoints": [
+        "Abiotic selection can arise from nonliving conditions such as temperature.",
+        "A winter freeze may favour inherited cold tolerance among surviving perennial plants.",
+        "Short-term plasticity and heritable evolutionary change are different mechanisms."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.5"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of differential survival and reproduction is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-5",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Fitness means relative reproductive success in a specified environment.",
+          "correct": true,
+          "feedback": "Correct: A short-lived plant producing many viable seeds can have higher fitness than a long-lived sterile plant."
+        },
+        {
+          "id": "b",
+          "text": "The physically strongest individual necessarily has greatest fitness.",
+          "correct": false,
+          "feedback": "Reproductive success is probabilistic and environmentally dependent."
+        },
+        {
+          "id": "c",
+          "text": "Survival alone establishes high fitness.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Fitness means relative reproductive success in a specified environment."
+        },
+        {
+          "id": "d",
+          "text": "One genotype is universally best in every habitat.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Fitness means relative reproductive success in a specified environment."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-5",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.5"
+      ],
+      "level": "shared",
+      "prompt": "Explain differential survival and reproduction using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-5",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Evolutionary fitness is an individual's relative genetic contribution to future generations through viable, reproducing offspring. It is not identical to lifespan, strength, speed or physical appearance. Adaptations can increase average survival, mating success, fertility or offspring viability in a given environment.\nA short-lived plant producing many viable seeds can have higher fitness than a long-lived sterile plant.",
+      "markingPoints": [
+        "Fitness means relative reproductive success in a specified environment.",
+        "A short-lived plant producing many viable seeds can have higher fitness than a long-lived sterile plant.",
+        "Reproductive success is probabilistic and environmentally dependent."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.6"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of inheritance is necessary for evolution is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-6",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Heritability connects differential reproduction to evolution.",
+          "correct": true,
+          "feedback": "Correct: Salt-tolerant plants leaving more seeds may alter allele frequencies; a single sunburn cannot."
+        },
+        {
+          "id": "b",
+          "text": "Exercise-induced muscle size is inherited as a new gene.",
+          "correct": false,
+          "feedback": "Selection produces genetic change only where variation influencing fitness is inherited."
+        },
+        {
+          "id": "c",
+          "text": "Any individual phenotype change is evolution.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Heritability connects differential reproduction to evolution."
+        },
+        {
+          "id": "d",
+          "text": "Only environment-independent traits can be heritable.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Heritability connects differential reproduction to evolution."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-6",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.6"
+      ],
+      "level": "shared",
+      "prompt": "Explain inheritance is necessary for evolution using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-6",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Natural selection can produce a heritable population-level response only when traits affecting fitness have an inherited component. An individual can change characteristics in response to training, nutrition or temperature without making corresponding changes to germline DNA.\nSalt-tolerant plants leaving more seeds may alter allele frequencies; a single sunburn cannot.",
+      "markingPoints": [
+        "Heritability connects differential reproduction to evolution.",
+        "Salt-tolerant plants leaving more seeds may alter allele frequencies; a single sunburn cannot.",
+        "Selection produces genetic change only where variation influencing fitness is inherited."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.7"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of sexual selection is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-7",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Mate choice can produce evolutionary selection through heritable reproductive differences.",
+          "correct": true,
+          "feedback": "Correct: A conspicuous bird display may attract mates but also be more visible to predators."
+        },
+        {
+          "id": "b",
+          "text": "Sexual selection affects only survival before mating.",
+          "correct": false,
+          "feedback": "Balance mating success against survival and offspring viability."
+        },
+        {
+          "id": "c",
+          "text": "Bright plumage is always advantageous in every habitat.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Mate choice can produce evolutionary selection through heritable reproductive differences."
+        },
+        {
+          "id": "d",
+          "text": "Sexual selection is restricted to one sex.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Mate choice can produce evolutionary selection through heritable reproductive differences."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-7",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.7"
+      ],
+      "level": "shared",
+      "prompt": "Explain sexual selection using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-7",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Sexual selection occurs when differences in heritable traits affect success at obtaining mates or fertilizations. Mate choice can favour plumage, songs and courtship displays, while competition for mates can favour size or weapons. Birds-of-paradise illustrate conspicuous display traits.\nA conspicuous bird display may attract mates but also be more visible to predators.",
+      "markingPoints": [
+        "Mate choice can produce evolutionary selection through heritable reproductive differences.",
+        "A conspicuous bird display may attract mates but also be more visible to predators.",
+        "Balance mating success against survival and offspring viability."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.8"
+      ],
+      "level": "shared",
+      "prompt": "Which interpretation of experimental models of selection is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-8",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41",
+        "endler"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Controlled predation changes can alter the selection balance on guppy colour.",
+          "correct": true,
+          "feedback": "Correct: Male colour conspicuousness increased in some reduced-predation experimental guppy populations over generations."
+        },
+        {
+          "id": "b",
+          "text": "A guppy deliberately changes alleles when predators disappear.",
+          "correct": false,
+          "feedback": "Experimental comparisons require controls, replicates and time across generations."
+        },
+        {
+          "id": "c",
+          "text": "One conspicuous guppy proves population evolution.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Controlled predation changes can alter the selection balance on guppy colour."
+        },
+        {
+          "id": "d",
+          "text": "Predators cannot act as selection pressures.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Controlled predation changes can alter the selection balance on guppy colour."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-8",
+      "paper": "1B",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.8"
+      ],
+      "level": "shared",
+      "prompt": "Explain experimental models of selection using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-8",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41",
+        "endler"
+      ],
+      "answer": "Endler's Trinidadian guppy studies investigated how predator pressure influences the evolution of male ornamental colour patterns. Visually hunting predators can penalize conspicuous males, whereas mate preference may favour conspicuous colour when predation pressure is reduced.\nMale colour conspicuousness increased in some reduced-predation experimental guppy populations over generations.",
+      "markingPoints": [
+        "Controlled predation changes can alter the selection balance on guppy colour.",
+        "Male colour conspicuousness increased in some reduced-predation experimental guppy populations over generations.",
+        "Experimental comparisons require controls, replicates and time across generations."
+      ],
+      "data": {
+        "caption": "Illustrative biological evidence",
+        "headers": [
+          "Case",
+          "Interpretation"
+        ],
+        "rows": [
+          [
+            "Male colour conspicuousness increased in some reduced-predation experimental guppy populations over generations.",
+            "Explain mechanism and limits"
+          ]
+        ]
+      },
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.9"
+      ],
+      "level": "HL",
+      "prompt": "Which interpretation of the gene pool is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-9",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Allele frequencies count copies of alleles, not just affected individuals.",
+          "correct": true,
+          "feedback": "Correct: 30 AA, 50 Aa and 20 aa give p(A)=110/200=0.55."
+        },
+        {
+          "id": "b",
+          "text": "Heterozygotes contribute two copies of A.",
+          "correct": false,
+          "feedback": "Both alleles of every diploid genotype contribute to allele counts."
+        },
+        {
+          "id": "c",
+          "text": "Population allele frequencies always equal genotype frequencies.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Allele frequencies count copies of alleles, not just affected individuals."
+        },
+        {
+          "id": "d",
+          "text": "A gene pool describes one individual's alleles.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Allele frequencies count copies of alleles, not just affected individuals."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-9",
+      "paper": "1B",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.9"
+      ],
+      "level": "HL",
+      "prompt": "Explain the gene pool using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-9",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "A gene pool includes all genes and their alternative alleles present in a population at a particular time. Allele frequency is the proportion of copies of a locus represented by one allele. At a typical autosomal locus, a population of N diploid individuals contributes 2N gene copies.\n30 AA, 50 Aa and 20 aa give p(A)=110/200=0.55.",
+      "markingPoints": [
+        "Allele frequencies count copies of alleles, not just affected individuals.",
+        "30 AA, 50 Aa and 20 aa give p(A)=110/200=0.55.",
+        "Both alleles of every diploid genotype contribute to allele counts."
+      ],
+      "data": {
+        "caption": "Illustrative biological evidence",
+        "headers": [
+          "Case",
+          "Interpretation"
+        ],
+        "rows": [
+          [
+            "30 AA, 50 Aa and 20 aa give p(A)=110/200=0.55.",
+            "Explain mechanism and limits"
+          ]
+        ]
+      },
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.10"
+      ],
+      "level": "HL",
+      "prompt": "Which interpretation of allele frequencies in isolated populations is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-10",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Geographic separation can permit genetic frequency differences across populations.",
+          "correct": true,
+          "feedback": "Correct: Different frequencies in two isolated populations can reflect local selection or drift and need not signal different species."
+        },
+        {
+          "id": "b",
+          "text": "All human populations have identical allele frequencies.",
+          "correct": false,
+          "feedback": "Human variation is continuous, overlapping and subject to sample composition."
+        },
+        {
+          "id": "c",
+          "text": "A population average specifies every member's genotype.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Geographic separation can permit genetic frequency differences across populations."
+        },
+        {
+          "id": "d",
+          "text": "Geographical isolation always proves natural selection.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Geographic separation can permit genetic frequency differences across populations."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-10",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.10"
+      ],
+      "level": "HL",
+      "prompt": "Explain allele frequencies in isolated populations using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-10",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Geographically separated populations may diverge in allele frequencies through drift, selection, migration patterns and founder effects. Human genetic databases can report variant frequencies for geographically or ancestrally sampled groups, but these are estimates contingent on inclusion and sampling.\nDifferent frequencies in two isolated populations can reflect local selection or drift and need not signal different species.",
+      "markingPoints": [
+        "Geographic separation can permit genetic frequency differences across populations.",
+        "Different frequencies in two isolated populations can reflect local selection or drift and need not signal different species.",
+        "Human variation is continuous, overlapping and subject to sample composition."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.11"
+      ],
+      "level": "HL",
+      "prompt": "Which interpretation of selection changes allele frequencies is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-11",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Selection changes the gene pool through genotype-associated reproductive success.",
+          "correct": true,
+          "feedback": "Correct: After pesticide exposure, insects with an inherited resistance allele may contribute a larger share of the next generation."
+        },
+        {
+          "id": "b",
+          "text": "Selection makes individuals rewrite their DNA intentionally.",
+          "correct": false,
+          "feedback": "Genetic drift and migration can yield changes without selective advantage."
+        },
+        {
+          "id": "c",
+          "text": "Allele frequencies change only through natural selection.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Selection changes the gene pool through genotype-associated reproductive success."
+        },
+        {
+          "id": "d",
+          "text": "Drug exposure must create every resistance allele anew.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Selection changes the gene pool through genotype-associated reproductive success."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-11",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.11"
+      ],
+      "level": "HL",
+      "prompt": "Explain selection changes allele frequencies using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-11",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Selection changes allele frequencies when genotypes differ in average reproductive contribution. A heritable adaptation increases because its carriers contribute more copies of its alleles to the next generation than less successful alternatives.\nAfter pesticide exposure, insects with an inherited resistance allele may contribute a larger share of the next generation.",
+      "markingPoints": [
+        "Selection changes the gene pool through genotype-associated reproductive success.",
+        "After pesticide exposure, insects with an inherited resistance allele may contribute a larger share of the next generation.",
+        "Genetic drift and migration can yield changes without selective advantage."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-12",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.12"
+      ],
+      "level": "HL",
+      "prompt": "Which interpretation of directional, disruptive and stabilizing selection is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-12",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41",
+        "selection-modes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+          "correct": true,
+          "feedback": "Correct: If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested."
+        },
+        {
+          "id": "b",
+          "text": "Stabilizing favours only large extremes.",
+          "correct": false,
+          "feedback": "Evidence of differential heritable reproductive success is needed."
+        },
+        {
+          "id": "c",
+          "text": "Disruptive favours only the mean.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes."
+        },
+        {
+          "id": "d",
+          "text": "Directional selection never changes the mean.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-12",
+      "paper": "1B",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.12"
+      ],
+      "level": "HL",
+      "prompt": "Explain directional, disruptive and stabilizing selection using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-12",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41",
+        "selection-modes"
+      ],
+      "answer": "Directional selection favours one end of a heritable trait range and can shift its mean. Stabilizing selection favours intermediate traits and tends to reduce variation. Disruptive selection favours both extremes relative to intermediate values, potentially widening or dividing the trait distribution.\nIf very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested.",
+      "markingPoints": [
+        "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+        "If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested.",
+        "Evidence of differential heritable reproductive success is needed."
+      ],
+      "data": {
+        "caption": "Illustrative biological evidence",
+        "headers": [
+          "Case",
+          "Interpretation"
+        ],
+        "rows": [
+          [
+            "If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested.",
+            "Explain mechanism and limits"
+          ]
+        ]
+      },
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-13",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.13"
+      ],
+      "level": "HL",
+      "prompt": "Which interpretation of hardy–weinberg calculations is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-13",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+          "correct": true,
+          "feedback": "Correct: If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%."
+        },
+        {
+          "id": "b",
+          "text": "The heterozygote frequency is p².",
+          "correct": false,
+          "feedback": "They define a conditional equilibrium model for comparison with observations."
+        },
+        {
+          "id": "c",
+          "text": "q equals 0.09 when q²=0.09.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold."
+        },
+        {
+          "id": "d",
+          "text": "The model always applies in small selected populations.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-13",
+      "paper": "1B",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.13"
+      ],
+      "level": "HL",
+      "prompt": "Explain hardy–weinberg calculations using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-13",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.\nIf q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
+      "markingPoints": [
+        "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+        "If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
+        "They define a conditional equilibrium model for comparison with observations."
+      ],
+      "data": {
+        "caption": "Illustrative biological evidence",
+        "headers": [
+          "Case",
+          "Interpretation"
+        ],
+        "rows": [
+          [
+            "If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
+            "Explain mechanism and limits"
+          ]
+        ]
+      },
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-14",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.14"
+      ],
+      "level": "HL",
+      "prompt": "Which interpretation of hardy–weinberg equilibrium conditions is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-14",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions.",
+          "correct": true,
+          "feedback": "Correct: Inbreeding can create more homozygotes than predicted by p² and q² without immediately changing p."
+        },
+        {
+          "id": "b",
+          "text": "The conditions require no sexual reproduction.",
+          "correct": false,
+          "feedback": "It only indicates compatibility with assumptions for the sampled locus and time."
+        },
+        {
+          "id": "c",
+          "text": "One deviation proves mutation was the cause.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions."
+        },
+        {
+          "id": "d",
+          "text": "All small populations have perfectly stable frequencies.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-14",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.14"
+      ],
+      "level": "HL",
+      "prompt": "Explain hardy–weinberg equilibrium conditions using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-14",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Hardy–Weinberg conditions include a very large population, random mating, and negligible selection, migration and mutation at the locus. These assumptions minimize genotype distortion and allele-frequency change due to population processes.\nInbreeding can create more homozygotes than predicted by p² and q² without immediately changing p.",
+      "markingPoints": [
+        "Nonrandom mating or evolutionary forces can disrupt Hardy–Weinberg predictions.",
+        "Inbreeding can create more homozygotes than predicted by p² and q² without immediately changing p.",
+        "It only indicates compatibility with assumptions for the sampled locus and time."
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-mcq-15",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D4.1.15"
+      ],
+      "level": "HL",
+      "prompt": "Which interpretation of artificial selection is correct?",
+      "marks": 1,
+      "sectionId": "natural-selection-15",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Artificial selection means deliberately choosing organisms to breed.",
+          "correct": true,
+          "feedback": "Correct: Crossing only high-yield, disease-resistant plant lines over generations changes trait frequencies."
+        },
+        {
+          "id": "b",
+          "text": "All human-caused evolutionary effects are artificial selection.",
+          "correct": false,
+          "feedback": "Drug treatment is an environmental selection pressure, not deliberate mate selection."
+        },
+        {
+          "id": "c",
+          "text": "Selective breeding creates new alleles without mutation.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Artificial selection means deliberately choosing organisms to breed."
+        },
+        {
+          "id": "d",
+          "text": "Breeding cannot produce undesirable correlated traits.",
+          "correct": false,
+          "feedback": "This is not the mechanism: Artificial selection means deliberately choosing organisms to breed."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-written-15",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D4.1.15"
+      ],
+      "level": "HL",
+      "prompt": "Explain artificial selection using the underlying mechanism and one example or calculation.",
+      "marks": 3,
+      "sectionId": "natural-selection-15",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "answer": "Artificial selection is deliberate choice of breeding individuals for desirable heritable characteristics. Repeatedly selecting crop yield, disease resistance or livestock productivity changes which genotypes contribute to later generations.\nCrossing only high-yield, disease-resistant plant lines over generations changes trait frequencies.",
+      "markingPoints": [
+        "Artificial selection means deliberately choosing organisms to breed.",
+        "Crossing only high-yield, disease-resistant plant lines over generations changes trait frequencies.",
+        "Drug treatment is an environmental selection pressure, not deliberate mate selection."
+      ],
+      "review": "source-mapped"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-d41",
+      "title": "International Baccalaureate, Biology guide, first assessment 2025",
+      "locator": "D4.1, printed pp. 102–103, PDF pp. 108–109",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-d41",
+      "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, third edition (Hodder, 2023)",
+      "locator": "D4.1, printed pp. 779–797, PDF pp. 791–809",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "endler",
+      "title": "How to generate and test hypotheses about colour: insights from half a century of guppy research (2023)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10244973/",
+      "locator": "Original Endler experimental conclusions contextualized in review",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "selection-modes",
+      "title": "Loewe (2008), Negative Selection, Nature Education Scitable",
+      "url": "https://www.nature.com/scitable/topicpage/negative-selection-1136/",
+      "locator": "Directional, stabilizing and disruptive selection",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    }
+  ],
+  "assets": [
+    {
+      "id": "d41-selection",
+      "kind": "diagram",
+      "src": "/biology/natural-selection/d41-selection-patterns.svg",
+      "alt": "Three original schematic trait distributions: directional peaks at a higher trait value, stabilizing narrower at the middle, disruptive with peaks at both extremes; all curves are illustrative not data.",
+      "captionTitle": "Selection shapes distributions of inherited traits",
+      "interpretation": "Illustrative distributions, not measured population data",
+      "attribution": "Original BioLab vector diagram 2026-10-17",
+      "license": "Original project work; no third-party artwork",
+      "permissionEvidence": "Original mathematical curves without copying a source figure",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41",
+        "selection-modes"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    },
+    {
+      "id": "d41-alleles",
+      "kind": "diagram",
+      "src": "/biology/natural-selection/d41-allele-frequency.svg",
+      "alt": "Original table visualizing 30 AA, 50 Aa and 20 aa in 100 diploid individuals; A copies 110 out of 200; allele frequency p=0.55.",
+      "captionTitle": "Counting allele copies in a gene pool",
+      "interpretation": "Illustrative counts only, not empirical population data",
+      "attribution": "Original BioLab diagram 2026-10-17",
+      "license": "Original project work; no third-party artwork",
+      "permissionEvidence": "Created from synthetic counts and calculated frequencies",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    }
+  ],
+  "summary": "Natural selection sorts heritable variation by differences in reproductive success; allele frequencies may change in populations. Experimental controls help identify causal selection. Hardy–Weinberg is a conditional baseline rather than an exact description of all populations.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "Original draft; scientific sign-off and question calibration pending.",
+      "Guppy evidence based on literature, not invented measured series.",
+      "Population numbers in diagrams are explicitly illustrative.",
+      "No protected graphics or questions reused; SVG review remains pending."
+    ]
+  }
+}
