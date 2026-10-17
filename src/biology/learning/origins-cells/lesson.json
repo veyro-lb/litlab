@@ -279,7 +279,42 @@
         }
       ],
       "figurePlacements": [],
-      "activityTitle": "Why cells are independently living units — test your reasoning"
+      "activityTitle": "Why cells are independently living units — test your reasoning",
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Self-sustaining bacterium versus lambda virion",
+          "afterBlock": 1,
+          "headers": [
+            "Evidence",
+            "Bacterium (living cell)",
+            "Free lambda virion (not a cell)"
+          ],
+          "rows": [
+            [
+              "Structural organization",
+              "Plasma membrane enclosing cytoplasm and ribosomes",
+              "Genome in protein head and tail; no cytoplasm or ribosomes"
+            ],
+            [
+              "Metabolic reactions",
+              "Uses substrates and enzymes to maintain cellular metabolism",
+              "No independent ATP production or protein synthesis"
+            ],
+            [
+              "Making descendants",
+              "Replicates DNA and divides by cellular machinery",
+              "Infects a bacterium; host resources assemble new particles"
+            ],
+            [
+              "Genetic information",
+              "DNA inherited by daughter cells",
+              "DNA genome present, but no independent cell cycle"
+            ]
+          ],
+          "note": "A virion's possession of genetic material does not meet the IB's self-sustaining-cell criterion."
+        }
+      ]
     },
     {
       "id": "a21-3",
@@ -409,7 +444,42 @@
         }
       ],
       "figurePlacements": [],
-      "activityTitle": "From chemistry to inherited compartments — test your reasoning"
+      "activityTitle": "From chemistry to inherited compartments — test your reasoning",
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "What a protocell needs versus what one ingredient supplies",
+          "afterBlock": 1,
+          "headers": [
+            "Component or process",
+            "What it can contribute",
+            "What it cannot establish alone"
+          ],
+          "rows": [
+            [
+              "Fatty-acid compartment",
+              "A bounded internal aqueous region",
+              "Catalysis, heredity or cellular division"
+            ],
+            [
+              "Catalytic RNA or other catalyst",
+              "Increased reaction rates in suitable conditions",
+              "Reliable inheritance and energy supply"
+            ],
+            [
+              "Template-directed copying",
+              "Transmission of sequence information with possible variation",
+              "Guaranteed compartment growth and resource access"
+            ],
+            [
+              "Coordinated protocell growth/division",
+              "Potential continuity of a bounded chemical lineage",
+              "That any laboratory model was Earth's actual first cell"
+            ]
+          ],
+          "note": "These are necessary functional candidates, not an asserted historical chronological order."
+        }
+      ]
     },
     {
       "id": "a21-4",
@@ -983,7 +1053,37 @@
         }
       ],
       "figurePlacements": [],
-      "activityTitle": "The meaning of LUCA — test your reasoning"
+      "activityTitle": "The meaning of LUCA — test your reasoning",
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "LUCA is not the first cell",
+          "afterBlock": 1,
+          "headers": [
+            "Concept",
+            "What scientists can infer",
+            "What remains unknown"
+          ],
+          "rows": [
+            [
+              "First living cell(s)",
+              "Cells arose before the later common ancestry of surviving lineages",
+              "The exact chemistry, place and date of first cellular life"
+            ],
+            [
+              "Last universal common ancestor (LUCA)",
+              "Surviving cellular lineages inherited homologous systems, including translation",
+              "Whether LUCA was one organism or a diverse ancestral population"
+            ],
+            [
+              "Extinct early lineages",
+              "Other types may have lived and become extinct",
+              "Their full biological diversity and evolutionary fates"
+            ]
+          ],
+          "note": "A near-universal code is evidence of shared ancestry, not a direct fossil portrait of LUCA."
+        }
+      ]
     },
     {
       "id": "a21-8",
@@ -1113,7 +1213,32 @@
         }
       ],
       "figurePlacements": [],
-      "activityTitle": "How ancient dates are estimated — test your reasoning"
+      "activityTitle": "How ancient dates are estimated — test your reasoning",
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Two approaches to dating the deep history of life",
+          "afterBlock": 1,
+          "headers": [
+            "Approach",
+            "What is dated or estimated",
+            "Principal caveat"
+          ],
+          "rows": [
+            [
+              "Radiometric dating + fossil context",
+              "Age of mineral layers associated with a candidate biological structure",
+              "Geological association and biological origin must both be established"
+            ],
+            [
+              "Molecular clocks + phylogeny",
+              "Estimated divergence times from sequence differences and calibrated rate models",
+              "Uncertain calibrations and changing rates shift inferred dates"
+            ]
+          ],
+          "note": "Do not present estimated LUCA ages as direct radiometric measurements of a particular organism."
+        }
+      ]
     },
     {
       "id": "a21-9",
@@ -1243,7 +1368,37 @@
         }
       ],
       "figurePlacements": [],
-      "activityTitle": "Evidence concerning hydrothermal vents — test your reasoning"
+      "activityTitle": "Evidence concerning hydrothermal vents — test your reasoning",
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Hydrothermal-vent hypothesis: evidence and inference",
+          "afterBlock": 1,
+          "headers": [
+            "Evidence type",
+            "Observation or inference",
+            "Unresolved alternative"
+          ],
+          "rows": [
+            [
+              "Ancient vent precipitates",
+              "Some mineral tubes or filaments have been interpreted as biological traces",
+              "Abiotic mineral growth can produce similar shapes"
+            ],
+            [
+              "Comparative sequence analysis",
+              "Conserved genes help reconstruct ancestral energy metabolism",
+              "Later evolution and model assumptions complicate environmental reconstruction"
+            ],
+            [
+              "Present-day vents",
+              "Hydrogen/redox gradients can sustain microbial ecosystems",
+              "A modern habitat is not proof that all life originated there"
+            ]
+          ],
+          "note": "Independent lines of evidence can strengthen a hypothesis without proving a unique site of origin."
+        }
+      ]
     }
   ],
   "questions": [
@@ -1274,19 +1429,19 @@
           "id": "2",
           "text": "Atmospheric oxygen shielded every organic molecule from UV.",
           "correct": false,
-          "feedback": "Ancient conditions are inferred with uncertainty, and producing organics is far from producing a cell."
+          "feedback": "Early free atmospheric oxygen was scarce; oxygen could oxidize products, and extensive ozone shielding was absent."
         },
         {
           "id": "3",
           "text": "The modern ozone layer already protected early Earth.",
           "correct": false,
-          "feedback": "Ancient conditions are inferred with uncertainty, and producing organics is far from producing a cell."
+          "feedback": "An extensive modern-type ozone layer depends on oxygen, which was scarce early on."
         },
         {
           "id": "4",
           "text": "All compounds produced by UV must survive unchanged.",
           "correct": false,
-          "feedback": "Ancient conditions are inferred with uncertainty, and producing organics is far from producing a cell."
+          "feedback": "UV can promote reactions but also degrade products; synthesis does not guarantee persistence."
         }
       ]
     },
@@ -1326,32 +1481,32 @@
         "ib-guide-a21",
         "hodder-a21"
       ],
-      "prompt": "Which conclusion about why cells are independently living units is supported?",
+      "prompt": "Which finding best explains why bacteriophage lambda is not a self-sustaining living cell?",
       "marks": 1,
       "options": [
         {
           "id": "a",
-          "text": "It depends on the host's metabolic and translational machinery.",
+          "text": "It requires a host bacterium's machinery and resources to produce new phages.",
           "correct": true,
-          "feedback": "It lacks cytoplasm, ribosomes and independent metabolism, and depends on a host for reproduction."
+          "feedback": "Correct. A virion has genetic material but lacks cytoplasm, ribosomes and independent metabolism; progeny are assembled using an infected cell."
         },
         {
           "id": "2",
-          "text": "It contains no genetic information.",
+          "text": "It contains no genetic information at all.",
           "correct": false,
-          "feedback": "Having genes is insufficient: virions lack cell structure and independent metabolism."
+          "feedback": "Lambda has a double-stranded DNA genome. Having hereditary information is not by itself enough to make a virus a self-sustaining cell."
         },
         {
           "id": "3",
-          "text": "It divides by binary fission outside a host.",
+          "text": "It divides independently by binary fission in water.",
           "correct": false,
-          "feedback": "Having genes is insufficient: virions lack cell structure and independent metabolism."
+          "feedback": "Binary fission is cellular division. Phage particles are assembled inside infected bacteria and are not produced by dividing free virions."
         },
         {
           "id": "4",
-          "text": "It contains organelles but no membrane.",
+          "text": "Its lipid membrane contains mitochondria and no proteins.",
           "correct": false,
-          "feedback": "Having genes is insufficient: virions lack cell structure and independent metabolism."
+          "feedback": "Lambda is a non-enveloped phage with a protein capsid. It has no mitochondria, and an envelope on other viruses would not make them cells."
         }
       ]
     },
@@ -1404,19 +1559,19 @@
           "id": "2",
           "text": "Finding amino acids proves that cells formed.",
           "correct": false,
-          "feedback": "Individual relevant steps have experimental support; their historical integration remains unresolved."
+          "feedback": "Amino acids are useful ingredients, not self-maintaining, replicating, bounded cells."
         },
         {
           "id": "3",
           "text": "Replication without any inherited information is sufficient.",
           "correct": false,
-          "feedback": "Individual relevant steps have experimental support; their historical integration remains unresolved."
+          "feedback": "Natural selection requires heritable variation; copying without inherited differences is insufficient."
         },
         {
           "id": "4",
           "text": "A lipid sphere without chemistry is already a modern cell.",
           "correct": false,
-          "feedback": "Individual relevant steps have experimental support; their historical integration remains unresolved."
+          "feedback": "A lipid vesicle is a physical compartment; it is not automatically capable of metabolism, heredity and division."
         }
       ]
     },
@@ -1469,19 +1624,19 @@
           "id": "2",
           "text": "It produced an independently reproducing protocell.",
           "correct": false,
-          "feedback": "The experiment synthesized organic molecules, not self-sustaining cells."
+          "feedback": "Organic molecules accumulated in the apparatus; no growing or dividing cells were produced."
         },
         {
           "id": "3",
           "text": "It proved the exact gases in the Hadean atmosphere.",
           "correct": false,
-          "feedback": "The experiment synthesized organic molecules, not self-sustaining cells."
+          "feedback": "The apparatus tested an assumed gas mixture; it did not determine the entire early atmosphere."
         },
         {
           "id": "4",
           "text": "It demonstrated that electrical storms are the only possible source.",
           "correct": false,
-          "feedback": "The experiment synthesized organic molecules, not self-sustaining cells."
+          "feedback": "Electric discharges are one possible energy source; geochemical and UV-driven reactions are other hypotheses."
         }
       ]
     },
@@ -1534,19 +1689,19 @@
           "id": "2",
           "text": "It provides DNA replication by itself.",
           "correct": false,
-          "feedback": "Amphiphile organization can occur spontaneously; metabolism and heredity do not follow automatically."
+          "feedback": "Fatty-acid vesicle formation is spontaneous organization, not a complete nucleotide-copying system."
         },
         {
           "id": "3",
           "text": "It creates a rigid mineral cell wall.",
           "correct": false,
-          "feedback": "Amphiphile organization can occur spontaneously; metabolism and heredity do not follow automatically."
+          "feedback": "A lipid bilayer compartment is different from a rigid mineral or polymer cell wall."
         },
         {
           "id": "4",
           "text": "It requires proteins to position every lipid.",
           "correct": false,
-          "feedback": "Amphiphile organization can occur spontaneously; metabolism and heredity do not follow automatically."
+          "feedback": "Amphiphiles can self-assemble through hydrophilic and hydrophobic interactions without a protein positioning each one."
         }
       ]
     },
@@ -1599,19 +1754,19 @@
           "id": "2",
           "text": "RNA is chemically identical to modern DNA.",
           "correct": false,
-          "feedback": "Catalytic RNA is observed, but the proposed earliest sequence of events remains a hypothesis."
+          "feedback": "RNA has ribose and usually uracil; DNA contains deoxyribose and usually thymine."
         },
         {
           "id": "3",
           "text": "All RNAs independently produce proteins.",
           "correct": false,
-          "feedback": "Catalytic RNA is observed, but the proposed earliest sequence of events remains a hypothesis."
+          "feedback": "Some RNAs are catalysts, but protein synthesis requires ribosomes, substrates and other cellular machinery."
         },
         {
           "id": "4",
           "text": "Every RNA molecule copies itself without other components.",
           "correct": false,
-          "feedback": "Catalytic RNA is observed, but the proposed earliest sequence of events remains a hypothesis."
+          "feedback": "Ribozyme catalysis is established; spontaneous autonomous copying of every RNA molecule is not."
         }
       ]
     },
@@ -1664,19 +1819,19 @@
           "id": "2",
           "text": "The code proves no other life ever existed.",
           "correct": false,
-          "feedback": "LUCA is the last shared ancestor of extant cellular organisms; earlier and extinct lineages are possible."
+          "feedback": "Extinct lineages may have existed outside the ancestor of surviving cellular life."
         },
         {
           "id": "3",
           "text": "LUCA is an extant bacterium.",
           "correct": false,
-          "feedback": "LUCA is the last shared ancestor of extant cellular organisms; earlier and extinct lineages are possible."
+          "feedback": "LUCA denotes an inferred ancestral population, not a bacterium alive today."
         },
         {
           "id": "4",
           "text": "Similar-looking bodies alone establish LUCA.",
           "correct": false,
-          "feedback": "LUCA is the last shared ancestor of extant cellular organisms; earlier and extinct lineages are possible."
+          "feedback": "Conserved genes and deep molecular homology are stronger evidence for LUCA than superficial shape resemblance."
         }
       ]
     },
@@ -1729,19 +1884,19 @@
           "id": "2",
           "text": "Any old rock automatically proves life existed inside.",
           "correct": false,
-          "feedback": "It estimates time from sequence divergence using rate and calibration models with uncertainty."
+          "feedback": "An ancient rock establishes geological age, not automatically the existence of biological fossils."
         },
         {
           "id": "3",
           "text": "LUCA has a directly observed birth date.",
           "correct": false,
-          "feedback": "It estimates time from sequence divergence using rate and calibration models with uncertainty."
+          "feedback": "LUCA is inferred from phylogeny and calibrated clocks, not directly observed or dated as an individual birth."
         },
         {
           "id": "4",
           "text": "Sequence differences always accrue at a constant universal rate.",
           "correct": false,
-          "feedback": "It estimates time from sequence divergence using rate and calibration models with uncertainty."
+          "feedback": "Evolutionary rates can vary among genes and branches; molecular clocks require models and calibration uncertainty."
         }
       ]
     },
@@ -1794,19 +1949,19 @@
           "id": "2",
           "text": "Fossils capture LUCA as a uniquely identified species.",
           "correct": false,
-          "feedback": "Ancient structures and inferred genes are indirect, model-dependent evidence, not direct observation."
+          "feedback": "Fossil-like structures are disputed and cannot uniquely identify an individual as LUCA."
         },
         {
           "id": "3",
           "text": "All origin models exclude surface water.",
           "correct": false,
-          "feedback": "Ancient structures and inferred genes are indirect, model-dependent evidence, not direct observation."
+          "feedback": "Hydrothermal vents are one plausible setting; other prebiotic environments are not excluded."
         },
         {
           "id": "4",
           "text": "Shared genes reveal the exact coordinates of the first cell.",
           "correct": false,
-          "feedback": "Ancient structures and inferred genes are indirect, model-dependent evidence, not direct observation."
+          "feedback": "Shared genes constrain ancestry and metabolism; they cannot pinpoint the first cell's geographic coordinates."
         }
       ]
     },
