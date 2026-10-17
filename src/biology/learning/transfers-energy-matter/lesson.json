@@ -2703,14 +2703,14 @@
       ],
       "level": "shared",
       "guidingQuestion": "What causes the long-term rise and annual oscillations in atmospheric CO₂?",
-      "explanation": "The Keeling Curve is a continuous record of atmospheric carbon dioxide concentration begun at Mauna Loa in 1958. Its upward long-term trend is largely due to anthropogenic CO₂ emissions, especially fossil-fuel combustion. A superimposed seasonal rise and fall reflects changes in the balance between photosynthesis and respiration, notably across the Northern Hemisphere's extensive land vegetation.\n\nCO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.",
-      "revisionSummary": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues.",
+      "explanation": "The Keeling Curve is a continuous record of atmospheric carbon dioxide concentration begun at Mauna Loa in 1958. Its upward long-term trend is largely due to anthropogenic CO₂ emissions, especially fossil-fuel combustion. A superimposed seasonal rise and fall reflects changes in the balance between photosynthesis and respiration, notably across the Northern Hemisphere's extensive land vegetation.\n\nCO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.\n\nNOAA's recorded monthly means show a seasonal cycle: in 2025 the May mean was 430.51 ppm and the September mean was 424.37 ppm, a within-year difference of 6.14 ppm. The corresponding 2024 June peak was 426.91 ppm and September low was 422.03 ppm. These are observations, not an invented smooth curve; seasonal change and long-term increase are different features of the Keeling Curve.",
+      "revisionSummary": "Mauna Loa observations show a decades-long CO₂ rise (mainly anthropogenic emissions) with annual rises and falls from changing photosynthetic uptake and respiration. Real monthly points, not annual means alone, reveal seasonality.",
       "terms": [
         "Keeling Curve — atmospheric CO₂ measurements beginning in 1958",
         "ppm — parts per million, used for atmospheric CO₂ concentration",
         "seasonal cycle — recurrent within-year fluctuation"
       ],
-      "workedExample": "NOAA reports annual mean Mauna Loa CO₂ of 315.98 ppm in 1959 and 377.38 ppm in 2004; these observed annual means demonstrate a longer-term increase, not the within-year cycle.",
+      "workedExample": "From observed NOAA monthly means in 2025, May CO₂ was 430.51 ppm and September CO₂ was 424.37 ppm. Peak-to-trough difference = 430.51 − 424.37 = 6.14 ppm. This describes seasonal variation, not the long-term rise.",
       "misconceptions": [
         {
           "misconception": "Seasonal CO₂ oscillations mean annual atmospheric CO₂ has stopped rising.",
@@ -2727,20 +2727,24 @@
           ]
         },
         {
-          "claim": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.",
+          "claim": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.\n\nNOAA's recorded monthly means show a seasonal cycle: in 2025 the May mean was 430.51 ppm and the September mean was 424.37 ppm, a within-year difference of 6.14 ppm. The corresponding 2024 June peak was 426.91 ppm and September low was 422.03 ppm. These are observations, not an invented smooth curve; seasonal change and long-term increase are different features of the Keeling Curve.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42",
-            "noaa-keeling"
+            "noaa-keeling",
+            "noaa-keeling-monthly"
           ]
         }
       ],
       "referenceIds": [
         "ib-c42",
         "hodder-c42",
-        "noaa-keeling"
+        "noaa-keeling",
+        "noaa-keeling-monthly"
       ],
-      "assets": [],
+      "assets": [
+        "c42-keeling-2024-2025"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2803,17 +2807,18 @@
         },
         {
           "title": "Separate seasonal and long-term variation",
-          "explanation": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.",
+          "explanation": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.\n\nNOAA's recorded monthly means show a seasonal cycle: in 2025 the May mean was 430.51 ppm and the September mean was 424.37 ppm, a within-year difference of 6.14 ppm. The corresponding 2024 June peak was 426.91 ppm and September low was 422.03 ppm. These are observations, not an invented smooth curve; seasonal change and long-term increase are different features of the Keeling Curve.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42",
-            "noaa-keeling"
+            "noaa-keeling",
+            "noaa-keeling-monthly"
           ]
         }
       ],
-      "exampleTitle": "Apply the mechanism",
+      "exampleTitle": "Calculate a real seasonal difference",
       "support": {
-        "simple": "The Keeling Curve rises overall as human emissions add CO₂, but it also moves up and down each year with seasonal plant uptake.",
+        "simple": "Mauna Loa observations show a decades-long CO₂ rise (mainly anthropogenic emissions) with annual rises and falls from changing photosynthetic uptake and respiration. Real monthly points, not annual means alone, reveal seasonality.",
         "example": "NOAA reports annual mean Mauna Loa CO₂ of 315.98 ppm in 1959 and 377.38 ppm in 2004; these observed annual means demonstrate a longer-term increase, not the within-year cycle.",
         "different": "NOAA reports annual mean Mauna Loa CO₂ of 315.98 ppm in 1959 and 377.38 ppm in 2004; these observed annual means demonstrate a longer-term increase, not the within-year cycle. Follow the matter and energy transfers separately to see why this matters.",
         "concepts": [
@@ -2845,6 +2850,12 @@
               377.38
             ]
           ]
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "c42-keeling-2024-2025",
+          "afterBlock": 1
         }
       ]
     },
@@ -4435,18 +4446,19 @@
         "C4.2.20"
       ],
       "level": "shared",
-      "prompt": "Explain with a mechanism and a specific example: What causes the long-term rise and annual oscillations in atmospheric CO₂?",
+      "prompt": "The observed Mauna Loa CO₂ chart for 2024 and 2025 rises and falls within each year, while the Keeling Curve rises over decades. Explain the different biological and anthropogenic causes of these two patterns. [2]",
       "marks": 2,
       "sectionId": "c42-20",
       "referenceIds": [
         "ib-c42",
         "hodder-c42",
-        "noaa-keeling"
+        "noaa-keeling",
+        "noaa-keeling-monthly"
       ],
-      "answer": "The Keeling Curve is a continuous record of atmospheric carbon dioxide concentration begun at Mauna Loa in 1958. Its upward long-term trend is largely due to anthropogenic CO₂ emissions, especially fossil-fuel combustion. A superimposed seasonal rise and fall reflects changes in the balance between photosynthesis and respiration, notably across the Northern Hemisphere's extensive land vegetation. CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.",
+      "answer": "The long-term increase in atmospheric CO₂ is mainly driven by human activities such as fossil-fuel combustion. Within each year, increased Northern Hemisphere photosynthesis takes up CO₂ during the growing season; during autumn and winter, plant uptake decreases while respiration and decomposition continue, producing a seasonal increase.",
       "markingPoints": [
-        "Identify the key process or principle: The Keeling Curve is a continuous record of atmospheric carbon dioxide concentration begun at Mauna Loa in 1958.",
-        "Explain its consequence or evidence, using an appropriate example: NOAA reports annual mean Mauna Loa CO₂ of 315.98 ppm in 1959 and 377.38 ppm in 2004; these observed annual means demonstrate a longer-term increase, not the within-year cycle."
+        "Long-term increase linked to human CO₂ emissions, particularly fossil-fuel combustion (1).",
+        "Annual oscillation linked to seasonal balance of photosynthesis (growing-season uptake) and respiration/decomposition (1)."
       ],
       "review": "source-mapped"
     },
@@ -4690,6 +4702,14 @@
       "locator": "Mauna Loa historical annual means for 1959 and 2004; seasonal cycle explanation",
       "accessedAt": "2026-10-17",
       "level": "shared"
+    },
+    {
+      "id": "noaa-keeling-monthly",
+      "title": "NOAA Global Monitoring Laboratory, Mauna Loa monthly mean CO₂ measurements",
+      "url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt",
+      "locator": "Observed Mauna Loa monthly mean concentrations, January–December 2024 and 2025, ppm; source file created 5 August 2026. Raw monthly means (not deseasonalized column). Scripps and NOAA measurement provenance stated in data header.",
+      "accessedAt": "2026-10-18",
+      "level": "shared"
     }
   ],
   "assets": [
@@ -4708,6 +4728,24 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "c42-keeling-2024-2025",
+      "kind": "graph",
+      "src": "/biology/transfers-energy-matter/keeling-monthly-2024-2025.svg",
+      "alt": "Observed monthly Mauna Loa carbon dioxide for 2024 and 2025, plotted as two 12-point lines in ppm. 2024 peaks at 426.91 ppm in June and falls to 422.03 in September; 2025 peaks at 430.51 ppm in May and falls to 424.37 in September. Observations reveal within-year oscillation and higher levels in 2025.",
+      "captionTitle": "Real monthly CO₂ observations reveal the seasonal cycle",
+      "interpretation": "NOAA GML unadjusted monthly mean concentrations for 2024 and 2025, plotted without invented interpolation. Northern Hemisphere plant uptake contributes to the summer decline; the second year is generally higher. Compare the within-year cycles with the separate long-term annual-mean table.",
+      "attribution": "Original BioLab graph constructed from NOAA Global Monitoring Laboratory Mauna Loa co2_mm_mlo.txt monthly observations, file updated 5 August 2026; NOAA GML and Scripps historical measurement attribution retained",
+      "license": "Original BioLab chart of credited public measurement data; no third-party figure reproduced",
+      "permissionEvidence": "Original plotted SVG paths and labels from independently coded coordinates of NOAA numerical observations, with source URL; no publisher artwork copied",
+      "referenceIds": [
+        "ib-c42",
+        "hodder-c42",
+        "noaa-keeling-monthly"
+      ],
+      "level": "shared",
+      "review": "source-verified-2026-10-18"
     }
   ],
   "summary": "Solar or chemical energy is captured by autotrophs and transferred through feeding, but conversions release heat at each level. Carbon and other elements move between biotic and abiotic reservoirs and are reused. Observations such as energy pyramids and the Keeling Curve reveal patterns that require careful interpretation.",
