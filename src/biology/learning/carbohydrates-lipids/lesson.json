@@ -430,7 +430,37 @@
             "explanation": "Condensation means linking reaction that releases a small molecule. Condensation links monomers with covalent bonds and produces water; repeated reactions build polymers."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Condensation compared with hydrolysis",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Condensation",
+            "Hydrolysis"
+          ],
+          "rows": [
+            [
+              "Direction",
+              "Links two units into a larger molecule",
+              "Cleaves a covalent link"
+            ],
+            [
+              "Role of water",
+              "Water is released in the simplified net reaction",
+              "Water is consumed in bond cleavage"
+            ],
+            [
+              "Biological setting",
+              "Polymer formation",
+              "Digestion and polymer breakdown"
+            ]
+          ],
+          "note": "Enzyme-catalysed pathways can involve activated intermediates; this table shows overall chemistry, not every microscopic step."
+        }
+      ]
     },
     {
       "id": "b11-3",
@@ -1506,7 +1536,37 @@
             "explanation": "Phospholipid means polar head plus two non-polar tails. Triglyceride: glycerol + three fatty acids. Phospholipid: glycerol + two fatty acids + phosphate-containing head."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Triglycerides and phospholipids: one structural change, different behavior",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Triglyceride",
+            "Glycerophospholipid"
+          ],
+          "rows": [
+            [
+              "Glycerol attachments",
+              "Three fatty-acid residues",
+              "Two fatty-acid residues plus a phosphate-containing polar head"
+            ],
+            [
+              "Interaction with water",
+              "Largely hydrophobic",
+              "Amphipathic: polar head and nonpolar tails"
+            ],
+            [
+              "Principal role",
+              "Long-term energy storage",
+              "Self-assembling membrane bilayer component"
+            ]
+          ],
+          "note": "This comparison describes common glycerol-based examples; it does not imply every lipid has a glycerol backbone."
+        }
+      ]
     },
     {
       "id": "b11-10",
@@ -1659,7 +1719,37 @@
             "explanation": "Polyunsaturated means two or more chain C=C bonds. No C=C: saturated. One: monounsaturated. Multiple: polyunsaturated. Cis unsaturation usually lowers melting point."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Fatty-acid unsaturation and molecular packing",
+          "afterBlock": 1,
+          "headers": [
+            "Chain type",
+            "C=C double bonds",
+            "Typical effect on packing"
+          ],
+          "rows": [
+            [
+              "Saturated",
+              "None",
+              "Straight chains can pack closely"
+            ],
+            [
+              "Monounsaturated",
+              "One",
+              "A cis double bond introduces a bend"
+            ],
+            [
+              "Polyunsaturated",
+              "Two or more",
+              "Multiple cis bonds often inhibit close packing further"
+            ]
+          ],
+          "note": "Geometry matters: a trans double bond can behave differently from a cis double bond. Melting point depends on chain length as well as unsaturation."
+        }
+      ]
     },
     {
       "id": "b11-11",
@@ -2106,7 +2196,29 @@
             "explanation": "Diffusion means net movement down a concentration gradient. Recognize the fused-ring steroid nucleus; non-polar steroid hormones such as oestradiol/testosterone can diffuse through bilayers."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Why a steroid signal may act inside a cell",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "A lipid-soluble signal arrives",
+              "description": "A nonpolar steroid hormone partitions into the hydrophobic lipid region of the membrane."
+            },
+            {
+              "title": "The hormone crosses the bilayer",
+              "description": "The hormone moves down its chemical potential gradient rather than using an ATP-powered carrier."
+            },
+            {
+              "title": "Intracellular receptor binding",
+              "description": "For many steroid hormones, receptor binding can alter transcriptional regulation."
+            }
+          ],
+          "note": "The model applies to steroid signalling pathways such as those involving oestradiol or testosterone; receptor localization and downstream events vary."
+        }
+      ]
     }
   ],
   "questions": [
