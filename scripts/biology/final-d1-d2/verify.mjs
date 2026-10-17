@@ -40,7 +40,7 @@ export function validate(data, assetAvailable=(path)=>existsSync(resolve(root,'p
       assert.ok(section.guidePage>0 && section.pdfPage>0,id+' source locator');
       assert.ok(section.explanation?.length>400,id+' insufficient explanation');
       assert.ok(section.teachingBlocks?.length>=2,id+' requires explanatory passages');
-      assert.equal(section.explanation,section.teachingBlocks.map(b=>b.explanation).join('\\n\\n'),id+' section/block coherence');
+      assert.equal(section.explanation,section.teachingBlocks.map(b=>b.explanation).join('\n\n'),id+' section/block coherence');
       assert.ok(section.teachingBlocks.every(b=>b.title && b.explanation?.length>=70),id+' heading/explanation');
       assert.ok(section.workedExample?.length>45,id+' living-system application');
       assert.ok(section.misconceptions?.length>0 && section.misconceptions.every(m=>m.misconception&&m.correction),id+' misconception correction');
@@ -93,7 +93,7 @@ export function validate(data, assetAvailable=(path)=>existsSync(resolve(root,'p
   assert.match(dna.sections[8].explanation,/3′→5′ exonuclease/);
   assert.ok(!dna.sections.some(x=>/lagging strand (is|being) synthesized 3′→5′/i.test(x.explanation)));
   assert.match(protein.sections[6].explanation,/3′-UAC-5′/);
-  assert.match(protein.sections[14].explanation,/poly\\(A\\)/);
+  assert.match(protein.sections[14].explanation,/poly\(A\)/);
   assert.match(protein.sections[16].explanation,/A site/);
   assert.match(mutation.sections[4].explanation,/natural selection/i);
   assert.match(division.sections[4].explanation,/eight DNA molecules/);
