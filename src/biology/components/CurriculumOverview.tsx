@@ -29,14 +29,14 @@ export default function CurriculumOverview({level,theme,resource='learn'}:{level
     <p className="bio-library-meta" role="status">{hasQuery?list.length+' matching '+(list.length===1?'topic':'topics')+' in '+level:theme?list.length+' topics in '+level+' scope':'Showing '+all.length+' topics in '+level+' scope across four themes'}</p>
     {!theme&&!hasQuery&&<div className="bio-discovery-themes" aria-label="Choose a biology theme">{ids.map(id=>{
       const Icon=icons[id];const count=all.filter(topic=>topic.theme===id).length;
-      return <a key={id} className={'bio-discovery-theme bio-discovery-theme-'+id} href={'#biology/theme/'+id}>
+      return <a key={id} className={'bio-discovery-theme bio-discovery-theme-'+id} href={'#biology/theme/'+id+(resource==='learn'?'':'?resource='+resource)}>
         <div className="bio-theme-top"><span className="bio-theme-monogram">{id}</span><Icon size={22} strokeWidth={1.7} aria-hidden="true"/></div>
         <h3>{themes[id].title}</h3><p>{themes[id].description}</p>
         <span className="bio-theme-footer"><span>{count} {count===1?'topic':'topics'} · {level}</span><span>Explore <ArrowRight size={16} aria-hidden="true"/></span></span>
       </a>;
     })}</div>}
     {(theme||hasQuery)&&<>{list.length?<div className="bio-results-group">{ids.filter(id=>list.some(topic=>topic.theme===id)).map(id=><section key={id} className="bio-topic-result-section" aria-label={'Theme '+id+': '+themes[id].title}>
-      <div className="bio-result-section-head"><div><span className="bio-result-letter">{id}</span><h3>{themes[id].title}</h3></div>{!theme&&<a href={'#biology/theme/'+id}>View theme <ArrowRight size={14} aria-hidden="true"/></a>}</div>
+      <div className="bio-result-section-head"><div><span className="bio-result-letter">{id}</span><h3>{themes[id].title}</h3></div>{!theme&&<a href={'#biology/theme/'+id+(resource==='learn'?'':'?resource='+resource)}>View theme <ArrowRight size={14} aria-hidden="true"/></a>}</div>
       <div className="bio-discovery-grid">{list.filter(topic=>topic.theme===id).map(topic=><TopicTile key={topic.id} topic={topic} resource={resource} level={level}/>)}</div>
     </section>)}</div>:<div className="bio-search-empty" role="status"><Search size={26} aria-hidden="true"/><h3>No matching topics</h3><p>Try a shorter keyword, syllabus code, or another course level.</p><button type="button" onClick={()=>setQuery('')}>Clear search</button></div>}</>}
     {!theme&&!hasQuery&&<p className="bio-discovery-hint">Looking for something specific? Search above to open a matching topic directly. HL-only topics appear when Higher Level is selected.</p>}

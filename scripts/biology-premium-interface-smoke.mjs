@@ -83,6 +83,7 @@ try{
  });
  await run('theme navigation and topic tiles',async()=>{
   await page.goto(current+'#biology');
+  await page.locator('#bio-topic-search').fill('');
   await page.locator('.bio-discovery-theme-A').click();
   await page.waitForURL(/#biology\/theme\/A$/);
   await page.locator('.bio-theme-intro h1').waitFor();

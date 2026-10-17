@@ -6,7 +6,7 @@ export function resourceFromHash(hash:string):ResourceMode{const value=new URLSe
 export default function ResourceNav({active,topicId,reading=false,understandingId}:{active:ResourceMode;topicId?:string;reading?:boolean;understandingId?:string}){
  return <nav className="bio-resource-nav bio-mode-nav" aria-label="Biology study modes">{resources.map(r=>{
   const Icon=icons[r.id];
-  const href=topicId?(reading?'#biology/topic/'+topicId+'/'+r.id+(understandingId?'?understanding='+understandingId:''):'#biology/topic/'+topicId+(r.id==='learn'?'':'?resource='+r.id)):'#biology'+(r.id==='learn'?'':'?resource='+r.id);
+  const href=topicId?(reading?'#biology/topic/'+topicId+'/'+r.id+(understandingId?'?understanding='+understandingId:''):'#biology/topic/'+topicId+'/'+r.id):'#biology'+(r.id==='learn'?'':'?resource='+r.id);
   return <a key={r.id} href={href} aria-current={active===r.id?'page':undefined}><Icon size={16} aria-hidden="true"/><span>{r.label}</span></a>;
  })}</nav>;
 }

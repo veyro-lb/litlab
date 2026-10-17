@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from 'react';
 import {ArrowLeft, FlaskConical} from 'lucide-react';
 import BiologyDashboard from './components/BiologyDashboard';
 import CurriculumOverview from './components/CurriculumOverview';
+import {resourceFromHash} from './components/ResourceNav';
 import LessonLoader from './learning/LessonLoader';
 import TopicOverview from './components/TopicOverview';
 import {topics, themes} from './curriculum/manifest';
@@ -28,7 +29,7 @@ export default function BiologyApp({hash}:{hash:string}) {
     </div>
     {missing?<section className="bio-empty"><span className="bio-eyebrow">PAGE NOT FOUND</span><h1>That topic isn’t on this map.</h1><p>Check the topic code or return to the curriculum.</p><a className="bio-primary" href="#biology"><ArrowLeft size={18} aria-hidden="true"/>All themes</a></section>
     :route.kind==='topic'&&topic?route.mode&&topic.lessonId?<LessonLoader topic={topic} level={level} mode={route.mode} hash={hash}/>:<TopicOverview topic={topic} level={level} hash={hash}/>
-    :route.kind==='theme'?<><a className="bio-back" href="#biology"><ArrowLeft size={16} aria-hidden="true"/>All themes</a><header className={'bio-theme-intro bio-theme-intro-'+route.id}><span className="bio-kicker">THEME {route.id} · IB BIOLOGY</span><h1>{themes[route.id].title}</h1><p>{themes[route.id].description}</p></header><CurriculumOverview key={route.id} theme={route.id} level={level}/></>
+    :route.kind==='theme'?<><a className="bio-back" href="#biology"><ArrowLeft size={16} aria-hidden="true"/>All themes</a><header className={'bio-theme-intro bio-theme-intro-'+route.id}><span className="bio-kicker">THEME {route.id} · IB BIOLOGY</span><h1>{themes[route.id].title}</h1><p>{themes[route.id].description}</p></header><CurriculumOverview key={route.id} theme={route.id} level={level} resource={resourceFromHash(hash)}/></>
     :<BiologyDashboard level={level} hash={hash}/>}
     <div className="bio-disclaimer">BioLab is an independent student-made educational resource by LitLab. It is not affiliated with or endorsed by the International Baccalaureate Organization.</div>
   </div>;
