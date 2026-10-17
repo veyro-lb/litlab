@@ -627,6 +627,14 @@
             "ib-d41",
             "hodder-d41"
           ]
+        },
+        {
+          "title": "Identify each stage of natural selection",
+          "explanation": "Mutation and recombination generate heritable variation before selection. Environmental factors influence survival or reproductive success among phenotypes. If the relevant traits are inherited, allele frequencies change across generations. A physiological response within a single organism is not population evolution, and selection does not create mutations on demand.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
         }
       ],
       "support": {
@@ -1815,6 +1823,14 @@
         {
           "title": "Mechanism, evidence and limitations",
           "explanation": "If an appropriate fully penetrant recessive phenotype occurs with frequency 0.09, then q²=0.09, q=0.30, p=0.70 and expected heterozygotes are 2pq=0.42 (42%). The square root is nonnegative. This model predicts population proportions only when assumptions are defensible; it does not specify exact outcomes in each family.",
+          "referenceIds": [
+            "ib-d41",
+            "hodder-d41"
+          ]
+        },
+        {
+          "title": "Hardy–Weinberg from phenotype frequency",
+          "explanation": "If recessive phenotype frequency q² = 0.09, assuming Hardy–Weinberg equilibrium, q = 0.30 and p = 0.70. Expected heterozygote frequency 2pq = 2 × 0.70 × 0.30 = 0.42 or 42%. q² is a genotype frequency, whereas q is an allele frequency; the two cannot be interchanged.",
           "referenceIds": [
             "ib-d41",
             "hodder-d41"
@@ -3109,7 +3125,7 @@
         "D4.1.13"
       ],
       "level": "HL",
-      "prompt": "Explain hardy–weinberg calculations using the underlying mechanism and one example or calculation.",
+      "prompt": "Given a recessive phenotype frequency of 0.09 in a Hardy–Weinberg population, calculate q, p and heterozygote frequency.",
       "marks": 3,
       "sectionId": "natural-selection-13",
       "referenceIds": [
@@ -3118,9 +3134,9 @@
       ],
       "answer": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.\nIf q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
       "markingPoints": [
-        "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
-        "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1.",
-        "If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%."
+        "Given recessive phenotype q² = 0.09, q = 0.30.",
+        "p = 1 − q = 0.70.",
+        "Heterozygote frequency 2pq = 0.42 under equilibrium assumptions."
       ],
       "data": {
         "caption": "Illustrative biological evidence",
