@@ -235,7 +235,8 @@
       "referenceIds": [
         "ib-a22",
         "hodder-a22",
-        "ncbi-visualizing"
+        "ncbi-visualizing",
+        "commons-onion-light"
       ],
       "assets": [
         "a22-scale"
@@ -368,7 +369,25 @@
             "explanation": "To find how large something really is, divide its measured image size by magnification after putting both lengths in the same units. A calibrated scale bar is more trustworthy than magnification printed beside a resized image."
           }
         ]
-      }
+      },
+      "authenticMicrographs": [
+        {
+          "id": "onion-epidermis-lm",
+          "referenceId": "commons-onion-light",
+          "title": "Onion epidermal cells: boundaries under light microscopy",
+          "specimen": "onion epidermis",
+          "modality": "light",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Onion_cells_under_the_light_microscope.jpg/960px-Onion_cells_under_the_light_microscope.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Onion_cells_under_the_light_microscope.jpg",
+          "author": "Kateryna Kot",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "observationPrompt": "Identify the repeated elongated cell outlines. Record two boundaries that can be distinguished, then state what evidence you would need before identifying an internal organelle.",
+          "expectedEvidence": "The repeated elongated compartments are consistent with epidermal plant cells and their visible cell-wall boundaries. The image alone does not resolve ribosomes or membranes of typical small organelles.",
+          "scaleNote": "No verified calibrated scale is supplied for this particular source image. Do not assign a cell size or draw a scale bar from appearance alone.",
+          "limitation": "Do not label every bright or dark region as a nucleus or chloroplast without independent identification evidence."
+        }
+      ]
     },
     {
       "id": "a22-3",
@@ -789,7 +808,8 @@
         "ib-a22",
         "hodder-a22",
         "ncbi-visualizing",
-        "ncbi-walls"
+        "ncbi-walls",
+        "cdc-bacillus-light"
       ],
       "assets": [
         "a22-prokaryote"
@@ -896,7 +916,25 @@
             "explanation": "A Gram-positive bacterium contains cytoplasm, 70S ribosomes, DNA in a nucleoid region, a plasma membrane and a thick peptidoglycan wall. Not all bacteria have flagella, capsules or pili."
           }
         ]
-      }
+      },
+      "authenticMicrographs": [
+        {
+          "id": "bacillus-gram-lm",
+          "referenceId": "cdc-bacillus-light",
+          "title": "Bacillus subtilis: Gram-positive bacteria",
+          "specimen": "Gram-stained Bacillus subtilis specimen",
+          "modality": "light",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Bacillus_subtilis_gram_stain_CDC_PHIL_19261.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bacillus_subtilis_gram_stain_CDC_PHIL_19261.jpg",
+          "author": "Dr W. A. Clark / CDC Public Health Image Library #19261",
+          "license": "U.S. Government public domain",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:Bacillus_subtilis_gram_stain_CDC_PHIL_19261.jpg",
+          "observationPrompt": "Describe the shape and arrangement of the stained objects. What evidence in the image identifies individual rod-like bacteria? Explain why this is not proof of a nucleus.",
+          "expectedEvidence": "Numerous narrow rod-shaped, Gram-stained bacterial cells are visible; some occur end to end. The source notes organisms at different stages including some dormant endospores. Light microscopy does not resolve intracellular bacterial 70S ribosomes or a membrane-enclosed nucleus.",
+          "scaleNote": "No calibrated bar accompanies the source photograph. Use it for qualitative cellular morphology, not measured length.",
+          "limitation": "Gram-stain appearance and shape do not demonstrate DNA organization, internal ribosomes or complete species identification by themselves."
+        }
+      ]
     },
     {
       "id": "a22-6",
@@ -1637,7 +1675,9 @@
         "ib-a22",
         "hodder-a22",
         "ncbi-visualizing",
-        "vigani2015-tem"
+        "vigani2015-tem",
+        "commons-onion-light",
+        "howard-mito-tem"
       ],
       "assets": [
         "a22-micrograph-key",
@@ -1744,7 +1784,41 @@
             "explanation": "A micrograph is an observation, not a complete diagram. Identify structures from visible evidence, scale and technique. An object with an inner folded membrane in a TEM may be a mitochondrion, but a single unclear shape is not proof."
           }
         ]
-      }
+      },
+      "authenticMicrographs": [
+        {
+          "id": "onion-epidermis-lm",
+          "referenceId": "commons-onion-light",
+          "title": "Onion epidermal cells: boundaries under light microscopy",
+          "specimen": "onion epidermis",
+          "modality": "light",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Onion_cells_under_the_light_microscope.jpg/960px-Onion_cells_under_the_light_microscope.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Onion_cells_under_the_light_microscope.jpg",
+          "author": "Kateryna Kot",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "observationPrompt": "Identify the repeated elongated cell outlines. Record two boundaries that can be distinguished, then state what evidence you would need before identifying an internal organelle.",
+          "expectedEvidence": "The repeated elongated compartments are consistent with epidermal plant cells and their visible cell-wall boundaries. The image alone does not resolve ribosomes or membranes of typical small organelles.",
+          "scaleNote": "No verified calibrated scale is supplied for this particular source image. Do not assign a cell size or draw a scale bar from appearance alone.",
+          "limitation": "Do not label every bright or dark region as a nucleus or chloroplast without independent identification evidence."
+        },
+        {
+          "id": "lung-mitochondrion-tem",
+          "referenceId": "howard-mito-tem",
+          "title": "Mammalian mitochondrion: visible membrane folds",
+          "specimen": "thin section of mammalian lung tissue",
+          "modality": "TEM",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Mitochondria_-_TEM.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+          "author": "Louisa Howard, Dartmouth Electron Microscope Facility",
+          "license": "Public domain — author release",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+          "observationPrompt": "Follow the outer boundary and the repeated folded internal membrane. Name the likely organelle only after citing these features. Use the source scale to design (not fabricate) a proportional-size measurement.",
+          "expectedEvidence": "An elongated membrane-bounded structure with multiple inward folds is consistent with a mitochondrion; the internal folds are cristae. Measurements must compare a feature's displayed length with the unaltered source 50 nm bar and preserve proportional scaling.",
+          "scaleNote": "The original TEM photograph includes its own photographer-supplied 50 nm calibration bar. Preserve the complete image, including that original bar; do not replace it or add a new scale.",
+          "limitation": "A two-dimensional thin section does not reveal every surface or the complete three-dimensional organelle, and nearby dark regions need separate evidence before naming."
+        }
+      ]
     },
     {
       "id": "a22-11",
@@ -1799,7 +1873,8 @@
         "ib-a22",
         "hodder-a22",
         "ncbi-visualizing",
-        "vigani2015-tem"
+        "vigani2015-tem",
+        "howard-mito-tem"
       ],
       "assets": [
         "a22-cucumber-tem"
@@ -1956,6 +2031,24 @@
             }
           ],
           "note": "Observational drawing is not a memorized cell schematic. This exercise uses the credited source TEM and must not introduce invented structures or a fabricated scale."
+        }
+      ],
+      "authenticMicrographs": [
+        {
+          "id": "lung-mitochondrion-tem",
+          "referenceId": "howard-mito-tem",
+          "title": "Mammalian mitochondrion: visible membrane folds",
+          "specimen": "thin section of mammalian lung tissue",
+          "modality": "TEM",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Mitochondria_-_TEM.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+          "author": "Louisa Howard, Dartmouth Electron Microscope Facility",
+          "license": "Public domain — author release",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+          "observationPrompt": "Follow the outer boundary and the repeated folded internal membrane. Name the likely organelle only after citing these features. Use the source scale to design (not fabricate) a proportional-size measurement.",
+          "expectedEvidence": "An elongated membrane-bounded structure with multiple inward folds is consistent with a mitochondrion; the internal folds are cristae. Measurements must compare a feature's displayed length with the unaltered source 50 nm bar and preserve proportional scaling.",
+          "scaleNote": "The original TEM photograph includes its own photographer-supplied 50 nm calibration bar. Preserve the complete image, including that original bar; do not replace it or add a new scale.",
+          "limitation": "A two-dimensional thin section does not reveal every surface or the complete three-dimensional organelle, and nearby dark regions need separate evidence before naming."
         }
       ]
     },
@@ -3316,6 +3409,30 @@
       "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0129141",
       "locator": "Figure 3, panels A–C control and D–F iron-deficient mesophyll; all original scale bars 500 nm. Methods: Transmission Electron Microscopy.",
       "accessedAt": "2026-10-16",
+      "level": "shared"
+    },
+    {
+      "id": "commons-onion-light",
+      "title": "Kateryna Kot, Onion cells under the light microscope (Wikimedia Commons)",
+      "url": "https://commons.wikimedia.org/wiki/File:Onion_cells_under_the_light_microscope.jpg",
+      "locator": "File metadata, original microscopy and CC BY-SA 4.0 licence",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "cdc-bacillus-light",
+      "title": "CDC PHIL #19261, Bacillus subtilis Gram-stain micrograph (Dr W. A. Clark)",
+      "url": "https://commons.wikimedia.org/wiki/File:Bacillus_subtilis_gram_stain_CDC_PHIL_19261.jpg",
+      "locator": "Original Gram-stain micrograph; CDC government public-domain attribution",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "howard-mito-tem",
+      "title": "Louisa Howard, Mitochondria — TEM of mammalian lung tissue",
+      "url": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+      "locator": "Original 640 × 480 image with photographer-supplied 50 nm scale bar; public-domain dedication",
+      "accessedAt": "2026-10-17",
       "level": "shared"
     }
   ],
