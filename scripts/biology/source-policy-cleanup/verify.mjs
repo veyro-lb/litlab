@@ -41,12 +41,22 @@ export function inspectFocusedLesson(d) {
   for(let i=1;i<=6;i++)problem(errors,absent(['ncbi-niche','ncbi-potency'],refs(one(d,'B2.3.'+i))), 'B2.3.'+i+' unnecessary external source tags');
   problem(errors,!!one(d,'B2.3.10')&&one(d,'B2.3.10').level==='HL','B2.3 HL scope lost');
   problem(errors,one(d,'B2.3.6')?.graphTables?.[0]?.rows?.length>=4,'B2.3.6 cube comparison lost');
+  problem(errors,!d.references.some(r=>r.id==='ncbi-potency'),'Unnecessary stem-cell potency source still listed in student references');
+  for(const key of ['b23-gradient','b23-stem','b23-potency','b23-sizes','b23-cubes']){
+   const asset=d.assets.find(a=>a.id===key);
+   problem(errors,asset&&!asset.referenceIds.includes('ncbi-niche'),key+' wrongly cites specialized stem-cell niche research');
+  }
+  problem(errors,d.assets.find(a=>a.id==='b23-niche')?.referenceIds.includes('ncbi-niche'),'Actual stem-cell niche diagram lost corroborating source');
+
  }
  if(d.topicId==='C1.3'){
   const a=one(d,'C1.3.8');
   problem(errors,refs(a).includes('face-review'),'C1.3.8 FACE evidence removed');
   for(const s of d.sections.filter(s=>s!==a))
    problem(errors,!refs(s).includes('face-review'),s.understandingIds[0]+' unrelated FACE research citation');
+  for(const asset of d.assets)
+   problem(errors,!asset.referenceIds.includes('face-review'),asset.id+' unconnected original diagram cites FACE meta-analysis');
+
  }
  if(d.topicId==='C4.2'){
   const a=one(d,'C4.2.20'),fig=d.assets.find(x=>x.id==='c42-keeling-2024-2025');
