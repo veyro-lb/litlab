@@ -15,7 +15,7 @@ try{
   for(const [name,hash] of [['topic-list','biology/topic/A1.1'],['practice-feedback','biology/topic/A1.1/practice?understanding=A1.1.3'],['lesson-controls','biology/topic/A1.1/learn?understanding=A1.1.3']]){
    try{
     await p.goto('http://127.0.0.1:4173/#'+hash);await p.locator('.bio-app').waitFor();
-    if(name==='practice-feedback'){const q=p.locator('.bio-practice-choice .bio-check').first();await q.locator('input[type=radio]').first().check();await q.getByRole('button',{name:'Check my answer'}).click();await q.locator('.bio-feedback').waitFor()}
+    if(name==='practice-feedback'){const q=p.locator('.bio-practice-choice .bio-check').first();if(await q.getByRole('button',{name:'Try again'}).count()){await q.getByRole('button',{name:'Try again'}).click();await q.locator('.bio-feedback').waitFor({state:'detached'});}await q.locator('input[type=radio]').first().check();await q.getByRole('button',{name:'Check my answer'}).click();await q.locator('.bio-feedback').waitFor();}
     if(name==='lesson-controls')await p.locator('.bio-toc').evaluate(el=>el.open=true);
     await p.evaluate(()=>{document.activeElement?.blur();window.scrollTo({top:0,behavior:'instant'})});
     await p.screenshot({path:`${out}/${name}-${width}.png`,fullPage:true});report.screenshots.push(`${name}-${width}.png`);
