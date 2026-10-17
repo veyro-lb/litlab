@@ -86,9 +86,14 @@ try{
   await expect(page.locator('.bio-drawing-empty')).toContainText('being checked');
  });
  await test('Failed image has a useful fallback instead of false labels',async()=>{
-  await ctx.route('**/biology/water/bonding-recall.svg',route=>route.abort('failed'));
-  await visit(page,'#biology/topic/A1.1/drawing');
-  await expect(page.locator('.bio-image-fallback')).toContainText('Figure unavailable');
+  // Fresh context prevents a previously loaded recall SVG from being served from cache.
+  const badContext=await context();
+  try{
+   await badContext.route('**/biology/water/bonding-recall.svg',route=>route.abort('failed'));
+   const brokenPage=await badContext.newPage();
+   await visit(brokenPage,'#biology/topic/A1.1/drawing');
+   await expect(brokenPage.locator('.bio-image-fallback')).toContainText('Figure unavailable');
+  }finally{await badContext.close()}
  });
  await ctx.close();
  for(const width of [390,1440])for(const theme of ['light','dark']){
