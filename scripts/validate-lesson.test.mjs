@@ -114,6 +114,6 @@ for(const [name,mutate] of [
 for(const entry of Object.values(JSON.parse(await readFile(new URL('../src/biology/learning/catalog.json',import.meta.url),'utf8')))){
  const d=JSON.parse(await readFile(new URL('../src/biology/learning/'+entry.path.slice(2),import.meta.url),'utf8'));const t=registry.find(t=>t.id===d.topicId);
  test(d.topicId+' full scientific prose renders without opening teaching panels',()=>{
-  for(const section of d.sections){const html=render(d,t,'HL','learn',section.understandingIds[0]);for(const block of section.teachingBlocks){const encoded=renderToStaticMarkup(createElement('p',null,block.explanation)).slice(3,-4);assert.ok(html.includes(encoded),section.understandingIds[0]+' hidden or missing prose')};assert.ok(!html.includes('bio-learning-step'));assert.ok(!html.includes('bio-phase-nav'));assert.ok(html.includes('Need this explained more simply?'))}
+  for(const section of d.sections){const html=render(d,t,'HL','learn',section.understandingIds[0]);for(const block of section.teachingBlocks){for(const paragraph of block.explanation.split('\n\n')){const encoded=renderToStaticMarkup(createElement('p',null,paragraph)).slice(3,-4);assert.ok(html.includes('<p>'+encoded+'</p>'),section.understandingIds[0]+' hidden or missing prose')}};assert.ok(!html.includes('bio-learning-step'));assert.ok(!html.includes('bio-phase-nav'));assert.ok(html.includes('Need this explained more simply?'))}
  });
 }
