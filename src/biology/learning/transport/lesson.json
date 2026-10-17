@@ -1228,7 +1228,8 @@
       ],
       "referenceIds": [
         "ib-guide-b32",
-        "hodder-b32"
+        "hodder-b32",
+        "commons-dicot-stem-wen-2019"
       ],
       "claimReferences": [
         {
@@ -1346,7 +1347,25 @@
         "pdfPages": [
           321
         ]
-      }
+      },
+      "authenticMicrographs": [
+        {
+          "id": "b32-dicot-stem-authentic",
+          "title": "Map vascular bundles on an actual stem section",
+          "specimen": "Unidentified dicotyledon stem, whole transverse section at low power; creator-provided 10× optical magnification",
+          "modality": "light",
+          "referenceId": "commons-dicot-stem-wen-2019",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Stem_of_Dicotyledon_C.S.png",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stem_of_Dicotyledon_C.S.png",
+          "author": "Eugeenia Wen (Wikimedia Commons account EugeeneWhen, 2019)",
+          "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "observationPrompt": "Draw a low-power plan from the observed cross section: outer epidermis/cortex, peripheral ring of vascular bundles and broad central pith. In several bundles, identify inner xylem vessels versus smaller outer phloem tissue by their relative positions. Do not add imagined cells, wall layers or a numerical scale.",
+          "expectedEvidence": "The actual stem image shows a ring of many darker vascular bundles around a broad light central pith. In individual bundles larger xylem lumens are nearer the pith and phloem lies outward toward cortex. The bundles are not scattered uniformly through the pith. A plan diagram should show shapes and positions, not copy cellular detail.",
+          "scaleNote": "The creator reports 10× magnification, not a calibrated on-image scale bar. Pixel dimensions depend on display scaling, so actual vessel/stem sizes cannot be calculated from this image without separate calibration.",
+          "limitation": "Specimen species and section-preparation method are not supplied. The source provides microscope magnification only, not specimen-scale calibration; use for qualitative observation rather than quantitative measurement."
+        }
+      ]
     },
     {
       "id": "b32-10",
@@ -3662,6 +3681,14 @@
       "locator": "Cardiovasc Res 87(2):198–210; doi:10.1093/cvr/cvq062",
       "accessedAt": "2026-10-17",
       "level": "HL"
+    },
+    {
+      "id": "commons-dicot-stem-wen-2019",
+      "title": "Eugeenia Wen (2019), Stem of Dicotyledon C.S — microscopy, Wikimedia Commons, CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Stem_of_Dicotyledon_C.S.png",
+      "locator": "Original low-power light micrograph; author states 10× magnification but does not supply a calibrated field width",
+      "accessedAt": "2026-10-18",
+      "level": "shared"
     }
   ],
   "assets": [
@@ -3743,7 +3770,8 @@
       "B3.2.11 syllabus model of venous capillary reabsorption includes explicit modern Starling physiological caveat.",
       "Original figures need independent anatomical and accessibility inspection; catalog and registry intentionally untouched.",
       "Editorial note: textbook page ranges were refined from the read-only Theme B research mapping. These are source-navigation candidates, not a qualified claim-by-claim sign-off.",
-      "B3.2.11 revised Starling limitation independently cross-checked against Levick & Michel, Cardiovascular Research 2010 (PMID 20200043); the IB simplification remains explicit."
+      "B3.2.11 revised Starling limitation independently cross-checked against Levick & Michel, Cardiovascular Research 2010 (PMID 20200043); the IB simplification remains explicit.",
+      "B3.2.9 now includes a verifiably licensed original Wikimedia Commons light photomicrograph with author, terms and explicit scale limitations; expert specimen interpretation and live browser loading are pending."
     ]
   }
 }
