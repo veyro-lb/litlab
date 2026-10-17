@@ -11,10 +11,10 @@
     "hlOnly": 216
   },
   "registeredDrafts": {
-    "topics": 25,
-    "understandings": 324,
-    "shared": 178,
-    "hlOnly": 146,
+    "topics": 31,
+    "understandings": 401,
+    "shared": 219,
+    "hlOnly": 182,
     "ids": [
       "A1.1",
       "A1.2",
@@ -40,7 +40,13 @@
       "C1.3",
       "C2.1",
       "C2.2",
-      "C3.1"
+      "C3.1",
+      "D1.1",
+      "D1.2",
+      "D1.3",
+      "D2.1",
+      "D2.2",
+      "D2.3"
     ],
     "educationallyApproved": 0
   },
@@ -73,7 +79,7 @@
     {
       "name": "feature/biolab-complete-theme-d1-20261017",
       "sha": "fa6ef0828f6ca7230dfee79d08150ecf154f0c36",
-      "integrationStatus": "Source HEAD verified; package intake pending"
+      "integrationStatus": "6 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
     },
     {
       "name": "feature/biolab-complete-theme-d2-20261017",
@@ -102,48 +108,6 @@
       "understandings": 22,
       "shared": 22,
       "hlOnly": 0
-    },
-    {
-      "id": "D1.1",
-      "title": "DNA replication",
-      "understandings": 9,
-      "shared": 5,
-      "hlOnly": 4
-    },
-    {
-      "id": "D1.2",
-      "title": "Protein synthesis",
-      "understandings": 19,
-      "shared": 11,
-      "hlOnly": 8
-    },
-    {
-      "id": "D1.3",
-      "title": "Mutation and gene editing",
-      "understandings": 10,
-      "shared": 7,
-      "hlOnly": 3
-    },
-    {
-      "id": "D2.1",
-      "title": "Cell and nuclear division",
-      "understandings": 17,
-      "shared": 11,
-      "hlOnly": 6
-    },
-    {
-      "id": "D2.2",
-      "title": "Gene expression",
-      "understandings": 11,
-      "shared": 0,
-      "hlOnly": 11
-    },
-    {
-      "id": "D2.3",
-      "title": "Water potential",
-      "understandings": 11,
-      "shared": 7,
-      "hlOnly": 4
     },
     {
       "id": "D3.1",
@@ -503,8 +467,8 @@
       "understandings": 9,
       "shared": 5,
       "hlOnly": 4,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -514,8 +478,8 @@
       "understandings": 19,
       "shared": 11,
       "hlOnly": 8,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -525,8 +489,8 @@
       "understandings": 10,
       "shared": 7,
       "hlOnly": 3,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -536,8 +500,8 @@
       "understandings": 17,
       "shared": 11,
       "hlOnly": 6,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -547,8 +511,8 @@
       "understandings": 11,
       "shared": 0,
       "hlOnly": 11,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -558,8 +522,8 @@
       "understandings": 11,
       "shared": 7,
       "hlOnly": 4,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -800,6 +764,47 @@
         "C4.1",
         "C4.2"
       ],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme D1",
+      "sourceSha": "fa6ef0828f6ca7230dfee79d08150ecf154f0c36",
+      "registeredTopics": 31,
+      "registeredUnderstandings": 401,
+      "accepted": [
+        {
+          "id": "D1.1",
+          "sections": 9,
+          "questions": 18
+        },
+        {
+          "id": "D1.2",
+          "sections": 19,
+          "questions": 38
+        },
+        {
+          "id": "D1.3",
+          "sections": 10,
+          "questions": 20
+        },
+        {
+          "id": "D2.1",
+          "sections": 17,
+          "questions": 35
+        },
+        {
+          "id": "D2.2",
+          "sections": 11,
+          "questions": 22
+        },
+        {
+          "id": "D2.3",
+          "sections": 11,
+          "questions": 23
+        }
+      ],
+      "rejected": [],
       "status": "draft integrated; CI pending"
     }
   ]

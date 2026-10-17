@@ -1,0 +1,2581 @@
+{
+  "schemaVersion": 1,
+  "id": "d2-3-water-potential-v1",
+  "topicId": "D2.3",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Water potential",
+  "introduction": "Predict the movement of water across membranes, interpret osmosis data and calculate signed water potentials without confusing solute and pressure effects.",
+  "learningPath": [
+    "Solvation and comparative tonicity",
+    "Osmosis in animal and plant cells",
+    "Modelled mass-change and medical contexts",
+    "HL: Ψw, Ψs and Ψp calculations"
+  ],
+  "prerequisites": [
+    "A1.1 polarity, hydrogen bonds and solutions",
+    "B2.1 membrane permeability",
+    "Algebra with negative values and units"
+  ],
+  "objectives": [
+    "Predict osmotic direction under explicit assumptions",
+    "Interpret tissue mass or length change and estimate an isotonic concentration",
+    "For HL, calculate water potential and distinguish effects of solute and pressure"
+  ],
+  "sections": [
+    {
+      "id": "d23-1",
+      "understandingIds": [
+        "D2.3.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which part of a water molecule faces a dissolved sodium cation?",
+      "explanation": "Water's polarity enables it to dissolve many ionic and polar substances. Around a positive ion, the partially negative oxygen side of water tends to face inward; around a negative ion, partially positive hydrogens tend to orient inward. Polar molecules can also interact with water through hydrogen bonding.\n\nHydration shells stabilize dissolved particles and help make soluble metabolites mobile inside cytoplasm or blood plasma. Water does not dissolve every substance equally: nonpolar oils remain poorly miscible with water without other molecules such as surfactants.",
+      "revisionSummary": "Water's polarity enables it to dissolve many ionic and polar substances. Hydration shells stabilize dissolved particles and help make soluble metabolites mobile inside cytoplasm or blood plasma.",
+      "terms": [
+        "Water surrounds dissolved particles: core concept",
+        "Solvation links molecular structure to cells: required distinction"
+      ],
+      "workedExample": "When NaCl dissolves, water orients oxygen atoms toward Na⁺ and hydrogens toward Cl⁻.",
+      "misconceptions": [
+        {
+          "misconception": "Water's positive hydrogen ends attract positive sodium ions most strongly.",
+          "correction": "The partially negative oxygen region of water tends to orient toward Na⁺."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Water's polarity enables it to dissolve many ionic and polar substances. Around a positive ion, the partially negative oxygen side of water tends to face inward; around a negative ion, partially positive hydrogens tend to orient inward. Polar molecules can also interact with water through hydrogen bonding.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "claim": "Hydration shells stabilize dissolved particles and help make soluble metabolites mobile inside cytoplasm or blood plasma. Water does not dissolve every substance equally: nonpolar oils remain poorly miscible with water without other molecules such as surfactants.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-1",
+          "understandingIds": [
+            "D2.3.1"
+          ],
+          "prompt": "Which part of a water molecule faces a dissolved sodium cation?",
+          "options": [
+            {
+              "id": "d23-1-o1",
+              "text": "Partially negative oxygen side",
+              "correct": true,
+              "feedback": "Correct. Water's polarity enables it to dissolve many ionic and polar substances."
+            },
+            {
+              "id": "d23-1-o2",
+              "text": "Partially positive hydrogen side only",
+              "correct": false,
+              "feedback": "Incorrect. The partially negative oxygen region of water tends to orient toward Na⁺."
+            },
+            {
+              "id": "d23-1-o3",
+              "text": "A nonpolar hydrocarbon tail",
+              "correct": false,
+              "feedback": "Incorrect. The partially negative oxygen region of water tends to orient toward Na⁺."
+            },
+            {
+              "id": "d23-1-o4",
+              "text": "A peptide bond",
+              "correct": false,
+              "feedback": "Incorrect. The partially negative oxygen region of water tends to orient toward Na⁺."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-1",
+          "understandingIds": [
+            "D2.3.1"
+          ],
+          "prompt": "Use a cell or solution example to explain water surrounds dissolved particles. State assumptions where needed.",
+          "answer": "Water's polarity enables it to dissolve many ionic and polar substances. Around a positive ion, the partially negative oxygen side of water tends to face inward; around a negative ion, partially positive hydrogens tend to orient inward. Polar molecules can also interact with water through hydrogen bonding. When NaCl dissolves, water orients oxygen atoms toward Na⁺ and hydrogens toward Cl⁻.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 94,
+      "pdfPage": 100,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          681
+        ],
+        "pdfPages": [
+          693
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Water surrounds dissolved particles",
+          "explanation": "Water's polarity enables it to dissolve many ionic and polar substances. Around a positive ion, the partially negative oxygen side of water tends to face inward; around a negative ion, partially positive hydrogens tend to orient inward. Polar molecules can also interact with water through hydrogen bonding.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "title": "Solvation links molecular structure to cells",
+          "explanation": "Hydration shells stabilize dissolved particles and help make soluble metabolites mobile inside cytoplasm or blood plasma. Water does not dissolve every substance equally: nonpolar oils remain poorly miscible with water without other molecules such as surfactants.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Water's polarity enables it to dissolve many ionic and polar substances.",
+        "example": "When NaCl dissolves, water orients oxygen atoms toward Na⁺ and hydrogens toward Cl⁻.",
+        "different": "Hydration shells stabilize dissolved particles and help make soluble metabolites mobile inside cytoplasm or blood plasma.",
+        "concepts": [
+          {
+            "title": "Water surrounds dissolved particles",
+            "keywords": [
+              "water",
+              "surrounds",
+              "dissolved",
+              "particles"
+            ],
+            "explanation": "Water's polarity enables it to dissolve many ionic and polar substances. Around a positive ion, the partially negative oxygen side of water tends to face inward; around a negative ion, partially positive hydrogens tend to orient inward. Polar molecules can also interact with water through hydrogen bonding."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-2",
+      "understandingIds": [
+        "D2.3.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "A cell contains more effective solute than its surrounding solution. What is the outside medium?",
+      "explanation": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more. Relative to a cell, a hypotonic surrounding solution has lower effective solute concentration; a hypertonic solution has higher; an isotonic solution produces no sustained net volume change.\n\nTonicity depends on solutes that do not rapidly cross the membrane and their osmotic effects. If some solutes pass freely, simple concentration comparisons can be misleading. At this SL level, work with idealized nonpenetrating solutes and no opposing hydrostatic pressure unless stated.",
+      "revisionSummary": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more. Tonicity depends on solutes that do not rapidly cross the membrane and their osmotic effects.",
+      "terms": [
+        "Compare solutions by effective solute concentration: core concept",
+        "State assumptions before inferring movement: required distinction"
+      ],
+      "workedExample": "An idealized cell with nonpenetrating internal solute at 0.30 mol dm⁻³ is in a hypotonic medium of 0.10 mol dm⁻³.",
+      "misconceptions": [
+        {
+          "misconception": "Hypertonic means the surrounding solution has fewer effective solute particles than the cell.",
+          "correction": "Hypertonic means higher effective solute concentration outside the cell."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more. Relative to a cell, a hypotonic surrounding solution has lower effective solute concentration; a hypertonic solution has higher; an isotonic solution produces no sustained net volume change.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "claim": "Tonicity depends on solutes that do not rapidly cross the membrane and their osmotic effects. If some solutes pass freely, simple concentration comparisons can be misleading. At this SL level, work with idealized nonpenetrating solutes and no opposing hydrostatic pressure unless stated.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-2",
+          "understandingIds": [
+            "D2.3.2"
+          ],
+          "prompt": "A cell contains more effective solute than its surrounding solution. What is the outside medium?",
+          "options": [
+            {
+              "id": "d23-2-o1",
+              "text": "Hypotonic",
+              "correct": true,
+              "feedback": "Correct. For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more."
+            },
+            {
+              "id": "d23-2-o2",
+              "text": "Hypertonic",
+              "correct": false,
+              "feedback": "Incorrect. Hypertonic means higher effective solute concentration outside the cell."
+            },
+            {
+              "id": "d23-2-o3",
+              "text": "Isotonic",
+              "correct": false,
+              "feedback": "Incorrect. Hypertonic means higher effective solute concentration outside the cell."
+            },
+            {
+              "id": "d23-2-o4",
+              "text": "Purely nonpolar",
+              "correct": false,
+              "feedback": "Incorrect. Hypertonic means higher effective solute concentration outside the cell."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-2",
+          "understandingIds": [
+            "D2.3.2"
+          ],
+          "prompt": "Use a cell or solution example to explain compare solutions by effective solute concentration. State assumptions where needed.",
+          "answer": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more. Relative to a cell, a hypotonic surrounding solution has lower effective solute concentration; a hypertonic solution has higher; an isotonic solution produces no sustained net volume change. An idealized cell with nonpenetrating internal solute at 0.30 mol dm⁻³ is in a hypotonic medium of 0.10 mol dm⁻³.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 94,
+      "pdfPage": 100,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          682
+        ],
+        "pdfPages": [
+          694
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Compare solutions by effective solute concentration",
+          "explanation": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more. Relative to a cell, a hypotonic surrounding solution has lower effective solute concentration; a hypertonic solution has higher; an isotonic solution produces no sustained net volume change.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "title": "State assumptions before inferring movement",
+          "explanation": "Tonicity depends on solutes that do not rapidly cross the membrane and their osmotic effects. If some solutes pass freely, simple concentration comparisons can be misleading. At this SL level, work with idealized nonpenetrating solutes and no opposing hydrostatic pressure unless stated.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more.",
+        "example": "An idealized cell with nonpenetrating internal solute at 0.30 mol dm⁻³ is in a hypotonic medium of 0.10 mol dm⁻³.",
+        "different": "Tonicity depends on solutes that do not rapidly cross the membrane and their osmotic effects.",
+        "concepts": [
+          {
+            "title": "Compare solutions by effective solute concentration",
+            "keywords": [
+              "compare",
+              "solutions",
+              "effective",
+              "solute"
+            ],
+            "explanation": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more. Relative to a cell, a hypotonic surrounding solution has lower effective solute concentration; a hypertonic solution has higher; an isotonic solution produces no sustained net volume change."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-3",
+      "understandingIds": [
+        "D2.3.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which statement best describes an isotonic cell environment?",
+      "explanation": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference. In a simplified cell without a rigid wall and with negligible pressure differences, water enters from a hypotonic medium and leaves into a hypertonic medium.\n\nAt isotonic conditions, individual water molecules continue crossing the membrane in both directions, but the opposing fluxes balance and there is no net volume change. Calling isotonic conditions 'no movement of water' confuses equilibrium with stillness.",
+      "revisionSummary": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference. At isotonic conditions, individual water molecules continue crossing the membrane in both directions, but the opposing fluxes balance and there is no net volume change.",
+      "terms": [
+        "Osmosis is passive net movement of water: core concept",
+        "Equilibrium remains dynamic: required distinction"
+      ],
+      "workedExample": "An erythrocyte in appropriately isotonic saline maintains volume while exchanging water molecules across its membrane.",
+      "misconceptions": [
+        {
+          "misconception": "Water molecules stop moving when the solution becomes isotonic.",
+          "correction": "Water continues moving in both directions; net flux is zero at equilibrium."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference. In a simplified cell without a rigid wall and with negligible pressure differences, water enters from a hypotonic medium and leaves into a hypertonic medium.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "claim": "At isotonic conditions, individual water molecules continue crossing the membrane in both directions, but the opposing fluxes balance and there is no net volume change. Calling isotonic conditions 'no movement of water' confuses equilibrium with stillness.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-3",
+          "understandingIds": [
+            "D2.3.3"
+          ],
+          "prompt": "Which statement best describes an isotonic cell environment?",
+          "options": [
+            {
+              "id": "d23-3-o1",
+              "text": "Water crosses both ways with zero net flux",
+              "correct": true,
+              "feedback": "Correct. Osmosis is net water movement across a selectively permeable membrane down a water-potential difference."
+            },
+            {
+              "id": "d23-3-o2",
+              "text": "Water never crosses the plasma membrane",
+              "correct": false,
+              "feedback": "Incorrect. Water continues moving in both directions; net flux is zero at equilibrium."
+            },
+            {
+              "id": "d23-3-o3",
+              "text": "Only dissolved ions move",
+              "correct": false,
+              "feedback": "Incorrect. Water continues moving in both directions; net flux is zero at equilibrium."
+            },
+            {
+              "id": "d23-3-o4",
+              "text": "The cell must undergo plasmolysis",
+              "correct": false,
+              "feedback": "Incorrect. Water continues moving in both directions; net flux is zero at equilibrium."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-3",
+          "understandingIds": [
+            "D2.3.3"
+          ],
+          "prompt": "Use a cell or solution example to explain osmosis is passive net movement of water. State assumptions where needed.",
+          "answer": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference. In a simplified cell without a rigid wall and with negligible pressure differences, water enters from a hypotonic medium and leaves into a hypertonic medium. An erythrocyte in appropriately isotonic saline maintains volume while exchanging water molecules across its membrane.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 94,
+      "pdfPage": 100,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          683
+        ],
+        "pdfPages": [
+          695
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Osmosis is passive net movement of water",
+          "explanation": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference. In a simplified cell without a rigid wall and with negligible pressure differences, water enters from a hypotonic medium and leaves into a hypertonic medium.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "title": "Equilibrium remains dynamic",
+          "explanation": "At isotonic conditions, individual water molecules continue crossing the membrane in both directions, but the opposing fluxes balance and there is no net volume change. Calling isotonic conditions 'no movement of water' confuses equilibrium with stillness.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference.",
+        "example": "An erythrocyte in appropriately isotonic saline maintains volume while exchanging water molecules across its membrane.",
+        "different": "At isotonic conditions, individual water molecules continue crossing the membrane in both directions, but the opposing fluxes balance and there is no net volume change.",
+        "concepts": [
+          {
+            "title": "Osmosis is passive net movement of water",
+            "keywords": [
+              "osmosis",
+              "passive",
+              "movement",
+              "water"
+            ],
+            "explanation": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference. In a simplified cell without a rigid wall and with negligible pressure differences, water enters from a hypotonic medium and leaves into a hypertonic medium."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-4",
+      "understandingIds": [
+        "D2.3.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "In a controlled potato osmosis model, what does zero mean mass change approximately indicate?",
+      "explanation": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration. In hypotonic treatments tissue typically gains mass; in hypertonic treatments it loses mass. Calculate percentage mass change relative to each initial mass, and plot mean change against concentration.\n\nWith repeated cylinders at each concentration, compare variability using standard deviation and the precision of means using standard error. The concentration where the mean mass change crosses zero is an estimate of the tissue's isotonic point under experimental assumptions, not an absolute universal value.",
+      "revisionSummary": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration. With repeated cylinders at each concentration, compare variability using standard deviation and the precision of means using standard error.",
+      "terms": [
+        "Measure a plant-tissue osmosis response: core concept",
+        "Interpreting data and uncertainty: required distinction"
+      ],
+      "workedExample": "Illustrative model: potato tissue shows +4% at 0.20 mol dm⁻³ sucrose, +1% at 0.30 and −2% at 0.40; linear interpolation gives about 0.333 mol dm⁻³ for zero change.",
+      "misconceptions": [
+        {
+          "misconception": "The most concentrated sucrose solution must cause the greatest mass gain.",
+          "correction": "More concentrated external solute commonly drives net water loss from plant tissue."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration. In hypotonic treatments tissue typically gains mass; in hypertonic treatments it loses mass. Calculate percentage mass change relative to each initial mass, and plot mean change against concentration.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "claim": "With repeated cylinders at each concentration, compare variability using standard deviation and the precision of means using standard error. The concentration where the mean mass change crosses zero is an estimate of the tissue's isotonic point under experimental assumptions, not an absolute universal value.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "assets": [
+        "d23-potato-model"
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "d23-potato-model",
+          "afterBlock": 1
+        }
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-4",
+          "understandingIds": [
+            "D2.3.4"
+          ],
+          "prompt": "In a controlled potato osmosis model, what does zero mean mass change approximately indicate?",
+          "options": [
+            {
+              "id": "d23-4-o1",
+              "text": "An isotonic solution under the tested conditions",
+              "correct": true,
+              "feedback": "Correct. In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration."
+            },
+            {
+              "id": "d23-4-o2",
+              "text": "Complete destruction of the cellulose wall",
+              "correct": false,
+              "feedback": "Incorrect. More concentrated external solute commonly drives net water loss from plant tissue."
+            },
+            {
+              "id": "d23-4-o3",
+              "text": "The absence of water crossing membranes",
+              "correct": false,
+              "feedback": "Incorrect. More concentrated external solute commonly drives net water loss from plant tissue."
+            },
+            {
+              "id": "d23-4-o4",
+              "text": "A guaranteed water potential of exactly zero kPa",
+              "correct": false,
+              "feedback": "Incorrect. More concentrated external solute commonly drives net water loss from plant tissue."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-4",
+          "understandingIds": [
+            "D2.3.4"
+          ],
+          "prompt": "Use a cell or solution example to explain measure a plant-tissue osmosis response. State assumptions where needed.",
+          "answer": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration. In hypotonic treatments tissue typically gains mass; in hypertonic treatments it loses mass. Calculate percentage mass change relative to each initial mass, and plot mean change against concentration. Illustrative model: potato tissue shows +4% at 0.20 mol dm⁻³ sucrose, +1% at 0.30 and −2% at 0.40; linear interpolation gives about 0.333 mol dm⁻³ for zero change.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 94,
+      "pdfPage": 100,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          684
+        ],
+        "pdfPages": [
+          696
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Measure a plant-tissue osmosis response",
+          "explanation": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration. In hypotonic treatments tissue typically gains mass; in hypertonic treatments it loses mass. Calculate percentage mass change relative to each initial mass, and plot mean change against concentration.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "title": "Interpreting data and uncertainty",
+          "explanation": "With repeated cylinders at each concentration, compare variability using standard deviation and the precision of means using standard error. The concentration where the mean mass change crosses zero is an estimate of the tissue's isotonic point under experimental assumptions, not an absolute universal value.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration.",
+        "example": "Illustrative model: potato tissue shows +4% at 0.20 mol dm⁻³ sucrose, +1% at 0.30 and −2% at 0.40; linear interpolation gives about 0.333 mol dm⁻³ for zero change.",
+        "different": "With repeated cylinders at each concentration, compare variability using standard deviation and the precision of means using standard error.",
+        "concepts": [
+          {
+            "title": "Measure a plant-tissue osmosis response",
+            "keywords": [
+              "measure",
+              "plant-tissue",
+              "osmosis",
+              "response"
+            ],
+            "explanation": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration. In hypotonic treatments tissue typically gains mass; in hypertonic treatments it loses mass. Calculate percentage mass change relative to each initial mass, and plot mean change against concentration."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Hypothetical model of potato-cylinder percentage mass change (not measured observations)",
+          "headers": [
+            "External sucrose (mol dm⁻³)",
+            "Mass change (%)",
+            "Interpretation"
+          ],
+          "rows": [
+            [
+              0.2,
+              4,
+              "Net water uptake"
+            ],
+            [
+              0.3,
+              1,
+              "Small net uptake"
+            ],
+            [
+              0.4,
+              -2,
+              "Net water loss"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d23-5",
+      "understandingIds": [
+        "D2.3.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What may happen to a red blood cell in an extremely hypotonic solution?",
+      "explanation": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis. In a hypertonic solution, it loses water, shrinks and may become crenated, as red blood cells commonly do.\n\nFreshwater unicellular organisms such as some protists may accumulate water by osmosis and use contractile vacuoles to expel it. Multicellular animals maintain extracellular fluid conditions within suitable ranges to avoid damaging osmotic volume changes across their cells.",
+      "revisionSummary": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis. Freshwater unicellular organisms such as some protists may accumulate water by osmosis and use contractile vacuoles to expel it.",
+      "terms": [
+        "Cells lacking walls can swell or shrink: core concept",
+        "Freshwater organisms actively remove excess water: required distinction"
+      ],
+      "workedExample": "A freshwater protist rhythmically expels accumulated water using a contractile vacuole.",
+      "misconceptions": [
+        {
+          "misconception": "A mammalian cell cannot burst because its cell wall resists swelling.",
+          "correction": "Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis. In a hypertonic solution, it loses water, shrinks and may become crenated, as red blood cells commonly do.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "claim": "Freshwater unicellular organisms such as some protists may accumulate water by osmosis and use contractile vacuoles to expel it. Multicellular animals maintain extracellular fluid conditions within suitable ranges to avoid damaging osmotic volume changes across their cells.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-5",
+          "understandingIds": [
+            "D2.3.5"
+          ],
+          "prompt": "What may happen to a red blood cell in an extremely hypotonic solution?",
+          "options": [
+            {
+              "id": "d23-5-o1",
+              "text": "It can swell and lyse",
+              "correct": true,
+              "feedback": "Correct. An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis."
+            },
+            {
+              "id": "d23-5-o2",
+              "text": "It becomes turgid against a cellulose wall",
+              "correct": false,
+              "feedback": "Incorrect. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+            },
+            {
+              "id": "d23-5-o3",
+              "text": "It invariably plasmolyses",
+              "correct": false,
+              "feedback": "Incorrect. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+            },
+            {
+              "id": "d23-5-o4",
+              "text": "It stops exchanging water",
+              "correct": false,
+              "feedback": "Incorrect. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-5",
+          "understandingIds": [
+            "D2.3.5"
+          ],
+          "prompt": "Use a cell or solution example to explain cells lacking walls can swell or shrink. State assumptions where needed.",
+          "answer": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis. In a hypertonic solution, it loses water, shrinks and may become crenated, as red blood cells commonly do. A freshwater protist rhythmically expels accumulated water using a contractile vacuole.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 94,
+      "pdfPage": 100,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          685
+        ],
+        "pdfPages": [
+          697
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Cells lacking walls can swell or shrink",
+          "explanation": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis. In a hypertonic solution, it loses water, shrinks and may become crenated, as red blood cells commonly do.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "title": "Freshwater organisms actively remove excess water",
+          "explanation": "Freshwater unicellular organisms such as some protists may accumulate water by osmosis and use contractile vacuoles to expel it. Multicellular animals maintain extracellular fluid conditions within suitable ranges to avoid damaging osmotic volume changes across their cells.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis.",
+        "example": "A freshwater protist rhythmically expels accumulated water using a contractile vacuole.",
+        "different": "Freshwater unicellular organisms such as some protists may accumulate water by osmosis and use contractile vacuoles to expel it.",
+        "concepts": [
+          {
+            "title": "Cells lacking walls can swell or shrink",
+            "keywords": [
+              "cells",
+              "lacking",
+              "walls",
+              "swell"
+            ],
+            "explanation": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis. In a hypertonic solution, it loses water, shrinks and may become crenated, as red blood cells commonly do."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-6",
+      "understandingIds": [
+        "D2.3.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which change indicates plasmolysis in a plant cell?",
+      "explanation": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. This positive turgor pressure contributes to structural support in non-woody tissues.\n\nWater loss reduces vacuole size and can pull the plasma membrane away from the wall, a condition called plasmolysis. A wilted plant may lose turgor without every cell being visibly plasmolysed; the wall remains when the protoplast shrinks.",
+      "revisionSummary": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. Water loss reduces vacuole size and can pull the plasma membrane away from the wall, a condition called plasmolysis.",
+      "terms": [
+        "Plant walls allow turgor and plasmolysis: core concept",
+        "Hypertonic external solutions cause loss of turgor: required distinction"
+      ],
+      "workedExample": "An onion epidermal cell in concentrated salt solution may show its membrane separating from the cell wall.",
+      "misconceptions": [
+        {
+          "misconception": "Plasmolysis means that the rigid cell wall shrinks with the protoplast.",
+          "correction": "The wall remains while the protoplast contracts away from it during plasmolysis."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. This positive turgor pressure contributes to structural support in non-woody tissues.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "claim": "Water loss reduces vacuole size and can pull the plasma membrane away from the wall, a condition called plasmolysis. A wilted plant may lose turgor without every cell being visibly plasmolysed; the wall remains when the protoplast shrinks.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-6",
+          "understandingIds": [
+            "D2.3.6"
+          ],
+          "prompt": "Which change indicates plasmolysis in a plant cell?",
+          "options": [
+            {
+              "id": "d23-6-o1",
+              "text": "Membrane pulling away from the cell wall",
+              "correct": true,
+              "feedback": "Correct. Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall."
+            },
+            {
+              "id": "d23-6-o2",
+              "text": "Membrane expanding beyond the wall until lysis",
+              "correct": false,
+              "feedback": "Incorrect. The wall remains while the protoplast contracts away from it during plasmolysis."
+            },
+            {
+              "id": "d23-6-o3",
+              "text": "Cell wall instantly dissolving",
+              "correct": false,
+              "feedback": "Incorrect. The wall remains while the protoplast contracts away from it during plasmolysis."
+            },
+            {
+              "id": "d23-6-o4",
+              "text": "New stomata forming",
+              "correct": false,
+              "feedback": "Incorrect. The wall remains while the protoplast contracts away from it during plasmolysis."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-6",
+          "understandingIds": [
+            "D2.3.6"
+          ],
+          "prompt": "Use a cell or solution example to explain plant walls allow turgor and plasmolysis. State assumptions where needed.",
+          "answer": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. This positive turgor pressure contributes to structural support in non-woody tissues. An onion epidermal cell in concentrated salt solution may show its membrane separating from the cell wall.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 94,
+      "pdfPage": 100,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          686
+        ],
+        "pdfPages": [
+          698
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Plant walls allow turgor and plasmolysis",
+          "explanation": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. This positive turgor pressure contributes to structural support in non-woody tissues.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "title": "Hypertonic external solutions cause loss of turgor",
+          "explanation": "Water loss reduces vacuole size and can pull the plasma membrane away from the wall, a condition called plasmolysis. A wilted plant may lose turgor without every cell being visibly plasmolysed; the wall remains when the protoplast shrinks.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall.",
+        "example": "An onion epidermal cell in concentrated salt solution may show its membrane separating from the cell wall.",
+        "different": "Water loss reduces vacuole size and can pull the plasma membrane away from the wall, a condition called plasmolysis.",
+        "concepts": [
+          {
+            "title": "Plant walls allow turgor and plasmolysis",
+            "keywords": [
+              "plant",
+              "walls",
+              "allow",
+              "turgor"
+            ],
+            "explanation": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. This positive turgor pressure contributes to structural support in non-woody tissues."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-7",
+      "understandingIds": [
+        "D2.3.7"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why must an intravenous solution have appropriate tonicity?",
+      "explanation": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context. A properly chosen isotonic solution helps avoid major water exchange that would damage blood cells. Tissues or donor organs are also bathed or perfused in appropriate preservation solutions.\n\nSterility, electrolyte composition, pH, temperature, organ needs and patient condition also matter. A fluid that is approximately isotonic is not automatically suitable for every medical application; treatment choices are clinical decisions rather than classroom calculations.",
+      "revisionSummary": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context. Sterility, electrolyte composition, pH, temperature, organ needs and patient condition also matter.",
+      "terms": [
+        "Medical solutions avoid osmotic injury: core concept",
+        "Isotonicity is necessary but not the only factor: required distinction"
+      ],
+      "workedExample": "An isotonic saline infusion is one familiar example, but the required formulation depends on the patient and clinical use.",
+      "misconceptions": [
+        {
+          "misconception": "Any solution with the same total mass of solute is safe for injection.",
+          "correction": "Effective osmotic concentration and other clinical properties must be appropriate."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context. A properly chosen isotonic solution helps avoid major water exchange that would damage blood cells. Tissues or donor organs are also bathed or perfused in appropriate preservation solutions.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "claim": "Sterility, electrolyte composition, pH, temperature, organ needs and patient condition also matter. A fluid that is approximately isotonic is not automatically suitable for every medical application; treatment choices are clinical decisions rather than classroom calculations.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-7",
+          "understandingIds": [
+            "D2.3.7"
+          ],
+          "prompt": "Why must an intravenous solution have appropriate tonicity?",
+          "options": [
+            {
+              "id": "d23-7-o1",
+              "text": "To reduce harmful cell swelling or shrinkage",
+              "correct": true,
+              "feedback": "Correct. Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context."
+            },
+            {
+              "id": "d23-7-o2",
+              "text": "To ensure all cells undergo lysis",
+              "correct": false,
+              "feedback": "Incorrect. Effective osmotic concentration and other clinical properties must be appropriate."
+            },
+            {
+              "id": "d23-7-o3",
+              "text": "To make all dissolved solutes impermeable forever",
+              "correct": false,
+              "feedback": "Incorrect. Effective osmotic concentration and other clinical properties must be appropriate."
+            },
+            {
+              "id": "d23-7-o4",
+              "text": "To guarantee it contains no ions",
+              "correct": false,
+              "feedback": "Incorrect. Effective osmotic concentration and other clinical properties must be appropriate."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-7",
+          "understandingIds": [
+            "D2.3.7"
+          ],
+          "prompt": "Use a cell or solution example to explain medical solutions avoid osmotic injury. State assumptions where needed.",
+          "answer": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context. A properly chosen isotonic solution helps avoid major water exchange that would damage blood cells. Tissues or donor organs are also bathed or perfused in appropriate preservation solutions. An isotonic saline infusion is one familiar example, but the required formulation depends on the patient and clinical use.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 94,
+      "pdfPage": 100,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          687
+        ],
+        "pdfPages": [
+          699
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Medical solutions avoid osmotic injury",
+          "explanation": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context. A properly chosen isotonic solution helps avoid major water exchange that would damage blood cells. Tissues or donor organs are also bathed or perfused in appropriate preservation solutions.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        },
+        {
+          "title": "Isotonicity is necessary but not the only factor",
+          "explanation": "Sterility, electrolyte composition, pH, temperature, organ needs and patient condition also matter. A fluid that is approximately isotonic is not automatically suitable for every medical application; treatment choices are clinical decisions rather than classroom calculations.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context.",
+        "example": "An isotonic saline infusion is one familiar example, but the required formulation depends on the patient and clinical use.",
+        "different": "Sterility, electrolyte composition, pH, temperature, organ needs and patient condition also matter.",
+        "concepts": [
+          {
+            "title": "Medical solutions avoid osmotic injury",
+            "keywords": [
+              "medical",
+              "solutions",
+              "avoid",
+              "osmotic"
+            ],
+            "explanation": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context. A properly chosen isotonic solution helps avoid major water exchange that would damage blood cells. Tissues or donor organs are also bathed or perfused in appropriate preservation solutions."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-8",
+      "understandingIds": [
+        "D2.3.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which of these values indicates the highest water potential?",
+      "explanation": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state. Pure water at atmospheric pressure and 20°C is assigned Ψw = 0; this is a reference, not a claim that water has no energy. The IB guide commonly uses kilopascals (kPa).\n\nAdding dissolved solute makes Ψs negative relative to pure water, lowering the water potential. A value such as −600 kPa is lower than −200 kPa because it is more negative. Values in MPa can be converted using 1 MPa = 1000 kPa.",
+      "revisionSummary": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state. Adding dissolved solute makes Ψs negative relative to pure water, lowering the water potential.",
+      "terms": [
+        "Water potential measures relative energy per volume: core concept",
+        "Negative does not mean impossible or absent: required distinction"
+      ],
+      "workedExample": "A cell solution with Ψw = −500 kPa has lower water potential than a solution with Ψw = −100 kPa.",
+      "misconceptions": [
+        {
+          "misconception": "Pure water has literally zero potential energy in every thermodynamic sense.",
+          "correction": "Zero water potential is the defined reference for pure water under stated conditions."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state. Pure water at atmospheric pressure and 20°C is assigned Ψw = 0; this is a reference, not a claim that water has no energy. The IB guide commonly uses kilopascals (kPa).",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "claim": "Adding dissolved solute makes Ψs negative relative to pure water, lowering the water potential. A value such as −600 kPa is lower than −200 kPa because it is more negative. Values in MPa can be converted using 1 MPa = 1000 kPa.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-8",
+          "understandingIds": [
+            "D2.3.8"
+          ],
+          "prompt": "Which of these values indicates the highest water potential?",
+          "options": [
+            {
+              "id": "d23-8-o1",
+              "text": "−100 kPa",
+              "correct": true,
+              "feedback": "Correct. Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state."
+            },
+            {
+              "id": "d23-8-o2",
+              "text": "−800 kPa",
+              "correct": false,
+              "feedback": "Incorrect. Zero water potential is the defined reference for pure water under stated conditions."
+            },
+            {
+              "id": "d23-8-o3",
+              "text": "−500 kPa",
+              "correct": false,
+              "feedback": "Incorrect. Zero water potential is the defined reference for pure water under stated conditions."
+            },
+            {
+              "id": "d23-8-o4",
+              "text": "−1000 kPa",
+              "correct": false,
+              "feedback": "Incorrect. Zero water potential is the defined reference for pure water under stated conditions."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-8",
+          "understandingIds": [
+            "D2.3.8"
+          ],
+          "prompt": "Use a cell or solution example to explain water potential measures relative energy per volume. State assumptions where needed.",
+          "answer": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state. Pure water at atmospheric pressure and 20°C is assigned Ψw = 0; this is a reference, not a claim that water has no energy. The IB guide commonly uses kilopascals (kPa). A cell solution with Ψw = −500 kPa has lower water potential than a solution with Ψw = −100 kPa.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 95,
+      "pdfPage": 101,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          688
+        ],
+        "pdfPages": [
+          700
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Water potential measures relative energy per volume",
+          "explanation": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state. Pure water at atmospheric pressure and 20°C is assigned Ψw = 0; this is a reference, not a claim that water has no energy. The IB guide commonly uses kilopascals (kPa).",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "title": "Negative does not mean impossible or absent",
+          "explanation": "Adding dissolved solute makes Ψs negative relative to pure water, lowering the water potential. A value such as −600 kPa is lower than −200 kPa because it is more negative. Values in MPa can be converted using 1 MPa = 1000 kPa.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state.",
+        "example": "A cell solution with Ψw = −500 kPa has lower water potential than a solution with Ψw = −100 kPa.",
+        "different": "Adding dissolved solute makes Ψs negative relative to pure water, lowering the water potential.",
+        "concepts": [
+          {
+            "title": "Water potential measures relative energy per volume",
+            "keywords": [
+              "water",
+              "potential",
+              "measures",
+              "relative"
+            ],
+            "explanation": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state. Pure water at atmospheric pressure and 20°C is assigned Ψw = 0; this is a reference, not a claim that water has no energy. The IB guide commonly uses kilopascals (kPa)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-9",
+      "understandingIds": [
+        "D2.3.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which direction is predicted between Ψw = −200 and −700 kPa?",
+      "explanation": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway. Numerically, −200 kPa is higher than −600 kPa; absent other constraints the net flow tends from −200 toward −600 until equilibrium.\n\nIn cells with walls, turgor pressure raises internal potential and can oppose the inward tendency caused by the solutes. Therefore, comparing solute concentration alone cannot always predict water movement when pressure differences are substantial.",
+      "revisionSummary": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway. In cells with walls, turgor pressure raises internal potential and can oppose the inward tendency caused by the solutes.",
+      "terms": [
+        "Potential-energy differences determine direction: core concept",
+        "Solute and pressure can compete: required distinction"
+      ],
+      "workedExample": "An idealized membrane between −100 and −400 kPa solutions permits net movement toward the −400 kPa side.",
+      "misconceptions": [
+        {
+          "misconception": "Water always moves from the most negative potential to the least negative.",
+          "correction": "Net movement is from higher (less negative) to lower (more negative) water potential."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway. Numerically, −200 kPa is higher than −600 kPa; absent other constraints the net flow tends from −200 toward −600 until equilibrium.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "claim": "In cells with walls, turgor pressure raises internal potential and can oppose the inward tendency caused by the solutes. Therefore, comparing solute concentration alone cannot always predict water movement when pressure differences are substantial.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-9",
+          "understandingIds": [
+            "D2.3.9"
+          ],
+          "prompt": "Which direction is predicted between Ψw = −200 and −700 kPa?",
+          "options": [
+            {
+              "id": "d23-9-o1",
+              "text": "From −200 toward −700 kPa",
+              "correct": true,
+              "feedback": "Correct. Water tends to move from a region of higher water potential to lower water potential across a permeable pathway."
+            },
+            {
+              "id": "d23-9-o2",
+              "text": "From −700 toward −200 kPa",
+              "correct": false,
+              "feedback": "Incorrect. Net movement is from higher (less negative) to lower (more negative) water potential."
+            },
+            {
+              "id": "d23-9-o3",
+              "text": "Neither side can exchange water",
+              "correct": false,
+              "feedback": "Incorrect. Net movement is from higher (less negative) to lower (more negative) water potential."
+            },
+            {
+              "id": "d23-9-o4",
+              "text": "Always toward the cell with more positive pressure, regardless of total potential",
+              "correct": false,
+              "feedback": "Incorrect. Net movement is from higher (less negative) to lower (more negative) water potential."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-9",
+          "understandingIds": [
+            "D2.3.9"
+          ],
+          "prompt": "Use a cell or solution example to explain potential-energy differences determine direction. State assumptions where needed.",
+          "answer": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway. Numerically, −200 kPa is higher than −600 kPa; absent other constraints the net flow tends from −200 toward −600 until equilibrium. An idealized membrane between −100 and −400 kPa solutions permits net movement toward the −400 kPa side.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 95,
+      "pdfPage": 101,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          689
+        ],
+        "pdfPages": [
+          701
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Potential-energy differences determine direction",
+          "explanation": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway. Numerically, −200 kPa is higher than −600 kPa; absent other constraints the net flow tends from −200 toward −600 until equilibrium.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "title": "Solute and pressure can compete",
+          "explanation": "In cells with walls, turgor pressure raises internal potential and can oppose the inward tendency caused by the solutes. Therefore, comparing solute concentration alone cannot always predict water movement when pressure differences are substantial.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway.",
+        "example": "An idealized membrane between −100 and −400 kPa solutions permits net movement toward the −400 kPa side.",
+        "different": "In cells with walls, turgor pressure raises internal potential and can oppose the inward tendency caused by the solutes.",
+        "concepts": [
+          {
+            "title": "Potential-energy differences determine direction",
+            "keywords": [
+              "potential-energy",
+              "differences",
+              "determine",
+              "direction"
+            ],
+            "explanation": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway. Numerically, −200 kPa is higher than −600 kPa; absent other constraints the net flow tends from −200 toward −600 until equilibrium."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23-10",
+      "understandingIds": [
+        "D2.3.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "For Ψs = −800 kPa and Ψp = +600 kPa, what is Ψw?",
+      "explanation": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings.\n\nIf Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa. Negative pressure can occur in xylem under tension, so pressure potential is not always positive. Units on both terms must match before addition.",
+      "revisionSummary": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. If Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa.",
+      "terms": [
+        "The IB two-component cell equation: core concept",
+        "Work through signed values: required distinction"
+      ],
+      "workedExample": "A xylem segment with Ψs = −200 kPa and Ψp = −500 kPa has Ψw = −700 kPa under this model.",
+      "misconceptions": [
+        {
+          "misconception": "Pressure potential is always zero or positive, including in xylem under tension.",
+          "correction": "Xylem tension may give a negative pressure potential."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "claim": "If Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa. Negative pressure can occur in xylem under tension, so pressure potential is not always positive. Units on both terms must match before addition.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-10",
+          "understandingIds": [
+            "D2.3.10"
+          ],
+          "prompt": "For Ψs = −800 kPa and Ψp = +600 kPa, what is Ψw?",
+          "options": [
+            {
+              "id": "d23-10-o1",
+              "text": "−200 kPa",
+              "correct": true,
+              "feedback": "Correct. For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell."
+            },
+            {
+              "id": "d23-10-o2",
+              "text": "+1400 kPa",
+              "correct": false,
+              "feedback": "Incorrect. Xylem tension may give a negative pressure potential."
+            },
+            {
+              "id": "d23-10-o3",
+              "text": "−1400 kPa",
+              "correct": false,
+              "feedback": "Incorrect. Xylem tension may give a negative pressure potential."
+            },
+            {
+              "id": "d23-10-o4",
+              "text": "+200 kPa",
+              "correct": false,
+              "feedback": "Incorrect. Xylem tension may give a negative pressure potential."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-10",
+          "understandingIds": [
+            "D2.3.10"
+          ],
+          "prompt": "Use a cell or solution example to explain the ib two-component cell equation. State assumptions where needed.",
+          "answer": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings. A xylem segment with Ψs = −200 kPa and Ψp = −500 kPa has Ψw = −700 kPa under this model.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 95,
+      "pdfPage": 101,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          690
+        ],
+        "pdfPages": [
+          702
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "The IB two-component cell equation",
+          "explanation": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "title": "Work through signed values",
+          "explanation": "If Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa. Negative pressure can occur in xylem under tension, so pressure potential is not always positive. Units on both terms must match before addition.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell.",
+        "example": "A xylem segment with Ψs = −200 kPa and Ψp = −500 kPa has Ψw = −700 kPa under this model.",
+        "different": "If Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa.",
+        "concepts": [
+          {
+            "title": "The IB two-component cell equation",
+            "keywords": [
+              "two-component",
+              "equation"
+            ],
+            "explanation": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Modelled cell water potentials; Ψw = Ψs + Ψp in kPa, contributions are explicitly assumed",
+          "headers": [
+            "Situation",
+            "Ψs (kPa)",
+            "Ψp (kPa)",
+            "Ψw (kPa)"
+          ],
+          "rows": [
+            [
+              "Turgid cell",
+              -800,
+              600,
+              -200
+            ],
+            [
+              "Low-turgor cell",
+              -800,
+              100,
+              -700
+            ],
+            [
+              "Xylem under tension",
+              -200,
+              -500,
+              -700
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d23-11",
+      "understandingIds": [
+        "D2.3.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "A plant cell has Ψw = −200 kPa. What happens initially at external Ψw = −500 kPa?",
+      "explanation": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling. Net entry slows until inside and outside water potentials match. In a sufficiently hypertonic solution, water leaves, pressure falls toward zero and plasmolysis can develop.\n\nFor a cell with Ψs = −800 kPa and Ψp = +600 kPa, Ψw is −200 kPa. Against an exterior Ψw of −100 kPa, net water enters initially; against −500 kPa, net water leaves initially. These are short-term predictions assuming a selectively water-permeable membrane and stated potentials remain momentarily fixed.",
+      "revisionSummary": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling. For a cell with Ψs = −800 kPa and Ψp = +600 kPa, Ψw is −200 kPa.",
+      "terms": [
+        "Predict turgor changes with both contributions: core concept",
+        "Use an explicit model to predict direction: required distinction"
+      ],
+      "workedExample": "A cell moved from exterior −100 kPa to −500 kPa switches from initial water influx to initial efflux when its Ψw is −200 kPa.",
+      "misconceptions": [
+        {
+          "misconception": "A more concentrated surrounding solution always gives a plant cell higher turgor.",
+          "correction": "Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling. Net entry slows until inside and outside water potentials match. In a sufficiently hypertonic solution, water leaves, pressure falls toward zero and plasmolysis can develop.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "claim": "For a cell with Ψs = −800 kPa and Ψp = +600 kPa, Ψw is −200 kPa. Against an exterior Ψw of −100 kPa, net water enters initially; against −500 kPa, net water leaves initially. These are short-term predictions assuming a selectively water-permeable membrane and stated potentials remain momentarily fixed.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d23-check-11",
+          "understandingIds": [
+            "D2.3.11"
+          ],
+          "prompt": "A plant cell has Ψw = −200 kPa. What happens initially at external Ψw = −500 kPa?",
+          "options": [
+            {
+              "id": "d23-11-o1",
+              "text": "Net water leaves the cell",
+              "correct": true,
+              "feedback": "Correct. When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling."
+            },
+            {
+              "id": "d23-11-o2",
+              "text": "Net water enters the cell",
+              "correct": false,
+              "feedback": "Incorrect. Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+            },
+            {
+              "id": "d23-11-o3",
+              "text": "All water flux instantly stops",
+              "correct": false,
+              "feedback": "Incorrect. Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+            },
+            {
+              "id": "d23-11-o4",
+              "text": "The cell's DNA replicates",
+              "correct": false,
+              "feedback": "Incorrect. Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d23-recall-11",
+          "understandingIds": [
+            "D2.3.11"
+          ],
+          "prompt": "Use a cell or solution example to explain predict turgor changes with both contributions. State assumptions where needed.",
+          "answer": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling. Net entry slows until inside and outside water potentials match. In a sufficiently hypertonic solution, water leaves, pressure falls toward zero and plasmolysis can develop. A cell moved from exterior −100 kPa to −500 kPa switches from initial water influx to initial efflux when its Ψw is −200 kPa.",
+          "explanation": "Identify permeability and pressure assumptions; use signed water potentials and units where appropriate."
+        }
+      ],
+      "guidePage": 95,
+      "pdfPage": 101,
+      "textbook": {
+        "referenceId": "hodder-d23",
+        "printedPages": [
+          691
+        ],
+        "pdfPages": [
+          703
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Predict turgor changes with both contributions",
+          "explanation": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling. Net entry slows until inside and outside water potentials match. In a sufficiently hypertonic solution, water leaves, pressure falls toward zero and plasmolysis can develop.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        },
+        {
+          "title": "Use an explicit model to predict direction",
+          "explanation": "For a cell with Ψs = −800 kPa and Ψp = +600 kPa, Ψw is −200 kPa. Against an exterior Ψw of −100 kPa, net water enters initially; against −500 kPa, net water leaves initially. These are short-term predictions assuming a selectively water-permeable membrane and stated potentials remain momentarily fixed.",
+          "referenceIds": [
+            "ib-d23",
+            "hodder-d23",
+            "openstax-osmosis",
+            "openstax-potential"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling.",
+        "example": "A cell moved from exterior −100 kPa to −500 kPa switches from initial water influx to initial efflux when its Ψw is −200 kPa.",
+        "different": "For a cell with Ψs = −800 kPa and Ψp = +600 kPa, Ψw is −200 kPa.",
+        "concepts": [
+          {
+            "title": "Predict turgor changes with both contributions",
+            "keywords": [
+              "predict",
+              "turgor",
+              "changes",
+              "contributions"
+            ],
+            "explanation": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling. Net entry slows until inside and outside water potentials match. In a sufficiently hypertonic solution, water leaves, pressure falls toward zero and plasmolysis can develop."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Modelled cell water potentials; Ψw = Ψs + Ψp in kPa, contributions are explicitly assumed",
+          "headers": [
+            "Situation",
+            "Ψs (kPa)",
+            "Ψp (kPa)",
+            "Ψw (kPa)"
+          ],
+          "rows": [
+            [
+              "Turgid cell",
+              -800,
+              600,
+              -200
+            ],
+            [
+              "Low-turgor cell",
+              -800,
+              100,
+              -700
+            ],
+            [
+              "Xylem under tension",
+              -200,
+              -500,
+              -700
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "d23-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.1"
+      ],
+      "level": "shared",
+      "prompt": "Which part of a water molecule faces a dissolved sodium cation?",
+      "marks": 1,
+      "sectionId": "d23-1",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "d23-1-o1",
+          "text": "Partially negative oxygen side",
+          "correct": true,
+          "feedback": "Correct. Water's polarity enables it to dissolve many ionic and polar substances."
+        },
+        {
+          "id": "d23-1-o2",
+          "text": "Partially positive hydrogen side only",
+          "correct": false,
+          "feedback": "Incorrect. The partially negative oxygen region of water tends to orient toward Na⁺."
+        },
+        {
+          "id": "d23-1-o3",
+          "text": "A nonpolar hydrocarbon tail",
+          "correct": false,
+          "feedback": "Incorrect. The partially negative oxygen region of water tends to orient toward Na⁺."
+        },
+        {
+          "id": "d23-1-o4",
+          "text": "A peptide bond",
+          "correct": false,
+          "feedback": "Incorrect. The partially negative oxygen region of water tends to orient toward Na⁺."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-1",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.1"
+      ],
+      "level": "shared",
+      "prompt": "Explain water surrounds dissolved particles with a biological example, and correct this misconception: \"Water's positive hydrogen ends attract positive sodium ions most strongly.\"",
+      "marks": 3,
+      "sectionId": "d23-1",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "Water's polarity enables it to dissolve many ionic and polar substances. Around a positive ion, the partially negative oxygen side of water tends to face inward; around a negative ion, partially positive hydrogens tend to orient inward. Polar molecules can also interact with water through hydrogen bonding. Hydration shells stabilize dissolved particles and help make soluble metabolites mobile inside cytoplasm or blood plasma. Water does not dissolve every substance equally: nonpolar oils remain poorly miscible with water without other molecules such as surfactants. The partially negative oxygen region of water tends to orient toward Na⁺.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.2"
+      ],
+      "level": "shared",
+      "prompt": "A cell contains more effective solute than its surrounding solution. What is the outside medium?",
+      "marks": 1,
+      "sectionId": "d23-2",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "d23-2-o1",
+          "text": "Hypotonic",
+          "correct": true,
+          "feedback": "Correct. For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more."
+        },
+        {
+          "id": "d23-2-o2",
+          "text": "Hypertonic",
+          "correct": false,
+          "feedback": "Incorrect. Hypertonic means higher effective solute concentration outside the cell."
+        },
+        {
+          "id": "d23-2-o3",
+          "text": "Isotonic",
+          "correct": false,
+          "feedback": "Incorrect. Hypertonic means higher effective solute concentration outside the cell."
+        },
+        {
+          "id": "d23-2-o4",
+          "text": "Purely nonpolar",
+          "correct": false,
+          "feedback": "Incorrect. Hypertonic means higher effective solute concentration outside the cell."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-2",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.2"
+      ],
+      "level": "shared",
+      "prompt": "Explain compare solutions by effective solute concentration with a biological example, and correct this misconception: \"Hypertonic means the surrounding solution has fewer effective solute particles than the cell.\"",
+      "marks": 3,
+      "sectionId": "d23-2",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "For a membrane permeable to water but not the relevant solute, water tends to move from the side with less osmotically effective solute to the side with more. Relative to a cell, a hypotonic surrounding solution has lower effective solute concentration; a hypertonic solution has higher; an isotonic solution produces no sustained net volume change. Tonicity depends on solutes that do not rapidly cross the membrane and their osmotic effects. If some solutes pass freely, simple concentration comparisons can be misleading. At this SL level, work with idealized nonpenetrating solutes and no opposing hydrostatic pressure unless stated. Hypertonic means higher effective solute concentration outside the cell.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.3"
+      ],
+      "level": "shared",
+      "prompt": "Which statement best describes an isotonic cell environment?",
+      "marks": 1,
+      "sectionId": "d23-3",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "d23-3-o1",
+          "text": "Water crosses both ways with zero net flux",
+          "correct": true,
+          "feedback": "Correct. Osmosis is net water movement across a selectively permeable membrane down a water-potential difference."
+        },
+        {
+          "id": "d23-3-o2",
+          "text": "Water never crosses the plasma membrane",
+          "correct": false,
+          "feedback": "Incorrect. Water continues moving in both directions; net flux is zero at equilibrium."
+        },
+        {
+          "id": "d23-3-o3",
+          "text": "Only dissolved ions move",
+          "correct": false,
+          "feedback": "Incorrect. Water continues moving in both directions; net flux is zero at equilibrium."
+        },
+        {
+          "id": "d23-3-o4",
+          "text": "The cell must undergo plasmolysis",
+          "correct": false,
+          "feedback": "Incorrect. Water continues moving in both directions; net flux is zero at equilibrium."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-3",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.3"
+      ],
+      "level": "shared",
+      "prompt": "Explain osmosis is passive net movement of water with a biological example, and correct this misconception: \"Water molecules stop moving when the solution becomes isotonic.\"",
+      "marks": 3,
+      "sectionId": "d23-3",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "Osmosis is net water movement across a selectively permeable membrane down a water-potential difference. In a simplified cell without a rigid wall and with negligible pressure differences, water enters from a hypotonic medium and leaves into a hypertonic medium. At isotonic conditions, individual water molecules continue crossing the membrane in both directions, but the opposing fluxes balance and there is no net volume change. Calling isotonic conditions 'no movement of water' confuses equilibrium with stillness. Water continues moving in both directions; net flux is zero at equilibrium.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.4"
+      ],
+      "level": "shared",
+      "prompt": "In a controlled potato osmosis model, what does zero mean mass change approximately indicate?",
+      "marks": 1,
+      "sectionId": "d23-4",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "d23-4-o1",
+          "text": "An isotonic solution under the tested conditions",
+          "correct": true,
+          "feedback": "Correct. In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration."
+        },
+        {
+          "id": "d23-4-o2",
+          "text": "Complete destruction of the cellulose wall",
+          "correct": false,
+          "feedback": "Incorrect. More concentrated external solute commonly drives net water loss from plant tissue."
+        },
+        {
+          "id": "d23-4-o3",
+          "text": "The absence of water crossing membranes",
+          "correct": false,
+          "feedback": "Incorrect. More concentrated external solute commonly drives net water loss from plant tissue."
+        },
+        {
+          "id": "d23-4-o4",
+          "text": "A guaranteed water potential of exactly zero kPa",
+          "correct": false,
+          "feedback": "Incorrect. More concentrated external solute commonly drives net water loss from plant tissue."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-4",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.4"
+      ],
+      "level": "shared",
+      "prompt": "Explain measure a plant-tissue osmosis response with a biological example, and correct this misconception: \"The most concentrated sucrose solution must cause the greatest mass gain.\"",
+      "marks": 3,
+      "sectionId": "d23-4",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration. In hypotonic treatments tissue typically gains mass; in hypertonic treatments it loses mass. Calculate percentage mass change relative to each initial mass, and plot mean change against concentration. With repeated cylinders at each concentration, compare variability using standard deviation and the precision of means using standard error. The concentration where the mean mass change crosses zero is an estimate of the tissue's isotonic point under experimental assumptions, not an absolute universal value. More concentrated external solute commonly drives net water loss from plant tissue.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-potato-data-1b",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "D2.3.4"
+      ],
+      "level": "shared",
+      "prompt": "From the hypothetical potato mass-change data, estimate by linear interpolation the isotonic sucrose concentration and identify one uncertainty that repeat trials could help assess.",
+      "marks": 2,
+      "sectionId": "d23-4",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "Zero occurs about one-third of the way from 0.30 to 0.40 mol dm⁻³, giving 0.333 mol dm⁻³. Repeated samples permit SD or SE evaluation; the linear assumption and tissue variability remain limitations.",
+      "markingPoints": [
+        "Interpolates the zero crossing to about 0.333 mol dm⁻³.",
+        "Identifies biological variability or measurement precision as a relevant uncertainty."
+      ],
+      "data": {
+        "caption": "Explicitly modelled sucrose effects; not original experiment observations",
+        "headers": [
+          "Sucrose concentration (mol dm⁻³)",
+          "Mean percentage mass change"
+        ],
+        "rows": [
+          [
+            0.2,
+            4
+          ],
+          [
+            0.3,
+            1
+          ],
+          [
+            0.4,
+            -2
+          ]
+        ]
+      },
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.5"
+      ],
+      "level": "shared",
+      "prompt": "What may happen to a red blood cell in an extremely hypotonic solution?",
+      "marks": 1,
+      "sectionId": "d23-5",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "d23-5-o1",
+          "text": "It can swell and lyse",
+          "correct": true,
+          "feedback": "Correct. An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis."
+        },
+        {
+          "id": "d23-5-o2",
+          "text": "It becomes turgid against a cellulose wall",
+          "correct": false,
+          "feedback": "Incorrect. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+        },
+        {
+          "id": "d23-5-o3",
+          "text": "It invariably plasmolyses",
+          "correct": false,
+          "feedback": "Incorrect. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+        },
+        {
+          "id": "d23-5-o4",
+          "text": "It stops exchanging water",
+          "correct": false,
+          "feedback": "Incorrect. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-5",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.5"
+      ],
+      "level": "shared",
+      "prompt": "Explain cells lacking walls can swell or shrink with a biological example, and correct this misconception: \"A mammalian cell cannot burst because its cell wall resists swelling.\"",
+      "marks": 3,
+      "sectionId": "d23-5",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis. In a hypertonic solution, it loses water, shrinks and may become crenated, as red blood cells commonly do. Freshwater unicellular organisms such as some protists may accumulate water by osmosis and use contractile vacuoles to expel it. Multicellular animals maintain extracellular fluid conditions within suitable ranges to avoid damaging osmotic volume changes across their cells. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Which change indicates plasmolysis in a plant cell?",
+      "marks": 1,
+      "sectionId": "d23-6",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "d23-6-o1",
+          "text": "Membrane pulling away from the cell wall",
+          "correct": true,
+          "feedback": "Correct. Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall."
+        },
+        {
+          "id": "d23-6-o2",
+          "text": "Membrane expanding beyond the wall until lysis",
+          "correct": false,
+          "feedback": "Incorrect. The wall remains while the protoplast contracts away from it during plasmolysis."
+        },
+        {
+          "id": "d23-6-o3",
+          "text": "Cell wall instantly dissolving",
+          "correct": false,
+          "feedback": "Incorrect. The wall remains while the protoplast contracts away from it during plasmolysis."
+        },
+        {
+          "id": "d23-6-o4",
+          "text": "New stomata forming",
+          "correct": false,
+          "feedback": "Incorrect. The wall remains while the protoplast contracts away from it during plasmolysis."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-6",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Explain plant walls allow turgor and plasmolysis with a biological example, and correct this misconception: \"Plasmolysis means that the rigid cell wall shrinks with the protoplast.\"",
+      "marks": 3,
+      "sectionId": "d23-6",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. This positive turgor pressure contributes to structural support in non-woody tissues. Water loss reduces vacuole size and can pull the plasma membrane away from the wall, a condition called plasmolysis. A wilted plant may lose turgor without every cell being visibly plasmolysed; the wall remains when the protoplast shrinks. The wall remains while the protoplast contracts away from it during plasmolysis.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.7"
+      ],
+      "level": "shared",
+      "prompt": "Why must an intravenous solution have appropriate tonicity?",
+      "marks": 1,
+      "sectionId": "d23-7",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "d23-7-o1",
+          "text": "To reduce harmful cell swelling or shrinkage",
+          "correct": true,
+          "feedback": "Correct. Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context."
+        },
+        {
+          "id": "d23-7-o2",
+          "text": "To ensure all cells undergo lysis",
+          "correct": false,
+          "feedback": "Incorrect. Effective osmotic concentration and other clinical properties must be appropriate."
+        },
+        {
+          "id": "d23-7-o3",
+          "text": "To make all dissolved solutes impermeable forever",
+          "correct": false,
+          "feedback": "Incorrect. Effective osmotic concentration and other clinical properties must be appropriate."
+        },
+        {
+          "id": "d23-7-o4",
+          "text": "To guarantee it contains no ions",
+          "correct": false,
+          "feedback": "Incorrect. Effective osmotic concentration and other clinical properties must be appropriate."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-7",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.7"
+      ],
+      "level": "shared",
+      "prompt": "Explain medical solutions avoid osmotic injury with a biological example, and correct this misconception: \"Any solution with the same total mass of solute is safe for injection.\"",
+      "marks": 3,
+      "sectionId": "d23-7",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "answer": "Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context. A properly chosen isotonic solution helps avoid major water exchange that would damage blood cells. Tissues or donor organs are also bathed or perfused in appropriate preservation solutions. Sterility, electrolyte composition, pH, temperature, organ needs and patient condition also matter. A fluid that is approximately isotonic is not automatically suitable for every medical application; treatment choices are clinical decisions rather than classroom calculations. Effective osmotic concentration and other clinical properties must be appropriate.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.8"
+      ],
+      "level": "HL",
+      "prompt": "Which of these values indicates the highest water potential?",
+      "marks": 1,
+      "sectionId": "d23-8",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "options": [
+        {
+          "id": "d23-8-o1",
+          "text": "−100 kPa",
+          "correct": true,
+          "feedback": "Correct. Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state."
+        },
+        {
+          "id": "d23-8-o2",
+          "text": "−800 kPa",
+          "correct": false,
+          "feedback": "Incorrect. Zero water potential is the defined reference for pure water under stated conditions."
+        },
+        {
+          "id": "d23-8-o3",
+          "text": "−500 kPa",
+          "correct": false,
+          "feedback": "Incorrect. Zero water potential is the defined reference for pure water under stated conditions."
+        },
+        {
+          "id": "d23-8-o4",
+          "text": "−1000 kPa",
+          "correct": false,
+          "feedback": "Incorrect. Zero water potential is the defined reference for pure water under stated conditions."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-8",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.8"
+      ],
+      "level": "HL",
+      "prompt": "Explain water potential measures relative energy per volume with a biological example, and correct this misconception: \"Pure water has literally zero potential energy in every thermodynamic sense.\"",
+      "marks": 3,
+      "sectionId": "d23-8",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "answer": "Water potential Ψw is a pressure-like measure of water's potential energy per unit volume relative to a reference state. Pure water at atmospheric pressure and 20°C is assigned Ψw = 0; this is a reference, not a claim that water has no energy. The IB guide commonly uses kilopascals (kPa). Adding dissolved solute makes Ψs negative relative to pure water, lowering the water potential. A value such as −600 kPa is lower than −200 kPa because it is more negative. Values in MPa can be converted using 1 MPa = 1000 kPa. Zero water potential is the defined reference for pure water under stated conditions.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.9"
+      ],
+      "level": "HL",
+      "prompt": "Which direction is predicted between Ψw = −200 and −700 kPa?",
+      "marks": 1,
+      "sectionId": "d23-9",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "options": [
+        {
+          "id": "d23-9-o1",
+          "text": "From −200 toward −700 kPa",
+          "correct": true,
+          "feedback": "Correct. Water tends to move from a region of higher water potential to lower water potential across a permeable pathway."
+        },
+        {
+          "id": "d23-9-o2",
+          "text": "From −700 toward −200 kPa",
+          "correct": false,
+          "feedback": "Incorrect. Net movement is from higher (less negative) to lower (more negative) water potential."
+        },
+        {
+          "id": "d23-9-o3",
+          "text": "Neither side can exchange water",
+          "correct": false,
+          "feedback": "Incorrect. Net movement is from higher (less negative) to lower (more negative) water potential."
+        },
+        {
+          "id": "d23-9-o4",
+          "text": "Always toward the cell with more positive pressure, regardless of total potential",
+          "correct": false,
+          "feedback": "Incorrect. Net movement is from higher (less negative) to lower (more negative) water potential."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-9",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.9"
+      ],
+      "level": "HL",
+      "prompt": "Explain potential-energy differences determine direction with a biological example, and correct this misconception: \"Water always moves from the most negative potential to the least negative.\"",
+      "marks": 3,
+      "sectionId": "d23-9",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "answer": "Water tends to move from a region of higher water potential to lower water potential across a permeable pathway. Numerically, −200 kPa is higher than −600 kPa; absent other constraints the net flow tends from −200 toward −600 until equilibrium. In cells with walls, turgor pressure raises internal potential and can oppose the inward tendency caused by the solutes. Therefore, comparing solute concentration alone cannot always predict water movement when pressure differences are substantial. Net movement is from higher (less negative) to lower (more negative) water potential.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.10"
+      ],
+      "level": "HL",
+      "prompt": "For Ψs = −800 kPa and Ψp = +600 kPa, what is Ψw?",
+      "marks": 1,
+      "sectionId": "d23-10",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "options": [
+        {
+          "id": "d23-10-o1",
+          "text": "−200 kPa",
+          "correct": true,
+          "feedback": "Correct. For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell."
+        },
+        {
+          "id": "d23-10-o2",
+          "text": "+1400 kPa",
+          "correct": false,
+          "feedback": "Incorrect. Xylem tension may give a negative pressure potential."
+        },
+        {
+          "id": "d23-10-o3",
+          "text": "−1400 kPa",
+          "correct": false,
+          "feedback": "Incorrect. Xylem tension may give a negative pressure potential."
+        },
+        {
+          "id": "d23-10-o4",
+          "text": "+200 kPa",
+          "correct": false,
+          "feedback": "Incorrect. Xylem tension may give a negative pressure potential."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-10",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.10"
+      ],
+      "level": "HL",
+      "prompt": "Explain the ib two-component cell equation with a biological example, and correct this misconception: \"Pressure potential is always zero or positive, including in xylem under tension.\"",
+      "marks": 3,
+      "sectionId": "d23-10",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "answer": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings. If Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa. Negative pressure can occur in xylem under tension, so pressure potential is not always positive. Units on both terms must match before addition. Xylem tension may give a negative pressure potential.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.11"
+      ],
+      "level": "HL",
+      "prompt": "A plant cell has Ψw = −200 kPa. What happens initially at external Ψw = −500 kPa?",
+      "marks": 1,
+      "sectionId": "d23-11",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "options": [
+        {
+          "id": "d23-11-o1",
+          "text": "Net water leaves the cell",
+          "correct": true,
+          "feedback": "Correct. When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling."
+        },
+        {
+          "id": "d23-11-o2",
+          "text": "Net water enters the cell",
+          "correct": false,
+          "feedback": "Incorrect. Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+        },
+        {
+          "id": "d23-11-o3",
+          "text": "All water flux instantly stops",
+          "correct": false,
+          "feedback": "Incorrect. Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+        },
+        {
+          "id": "d23-11-o4",
+          "text": "The cell's DNA replicates",
+          "correct": false,
+          "feedback": "Incorrect. Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d23-response-11",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.3.11"
+      ],
+      "level": "HL",
+      "prompt": "Explain predict turgor changes with both contributions with a biological example, and correct this misconception: \"A more concentrated surrounding solution always gives a plant cell higher turgor.\"",
+      "marks": 3,
+      "sectionId": "d23-11",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis",
+        "openstax-potential"
+      ],
+      "answer": "When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling. Net entry slows until inside and outside water potentials match. In a sufficiently hypertonic solution, water leaves, pressure falls toward zero and plasmolysis can develop. For a cell with Ψs = −800 kPa and Ψp = +600 kPa, Ψw is −200 kPa. Against an exterior Ψw of −100 kPa, net water enters initially; against −500 kPa, net water leaves initially. These are short-term predictions assuming a selectively water-permeable membrane and stated potentials remain momentarily fixed. Higher external solute usually lowers water potential and can draw water out, reducing turgor.",
+      "markingPoints": [
+        "Use correct definitions and identify relevant conditions.",
+        "Explain direction or molecular mechanism and biological consequence.",
+        "Correct the misconception while respecting assumptions and units."
+      ],
+      "review": "draft"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-d23",
+      "title": "IB Biology Guide (first assessment 2025), D2.3",
+      "locator": "Syllabus pp.94–95; SL/HL scope and water-potential equation",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-d23",
+      "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+      "locator": "D2.3 Water potential, printed pp.681–692 (PDF pp.693–704)",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "openstax-osmosis",
+      "title": "OpenStax Biology, 5.2 Passive Transport",
+      "url": "https://openstax.org/books/biology/pages/5-2-passive-transport",
+      "locator": "Tonicity, cell swelling, crenation, plasmolysis and dynamic equilibrium",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "openstax-potential",
+      "title": "OpenStax Biology, 30.5 Transport of Water and Solutes in Plants",
+      "url": "https://openstax.org/books/biology/pages/30-5-transport-of-water-and-solutes-in-plants",
+      "locator": "Water-potential reference convention; pressure, solute and other potentials",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    }
+  ],
+  "assets": [
+    {
+      "id": "d23-potato-model",
+      "kind": "schematic",
+      "src": "/biology/water-potential/potato-model-graph.svg",
+      "alt": "Original hypothetical graph: potato-tissue percentage mass change of +4% at 0.20 mol dm⁻³ sucrose, +1% at 0.30 mol dm⁻³ and −2% at 0.40 mol dm⁻³. The interpolated isotonic concentration is approximately 0.333 mol dm⁻³; data are illustrative model values, not measurements.",
+      "captionTitle": "Find the isotonic concentration from a mass-change graph",
+      "interpretation": "Positive values mean tissue gained water. Identify the x-intercept from zero mass change, not from the largest mass loss. No uncertainty bars are claimed for these hypothetical observations.",
+      "attribution": "Original BioLab modelled graph; invented teaching data clearly labelled",
+      "license": "Original first-party authored SVG",
+      "permissionEvidence": "New quantitative graph authored for this topic; no third-party copyrighted figure used",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    }
+  ],
+  "summary": "Osmosis is net movement from higher to lower water potential; tonicity predicts many cell-volume responses under equal-pressure conditions, while plant turgor and xylem tension require explicit pressure-potential reasoning.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "IB Biology Guide 2025 D2.3 and Hodder 2023 D2.3 define SL and HL boundaries.",
+      "OpenStax independently corroborates turgor, plasmolysis and water-potential signs; broader physical models may include gravitational and matric terms outside the IB cell-level equation.",
+      "Potato-graph data are hypothetical and fully labelled; confidence interval or error bars require real repeats, which have not been gathered.",
+      "No qualified scientific and assessment approval; all numerical examples need final mathematical spot check and visual review."
+    ]
+  }
+}

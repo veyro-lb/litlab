@@ -1,0 +1,2053 @@
+{
+  "schemaVersion": 1,
+  "id": "d1-1-dna-replication-v1",
+  "topicId": "D1.1",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "DNA replication",
+  "introduction": "How can a cell preserve its genetic sequence while synthesizing two new DNA duplexes, and how do polymerases overcome antiparallel templates?",
+  "learningPath": [
+    "Copy the genetic sequence",
+    "Open and extend paired templates",
+    "Amplify and identify DNA",
+    "HL: solve the directionality problem and proofread"
+  ],
+  "prerequisites": [
+    "A1.2 nucleotides, DNA base pairing and antiparallel strands",
+    "DNA as genetic information",
+    "Difference between hydrogen and covalent bonds"
+  ],
+  "objectives": [
+    "Explain semiconservative DNA copying and complementary pairing",
+    "Apply PCR and gel separation to real investigations",
+    "For HL, reason about polymerase polarity, bacterial enzymes and proofreading"
+  ],
+  "sections": [
+    {
+      "id": "d11-1",
+      "understandingIds": [
+        "D1.1.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What must happen before two daughter cells inherit complete copies of a chromosome?",
+      "explanation": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence. Accurate sequence copying allows the new cells in a growing root, a healing wound or a dividing bacterium to retain the genetic instructions of the parent cell. It does not mean that replication is perfectly error-free; rare mistakes can persist as mutations.\n\nThe DNA sequence serves as an ordered template. Replication copies the whole DNA molecule; transcription later uses selected DNA regions to produce RNA. Keeping these processes distinct explains how a cell can preserve genes while changing which genes it expresses.",
+      "revisionSummary": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence. The DNA sequence serves as an ordered template.",
+      "terms": [
+        "Replication: key term in D1.1.1",
+        "Chromosome: key term in D1.1.1"
+      ],
+      "workedExample": "A skin basal cell duplicates its genomic DNA before mitosis so its daughters can continue producing skin tissue.",
+      "misconceptions": [
+        {
+          "misconception": "Replication makes RNA copies for translation.",
+          "correction": "Replication produces new DNA molecules; transcription produces RNA."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence. Accurate sequence copying allows the new cells in a growing root, a healing wound or a dividing bacterium to retain the genetic instructions of the parent cell. It does not mean that replication is perfectly error-free; rare mistakes can persist as mutations.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "The DNA sequence serves as an ordered template. Replication copies the whole DNA molecule; transcription later uses selected DNA regions to produce RNA. Keeping these processes distinct explains how a cell can preserve genes while changing which genes it expresses.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-1",
+          "prompt": "What must happen before two daughter cells inherit complete copies of a chromosome?",
+          "understandingIds": [
+            "D1.1.1"
+          ],
+          "options": [
+            {
+              "id": "d11-1-o1",
+              "text": "Replicate its DNA base sequence",
+              "correct": true,
+              "feedback": "Correct. Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence."
+            },
+            {
+              "id": "d11-1-o2",
+              "text": "Translate every gene into a protein",
+              "correct": false,
+              "feedback": "Not quite. Replication produces new DNA molecules; transcription produces RNA."
+            },
+            {
+              "id": "d11-1-o3",
+              "text": "Break all phosphodiester bonds",
+              "correct": false,
+              "feedback": "Not quite. Replication produces new DNA molecules; transcription produces RNA."
+            },
+            {
+              "id": "d11-1-o4",
+              "text": "Replace every thymine with uracil",
+              "correct": false,
+              "feedback": "Not quite. Replication produces new DNA molecules; transcription produces RNA."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-1",
+          "understandingIds": [
+            "D1.1.1"
+          ],
+          "prompt": "Without notes, explain replication and how it relates to chromosome.",
+          "answer": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence. Accurate sequence copying allows the new cells in a growing root, a healing wound or a dividing bacterium to retain the genetic instructions of the parent cell. It does not mean that replication is perfectly error-free; rare mistakes can persist as mutations. A skin basal cell duplicates its genomic DNA before mitosis so its daughters can continue producing skin tissue.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          602
+        ],
+        "pdfPages": [
+          614
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Why DNA must be copied",
+          "explanation": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence. Accurate sequence copying allows the new cells in a growing root, a healing wound or a dividing bacterium to retain the genetic instructions of the parent cell. It does not mean that replication is perfectly error-free; rare mistakes can persist as mutations.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Copying information rather than making a new gene",
+          "explanation": "The DNA sequence serves as an ordered template. Replication copies the whole DNA molecule; transcription later uses selected DNA regions to produce RNA. Keeping these processes distinct explains how a cell can preserve genes while changing which genes it expresses.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence.",
+        "example": "A skin basal cell duplicates its genomic DNA before mitosis so its daughters can continue producing skin tissue.",
+        "different": "Notice the cause and effect: The DNA sequence serves as an ordered template.",
+        "concepts": [
+          {
+            "title": "Replication",
+            "keywords": [
+              "replication"
+            ],
+            "explanation": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence."
+          },
+          {
+            "title": "Chromosome",
+            "keywords": [
+              "chromosome"
+            ],
+            "explanation": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d11-2",
+      "understandingIds": [
+        "D1.1.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "After semi-conservative replication, each daughter DNA duplex contains which strands?",
+      "explanation": "The two parental DNA strands separate. Each becomes a template for synthesis of a complementary new strand, producing two double helices that each contain one original strand and one newly made strand. This arrangement is called semi-conservative, not conservative or dispersive.\n\nA pairs with T and G pairs with C in DNA. When a template exposes a base, the matching incoming deoxyribonucleotide can pair at that position. Enzyme selectivity and later proofreading further increase fidelity: complementary pairing alone is not an absolute guarantee against mistakes.",
+      "revisionSummary": "The two parental DNA strands separate. A pairs with T and G pairs with C in DNA.",
+      "terms": [
+        "Semi-conservative: key term in D1.1.2",
+        "Complementary pairing: key term in D1.1.2"
+      ],
+      "workedExample": "For a short template 3′-TACG-5′, the new antiparallel DNA strand is 5′-ATGC-3′.",
+      "misconceptions": [
+        {
+          "misconception": "One daughter duplex receives both original DNA strands.",
+          "correction": "Each daughter duplex contains one original and one newly synthesized strand."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The two parental DNA strands separate. Each becomes a template for synthesis of a complementary new strand, producing two double helices that each contain one original strand and one newly made strand. This arrangement is called semi-conservative, not conservative or dispersive.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "A pairs with T and G pairs with C in DNA. When a template exposes a base, the matching incoming deoxyribonucleotide can pair at that position. Enzyme selectivity and later proofreading further increase fidelity: complementary pairing alone is not an absolute guarantee against mistakes.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-2",
+          "prompt": "After semi-conservative replication, each daughter DNA duplex contains which strands?",
+          "understandingIds": [
+            "D1.1.2"
+          ],
+          "options": [
+            {
+              "id": "d11-2-o1",
+              "text": "One parental and one new strand",
+              "correct": true,
+              "feedback": "Correct. The two parental DNA strands separate."
+            },
+            {
+              "id": "d11-2-o2",
+              "text": "Two original parental strands",
+              "correct": false,
+              "feedback": "Not quite. Each daughter duplex contains one original and one newly synthesized strand."
+            },
+            {
+              "id": "d11-2-o3",
+              "text": "Two unrelated DNA molecules",
+              "correct": false,
+              "feedback": "Not quite. Each daughter duplex contains one original and one newly synthesized strand."
+            },
+            {
+              "id": "d11-2-o4",
+              "text": "Only newly synthesized strands",
+              "correct": false,
+              "feedback": "Not quite. Each daughter duplex contains one original and one newly synthesized strand."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-2",
+          "understandingIds": [
+            "D1.1.2"
+          ],
+          "prompt": "Without notes, explain semi-conservative and how it relates to complementary pairing.",
+          "answer": "The two parental DNA strands separate. Each becomes a template for synthesis of a complementary new strand, producing two double helices that each contain one original strand and one newly made strand. This arrangement is called semi-conservative, not conservative or dispersive. For a short template 3′-TACG-5′, the new antiparallel DNA strand is 5′-ATGC-3′.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          603
+        ],
+        "pdfPages": [
+          615
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "One original strand in each daughter duplex",
+          "explanation": "The two parental DNA strands separate. Each becomes a template for synthesis of a complementary new strand, producing two double helices that each contain one original strand and one newly made strand. This arrangement is called semi-conservative, not conservative or dispersive.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "How complementary pairing makes copying accurate",
+          "explanation": "A pairs with T and G pairs with C in DNA. When a template exposes a base, the matching incoming deoxyribonucleotide can pair at that position. Enzyme selectivity and later proofreading further increase fidelity: complementary pairing alone is not an absolute guarantee against mistakes.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "The two parental DNA strands separate.",
+        "example": "For a short template 3′-TACG-5′, the new antiparallel DNA strand is 5′-ATGC-3′.",
+        "different": "Notice the cause and effect: A pairs with T and G pairs with C in DNA.",
+        "concepts": [
+          {
+            "title": "Semi-conservative",
+            "keywords": [
+              "semi-conservative"
+            ],
+            "explanation": "The two parental DNA strands separate."
+          },
+          {
+            "title": "Complementary pairing",
+            "keywords": [
+              "complementary pairing"
+            ],
+            "explanation": "The two parental DNA strands separate."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d11-3",
+      "understandingIds": [
+        "D1.1.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the immediate action of helicase at a replication fork?",
+      "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. The sugar–phosphate backbones remain intact at the fork; helicase does not cut the strands into nucleotides.\n\nDNA polymerase selects incoming deoxyribonucleotides against the DNA template and catalyses phosphodiester-bond formation in the growing strand. In ordinary cellular replication it extends an existing primer rather than starting a strand from nothing. Its accuracy depends on base selection and, for proofreading polymerases, exonuclease activity.",
+      "revisionSummary": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. DNA polymerase selects incoming deoxyribonucleotides against the DNA template and catalyses phosphodiester-bond formation in the growing strand.",
+      "terms": [
+        "Helicase: key term in D1.1.3",
+        "DNA polymerase: key term in D1.1.3"
+      ],
+      "workedExample": "At an advancing bacterial replication fork, helicase opens the duplex while polymerase synthesizes DNA along each exposed template.",
+      "misconceptions": [
+        {
+          "misconception": "Helicase breaks covalent bonds in the DNA backbone.",
+          "correction": "Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. The sugar–phosphate backbones remain intact at the fork; helicase does not cut the strands into nucleotides.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "DNA polymerase selects incoming deoxyribonucleotides against the DNA template and catalyses phosphodiester-bond formation in the growing strand. In ordinary cellular replication it extends an existing primer rather than starting a strand from nothing. Its accuracy depends on base selection and, for proofreading polymerases, exonuclease activity.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-3",
+          "prompt": "What is the immediate action of helicase at a replication fork?",
+          "understandingIds": [
+            "D1.1.3"
+          ],
+          "options": [
+            {
+              "id": "d11-3-o1",
+              "text": "Separate DNA strands by disrupting base-pair hydrogen bonds",
+              "correct": true,
+              "feedback": "Correct. Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands."
+            },
+            {
+              "id": "d11-3-o2",
+              "text": "Join Okazaki fragments by covalent bonds",
+              "correct": false,
+              "feedback": "Not quite. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+            },
+            {
+              "id": "d11-3-o3",
+              "text": "Add amino acids to DNA",
+              "correct": false,
+              "feedback": "Not quite. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+            },
+            {
+              "id": "d11-3-o4",
+              "text": "Replace RNA primers with DNA",
+              "correct": false,
+              "feedback": "Not quite. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-3",
+          "understandingIds": [
+            "D1.1.3"
+          ],
+          "prompt": "Without notes, explain helicase and how it relates to dna polymerase.",
+          "answer": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. The sugar–phosphate backbones remain intact at the fork; helicase does not cut the strands into nucleotides. At an advancing bacterial replication fork, helicase opens the duplex while polymerase synthesizes DNA along each exposed template.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          604
+        ],
+        "pdfPages": [
+          616
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "The work done by helicase",
+          "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. The sugar–phosphate backbones remain intact at the fork; helicase does not cut the strands into nucleotides.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "DNA polymerase extends a complementary copy",
+          "explanation": "DNA polymerase selects incoming deoxyribonucleotides against the DNA template and catalyses phosphodiester-bond formation in the growing strand. In ordinary cellular replication it extends an existing primer rather than starting a strand from nothing. Its accuracy depends on base selection and, for proofreading polymerases, exonuclease activity.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands.",
+        "example": "At an advancing bacterial replication fork, helicase opens the duplex while polymerase synthesizes DNA along each exposed template.",
+        "different": "Notice the cause and effect: DNA polymerase selects incoming deoxyribonucleotides against the DNA template and catalyses phosphodiester-bond formation in the growing strand.",
+        "concepts": [
+          {
+            "title": "Helicase",
+            "keywords": [
+              "helicase"
+            ],
+            "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands."
+          },
+          {
+            "title": "DNA polymerase",
+            "keywords": [
+              "dna polymerase"
+            ],
+            "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d11-4",
+      "understandingIds": [
+        "D1.1.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which sequence of conditions describes one ordinary PCR cycle?",
+      "explanation": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. The chosen primers define the target; repeated cycles can produce many copies of the region. PCR is not the same as replication of an entire chromosome.\n\nNegatively charged DNA migrates toward the positive electrode through a gel under an electric field. Under comparable conditions, shorter DNA fragments generally travel farther through the gel. DNA ladders supply reference fragment lengths; a band position is evidence about fragment size, not by itself the complete nucleotide sequence.",
+      "revisionSummary": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. Negatively charged DNA migrates toward the positive electrode through a gel under an electric field.",
+      "terms": [
+        "PCR: key term in D1.1.4",
+        "Electrophoresis: key term in D1.1.4"
+      ],
+      "workedExample": "Amplify a candidate 300-base-pair locus with paired primers, then compare its gel band position with a DNA ladder.",
+      "misconceptions": [
+        {
+          "misconception": "DNA moves to the negative electrode in ordinary gel electrophoresis.",
+          "correction": "DNA has a negatively charged backbone and migrates toward the positive electrode."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. The chosen primers define the target; repeated cycles can produce many copies of the region. PCR is not the same as replication of an entire chromosome.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "Negatively charged DNA migrates toward the positive electrode through a gel under an electric field. Under comparable conditions, shorter DNA fragments generally travel farther through the gel. DNA ladders supply reference fragment lengths; a band position is evidence about fragment size, not by itself the complete nucleotide sequence.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-4",
+          "prompt": "Which sequence of conditions describes one ordinary PCR cycle?",
+          "understandingIds": [
+            "D1.1.4"
+          ],
+          "options": [
+            {
+              "id": "d11-4-o1",
+              "text": "Denaturation, primer annealing, polymerase extension",
+              "correct": true,
+              "feedback": "Correct. A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers."
+            },
+            {
+              "id": "d11-4-o2",
+              "text": "Translation, transcription, replication",
+              "correct": false,
+              "feedback": "Not quite. DNA has a negatively charged backbone and migrates toward the positive electrode."
+            },
+            {
+              "id": "d11-4-o3",
+              "text": "Polymerase extension, protein folding, mitosis",
+              "correct": false,
+              "feedback": "Not quite. DNA has a negatively charged backbone and migrates toward the positive electrode."
+            },
+            {
+              "id": "d11-4-o4",
+              "text": "Gel separation, ligation, protein sorting",
+              "correct": false,
+              "feedback": "Not quite. DNA has a negatively charged backbone and migrates toward the positive electrode."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-4",
+          "understandingIds": [
+            "D1.1.4"
+          ],
+          "prompt": "Without notes, explain pcr and how it relates to electrophoresis.",
+          "answer": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. The chosen primers define the target; repeated cycles can produce many copies of the region. PCR is not the same as replication of an entire chromosome. Amplify a candidate 300-base-pair locus with paired primers, then compare its gel band position with a DNA ladder.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          606
+        ],
+        "pdfPages": [
+          618
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "PCR amplifies a selected DNA region",
+          "explanation": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. The chosen primers define the target; repeated cycles can produce many copies of the region. PCR is not the same as replication of an entire chromosome.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Gel electrophoresis sorts DNA by size",
+          "explanation": "Negatively charged DNA migrates toward the positive electrode through a gel under an electric field. Under comparable conditions, shorter DNA fragments generally travel farther through the gel. DNA ladders supply reference fragment lengths; a band position is evidence about fragment size, not by itself the complete nucleotide sequence.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers.",
+        "example": "Amplify a candidate 300-base-pair locus with paired primers, then compare its gel band position with a DNA ladder.",
+        "different": "Notice the cause and effect: Negatively charged DNA migrates toward the positive electrode through a gel under an electric field.",
+        "concepts": [
+          {
+            "title": "PCR",
+            "keywords": [
+              "pcr"
+            ],
+            "explanation": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers."
+          },
+          {
+            "title": "Electrophoresis",
+            "keywords": [
+              "electrophoresis"
+            ],
+            "explanation": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d11-5",
+      "understandingIds": [
+        "D1.1.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why are several independent DNA markers used in forensic profiling?",
+      "explanation": "Forensic investigations and parentage testing compare informative DNA markers. Amplification makes small samples analysable and gel or capillary separation distinguishes fragment-length patterns. Agreement at one marker is weak evidence; combining multiple independent markers can greatly reduce the chance of a coincidental match.\n\nA DNA profile is evidence to be interpreted with sample integrity, contamination controls, population frequencies and a documented chain of custody. A match does not prove when or how biological material arrived at a scene, nor does a paternity result identify a person using one band alone.",
+      "revisionSummary": "Forensic investigations and parentage testing compare informative DNA markers. A DNA profile is evidence to be interpreted with sample integrity, contamination controls, population frequencies and a documented chain of custody.",
+      "terms": [
+        "Genetic marker: key term in D1.1.5",
+        "False match: key term in D1.1.5"
+      ],
+      "workedExample": "A disputed parentage case compares several inherited short tandem repeat markers, rather than relying on a single PCR band.",
+      "misconceptions": [
+        {
+          "misconception": "One matching DNA band establishes the donor's identity with certainty.",
+          "correction": "A reliable identification integrates multiple markers, controls and statistical interpretation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Forensic investigations and parentage testing compare informative DNA markers. Amplification makes small samples analysable and gel or capillary separation distinguishes fragment-length patterns. Agreement at one marker is weak evidence; combining multiple independent markers can greatly reduce the chance of a coincidental match.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "A DNA profile is evidence to be interpreted with sample integrity, contamination controls, population frequencies and a documented chain of custody. A match does not prove when or how biological material arrived at a scene, nor does a paternity result identify a person using one band alone.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-5",
+          "prompt": "Why are several independent DNA markers used in forensic profiling?",
+          "understandingIds": [
+            "D1.1.5"
+          ],
+          "options": [
+            {
+              "id": "d11-5-o1",
+              "text": "They lower the probability of a coincidental match",
+              "correct": true,
+              "feedback": "Correct. Forensic investigations and parentage testing compare informative DNA markers."
+            },
+            {
+              "id": "d11-5-o2",
+              "text": "They guarantee all samples are free of contamination",
+              "correct": false,
+              "feedback": "Not quite. A reliable identification integrates multiple markers, controls and statistical interpretation."
+            },
+            {
+              "id": "d11-5-o3",
+              "text": "They convert DNA into protein",
+              "correct": false,
+              "feedback": "Not quite. A reliable identification integrates multiple markers, controls and statistical interpretation."
+            },
+            {
+              "id": "d11-5-o4",
+              "text": "They make each chromosome the same length",
+              "correct": false,
+              "feedback": "Not quite. A reliable identification integrates multiple markers, controls and statistical interpretation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-5",
+          "understandingIds": [
+            "D1.1.5"
+          ],
+          "prompt": "Without notes, explain genetic marker and how it relates to false match.",
+          "answer": "Forensic investigations and parentage testing compare informative DNA markers. Amplification makes small samples analysable and gel or capillary separation distinguishes fragment-length patterns. Agreement at one marker is weak evidence; combining multiple independent markers can greatly reduce the chance of a coincidental match. A disputed parentage case compares several inherited short tandem repeat markers, rather than relying on a single PCR band.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          607
+        ],
+        "pdfPages": [
+          619
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "From a DNA pattern to an inference",
+          "explanation": "Forensic investigations and parentage testing compare informative DNA markers. Amplification makes small samples analysable and gel or capillary separation distinguishes fragment-length patterns. Agreement at one marker is weak evidence; combining multiple independent markers can greatly reduce the chance of a coincidental match.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Limits of genetic identification",
+          "explanation": "A DNA profile is evidence to be interpreted with sample integrity, contamination controls, population frequencies and a documented chain of custody. A match does not prove when or how biological material arrived at a scene, nor does a paternity result identify a person using one band alone.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Forensic investigations and parentage testing compare informative DNA markers.",
+        "example": "A disputed parentage case compares several inherited short tandem repeat markers, rather than relying on a single PCR band.",
+        "different": "Notice the cause and effect: A DNA profile is evidence to be interpreted with sample integrity, contamination controls, population frequencies and a documented chain of custody.",
+        "concepts": [
+          {
+            "title": "Genetic marker",
+            "keywords": [
+              "genetic marker"
+            ],
+            "explanation": "Forensic investigations and parentage testing compare informative DNA markers."
+          },
+          {
+            "title": "False match",
+            "keywords": [
+              "false match"
+            ],
+            "explanation": "Forensic investigations and parentage testing compare informative DNA markers."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d11-6",
+      "understandingIds": [
+        "D1.1.6"
+      ],
+      "level": "HL",
+      "guidingQuestion": "At which end can DNA polymerase add the next nucleotide?",
+      "explanation": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon. The two template strands in a duplex run antiparallel. DNA polymerase attaches an incoming nucleotide's 5′ phosphate to the free 3′ hydroxyl of the growing strand; every new DNA strand therefore elongates 5′→3′.\n\nAs polymerase extends new DNA in the 5′→3′ direction, it reads the complementary template in the 3′→5′ direction. An arrow in a diagram must identify whether it shows fork motion, template direction or strand elongation; these are not interchangeable.",
+      "revisionSummary": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon. As polymerase extends new DNA in the 5′→3′ direction, it reads the complementary template in the 3′→5′ direction.",
+      "terms": [
+        "5′ end: key term in D1.1.6",
+        "3′ hydroxyl: key term in D1.1.6"
+      ],
+      "workedExample": "For template 3′-ACGT-5′ read from left to right, polymerase extends 5′-TGCA-3′ toward the right.",
+      "misconceptions": [
+        {
+          "misconception": "DNA polymerase sometimes builds new DNA 3′→5′ on the lagging strand.",
+          "correction": "Both leading and lagging products are always synthesized 5′→3′."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon. The two template strands in a duplex run antiparallel. DNA polymerase attaches an incoming nucleotide's 5′ phosphate to the free 3′ hydroxyl of the growing strand; every new DNA strand therefore elongates 5′→3′.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "As polymerase extends new DNA in the 5′→3′ direction, it reads the complementary template in the 3′→5′ direction. An arrow in a diagram must identify whether it shows fork motion, template direction or strand elongation; these are not interchangeable.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-6",
+          "prompt": "At which end can DNA polymerase add the next nucleotide?",
+          "understandingIds": [
+            "D1.1.6"
+          ],
+          "options": [
+            {
+              "id": "d11-6-o1",
+              "text": "The free 3′ end of the growing strand",
+              "correct": true,
+              "feedback": "Correct. A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon."
+            },
+            {
+              "id": "d11-6-o2",
+              "text": "The 5′ end of the growing strand",
+              "correct": false,
+              "feedback": "Not quite. Both leading and lagging products are always synthesized 5′→3′."
+            },
+            {
+              "id": "d11-6-o3",
+              "text": "Either end with equal probability",
+              "correct": false,
+              "feedback": "Not quite. Both leading and lagging products are always synthesized 5′→3′."
+            },
+            {
+              "id": "d11-6-o4",
+              "text": "The middle of an intact phosphodiester bond",
+              "correct": false,
+              "feedback": "Not quite. Both leading and lagging products are always synthesized 5′→3′."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-6",
+          "understandingIds": [
+            "D1.1.6"
+          ],
+          "prompt": "Without notes, explain 5′ end and how it relates to 3′ hydroxyl.",
+          "answer": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon. The two template strands in a duplex run antiparallel. DNA polymerase attaches an incoming nucleotide's 5′ phosphate to the free 3′ hydroxyl of the growing strand; every new DNA strand therefore elongates 5′→3′. For template 3′-ACGT-5′ read from left to right, polymerase extends 5′-TGCA-3′ toward the right.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          609
+        ],
+        "pdfPages": [
+          621
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Antiparallel strands create the directional constraint",
+          "explanation": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon. The two template strands in a duplex run antiparallel. DNA polymerase attaches an incoming nucleotide's 5′ phosphate to the free 3′ hydroxyl of the growing strand; every new DNA strand therefore elongates 5′→3′.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Reading direction is not synthesis direction",
+          "explanation": "As polymerase extends new DNA in the 5′→3′ direction, it reads the complementary template in the 3′→5′ direction. An arrow in a diagram must identify whether it shows fork motion, template direction or strand elongation; these are not interchangeable.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon.",
+        "example": "For template 3′-ACGT-5′ read from left to right, polymerase extends 5′-TGCA-3′ toward the right.",
+        "different": "Notice the cause and effect: As polymerase extends new DNA in the 5′→3′ direction, it reads the complementary template in the 3′→5′ direction.",
+        "concepts": [
+          {
+            "title": "5′ end",
+            "keywords": [
+              "5′ end"
+            ],
+            "explanation": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon."
+          },
+          {
+            "title": "3′ hydroxyl",
+            "keywords": [
+              "3′ hydroxyl"
+            ],
+            "explanation": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d11-7",
+      "understandingIds": [
+        "D1.1.7"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What distinguishes the newly synthesized lagging strand from the leading strand?",
+      "explanation": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. Because the polymerase can only extend a 3′ end, the leading template is read 3′→5′ toward the fork.\n\nThe opposing lagging template has the reverse polarity, so short RNA primers must be placed repeatedly on newly exposed DNA. Each Okazaki fragment is extended 5′→3′ away from the advancing fork. Fragment synthesis is discontinuous, even though the finished lagging daughter strand becomes one continuous DNA molecule after primer replacement and ligation.",
+      "revisionSummary": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. The opposing lagging template has the reverse polarity, so short RNA primers must be placed repeatedly on newly exposed DNA.",
+      "terms": [
+        "Leading strand: key term in D1.1.7",
+        "Okazaki fragments: key term in D1.1.7"
+      ],
+      "workedExample": "At a right-moving fork, an individual Okazaki fragment begins nearer the fork and grows to the left; the leading daughter grows to the right.",
+      "misconceptions": [
+        {
+          "misconception": "Lagging-strand DNA is polymerized 3′→5′.",
+          "correction": "Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. Because the polymerase can only extend a 3′ end, the leading template is read 3′→5′ toward the fork.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "The opposing lagging template has the reverse polarity, so short RNA primers must be placed repeatedly on newly exposed DNA. Each Okazaki fragment is extended 5′→3′ away from the advancing fork. Fragment synthesis is discontinuous, even though the finished lagging daughter strand becomes one continuous DNA molecule after primer replacement and ligation.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [
+        "d11-orientation"
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "d11-orientation",
+          "afterBlock": 1
+        }
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-7",
+          "prompt": "What distinguishes the newly synthesized lagging strand from the leading strand?",
+          "understandingIds": [
+            "D1.1.7"
+          ],
+          "options": [
+            {
+              "id": "d11-7-o1",
+              "text": "Repeated priming and Okazaki fragments",
+              "correct": true,
+              "feedback": "Correct. On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens."
+            },
+            {
+              "id": "d11-7-o2",
+              "text": "DNA synthesis in the 3′→5′ direction",
+              "correct": false,
+              "feedback": "Not quite. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+            },
+            {
+              "id": "d11-7-o3",
+              "text": "Use of an RNA template instead of DNA",
+              "correct": false,
+              "feedback": "Not quite. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+            },
+            {
+              "id": "d11-7-o4",
+              "text": "Absence of complementary base pairing",
+              "correct": false,
+              "feedback": "Not quite. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-7",
+          "understandingIds": [
+            "D1.1.7"
+          ],
+          "prompt": "Without notes, explain leading strand and how it relates to okazaki fragments.",
+          "answer": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. Because the polymerase can only extend a 3′ end, the leading template is read 3′→5′ toward the fork. At a right-moving fork, an individual Okazaki fragment begins nearer the fork and grows to the left; the leading daughter grows to the right.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          610
+        ],
+        "pdfPages": [
+          622
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Continuous synthesis toward the fork",
+          "explanation": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. Because the polymerase can only extend a 3′ end, the leading template is read 3′→5′ toward the fork.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Discontinuous synthesis away from the fork",
+          "explanation": "The opposing lagging template has the reverse polarity, so short RNA primers must be placed repeatedly on newly exposed DNA. Each Okazaki fragment is extended 5′→3′ away from the advancing fork. Fragment synthesis is discontinuous, even though the finished lagging daughter strand becomes one continuous DNA molecule after primer replacement and ligation.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens.",
+        "example": "At a right-moving fork, an individual Okazaki fragment begins nearer the fork and grows to the left; the leading daughter grows to the right.",
+        "different": "Notice the cause and effect: The opposing lagging template has the reverse polarity, so short RNA primers must be placed repeatedly on newly exposed DNA.",
+        "concepts": [
+          {
+            "title": "Leading strand",
+            "keywords": [
+              "leading strand"
+            ],
+            "explanation": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens."
+          },
+          {
+            "title": "Okazaki fragments",
+            "keywords": [
+              "okazaki fragments"
+            ],
+            "explanation": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Orientation at a fork moving toward the right (model; not to scale)",
+          "headers": [
+            "New daughter strand",
+            "Template read",
+            "Product elongation",
+            "Primers"
+          ],
+          "rows": [
+            [
+              "Leading",
+              "3′→5′ toward the fork",
+              "5′→3′ toward the fork",
+              "Initially once"
+            ],
+            [
+              "Lagging",
+              "3′→5′ away from the fork",
+              "5′→3′ away from the fork",
+              "Repeated on newly exposed template"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d11-8",
+      "understandingIds": [
+        "D1.1.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "In bacterial DNA replication, which enzyme mainly extends new DNA from RNA primers?",
+      "explanation": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment.\n\nDNA polymerase I removes RNA primers and replaces them with DNA. DNA ligase then seals remaining nicks in the sugar–phosphate backbone, creating continuous DNA. The enzyme numbers refer to bacterial polymerases; do not automatically transplant this division of labour to eukaryotic replication.",
+      "revisionSummary": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. DNA polymerase I removes RNA primers and replaces them with DNA.",
+      "terms": [
+        "DNA polymerase I: key term in D1.1.8",
+        "DNA polymerase III: key term in D1.1.8"
+      ],
+      "workedExample": "After two bacterial Okazaki fragments are extended, polymerase I replaces their RNA starts and ligase joins adjacent DNA segments.",
+      "misconceptions": [
+        {
+          "misconception": "Ligase synthesizes RNA primers and polymerase III seals nicks.",
+          "correction": "Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "DNA polymerase I removes RNA primers and replaces them with DNA. DNA ligase then seals remaining nicks in the sugar–phosphate backbone, creating continuous DNA. The enzyme numbers refer to bacterial polymerases; do not automatically transplant this division of labour to eukaryotic replication.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-8",
+          "prompt": "In bacterial DNA replication, which enzyme mainly extends new DNA from RNA primers?",
+          "understandingIds": [
+            "D1.1.8"
+          ],
+          "options": [
+            {
+              "id": "d11-8-o1",
+              "text": "DNA polymerase III",
+              "correct": true,
+              "feedback": "Correct. In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III."
+            },
+            {
+              "id": "d11-8-o2",
+              "text": "DNA ligase",
+              "correct": false,
+              "feedback": "Not quite. Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+            },
+            {
+              "id": "d11-8-o3",
+              "text": "DNA primase",
+              "correct": false,
+              "feedback": "Not quite. Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+            },
+            {
+              "id": "d11-8-o4",
+              "text": "DNA polymerase I acting only as ligase",
+              "correct": false,
+              "feedback": "Not quite. Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-8",
+          "understandingIds": [
+            "D1.1.8"
+          ],
+          "prompt": "Without notes, explain dna polymerase i and how it relates to dna polymerase iii.",
+          "answer": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment. After two bacterial Okazaki fragments are extended, polymerase I replaces their RNA starts and ligase joins adjacent DNA segments.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          612
+        ],
+        "pdfPages": [
+          624
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Initiating replication on a bacterial template",
+          "explanation": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Replacing primers and sealing the product",
+          "explanation": "DNA polymerase I removes RNA primers and replaces them with DNA. DNA ligase then seals remaining nicks in the sugar–phosphate backbone, creating continuous DNA. The enzyme numbers refer to bacterial polymerases; do not automatically transplant this division of labour to eukaryotic replication.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III.",
+        "example": "After two bacterial Okazaki fragments are extended, polymerase I replaces their RNA starts and ligase joins adjacent DNA segments.",
+        "different": "Notice the cause and effect: DNA polymerase I removes RNA primers and replaces them with DNA.",
+        "concepts": [
+          {
+            "title": "DNA polymerase I",
+            "keywords": [
+              "dna polymerase i"
+            ],
+            "explanation": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III."
+          },
+          {
+            "title": "DNA polymerase III",
+            "keywords": [
+              "dna polymerase iii"
+            ],
+            "explanation": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d11-9",
+      "understandingIds": [
+        "D1.1.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which activity directly removes a mismatched terminal nucleotide during bacterial polymerase III proofreading?",
+      "explanation": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. If the 3′ end carries an incorrectly matched nucleotide, its 3′→5′ exonuclease activity removes that terminal nucleotide and the polymerase incorporates the properly matched replacement.\n\nDNA polymerase adds nucleotides to an existing correctly paired 3′ end. An incorrect terminal base makes the extension less favourable, permitting transfer to the proofreading site. This is a correction during replication; separate post-replication DNA repair pathways can also remove errors, but are not identical to polymerase III proofreading.",
+      "revisionSummary": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. DNA polymerase adds nucleotides to an existing correctly paired 3′ end.",
+      "terms": [
+        "Proofreading: key term in D1.1.9",
+        "Exonuclease: key term in D1.1.9"
+      ],
+      "workedExample": "If a new G is paired opposite template G by mistake, polymerase III can excise terminal G and insert the complementary C.",
+      "misconceptions": [
+        {
+          "misconception": "Proofreading removes a base from the middle of the parental template as the normal first step.",
+          "correction": "Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. If the 3′ end carries an incorrectly matched nucleotide, its 3′→5′ exonuclease activity removes that terminal nucleotide and the polymerase incorporates the properly matched replacement.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "DNA polymerase adds nucleotides to an existing correctly paired 3′ end. An incorrect terminal base makes the extension less favourable, permitting transfer to the proofreading site. This is a correction during replication; separate post-replication DNA repair pathways can also remove errors, but are not identical to polymerase III proofreading.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d11-check-9",
+          "prompt": "Which activity directly removes a mismatched terminal nucleotide during bacterial polymerase III proofreading?",
+          "understandingIds": [
+            "D1.1.9"
+          ],
+          "options": [
+            {
+              "id": "d11-9-o1",
+              "text": "3′→5′ exonuclease activity",
+              "correct": true,
+              "feedback": "Correct. Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended."
+            },
+            {
+              "id": "d11-9-o2",
+              "text": "5′→3′ synthesis activity only",
+              "correct": false,
+              "feedback": "Not quite. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+            },
+            {
+              "id": "d11-9-o3",
+              "text": "DNA ligase joining activity",
+              "correct": false,
+              "feedback": "Not quite. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+            },
+            {
+              "id": "d11-9-o4",
+              "text": "Helicase hydrogen-bond disruption",
+              "correct": false,
+              "feedback": "Not quite. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d11-recall-9",
+          "understandingIds": [
+            "D1.1.9"
+          ],
+          "prompt": "Without notes, explain proofreading and how it relates to exonuclease.",
+          "answer": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. If the 3′ end carries an incorrectly matched nucleotide, its 3′→5′ exonuclease activity removes that terminal nucleotide and the polymerase incorporates the properly matched replacement. If a new G is paired opposite template G by mistake, polymerase III can excise terminal G and insert the complementary C.",
+          "explanation": "Check the mechanism, direction and biological consequence rather than only naming terms."
+        }
+      ],
+      "guidePage": 86,
+      "pdfPage": 92,
+      "textbook": {
+        "referenceId": "hodder-d11",
+        "printedPages": [
+          613
+        ],
+        "pdfPages": [
+          625
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Proofreading a newly incorporated nucleotide",
+          "explanation": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. If the 3′ end carries an incorrectly matched nucleotide, its 3′→5′ exonuclease activity removes that terminal nucleotide and the polymerase incorporates the properly matched replacement.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Why proofreading can work",
+          "explanation": "DNA polymerase adds nucleotides to an existing correctly paired 3′ end. An incorrect terminal base makes the extension less favourable, permitting transfer to the proofreading site. This is a correction during replication; separate post-replication DNA repair pathways can also remove errors, but are not identical to polymerase III proofreading.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended.",
+        "example": "If a new G is paired opposite template G by mistake, polymerase III can excise terminal G and insert the complementary C.",
+        "different": "Notice the cause and effect: DNA polymerase adds nucleotides to an existing correctly paired 3′ end.",
+        "concepts": [
+          {
+            "title": "Proofreading",
+            "keywords": [
+              "proofreading"
+            ],
+            "explanation": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended."
+          },
+          {
+            "title": "Exonuclease",
+            "keywords": [
+              "exonuclease"
+            ],
+            "explanation": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended."
+          }
+        ]
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "d11-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.1"
+      ],
+      "level": "shared",
+      "prompt": "What must happen before two daughter cells inherit complete copies of a chromosome?",
+      "marks": 1,
+      "sectionId": "d11-1",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-1-o1",
+          "text": "Replicate its DNA base sequence",
+          "correct": true,
+          "feedback": "Correct. Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence."
+        },
+        {
+          "id": "d11-1-o2",
+          "text": "Translate every gene into a protein",
+          "correct": false,
+          "feedback": "Not quite. Replication produces new DNA molecules; transcription produces RNA."
+        },
+        {
+          "id": "d11-1-o3",
+          "text": "Break all phosphodiester bonds",
+          "correct": false,
+          "feedback": "Not quite. Replication produces new DNA molecules; transcription produces RNA."
+        },
+        {
+          "id": "d11-1-o4",
+          "text": "Replace every thymine with uracil",
+          "correct": false,
+          "feedback": "Not quite. Replication produces new DNA molecules; transcription produces RNA."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-1",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.1"
+      ],
+      "level": "shared",
+      "prompt": "Using a suitable biological context, explain replication in DNA replication and correct this claim: \"Replication makes RNA copies for translation.\"",
+      "marks": 3,
+      "sectionId": "d11-1",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence. Accurate sequence copying allows the new cells in a growing root, a healing wound or a dividing bacterium to retain the genetic instructions of the parent cell. It does not mean that replication is perfectly error-free; rare mistakes can persist as mutations. Replication produces new DNA molecules; transcription produces RNA. A skin basal cell duplicates its genomic DNA before mitosis so its daughters can continue producing skin tissue.",
+      "markingPoints": [
+        "Explain the scientifically correct role of replication.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.2"
+      ],
+      "level": "shared",
+      "prompt": "After semi-conservative replication, each daughter DNA duplex contains which strands?",
+      "marks": 1,
+      "sectionId": "d11-2",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-2-o1",
+          "text": "One parental and one new strand",
+          "correct": true,
+          "feedback": "Correct. The two parental DNA strands separate."
+        },
+        {
+          "id": "d11-2-o2",
+          "text": "Two original parental strands",
+          "correct": false,
+          "feedback": "Not quite. Each daughter duplex contains one original and one newly synthesized strand."
+        },
+        {
+          "id": "d11-2-o3",
+          "text": "Two unrelated DNA molecules",
+          "correct": false,
+          "feedback": "Not quite. Each daughter duplex contains one original and one newly synthesized strand."
+        },
+        {
+          "id": "d11-2-o4",
+          "text": "Only newly synthesized strands",
+          "correct": false,
+          "feedback": "Not quite. Each daughter duplex contains one original and one newly synthesized strand."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-2",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.2"
+      ],
+      "level": "shared",
+      "prompt": "Using a suitable biological context, explain semi-conservative in DNA replication and correct this claim: \"One daughter duplex receives both original DNA strands.\"",
+      "marks": 3,
+      "sectionId": "d11-2",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "The two parental DNA strands separate. Each becomes a template for synthesis of a complementary new strand, producing two double helices that each contain one original strand and one newly made strand. This arrangement is called semi-conservative, not conservative or dispersive. Each daughter duplex contains one original and one newly synthesized strand. For a short template 3′-TACG-5′, the new antiparallel DNA strand is 5′-ATGC-3′.",
+      "markingPoints": [
+        "Explain the scientifically correct role of semi-conservative.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.3"
+      ],
+      "level": "shared",
+      "prompt": "What is the immediate action of helicase at a replication fork?",
+      "marks": 1,
+      "sectionId": "d11-3",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-3-o1",
+          "text": "Separate DNA strands by disrupting base-pair hydrogen bonds",
+          "correct": true,
+          "feedback": "Correct. Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands."
+        },
+        {
+          "id": "d11-3-o2",
+          "text": "Join Okazaki fragments by covalent bonds",
+          "correct": false,
+          "feedback": "Not quite. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+        },
+        {
+          "id": "d11-3-o3",
+          "text": "Add amino acids to DNA",
+          "correct": false,
+          "feedback": "Not quite. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+        },
+        {
+          "id": "d11-3-o4",
+          "text": "Replace RNA primers with DNA",
+          "correct": false,
+          "feedback": "Not quite. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-3",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.3"
+      ],
+      "level": "shared",
+      "prompt": "Using a suitable biological context, explain helicase in DNA replication and correct this claim: \"Helicase breaks covalent bonds in the DNA backbone.\"",
+      "marks": 3,
+      "sectionId": "d11-3",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. The sugar–phosphate backbones remain intact at the fork; helicase does not cut the strands into nucleotides. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact. At an advancing bacterial replication fork, helicase opens the duplex while polymerase synthesizes DNA along each exposed template.",
+      "markingPoints": [
+        "Explain the scientifically correct role of helicase.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.4"
+      ],
+      "level": "shared",
+      "prompt": "Which sequence of conditions describes one ordinary PCR cycle?",
+      "marks": 1,
+      "sectionId": "d11-4",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-4-o1",
+          "text": "Denaturation, primer annealing, polymerase extension",
+          "correct": true,
+          "feedback": "Correct. A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers."
+        },
+        {
+          "id": "d11-4-o2",
+          "text": "Translation, transcription, replication",
+          "correct": false,
+          "feedback": "Not quite. DNA has a negatively charged backbone and migrates toward the positive electrode."
+        },
+        {
+          "id": "d11-4-o3",
+          "text": "Polymerase extension, protein folding, mitosis",
+          "correct": false,
+          "feedback": "Not quite. DNA has a negatively charged backbone and migrates toward the positive electrode."
+        },
+        {
+          "id": "d11-4-o4",
+          "text": "Gel separation, ligation, protein sorting",
+          "correct": false,
+          "feedback": "Not quite. DNA has a negatively charged backbone and migrates toward the positive electrode."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-4",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.4"
+      ],
+      "level": "shared",
+      "prompt": "Using a suitable biological context, explain pcr in DNA replication and correct this claim: \"DNA moves to the negative electrode in ordinary gel electrophoresis.\"",
+      "marks": 3,
+      "sectionId": "d11-4",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. The chosen primers define the target; repeated cycles can produce many copies of the region. PCR is not the same as replication of an entire chromosome. DNA has a negatively charged backbone and migrates toward the positive electrode. Amplify a candidate 300-base-pair locus with paired primers, then compare its gel band position with a DNA ladder.",
+      "markingPoints": [
+        "Explain the scientifically correct role of pcr.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.5"
+      ],
+      "level": "shared",
+      "prompt": "Why are several independent DNA markers used in forensic profiling?",
+      "marks": 1,
+      "sectionId": "d11-5",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-5-o1",
+          "text": "They lower the probability of a coincidental match",
+          "correct": true,
+          "feedback": "Correct. Forensic investigations and parentage testing compare informative DNA markers."
+        },
+        {
+          "id": "d11-5-o2",
+          "text": "They guarantee all samples are free of contamination",
+          "correct": false,
+          "feedback": "Not quite. A reliable identification integrates multiple markers, controls and statistical interpretation."
+        },
+        {
+          "id": "d11-5-o3",
+          "text": "They convert DNA into protein",
+          "correct": false,
+          "feedback": "Not quite. A reliable identification integrates multiple markers, controls and statistical interpretation."
+        },
+        {
+          "id": "d11-5-o4",
+          "text": "They make each chromosome the same length",
+          "correct": false,
+          "feedback": "Not quite. A reliable identification integrates multiple markers, controls and statistical interpretation."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-5",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.5"
+      ],
+      "level": "shared",
+      "prompt": "Using a suitable biological context, explain genetic marker in DNA replication and correct this claim: \"One matching DNA band establishes the donor's identity with certainty.\"",
+      "marks": 3,
+      "sectionId": "d11-5",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "Forensic investigations and parentage testing compare informative DNA markers. Amplification makes small samples analysable and gel or capillary separation distinguishes fragment-length patterns. Agreement at one marker is weak evidence; combining multiple independent markers can greatly reduce the chance of a coincidental match. A reliable identification integrates multiple markers, controls and statistical interpretation. A disputed parentage case compares several inherited short tandem repeat markers, rather than relying on a single PCR band.",
+      "markingPoints": [
+        "Explain the scientifically correct role of genetic marker.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.6"
+      ],
+      "level": "HL",
+      "prompt": "At which end can DNA polymerase add the next nucleotide?",
+      "marks": 1,
+      "sectionId": "d11-6",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-6-o1",
+          "text": "The free 3′ end of the growing strand",
+          "correct": true,
+          "feedback": "Correct. A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon."
+        },
+        {
+          "id": "d11-6-o2",
+          "text": "The 5′ end of the growing strand",
+          "correct": false,
+          "feedback": "Not quite. Both leading and lagging products are always synthesized 5′→3′."
+        },
+        {
+          "id": "d11-6-o3",
+          "text": "Either end with equal probability",
+          "correct": false,
+          "feedback": "Not quite. Both leading and lagging products are always synthesized 5′→3′."
+        },
+        {
+          "id": "d11-6-o4",
+          "text": "The middle of an intact phosphodiester bond",
+          "correct": false,
+          "feedback": "Not quite. Both leading and lagging products are always synthesized 5′→3′."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-6",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.6"
+      ],
+      "level": "HL",
+      "prompt": "Using a suitable biological context, explain 5′ end in DNA replication and correct this claim: \"DNA polymerase sometimes builds new DNA 3′→5′ on the lagging strand.\"",
+      "marks": 3,
+      "sectionId": "d11-6",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon. The two template strands in a duplex run antiparallel. DNA polymerase attaches an incoming nucleotide's 5′ phosphate to the free 3′ hydroxyl of the growing strand; every new DNA strand therefore elongates 5′→3′. Both leading and lagging products are always synthesized 5′→3′. For template 3′-ACGT-5′ read from left to right, polymerase extends 5′-TGCA-3′ toward the right.",
+      "markingPoints": [
+        "Explain the scientifically correct role of 5′ end.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.7"
+      ],
+      "level": "HL",
+      "prompt": "What distinguishes the newly synthesized lagging strand from the leading strand?",
+      "marks": 1,
+      "sectionId": "d11-7",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-7-o1",
+          "text": "Repeated priming and Okazaki fragments",
+          "correct": true,
+          "feedback": "Correct. On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens."
+        },
+        {
+          "id": "d11-7-o2",
+          "text": "DNA synthesis in the 3′→5′ direction",
+          "correct": false,
+          "feedback": "Not quite. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+        },
+        {
+          "id": "d11-7-o3",
+          "text": "Use of an RNA template instead of DNA",
+          "correct": false,
+          "feedback": "Not quite. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+        },
+        {
+          "id": "d11-7-o4",
+          "text": "Absence of complementary base pairing",
+          "correct": false,
+          "feedback": "Not quite. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-7",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.7"
+      ],
+      "level": "HL",
+      "prompt": "Using a suitable biological context, explain leading strand in DNA replication and correct this claim: \"Lagging-strand DNA is polymerized 3′→5′.\"",
+      "marks": 3,
+      "sectionId": "d11-7",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. Because the polymerase can only extend a 3′ end, the leading template is read 3′→5′ toward the fork. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel. At a right-moving fork, an individual Okazaki fragment begins nearer the fork and grows to the left; the leading daughter grows to the right.",
+      "markingPoints": [
+        "Explain the scientifically correct role of leading strand.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.8"
+      ],
+      "level": "HL",
+      "prompt": "In bacterial DNA replication, which enzyme mainly extends new DNA from RNA primers?",
+      "marks": 1,
+      "sectionId": "d11-8",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-8-o1",
+          "text": "DNA polymerase III",
+          "correct": true,
+          "feedback": "Correct. In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III."
+        },
+        {
+          "id": "d11-8-o2",
+          "text": "DNA ligase",
+          "correct": false,
+          "feedback": "Not quite. Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+        },
+        {
+          "id": "d11-8-o3",
+          "text": "DNA primase",
+          "correct": false,
+          "feedback": "Not quite. Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+        },
+        {
+          "id": "d11-8-o4",
+          "text": "DNA polymerase I acting only as ligase",
+          "correct": false,
+          "feedback": "Not quite. Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-8",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.8"
+      ],
+      "level": "HL",
+      "prompt": "Using a suitable biological context, explain dna polymerase i in DNA replication and correct this claim: \"Ligase synthesizes RNA primers and polymerase III seals nicks.\"",
+      "marks": 3,
+      "sectionId": "d11-8",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment. Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks. After two bacterial Okazaki fragments are extended, polymerase I replaces their RNA starts and ligase joins adjacent DNA segments.",
+      "markingPoints": [
+        "Explain the scientifically correct role of dna polymerase i.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.1.9"
+      ],
+      "level": "HL",
+      "prompt": "Which activity directly removes a mismatched terminal nucleotide during bacterial polymerase III proofreading?",
+      "marks": 1,
+      "sectionId": "d11-9",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "options": [
+        {
+          "id": "d11-9-o1",
+          "text": "3′→5′ exonuclease activity",
+          "correct": true,
+          "feedback": "Correct. Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended."
+        },
+        {
+          "id": "d11-9-o2",
+          "text": "5′→3′ synthesis activity only",
+          "correct": false,
+          "feedback": "Not quite. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+        },
+        {
+          "id": "d11-9-o3",
+          "text": "DNA ligase joining activity",
+          "correct": false,
+          "feedback": "Not quite. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+        },
+        {
+          "id": "d11-9-o4",
+          "text": "Helicase hydrogen-bond disruption",
+          "correct": false,
+          "feedback": "Not quite. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d11-structured-9",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.1.9"
+      ],
+      "level": "HL",
+      "prompt": "Using a suitable biological context, explain proofreading in DNA replication and correct this claim: \"Proofreading removes a base from the middle of the parental template as the normal first step.\"",
+      "marks": 3,
+      "sectionId": "d11-9",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "answer": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. If the 3′ end carries an incorrectly matched nucleotide, its 3′→5′ exonuclease activity removes that terminal nucleotide and the polymerase incorporates the properly matched replacement. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one. If a new G is paired opposite template G by mistake, polymerase III can excise terminal G and insert the complementary C.",
+      "markingPoints": [
+        "Explain the scientifically correct role of proofreading.",
+        "State the relevant mechanism or molecular relationship in a coherent sequence.",
+        "Reject the false claim and use the example to support the correction."
+      ],
+      "review": "draft"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-d11",
+      "title": "IB Biology Guide (first assessment 2025), D1.1",
+      "locator": "Syllabus pp.85–86; understandings D1.1.1–D1.1.9 and prescribed guidance",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-d11",
+      "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+      "locator": "D1.1 DNA replication, printed pp.602–614 (PDF pp.614–626)",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "ncbi-replication",
+      "title": "Cooper, The Cell: A Molecular Approach — DNA Replication, NCBI Bookshelf",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK9940/",
+      "locator": "DNA polymerases, primase, leading/lagging strands, proofreading",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    }
+  ],
+  "assets": [
+    {
+      "id": "d11-orientation",
+      "kind": "schematic",
+      "src": "/biology/dna-replication/replication-orientation.svg",
+      "alt": "At a right-moving replication fork, leading-strand DNA elongates 5′ to 3′ to the right on a 3′ to 5′ template; lagging Okazaki fragments elongate 5′ to 3′ to the left on the opposite 5′ to 3′ template. Both daughter strands therefore always grow 5′ to 3′.",
+      "captionTitle": "Strand polarity determines leading and lagging synthesis",
+      "interpretation": "Read the chemical 5′ and 3′ labels first; the upper daughter grows toward the fork and lower fragments away. Primer replacement and ligation are not illustrated.",
+      "attribution": "Original BioLab vector schematic; no textbook art reproduced.",
+      "license": "Original first-party BioLab illustration (authored for this topic)",
+      "permissionEvidence": "Created within this checkpoint; no third-party asset or protected figure used",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    }
+  ],
+  "summary": "Replication copies the DNA sequence by complementary base pairing and enzyme-guided synthesis; both new daughter strands always elongate 5′→3′, but leading and lagging synthesis differ.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "Official IB syllabus guide (first assessment 2025) used for ID/scope mapping; Hodder (2023) D1.1 is the core teaching source.",
+      "Independent NCBI DNA replication discussion corroborates prokaryotic DNA polymerase roles, primers, fragment polarity and proofreading.",
+      "Illustrative authored SVG needs independent scientific figure review and responsive screenshot checks.",
+      "Question answer guidance is provisional and not official IB marking.",
+      "Do not register as student-available before the integrator authorizes changes."
+    ]
+  }
+}
