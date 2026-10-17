@@ -895,33 +895,35 @@
         "guide-a31",
         "hodder-a31"
       ],
-      "assets": [],
+      "assets": [
+        "band-pairing"
+      ],
       "interactions": [
         {
           "kind": "selection",
           "id": "a31-c7",
-          "prompt": "How is a karyogram interpreted and the chromosome-2 fusion claim tested?",
+          "prompt": "Which three homologous pairs are supported by the constructed chromosome panel?",
           "understandingIds": [
             "A3.1.7"
           ],
           "options": [
             {
               "id": "a",
-              "text": "Pair by bands/length/centromere and investigate fusion signatures in DNA.",
+              "text": "A–D, B–F and C–E",
               "correct": true,
-              "feedback": "Length, bands and centromere; internal telomeric repeats plus an inactive centromere and sequence synteny."
+              "feedback": "Correct: both chromosome length, centromere position and repeated band locations match in each proposed pair."
             },
             {
               "id": "b",
-              "text": "Pair chromosomes only by matching colour.",
+              "text": "A–B, C–D and E–F",
               "correct": false,
-              "feedback": "Sister chromatids and homologous chromosomes are different; assess bands and centromeres."
+              "feedback": "Compare centromere position first: A and B differ markedly, and the banding profiles do not correspond."
             },
             {
               "id": "c",
-              "text": "Infer fusion solely from a 46-versus-48 count.",
+              "text": "A–C, B–E and D–F",
               "correct": false,
-              "feedback": "Sister chromatids and homologous chromosomes are different; assess bands and centromeres."
+              "feedback": "Matching requires corresponding length, band pattern and centromere position; these three groupings mix distinct silhouettes."
             }
           ]
         }
@@ -930,9 +932,9 @@
         {
           "kind": "recall",
           "id": "a31-r7",
-          "prompt": "List three karyogram traits and two fusion-evidence features.",
-          "answer": "Length, bands and centromere; internal telomeric repeats plus an inactive centromere and sequence synteny.",
-          "explanation": "Length, bands and centromere; internal telomeric repeats plus an inactive centromere and sequence synteny.",
+          "prompt": "For the constructed six-chromosome karyogram A–F, which pairs match, and which three visual properties support pairing?",
+          "answer": "A–D, B–F, C–E; compare length, characteristic banding and centromere position.",
+          "explanation": "A–D, B–F, C–E; compare length, characteristic banding and centromere position.",
           "understandingIds": [
             "A3.1.7"
           ]
@@ -973,6 +975,12 @@
             "guide-a31",
             "hodder-a31"
           ]
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "band-pairing",
+          "afterBlock": 1
         }
       ]
     },
@@ -2428,32 +2436,32 @@
         "guide-a31",
         "hodder-a31"
       ],
-      "prompt": "How is a karyogram interpreted and the chromosome-2 fusion claim tested?",
+      "prompt": "In the original illustrated chromosome panel A–F, which pairs share length, centromere position and banding?",
       "marks": 1,
       "options": [
         {
           "id": "a",
-          "text": "Pair by bands/length/centromere and investigate fusion signatures in DNA.",
+          "text": "A–D, B–F and C–E",
           "correct": true,
-          "feedback": "Length, bands and centromere; internal telomeric repeats plus an inactive centromere and sequence synteny."
+          "feedback": "These pairs share all three depicted karyotype features."
         },
         {
           "id": "2",
-          "text": "Pair chromosomes only by matching colour.",
+          "text": "A–B, C–D and E–F",
           "correct": false,
-          "feedback": "Sister chromatids and homologous chromosomes are different; assess bands and centromeres."
+          "feedback": "A and B differ in their length and centromere, as do the other suggested combinations."
         },
         {
           "id": "3",
-          "text": "Infer fusion solely from a 46-versus-48 count.",
+          "text": "A–C, B–E and D–F",
           "correct": false,
-          "feedback": "Sister chromatids and homologous chromosomes are different; assess bands and centromeres."
+          "feedback": "This mixes different banding and centromere-position types."
         },
         {
           "id": "4",
-          "text": "The human chromosome-2 fusion idea cannot be tested.",
+          "text": "A–F, B–D and C–E",
           "correct": false,
-          "feedback": "Sister chromatids and homologous chromosomes are different; assess bands and centromeres."
+          "feedback": "C–E is supported, but A–F and B–D are not matched by length and centromere position."
         }
       ]
     },
@@ -2471,12 +2479,12 @@
         "guide-a31",
         "hodder-a31"
       ],
-      "prompt": "Explain and illustrate: How is a karyogram interpreted and the chromosome-2 fusion claim tested?",
+      "prompt": "Using the constructed chromosome panel A–F, identify three matching homologous pairs and explain the biological evidence used in pairing.",
       "marks": 2,
-      "answer": "Chromosomes are arranged in homologous pairs using length, characteristic banding patterns and centromere position. Each metaphase chromosome may contain two joined sister chromatids; it is still one replicated chromosome before sister separation. Human chromosome 2 contains large regions corresponding to two ancestral ape chromosomes. Internal telomere-like repeats and evidence of an inactive second ancestral centromere support a fusion model. Sequence alignments and these predicted signatures test the hypothesis more strongly than the chromosome-count difference alone.",
+      "answer": "A–D, B–F and C–E. Homologous partners are identified by aligned band patterns, comparable length and corresponding centromere position. The exercise is a conceptual illustration, not actual patient karyotyping.",
       "markingPoints": [
-        "Chromosomes are arranged in homologous pairs using length, characteristic banding patterns and centromere position.",
-        "Human chromosome 2 contains large regions corresponding to two ancestral ape chromosomes."
+        "Correctly identify A–D, B–F and C–E as three pairs.",
+        "Explain matching by length, centromere position and characteristic banding."
       ]
     },
     {
@@ -3016,7 +3024,25 @@
       "level": "shared"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "band-pairing",
+      "kind": "conceptual-karyogram",
+      "src": "/biology/diversity-organisms/band-pairing.svg",
+      "alt": "Six stylized chromosomes labelled A to F, arranged in a deliberately mixed order. Their lengths, horizontal dark-and-light band patterns and centromere constriction positions can be compared to form three pairs. A and D are long with an approximately central centromere and two upper bands and one lower band; B and F are shorter with centromere near the top and one upper band and two lower bands; C and E are medium-sized with a central centromere and one upper band and two lower bands. This is a constructed teaching drawing, not a microscope image or measured karyogram.",
+      "captionTitle": "Pair homologues using length, banding and centromere position",
+      "interpretation": "Make three chromosome pairs among A–F. Give three independent observations supporting your choices. The shapes are illustrative, not measured micrographs.",
+      "attribution": "Original BioLab teaching-vector schematic, 2026",
+      "license": "Project-authored original vector art; no externally copied content",
+      "permissionEvidence": "Authored as SVG geometric figures specifically for this lesson; no genomic data or scale bar represented; qualified scientific illustration review pending.",
+      "referenceIds": [
+        "guide-a31",
+        "hodder-a31"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    }
+  ],
   "summary": "Variation occurs within and between species; species definitions, chromosomal patterns and genome data answer related but distinct biological questions.",
   "review": {
     "status": "scientific-review",
