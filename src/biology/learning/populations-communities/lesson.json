@@ -157,7 +157,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why does selecting only the densest patches mislead ecologists?",
-      "explanation": "Counting every member of a widespread population may be too slow, expensive or destructive, so ecologists use samples to estimate abundance. A sampling frame defines where samples can be collected. Random coordinates give locations an equal or known chance of selection instead of allowing observers to pick convenient or unusually dense sites.\n\nRandom selection reduces systematic selection bias but does not remove sampling error: an estimate from a subset can differ from the true count by chance. Larger and appropriately distributed samples can improve precision. The resulting estimate should be reported with its method, sampled area and uncertainty rather than represented as an exact census.",
+      "explanation": "Counting every member of a widespread population may be too slow, expensive or destructive, so ecologists use samples to estimate abundance. A sampling frame defines where samples can be collected. Random coordinates give locations an equal or known chance of selection instead of allowing observers to pick convenient or unusually dense sites.\n\nRandom selection reduces systematic selection bias but does not remove sampling error: an estimate from a subset can differ from the true count by chance. Larger and appropriately distributed samples can improve precision. The resulting estimate should be reported with its method, sampled area and uncertainty rather than represented as an exact census.\n\nA defensible field protocol first defines the sampling frame (the whole area eligible for sampling) and selects locations using a random-number generator or random coordinates. Sampling only visible clumps systematically overestimates abundance. Record quadrat area, number of samples and any inaccessible locations; describe the possible bias if a random location cannot actually be sampled.",
       "revisionSummary": "Random selection reduces systematic selection bias but does not remove sampling error: an estimate from a subset can differ from the true count by chance.",
       "terms": [
         "sampling frame — all possible locations from which units can be selected",
@@ -253,7 +253,7 @@
         },
         {
           "title": "Understand sampling error",
-          "explanation": "Random selection reduces systematic selection bias but does not remove sampling error: an estimate from a subset can differ from the true count by chance. Larger and appropriately distributed samples can improve precision. The resulting estimate should be reported with its method, sampled area and uncertainty rather than represented as an exact census.",
+          "explanation": "Random selection reduces systematic selection bias but does not remove sampling error: an estimate from a subset can differ from the true count by chance. Larger and appropriately distributed samples can improve precision. The resulting estimate should be reported with its method, sampled area and uncertainty rather than represented as an exact census.\n\nA defensible field protocol first defines the sampling frame (the whole area eligible for sampling) and selects locations using a random-number generator or random coordinates. Sampling only visible clumps systematically overestimates abundance. Record quadrat area, number of samples and any inaccessible locations; describe the possible bias if a random location cannot actually be sampled.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -276,7 +276,33 @@
             "explanation": "Random sites stop you from choosing only crowded patches. A sample is still an estimate, not an exact count."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Sampling without choosing the answer",
+          "afterBlock": 0,
+          "steps": [
+            {
+              "title": "Define the area",
+              "description": "Map the eligible habitat and its total area before counting."
+            },
+            {
+              "title": "Randomize",
+              "description": "Generate plot coordinates independently of visible organism density."
+            },
+            {
+              "title": "Count consistently",
+              "description": "Use a fixed-area quadrat and one agreed rule for boundary plants."
+            },
+            {
+              "title": "Extrapolate cautiously",
+              "description": "Compute mean density, estimate total abundance and discuss sampling error."
+            }
+          ],
+          "note": "Sampling protocol, not a record of any actual field survey."
+        }
+      ]
     },
     {
       "id": "c41-3",
@@ -285,7 +311,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can small plots estimate numbers across a large field?",
-      "explanation": "A quadrat encloses a known area within which sessile organisms, such as plants or barnacles, can be counted. Position quadrats using random coordinates, record counts consistently and calculate the mean number per quadrat. For equal-area quadrats, estimated total abundance is mean count multiplied by total site area divided by quadrat area.\n\nSpread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.",
+      "explanation": "A quadrat encloses a known area within which sessile organisms, such as plants or barnacles, can be counted. Position quadrats using random coordinates, record counts consistently and calculate the mean number per quadrat. For equal-area quadrats, estimated total abundance is mean count multiplied by total site area divided by quadrat area.\n\nSpread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m², twenty independently placed 0.5 m² quadrats contain 100 rooted plants in total. Mean density = 100 ÷ (20 × 0.5) = 10 plants m⁻²; projected abundance = 10 × 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
       "revisionSummary": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts.",
       "terms": [
         "quadrat — sampling frame enclosing a defined area",
@@ -381,7 +407,7 @@
         },
         {
           "title": "Convert density into abundance",
-          "explanation": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.",
+          "explanation": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m², twenty independently placed 0.5 m² quadrats contain 100 rooted plants in total. Mean density = 100 ÷ (20 × 0.5) = 10 plants m⁻²; projected abundance = 10 × 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -404,7 +430,37 @@
             "explanation": "Count plants or immobile animals inside random squares. Find the average per square, then scale it to the habitat area."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Worked quadrat estimate — constructed data",
+          "afterBlock": 1,
+          "headers": [
+            "Quantity",
+            "Calculation",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Total sampled area",
+              "20 plots × 0.5 m²",
+              "10 m²"
+            ],
+            [
+              "Mean density",
+              "100 individuals ÷ 10 m²",
+              "10 individuals m⁻²"
+            ],
+            [
+              "Field estimate",
+              "10 individuals m⁻² × 120 m²",
+              "1,200 individuals"
+            ]
+          ],
+          "note": "Illustrative values, not measured quadrat observations. Assumes independent, representative sampling."
+        }
+      ]
     },
     {
       "id": "c41-4",
@@ -413,7 +469,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which assumptions make recapture proportions meaningful?",
-      "explanation": "Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).\n\nRearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.",
+      "explanation": "Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).\n\nRearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M × N ÷ R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
       "revisionSummary": "Rearranging gives the Lincoln index: estimated population = M × N ÷ R.",
       "terms": [
         "Lincoln index — M × N ÷ R population estimate",
@@ -509,7 +565,7 @@
         },
         {
           "title": "Assumptions before calculation",
-          "explanation": "Rearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.",
+          "explanation": "Rearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M × N ÷ R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -818,7 +874,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can a semi-log graph reveal exponential growth?",
-      "explanation": "In an ideal population with a constant positive per-capita growth rate and abundant resources, numbers may increase exponentially. The absolute increase becomes larger as population size increases because more individuals reproduce. On ordinary axes this produces a J-shaped upward curve; it is an approximation most useful for early phases of growth rather than a universal lifetime pattern.\n\nTo test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.",
+      "explanation": "In an ideal population with a constant positive per-capita growth rate and abundant resources, numbers may increase exponentially. The absolute increase becomes larger as population size increases because more individuals reproduce. On ordinary axes this produces a J-shaped upward curve; it is an approximation most useful for early phases of growth rather than a universal lifetime pattern.\n\nTo test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log₁₀(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
       "revisionSummary": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale.",
       "terms": [
         "exponential growth — change proportional to current abundance",
@@ -914,7 +970,7 @@
         },
         {
           "title": "Why the logarithmic axis matters",
-          "explanation": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.",
+          "explanation": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log₁₀(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1948,7 +2004,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How do quadrat presence–absence counts test an association?",
-      "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells.\n\nWith 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.",
+      "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells.\n\nWith 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 × 20) ÷ 40 = 10. The four chi-squared contributions each equal (4 − 10)² ÷ 10 = 3.6 or (16 − 10)² ÷ 10 = 3.6, giving χ² = 14.4 with df = (2 − 1)(2 − 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
       "revisionSummary": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions.",
       "terms": [
         "contingency table — counts classified by two categories",
@@ -2044,7 +2100,7 @@
         },
         {
           "title": "Interpret a significant chi-squared result",
-          "explanation": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.",
+          "explanation": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 × 20) ÷ 40 = 10. The four chi-squared contributions each equal (4 − 10)² ÷ 10 = 3.6 or (16 − 10)² ÷ 10 = 3.6, giving χ² = 14.4 with df = (2 − 1)(2 − 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2088,6 +2144,31 @@
               4
             ]
           ]
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "What a chi-squared result establishes",
+          "afterBlock": 1,
+          "headers": [
+            "Evidence",
+            "Defensible conclusion",
+            "Not established"
+          ],
+          "rows": [
+            [
+              "χ² = 14.4, df = 1, constructed 40-site table",
+              "Presence of two species is not independent under test assumptions",
+              "A negative association proves one species displaced the other"
+            ],
+            [
+              "Observed association in field quadrats",
+              "A hypothesis to investigate with controlled or replicated approaches",
+              "A unique causal mechanism"
+            ]
+          ],
+          "note": "Constructed example; 5% chi-squared critical value for df=1 is approximately 3.84."
         }
       ]
     },
@@ -2378,7 +2459,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can released compounds reduce competitors without direct attack?",
-      "explanation": "Allelopathy occurs when a plant releases chemicals into its environment that affect the growth or germination of nearby plants. Black walnut produces juglone, a compound that can inhibit susceptible neighbouring plants under some conditions. The effect depends on concentrations, soil processes and the tolerance of the receiving species.\n\nAntibiotic secretion is a comparable form of chemical interference among microorganisms. Penicillium mould can produce penicillin, which inhibits susceptible bacteria by interfering with cell-wall synthesis. Laboratory inhibition does not prove that every natural soil interaction is controlled by antibiotics; surrounding ecological conditions and concentrations determine the effect.",
+      "explanation": "Allelopathy occurs when a plant releases chemicals into its environment that affect the growth or germination of nearby plants. Black walnut produces juglone, a compound that can inhibit susceptible neighbouring plants under some conditions. The effect depends on concentrations, soil processes and the tolerance of the receiving species.\n\nAntibiotic secretion is a comparable form of chemical interference among microorganisms. Penicillium mould can produce penicillin, which inhibits susceptible bacteria by interfering with cell-wall synthesis. Laboratory inhibition does not prove that every natural soil interaction is controlled by antibiotics; surrounding ecological conditions and concentrations determine the effect.\n\nIn allelopathy, a plant releases chemicals that inhibit another plant's germination or growth; black walnut (Juglans nigra) releases juglone, although field outcomes also depend on soil conditions and competing resources. In antibiosis, a microorganism inhibits another via substances such as penicillin produced by Penicillium fungi. Neither observation alone quantifies field-wide competitive advantage.",
       "revisionSummary": "Antibiotic secretion is a comparable form of chemical interference among microorganisms.",
       "terms": [
         "allelopathy — biological effect of plant-released compounds on another plant",
@@ -2474,7 +2555,7 @@
         },
         {
           "title": "Context affects inhibitory strength",
-          "explanation": "Antibiotic secretion is a comparable form of chemical interference among microorganisms. Penicillium mould can produce penicillin, which inhibits susceptible bacteria by interfering with cell-wall synthesis. Laboratory inhibition does not prove that every natural soil interaction is controlled by antibiotics; surrounding ecological conditions and concentrations determine the effect.",
+          "explanation": "Antibiotic secretion is a comparable form of chemical interference among microorganisms. Penicillium mould can produce penicillin, which inhibits susceptible bacteria by interfering with cell-wall synthesis. Laboratory inhibition does not prove that every natural soil interaction is controlled by antibiotics; surrounding ecological conditions and concentrations determine the effect.\n\nIn allelopathy, a plant releases chemicals that inhibit another plant's germination or growth; black walnut (Juglans nigra) releases juglone, although field outcomes also depend on soil conditions and competing resources. In antibiosis, a microorganism inhibits another via substances such as penicillin produced by Penicillium fungi. Neither observation alone quantifies field-wide competitive advantage.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -3706,6 +3787,79 @@
         "Support the explanation with relevant ecological reasoning or a valid example: Growth of a susceptible plant near black walnut can be suppressed by juglone; Penicillium can inhibit susceptible bacteria through penicillin."
       ],
       "review": "source-mapped"
+    },
+    {
+      "id": "c41-sprint8-quadrat-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C4.1.3"
+      ],
+      "level": "shared",
+      "prompt": "Twenty random 0.5 m² quadrats in a 120 m² field contain 100 plants in total. Calculate the estimated number in the field and state one limitation. This is constructed classroom data. [3]",
+      "marks": 3,
+      "sectionId": "c41-3",
+      "referenceIds": [
+        "ib-c41",
+        "hodder-c41"
+      ],
+      "answer": "Sampled area = 20 × 0.5 = 10 m² (1). Mean density = 100 ÷ 10 = 10 plants m⁻²; abundance = 10 × 120 = 1,200 plants (1). State a valid limitation, e.g. quadrat plots may not represent clustered distribution (1).",
+      "markingPoints": [
+        "Sampled area = 20 × 0.5 = 10 m² (1).",
+        "Mean density = 100 ÷ 10 = 10 plants m⁻²; abundance = 10 × 120 = 1,200 plants (1).",
+        "State a valid limitation, e.g. quadrat plots may not represent clustered distribution (1)."
+      ],
+      "review": "sprint8-science-edited"
+    },
+    {
+      "id": "c41-sprint8-lincoln-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C4.1.4"
+      ],
+      "level": "shared",
+      "prompt": "A hypothetical mark–release–recapture study marks 50 animals. A later sample contains 40 animals, of which 10 are marked. Estimate population size and explain one assumption; explain what R = 0 would imply. [3]",
+      "marks": 3,
+      "sectionId": "c41-4",
+      "referenceIds": [
+        "ib-c41",
+        "hodder-c41"
+      ],
+      "answer": "Estimated size = (50 × 40) ÷ 10 = 200 individuals (1). Explain one assumption such as random mixing, unchanged population, retained marks or equal capture probability (1). If R = 0 the Lincoln calculation is undefined; a numerical estimate cannot be justified with this formula (1).",
+      "markingPoints": [
+        "Estimated size = (50 × 40) ÷ 10 = 200 individuals (1).",
+        "Explain one assumption such as random mixing, unchanged population, retained marks or equal capture probability (1).",
+        "If R = 0 the Lincoln calculation is undefined; a numerical estimate cannot be justified with this formula (1)."
+      ],
+      "review": "sprint8-science-edited"
+    },
+    {
+      "id": "c41-sprint8-chi2-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C4.1.15"
+      ],
+      "level": "shared",
+      "prompt": "A constructed 2 × 2 presence–absence table has counts (both present 4, A only 16, B only 16, neither 4) across 40 independent sites. Calculate an expected count, χ² and df; interpret whether this proves competition. [4]",
+      "marks": 4,
+      "sectionId": "c41-15",
+      "referenceIds": [
+        "ib-c41",
+        "hodder-c41"
+      ],
+      "answer": "Expected count of each cell = 20 × 20 ÷ 40 = 10 (1). χ² = Σ((O−E)²/E) = 4 × 3.6 = 14.4 (1). Degrees of freedom = (2−1)(2−1) = 1; exceeds 5% critical value ≈ 3.84 (1). Evidence of association, not proof of competition or causality (1).",
+      "markingPoints": [
+        "Expected count of each cell = 20 × 20 ÷ 40 = 10 (1).",
+        "χ² = Σ((O−E)²/E) = 4 × 3.6 = 14.4 (1).",
+        "Degrees of freedom = (2−1)(2−1) = 1; exceeds 5% critical value ≈ 3.84 (1).",
+        "Evidence of association, not proof of competition or causality (1)."
+      ],
+      "review": "sprint8-science-edited"
     }
   ],
   "references": [
@@ -3752,7 +3906,8 @@
       "All quadrat, mark–recapture, logistic and contingency-table numbers labelled constructed; no dataset falsely attributed to field observation.",
       "Real ecological examples (hare–lynx, corals, Hawaiian plants, sea otters, walnut and Penicillium) require independent qualified review of evidence and specificity.",
       "Statistical association is not treated as proof of interspecific competition.",
-      "No independent Biology, assessment, accessibility or rights approval."
+      "No independent Biology, assessment, accessibility or rights approval.",
+      "Sprint 8: source-led clarifications for C4.1.2, .3, .4, .7, .15 and .18; constructed numerical calculations and hypothesis limits added, no field records represented as observed."
     ]
   }
 }
