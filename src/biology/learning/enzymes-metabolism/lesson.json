@@ -1443,7 +1443,37 @@
             "explanation": "Saturation means active sites approach full occupancy. At modest temperatures, greater molecular motion often increases productive collision frequency. At a constant amount of active enzyme, rising substrate concentration usually increases initial reaction rate and approaches saturation."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "What each variable can and cannot tell us about enzyme rate",
+          "afterBlock": 1,
+          "headers": [
+            "Variable",
+            "Typical observation",
+            "Key limitation"
+          ],
+          "rows": [
+            [
+              "Temperature",
+              "Rate often rises, reaches an optimum, then decreases",
+              "High temperature can denature the enzyme; pattern depends on assay conditions"
+            ],
+            [
+              "pH",
+              "An optimum or range gives highest measured activity",
+              "Ionization changes can affect both binding and catalysis"
+            ],
+            [
+              "Substrate concentration",
+              "Initial rate rises toward a plateau at fixed enzyme amount",
+              "Saturation of active sites limits the increase"
+            ]
+          ],
+          "note": "These describe common experimental patterns, not a universal numeric dataset. Control other variables when comparing curves."
+        }
+      ]
     },
     {
       "id": "c11-9",
@@ -2305,7 +2335,37 @@
             "explanation": "Cyclic pathway means regeneration of a participant. Glycolysis is a linear metabolic sequence that converts glucose toward pyruvate through enzyme-catalysed intermediate reactions. A metabolic cycle still has net inputs, outputs and energy requirements or releases."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Linear pathways and cycles",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Linear pathway",
+            "Cyclic pathway"
+          ],
+          "rows": [
+            [
+              "Pattern",
+              "Sequence of reactions with distinct pathway endpoints",
+              "A participant is regenerated after a sequence of reactions"
+            ],
+            [
+              "Example",
+              "Glycolysis",
+              "Citric acid (Krebs) cycle"
+            ],
+            [
+              "Net exchange",
+              "Overall inputs and outputs",
+              "Also has net inputs and outputs despite regeneration"
+            ]
+          ],
+          "note": "A metabolic cycle does not imply energy or atoms appear from nothing."
+        }
+      ]
     },
     {
       "id": "c11-14",
@@ -2461,7 +2521,37 @@
             "explanation": "Noncompetitive model means inhibitor reduces catalysis without direct active-site competition. An allosteric inhibitor binds at a specific noncatalytic site. A simple non-competitive diagram contrasts a separate regulatory site with direct active-site competition."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Competitive and allosteric inhibition are not interchangeable",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Competitive inhibition",
+            "Allosteric inhibition"
+          ],
+          "rows": [
+            [
+              "Binding location",
+              "Overlaps the substrate-binding region of the active site",
+              "Regulatory site distinct from active site"
+            ],
+            [
+              "Main effect",
+              "Temporarily blocks productive substrate binding",
+              "Changes enzyme activity through conformational/regulatory effects"
+            ],
+            [
+              "High substrate concentration",
+              "Can overcome a reversible competitive inhibitor in a simple kinetic model",
+              "Cannot generally be assumed to overcome the inhibition"
+            ]
+          ],
+          "note": "Not all allosteric inhibition fits the textbook 'pure noncompetitive' kinetic model; kinetic effects depend on the regulatory mechanism."
+        }
+      ]
     },
     {
       "id": "c11-15",
@@ -2866,7 +2956,33 @@
             "explanation": "Threonine deaminase means early isoleucine pathway enzyme. In isoleucine biosynthesis in bacteria, threonine undergoes a sequence of conversions catalysed by enzymes. This reversible negative feedback saves resources and reduces pathway flux before additional intermediates build up."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Negative feedback in isoleucine biosynthesis",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "An early pathway enzyme acts",
+              "description": "Threonine deaminase catalyses an early conversion in isoleucine biosynthesis."
+            },
+            {
+              "title": "Isoleucine accumulates",
+              "description": "The downstream product reaches concentrations sufficient for regulatory binding."
+            },
+            {
+              "title": "The enzyme is inhibited",
+              "description": "Isoleucine binds a regulatory site, reducing the pathway's early flux."
+            },
+            {
+              "title": "Supply and demand rebalance",
+              "description": "When isoleucine concentration falls, the reversible inhibition relaxes."
+            }
+          ],
+          "note": "The end product does not need to bind at the substrate's active site to regulate pathway flux."
+        }
+      ]
     },
     {
       "id": "c11-17",
@@ -3019,7 +3135,33 @@
             "explanation": "Mechanism-based inhibition means active-site chemistry causes long-lived inactivation. Penicillin-class β-lactams inhibit susceptible penicillin-binding proteins, including transpeptidases involved in peptidoglycan crosslinking. Some bacteria develop altered penicillin-binding proteins that bind/react with the antibiotic less effectively."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Penicillin action, bacterial wall failure and resistance",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Target cell-wall synthesis",
+              "description": "A susceptible β-lactam binds a penicillin-binding protein involved in peptidoglycan crosslinking."
+            },
+            {
+              "title": "Inhibit catalytic crosslinking",
+              "description": "The affected transpeptidase cannot build normal crosslinks during new wall synthesis."
+            },
+            {
+              "title": "Mechanical weakness develops",
+              "description": "Growing bacteria can become vulnerable to rupture under osmotic pressure."
+            },
+            {
+              "title": "Consider resistance",
+              "description": "Some strains produce β-lactamases or altered penicillin-binding proteins, weakening the drug's effect."
+            }
+          ],
+          "note": "The action applies to susceptible actively growing bacteria; penicillin does not dissolve an existing intact cell wall instantaneously."
+        }
+      ]
     }
   ],
   "questions": [
