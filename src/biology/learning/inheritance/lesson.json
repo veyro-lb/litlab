@@ -578,7 +578,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How does dominant and recessive alleles work, and what evidence or calculation supports it?",
-      "explanation": "In complete dominance, the dominant phenotype appears in both a homozygote for a dominant allele (AA) and a heterozygote (Aa). Often, although not always, one functioning copy produces sufficient gene product for the trait in question; the recessive phenotype appears when neither copy provides the dominant effect. Dominance describes an observed relationship between alleles for a specified phenotype; it does not mean an allele is more common or beneficial.\n\nWhen two heterozygotes are crossed, AA, Aa, Aa and aa are equally likely zygote combinations under Mendelian segregation. Their genotypic ratio is 1:2:1 and, for a fully penetrant complete-dominance trait, the phenotypic ratio is 3 dominant : 1 recessive. These are probabilities over many offspring.",
+      "explanation": "In complete dominance, the dominant phenotype appears in both a homozygote for a dominant allele (AA) and a heterozygote (Aa). Often, although not always, one functioning copy produces sufficient gene product for the trait in question; the recessive phenotype appears when neither copy provides the dominant effect. Dominance describes an observed relationship between alleles for a specified phenotype; it does not mean an allele is more common or beneficial.\n\nWhen two heterozygotes are crossed, AA, Aa, Aa and aa are equally likely zygote combinations under Mendelian segregation. Their genotypic ratio is 1:2:1 and, for a fully penetrant complete-dominance trait, the phenotypic ratio is 3 dominant : 1 recessive. These are probabilities over many offspring.\n\nTwo heterozygous parents each produce A and a gametes with 1/2 probability. The four equally probable genotypes are AA, Aa, Aa, aa. The genotype ratio is 1:2:1, and with complete dominance the phenotype ratio is 3:1. These fractions predict probabilities, not exact outcomes for a family of four.",
       "revisionSummary": "AA and Aa can have the same dominant phenotype despite different genotypes.",
       "terms": [
         "Why dominance masks a recessive allele"
@@ -600,6 +600,13 @@
         },
         {
           "claim": "When two heterozygotes are crossed, AA, Aa, Aa and aa are equally likely zygote combinations under Mendelian segregation. Their genotypic ratio is 1:2:1 and, for a fully penetrant complete-dominance trait, the phenotypic ratio is 3 dominant : 1 recessive. These are probabilities over many offspring.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "claim": "Two heterozygous parents each produce A and a gametes with 1/2 probability. The four equally probable genotypes are AA, Aa, Aa, aa. The genotype ratio is 1:2:1, and with complete dominance the phenotype ratio is 3:1. These fractions predict probabilities, not exact outcomes for a family of four.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2008,7 +2015,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How does interpreting box-and-whisker plots work, and what evidence or calculation supports it?",
-      "explanation": "A box-and-whisker plot displays a distribution using the median, first quartile Q1 and third quartile Q3, with the box spanning the interquartile range (IQR = Q3 − Q1). Under the 1.5 × IQR convention, values smaller than Q1 − 1.5 IQR or larger than Q3 + 1.5 IQR are plotted individually as outliers. The whiskers extend to the smallest and largest non-outlying values, which may differ from the absolute minimum and maximum.\n\nWhen interpreting the six required features, identify outliers, actual minimum, Q1, median, Q3 and actual maximum; if the plot uses Tukey-style whiskers, the actual extreme values can appear as outlier points. Comparing medians and IQRs helps distinguish typical values from variability, but overlapping plots alone do not demonstrate statistical significance.",
+      "explanation": "A box-and-whisker plot displays a distribution using the median, first quartile Q1 and third quartile Q3, with the box spanning the interquartile range (IQR = Q3 − Q1). Under the 1.5 × IQR convention, values smaller than Q1 − 1.5 IQR or larger than Q3 + 1.5 IQR are plotted individually as outliers. The whiskers extend to the smallest and largest non-outlying values, which may differ from the absolute minimum and maximum.\n\nWhen interpreting the six required features, identify outliers, actual minimum, Q1, median, Q3 and actual maximum; if the plot uses Tukey-style whiskers, the actual extreme values can appear as outlier points. Comparing medians and IQRs helps distinguish typical values from variability, but overlapping plots alone do not demonstrate statistical significance.\n\nFor ordered heights 150, 156, 160, 164, 169, 172 and 178 cm, the exclusive-median convention gives Q1 = 156, median = 164, Q3 = 172. IQR = 16 cm. Fences are Q1 − 24 = 132 and Q3 + 24 = 196 cm, so there are no outliers. Other quartile conventions must be named explicitly.",
       "revisionSummary": "A value above Q3 + 1.5 × IQR is classified as an outlier.",
       "terms": [
         "Box plots display spread and unusual values"
@@ -2030,6 +2037,13 @@
         },
         {
           "claim": "When interpreting the six required features, identify outliers, actual minimum, Q1, median, Q3 and actual maximum; if the plot uses Tukey-style whiskers, the actual extreme values can appear as outlier points. Comparing medians and IQRs helps distinguish typical values from variability, but overlapping plots alone do not demonstrate statistical significance.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "claim": "For ordered heights 150, 156, 160, 164, 169, 172 and 178 cm, the exclusive-median convention gives Q1 = 156, median = 164, Q3 = 172. IQR = 16 cm. Fences are Q1 − 24 = 132 and Q3 + 24 = 196 cm, so there are no outliers. Other quartile conventions must be named explicitly.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2315,7 +2329,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How does dihybrid punnett squares work, and what evidence or calculation supports it?",
-      "explanation": "For two independently assorting autosomal genes showing complete dominance, AaBb × AaBb gives four equally likely gametes from each parent. A four-by-four Punnett grid has 16 equally likely genotype combinations. For phenotype at locus A, three quarters show the A-dominant trait; for B, three quarters show the B-dominant trait. Multiply independent probabilities: A_B_ = 9/16; A_bb = 3/16; aaB_ = 3/16; aabb = 1/16.\n\nA test cross AaBb × aabb is different: the double recessive parent produces only ab gametes, so four offspring classes each have expected probability 1/4, yielding 1:1:1:1. Neither ratio is universal: both assume unlinked genes, ordinary segregation, equal viability and appropriate phenotype dominance.",
+      "explanation": "For two independently assorting autosomal genes showing complete dominance, AaBb × AaBb gives four equally likely gametes from each parent. A four-by-four Punnett grid has 16 equally likely genotype combinations. For phenotype at locus A, three quarters show the A-dominant trait; for B, three quarters show the B-dominant trait. Multiply independent probabilities: A_B_ = 9/16; A_bb = 3/16; aaB_ = 3/16; aabb = 1/16.\n\nA test cross AaBb × aabb is different: the double recessive parent produces only ab gametes, so four offspring classes each have expected probability 1/4, yielding 1:1:1:1. Neither ratio is universal: both assume unlinked genes, ordinary segregation, equal viability and appropriate phenotype dominance.\n\nFor unlinked AaBb × AaBb with complete dominance, P(A_B_) = (3/4)(3/4) = 9/16, P(A_bb) = 3/16, P(aaB_) = 3/16 and P(aabb) = 1/16. Expected phenotype counts among 160 offspring are 90, 30, 30 and 10. Observed counts may vary.",
       "revisionSummary": "AaBb × AaBb at unlinked completely dominant loci yields a 9:3:3:1 phenotypic ratio.",
       "terms": [
         "Dihybrid grids encode combinations and ratios"
@@ -2337,6 +2351,13 @@
         },
         {
           "claim": "A test cross AaBb × aabb is different: the double recessive parent produces only ab gametes, so four offspring classes each have expected probability 1/4, yielding 1:1:1:1. Neither ratio is universal: both assume unlinked genes, ordinary segregation, equal viability and appropriate phenotype dominance.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "claim": "For unlinked AaBb × AaBb with complete dominance, P(A_B_) = (3/4)(3/4) = 9/16, P(A_bb) = 3/16, P(aaB_) = 3/16 and P(aabb) = 1/16. Expected phenotype counts among 160 offspring are 90, 30, 30 and 10. Observed counts may vary.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2769,7 +2790,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How does crossovers and recombinant offspring work, and what evidence or calculation supports it?",
-      "explanation": "A test cross of AB/ab × ab/ab makes the doubly recessive parent contribute only ab. Consequently each offspring phenotype, if the two loci show simple complete dominance, identifies the gamete genotype produced by the double heterozygote. AB/ab and ab/ab are parental classes for coupling phase; Ab/ab and aB/ab are recombinant classes.\n\nCalculate recombination frequency as 100 × (number of recombinant offspring ÷ total offspring). For observed counts AB 42, ab 41, Ab 8 and aB 9, the total is 100, so recombinant frequency is 17%. The result indicates linkage in this test-cross model and corresponds to approximately 17 map units for this interval, subject to limitations such as undetected multiple crossovers. For unlinked genes, the expected total recombinant frequency is 50%.",
+      "explanation": "A test cross of AB/ab × ab/ab makes the doubly recessive parent contribute only ab. Consequently each offspring phenotype, if the two loci show simple complete dominance, identifies the gamete genotype produced by the double heterozygote. AB/ab and ab/ab are parental classes for coupling phase; Ab/ab and aB/ab are recombinant classes.\n\nCalculate recombination frequency as 100 × (number of recombinant offspring ÷ total offspring). For observed counts AB 42, ab 41, Ab 8 and aB 9, the total is 100, so recombinant frequency is 17%. The result indicates linkage in this test-cross model and corresponds to approximately 17 map units for this interval, subject to limitations such as undetected multiple crossovers. For unlinked genes, the expected total recombinant frequency is 50%.\n\nFor AB/ab × ab/ab, assume 42 AB, 41 ab, 8 Ab and 9 aB offspring. AB and ab are parental classes. Recombinants are Ab and aB, so frequency = (8 + 9)/(42 + 41 + 8 + 9) × 100 = 17%. Recombination near 50% does not prove loci are on different chromosomes.",
       "revisionSummary": "Recombinant frequency is recombinant offspring divided by total offspring × 100%.",
       "terms": [
         "Test-cross data reveal recombinant types"
@@ -2791,6 +2812,13 @@
         },
         {
           "claim": "Calculate recombination frequency as 100 × (number of recombinant offspring ÷ total offspring). For observed counts AB 42, ab 41, Ab 8 and aB 9, the total is 100, so recombinant frequency is 17%. The result indicates linkage in this test-cross model and corresponds to approximately 17 map units for this interval, subject to limitations such as undetected multiple crossovers. For unlinked genes, the expected total recombinant frequency is 50%.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "claim": "For AB/ab × ab/ab, assume 42 AB, 41 ab, 8 Ab and 9 aB offspring. AB and ab are parental classes. Recombinants are Ab and aB, so frequency = (8 + 9)/(42 + 41 + 8 + 9) × 100 = 17%. Recombination near 50% does not prove loci are on different chromosomes.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2943,7 +2971,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How does chi-squared tests of dihybrid data work, and what evidence or calculation supports it?",
-      "explanation": "The chi-squared goodness-of-fit test compares observed categorical counts with expected counts predicted by a null hypothesis. For an unlinked AaBb × AaBb F2 cross under complete dominance, the null hypothesis may specify a 9:3:3:1 ratio; the alternative is that the data are inconsistent with this ratio. Compute each category's contribution (O − E)²/E and add them. If total n = 160, expected counts are 90, 30, 30 and 10.\n\nWith observed counts 88, 32, 29 and 11, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, degrees of freedom = 3; the 5% critical value is approximately 7.815. Because 0.311 is smaller, do not reject the null hypothesis: the differences are compatible with sampling variation. Failure to reject is not proof of a particular model. Ensure expected counts are adequate for chi-squared approximation and interpret a p value as a probability under the null, not as the probability that the null is true.",
+      "explanation": "The chi-squared goodness-of-fit test compares observed categorical counts with expected counts predicted by a null hypothesis. For an unlinked AaBb × AaBb F2 cross under complete dominance, the null hypothesis may specify a 9:3:3:1 ratio; the alternative is that the data are inconsistent with this ratio. Compute each category's contribution (O − E)²/E and add them. If total n = 160, expected counts are 90, 30, 30 and 10.\n\nWith observed counts 88, 32, 29 and 11, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, degrees of freedom = 3; the 5% critical value is approximately 7.815. Because 0.311 is smaller, do not reject the null hypothesis: the differences are compatible with sampling variation. Failure to reject is not proof of a particular model. Ensure expected counts are adequate for chi-squared approximation and interpret a p value as a probability under the null, not as the probability that the null is true.\n\nFor observed 88:32:29:11 and expected 90:30:30:10, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, df = 3 and the 5% critical value is 7.815. Fail to reject the hypothesized ratio. This does not prove the null model.",
       "revisionSummary": "A chi-squared result below the relevant critical value does not justify rejecting the null hypothesis.",
       "terms": [
         "Chi-squared tests assess a genetic model"
@@ -2965,6 +2993,13 @@
         },
         {
           "claim": "With observed counts 88, 32, 29 and 11, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, degrees of freedom = 3; the 5% critical value is approximately 7.815. Because 0.311 is smaller, do not reject the null hypothesis: the differences are compatible with sampling variation. Failure to reject is not proof of a particular model. Ensure expected counts are adequate for chi-squared approximation and interpret a p value as a probability under the null, not as the probability that the null is true.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "claim": "For observed 88:32:29:11 and expected 90:30:30:10, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, df = 3 and the 5% critical value is 7.815. Fail to reject the hypothesized ratio. This does not prove the null model.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
