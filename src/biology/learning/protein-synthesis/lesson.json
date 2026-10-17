@@ -29,7 +29,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which molecule directly uses a DNA template to synthesize a transcript?",
-      "explanation": "RNA polymerase binds a DNA region and uses one DNA strand as the template to synthesize an RNA strand. As it advances, a local part of the duplex unwinds, incoming ribonucleotides pair with exposed DNA bases and the RNA nucleotides are joined by phosphodiester bonds. The DNA strands re-form the duplex behind the enzyme; unlike replication, the product is RNA rather than double-stranded DNA.\n\nFor a given gene, promoter orientation determines which DNA strand is transcribed. Do not call one physical chromosome strand the template for every gene: the two strands can each serve as the template for different genes, with orientation set by promoters.",
+      "explanation": "RNA polymerase binds a DNA region and uses one DNA strand as the template to synthesize an RNA strand. As it advances, a local part of the duplex unwinds, incoming ribonucleotides pair with exposed DNA bases and the RNA nucleotides are joined by phosphodiester bonds. The DNA strands re-form the duplex behind the enzyme; unlike replication, the product is RNA rather than double-stranded DNA.\n\nFor a given gene, promoter orientation determines which DNA strand is transcribed. Do not call one physical chromosome strand the template for every gene: the two strands can each serve as the template for different genes, with orientation set by promoters.\n\nTranscription copies a selected DNA region into one RNA transcript. RNA polymerase reads a DNA template and creates phosphodiester links in the nascent RNA; after it passes, the local DNA duplex reforms. This is not a second round of DNA replication.",
       "revisionSummary": "RNA polymerase binds a DNA region and uses one DNA strand as the template to synthesize an RNA strand. For a given gene, promoter orientation determines which DNA strand is transcribed.",
       "terms": [
         "Transcription creates an RNA copy: underlying concept",
@@ -141,7 +141,7 @@
         },
         {
           "title": "The choice of DNA template",
-          "explanation": "For a given gene, promoter orientation determines which DNA strand is transcribed. Do not call one physical chromosome strand the template for every gene: the two strands can each serve as the template for different genes, with orientation set by promoters.",
+          "explanation": "For a given gene, promoter orientation determines which DNA strand is transcribed. Do not call one physical chromosome strand the template for every gene: the two strands can each serve as the template for different genes, with orientation set by promoters.\n\nTranscription copies a selected DNA region into one RNA transcript. RNA polymerase reads a DNA template and creates phosphodiester links in the nascent RNA; after it passes, the local DNA duplex reforms. This is not a second round of DNA replication.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -173,7 +173,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which 5′→3′ RNA sequence is transcribed from template 3′-TAC-5′?",
-      "explanation": "During RNA synthesis, DNA A pairs with RNA U, DNA T pairs with RNA A, and DNA C and G pair with RNA G and C respectively. Hydrogen bonding supports the matching of a ribonucleotide to its template base while RNA polymerase creates the covalent sugar–phosphate backbone of the new RNA.\n\nThe RNA sequence is complementary and antiparallel to the template DNA strand. It matches the coding DNA strand apart from U in RNA in place of T in DNA, provided both sequences are written 5′ to 3′. Confusing these two DNA strands reverses expected RNA and codon answers.",
+      "explanation": "During RNA synthesis, DNA A pairs with RNA U, DNA T pairs with RNA A, and DNA C and G pair with RNA G and C respectively. Hydrogen bonding supports the matching of a ribonucleotide to its template base while RNA polymerase creates the covalent sugar–phosphate backbone of the new RNA.\n\nThe RNA sequence is complementary and antiparallel to the template DNA strand. It matches the coding DNA strand apart from U in RNA in place of T in DNA, provided both sequences are written 5′ to 3′. Confusing these two DNA strands reverses expected RNA and codon answers.\n\nCheck the polarity of all three aligned molecules: coding DNA 5′-ATG GCT TAA-3′, template DNA 3′-TAC CGA ATT-5′, and mRNA 5′-AUG GCU UAA-3′. RNA is complementary to the template and matches the coding sequence apart from U replacing T.",
       "revisionSummary": "During RNA synthesis, DNA A pairs with RNA U, DNA T pairs with RNA A, and DNA C and G pair with RNA G and C respectively. The RNA sequence is complementary and antiparallel to the template DNA strand.",
       "terms": [
         "RNA uses different complementary bases: underlying concept",
@@ -293,7 +293,7 @@
         },
         {
           "title": "Coding is not the same as template",
-          "explanation": "The RNA sequence is complementary and antiparallel to the template DNA strand. It matches the coding DNA strand apart from U in RNA in place of T in DNA, provided both sequences are written 5′ to 3′. Confusing these two DNA strands reverses expected RNA and codon answers.",
+          "explanation": "The RNA sequence is complementary and antiparallel to the template DNA strand. It matches the coding DNA strand apart from U in RNA in place of T in DNA, provided both sequences are written 5′ to 3′. Confusing these two DNA strands reverses expected RNA and codon answers.\n\nCheck the polarity of all three aligned molecules: coding DNA 5′-ATG GCT TAA-3′, template DNA 3′-TAC CGA ATT-5′, and mRNA 5′-AUG GCU UAA-3′. RNA is complementary to the template and matches the coding sequence apart from U replacing T.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -317,7 +317,37 @@
             "explanation": "During RNA synthesis, DNA A pairs with RNA U, DNA T pairs with RNA A, and DNA C and G pair with RNA G and C respectively. Hydrogen bonding supports the matching of a ribonucleotide to its template base while RNA polymerase creates the covalent sugar–phosphate backbone of the new RNA."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "DNA coding strand, template strand and transcript",
+          "afterBlock": 0,
+          "headers": [
+            "Molecule",
+            "Labeled sequence",
+            "Interpretation"
+          ],
+          "rows": [
+            [
+              "Coding DNA",
+              "5′-ATG GCT TAA-3′",
+              "Matches RNA apart from T/U"
+            ],
+            [
+              "Template DNA",
+              "3′-TAC CGA ATT-5′",
+              "Read 3′→5′ during transcription"
+            ],
+            [
+              "mRNA",
+              "5′-AUG GCU UAA-3′",
+              "Read 5′→3′ during translation"
+            ]
+          ],
+          "note": "Original short teaching sequence; not a published experimental gene."
+        }
+      ]
     },
     {
       "id": "d12-3",
@@ -326,7 +356,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why can a non-dividing neuron repeatedly transcribe one gene?",
-      "explanation": "A DNA gene can be transcribed repeatedly because RNA polymerase reads the sequence without consuming nucleotides from the DNA template or converting DNA into RNA. The double helix re-forms when the temporary transcription bubble passes, preserving the base order.\n\nA neuron may remain active for years with little or no cell division while making fresh RNA copies from the same DNA genes. Maintenance and DNA repair matter because a persistent template mutation could alter all later transcripts produced from that gene.",
+      "explanation": "A DNA gene can be transcribed repeatedly because RNA polymerase reads the sequence without consuming nucleotides from the DNA template or converting DNA into RNA. The double helix re-forms when the temporary transcription bubble passes, preserving the base order.\n\nA neuron may remain active for years with little or no cell division while making fresh RNA copies from the same DNA genes. Maintenance and DNA repair matter because a persistent template mutation could alter all later transcripts produced from that gene.\n\nDNA is read without being consumed. Long-lived nondividing neurons can therefore transcribe the same gene repeatedly throughout their life; transcription alone does not change the inherited template. DNA damage is still possible, so stable does not mean chemically indestructible.",
       "revisionSummary": "A DNA gene can be transcribed repeatedly because RNA polymerase reads the sequence without consuming nucleotides from the DNA template or converting DNA into RNA. A neuron may remain active for years with little or no cell division while making fresh RNA copies from the same DNA genes.",
       "terms": [
         "DNA is reused without changing its sequence: underlying concept",
@@ -438,7 +468,7 @@
         },
         {
           "title": "Long-lived cells depend on stable DNA",
-          "explanation": "A neuron may remain active for years with little or no cell division while making fresh RNA copies from the same DNA genes. Maintenance and DNA repair matter because a persistent template mutation could alter all later transcripts produced from that gene.",
+          "explanation": "A neuron may remain active for years with little or no cell division while making fresh RNA copies from the same DNA genes. Maintenance and DNA repair matter because a persistent template mutation could alter all later transcripts produced from that gene.\n\nDNA is read without being consumed. Long-lived nondividing neurons can therefore transcribe the same gene repeatedly throughout their life; transcription alone does not change the inherited template. DNA damage is still possible, so stable does not mean chemically indestructible.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -472,7 +502,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which is a major stage at which a cell regulates whether a gene is expressed?",
-      "explanation": "Most cells share a large collection of genes, but they do not transcribe every gene at the same time. Transcription is an early control point for gene expression: if a gene is not transcribed, little or no new mRNA from it becomes available for translation.\n\nA liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript. Regulatory proteins and DNA regions are further explored in HL gene expression, but the essential idea is selective transcription rather than a change to DNA sequence.",
+      "explanation": "Most cells share a large collection of genes, but they do not transcribe every gene at the same time. Transcription is an early control point for gene expression: if a gene is not transcribed, little or no new mRNA from it becomes available for translation.\n\nA liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript. Regulatory proteins and DNA regions are further explored in HL gene expression, but the essential idea is selective transcription rather than a change to DNA sequence.\n\nNot every gene is transcribed continuously. Regulatory choices at transcription help cells with essentially the same genome maintain different patterns of protein synthesis and different specialized functions. Gene expression describes molecular activity, not a change in the DNA genotype.",
       "revisionSummary": "Most cells share a large collection of genes, but they do not transcribe every gene at the same time. A liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript.",
       "terms": [
         "A gene can be switched on or off: underlying concept",
@@ -584,7 +614,7 @@
         },
         {
           "title": "Expression is conditional",
-          "explanation": "A liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript. Regulatory proteins and DNA regions are further explored in HL gene expression, but the essential idea is selective transcription rather than a change to DNA sequence.",
+          "explanation": "A liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript. Regulatory proteins and DNA regions are further explored in HL gene expression, but the essential idea is selective transcription rather than a change to DNA sequence.\n\nNot every gene is transcribed continuously. Regulatory choices at transcription help cells with essentially the same genome maintain different patterns of protein synthesis and different specialized functions. Gene expression describes molecular activity, not a change in the DNA genotype.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -615,7 +645,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What is the direct product of translating an mRNA coding region?",
-      "explanation": "Translation converts the sequence of mRNA codons into an amino-acid sequence, rather than copying a nucleic acid strand. Ribosomes assemble amino acids through peptide bonds in the order specified by the mRNA. A resulting polypeptide may fold and undergo additional processing before functioning as a protein.\n\nThe codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation. Stop codons terminate the coded chain instead of specifying an extra amino acid. The final polypeptide is read from the amino terminus toward the carboxyl terminus.",
+      "explanation": "Translation converts the sequence of mRNA codons into an amino-acid sequence, rather than copying a nucleic acid strand. Ribosomes assemble amino acids through peptide bonds in the order specified by the mRNA. A resulting polypeptide may fold and undergo additional processing before functioning as a protein.\n\nThe codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation. Stop codons terminate the coded chain instead of specifying an extra amino acid. The final polypeptide is read from the amino terminus toward the carboxyl terminus.\n\nTranslation links the information in mRNA codons to the order of amino acids in a polypeptide. A ribosome does not translate genomic DNA, nor does it manufacture amino acids from codons: charged tRNA molecules deliver the amino acids that the ribosome joins by peptide bonds.",
       "revisionSummary": "Translation converts the sequence of mRNA codons into an amino-acid sequence, rather than copying a nucleic acid strand. The codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation.",
       "terms": [
         "Translation builds a polypeptide: underlying concept",
@@ -727,7 +757,7 @@
         },
         {
           "title": "Information is interpreted as triplets",
-          "explanation": "The codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation. Stop codons terminate the coded chain instead of specifying an extra amino acid. The final polypeptide is read from the amino terminus toward the carboxyl terminus.",
+          "explanation": "The codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation. Stop codons terminate the coded chain instead of specifying an extra amino acid. The final polypeptide is read from the amino terminus toward the carboxyl terminus.\n\nTranslation links the information in mRNA codons to the order of amino acids in a polypeptide. A ribosome does not translate genomic DNA, nor does it manufacture amino acids from codons: charged tRNA molecules deliver the amino acids that the ribosome joins by peptide bonds.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -760,7 +790,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which molecule carries an amino acid to the translating ribosome?",
-      "explanation": "mRNA supplies the readable codon sequence; the small ribosomal subunit binds the mRNA; tRNAs carry particular amino acids into the assembled ribosome. Two tRNAs can occupy the ribosome simultaneously while one amino acid is transferred to the growing polypeptide chain.\n\nRibosomes contain rRNA and proteins and catalyse peptide-bond formation. A tRNA anticodon recognizes a matching mRNA codon; tRNA is not itself the inherited DNA template. The components cooperate in translation but have different molecular jobs.",
+      "explanation": "mRNA supplies the readable codon sequence; the small ribosomal subunit binds the mRNA; tRNAs carry particular amino acids into the assembled ribosome. Two tRNAs can occupy the ribosome simultaneously while one amino acid is transferred to the growing polypeptide chain.\n\nRibosomes contain rRNA and proteins and catalyse peptide-bond formation. A tRNA anticodon recognizes a matching mRNA codon; tRNA is not itself the inherited DNA template. The components cooperate in translation but have different molecular jobs.\n\nmRNA supplies the code; small and large ribosomal subunits organize decoding and peptide-bond formation; tRNAs match codons while delivering bound amino acids. The large subunit holds two relevant tRNAs simultaneously during elongation, where the chain can be transferred.",
       "revisionSummary": "mRNA supplies the readable codon sequence; the small ribosomal subunit binds the mRNA; tRNAs carry particular amino acids into the assembled ribosome. Ribosomes contain rRNA and proteins and catalyse peptide-bond formation.",
       "terms": [
         "Three RNA-based participants cooperate: underlying concept",
@@ -872,7 +902,7 @@
         },
         {
           "title": "RNA molecules have distinct functions",
-          "explanation": "Ribosomes contain rRNA and proteins and catalyse peptide-bond formation. A tRNA anticodon recognizes a matching mRNA codon; tRNA is not itself the inherited DNA template. The components cooperate in translation but have different molecular jobs.",
+          "explanation": "Ribosomes contain rRNA and proteins and catalyse peptide-bond formation. A tRNA anticodon recognizes a matching mRNA codon; tRNA is not itself the inherited DNA template. The components cooperate in translation but have different molecular jobs.\n\nmRNA supplies the code; small and large ribosomal subunits organize decoding and peptide-bond formation; tRNAs match codons while delivering bound amino acids. The large subunit holds two relevant tRNAs simultaneously during elongation, where the chain can be transferred.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -906,7 +936,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which anticodon pairs with mRNA codon 5′-AUG-3′?",
-      "explanation": "Each mRNA codon is a group of three nucleotide bases read 5′ to 3′. A complementary tRNA anticodon pairs antiparallel to that codon, helping the ribosome select a tRNA loaded with the corresponding amino acid.\n\nFor mRNA codon 5′-AUG-3′, an exactly complementary anticodon is 3′-UAC-5′. Written 5′ to 3′, the same anticodon is CAU. Ignoring antiparallel orientation is a frequent source of incorrect sequence deductions.",
+      "explanation": "Each mRNA codon is a group of three nucleotide bases read 5′ to 3′. A complementary tRNA anticodon pairs antiparallel to that codon, helping the ribosome select a tRNA loaded with the corresponding amino acid.\n\nFor mRNA codon 5′-AUG-3′, an exactly complementary anticodon is 3′-UAC-5′. Written 5′ to 3′, the same anticodon is CAU. Ignoring antiparallel orientation is a frequent source of incorrect sequence deductions.\n\nPolarity matters: mRNA codon 5′-AUG-3′ pairs antiparallel with tRNA anticodon 3′-UAC-5′. When the same anticodon is written 5′→3′ it reads CAU, not UAC. A matching anticodon identifies a bound aminoacyl-tRNA rather than encoding an amino acid on its own.",
       "revisionSummary": "Each mRNA codon is a group of three nucleotide bases read 5′ to 3′. For mRNA codon 5′-AUG-3′, an exactly complementary anticodon is 3′-UAC-5′.",
       "terms": [
         "Codons are matched to anticodons: underlying concept",
@@ -1018,7 +1048,7 @@
         },
         {
           "title": "Recognize orientation when matching",
-          "explanation": "For mRNA codon 5′-AUG-3′, an exactly complementary anticodon is 3′-UAC-5′. Written 5′ to 3′, the same anticodon is CAU. Ignoring antiparallel orientation is a frequent source of incorrect sequence deductions.",
+          "explanation": "For mRNA codon 5′-AUG-3′, an exactly complementary anticodon is 3′-UAC-5′. Written 5′ to 3′, the same anticodon is CAU. Ignoring antiparallel orientation is a frequent source of incorrect sequence deductions.\n\nPolarity matters: mRNA codon 5′-AUG-3′ pairs antiparallel with tRNA anticodon 3′-UAC-5′. When the same anticodon is written 5′→3′ it reads CAU, not UAC. A matching anticodon identifies a bound aminoacyl-tRNA rather than encoding an amino acid on its own.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1042,7 +1072,41 @@
             "explanation": "Each mRNA codon is a group of three nucleotide bases read 5′ to 3′. A complementary tRNA anticodon pairs antiparallel to that codon, helping the ribosome select a tRNA loaded with the corresponding amino acid."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "A codon and its antiparallel anticodon",
+          "afterBlock": 1,
+          "headers": [
+            "Sequence",
+            "Left end",
+            "Triplet",
+            "Right end"
+          ],
+          "rows": [
+            [
+              "mRNA",
+              "5′",
+              "AUG",
+              "3′"
+            ],
+            [
+              "tRNA (aligned)",
+              "3′",
+              "UAC",
+              "5′"
+            ],
+            [
+              "Same tRNA written in 5′→3′ order",
+              "5′",
+              "CAU",
+              "3′"
+            ]
+          ],
+          "note": "Written base order changes when the molecule is reversed."
+        }
+      ]
     },
     {
       "id": "d12-8",
@@ -1051,7 +1115,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why is a triplet code necessary to encode 20 standard amino acids?",
-      "explanation": "Four RNA bases yield 4² = 16 possible doublets, insufficient for 20 standard amino acids, whereas 4³ = 64 triplets provide enough codons. Codons are read without overlap in the established reading frame; many different codons can specify one amino acid.\n\nDegeneracy means more than one codon can specify a particular amino acid, making some changes silent. The standard genetic code is nearly universal across life, providing strong evidence of shared ancestry; specialized genetic codes such as some mitochondrial codes are known exceptions.",
+      "explanation": "Four RNA bases yield 4² = 16 possible doublets, insufficient for 20 standard amino acids, whereas 4³ = 64 triplets provide enough codons. Codons are read without overlap in the established reading frame; many different codons can specify one amino acid.\n\nDegeneracy means more than one codon can specify a particular amino acid, making some changes silent. The standard genetic code is nearly universal across life, providing strong evidence of shared ancestry; specialized genetic codes such as some mitochondrial codes are known exceptions.\n\nFour possible bases yield 4² = 16 doublets, too few for 20 standard amino acids, but 4³ = 64 triplets. Degeneracy means different triplets can code for the same amino acid. The code is nearly universal; exceptions in some organisms and organelles should not be denied.",
       "revisionSummary": "Four RNA bases yield 4² = 16 possible doublets, insufficient for 20 standard amino acids, whereas 4³ = 64 triplets provide enough codons. Degeneracy means more than one codon can specify a particular amino acid, making some changes silent.",
       "terms": [
         "Why the genetic code is a triplet: underlying concept",
@@ -1163,7 +1227,7 @@
         },
         {
           "title": "Degenerate and nearly universal",
-          "explanation": "Degeneracy means more than one codon can specify a particular amino acid, making some changes silent. The standard genetic code is nearly universal across life, providing strong evidence of shared ancestry; specialized genetic codes such as some mitochondrial codes are known exceptions.",
+          "explanation": "Degeneracy means more than one codon can specify a particular amino acid, making some changes silent. The standard genetic code is nearly universal across life, providing strong evidence of shared ancestry; specialized genetic codes such as some mitochondrial codes are known exceptions.\n\nFour possible bases yield 4² = 16 doublets, too few for 20 standard amino acids, but 4³ = 64 triplets. Degeneracy means different triplets can code for the same amino acid. The code is nearly universal; exceptions in some organisms and organelles should not be denied.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1195,7 +1259,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What polypeptide is coded by mRNA 5′-AUG GCU UAA-3′?",
-      "explanation": "A codon table uses the RNA alphabet A, U, C and G and reads an mRNA triplet from its first base to its third base. If given the DNA template first, form the antiparallel complementary RNA sequence before consulting the table; using coding DNA requires replacing T with U.\n\nFor coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′. The standard genetic code gives methionine, alanine, stop. A stop triplet signals termination rather than adding a third amino acid; always establish the translation reading frame.",
+      "explanation": "A codon table uses the RNA alphabet A, U, C and G and reads an mRNA triplet from its first base to its third base. If given the DNA template first, form the antiparallel complementary RNA sequence before consulting the table; using coding DNA requires replacing T with U.\n\nFor coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′. The standard genetic code gives methionine, alanine, stop. A stop triplet signals termination rather than adding a third amino acid; always establish the translation reading frame.\n\nDetermine the reading frame before using the mRNA codon table. 5′-AUG GCU UAA-3′ codes for methionine–alanine followed by a stop signal; UAA is not an amino acid. Reading the opposite strand or shifting one base changes the interpretation.",
       "revisionSummary": "A codon table uses the RNA alphabet A, U, C and G and reads an mRNA triplet from its first base to its third base. For coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′.",
       "terms": [
         "Read the genetic code using mRNA: underlying concept",
@@ -1307,7 +1371,7 @@
         },
         {
           "title": "Worked codon sequence",
-          "explanation": "For coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′. The standard genetic code gives methionine, alanine, stop. A stop triplet signals termination rather than adding a third amino acid; always establish the translation reading frame.",
+          "explanation": "For coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′. The standard genetic code gives methionine, alanine, stop. A stop triplet signals termination rather than adding a third amino acid; always establish the translation reading frame.\n\nDetermine the reading frame before using the mRNA codon table. 5′-AUG GCU UAA-3′ codes for methionine–alanine followed by a stop signal; UAA is not an amino acid. Reading the opposite strand or shifting one base changes the interpretation.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1362,7 +1426,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How far does a ribosome normally advance along mRNA after adding one amino acid?",
-      "explanation": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat.\n\nThe chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.",
+      "explanation": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat.\n\nThe chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.\n\nDuring elongation, an aminoacyl-tRNA matches the next codon, a peptide bond forms, and the ribosome advances by three bases along 5′→3′ mRNA. The chain grows through successive peptide transfers; the ribosome does not add RNA nucleotides during this step.",
       "revisionSummary": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids.",
       "terms": [
         "The ribosome advances one codon at a time: underlying concept",
@@ -1474,7 +1538,7 @@
         },
         {
           "title": "Peptide-bond direction",
-          "explanation": "The chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.",
+          "explanation": "The chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.\n\nDuring elongation, an aminoacyl-tRNA matches the next codon, a peptide bond forms, and the ribosome advances by three bases along 5′→3′ mRNA. The chain grows through successive peptide transfers; the ribosome does not add RNA nucleotides during this step.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1498,7 +1562,32 @@
             "explanation": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Translation elongation cycle",
+          "afterBlock": 0,
+          "steps": [
+            {
+              "title": "Codon recognition",
+              "description": "A-site tRNA pairs with the next mRNA codon."
+            },
+            {
+              "title": "Peptide transfer",
+              "description": "Growing chain transfers to the A-site amino acid."
+            },
+            {
+              "title": "Translocation",
+              "description": "Ribosome advances three RNA bases."
+            },
+            {
+              "title": "Site reset",
+              "description": "Empty tRNA exits and another aminoacyl-tRNA can enter."
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "d12-11",
@@ -1507,7 +1596,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which change can produce a different amino acid in a polypeptide?",
-      "explanation": "A DNA point mutation may change an mRNA codon and thus replace an amino acid. The biochemical properties of the replacement can affect folding, stability or activity, but not every substitution produces a change in the encoded polypeptide.\n\nIn sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties. The example shows that a molecular sequence difference can have consequences at cell and organism levels, not that all variants cause disease.",
+      "explanation": "A DNA point mutation may change an mRNA codon and thus replace an amino acid. The biochemical properties of the replacement can affect folding, stability or activity, but not every substitution produces a change in the encoded polypeptide.\n\nIn sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties. The example shows that a molecular sequence difference can have consequences at cell and organism levels, not that all variants cause disease.\n\nA point substitution can alter one codon and thereby change one amino acid. Altered side-chain chemistry may affect folding, binding or an active site; the effect depends on protein context. The sickle-cell HBB substitution is one example, but a substitution is not always harmful.",
       "revisionSummary": "A DNA point mutation may change an mRNA codon and thus replace an amino acid. In sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties.",
       "terms": [
         "Sequence changes can alter a protein: underlying concept",
@@ -1619,7 +1708,7 @@
         },
         {
           "title": "Connect genotype to phenotype cautiously",
-          "explanation": "In sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties. The example shows that a molecular sequence difference can have consequences at cell and organism levels, not that all variants cause disease.",
+          "explanation": "In sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties. The example shows that a molecular sequence difference can have consequences at cell and organism levels, not that all variants cause disease.\n\nA point substitution can alter one codon and thereby change one amino acid. Altered side-chain chemistry may affect folding, binding or an active site; the effect depends on protein context. The sickle-cell HBB substitution is one example, but a substitution is not always harmful.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1653,7 +1742,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "In which direction is a newly synthesized RNA chain extended?",
-      "explanation": "RNA polymerase synthesizes RNA by extending a 3′ end, so the RNA grows 5′→3′ while the template DNA is read 3′→5′. Translation reads mRNA from its 5′ end toward its 3′ end. These are two distinct kinds of directional processes.\n\nA gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand. The ribosome does not move 3′→5′ merely because its tRNAs have complementary antiparallel anticodons.",
+      "explanation": "RNA polymerase synthesizes RNA by extending a 3′ end, so the RNA grows 5′→3′ while the template DNA is read 3′→5′. Translation reads mRNA from its 5′ end toward its 3′ end. These are two distinct kinds of directional processes.\n\nA gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand. The ribosome does not move 3′→5′ merely because its tRNAs have complementary antiparallel anticodons.\n\nDistinguish the directions of two different processes: RNA synthesis extends 5′→3′ while DNA template reading is 3′→5′; the ribosome moves along mRNA 5′→3′ while the polypeptide grows from N-terminus to C-terminus. 5′ and 3′ labels belong to nucleic acids, not peptides.",
       "revisionSummary": "RNA polymerase synthesizes RNA by extending a 3′ end, so the RNA grows 5′→3′ while the template DNA is read 3′→5′. A gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand.",
       "terms": [
         "Directions in transcription and translation: underlying concept",
@@ -1765,7 +1854,7 @@
         },
         {
           "title": "Do not confuse reading with growth",
-          "explanation": "A gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand. The ribosome does not move 3′→5′ merely because its tRNAs have complementary antiparallel anticodons.",
+          "explanation": "A gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand. The ribosome does not move 3′→5′ merely because its tRNAs have complementary antiparallel anticodons.\n\nDistinguish the directions of two different processes: RNA synthesis extends 5′→3′ while DNA template reading is 3′→5′; the ribosome moves along mRNA 5′→3′ while the polypeptide grows from N-terminus to C-terminus. 5′ and 3′ labels belong to nucleic acids, not peptides.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1798,7 +1887,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What is the principal role of a promoter?",
-      "explanation": "A promoter is a regulatory DNA sequence near a gene that helps position the transcription machinery. In eukaryotes, transcription factors can bind promoter sequences and assist RNA polymerase recruitment; promoter orientation helps select the DNA template.\n\nNot every three-base DNA sequence is a transcription start. Cell-specific regulation can increase or decrease initiation, allowing one gene's transcription to change without changing its base sequence.",
+      "explanation": "A promoter is a regulatory DNA sequence near a gene that helps position the transcription machinery. In eukaryotes, transcription factors can bind promoter sequences and assist RNA polymerase recruitment; promoter orientation helps select the DNA template.\n\nNot every three-base DNA sequence is a transcription start. Cell-specific regulation can increase or decrease initiation, allowing one gene's transcription to change without changing its base sequence.\n\nA promoter is a DNA sequence that helps recruit and position the transcription machinery near the start of a gene. Promoter orientation determines which strand is the template. Transcription factors can bind promoter DNA, but named factors are not required in this HL understanding.",
       "revisionSummary": "A promoter is a regulatory DNA sequence near a gene that helps position the transcription machinery. Not every three-base DNA sequence is a transcription start.",
       "terms": [
         "Promoters determine where transcription begins: underlying concept",
@@ -1910,7 +1999,7 @@
         },
         {
           "title": "Initiation is not arbitrary",
-          "explanation": "Not every three-base DNA sequence is a transcription start. Cell-specific regulation can increase or decrease initiation, allowing one gene's transcription to change without changing its base sequence.",
+          "explanation": "Not every three-base DNA sequence is a transcription start. Cell-specific regulation can increase or decrease initiation, allowing one gene's transcription to change without changing its base sequence.\n\nA promoter is a DNA sequence that helps recruit and position the transcription machinery near the start of a gene. Promoter orientation determines which strand is the template. Transcription factors can bind promoter DNA, but named factors are not required in this HL understanding.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1944,7 +2033,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which is a clear example of a gene whose final product is not a polypeptide?",
-      "explanation": "Large regions of eukaryotic DNA are non-coding. Some DNA regions control when genes are expressed, introns are removed from pre-mRNA, telomeres protect chromosome ends, and genes for rRNA or tRNA yield functional RNAs rather than polypeptides.\n\nSome non-coding sequences are regulatory, structural or transcribed into functional RNA. Others have no established function. Avoid the incorrect extremes that all non-coding DNA is useless or that all DNA is protein coding.",
+      "explanation": "Large regions of eukaryotic DNA are non-coding. Some DNA regions control when genes are expressed, introns are removed from pre-mRNA, telomeres protect chromosome ends, and genes for rRNA or tRNA yield functional RNAs rather than polypeptides.\n\nSome non-coding sequences are regulatory, structural or transcribed into functional RNA. Others have no established function. Avoid the incorrect extremes that all non-coding DNA is useless or that all DNA is protein coding.\n\nNoncoding DNA can be functional. Required eukaryotic examples include regulatory DNA, introns, telomeres, and genes whose final products are tRNA or rRNA. Distinguish DNA that is transcribed into functional RNA from DNA segments that regulate another transcription event.",
       "revisionSummary": "Large regions of eukaryotic DNA are non-coding. Some non-coding sequences are regulatory, structural or transcribed into functional RNA.",
       "terms": [
         "Not every DNA sequence encodes a protein: underlying concept",
@@ -2056,7 +2145,7 @@
         },
         {
           "title": "Non-coding does not mean functionless",
-          "explanation": "Some non-coding sequences are regulatory, structural or transcribed into functional RNA. Others have no established function. Avoid the incorrect extremes that all non-coding DNA is useless or that all DNA is protein coding.",
+          "explanation": "Some non-coding sequences are regulatory, structural or transcribed into functional RNA. Others have no established function. Avoid the incorrect extremes that all non-coding DNA is useless or that all DNA is protein coding.\n\nNoncoding DNA can be functional. Required eukaryotic examples include regulatory DNA, introns, telomeres, and genes whose final products are tRNA or rRNA. Distinguish DNA that is transcribed into functional RNA from DNA segments that regulate another transcription event.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -2090,7 +2179,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which process removes introns from eukaryotic pre-mRNA?",
-      "explanation": "A typical eukaryotic protein-coding transcript is initially pre-mRNA containing introns and exons. Splicing removes introns and joins exons. A 5′ cap and 3′ poly-A tail help stabilize and process the RNA and contribute to efficient translation after export.\n\nThe order of retained exons establishes the final coding information. A poly-A tail is added enzymatically after RNA cleavage and is not simply a long DNA-encoded thymine tract copied verbatim. Pre-mRNA processing generally occurs in the nucleus.",
+      "explanation": "A typical eukaryotic protein-coding transcript is initially pre-mRNA containing introns and exons. Splicing removes introns and joins exons. A 5′ cap and 3′ poly-A tail help stabilize and process the RNA and contribute to efficient translation after export.\n\nThe order of retained exons establishes the final coding information. A poly-A tail is added enzymatically after RNA cleavage and is not simply a long DNA-encoded thymine tract copied verbatim. Pre-mRNA processing generally occurs in the nucleus.\n\nEukaryotic pre-mRNA maturation includes addition of a 5′ cap, a 3′ poly(A) tail, and removal of introns while exons are spliced together. The tail consists of RNA adenosine residues; it is not a poly-alanine protein. Processing supports RNA stability and proper use.",
       "revisionSummary": "A typical eukaryotic protein-coding transcript is initially pre-mRNA containing introns and exons. The order of retained exons establishes the final coding information.",
       "terms": [
         "Eukaryotic transcripts are processed: underlying concept",
@@ -2202,7 +2291,7 @@
         },
         {
           "title": "Mature RNA has a modified architecture",
-          "explanation": "The order of retained exons establishes the final coding information. A poly-A tail is added enzymatically after RNA cleavage and is not simply a long DNA-encoded thymine tract copied verbatim. Pre-mRNA processing generally occurs in the nucleus.",
+          "explanation": "The order of retained exons establishes the final coding information. A poly-A tail is added enzymatically after RNA cleavage and is not simply a long DNA-encoded thymine tract copied verbatim. Pre-mRNA processing generally occurs in the nucleus.\n\nEukaryotic pre-mRNA maturation includes addition of a 5′ cap, a 3′ poly(A) tail, and removal of introns while exons are spliced together. The tail consists of RNA adenosine residues; it is not a poly-alanine protein. Processing supports RNA stability and proper use.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -2226,7 +2315,33 @@
             "explanation": "A typical eukaryotic protein-coding transcript is initially pre-mRNA containing introns and exons. Splicing removes introns and joins exons. A 5′ cap and 3′ poly-A tail help stabilize and process the RNA and contribute to efficient translation after export."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Maturation of a eukaryotic pre-mRNA",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Primary transcript",
+              "description": "Contains exons and introns."
+            },
+            {
+              "title": "End modification",
+              "description": "A 5′ cap and 3′ poly(A) tail are added."
+            },
+            {
+              "title": "Splicing",
+              "description": "Introns are removed and exons joined."
+            },
+            {
+              "title": "Mature transcript",
+              "description": "Processed mRNA can participate in translation."
+            }
+          ],
+          "note": "Some steps overlap in real cells; order shown is a learning model."
+        }
+      ]
     },
     {
       "id": "d12-16",
@@ -2235,7 +2350,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What can alternative splicing allow?",
-      "explanation": "One eukaryotic gene can produce several mature mRNA versions if different combinations of exons are joined during processing. These transcripts may then be translated into related but distinct polypeptide isoforms with differing domains or functions.\n\nAlternative splicing does not require an immediate mutation in the DNA sequence. Instead, the cell regulates which portions of the primary RNA transcript remain in the finished mRNA. It helps expand proteomic diversity without proportionally increasing the number of protein-coding genes.",
+      "explanation": "One eukaryotic gene can produce several mature mRNA versions if different combinations of exons are joined during processing. These transcripts may then be translated into related but distinct polypeptide isoforms with differing domains or functions.\n\nAlternative splicing does not require an immediate mutation in the DNA sequence. Instead, the cell regulates which portions of the primary RNA transcript remain in the finished mRNA. It helps expand proteomic diversity without proportionally increasing the number of protein-coding genes.\n\nAlternative splicing produces different exon combinations from transcripts of one DNA gene. Multiple mature RNAs can therefore lead to different polypeptide isoforms without changing the original nucleotide sequence. The change is to RNA processing, not necessarily to a cell's genotype.",
       "revisionSummary": "One eukaryotic gene can produce several mature mRNA versions if different combinations of exons are joined during processing. Alternative splicing does not require an immediate mutation in the DNA sequence.",
       "terms": [
         "Alternative splicing changes exon combinations: underlying concept",
@@ -2347,7 +2462,7 @@
         },
         {
           "title": "Same DNA gene, different products",
-          "explanation": "Alternative splicing does not require an immediate mutation in the DNA sequence. Instead, the cell regulates which portions of the primary RNA transcript remain in the finished mRNA. It helps expand proteomic diversity without proportionally increasing the number of protein-coding genes.",
+          "explanation": "Alternative splicing does not require an immediate mutation in the DNA sequence. Instead, the cell regulates which portions of the primary RNA transcript remain in the finished mRNA. It helps expand proteomic diversity without proportionally increasing the number of protein-coding genes.\n\nAlternative splicing produces different exon combinations from transcripts of one DNA gene. Multiple mature RNAs can therefore lead to different polypeptide isoforms without changing the original nucleotide sequence. The change is to RNA processing, not necessarily to a cell's genotype.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -2381,7 +2496,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which ribosomal site accepts the incoming aminoacyl-tRNA during elongation?",
-      "explanation": "In a typical eukaryotic process, the small ribosomal subunit and initiation factors associate with the 5′ end of mRNA and scan toward an AUG start codon. The initiator tRNA pairs with the start codon, and the large ribosomal subunit joins to form the functional ribosome.\n\nThe initiation tRNA occupies the P site. During subsequent elongation, an incoming aminoacyl-tRNA occupies the A site, the growing chain is transferred from P to A, and a deacylated tRNA exits through E after translocation. Two tRNAs can be bound simultaneously.",
+      "explanation": "In a typical eukaryotic process, the small ribosomal subunit and initiation factors associate with the 5′ end of mRNA and scan toward an AUG start codon. The initiator tRNA pairs with the start codon, and the large ribosomal subunit joins to form the functional ribosome.\n\nThe initiation tRNA occupies the P site. During subsequent elongation, an incoming aminoacyl-tRNA occupies the A site, the growing chain is transferred from P to A, and a deacylated tRNA exits through E after translocation. Two tRNAs can be bound simultaneously.\n\nAt initiation, the small ribosomal subunit engages mRNA near its 5′ end and finds the start codon; initiator tRNA and large subunit assemble a functional ribosome. During elongation, the A site receives an incoming charged tRNA, P holds the peptidyl-tRNA, and E releases empty tRNA.",
       "revisionSummary": "In a typical eukaryotic process, the small ribosomal subunit and initiation factors associate with the 5′ end of mRNA and scan toward an AUG start codon. The initiation tRNA occupies the P site.",
       "terms": [
         "Assemble the initiation complex: underlying concept",
@@ -2493,7 +2608,7 @@
         },
         {
           "title": "A, P and E organize elongation",
-          "explanation": "The initiation tRNA occupies the P site. During subsequent elongation, an incoming aminoacyl-tRNA occupies the A site, the growing chain is transferred from P to A, and a deacylated tRNA exits through E after translocation. Two tRNAs can be bound simultaneously.",
+          "explanation": "The initiation tRNA occupies the P site. During subsequent elongation, an incoming aminoacyl-tRNA occupies the A site, the growing chain is transferred from P to A, and a deacylated tRNA exits through E after translocation. Two tRNAs can be bound simultaneously.\n\nAt initiation, the small ribosomal subunit engages mRNA near its 5′ end and finds the start codon; initiator tRNA and large subunit assemble a functional ribosome. During elongation, the A site receives an incoming charged tRNA, P holds the peptidyl-tRNA, and E releases empty tRNA.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -2540,6 +2655,35 @@
             ]
           ]
         }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Three ribosomal tRNA binding sites",
+          "afterBlock": 1,
+          "headers": [
+            "Site",
+            "Full term",
+            "Role"
+          ],
+          "rows": [
+            [
+              "A",
+              "Aminoacyl",
+              "Accepts charged tRNA"
+            ],
+            [
+              "P",
+              "Peptidyl",
+              "Holds growing peptide-bearing tRNA"
+            ],
+            [
+              "E",
+              "Exit",
+              "Releases deacylated tRNA"
+            ]
+          ]
+        }
       ]
     },
     {
@@ -2549,7 +2693,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What is removed when proinsulin is converted to mature insulin?",
-      "explanation": "A new polypeptide is not always the final functional molecule. Folding, cleavage, covalent modification, subunit association or export can be essential to activity. The resulting product should not be described as necessarily functional the instant translation ends.\n\nHuman preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin. Proinsulin folds and forms disulfide bonds; in secretory granules proteolytic removal of its connecting C-peptide generates mature insulin A and B chains linked by disulfide bonds.",
+      "explanation": "A new polypeptide is not always the final functional molecule. Folding, cleavage, covalent modification, subunit association or export can be essential to activity. The resulting product should not be described as necessarily functional the instant translation ends.\n\nHuman preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin. Proinsulin folds and forms disulfide bonds; in secretory granules proteolytic removal of its connecting C-peptide generates mature insulin A and B chains linked by disulfide bonds.\n\nPreproinsulin enters the secretory pathway and loses its signal peptide, becoming proinsulin. Removal of connecting C-peptide produces mature insulin, with A and B chains stabilized by disulfide bonds. Translation alone does not immediately generate the functional secreted hormone.",
       "revisionSummary": "A new polypeptide is not always the final functional molecule. Human preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin.",
       "terms": [
         "Functional proteins may require processing: underlying concept",
@@ -2665,7 +2809,7 @@
         },
         {
           "title": "Two-stage insulin processing",
-          "explanation": "Human preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin. Proinsulin folds and forms disulfide bonds; in secretory granules proteolytic removal of its connecting C-peptide generates mature insulin A and B chains linked by disulfide bonds.",
+          "explanation": "Human preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin. Proinsulin folds and forms disulfide bonds; in secretory granules proteolytic removal of its connecting C-peptide generates mature insulin A and B chains linked by disulfide bonds.\n\nPreproinsulin enters the secretory pathway and loses its signal peptide, becoming proinsulin. Removal of connecting C-peptide produces mature insulin, with A and B chains stabilized by disulfide bonds. Translation alone does not immediately generate the functional secreted hormone.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -2700,7 +2844,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What type of macromolecule is principally degraded by a proteasome?",
-      "explanation": "Cells continually replace damaged, misfolded or unneeded proteins. The proteasome is a cellular proteolytic complex that breaks targeted proteins into short peptides; subsequent cellular peptidases can yield amino acids for reuse.\n\nA functional proteome depends on the balance between transcription, translation, protein processing and removal. Protein breakdown does not mean that an entire gene is deleted from DNA; the cell can synthesize a new copy of the protein later.",
+      "explanation": "Cells continually replace damaged, misfolded or unneeded proteins. The proteasome is a cellular proteolytic complex that breaks targeted proteins into short peptides; subsequent cellular peptidases can yield amino acids for reuse.\n\nA functional proteome depends on the balance between transcription, translation, protein processing and removal. Protein breakdown does not mean that an entire gene is deleted from DNA; the cell can synthesize a new copy of the protein later.\n\nAn actively maintained proteome requires removal of damaged or no-longer-needed proteins as well as new synthesis. Proteasomes degrade many intracellular proteins into shorter fragments, and cellular peptidases recover reusable amino acids. Not all proteins are destroyed exclusively by proteasomes.",
       "revisionSummary": "Cells continually replace damaged, misfolded or unneeded proteins. A functional proteome depends on the balance between transcription, translation, protein processing and removal.",
       "terms": [
         "Proteasomes recycle cellular protein building blocks: underlying concept",
@@ -2812,7 +2956,7 @@
         },
         {
           "title": "Protein quality requires both synthesis and turnover",
-          "explanation": "A functional proteome depends on the balance between transcription, translation, protein processing and removal. Protein breakdown does not mean that an entire gene is deleted from DNA; the cell can synthesize a new copy of the protein later.",
+          "explanation": "A functional proteome depends on the balance between transcription, translation, protein processing and removal. Protein breakdown does not mean that an entire gene is deleted from DNA; the cell can synthesize a new copy of the protein later.\n\nAn actively maintained proteome requires removal of damaged or no-longer-needed proteins as well as new synthesis. Proteasomes degrade many intracellular proteins into shorter fragments, and cellular peptidases recover reusable amino acids. Not all proteins are destroyed exclusively by proteasomes.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -4210,6 +4354,55 @@
         "Rejects the incorrect claim and supplies the biologically correct replacement."
       ],
       "review": "draft"
+    },
+    {
+      "id": "d12-anticodon-1b",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "D1.2.7",
+        "D1.2.9"
+      ],
+      "level": "shared",
+      "prompt": "A tRNA anticodon is aligned as 3′-UAC-5′. Write its paired mRNA codon with 5′ and 3′ ends, and name the encoded amino acid using the standard genetic code.",
+      "marks": 2,
+      "sectionId": "d12-7",
+      "referenceIds": [
+        "ib-d12",
+        "hodder-d12",
+        "ncbi-rna",
+        "ncbi-translation"
+      ],
+      "answer": "mRNA 5′-AUG-3′; the codon represents methionine.",
+      "markingPoints": [
+        "Writes 5′-AUG-3′ with correct antiparallel orientation.",
+        "Identifies methionine (Met) from the mRNA codon table."
+      ],
+      "data": {
+        "caption": "Original base-pairing model, not laboratory observations",
+        "headers": [
+          "Strand",
+          "Start label",
+          "Aligned sequence",
+          "End label"
+        ],
+        "rows": [
+          [
+            "tRNA anticodon",
+            "3′",
+            "UAC",
+            "5′"
+          ],
+          [
+            "mRNA codon",
+            "5′",
+            "?",
+            "3′"
+          ]
+        ]
+      },
+      "review": "draft"
     }
   ],
   "references": [
@@ -4282,7 +4475,8 @@
       "IB Biology Guide 2025 D1.2.1–D1.2.19 is the syllabus boundary; Hodder D1.2 is the main teaching text.",
       "Cross-check RNA template/coding distinction, translation A/P/E sites and insulin processing against NCBI.",
       "Source-mapped teaching draft only; no independently qualified approval, official IB marking or site integration.",
-      "SVG orientation and all multiple-choice explanations require figure- and question-specific review."
+      "SVG orientation and all multiple-choice explanations require figure- and question-specific review.",
+      "Final Sprint D: individually strengthened all 19 molecular explanations; added polarity, ribosome sites, transcript processing and translation visuals, plus a new codon reasoning question."
     ]
   }
 }
