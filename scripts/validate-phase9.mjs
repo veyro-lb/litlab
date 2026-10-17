@@ -32,7 +32,8 @@ const byTopicId=(id,lessons)=>lessons.find(l=>l.topicId===id);
 export function validatePhase9(){
  const errors=[],registry=read('src/biology/curriculum/registry.json'),catalog=read('src/biology/learning/catalog.json'),lessons=readNew();
  const expected=['A1.1','A1.2','A2.2','B1.1','B1.2','B2.1','B2.2','B2.3','C1.1'];
- if(Object.keys(catalog).length!==9||expected.some(id=>!Object.values(catalog).some(x=>x.topicId===id)))errors.push('Expected nine source-mapped drafts');
+ const activeIds=registry.filter(t=>t.lessonId&&t.availability==='draft').map(t=>t.id);
+ if(Object.keys(catalog).length!==activeIds.length||expected.some(id=>!Object.values(catalog).some(x=>x.topicId===id))||activeIds.some(id=>!Object.values(catalog).some(x=>x.topicId===id)))errors.push('Registered lesson catalog must include all active topics and retain nine Phase 9 source-mapped baselines');
  const cell=registry.find(t=>t.id==='A2.2');if(cell.availability!=='draft'||cell.lessonId!==byTopicId('A2.2',lessons)?.id||!Object.values(catalog).some(x=>x.topicId==='A2.2'))errors.push('A2.2 draft catalog/registry drift');
  for(const l of lessons){
   const t=structuredClone(registry.find(t=>t.id===l.topicId));
