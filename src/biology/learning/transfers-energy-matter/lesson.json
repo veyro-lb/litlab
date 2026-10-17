@@ -442,7 +442,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which way should arrows point in a food web?",
-      "explanation": "A food chain is a simplified route through feeding relationships; a food web connects several such routes. Each arrow points from the organism being eaten toward its consumer, indicating transfer of biomass and chemical energy. This convention matters because reversing arrows would incorrectly identify which trophic level receives energy.\n\nUse species known to co-occur in a local community and avoid invented feeding relationships. Omnivores can occupy different positions in different chains, while decomposers receive dead organic matter from many levels and are not usually shown in a single linear grazing chain. A food web is a model of feeding, not a complete account of all ecological interactions.",
+      "explanation": "A food chain is a simplified route through feeding relationships; a food web connects several such routes. Each arrow points from the organism being eaten toward its consumer, indicating transfer of biomass and chemical energy. This convention matters because reversing arrows would incorrectly identify which trophic level receives energy.\n\nUse species known to co-occur in a local community and avoid invented feeding relationships. Omnivores can occupy different positions in different chains, while decomposers receive dead organic matter from many levels and are not usually shown in a single linear grazing chain. A food web is a model of feeding, not a complete account of all ecological interactions.\n\nIn the constructed meadow diagram, the arrows grass → grasshopper → songbird → fox and grass → rabbit → fox show transfer into the consumer. A single fox may be a secondary consumer in the rabbit chain and a tertiary consumer in the songbird chain. Do not label the fox with one fixed trophic level independent of its food source.",
       "revisionSummary": "Use species known to co-occur in a local community and avoid invented feeding relationships.",
       "terms": [
         "food web — interconnected feeding chains",
@@ -540,7 +540,7 @@
         },
         {
           "title": "Food webs and multiple feeding routes",
-          "explanation": "Use species known to co-occur in a local community and avoid invented feeding relationships. Omnivores can occupy different positions in different chains, while decomposers receive dead organic matter from many levels and are not usually shown in a single linear grazing chain. A food web is a model of feeding, not a complete account of all ecological interactions.",
+          "explanation": "Use species known to co-occur in a local community and avoid invented feeding relationships. Omnivores can occupy different positions in different chains, while decomposers receive dead organic matter from many levels and are not usually shown in a single linear grazing chain. A food web is a model of feeding, not a complete account of all ecological interactions.\n\nIn the constructed meadow diagram, the arrows grass → grasshopper → songbird → fox and grass → rabbit → fox show transfer into the consumer. A single fox may be a secondary consumer in the rabbit chain and a tertiary consumer in the songbird chain. Do not label the fox with one fixed trophic level independent of its food source.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42"
@@ -1370,7 +1370,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How should genuine energy-transfer data be displayed and interpreted?",
-      "explanation": "A pyramid of energy shows the rate of energy flow or production per unit area over a defined time at successive trophic levels. Bars are proportional to measured quantities, and units must be shown; the data describe a particular ecosystem rather than a universal '10 percent rule'. In Odum's Silver Springs study, an often-reproduced set of values is 20,810, 3,368, 383 and 21 kcal m⁻² yr⁻¹ for producers through tertiary consumers.\n\nThese values are historical ecological data reproduced by the US EPA in an educational manual after Odum (1957). They illustrate a marked decline across levels: secondary-consumer energy flow is far lower than primary-producer flow. The values are not to be interpreted as the stored chemical energy in a single organism, and a pyramid should not be inverted by arbitrary bar widths.",
+      "explanation": "A pyramid of energy shows the rate of energy flow or production per unit area over a defined time at successive trophic levels. Bars are proportional to measured quantities, and units must be shown; the data describe a particular ecosystem rather than a universal '10 percent rule'. In Odum's Silver Springs study, an often-reproduced set of values is 20,810, 3,368, 383 and 21 kcal m⁻² yr⁻¹ for producers through tertiary consumers.\n\nThese values are historical ecological data reproduced by the US EPA in an educational manual after Odum (1957). They illustrate a marked decline across levels: secondary-consumer energy flow is far lower than primary-producer flow. The values are not to be interpreted as the stored chemical energy in a single organism, and a pyramid should not be inverted by arbitrary bar widths.\n\nThe source illustration also reports a separate decomposer/saprophyte productivity pathway of 5,060 kcal m⁻² yr⁻¹. It does not fit as another level stacked above tertiary consumers: decomposers receive organic matter from many trophic levels. For the grazing path, calculated ratios are 3,368/20,810 = 16.2%, 383/3,368 = 11.4% and 21/383 = 5.5% (rounded). These percentages are derived from the historical figures, not independently observed measurements or a universal transfer efficiency.",
       "revisionSummary": "These values are historical ecological data reproduced by the US EPA in an educational manual after Odum (1957).",
       "terms": [
         "energy pyramid — proportional chart of energy flow by trophic level",
@@ -1470,7 +1470,7 @@
         },
         {
           "title": "Read axes, energy units and limitations",
-          "explanation": "These values are historical ecological data reproduced by the US EPA in an educational manual after Odum (1957). They illustrate a marked decline across levels: secondary-consumer energy flow is far lower than primary-producer flow. The values are not to be interpreted as the stored chemical energy in a single organism, and a pyramid should not be inverted by arbitrary bar widths.",
+          "explanation": "These values are historical ecological data reproduced by the US EPA in an educational manual after Odum (1957). They illustrate a marked decline across levels: secondary-consumer energy flow is far lower than primary-producer flow. The values are not to be interpreted as the stored chemical energy in a single organism, and a pyramid should not be inverted by arbitrary bar widths.\n\nThe source illustration also reports a separate decomposer/saprophyte productivity pathway of 5,060 kcal m⁻² yr⁻¹. It does not fit as another level stacked above tertiary consumers: decomposers receive organic matter from many trophic levels. For the grazing path, calculated ratios are 3,368/20,810 = 16.2%, 383/3,368 = 11.4% and 21/383 = 5.5% (rounded). These percentages are derived from the historical figures, not independently observed measurements or a universal transfer efficiency.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42",
@@ -1547,6 +1547,31 @@
               21
             ]
           ]
+        },
+        {
+          "caption": "Calculated percentages from EPA's archival Silver Springs productivity figures after Odum (1957); derived arithmetic, not independently observed transfer measurements",
+          "headers": [
+            "Grazing transition",
+            "Arithmetic from original values",
+            "Ratio (%)"
+          ],
+          "rows": [
+            [
+              "Producer → primary consumer",
+              "3368 ÷ 20810 × 100",
+              16.2
+            ],
+            [
+              "Primary → secondary consumer",
+              "383 ÷ 3368 × 100",
+              11.4
+            ],
+            [
+              "Secondary → tertiary consumer",
+              "21 ÷ 383 × 100",
+              5.5
+            ]
+          ]
         }
       ]
     },
@@ -1557,7 +1582,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why does so little ingested energy become new consumer biomass?",
-      "explanation": "Only a portion of organic matter from one trophic level is eaten by the next. Consumers do not assimilate every molecule they ingest; some leaves as faeces. Of the assimilated chemical energy, much powers cellular respiration and movement, maintenance and other processes instead of being retained as new biomass.\n\nDead material and wastes also become food for decomposers and detritus feeders. At each transfer, energy is transformed and ultimately dispersed as heat, so far less useful energy remains for the next consumer level. The proportion depends on organism type, food quality, metabolism and environment; a uniform '10% law' is not required.",
+      "explanation": "Only a portion of organic matter from one trophic level is eaten by the next. Consumers do not assimilate every molecule they ingest; some leaves as faeces. Of the assimilated chemical energy, much powers cellular respiration and movement, maintenance and other processes instead of being retained as new biomass.\n\nDead material and wastes also become food for decomposers and detritus feeders. At each transfer, energy is transformed and ultimately dispersed as heat, so far less useful energy remains for the next consumer level. The proportion depends on organism type, food quality, metabolism and environment; a uniform '10% law' is not required.\n\nWhen organisms eat, not all ingested chemical energy enters new biomass. Material may be uneaten, indigestible or egested; assimilated energy may power movement, maintenance and respiration, releasing heat. Distinguish energy remaining as new consumer biomass from energy delivered to decomposers as dead tissue and waste. Avoid treating every loss as heat at the moment of feeding.",
       "revisionSummary": "Dead material and wastes also become food for decomposers and detritus feeders.",
       "terms": [
         "energy transfer — movement of chemical energy with consumed matter",
@@ -1653,7 +1678,7 @@
         },
         {
           "title": "Detritus and decomposer pathways",
-          "explanation": "Dead material and wastes also become food for decomposers and detritus feeders. At each transfer, energy is transformed and ultimately dispersed as heat, so far less useful energy remains for the next consumer level. The proportion depends on organism type, food quality, metabolism and environment; a uniform '10% law' is not required.",
+          "explanation": "Dead material and wastes also become food for decomposers and detritus feeders. At each transfer, energy is transformed and ultimately dispersed as heat, so far less useful energy remains for the next consumer level. The proportion depends on organism type, food quality, metabolism and environment; a uniform '10% law' is not required.\n\nWhen organisms eat, not all ingested chemical energy enters new biomass. Material may be uneaten, indigestible or egested; assimilated energy may power movement, maintenance and respiration, releasing heat. Distinguish energy remaining as new consumer biomass from energy delivered to decomposers as dead tissue and waste. Avoid treating every loss as heat at the moment of feeding.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42"
@@ -1676,7 +1701,33 @@
             "explanation": "Not all food is eaten or absorbed. Organisms use much of the energy for respiration, so little reaches the next level."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Why ingestion does not equal growth",
+          "afterBlock": 0,
+          "steps": [
+            {
+              "title": "Ingested chemical energy",
+              "description": "Food enters the consumer; some material may not be assimilated."
+            },
+            {
+              "title": "Unassimilated organic material",
+              "description": "Faeces and other waste can supply decomposers."
+            },
+            {
+              "title": "Assimilated energy",
+              "description": "Cell respiration supports metabolism with heat release."
+            },
+            {
+              "title": "Consumer production",
+              "description": "Only a portion becomes new biomass available to the next consumer."
+            }
+          ],
+          "note": "Qualitative energy budget. These arrows describe fates, not fixed percentages."
+        }
+      ]
     },
     {
       "id": "c42-13",
@@ -1941,7 +1992,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What is primary production and how is it measured?",
-      "explanation": "Primary production is the rate at which autotrophs accumulate carbon compounds in new biomass. Report it as carbon mass per area per time, often g C m⁻² yr⁻¹. Gross primary production refers to total carbon fixed before autotroph respiratory losses, whereas net primary production is the portion remaining after those losses for biomass growth and storage.\n\nPrimary production differs among biomes because water, nutrients, temperature and light constrain carbon fixation and growth. A productive forest and a sparsely vegetated desert should not be assigned equal rates without evidence. The measurement should specify the period and area, and carbon mass should not be confused with wet plant mass.",
+      "explanation": "Primary production is the rate at which autotrophs accumulate carbon compounds in new biomass. Report it as carbon mass per area per time, often g C m⁻² yr⁻¹. Gross primary production refers to total carbon fixed before autotroph respiratory losses, whereas net primary production is the portion remaining after those losses for biomass growth and storage.\n\nPrimary production differs among biomes because water, nutrients, temperature and light constrain carbon fixation and growth. A productive forest and a sparsely vegetated desert should not be assigned equal rates without evidence. The measurement should specify the period and area, and carbon mass should not be confused with wet plant mass.\n\nWhen comparing sites, identify whether the reported quantity is carbon mass stored at one instant (g C m⁻²), carbon accumulation rate (g C m⁻² yr⁻¹), or an energy flux (kJ m⁻² yr⁻¹). These have different dimensions and must not be plotted together as if they were the same measurement. Gross primary production includes carbon later respired by producers; net primary production is gross production minus producer respiration.",
       "revisionSummary": "Primary production differs among biomes because water, nutrients, temperature and light constrain carbon fixation and growth.",
       "terms": [
         "primary production — accumulation rate of autotrophic carbon biomass",
@@ -2037,7 +2088,7 @@
         },
         {
           "title": "Measure production per area and time",
-          "explanation": "Primary production differs among biomes because water, nutrients, temperature and light constrain carbon fixation and growth. A productive forest and a sparsely vegetated desert should not be assigned equal rates without evidence. The measurement should specify the period and area, and carbon mass should not be confused with wet plant mass.",
+          "explanation": "Primary production differs among biomes because water, nutrients, temperature and light constrain carbon fixation and growth. A productive forest and a sparsely vegetated desert should not be assigned equal rates without evidence. The measurement should specify the period and area, and carbon mass should not be confused with wet plant mass.\n\nWhen comparing sites, identify whether the reported quantity is carbon mass stored at one instant (g C m⁻²), carbon accumulation rate (g C m⁻² yr⁻¹), or an energy flux (kJ m⁻² yr⁻¹). These have different dimensions and must not be plotted together as if they were the same measurement. Gross primary production includes carbon later respired by producers; net primary production is gross production minus producer respiration.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42"
@@ -2197,7 +2248,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which processes return fixed carbon to the atmosphere?",
-      "explanation": "Photosynthesis removes carbon dioxide from air or water and incorporates its carbon into organic compounds. Feeding transfers that carbon between organisms. Both producers and consumers release some carbon dioxide through cellular respiration, and decomposers return carbon dioxide as they break down dead organic matter.\n\nA clear carbon-cycle diagram must show reservoirs and arrows with process labels: atmospheric or dissolved CO₂ → producer biomass by photosynthesis, producer → consumer by feeding, and biomass → CO₂ by respiration and decomposition. Matter cycles because carbon atoms are conserved through chemical reactions; it is wrong to draw energy as if it follows the same closed loop.",
+      "explanation": "Photosynthesis removes carbon dioxide from air or water and incorporates its carbon into organic compounds. Feeding transfers that carbon between organisms. Both producers and consumers release some carbon dioxide through cellular respiration, and decomposers return carbon dioxide as they break down dead organic matter.\n\nA clear carbon-cycle diagram must show reservoirs and arrows with process labels: atmospheric or dissolved CO₂ → producer biomass by photosynthesis, producer → consumer by feeding, and biomass → CO₂ by respiration and decomposition. Matter cycles because carbon atoms are conserved through chemical reactions; it is wrong to draw energy as if it follows the same closed loop.\n\nA defensible carbon-cycle diagram has arrows from atmospheric or dissolved CO₂ to autotrophs (photosynthetic fixation), from autotrophs to consumers (feeding), and from autotrophs, consumers and decomposers back to the inorganic carbon pool (respiration). Dead organic matter and excreted material flow to decomposers. Combustion and exchanges across ecosystem boundaries may be added if the boundary is defined.",
       "revisionSummary": "A clear carbon-cycle diagram must show reservoirs and arrows with process labels: atmospheric or dissolved CO₂ → producer biomass by photosynthesis, producer → consumer by feeding, and biomass → CO₂ by respiration and decomposition.",
       "terms": [
         "carbon reservoir — location storing carbon",
@@ -2293,7 +2344,7 @@
         },
         {
           "title": "Respiration and decomposition return CO₂",
-          "explanation": "A clear carbon-cycle diagram must show reservoirs and arrows with process labels: atmospheric or dissolved CO₂ → producer biomass by photosynthesis, producer → consumer by feeding, and biomass → CO₂ by respiration and decomposition. Matter cycles because carbon atoms are conserved through chemical reactions; it is wrong to draw energy as if it follows the same closed loop.",
+          "explanation": "A clear carbon-cycle diagram must show reservoirs and arrows with process labels: atmospheric or dissolved CO₂ → producer biomass by photosynthesis, producer → consumer by feeding, and biomass → CO₂ by respiration and decomposition. Matter cycles because carbon atoms are conserved through chemical reactions; it is wrong to draw energy as if it follows the same closed loop.\n\nA defensible carbon-cycle diagram has arrows from atmospheric or dissolved CO₂ to autotrophs (photosynthetic fixation), from autotrophs to consumers (feeding), and from autotrophs, consumers and decomposers back to the inorganic carbon pool (respiration). Dead organic matter and excreted material flow to decomposers. Combustion and exchanges across ecosystem boundaries may be added if the boundary is defined.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42"
@@ -2337,6 +2388,30 @@
             }
           ],
           "note": "Arrows summarize carbon transfer, not energy recycling. Other carbon reservoirs and fluxes are omitted."
+        },
+        {
+          "kind": "sequence",
+          "title": "Carbon returns to the inorganic pool",
+          "afterBlock": 0,
+          "steps": [
+            {
+              "title": "Fixation",
+              "description": "Photosynthetic autotrophs incorporate CO₂ carbon into organic molecules."
+            },
+            {
+              "title": "Feeding",
+              "description": "Carbon compounds transfer from producers to consumers."
+            },
+            {
+              "title": "Detritus",
+              "description": "Dead matter and waste become resources for decomposers."
+            },
+            {
+              "title": "Respiration",
+              "description": "Autotrophs, consumers and decomposers release CO₂."
+            }
+          ],
+          "note": "Illustrative cycle; each group can respire while alive, not just at death."
         }
       ]
     },
@@ -2628,7 +2703,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What causes the long-term rise and annual oscillations in atmospheric CO₂?",
-      "explanation": "The Keeling Curve is a continuous record of atmospheric carbon dioxide concentration begun at Mauna Loa in 1958. Its upward long-term trend is largely due to anthropogenic CO₂ emissions, especially fossil-fuel combustion. A superimposed seasonal rise and fall reflects changes in the balance between photosynthesis and respiration, notably across the Northern Hemisphere's extensive land vegetation.\n\nCO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.",
+      "explanation": "The Keeling Curve is a continuous record of atmospheric carbon dioxide concentration begun at Mauna Loa in 1958. Its upward long-term trend is largely due to anthropogenic CO₂ emissions, especially fossil-fuel combustion. A superimposed seasonal rise and fall reflects changes in the balance between photosynthesis and respiration, notably across the Northern Hemisphere's extensive land vegetation.\n\nCO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.",
       "revisionSummary": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues.",
       "terms": [
         "Keeling Curve — atmospheric CO₂ measurements beginning in 1958",
@@ -2728,7 +2803,7 @@
         },
         {
           "title": "Separate seasonal and long-term variation",
-          "explanation": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.",
+          "explanation": "CO₂ generally falls during Northern Hemisphere spring and summer as plant uptake increases, and rises during autumn and winter when uptake declines while respiration continues. The timing and amplitude are not identical everywhere. The NOAA record provides observed data; do not mistake a smoothed model line for independent measurements. Distinguish a seasonal oscillation from the changing multi-year baseline.\n\nSource and time window matter. The cited NOAA Mauna Loa overview attributes the 315.98 ppm (1959) and 377.38 ppm (2004) annual means to the long-running Scripps measurement programme. These are not the month-by-month seasonal observations needed to calculate seasonal amplitude. A rise between these endpoints indicates long-term change; a sinusoidal-looking wiggle in monthly data must be interpreted separately.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42",
@@ -2908,7 +2983,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why can matter be reused when energy must be continually replaced?",
-      "explanation": "Living organisms need carbon, hydrogen, oxygen, nitrogen, phosphorus, sulfur and other chemical elements. Atoms pass among organisms and their environments through uptake, feeding, excretion, death and decomposition. Decomposers break down organic matter, releasing nutrients that autotrophs can absorb and build into new macromolecules.\n\nMatter is conserved in these transfers, allowing elements to cycle repeatedly even as individual atoms enter or leave one particular ecosystem. By contrast, chemical energy is transformed and largely dispersed as heat during metabolism, so it requires continual replacement through sunlight or other external sources. Detailed pathways of nitrogen and other nutrient cycles are not required in this understanding.",
+      "explanation": "Living organisms need carbon, hydrogen, oxygen, nitrogen, phosphorus, sulfur and other chemical elements. Atoms pass among organisms and their environments through uptake, feeding, excretion, death and decomposition. Decomposers break down organic matter, releasing nutrients that autotrophs can absorb and build into new macromolecules.\n\nMatter is conserved in these transfers, allowing elements to cycle repeatedly even as individual atoms enter or leave one particular ecosystem. By contrast, chemical energy is transformed and largely dispersed as heat during metabolism, so it requires continual replacement through sunlight or other external sources. Detailed pathways of nitrogen and other nutrient cycles are not required in this understanding.\n\nMatter conservation does not mean nutrients are available immediately: carbon, nitrogen, phosphorus and other elements can be stored in soil, rock, biomass and water for different timescales. Decomposition and microbial transformations return many elements to forms organisms can reuse. Heat cannot be captured and recycled through trophic feeding in the same way as atoms; the usable energy supply requires replenishment.",
       "revisionSummary": "Matter is conserved in these transfers, allowing elements to cycle repeatedly even as individual atoms enter or leave one particular ecosystem.",
       "terms": [
         "nutrient cycling — movement of required elements between reservoirs",
@@ -3004,7 +3079,7 @@
         },
         {
           "title": "Why the energy story differs",
-          "explanation": "Matter is conserved in these transfers, allowing elements to cycle repeatedly even as individual atoms enter or leave one particular ecosystem. By contrast, chemical energy is transformed and largely dispersed as heat during metabolism, so it requires continual replacement through sunlight or other external sources. Detailed pathways of nitrogen and other nutrient cycles are not required in this understanding.",
+          "explanation": "Matter is conserved in these transfers, allowing elements to cycle repeatedly even as individual atoms enter or leave one particular ecosystem. By contrast, chemical energy is transformed and largely dispersed as heat during metabolism, so it requires continual replacement through sunlight or other external sources. Detailed pathways of nitrogen and other nutrient cycles are not required in this understanding.\n\nMatter conservation does not mean nutrients are available immediately: carbon, nitrogen, phosphorus and other elements can be stored in soil, rock, biomass and water for different timescales. Decomposition and microbial transformations return many elements to forms organisms can reuse. Heat cannot be captured and recycled through trophic feeding in the same way as atoms; the usable energy supply requires replenishment.",
           "referenceIds": [
             "ib-c42",
             "hodder-c42"
@@ -4508,6 +4583,81 @@
         "Explain its consequence or evidence, using an appropriate example: Nitrogen in a dead leaf can be mineralized by soil decomposers, absorbed by a growing plant and incorporated into new proteins."
       ],
       "review": "source-mapped"
+    },
+    {
+      "id": "c42-sprint8-pyramid-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C4.2.11"
+      ],
+      "level": "shared",
+      "prompt": "Historical Silver Springs productivity values were 20,810, 3,368, 383 and 21 kcal m⁻² yr⁻¹ from producers to tertiary consumers (EPA, after Odum 1957). Calculate the producer-to-primary and primary-to-secondary consumer ratios and explain why a universal 10% rule is not supported. [4]",
+      "marks": 4,
+      "sectionId": "c42-11",
+      "referenceIds": [
+        "ib-c42",
+        "hodder-c42",
+        "epa-odum"
+      ],
+      "answer": "Producer to primary-consumer ratio = 3,368 ÷ 20,810 × 100 ≈ 16.2% (1). Primary to secondary consumer ratio = 383 ÷ 3,368 × 100 ≈ 11.4% (1). Use correct ratio units (%) and maintain the source flux units kcal m⁻² yr⁻¹ (1). Different ratios show the transfer fraction varies among levels, so 10% is a heuristic, not a law (1).",
+      "markingPoints": [
+        "Producer to primary-consumer ratio = 3,368 ÷ 20,810 × 100 ≈ 16.2% (1).",
+        "Primary to secondary consumer ratio = 383 ÷ 3,368 × 100 ≈ 11.4% (1).",
+        "Use correct ratio units (%) and maintain the source flux units kcal m⁻² yr⁻¹ (1).",
+        "Different ratios show the transfer fraction varies among levels, so 10% is a heuristic, not a law (1)."
+      ],
+      "review": "sprint8-science-edited"
+    },
+    {
+      "id": "c42-sprint8-production-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C4.2.15"
+      ],
+      "level": "shared",
+      "prompt": "A constructed model estimates gross primary production as 500 g C m⁻² yr⁻¹ and producer respiratory loss as 200 g C m⁻² yr⁻¹. Calculate net primary production, with units, and distinguish it from standing biomass. [3]",
+      "marks": 3,
+      "sectionId": "c42-15",
+      "referenceIds": [
+        "ib-c42",
+        "hodder-c42"
+      ],
+      "answer": "Net primary production = 500 − 200 = 300 (1). Correct units: g C m⁻² yr⁻¹ (1). Net production is a rate of carbon accumulation, whereas standing biomass is the stock present at a time (1).",
+      "markingPoints": [
+        "Net primary production = 500 − 200 = 300 (1).",
+        "Correct units: g C m⁻² yr⁻¹ (1).",
+        "Net production is a rate of carbon accumulation, whereas standing biomass is the stock present at a time (1)."
+      ],
+      "review": "sprint8-science-edited"
+    },
+    {
+      "id": "c42-sprint8-keeling-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C4.2.20"
+      ],
+      "level": "shared",
+      "prompt": "Mauna Loa annual mean CO₂ rose from 315.98 ppm (1959) to 377.38 ppm (2004), as reported in NOAA's Scripps programme overview. Calculate the change and explain why two annual means cannot demonstrate seasonal oscillation. [3]",
+      "marks": 3,
+      "sectionId": "c42-20",
+      "referenceIds": [
+        "ib-c42",
+        "hodder-c42",
+        "noaa-keeling"
+      ],
+      "answer": "Difference = 377.38 − 315.98 = +61.40 ppm (1). The positive change represents the long-term rise in atmospheric CO₂ across the years (1). Seasonality requires observations resolved within years (e.g. monthly), not only annual means (1).",
+      "markingPoints": [
+        "Difference = 377.38 − 315.98 = +61.40 ppm (1).",
+        "The positive change represents the long-term rise in atmospheric CO₂ across the years (1).",
+        "Seasonality requires observations resolved within years (e.g. monthly), not only annual means (1)."
+      ],
+      "review": "sprint8-science-edited"
     }
   ],
   "references": [
@@ -4570,7 +4720,8 @@
       "Energy pyramid values (20,810; 3,368; 383; 21 kcal m⁻² yr⁻¹) from US EPA archival reproduction after Odum (1957), not invented or presented as modern measurements.",
       "Mauna Loa annual mean CO₂ values 315.98 ppm (1959) and 377.38 ppm (2004) from NOAA historical record; annual means alone do not show seasonal oscillations.",
       "No figures copied from publisher; charts and process models are original semantic visualizations.",
-      "Independent qualified scientific, statistical, educational, accessibility and copyright/licensing review not complete."
+      "Independent qualified scientific, statistical, educational, accessibility and copyright/licensing review not complete.",
+      "Sprint 8: independently checked EPA Silver Springs Figure IV-5-2 numerical labels and decomposer pathway, plus NOAA/Scripps 1959 and 2004 annual means; derived arithmetic is explicitly separate from source observations."
     ]
   }
 }
