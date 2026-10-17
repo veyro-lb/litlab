@@ -20,7 +20,17 @@
     "Unnecessary or beyond scope",
     "Unsupported or requiring correction"
   ],
-  "reviewedTopics": [],
+  "reviewedTopics": [
+    "A1.1",
+    "A1.2",
+    "A2.1",
+    "A2.2",
+    "A2.3",
+    "A3.1",
+    "A3.2",
+    "A4.1",
+    "A4.2"
+  ],
   "entries": [
     {
       "understandingId": "A1.1.1",
@@ -29,11 +39,35 @@
       "level": "shared",
       "syllabusTitle": "Water as the medium for life",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "bio-water",
+          "source": "OpenStax Biology 2e §2.2 — Water",
+          "url": "https://openstax.org/books/biology-2e/pages/2-2-water",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[0].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "chem-solvent",
+          "source": "OpenStax Chemistry 2e §11.1 — Dissolution",
+          "url": "https://openstax.org/books/chemistry-2e/pages/11-1-the-dissolution-process",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[0].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A1.1.2",
@@ -42,11 +76,35 @@
       "level": "shared",
       "syllabusTitle": "Polar covalent bonds and hydrogen bonding",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "chem-bonds",
+          "source": "OpenStax Chemistry 2e §10.1 — Intermolecular forces",
+          "url": "https://openstax.org/books/chemistry-2e/pages/10-1-intermolecular-forces",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[1].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "bio-water",
+          "source": "OpenStax Biology 2e §2.2 — Water",
+          "url": "https://openstax.org/books/biology-2e/pages/2-2-water",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[1].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A1.1.3",
@@ -55,11 +113,46 @@
       "level": "shared",
       "syllabusTitle": "Cohesion and its biological importance",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "plant-water",
+          "source": "OpenStax Biology 2e §30.5 — Water transport",
+          "url": "https://openstax.org/books/biology-2e/pages/30-5-transport-of-water-and-solutes-in-plants",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "bio-water",
+          "source": "OpenStax Biology 2e §2.2 — Water",
+          "url": "https://openstax.org/books/biology-2e/pages/2-2-water",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "chem-bonds",
+          "source": "OpenStax Chemistry 2e §10.1 — Intermolecular forces",
+          "url": "https://openstax.org/books/chemistry-2e/pages/10-1-intermolecular-forces",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A1.1.4",
@@ -68,11 +161,46 @@
       "level": "shared",
       "syllabusTitle": "Adhesion and capillary action",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "plant-water",
+          "source": "OpenStax Biology 2e §30.5 — Water transport",
+          "url": "https://openstax.org/books/biology-2e/pages/30-5-transport-of-water-and-solutes-in-plants",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[3].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "bio-water",
+          "source": "OpenStax Biology 2e §2.2 — Water",
+          "url": "https://openstax.org/books/biology-2e/pages/2-2-water",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[3].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "chem-bonds",
+          "source": "OpenStax Chemistry 2e §10.1 — Intermolecular forces",
+          "url": "https://openstax.org/books/chemistry-2e/pages/10-1-intermolecular-forces",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[3].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A1.1.5",
@@ -81,11 +209,46 @@
       "level": "shared",
       "syllabusTitle": "Water as a biological solvent",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "chem-solvent",
+          "source": "OpenStax Chemistry 2e §11.1 — Dissolution",
+          "url": "https://openstax.org/books/chemistry-2e/pages/11-1-the-dissolution-process",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "bio-water",
+          "source": "OpenStax Biology 2e §2.2 — Water",
+          "url": "https://openstax.org/books/biology-2e/pages/2-2-water",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "chem-bonds",
+          "source": "OpenStax Chemistry 2e §10.1 — Intermolecular forces",
+          "url": "https://openstax.org/books/chemistry-2e/pages/10-1-intermolecular-forces",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A1.1.6",
@@ -94,11 +257,105 @@
       "level": "shared",
       "syllabusTitle": "Physical properties of water and aquatic habitats",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "buoyancy",
+          "source": "OpenStax College Physics 2e §11.7",
+          "url": "https://openstax.org/books/college-physics-2e/pages/11-7-archimedes-principle",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "A separate university-level physics or hydrology citation is not needed to teach the prescribed water–air comparison.",
+          "recommendedEdit": "Focus on four prescribed physical properties and specified animal consequences; remove redundant technical links from student source list.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "buoyancy",
+            "lessonExcerpt": "Pressure is greater at a greater depth, so the resultant fluid force on an immersed body acts upwards. Its magnitude equals the weight of displaced fluid. Water is much denser than air under comparable everyday conditions, so the same displaced volume produces much more upthrust. A swimming ringed seal gains support from water; on ice, co"
+          }
+        },
+        {
+          "referenceId": "viscosity",
+          "source": "OpenStax College Physics 2e §12.4",
+          "url": "https://openstax.org/books/college-physics-2e/pages/12-4-viscosity-and-laminar-flow-poiseuilles-law",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "A separate university-level physics or hydrology citation is not needed to teach the prescribed water–air comparison.",
+          "recommendedEdit": "Focus on four prescribed physical properties and specified animal consequences; remove redundant technical links from student source list.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "viscosity",
+            "lessonExcerpt": "Pressure is greater at a greater depth, so the resultant fluid force on an immersed body acts upwards. Its magnitude equals the weight of displaced fluid. Water is much denser than air under comparable everyday conditions, so the same displaced volume produces much more upthrust. A swimming ringed seal gains support from water; on ice, co"
+          }
+        },
+        {
+          "referenceId": "heat",
+          "source": "OpenStax College Physics 2e §14.2",
+          "url": "https://openstax.org/books/college-physics-2e/pages/14-2-temperature-change-and-heat-capacity",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "A separate university-level physics or hydrology citation is not needed to teach the prescribed water–air comparison.",
+          "recommendedEdit": "Focus on four prescribed physical properties and specified animal consequences; remove redundant technical links from student source list.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "heat",
+            "lessonExcerpt": "Pressure is greater at a greater depth, so the resultant fluid force on an immersed body acts upwards. Its magnitude equals the weight of displaced fluid. Water is much denser than air under comparable everyday conditions, so the same displaced volume produces much more upthrust. A swimming ringed seal gains support from water; on ice, co"
+          }
+        },
+        {
+          "referenceId": "conduction",
+          "source": "OpenStax College Physics 2e §14.5",
+          "url": "https://openstax.org/books/college-physics-2e/pages/14-5-conduction",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "A separate university-level physics or hydrology citation is not needed to teach the prescribed water–air comparison.",
+          "recommendedEdit": "Focus on four prescribed physical properties and specified animal consequences; remove redundant technical links from student source list.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "conduction",
+            "lessonExcerpt": "Pressure is greater at a greater depth, so the resultant fluid force on an immersed body acts upwards. Its magnitude equals the weight of displaced fluid. Water is much denser than air under comparable everyday conditions, so the same displaced volume produces much more upthrust. A swimming ringed seal gains support from water; on ice, co"
+          }
+        },
+        {
+          "referenceId": "seal",
+          "source": "NOAA Fisheries — Ringed seal",
+          "url": "https://www.fisheries.noaa.gov/species/ringed-seal",
+          "classification": "Useful supplementary clarification",
+          "reason": "Animal background can contextualize the prescribed aquatic/air physical-property comparison.",
+          "recommendedEdit": "Keep only for a necessary factual species statement or image credit, otherwise rely on Hodder.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "divers",
+          "source": "British Trust for Ornithology — Divers",
+          "url": "https://www.bto.org/learn/about-birds/bird-families/gaviidae-divers",
+          "classification": "Useful supplementary clarification",
+          "reason": "Animal background can contextualize the prescribed aquatic/air physical-property comparison.",
+          "recommendedEdit": "Keep only for a necessary factual species statement or image credit, otherwise rely on Hodder.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "density-usgs",
+          "source": "USGS Water Science School — Water density",
+          "url": "https://www.usgs.gov/water-science-school/science/water-density",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "A separate university-level physics or hydrology citation is not needed to teach the prescribed water–air comparison.",
+          "recommendedEdit": "Focus on four prescribed physical properties and specified animal consequences; remove redundant technical links from student source list.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "density-usgs",
+            "lessonExcerpt": "Pressure is greater at a greater depth, so the resultant fluid force on an immersed body acts upwards. Its magnitude equals the weight of displaced fluid. Water is much denser than air under comparable everyday conditions, so the same displaced volume produces much more upthrust. A swimming ringed seal gains support from water; on ice, co"
+          }
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A1.1.7",
@@ -107,11 +364,80 @@
       "level": "HL",
       "syllabusTitle": "The origin and retention of Earth’s water",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "bennu",
+          "source": "NASA — Bennu sample contains carbon and water",
+          "url": "https://www.nasa.gov/news-release/nasas-bennu-asteroid-sample-contains-carbon-water/",
+          "classification": "Necessary scientific verification",
+          "reason": "Asteroid water-bearing materials can support the guide's explicitly limited asteroid-delivery hypothesis.",
+          "recommendedEdit": "Keep as narrowly labelled evidence of possibility, not proof of the whole water inventory.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[6].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "origin-update",
+          "source": "University of Oxford — Origin-of-water research, 16 April 2025",
+          "url": "https://www.ox.ac.uk/news/2025-04-16-scientists-find-evidence-overturns-theories-origin-water-earth",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "Competing current research, broad origin-of-Earth context and habitable-zone material exceed A1.1.7's limited asteroid, gravity and condensation remit.",
+          "recommendedEdit": "Remove research-news chronology and competing origin claims from core teaching; retain a short uncertainty caveat in optional notes only.",
+          "priority": "P1",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[6].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "origin-update",
+            "lessonExcerpt": "The required origin hypothesis in this syllabus is delivery by asteroids. Early Earth accreted material from the Solar System, and impacts by water-bearing asteroidal material could contribute water or water-forming ingredients. Water need not have arrived as liquid droplets; hydrated minerals can carry it chemically bound.\n\nHydrogen occu"
+          }
+        },
+        {
+          "referenceId": "habitable",
+          "source": "NASA — The habitable zone",
+          "url": "https://science.nasa.gov/exoplanets/habitable-zone/",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "Competing current research, broad origin-of-Earth context and habitable-zone material exceed A1.1.7's limited asteroid, gravity and condensation remit.",
+          "recommendedEdit": "Remove research-news chronology and competing origin claims from core teaching; retain a short uncertainty caveat in optional notes only.",
+          "priority": "P1",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[6].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "habitable",
+            "lessonExcerpt": "The required origin hypothesis in this syllabus is delivery by asteroids. Early Earth accreted material from the Solar System, and impacts by water-bearing asteroidal material could contribute water or water-forming ingredients. Water need not have arrived as liquid droplets; hydrated minerals can carry it chemically bound.\n\nHydrogen occu"
+          }
+        },
+        {
+          "referenceId": "early-earth",
+          "source": "NASA — Early Earth",
+          "url": "https://science.nasa.gov/astrobiology/learning-resources/alp/earth-right-after-it-formed/",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "Competing current research, broad origin-of-Earth context and habitable-zone material exceed A1.1.7's limited asteroid, gravity and condensation remit.",
+          "recommendedEdit": "Remove research-news chronology and competing origin claims from core teaching; retain a short uncertainty caveat in optional notes only.",
+          "priority": "P1",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[6].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "early-earth",
+            "lessonExcerpt": "The required origin hypothesis in this syllabus is delivery by asteroids. Early Earth accreted material from the Solar System, and impacts by water-bearing asteroidal material could contribute water or water-forming ingredients. Water need not have arrived as liquid droplets; hydrated minerals can carry it chemically bound.\n\nHydrogen occu"
+          }
+        },
+        {
+          "referenceId": "origin-2026",
+          "source": "NASA — Lunar regolith constrains late water delivery (23 Jan 2026)",
+          "url": "https://science.nasa.gov/science-research/astromaterials/nasa-finds-lunar-regolith-limits-meteorites-as-source-of-earths-water/",
+          "classification": "Unnecessary or beyond scope",
+          "reason": "Competing current research, broad origin-of-Earth context and habitable-zone material exceed A1.1.7's limited asteroid, gravity and condensation remit.",
+          "recommendedEdit": "Remove research-news chronology and competing origin claims from core teaching; retain a short uncertainty caveat in optional notes only.",
+          "priority": "P1",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[6].referenceIds",
+          "offendingMaterial": {
+            "referenceId": "origin-2026",
+            "lessonExcerpt": "The required origin hypothesis in this syllabus is delivery by asteroids. Early Earth accreted material from the Solar System, and impacts by water-bearing asteroidal material could contribute water or water-forming ingredients. Water need not have arrived as liquid droplets; hydrated minerals can carry it chemically bound.\n\nHydrogen occu"
+          }
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P1",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A1.1.8",
@@ -120,11 +446,35 @@
       "level": "HL",
       "syllabusTitle": "Water and the search for extraterrestrial life",
       "lessonPath": "src/biology/learning/water/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "habitable",
+          "source": "NASA — The habitable zone",
+          "url": "https://science.nasa.gov/exoplanets/habitable-zone/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Liquid-water searches and Goldilocks-zone framing directly clarify the HL understanding, but individual mission imagery is not examinable.",
+          "recommendedEdit": "Keep Goldilocks-zone concept in core; move mission-specific imagery and links to optional sources, preserving any image attribution.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[7].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "europa",
+          "source": "NASA — Europa’s Stunning Surface, PIA19048",
+          "url": "https://science.nasa.gov/resource/europas-stunning-surface/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Liquid-water searches and Goldilocks-zone framing directly clarify the HL understanding, but individual mission imagery is not examinable.",
+          "recommendedEdit": "Keep Goldilocks-zone concept in core; move mission-specific imagery and links to optional sources, preserving any image attribution.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/water/lesson.json#sections[7].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P3",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "A1.2.1",
@@ -133,11 +483,24 @@
       "level": "shared",
       "syllabusTitle": "DNA as hereditary material",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[0].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A1.2.2",
@@ -146,11 +509,24 @@
       "level": "shared",
       "syllabusTitle": "Nucleotide components and connectivity",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[1].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A1.2.3",
@@ -159,11 +535,24 @@
       "level": "shared",
       "syllabusTitle": "Covalent sugar–phosphate backbone",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A1.2.4",
@@ -172,11 +561,24 @@
       "level": "shared",
       "syllabusTitle": "Bases forming the nucleic acid alphabet",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[3].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A1.2.5",
@@ -185,11 +587,24 @@
       "level": "shared",
       "syllabusTitle": "RNA polymers from nucleotides",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A1.2.6",
@@ -198,11 +613,24 @@
       "level": "shared",
       "syllabusTitle": "Antiparallel double-stranded DNA",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A1.2.7",
@@ -211,11 +639,24 @@
       "level": "shared",
       "syllabusTitle": "Structural differences between DNA and RNA",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[6].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A1.2.8",
@@ -224,11 +665,24 @@
       "level": "shared",
       "syllabusTitle": "Complementarity in replication and expression",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-transcription",
+          "source": "NCBI Bookshelf, From DNA to RNA",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK26887/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[7].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "A1.2.9",
@@ -237,11 +691,24 @@
       "level": "shared",
       "syllabusTitle": "DNA sequence diversity and information capacity",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[8].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[8]"
     },
     {
       "understandingId": "A1.2.10",
@@ -250,11 +717,24 @@
       "level": "shared",
       "syllabusTitle": "Genetic-code conservation and common ancestry",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[9].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[9]"
     },
     {
       "understandingId": "A1.2.11",
@@ -263,11 +743,24 @@
       "level": "HL",
       "syllabusTitle": "5′ and 3′ nucleic-acid directionality",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[10].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[10]"
     },
     {
       "understandingId": "A1.2.12",
@@ -276,11 +769,24 @@
       "level": "HL",
       "syllabusTitle": "Purine–pyrimidine pairing and helix width",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-dna",
+          "source": "NCBI Bookshelf, Molecular Biology of the Cell: DNA structure and gene expression",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[11].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[11]"
     },
     {
       "understandingId": "A1.2.13",
@@ -289,11 +795,24 @@
       "level": "HL",
       "syllabusTitle": "Nucleosomes and molecular visualization",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "rcsb-nucleosome",
+          "source": "RCSB PDB structure 1KX5, nucleosome core particle",
+          "url": "https://www.rcsb.org/structure/1KX5",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[12].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[12]"
     },
     {
       "understandingId": "A1.2.14",
@@ -302,11 +821,24 @@
       "level": "HL",
       "syllabusTitle": "Hershey–Chase evidence from radioisotopes",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "original-evidence",
+          "source": "Original LitLab instructional scientific analysis and illustrative examples",
+          "url": null,
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[13].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[13]"
     },
     {
       "understandingId": "A1.2.15",
@@ -315,11 +847,24 @@
       "level": "HL",
       "syllabusTitle": "Chargaff's data and falsifying tetranucleotides",
       "lessonPath": "src/biology/learning/nucleic-acids/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "original-evidence",
+          "source": "Original LitLab instructional scientific analysis and illustrative examples",
+          "url": null,
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/nucleic-acids/lesson.json#sections[14].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[14]"
     },
     {
       "understandingId": "A2.1.1",
@@ -328,11 +873,12 @@
       "level": "HL",
       "syllabusTitle": "An atmosphere unlike today's",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A2.1.2",
@@ -341,11 +887,12 @@
       "level": "HL",
       "syllabusTitle": "Why cells are independently living units",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A2.1.3",
@@ -354,11 +901,12 @@
       "level": "HL",
       "syllabusTitle": "From chemistry to inherited compartments",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A2.1.4",
@@ -367,11 +915,12 @@
       "level": "HL",
       "syllabusTitle": "What Miller–Urey demonstrated",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A2.1.5",
@@ -380,11 +929,12 @@
       "level": "HL",
       "syllabusTitle": "Why amphiphiles make vesicles",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A2.1.6",
@@ -393,11 +943,12 @@
       "level": "HL",
       "syllabusTitle": "RNA as an early genetic and catalytic molecule",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A2.1.7",
@@ -406,11 +957,12 @@
       "level": "HL",
       "syllabusTitle": "The meaning of LUCA",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A2.1.8",
@@ -419,11 +971,12 @@
       "level": "HL",
       "syllabusTitle": "How ancient dates are estimated",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "A2.1.9",
@@ -432,11 +985,12 @@
       "level": "HL",
       "syllabusTitle": "Evidence concerning hydrothermal vents",
       "lessonPath": "src/biology/learning/origins-cells/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[8]"
     },
     {
       "understandingId": "A2.2.1",
@@ -445,11 +999,24 @@
       "level": "shared",
       "syllabusTitle": "Cells as the basic units of living organisms",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[0].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A2.2.2",
@@ -458,11 +1025,35 @@
       "level": "shared",
       "syllabusTitle": "Preparing and observing microscopic specimens",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[1].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "commons-onion-light",
+          "source": "Kateryna Kot, Onion cells under the light microscope (Wikimedia Commons)",
+          "url": "https://commons.wikimedia.org/wiki/File:Onion_cells_under_the_light_microscope.jpg",
+          "classification": "Necessary scientific verification",
+          "reason": "Primary micrograph or image-origin evidence and attribution supports required microscopy skills and reproduction rights.",
+          "recommendedEdit": "Retain accurate figure attribution, original link and reuse terms; do not remove provenance.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[1].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A2.2.3",
@@ -471,11 +1062,24 @@
       "level": "shared",
       "syllabusTitle": "How microscopy reveals cell structure",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A2.2.4",
@@ -484,11 +1088,24 @@
       "level": "shared",
       "syllabusTitle": "Structures shared by all cells",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[3].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A2.2.5",
@@ -497,11 +1114,46 @@
       "level": "shared",
       "syllabusTitle": "Prokaryotic cell architecture",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "ncbi-walls",
+          "source": "The Cell: Cell Walls and the Extracellular Matrix (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9874/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "cdc-bacillus-light",
+          "source": "CDC PHIL #19261, Bacillus subtilis Gram-stain micrograph (Dr W. A. Clark)",
+          "url": "https://commons.wikimedia.org/wiki/File:Bacillus_subtilis_gram_stain_CDC_PHIL_19261.jpg",
+          "classification": "Necessary scientific verification",
+          "reason": "Primary micrograph or image-origin evidence and attribution supports required microscopy skills and reproduction rights.",
+          "recommendedEdit": "Retain accurate figure attribution, original link and reuse terms; do not remove provenance.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A2.2.6",
@@ -510,11 +1162,24 @@
       "level": "shared",
       "syllabusTitle": "Eukaryotic cell architecture",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[5].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A2.2.7",
@@ -523,11 +1188,24 @@
       "level": "shared",
       "syllabusTitle": "How one cell carries out life processes",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[6].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A2.2.8",
@@ -536,11 +1214,35 @@
       "level": "shared",
       "syllabusTitle": "Comparing animal, plant and fungal cells",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[7].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "ncbi-walls",
+          "source": "The Cell: Cell Walls and the Extracellular Matrix (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9874/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[7].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "A2.2.9",
@@ -549,11 +1251,24 @@
       "level": "shared",
       "syllabusTitle": "Unusual eukaryotic cell structures",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[8].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[8]"
     },
     {
       "understandingId": "A2.2.10",
@@ -562,11 +1277,57 @@
       "level": "shared",
       "syllabusTitle": "Recognizing cells in light and electron micrographs",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[9].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "vigani2015-tem",
+          "source": "Vigani et al. (2015), cucumber leaf ultrastructure, PLOS ONE 10: e0129141",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0129141",
+          "classification": "Necessary scientific verification",
+          "reason": "Primary micrograph or image-origin evidence and attribution supports required microscopy skills and reproduction rights.",
+          "recommendedEdit": "Retain accurate figure attribution, original link and reuse terms; do not remove provenance.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[9].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "commons-onion-light",
+          "source": "Kateryna Kot, Onion cells under the light microscope (Wikimedia Commons)",
+          "url": "https://commons.wikimedia.org/wiki/File:Onion_cells_under_the_light_microscope.jpg",
+          "classification": "Necessary scientific verification",
+          "reason": "Primary micrograph or image-origin evidence and attribution supports required microscopy skills and reproduction rights.",
+          "recommendedEdit": "Retain accurate figure attribution, original link and reuse terms; do not remove provenance.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[9].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "howard-mito-tem",
+          "source": "Louisa Howard, Mitochondria — TEM of mammalian lung tissue",
+          "url": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+          "classification": "Necessary scientific verification",
+          "reason": "Primary micrograph or image-origin evidence and attribution supports required microscopy skills and reproduction rights.",
+          "recommendedEdit": "Retain accurate figure attribution, original link and reuse terms; do not remove provenance.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[9].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[9]"
     },
     {
       "understandingId": "A2.2.11",
@@ -575,11 +1336,46 @@
       "level": "shared",
       "syllabusTitle": "Drawing and annotating electron micrographs",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-visualizing",
+          "source": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[10].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "vigani2015-tem",
+          "source": "Vigani et al. (2015), cucumber leaf ultrastructure, PLOS ONE 10: e0129141",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0129141",
+          "classification": "Necessary scientific verification",
+          "reason": "Primary micrograph or image-origin evidence and attribution supports required microscopy skills and reproduction rights.",
+          "recommendedEdit": "Retain accurate figure attribution, original link and reuse terms; do not remove provenance.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[10].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "howard-mito-tem",
+          "source": "Louisa Howard, Mitochondria — TEM of mammalian lung tissue",
+          "url": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+          "classification": "Necessary scientific verification",
+          "reason": "Primary micrograph or image-origin evidence and attribution supports required microscopy skills and reproduction rights.",
+          "recommendedEdit": "Retain accurate figure attribution, original link and reuse terms; do not remove provenance.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[10].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[10]"
     },
     {
       "understandingId": "A2.2.12",
@@ -588,11 +1384,24 @@
       "level": "HL",
       "syllabusTitle": "Endosymbiosis and the origin of eukaryotes",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-origin",
+          "source": "The Cell: The Origin and Evolution of Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9841/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[11].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[11]"
     },
     {
       "understandingId": "A2.2.13",
@@ -601,11 +1410,24 @@
       "level": "HL",
       "syllabusTitle": "Cell differentiation in multicellular organisms",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-origin",
+          "source": "The Cell: The Origin and Evolution of Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9841/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[12].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[12]"
     },
     {
       "understandingId": "A2.2.14",
@@ -614,11 +1436,24 @@
       "level": "HL",
       "syllabusTitle": "Evolution of multicellularity",
       "lessonPath": "src/biology/learning/cell-structure/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "ncbi-origin",
+          "source": "The Cell: The Origin and Evolution of Cells (NCBI Bookshelf)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9841/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/cell-structure/lesson.json#sections[13].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[13]"
     },
     {
       "understandingId": "A2.3.1",
@@ -627,11 +1462,12 @@
       "level": "HL",
       "syllabusTitle": "What all virions share",
       "lessonPath": "src/biology/learning/viruses/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A2.3.2",
@@ -640,11 +1476,12 @@
       "level": "HL",
       "syllabusTitle": "Three virus architectures",
       "lessonPath": "src/biology/learning/viruses/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A2.3.3",
@@ -653,11 +1490,12 @@
       "level": "HL",
       "syllabusTitle": "The productive lytic pathway",
       "lessonPath": "src/biology/learning/viruses/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A2.3.4",
@@ -666,11 +1504,12 @@
       "level": "HL",
       "syllabusTitle": "The alternative lysogenic pathway",
       "lessonPath": "src/biology/learning/viruses/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A2.3.5",
@@ -679,11 +1518,12 @@
       "level": "HL",
       "syllabusTitle": "Why viruses may have multiple evolutionary origins",
       "lessonPath": "src/biology/learning/viruses/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A2.3.6",
@@ -692,11 +1532,12 @@
       "level": "HL",
       "syllabusTitle": "Fast adaptation in influenza and HIV",
       "lessonPath": "src/biology/learning/viruses/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A3.1.1",
@@ -705,11 +1546,12 @@
       "level": "shared",
       "syllabusTitle": "Variation within life",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A3.1.2",
@@ -718,11 +1560,12 @@
       "level": "shared",
       "syllabusTitle": "The morphological concept",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A3.1.3",
@@ -731,11 +1574,12 @@
       "level": "shared",
       "syllabusTitle": "Binomial nomenclature",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A3.1.4",
@@ -744,11 +1588,12 @@
       "level": "shared",
       "syllabusTitle": "Biological species and breeding",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A3.1.5",
@@ -757,11 +1602,12 @@
       "level": "shared",
       "syllabusTitle": "Gradual divergence between populations",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A3.1.6",
@@ -770,11 +1616,12 @@
       "level": "shared",
       "syllabusTitle": "Chromosome-number diversity",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A3.1.7",
@@ -783,11 +1630,12 @@
       "level": "shared",
       "syllabusTitle": "Karyograms and human chromosome 2",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A3.1.8",
@@ -796,11 +1644,12 @@
       "level": "shared",
       "syllabusTitle": "Shared genome, differing alleles",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "A3.1.9",
@@ -809,11 +1658,12 @@
       "level": "shared",
       "syllabusTitle": "Differences between eukaryotic genomes",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[8]"
     },
     {
       "understandingId": "A3.1.10",
@@ -822,11 +1672,12 @@
       "level": "shared",
       "syllabusTitle": "Valid genome-size database comparison",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[9]"
     },
     {
       "understandingId": "A3.1.11",
@@ -835,11 +1686,12 @@
       "level": "shared",
       "syllabusTitle": "Whole-genome sequencing uses",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[10]"
     },
     {
       "understandingId": "A3.1.12",
@@ -848,11 +1700,12 @@
       "level": "HL",
       "syllabusTitle": "When breeding criteria fail",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[11]"
     },
     {
       "understandingId": "A3.1.13",
@@ -861,11 +1714,12 @@
       "level": "HL",
       "syllabusTitle": "Chromosome complement and fertility",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[12]"
     },
     {
       "understandingId": "A3.1.14",
@@ -874,11 +1728,12 @@
       "level": "HL",
       "syllabusTitle": "Design a local dichotomous key",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[13]"
     },
     {
       "understandingId": "A3.1.15",
@@ -887,11 +1742,12 @@
       "level": "HL",
       "syllabusTitle": "Environmental DNA and barcodes",
       "lessonPath": "src/biology/learning/diversity-organisms/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[14]"
     },
     {
       "understandingId": "A3.2.1",
@@ -900,11 +1756,12 @@
       "level": "HL",
       "syllabusTitle": "Why scientists classify biodiversity",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A3.2.2",
@@ -913,11 +1770,12 @@
       "level": "HL",
       "syllabusTitle": "Limitations of ranked categories",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A3.2.3",
@@ -926,11 +1784,12 @@
       "level": "HL",
       "syllabusTitle": "What ancestry-based grouping predicts",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A3.2.4",
@@ -939,11 +1798,12 @@
       "level": "HL",
       "syllabusTitle": "Read nested ancestry on a tree",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A3.2.5",
@@ -952,11 +1812,12 @@
       "level": "HL",
       "syllabusTitle": "Molecular clocks have variable rates",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A3.2.6",
@@ -965,11 +1826,12 @@
       "level": "HL",
       "syllabusTitle": "Construct a cladogram from sequences",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A3.2.7",
@@ -978,11 +1840,12 @@
       "level": "HL",
       "syllabusTitle": "Interpreting tree orientation and nodes",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A3.2.8",
@@ -991,11 +1854,12 @@
       "level": "HL",
       "syllabusTitle": "How molecular evidence revises taxa",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "A3.2.9",
@@ -1004,11 +1868,12 @@
       "level": "HL",
       "syllabusTitle": "Three domains from rRNA sequences",
       "lessonPath": "src/biology/learning/classification-cladistics/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[8]"
     },
     {
       "understandingId": "A4.1.1",
@@ -1017,11 +1882,12 @@
       "level": "shared",
       "syllabusTitle": "Heritable change across generations",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A4.1.2",
@@ -1030,11 +1896,12 @@
       "level": "shared",
       "syllabusTitle": "Molecular evidence of common ancestry",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A4.1.3",
@@ -1043,11 +1910,12 @@
       "level": "shared",
       "syllabusTitle": "Selective breeding reveals heritable change",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A4.1.4",
@@ -1056,11 +1924,12 @@
       "level": "shared",
       "syllabusTitle": "Homologous pentadactyl forelimbs",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A4.1.5",
@@ -1069,11 +1938,12 @@
       "level": "shared",
       "syllabusTitle": "Convergence and analogy",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A4.1.6",
@@ -1082,11 +1952,12 @@
       "level": "shared",
       "syllabusTitle": "Speciation creates branches",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A4.1.7",
@@ -1095,11 +1966,12 @@
       "level": "shared",
       "syllabusTitle": "Isolation and differential selection",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A4.1.8",
@@ -1108,11 +1980,12 @@
       "level": "HL",
       "syllabusTitle": "Allopatric and sympatric pathways",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "A4.1.9",
@@ -1121,11 +1994,12 @@
       "level": "HL",
       "syllabusTitle": "Adaptive radiation into vacant niches",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[8]"
     },
     {
       "understandingId": "A4.1.10",
@@ -1134,11 +2008,12 @@
       "level": "HL",
       "syllabusTitle": "Reproductive barriers and hybrid sterility",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[9]"
     },
     {
       "understandingId": "A4.1.11",
@@ -1147,11 +2022,12 @@
       "level": "HL",
       "syllabusTitle": "Rapid speciation through polyploidy",
       "lessonPath": "src/biology/learning/evolution-speciation/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[10]"
     },
     {
       "understandingId": "A4.2.1",
@@ -1160,11 +2036,12 @@
       "level": "shared",
       "syllabusTitle": "Biodiversity has three connected levels",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[0]"
     },
     {
       "understandingId": "A4.2.2",
@@ -1173,11 +2050,12 @@
       "level": "shared",
       "syllabusTitle": "Living diversity and the incomplete fossil record",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[1]"
     },
     {
       "understandingId": "A4.2.3",
@@ -1186,11 +2064,46 @@
       "level": "shared",
       "syllabusTitle": "Human-driven extinctions across three cases",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "moa-2014",
+          "source": "Holdaway et al. (2014), An extremely low-density human population exterminated New Zealand moa, Nature Communications",
+          "url": "https://www.nature.com/articles/ncomms6436",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/conservation-biodiversity/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "noaa-monk",
+          "source": "NOAA Fisheries (2008), Caribbean Monk Seal 5-Year Review",
+          "url": "https://www.fisheries.noaa.gov/resource/document/caribbean-monk-seal-monachus-tropicalis-5-year-review",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/conservation-biodiversity/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "cbd-lebanon",
+          "source": "Convention on Biological Diversity: Lebanon First National Report and country profile",
+          "url": "https://www.cbd.int/doc/world/lb/lb-nr-01-en.pdf",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/conservation-biodiversity/lesson.json#sections[2].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[2]"
     },
     {
       "understandingId": "A4.2.4",
@@ -1199,11 +2112,35 @@
       "level": "shared",
       "syllabusTitle": "Why replacement of habitats destroys ecosystem diversity",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "borneo-forests",
+          "source": "Edwards et al. (2011), Degraded lands worth protecting, Proceedings of the Royal Society B",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2992721/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/conservation-biodiversity/lesson.json#sections[3].referenceIds",
+          "offendingMaterial": null
+        },
+        {
+          "referenceId": "akkar-dunes",
+          "source": "Le dynamisme littoral de la Baie d’Akkar: impacts des facteurs naturels et anthropiques",
+          "url": "https://doi.org/10.4000/12zhv",
+          "classification": "Useful supplementary clarification",
+          "reason": "Optional background or conceptual cross-check; IB Guide and Hodder control the teaching depth.",
+          "recommendedEdit": "Keep only if it resolves an actual misconception; prefer one optional source instead of repeated citations.",
+          "priority": "P2",
+          "sourceUsagePath": "src/biology/learning/conservation-biodiversity/lesson.json#sections[3].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P2",
+      "sectionPath": "sections[3]"
     },
     {
       "understandingId": "A4.2.5",
@@ -1212,11 +2149,24 @@
       "level": "shared",
       "syllabusTitle": "Measure the biodiversity crisis without confusing metrics",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "wwf-lpi2024",
+          "source": "WWF Living Planet Report 2024",
+          "url": "https://www.worldwildlife.org/news/press-releases/catastrophic-73-decline-in-the-average-size-of-global-wildlife-populations-in-just-50-years-reveals-a-system-in-peril/",
+          "classification": "Useful supplementary clarification",
+          "reason": "Wildlife-population index illustrates trends but is not an estimate of total animals lost; metric must not be misrepresented.",
+          "recommendedEdit": "Check any percentage against the index definition, distinguish monitored population trends from abundance loss and prefer syllabus-focused graphs.",
+          "priority": "P1",
+          "sourceUsagePath": "src/biology/learning/conservation-biodiversity/lesson.json#sections[4].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P1",
+      "sectionPath": "sections[4]"
     },
     {
       "understandingId": "A4.2.6",
@@ -1225,11 +2175,12 @@
       "level": "shared",
       "syllabusTitle": "The interacting drivers of contemporary biodiversity loss",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[5]"
     },
     {
       "understandingId": "A4.2.7",
@@ -1238,11 +2189,12 @@
       "level": "shared",
       "syllabusTitle": "Combine in situ, restoration and ex situ conservation",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
+      "auditStatus": "reviewed",
       "externalReferences": [],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "No substantive external reference is linked to this understanding; retain IB/Hodder-led teaching.",
+      "priority": "P3",
+      "sectionPath": "sections[6]"
     },
     {
       "understandingId": "A4.2.8",
@@ -1251,11 +2203,24 @@
       "level": "shared",
       "syllabusTitle": "EDGE prioritizes threatened evolutionary history",
       "lessonPath": "src/biology/learning/conservation-biodiversity/lesson.json",
-      "auditStatus": "pending",
-      "externalReferences": [],
+      "auditStatus": "reviewed",
+      "externalReferences": [
+        {
+          "referenceId": "edge-metric",
+          "source": "ZSL EDGE of Existence, The EDGE Metric",
+          "url": "https://www.edgeofexistence.org/the-edge-metric/",
+          "classification": "Required for teaching the syllabus",
+          "reason": "The IB expressly names the EDGE prioritization programme as an understanding.",
+          "recommendedEdit": "Retain the EDGE rationale and relevant method at IB depth; avoid a technical scoring derivation.",
+          "priority": "P3",
+          "sourceUsagePath": "src/biology/learning/conservation-biodiversity/lesson.json#sections[7].referenceIds",
+          "offendingMaterial": null
+        }
+      ],
       "scopeFindings": [],
-      "recommendedAction": "Pending source-by-source inspection",
-      "priority": "P3"
+      "recommendedAction": "Apply per-source recommended edits, preserving required examples and attribution.",
+      "priority": "P3",
+      "sectionPath": "sections[7]"
     },
     {
       "understandingId": "B1.1.1",
