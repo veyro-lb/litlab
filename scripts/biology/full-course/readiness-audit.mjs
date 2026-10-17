@@ -25,7 +25,7 @@ for(const topic of registry){
   const ids=new Set(topic.understandings.map(u=>u.id));
   for(const understanding of topic.understandings){
     ensure(understanding.id.startsWith(topic.id+'.'),'Topic/understanding ID mismatch: '+understanding.id);
-    ensure(understanding.studentTitle?.trim(),'Missing descriptive teaching heading: '+understanding.id);
+    if(topic.lessonId) ensure(understanding.studentTitle?.trim(),'Missing descriptive teaching heading for an available draft: '+understanding.id);
   }
   if(!topic.lessonId){
     assert.equal(topic.availability,'planned','Unregistered topic cannot claim draft status: '+topic.id);
