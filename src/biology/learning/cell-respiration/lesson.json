@@ -1,0 +1,4021 @@
+{
+  "schemaVersion": 1,
+  "id": "c1-2-cell-respiration-v1",
+  "topicId": "C1.2",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Cell respiration",
+  "introduction": "Follow how cells turn the chemical potential energy of carbon compounds into ATP. Read every explanation directly, then check pathways, redox and mitochondrial membrane direction at HL.",
+  "learningPath": [
+    "ATP and energy coupling",
+    "Respiration in cells and experimental rates",
+    "HL: redox and glycolysis",
+    "HL: fermentation and carbon oxidation",
+    "HL: electron transfer and chemiosmosis"
+  ],
+  "prerequisites": [
+    "ATP structure as a nucleotide",
+    "Catalysis and enzymes (C1.1)",
+    "Mitochondrial membrane organization"
+  ],
+  "objectives": [
+    "Explain ATP use and regeneration in cells",
+    "Distinguish gas exchange, aerobic and anaerobic respiration",
+    "Calculate and interpret respirometry rates with defensible controls",
+    "HL: trace carbon, electrons, protons and ATP synthesis through respiration"
+  ],
+  "sections": [
+    {
+      "id": "c12-1",
+      "understandingIds": [
+        "C1.2.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which property makes ATP useful across many different cell processes?",
+      "explanation": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups. Its structure differs from a DNA nucleotide: ATP contains ribose and a chain of three phosphates. Cells continually make and use ATP; it is a small, soluble molecule that can carry usable chemical free energy between the reactions that release it and those that need it.\n\nAdenosine triphosphate is not a permanent energy store. Instead, metabolic reactions regenerate ATP from ADP and phosphate, often close to where work is being done. Reactions requiring energy are coupled to ATP hydrolysis or transfer of a phosphate group so that the combined process can proceed. ATP is useful because many different enzymes recognize it and because small, repeated energy transfers are more controllable than one large release.",
+      "revisionSummary": "Adenosine triphosphate is not a permanent energy store.",
+      "terms": [
+        "ATP: ATP structure and mobility",
+        "Mechanism: Why ATP works as a currency"
+      ],
+      "workedExample": "In a muscle fibre, ATP is regenerated while myosin uses ATP during contraction.",
+      "misconceptions": [
+        {
+          "misconception": "ATP stores energy indefinitely",
+          "correction": "Cells continually regenerate ATP; storage is mainly in molecules such as glycogen and triglycerides."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups. Its structure differs from a DNA nucleotide: ATP contains ribose and a chain of three phosphates. Cells continually make and use ATP; it is a small, soluble molecule that can carry usable chemical free energy between the reactions that release it and those that need it.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Adenosine triphosphate is not a permanent energy store. Instead, metabolic reactions regenerate ATP from ADP and phosphate, often close to where work is being done. Reactions requiring energy are coupled to ATP hydrolysis or transfer of a phosphate group so that the combined process can proceed. ATP is useful because many different enzymes recognize it and because small, repeated energy transfers are more controllable than one large release.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-1",
+          "prompt": "Which property makes ATP useful across many different cell processes?",
+          "understandingIds": [
+            "C1.2.1"
+          ],
+          "options": [
+            {
+              "id": "c12-1-o1",
+              "text": "It can couple its hydrolysis to many different endergonic reactions",
+              "correct": true,
+              "feedback": "Yes: ATP couples many kinds of cellular work to favourable reactions."
+            },
+            {
+              "id": "c12-1-o2",
+              "text": "It is the main long-term storage molecule in animals",
+              "correct": false,
+              "feedback": "ATP is rapidly regenerated, not a long-term energy reserve."
+            },
+            {
+              "id": "c12-1-o3",
+              "text": "It contains no phosphate groups",
+              "correct": false,
+              "feedback": "ATP has three phosphate groups."
+            },
+            {
+              "id": "c12-1-o4",
+              "text": "It is made only by mitochondria",
+              "correct": false,
+              "feedback": "ATP is also produced without mitochondria, including by glycolysis."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-1",
+          "prompt": "Without looking, explain atp: the cell's transferable energy currency.",
+          "answer": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups. Adenosine triphosphate is not a permanent energy store.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.1"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          405
+        ],
+        "pdfPages": [
+          417
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "ATP structure and mobility",
+          "explanation": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups. Its structure differs from a DNA nucleotide: ATP contains ribose and a chain of three phosphates. Cells continually make and use ATP; it is a small, soluble molecule that can carry usable chemical free energy between the reactions that release it and those that need it.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Why ATP works as a currency",
+          "explanation": "Adenosine triphosphate is not a permanent energy store. Instead, metabolic reactions regenerate ATP from ADP and phosphate, often close to where work is being done. Reactions requiring energy are coupled to ATP hydrolysis or transfer of a phosphate group so that the combined process can proceed. ATP is useful because many different enzymes recognize it and because small, repeated energy transfers are more controllable than one large release.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups.",
+        "example": "In a muscle fibre, ATP is regenerated while myosin uses ATP during contraction.",
+        "different": "Cells continually regenerate ATP; storage is mainly in molecules such as glycogen and triglycerides.",
+        "concepts": [
+          {
+            "title": "ATP structure and mobility",
+            "keywords": [
+              "ATP:",
+              "ATP"
+            ],
+            "explanation": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups. Its structure differs from a DNA nucleotide: ATP contains ribose and a chain of three phosphates. Cells continually make and use ATP; it is a small, soluble molecule that can carry usable chemical free energy between the reactions that release it and those that need it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c12-2",
+      "understandingIds": [
+        "C1.2.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which is directly powered by ATP hydrolysis?",
+      "explanation": "Membrane pumps use ATP to move ions or molecules against electrochemical gradients. Such transport is not spontaneous: it requires a source of free energy. In the sodium–potassium pump, ATP-driven conformational changes maintain concentration differences that cells need for electrical signalling and osmotic balance.\n\nAnabolism makes larger molecules from smaller precursors; ATP can help drive otherwise unfavourable biosynthetic steps. Motor proteins also convert ATP-associated chemical changes into directed motion, including movement of cellular components. The spindle apparatus, for example, helps move chromosomes during cell division. ATP does not simply release heat: biological machinery couples reaction energy to defined tasks.",
+      "revisionSummary": "Anabolism makes larger molecules from smaller precursors; ATP can help drive otherwise unfavourable biosynthetic steps.",
+      "terms": [
+        "ATP powers transport, synthesis and movement: Moving substances against gradients",
+        "Mechanism: Building and moving cell structures"
+      ],
+      "workedExample": "ATP supplies energy to membrane pumps, peptide synthesis and chromosome movement, although each uses different enzymes.",
+      "misconceptions": [
+        {
+          "misconception": "ATP is needed only for movement",
+          "correction": "ATP also supports active transport and macromolecule synthesis."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Membrane pumps use ATP to move ions or molecules against electrochemical gradients. Such transport is not spontaneous: it requires a source of free energy. In the sodium–potassium pump, ATP-driven conformational changes maintain concentration differences that cells need for electrical signalling and osmotic balance.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Anabolism makes larger molecules from smaller precursors; ATP can help drive otherwise unfavourable biosynthetic steps. Motor proteins also convert ATP-associated chemical changes into directed motion, including movement of cellular components. The spindle apparatus, for example, helps move chromosomes during cell division. ATP does not simply release heat: biological machinery couples reaction energy to defined tasks.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-2",
+          "prompt": "Which is directly powered by ATP hydrolysis?",
+          "understandingIds": [
+            "C1.2.2"
+          ],
+          "options": [
+            {
+              "id": "c12-2-o1",
+              "text": "Pumping ions against an electrochemical gradient",
+              "correct": true,
+              "feedback": "A membrane pump can couple ATP consumption to uphill transport."
+            },
+            {
+              "id": "c12-2-o2",
+              "text": "Diffusion of oxygen through a lipid bilayer",
+              "correct": false,
+              "feedback": "Oxygen can diffuse passively without direct ATP use."
+            },
+            {
+              "id": "c12-2-o3",
+              "text": "Movement of water down its water-potential gradient",
+              "correct": false,
+              "feedback": "Osmosis is passive transport."
+            },
+            {
+              "id": "c12-2-o4",
+              "text": "A passive ion channel with no coupled pump",
+              "correct": false,
+              "feedback": "Passive channel flux follows an electrochemical gradient."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-2",
+          "prompt": "Without looking, explain atp powers transport, synthesis and movement.",
+          "answer": "Membrane pumps use ATP to move ions or molecules against electrochemical gradients. Anabolism makes larger molecules from smaller precursors; ATP can help drive otherwise unfavourable biosynthetic steps.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.2"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          406
+        ],
+        "pdfPages": [
+          418
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Moving substances against gradients",
+          "explanation": "Membrane pumps use ATP to move ions or molecules against electrochemical gradients. Such transport is not spontaneous: it requires a source of free energy. In the sodium–potassium pump, ATP-driven conformational changes maintain concentration differences that cells need for electrical signalling and osmotic balance.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Building and moving cell structures",
+          "explanation": "Anabolism makes larger molecules from smaller precursors; ATP can help drive otherwise unfavourable biosynthetic steps. Motor proteins also convert ATP-associated chemical changes into directed motion, including movement of cellular components. The spindle apparatus, for example, helps move chromosomes during cell division. ATP does not simply release heat: biological machinery couples reaction energy to defined tasks.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Membrane pumps use ATP to move ions or molecules against electrochemical gradients.",
+        "example": "ATP supplies energy to membrane pumps, peptide synthesis and chromosome movement, although each uses different enzymes.",
+        "different": "ATP also supports active transport and macromolecule synthesis.",
+        "concepts": [
+          {
+            "title": "Moving substances against gradients",
+            "keywords": [
+              "ATP",
+              "Moving"
+            ],
+            "explanation": "Membrane pumps use ATP to move ions or molecules against electrochemical gradients. Such transport is not spontaneous: it requires a source of free energy. In the sodium–potassium pump, ATP-driven conformational changes maintain concentration differences that cells need for electrical signalling and osmotic balance."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c12-3",
+      "understandingIds": [
+        "C1.2.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which change needs an energy input when considered on its own?",
+      "explanation": "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi). Under cellular conditions this reaction has a negative Gibbs free-energy change; its products and solvent interactions are energetically favoured. Breaking a phosphate bond alone is not what releases net energy: bond breaking costs energy, while formation and hydration of products make the overall reaction favourable.\n\nADP and Pi can be combined to reform ATP, but that phosphorylation requires an energy input. Respiration couples oxidation of respiratory substrates to ATP synthesis; photosynthesis can couple absorbed light energy to phosphorylation. An enzyme can couple ATP breakdown to an otherwise unfavourable process, transferring energy and sometimes a phosphate group without violating energy conservation. An exact kilojoule value is not prescribed for this understanding.",
+      "revisionSummary": "ADP and Pi can be combined to reform ATP, but that phosphorylation requires an energy input.",
+      "terms": [
+        "ATP hydrolysis and ATP regeneration: Energy-releasing hydrolysis",
+        "Mechanism: Endergonic synthesis requires coupling"
+      ],
+      "workedExample": "At an actively transporting membrane, ATP → ADP + Pi accompanies an otherwise uphill ion movement.",
+      "misconceptions": [
+        {
+          "misconception": "Energy is released merely by breaking a bond",
+          "correction": "Chemical bond cleavage consumes energy; the net coupled reaction releases free energy because of the products and their interactions."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi). Under cellular conditions this reaction has a negative Gibbs free-energy change; its products and solvent interactions are energetically favoured. Breaking a phosphate bond alone is not what releases net energy: bond breaking costs energy, while formation and hydration of products make the overall reaction favourable.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "ADP and Pi can be combined to reform ATP, but that phosphorylation requires an energy input. Respiration couples oxidation of respiratory substrates to ATP synthesis; photosynthesis can couple absorbed light energy to phosphorylation. An enzyme can couple ATP breakdown to an otherwise unfavourable process, transferring energy and sometimes a phosphate group without violating energy conservation. An exact kilojoule value is not prescribed for this understanding.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "atp-cycle"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-3",
+          "prompt": "Which change needs an energy input when considered on its own?",
+          "understandingIds": [
+            "C1.2.3"
+          ],
+          "options": [
+            {
+              "id": "c12-3-o1",
+              "text": "ADP + Pi → ATP",
+              "correct": true,
+              "feedback": "ATP regeneration is endergonic and must be coupled to an energy-releasing process."
+            },
+            {
+              "id": "c12-3-o2",
+              "text": "ATP + water → ADP + Pi",
+              "correct": false,
+              "feedback": "Hydrolysis is generally exergonic in cells."
+            },
+            {
+              "id": "c12-3-o3",
+              "text": "Phosphate hydration following ATP hydrolysis",
+              "correct": false,
+              "feedback": "Hydration contributes to the favourable hydrolysis products."
+            },
+            {
+              "id": "c12-3-o4",
+              "text": "A favourable ATP-coupled reaction overall",
+              "correct": false,
+              "feedback": "A favourable coupled process has a net negative free-energy change."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-3",
+          "prompt": "Without looking, explain atp hydrolysis and atp regeneration.",
+          "answer": "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi). ADP and Pi can be combined to reform ATP, but that phosphorylation requires an energy input.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.3"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          407
+        ],
+        "pdfPages": [
+          419
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Energy-releasing hydrolysis",
+          "explanation": "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi). Under cellular conditions this reaction has a negative Gibbs free-energy change; its products and solvent interactions are energetically favoured. Breaking a phosphate bond alone is not what releases net energy: bond breaking costs energy, while formation and hydration of products make the overall reaction favourable.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Endergonic synthesis requires coupling",
+          "explanation": "ADP and Pi can be combined to reform ATP, but that phosphorylation requires an energy input. Respiration couples oxidation of respiratory substrates to ATP synthesis; photosynthesis can couple absorbed light energy to phosphorylation. An enzyme can couple ATP breakdown to an otherwise unfavourable process, transferring energy and sometimes a phosphate group without violating energy conservation. An exact kilojoule value is not prescribed for this understanding.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi).",
+        "example": "At an actively transporting membrane, ATP → ADP + Pi accompanies an otherwise uphill ion movement.",
+        "different": "Chemical bond cleavage consumes energy; the net coupled reaction releases free energy because of the products and their interactions.",
+        "concepts": [
+          {
+            "title": "Energy-releasing hydrolysis",
+            "keywords": [
+              "ATP",
+              "Energy-releasing"
+            ],
+            "explanation": "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi). Under cellular conditions this reaction has a negative Gibbs free-energy change; its products and solvent interactions are energetically favoured. Breaking a phosphate bond alone is not what releases net energy: bond breaking costs energy, while formation and hydration of products make the overall reaction favourable."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "atp-cycle",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "c12-4",
+      "understandingIds": [
+        "C1.2.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Where does ATP production during cell respiration take place?",
+      "explanation": "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP. Glucose and fatty acids are major substrates, though cells can metabolize other suitable organic compounds. Oxidation does not resemble uncontrolled burning: energy is released in regulated steps, and not all of the original energy becomes ATP; some is dissipated as heat.\n\nGas exchange means movement of oxygen and carbon dioxide across an exchange surface, for example alveoli. Respiration occurs in cells; aerobic metabolism uses oxygen within the cellular reaction sequence. Gas exchange can supply oxygen for aerobic respiration and remove carbon dioxide, but exchanging gases does not itself synthesize ATP. Eukaryotic cells begin glucose breakdown in the cytosol and, when oxygen is available, carry out most later aerobic stages in mitochondria.",
+      "revisionSummary": "Gas exchange means movement of oxygen and carbon dioxide across an exchange surface, for example alveoli.",
+      "terms": [
+        "Respiration transfers energy from carbon compounds: Respiration is chemistry inside cells",
+        "Mechanism: Separate respiration from gas exchange"
+      ],
+      "workedExample": "Lungs exchange gases, while a contracting muscle cell uses substrates to regenerate ATP.",
+      "misconceptions": [
+        {
+          "misconception": "Cell respiration is another name for breathing",
+          "correction": "Breathing and gas exchange move gases; cell respiration is the ATP-producing metabolism of cells."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP. Glucose and fatty acids are major substrates, though cells can metabolize other suitable organic compounds. Oxidation does not resemble uncontrolled burning: energy is released in regulated steps, and not all of the original energy becomes ATP; some is dissipated as heat.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Gas exchange means movement of oxygen and carbon dioxide across an exchange surface, for example alveoli. Respiration occurs in cells; aerobic metabolism uses oxygen within the cellular reaction sequence. Gas exchange can supply oxygen for aerobic respiration and remove carbon dioxide, but exchanging gases does not itself synthesize ATP. Eukaryotic cells begin glucose breakdown in the cytosol and, when oxygen is available, carry out most later aerobic stages in mitochondria.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-4",
+          "prompt": "Where does ATP production during cell respiration take place?",
+          "understandingIds": [
+            "C1.2.4"
+          ],
+          "options": [
+            {
+              "id": "c12-4-o1",
+              "text": "Inside living cells during enzyme-controlled metabolic reactions",
+              "correct": true,
+              "feedback": "Respiration is an intracellular metabolic process."
+            },
+            {
+              "id": "c12-4-o2",
+              "text": "On the external surface of the lungs only",
+              "correct": false,
+              "feedback": "Alveolar exchange supplies oxygen but does not produce ATP."
+            },
+            {
+              "id": "c12-4-o3",
+              "text": "Whenever oxygen diffuses across alveoli",
+              "correct": false,
+              "feedback": "Diffusion does not automatically synthesize ATP."
+            },
+            {
+              "id": "c12-4-o4",
+              "text": "Only in the stomach during digestion",
+              "correct": false,
+              "feedback": "Digestion supplies molecules but ATP-producing respiration occurs throughout cells."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-4",
+          "prompt": "Without looking, explain respiration transfers energy from carbon compounds.",
+          "answer": "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP. Gas exchange means movement of oxygen and carbon dioxide across an exchange surface, for example alveoli.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.4"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          408
+        ],
+        "pdfPages": [
+          420
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Respiration is chemistry inside cells",
+          "explanation": "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP. Glucose and fatty acids are major substrates, though cells can metabolize other suitable organic compounds. Oxidation does not resemble uncontrolled burning: energy is released in regulated steps, and not all of the original energy becomes ATP; some is dissipated as heat.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Separate respiration from gas exchange",
+          "explanation": "Gas exchange means movement of oxygen and carbon dioxide across an exchange surface, for example alveoli. Respiration occurs in cells; aerobic metabolism uses oxygen within the cellular reaction sequence. Gas exchange can supply oxygen for aerobic respiration and remove carbon dioxide, but exchanging gases does not itself synthesize ATP. Eukaryotic cells begin glucose breakdown in the cytosol and, when oxygen is available, carry out most later aerobic stages in mitochondria.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP.",
+        "example": "Lungs exchange gases, while a contracting muscle cell uses substrates to regenerate ATP.",
+        "different": "Breathing and gas exchange move gases; cell respiration is the ATP-producing metabolism of cells.",
+        "concepts": [
+          {
+            "title": "Respiration is chemistry inside cells",
+            "keywords": [
+              "Respiration",
+              "Respiration"
+            ],
+            "explanation": "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP. Glucose and fatty acids are major substrates, though cells can metabolize other suitable organic compounds. Oxidation does not resemble uncontrolled burning: energy is released in regulated steps, and not all of the original energy becomes ATP; some is dissipated as heat."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c12-5",
+      "understandingIds": [
+        "C1.2.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which comparison is correct for human cells?",
+      "explanation": "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor. Overall: glucose + oxygen → carbon dioxide + water, with energy transferred to ATP and heat. Compared with glycolysis alone, oxygen-supported respiration generates much more ATP per glucose molecule.\n\nWhen oxygen delivery cannot meet demand, human cells can continue glycolysis without oxygen by reducing pyruvate to lactate, regenerating NAD. Overall, glucose → lactate + a small net yield of ATP (two ATP per glucose). This occurs in the cytosol and needs no mitochondrion, although the same cell may also respire aerobically. Glucose is the relevant substrate for this anaerobic route; fatty acids do not support glycolytic fermentation. Lactate should not be confused with carbon dioxide or ethanol as the main human anaerobic product.",
+      "revisionSummary": "When oxygen delivery cannot meet demand, human cells can continue glycolysis without oxygen by reducing pyruvate to lactate, regenerating NAD.",
+      "terms": [
+        "Aerobic and anaerobic respiration in humans: Aerobic pathway and products",
+        "Mechanism: Anaerobic continuation of glycolysis"
+      ],
+      "workedExample": "An exercising muscle can obtain ATP from both oxygen-supported mitochondrial respiration and lactate-producing glycolysis.",
+      "misconceptions": [
+        {
+          "misconception": "Anaerobic glycolysis occurs inside mitochondria",
+          "correction": "Human lactate-producing glycolysis is cytosolic and does not require a mitochondrion."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor. Overall: glucose + oxygen → carbon dioxide + water, with energy transferred to ATP and heat. Compared with glycolysis alone, oxygen-supported respiration generates much more ATP per glucose molecule.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "When oxygen delivery cannot meet demand, human cells can continue glycolysis without oxygen by reducing pyruvate to lactate, regenerating NAD. Overall, glucose → lactate + a small net yield of ATP (two ATP per glucose). This occurs in the cytosol and needs no mitochondrion, although the same cell may also respire aerobically. Glucose is the relevant substrate for this anaerobic route; fatty acids do not support glycolytic fermentation. Lactate should not be confused with carbon dioxide or ethanol as the main human anaerobic product.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "aerobic-anaerobic"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-5",
+          "prompt": "Which comparison is correct for human cells?",
+          "understandingIds": [
+            "C1.2.5"
+          ],
+          "options": [
+            {
+              "id": "c12-5-o1",
+              "text": "Aerobic glucose respiration uses mitochondria and yields more ATP than lactate fermentation",
+              "correct": true,
+              "feedback": "Oxygen-supported mitochondrial pathways generate substantially more ATP."
+            },
+            {
+              "id": "c12-5-o2",
+              "text": "Anaerobic glucose respiration requires oxygen at its final step",
+              "correct": false,
+              "feedback": "The lactate route can run without oxygen."
+            },
+            {
+              "id": "c12-5-o3",
+              "text": "Lactate fermentation produces ethanol and carbon dioxide",
+              "correct": false,
+              "feedback": "Ethanol production characterizes yeast fermentation, not humans."
+            },
+            {
+              "id": "c12-5-o4",
+              "text": "Aerobic glucose respiration occurs entirely in cytosol",
+              "correct": false,
+              "feedback": "Only glycolysis is cytosolic; later aerobic stages are mitochondrial."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-5",
+          "prompt": "Without looking, explain aerobic and anaerobic respiration in humans.",
+          "answer": "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor. When oxygen delivery cannot meet demand, human cells can continue glycolysis without oxygen by reducing pyruvate to lactate, regenerating NAD.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.5"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          409
+        ],
+        "pdfPages": [
+          421
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Aerobic pathway and products",
+          "explanation": "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor. Overall: glucose + oxygen → carbon dioxide + water, with energy transferred to ATP and heat. Compared with glycolysis alone, oxygen-supported respiration generates much more ATP per glucose molecule.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Anaerobic continuation of glycolysis",
+          "explanation": "When oxygen delivery cannot meet demand, human cells can continue glycolysis without oxygen by reducing pyruvate to lactate, regenerating NAD. Overall, glucose → lactate + a small net yield of ATP (two ATP per glucose). This occurs in the cytosol and needs no mitochondrion, although the same cell may also respire aerobically. Glucose is the relevant substrate for this anaerobic route; fatty acids do not support glycolytic fermentation. Lactate should not be confused with carbon dioxide or ethanol as the main human anaerobic product.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor.",
+        "example": "An exercising muscle can obtain ATP from both oxygen-supported mitochondrial respiration and lactate-producing glycolysis.",
+        "different": "Human lactate-producing glycolysis is cytosolic and does not require a mitochondrion.",
+        "concepts": [
+          {
+            "title": "Aerobic pathway and products",
+            "keywords": [
+              "Aerobic",
+              "Aerobic"
+            ],
+            "explanation": "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor. Overall: glucose + oxygen → carbon dioxide + water, with energy transferred to ATP and heat. Compared with glycolysis alone, oxygen-supported respiration generates much more ATP per glucose molecule."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "aerobic-anaerobic",
+          "afterBlock": 0
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Human glucose respiration: two routes",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Aerobic",
+            "Anaerobic, lactate route"
+          ],
+          "rows": [
+            [
+              "Oxygen",
+              "Required as terminal electron acceptor",
+              "Not required"
+            ],
+            [
+              "ATP yield",
+              "Much higher",
+              "Net 2 ATP per glucose"
+            ],
+            [
+              "Location",
+              "Cytosol, then mitochondria",
+              "Cytosol"
+            ],
+            [
+              "Products",
+              "Carbon dioxide + water",
+              "Lactate"
+            ]
+          ],
+          "note": "Describes human glucose metabolism; pathways can coexist in a cell."
+        }
+      ]
+    },
+    {
+      "id": "c12-6",
+      "understandingIds": [
+        "C1.2.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why must a respirometer equilibrate to temperature?",
+      "explanation": "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time. An oxygen respirometer can measure the movement of a marker in a calibrated capillary; if carbon dioxide is absorbed, volume change can be related to oxygen uptake. The volume change itself is not an ATP assay, so explain what the measurement represents.\n\nCalculate a rate as change in measured quantity divided by elapsed time, with units such as cm³ min⁻¹ or cm³ min⁻¹ g⁻¹ when normalized to biomass. Control mass or number of organisms, temperature, duration and apparatus leak tightness. Keep an unrespiring control, allow temperature equilibration and repeat measurements. Oxygen consumption will not capture ATP generated anaerobically, so the proxy has a biological limitation. Only plot values actually obtained or reliably sourced; do not invent experimental observations.",
+      "revisionSummary": "Calculate a rate as change in measured quantity divided by elapsed time, with units such as cm³ min⁻¹ or cm³ min⁻¹ g⁻¹ when normalized to biomass.",
+      "terms": [
+        "Investigating the rate of cell respiration: Choose a measurable proxy",
+        "Mechanism: Controls and calculation"
+      ],
+      "workedExample": "If calibrated oxygen uptake is V cm³ over t minutes for m grams of germinating seeds, the mass-specific rate is V/(t × m) cm³ min⁻¹ g⁻¹.",
+      "misconceptions": [
+        {
+          "misconception": "A respirometer directly counts ATP molecules",
+          "correction": "A respirometer measures gas change; ATP output is an inference and can differ by substrate or conditions."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time. An oxygen respirometer can measure the movement of a marker in a calibrated capillary; if carbon dioxide is absorbed, volume change can be related to oxygen uptake. The volume change itself is not an ATP assay, so explain what the measurement represents.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Calculate a rate as change in measured quantity divided by elapsed time, with units such as cm³ min⁻¹ or cm³ min⁻¹ g⁻¹ when normalized to biomass. Control mass or number of organisms, temperature, duration and apparatus leak tightness. Keep an unrespiring control, allow temperature equilibration and repeat measurements. Oxygen consumption will not capture ATP generated anaerobically, so the proxy has a biological limitation. Only plot values actually obtained or reliably sourced; do not invent experimental observations.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-6",
+          "prompt": "Why must a respirometer equilibrate to temperature?",
+          "understandingIds": [
+            "C1.2.6"
+          ],
+          "options": [
+            {
+              "id": "c12-6-o1",
+              "text": "Heating or cooling changes gas volume independently of respiration",
+              "correct": true,
+              "feedback": "Temperature-driven gas expansion or contraction can mimic respiration."
+            },
+            {
+              "id": "c12-6-o2",
+              "text": "It converts oxygen into ATP outside cells",
+              "correct": false,
+              "feedback": "A respirometer does not itself make ATP."
+            },
+            {
+              "id": "c12-6-o3",
+              "text": "It removes the need for replication",
+              "correct": false,
+              "feedback": "Replication is still necessary for reliability."
+            },
+            {
+              "id": "c12-6-o4",
+              "text": "It ensures anaerobic ATP can be measured by oxygen uptake",
+              "correct": false,
+              "feedback": "Oxygen uptake cannot directly quantify oxygen-independent glycolysis."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-6",
+          "prompt": "Without looking, explain investigating the rate of cell respiration.",
+          "answer": "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time. Calculate a rate as change in measured quantity divided by elapsed time, with units such as cm³ min⁻¹ or cm³ min⁻¹ g⁻¹ when normalized to biomass.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.6"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          410
+        ],
+        "pdfPages": [
+          422
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Choose a measurable proxy",
+          "explanation": "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time. An oxygen respirometer can measure the movement of a marker in a calibrated capillary; if carbon dioxide is absorbed, volume change can be related to oxygen uptake. The volume change itself is not an ATP assay, so explain what the measurement represents.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Controls and calculation",
+          "explanation": "Calculate a rate as change in measured quantity divided by elapsed time, with units such as cm³ min⁻¹ or cm³ min⁻¹ g⁻¹ when normalized to biomass. Control mass or number of organisms, temperature, duration and apparatus leak tightness. Keep an unrespiring control, allow temperature equilibration and repeat measurements. Oxygen consumption will not capture ATP generated anaerobically, so the proxy has a biological limitation. Only plot values actually obtained or reliably sourced; do not invent experimental observations.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time.",
+        "example": "If calibrated oxygen uptake is V cm³ over t minutes for m grams of germinating seeds, the mass-specific rate is V/(t × m) cm³ min⁻¹ g⁻¹.",
+        "different": "A respirometer measures gas change; ATP output is an inference and can differ by substrate or conditions.",
+        "concepts": [
+          {
+            "title": "Choose a measurable proxy",
+            "keywords": [
+              "Investigating",
+              "Choose"
+            ],
+            "explanation": "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time. An oxygen respirometer can measure the movement of a marker in a calibrated capillary; if carbon dioxide is absorbed, volume change can be related to oxygen uptake. The volume change itself is not an ATP assay, so explain what the measurement represents."
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Respirometer workflow (no invented results)",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Control",
+              "description": "Choose equal biomasses and an unrespiring control; seal and equilibrate apparatus."
+            },
+            {
+              "title": "Measure",
+              "description": "Record calibrated gas-volume change and elapsed time; use repeats."
+            },
+            {
+              "title": "Calculate",
+              "description": "Volume ÷ time, optionally ÷ mass; report units and proxy limitations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c12-7",
+      "understandingIds": [
+        "C1.2.7"
+      ],
+      "level": "HL",
+      "guidingQuestion": "When NAD⁺ becomes NADH, it has:",
+      "explanation": "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions. Removing hydrogen atoms from an organic substrate commonly removes associated electrons, so the substrate is oxidized. Oxidation is not restricted to a reaction that adds oxygen atoms.\n\nNAD in its oxidized form (NAD⁺) accepts electrons and hydrogen equivalents from dehydrogenation reactions to become reduced NAD (commonly written NADH). A conventional representation is NAD⁺ + 2e⁻ + H⁺ → NADH. The other proton released by a substrate may enter the surrounding medium. Reduced NAD subsequently transfers electrons to other carriers and returns to its oxidized form; it is recyclable, not permanently used up.",
+      "revisionSummary": "NAD in its oxidized form (NAD⁺) accepts electrons and hydrogen equivalents from dehydrogenation reactions to become reduced NAD (commonly written NADH).",
+      "terms": [
+        "Oxidation, reduction and reduced NAD: Follow the electrons",
+        "Mechanism: NAD carries reducing power"
+      ],
+      "workedExample": "In a dehydrogenase reaction, an organic substrate loses electrons as NAD⁺ is reduced to NADH.",
+      "misconceptions": [
+        {
+          "misconception": "Reduction is always loss of oxygen only",
+          "correction": "The general definition is gain of electrons; changes in oxygen and hydrogen can be useful clues."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions. Removing hydrogen atoms from an organic substrate commonly removes associated electrons, so the substrate is oxidized. Oxidation is not restricted to a reaction that adds oxygen atoms.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "NAD in its oxidized form (NAD⁺) accepts electrons and hydrogen equivalents from dehydrogenation reactions to become reduced NAD (commonly written NADH). A conventional representation is NAD⁺ + 2e⁻ + H⁺ → NADH. The other proton released by a substrate may enter the surrounding medium. Reduced NAD subsequently transfers electrons to other carriers and returns to its oxidized form; it is recyclable, not permanently used up.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-7",
+          "prompt": "When NAD⁺ becomes NADH, it has:",
+          "understandingIds": [
+            "C1.2.7"
+          ],
+          "options": [
+            {
+              "id": "c12-7-o1",
+              "text": "Gained electrons and been reduced",
+              "correct": true,
+              "feedback": "NAD⁺ accepts reducing equivalents and is reduced."
+            },
+            {
+              "id": "c12-7-o2",
+              "text": "Lost electrons and been oxidized",
+              "correct": false,
+              "feedback": "Electron loss defines oxidation, not reduction."
+            },
+            {
+              "id": "c12-7-o3",
+              "text": "Been converted to ATP",
+              "correct": false,
+              "feedback": "NAD is an electron carrier, not ATP."
+            },
+            {
+              "id": "c12-7-o4",
+              "text": "Acted as the final oxygen acceptor",
+              "correct": false,
+              "feedback": "Oxygen is the aerobic terminal electron acceptor."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-7",
+          "prompt": "Without looking, explain oxidation, reduction and reduced nad.",
+          "answer": "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions. NAD in its oxidized form (NAD⁺) accepts electrons and hydrogen equivalents from dehydrogenation reactions to become reduced NAD (commonly written NADH).",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.7"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          411
+        ],
+        "pdfPages": [
+          423
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Follow the electrons",
+          "explanation": "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions. Removing hydrogen atoms from an organic substrate commonly removes associated electrons, so the substrate is oxidized. Oxidation is not restricted to a reaction that adds oxygen atoms.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "NAD carries reducing power",
+          "explanation": "NAD in its oxidized form (NAD⁺) accepts electrons and hydrogen equivalents from dehydrogenation reactions to become reduced NAD (commonly written NADH). A conventional representation is NAD⁺ + 2e⁻ + H⁺ → NADH. The other proton released by a substrate may enter the surrounding medium. Reduced NAD subsequently transfers electrons to other carriers and returns to its oxidized form; it is recyclable, not permanently used up.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions.",
+        "example": "In a dehydrogenase reaction, an organic substrate loses electrons as NAD⁺ is reduced to NADH.",
+        "different": "The general definition is gain of electrons; changes in oxygen and hydrogen can be useful clues.",
+        "concepts": [
+          {
+            "title": "Follow the electrons",
+            "keywords": [
+              "Oxidation,",
+              "Follow"
+            ],
+            "explanation": "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions. Removing hydrogen atoms from an organic substrate commonly removes associated electrons, so the substrate is oxidized. Oxidation is not restricted to a reaction that adds oxygen atoms."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c12-8",
+      "understandingIds": [
+        "C1.2.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the net ATP yield from one glucose in glycolysis?",
+      "explanation": "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions. ATP is initially invested to phosphorylate a six-carbon sugar, making it more reactive. The molecule is split into two three-carbon intermediates. These are oxidized; NAD⁺ accepts reducing equivalents and becomes reduced NAD. Students do not need the names of individual intermediates in the prescribed pathway.\n\nSubsequent enzyme steps transfer phosphate to ADP directly (substrate-level phosphorylation). Four ATP are produced after two ATP were invested, giving a net gain of two ATP per glucose. The output is two pyruvate, two reduced NAD and two net ATP. Glycolysis requires neither oxygen as a direct substrate nor mitochondria; to continue sustainably, it must regain oxidized NAD⁺, either via fermentation or later aerobic electron transfer.",
+      "revisionSummary": "Subsequent enzyme steps transfer phosphate to ADP directly (substrate-level phosphorylation).",
+      "terms": [
+        "Glycolysis: Investment, splitting and oxidation",
+        "Mechanism: Net ATP balance"
+      ],
+      "workedExample": "The two pyruvates from one glucose each retain three carbons, so carbon accounting is 6C → 3C + 3C.",
+      "misconceptions": [
+        {
+          "misconception": "Glycolysis directly consumes oxygen",
+          "correction": "Oxygen is not an input to glycolysis; oxygen affects how reduced carriers are reoxidized later."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions. ATP is initially invested to phosphorylate a six-carbon sugar, making it more reactive. The molecule is split into two three-carbon intermediates. These are oxidized; NAD⁺ accepts reducing equivalents and becomes reduced NAD. Students do not need the names of individual intermediates in the prescribed pathway.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Subsequent enzyme steps transfer phosphate to ADP directly (substrate-level phosphorylation). Four ATP are produced after two ATP were invested, giving a net gain of two ATP per glucose. The output is two pyruvate, two reduced NAD and two net ATP. Glycolysis requires neither oxygen as a direct substrate nor mitochondria; to continue sustainably, it must regain oxidized NAD⁺, either via fermentation or later aerobic electron transfer.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "glycolysis"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-8",
+          "prompt": "What is the net ATP yield from one glucose in glycolysis?",
+          "understandingIds": [
+            "C1.2.8"
+          ],
+          "options": [
+            {
+              "id": "c12-8-o1",
+              "text": "Two ATP",
+              "correct": true,
+              "feedback": "Four are formed and two invested, so net yield is two."
+            },
+            {
+              "id": "c12-8-o2",
+              "text": "Four ATP after subtracting no investment",
+              "correct": false,
+              "feedback": "Four is the gross production, not the net yield."
+            },
+            {
+              "id": "c12-8-o3",
+              "text": "Zero ATP because all ATP is consumed",
+              "correct": false,
+              "feedback": "Two ATP remain after investment."
+            },
+            {
+              "id": "c12-8-o4",
+              "text": "Thirty ATP directly in cytosol",
+              "correct": false,
+              "feedback": "Most aerobic ATP, not a fixed 30, comes from mitochondrial oxidative phosphorylation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-8",
+          "prompt": "Without looking, explain glycolysis: glucose to two pyruvates.",
+          "answer": "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions. Subsequent enzyme steps transfer phosphate to ADP directly (substrate-level phosphorylation).",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.8"
+          ]
+        }
+      ],
+      "guidePage": 67,
+      "pdfPage": 73,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          412
+        ],
+        "pdfPages": [
+          424
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Investment, splitting and oxidation",
+          "explanation": "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions. ATP is initially invested to phosphorylate a six-carbon sugar, making it more reactive. The molecule is split into two three-carbon intermediates. These are oxidized; NAD⁺ accepts reducing equivalents and becomes reduced NAD. Students do not need the names of individual intermediates in the prescribed pathway.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Net ATP balance",
+          "explanation": "Subsequent enzyme steps transfer phosphate to ADP directly (substrate-level phosphorylation). Four ATP are produced after two ATP were invested, giving a net gain of two ATP per glucose. The output is two pyruvate, two reduced NAD and two net ATP. Glycolysis requires neither oxygen as a direct substrate nor mitochondria; to continue sustainably, it must regain oxidized NAD⁺, either via fermentation or later aerobic electron transfer.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions.",
+        "example": "The two pyruvates from one glucose each retain three carbons, so carbon accounting is 6C → 3C + 3C.",
+        "different": "Oxygen is not an input to glycolysis; oxygen affects how reduced carriers are reoxidized later.",
+        "concepts": [
+          {
+            "title": "Investment, splitting and oxidation",
+            "keywords": [
+              "Glycolysis:",
+              "Investment,"
+            ],
+            "explanation": "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions. ATP is initially invested to phosphorylate a six-carbon sugar, making it more reactive. The molecule is split into two three-carbon intermediates. These are oxidized; NAD⁺ accepts reducing equivalents and becomes reduced NAD. Students do not need the names of individual intermediates in the prescribed pathway."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "glycolysis",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "c12-9",
+      "understandingIds": [
+        "C1.2.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why is pyruvate reduced to lactate?",
+      "explanation": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH. Glycolysis would stop when available NAD⁺ is depleted. The enzyme lactate dehydrogenase transfers reducing equivalents from NADH to pyruvate, producing lactate and regenerating NAD⁺ in the cytosol.\n\nThis regeneration step yields no extra ATP. Instead, it allows glycolysis to continue making a net two ATP per glucose. Lactate contains three carbons; no carbon dioxide is released in this conversion, and the pathway does not require a mitochondrion. It is misleading to say lactate formation itself makes the two ATP; those ATP are produced by the glycolytic steps preceding lactate formation.",
+      "revisionSummary": "This regeneration step yields no extra ATP.",
+      "terms": [
+        "Lactate fermentation regenerates NAD: Why NAD regeneration matters",
+        "Mechanism: ATP yield and limitations"
+      ],
+      "workedExample": "During intense muscular demand, pyruvate can accept electrons from NADH so glycolysis can continue.",
+      "misconceptions": [
+        {
+          "misconception": "Lactate fermentation directly makes additional ATP after glycolysis",
+          "correction": "The lactate-forming reaction regenerates NAD⁺; glycolysis supplies the net two ATP."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH. Glycolysis would stop when available NAD⁺ is depleted. The enzyme lactate dehydrogenase transfers reducing equivalents from NADH to pyruvate, producing lactate and regenerating NAD⁺ in the cytosol.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "This regeneration step yields no extra ATP. Instead, it allows glycolysis to continue making a net two ATP per glucose. Lactate contains three carbons; no carbon dioxide is released in this conversion, and the pathway does not require a mitochondrion. It is misleading to say lactate formation itself makes the two ATP; those ATP are produced by the glycolytic steps preceding lactate formation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-9",
+          "prompt": "Why is pyruvate reduced to lactate?",
+          "understandingIds": [
+            "C1.2.9"
+          ],
+          "options": [
+            {
+              "id": "c12-9-o1",
+              "text": "To reoxidize NADH so glycolysis can continue",
+              "correct": true,
+              "feedback": "NAD⁺ recycling sustains the glycolytic dehydrogenase reaction."
+            },
+            {
+              "id": "c12-9-o2",
+              "text": "To generate oxygen for mitochondria",
+              "correct": false,
+              "feedback": "Lactate fermentation does not produce oxygen."
+            },
+            {
+              "id": "c12-9-o3",
+              "text": "To release carbon dioxide by decarboxylation",
+              "correct": false,
+              "feedback": "Pyruvate to lactate retains all three carbons."
+            },
+            {
+              "id": "c12-9-o4",
+              "text": "To produce most ATP through ATP synthase",
+              "correct": false,
+              "feedback": "No mitochondrial ATP synthase is needed for this cytosolic route."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-9",
+          "prompt": "Without looking, explain lactate fermentation regenerates nad.",
+          "answer": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH. This regeneration step yields no extra ATP.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.9"
+          ]
+        }
+      ],
+      "guidePage": 68,
+      "pdfPage": 74,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          413
+        ],
+        "pdfPages": [
+          425
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Why NAD regeneration matters",
+          "explanation": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH. Glycolysis would stop when available NAD⁺ is depleted. The enzyme lactate dehydrogenase transfers reducing equivalents from NADH to pyruvate, producing lactate and regenerating NAD⁺ in the cytosol.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "ATP yield and limitations",
+          "explanation": "This regeneration step yields no extra ATP. Instead, it allows glycolysis to continue making a net two ATP per glucose. Lactate contains three carbons; no carbon dioxide is released in this conversion, and the pathway does not require a mitochondrion. It is misleading to say lactate formation itself makes the two ATP; those ATP are produced by the glycolytic steps preceding lactate formation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH.",
+        "example": "During intense muscular demand, pyruvate can accept electrons from NADH so glycolysis can continue.",
+        "different": "The lactate-forming reaction regenerates NAD⁺; glycolysis supplies the net two ATP.",
+        "concepts": [
+          {
+            "title": "Why NAD regeneration matters",
+            "keywords": [
+              "Lactate",
+              "Why"
+            ],
+            "explanation": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH. Glycolysis would stop when available NAD⁺ is depleted. The enzyme lactate dehydrogenase transfers reducing equivalents from NADH to pyruvate, producing lactate and regenerating NAD⁺ in the cytosol."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c12-10",
+      "understandingIds": [
+        "C1.2.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which yeast fermentation step releases CO₂?",
+      "explanation": "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD. In the absence of oxygen, yeast converts pyruvate (3C) to ethanal (2C), releasing carbon dioxide; ethanal then accepts electrons from reduced NAD and becomes ethanol. This restores NAD⁺ and allows further glycolysis.\n\nBaker's yeast releases carbon dioxide that inflates dough; ethanol largely escapes during baking. Brewing instead retains ethanol as a desired product, and carbon dioxide may also contribute to carbonation. Human lactate fermentation does not release carbon dioxide at the pyruvate-to-lactate step. Neither yeast fermentation nor human lactate fermentation produces the large mitochondrial ATP yield of aerobic respiration.",
+      "revisionSummary": "Baker's yeast releases carbon dioxide that inflates dough; ethanol largely escapes during baking.",
+      "terms": [
+        "Yeast fermentation and its uses: Alternative way to reoxidize NADH",
+        "Mechanism: Products explain applications"
+      ],
+      "workedExample": "In breadmaking, yeast makes the gas bubbles that expand dough through carbon dioxide release.",
+      "misconceptions": [
+        {
+          "misconception": "Yeast releases lactate as the principal product of its anaerobic pathway",
+          "correction": "Yeast fermentation produces ethanol and CO₂, not lactate as the principal pathway products."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD. In the absence of oxygen, yeast converts pyruvate (3C) to ethanal (2C), releasing carbon dioxide; ethanal then accepts electrons from reduced NAD and becomes ethanol. This restores NAD⁺ and allows further glycolysis.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Baker's yeast releases carbon dioxide that inflates dough; ethanol largely escapes during baking. Brewing instead retains ethanol as a desired product, and carbon dioxide may also contribute to carbonation. Human lactate fermentation does not release carbon dioxide at the pyruvate-to-lactate step. Neither yeast fermentation nor human lactate fermentation produces the large mitochondrial ATP yield of aerobic respiration.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "fermentation"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-10",
+          "prompt": "Which yeast fermentation step releases CO₂?",
+          "understandingIds": [
+            "C1.2.10"
+          ],
+          "options": [
+            {
+              "id": "c12-10-o1",
+              "text": "Conversion of pyruvate to ethanal",
+              "correct": true,
+              "feedback": "Removing one carbon from 3C pyruvate gives 2C ethanal and CO₂."
+            },
+            {
+              "id": "c12-10-o2",
+              "text": "Reduction of ethanal to ethanol",
+              "correct": false,
+              "feedback": "Ethanal reduction consumes NADH but does not remove carbon."
+            },
+            {
+              "id": "c12-10-o3",
+              "text": "Reoxidation of NADH during glycolysis alone",
+              "correct": false,
+              "feedback": "Glycolysis does not release CO₂."
+            },
+            {
+              "id": "c12-10-o4",
+              "text": "Hydrolysis of ATP to ADP",
+              "correct": false,
+              "feedback": "ATP hydrolysis is not the CO₂-releasing step."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-10",
+          "prompt": "Without looking, explain yeast fermentation and its uses.",
+          "answer": "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD. Baker's yeast releases carbon dioxide that inflates dough; ethanol largely escapes during baking.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.10"
+          ]
+        }
+      ],
+      "guidePage": 68,
+      "pdfPage": 74,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          415
+        ],
+        "pdfPages": [
+          427
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Alternative way to reoxidize NADH",
+          "explanation": "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD. In the absence of oxygen, yeast converts pyruvate (3C) to ethanal (2C), releasing carbon dioxide; ethanal then accepts electrons from reduced NAD and becomes ethanol. This restores NAD⁺ and allows further glycolysis.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Products explain applications",
+          "explanation": "Baker's yeast releases carbon dioxide that inflates dough; ethanol largely escapes during baking. Brewing instead retains ethanol as a desired product, and carbon dioxide may also contribute to carbonation. Human lactate fermentation does not release carbon dioxide at the pyruvate-to-lactate step. Neither yeast fermentation nor human lactate fermentation produces the large mitochondrial ATP yield of aerobic respiration.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD.",
+        "example": "In breadmaking, yeast makes the gas bubbles that expand dough through carbon dioxide release.",
+        "different": "Yeast fermentation produces ethanol and CO₂, not lactate as the principal pathway products.",
+        "concepts": [
+          {
+            "title": "Alternative way to reoxidize NADH",
+            "keywords": [
+              "Yeast",
+              "Alternative"
+            ],
+            "explanation": "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD. In the absence of oxygen, yeast converts pyruvate (3C) to ethanal (2C), releasing carbon dioxide; ethanal then accepts electrons from reduced NAD and becomes ethanol. This restores NAD⁺ and allows further glycolysis."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "fermentation",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "c12-11",
+      "understandingIds": [
+        "C1.2.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is produced directly from each pyruvate in the link reaction?",
+      "explanation": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix. The link reaction removes one carbon as carbon dioxide (decarboxylation) and oxidizes the remaining two-carbon fragment, reducing NAD⁺ to NADH. The acetyl group then joins coenzyme A to form acetyl-CoA.\n\nAcetyl-CoA delivers the two-carbon fragment to the Krebs cycle. Two pyruvates are made per glucose, so the link reaction takes place twice, producing two CO₂, two NADH and two acetyl-CoA per glucose. Fatty acids can also be broken into two-carbon acetyl groups, but they do not first need conversion to glucose; β-oxidation can supply acetyl-CoA directly.",
+      "revisionSummary": "Acetyl-CoA delivers the two-carbon fragment to the Krebs cycle.",
+      "terms": [
+        "The link reaction produces acetyl-CoA: Carbon and hydrogen accounting",
+        "Mechanism: Why this is a link"
+      ],
+      "workedExample": "Tracing one labelled carbon atom through the link reaction distinguishes decarboxylation from electron transfer.",
+      "misconceptions": [
+        {
+          "misconception": "All three carbon atoms of pyruvate enter acetyl-CoA",
+          "correction": "One carbon is released as CO₂; the remaining two make the acetyl group."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix. The link reaction removes one carbon as carbon dioxide (decarboxylation) and oxidizes the remaining two-carbon fragment, reducing NAD⁺ to NADH. The acetyl group then joins coenzyme A to form acetyl-CoA.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Acetyl-CoA delivers the two-carbon fragment to the Krebs cycle. Two pyruvates are made per glucose, so the link reaction takes place twice, producing two CO₂, two NADH and two acetyl-CoA per glucose. Fatty acids can also be broken into two-carbon acetyl groups, but they do not first need conversion to glucose; β-oxidation can supply acetyl-CoA directly.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-11",
+          "prompt": "What is produced directly from each pyruvate in the link reaction?",
+          "understandingIds": [
+            "C1.2.11"
+          ],
+          "options": [
+            {
+              "id": "c12-11-o1",
+              "text": "Acetyl-CoA, carbon dioxide and reduced NAD",
+              "correct": true,
+              "feedback": "Pyruvate is decarboxylated and oxidized to form acetyl-CoA and NADH."
+            },
+            {
+              "id": "c12-11-o2",
+              "text": "Citrate, oxygen and lactate",
+              "correct": false,
+              "feedback": "Citrate forms after acetyl-CoA enters the Krebs cycle."
+            },
+            {
+              "id": "c12-11-o3",
+              "text": "Glucose, water and reduced NADP",
+              "correct": false,
+              "feedback": "The link reaction does not regenerate glucose or use NADP."
+            },
+            {
+              "id": "c12-11-o4",
+              "text": "Two ATP from substrate-level phosphorylation",
+              "correct": false,
+              "feedback": "The link reaction does not directly make ATP."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-11",
+          "prompt": "Without looking, explain the link reaction produces acetyl-coa.",
+          "answer": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix. Acetyl-CoA delivers the two-carbon fragment to the Krebs cycle.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.11"
+          ]
+        }
+      ],
+      "guidePage": 68,
+      "pdfPage": 74,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          416
+        ],
+        "pdfPages": [
+          428
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Carbon and hydrogen accounting",
+          "explanation": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix. The link reaction removes one carbon as carbon dioxide (decarboxylation) and oxidizes the remaining two-carbon fragment, reducing NAD⁺ to NADH. The acetyl group then joins coenzyme A to form acetyl-CoA.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Why this is a link",
+          "explanation": "Acetyl-CoA delivers the two-carbon fragment to the Krebs cycle. Two pyruvates are made per glucose, so the link reaction takes place twice, producing two CO₂, two NADH and two acetyl-CoA per glucose. Fatty acids can also be broken into two-carbon acetyl groups, but they do not first need conversion to glucose; β-oxidation can supply acetyl-CoA directly.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix.",
+        "example": "Tracing one labelled carbon atom through the link reaction distinguishes decarboxylation from electron transfer.",
+        "different": "One carbon is released as CO₂; the remaining two make the acetyl group.",
+        "concepts": [
+          {
+            "title": "Carbon and hydrogen accounting",
+            "keywords": [
+              "The",
+              "Carbon"
+            ],
+            "explanation": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix. The link reaction removes one carbon as carbon dioxide (decarboxylation) and oxidizes the remaining two-carbon fragment, reducing NAD⁺ to NADH. The acetyl group then joins coenzyme A to form acetyl-CoA."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c12-12",
+      "understandingIds": [
+        "C1.2.12"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which pair of carbon skeletons first forms citrate?",
+      "explanation": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C). Coenzyme A is released and reused. Successive enzyme-controlled reactions convert citrate back to oxaloacetate, so the four-carbon acceptor can bind another acetyl group. The intermediate names required by the IB guide are citrate and oxaloacetate.\n\nDuring each turn two carbons are removed as CO₂ and four oxidation reactions transfer electrons to carriers: typically three NAD⁺ become NADH and one FAD becomes FADH₂. One ATP (or equivalent nucleotide triphosphate) forms by substrate-level phosphorylation per turn. The glucose-derived cycle turns twice, giving four CO₂, six reduced NAD, two reduced FAD and two directly formed ATP equivalents. The reduced carriers subsequently help drive oxidative phosphorylation; the Krebs cycle itself does not use oxygen directly.",
+      "revisionSummary": "During each turn two carbons are removed as CO₂ and four oxidation reactions transfer electrons to carriers: typically three NAD⁺ become NADH and one FAD becomes FADH₂.",
+      "terms": [
+        "The Krebs cycle oxidizes acetyl groups: Entry and regeneration",
+        "Mechanism: Decarboxylation and energy capture"
+      ],
+      "workedExample": "Tracking 2C acetyl + 4C oxaloacetate → 6C citrate makes the cycle's carbon balance easier to explain.",
+      "misconceptions": [
+        {
+          "misconception": "The Krebs cycle uses up its oxaloacetate every turn",
+          "correction": "Oxaloacetate is regenerated so the cycle can repeat."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C). Coenzyme A is released and reused. Successive enzyme-controlled reactions convert citrate back to oxaloacetate, so the four-carbon acceptor can bind another acetyl group. The intermediate names required by the IB guide are citrate and oxaloacetate.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "During each turn two carbons are removed as CO₂ and four oxidation reactions transfer electrons to carriers: typically three NAD⁺ become NADH and one FAD becomes FADH₂. One ATP (or equivalent nucleotide triphosphate) forms by substrate-level phosphorylation per turn. The glucose-derived cycle turns twice, giving four CO₂, six reduced NAD, two reduced FAD and two directly formed ATP equivalents. The reduced carriers subsequently help drive oxidative phosphorylation; the Krebs cycle itself does not use oxygen directly.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "krebs-cycle"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-12",
+          "prompt": "Which pair of carbon skeletons first forms citrate?",
+          "understandingIds": [
+            "C1.2.12"
+          ],
+          "options": [
+            {
+              "id": "c12-12-o1",
+              "text": "A two-carbon acetyl group and four-carbon oxaloacetate",
+              "correct": true,
+              "feedback": "2C + 4C gives citrate with six carbons."
+            },
+            {
+              "id": "c12-12-o2",
+              "text": "Two three-carbon pyruvate molecules",
+              "correct": false,
+              "feedback": "Pyruvate must undergo the link reaction first."
+            },
+            {
+              "id": "c12-12-o3",
+              "text": "One six-carbon glucose and carbon dioxide",
+              "correct": false,
+              "feedback": "Glucose does not enter the Krebs cycle intact."
+            },
+            {
+              "id": "c12-12-o4",
+              "text": "Two four-carbon molecules",
+              "correct": false,
+              "feedback": "4C + 4C cannot directly yield 6C without losing carbon."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-12",
+          "prompt": "Without looking, explain the krebs cycle oxidizes acetyl groups.",
+          "answer": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C). During each turn two carbons are removed as CO₂ and four oxidation reactions transfer electrons to carriers: typically three NAD⁺ become NADH and one FAD becomes FADH₂.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.12"
+          ]
+        }
+      ],
+      "guidePage": 68,
+      "pdfPage": 74,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          417
+        ],
+        "pdfPages": [
+          429
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Entry and regeneration",
+          "explanation": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C). Coenzyme A is released and reused. Successive enzyme-controlled reactions convert citrate back to oxaloacetate, so the four-carbon acceptor can bind another acetyl group. The intermediate names required by the IB guide are citrate and oxaloacetate.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Decarboxylation and energy capture",
+          "explanation": "During each turn two carbons are removed as CO₂ and four oxidation reactions transfer electrons to carriers: typically three NAD⁺ become NADH and one FAD becomes FADH₂. One ATP (or equivalent nucleotide triphosphate) forms by substrate-level phosphorylation per turn. The glucose-derived cycle turns twice, giving four CO₂, six reduced NAD, two reduced FAD and two directly formed ATP equivalents. The reduced carriers subsequently help drive oxidative phosphorylation; the Krebs cycle itself does not use oxygen directly.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C).",
+        "example": "Tracking 2C acetyl + 4C oxaloacetate → 6C citrate makes the cycle's carbon balance easier to explain.",
+        "different": "Oxaloacetate is regenerated so the cycle can repeat.",
+        "concepts": [
+          {
+            "title": "Entry and regeneration",
+            "keywords": [
+              "The",
+              "Entry"
+            ],
+            "explanation": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C). Coenzyme A is released and reused. Successive enzyme-controlled reactions convert citrate back to oxaloacetate, so the four-carbon acceptor can bind another acetyl group. The intermediate names required by the IB guide are citrate and oxaloacetate."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "krebs-cycle",
+          "afterBlock": 0
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Biochemical pathway accounting per glucose (stoichiometry; not experimental measurements)",
+          "headers": [
+            "Stage",
+            "Net ATP equivalents directly formed",
+            "Reduced NAD",
+            "Reduced FAD",
+            "CO₂"
+          ],
+          "rows": [
+            [
+              "Glycolysis",
+              2,
+              2,
+              0,
+              0
+            ],
+            [
+              "Link reaction",
+              0,
+              2,
+              0,
+              2
+            ],
+            [
+              "Two Krebs turns",
+              2,
+              6,
+              2,
+              4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c12-13",
+      "understandingIds": [
+        "C1.2.13"
+      ],
+      "level": "HL",
+      "guidingQuestion": "When NADH gives electrons to the mitochondrial chain, it:",
+      "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.\n\nElectron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.",
+      "revisionSummary": "Electron carriers pass electrons through a sequence of redox reactions.",
+      "terms": [
+        "Reduced NAD passes electrons to the chain: Electron donation in mitochondria",
+        "Mechanism: From electron energy to a gradient"
+      ],
+      "workedExample": "NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺.",
+      "misconceptions": [
+        {
+          "misconception": "Reduced NAD is a permanent end product of aerobic respiration",
+          "correction": "NADH is oxidized when it donates electrons and its NAD⁺ form is recycled."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Electron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-13",
+          "prompt": "When NADH gives electrons to the mitochondrial chain, it:",
+          "understandingIds": [
+            "C1.2.13"
+          ],
+          "options": [
+            {
+              "id": "c12-13-o1",
+              "text": "Becomes oxidized NAD⁺",
+              "correct": true,
+              "feedback": "Electron donation oxidizes NADH to NAD⁺."
+            },
+            {
+              "id": "c12-13-o2",
+              "text": "Becomes reduced NADP",
+              "correct": false,
+              "feedback": "NADP is a different carrier used prominently in photosynthesis."
+            },
+            {
+              "id": "c12-13-o3",
+              "text": "Turns directly into carbon dioxide",
+              "correct": false,
+              "feedback": "NADH donation does not release CO₂."
+            },
+            {
+              "id": "c12-13-o4",
+              "text": "Supplies the oxygen atom of water",
+              "correct": false,
+              "feedback": "Water's oxygen originates from molecular oxygen at the terminal step."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-13",
+          "prompt": "Without looking, explain reduced nad passes electrons to the chain.",
+          "answer": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. Electron carriers pass electrons through a sequence of redox reactions.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.13"
+          ]
+        }
+      ],
+      "guidePage": 68,
+      "pdfPage": 74,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          418
+        ],
+        "pdfPages": [
+          430
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Electron donation in mitochondria",
+          "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "From electron energy to a gradient",
+          "explanation": "Electron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle.",
+        "example": "NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺.",
+        "different": "NADH is oxidized when it donates electrons and its NAD⁺ form is recycled.",
+        "concepts": [
+          {
+            "title": "Electron donation in mitochondria",
+            "keywords": [
+              "Reduced",
+              "Electron"
+            ],
+            "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation."
+          }
+        ]
+      }
+    },
+    {
+      "id": "c12-14",
+      "understandingIds": [
+        "C1.2.14"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which way does proton pumping by the electron transport chain operate?",
+      "explanation": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side.\n\nThere is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient. This stores potential energy for ATP synthesis. Carrier complex names are not required. Protons do not flow down the chain with electrons: electron flow powers proton pumping across the membrane, and subsequent proton return can drive ATP synthase.",
+      "revisionSummary": "There is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient.",
+      "terms": [
+        "Electron transfer establishes a proton gradient: Pump protons outward",
+        "Mechanism: Two components of stored potential"
+      ],
+      "workedExample": "Blocking proton pumping weakens the gradient even if ADP and phosphate remain present.",
+      "misconceptions": [
+        {
+          "misconception": "The electron transport chain pumps H⁺ from the intermembrane space into the matrix",
+          "correction": "In mitochondria, pumping moves protons from matrix to intermembrane space."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "There is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient. This stores potential energy for ATP synthesis. Carrier complex names are not required. Protons do not flow down the chain with electrons: electron flow powers proton pumping across the membrane, and subsequent proton return can drive ATP synthase.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "mitochondrial-chemiosmosis"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-14",
+          "prompt": "Which way does proton pumping by the electron transport chain operate?",
+          "understandingIds": [
+            "C1.2.14"
+          ],
+          "options": [
+            {
+              "id": "c12-14-o1",
+              "text": "From matrix to intermembrane space",
+              "correct": true,
+              "feedback": "The chain establishes high H⁺ outside the matrix."
+            },
+            {
+              "id": "c12-14-o2",
+              "text": "From intermembrane space to matrix through pump complexes",
+              "correct": false,
+              "feedback": "Return through ATP synthase is the opposite direction."
+            },
+            {
+              "id": "c12-14-o3",
+              "text": "Out of mitochondria directly into cytosol only",
+              "correct": false,
+              "feedback": "The essential boundary is the inner mitochondrial membrane."
+            },
+            {
+              "id": "c12-14-o4",
+              "text": "Along the membrane in exactly the same direction as electron movement",
+              "correct": false,
+              "feedback": "Electron transfer along carriers and proton transfer across membrane are distinct."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-14",
+          "prompt": "Without looking, explain electron transfer establishes a proton gradient.",
+          "answer": "The mitochondrial electron transport chain is in the inner membrane. There is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.14"
+          ]
+        }
+      ],
+      "guidePage": 68,
+      "pdfPage": 74,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          419
+        ],
+        "pdfPages": [
+          431
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Pump protons outward",
+          "explanation": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Two components of stored potential",
+          "explanation": "There is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient. This stores potential energy for ATP synthesis. Carrier complex names are not required. Protons do not flow down the chain with electrons: electron flow powers proton pumping across the membrane, and subsequent proton return can drive ATP synthase.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "The mitochondrial electron transport chain is in the inner membrane.",
+        "example": "Blocking proton pumping weakens the gradient even if ADP and phosphate remain present.",
+        "different": "In mitochondria, pumping moves protons from matrix to intermembrane space.",
+        "concepts": [
+          {
+            "title": "Pump protons outward",
+            "keywords": [
+              "Electron",
+              "Pump"
+            ],
+            "explanation": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "mitochondrial-chemiosmosis",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "c12-15",
+      "understandingIds": [
+        "C1.2.15"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which flow powers ATP synthase during mitochondrial respiration?",
+      "explanation": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation.\n\nATP synthase catalyses ADP + Pi → ATP on the matrix side. Chemiosmosis is the use of an ion electrochemical gradient to perform work, not simply the passive diffusion of protons through the lipid bilayer. If the membrane became permeable to H⁺ everywhere, the gradient would dissipate without adequate ATP formation. The electron transport chain creates the gradient; ATP synthase harnesses it. These processes together underpin oxidative phosphorylation.",
+      "revisionSummary": "ATP synthase catalyses ADP + Pi → ATP on the matrix side.",
+      "terms": [
+        "Chemiosmosis drives mitochondrial ATP synthesis: Protons return through ATP synthase",
+        "Mechanism: Coupled energy conversion"
+      ],
+      "workedExample": "In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase.",
+      "misconceptions": [
+        {
+          "misconception": "ATP synthase pumps protons outward during normal ATP production",
+          "correction": "ATP production generally uses downhill proton return into the matrix; proton pumping outward is driven by the chain."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "ATP synthase catalyses ADP + Pi → ATP on the matrix side. Chemiosmosis is the use of an ion electrochemical gradient to perform work, not simply the passive diffusion of protons through the lipid bilayer. If the membrane became permeable to H⁺ everywhere, the gradient would dissipate without adequate ATP formation. The electron transport chain creates the gradient; ATP synthase harnesses it. These processes together underpin oxidative phosphorylation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "mitochondrial-chemiosmosis"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-15",
+          "prompt": "Which flow powers ATP synthase during mitochondrial respiration?",
+          "understandingIds": [
+            "C1.2.15"
+          ],
+          "options": [
+            {
+              "id": "c12-15-o1",
+              "text": "H⁺ from intermembrane space to matrix",
+              "correct": true,
+              "feedback": "Downhill proton return supplies the energy to make ATP."
+            },
+            {
+              "id": "c12-15-o2",
+              "text": "H⁺ from matrix to intermembrane space through synthase during ATP production",
+              "correct": false,
+              "feedback": "That reverses the normal respiratory direction of proton return."
+            },
+            {
+              "id": "c12-15-o3",
+              "text": "Glucose through the inner mitochondrial membrane",
+              "correct": false,
+              "feedback": "Glucose entry does not directly rotate ATP synthase."
+            },
+            {
+              "id": "c12-15-o4",
+              "text": "Oxygen out of the mitochondrion",
+              "correct": false,
+              "feedback": "Oxygen is reduced at the end of the chain; it does not drive synthase by outward diffusion."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-15",
+          "prompt": "Without looking, explain chemiosmosis drives mitochondrial atp synthesis.",
+          "answer": "ATP synthase spans the inner mitochondrial membrane. ATP synthase catalyses ADP + Pi → ATP on the matrix side.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.15"
+          ]
+        }
+      ],
+      "guidePage": 69,
+      "pdfPage": 75,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          420
+        ],
+        "pdfPages": [
+          432
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Protons return through ATP synthase",
+          "explanation": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Coupled energy conversion",
+          "explanation": "ATP synthase catalyses ADP + Pi → ATP on the matrix side. Chemiosmosis is the use of an ion electrochemical gradient to perform work, not simply the passive diffusion of protons through the lipid bilayer. If the membrane became permeable to H⁺ everywhere, the gradient would dissipate without adequate ATP formation. The electron transport chain creates the gradient; ATP synthase harnesses it. These processes together underpin oxidative phosphorylation.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "ATP synthase spans the inner mitochondrial membrane.",
+        "example": "In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase.",
+        "different": "ATP production generally uses downhill proton return into the matrix; proton pumping outward is driven by the chain.",
+        "concepts": [
+          {
+            "title": "Protons return through ATP synthase",
+            "keywords": [
+              "Chemiosmosis",
+              "Protons"
+            ],
+            "explanation": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "mitochondrial-chemiosmosis",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "c12-16",
+      "understandingIds": [
+        "C1.2.16"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What becomes of O₂ at the end of aerobic electron transport?",
+      "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly.\n\nIf oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction. Reduced carriers accumulate, chain electron flow slows or stops, proton pumping cannot be maintained and oxidative phosphorylation rapidly declines. Glycolysis may still supply a small ATP yield if NAD⁺ is regenerated through fermentation. The water formed is metabolic water, distinct from water entering the cell from its environment.",
+      "revisionSummary": "If oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction.",
+      "terms": [
+        "Oxygen is the final electron acceptor: Complete the electron-transfer pathway",
+        "Mechanism: Why oxygen availability matters"
+      ],
+      "workedExample": "Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂.",
+      "misconceptions": [
+        {
+          "misconception": "Oxygen is reduced into ATP",
+          "correction": "Oxygen is reduced to water; ATP synthesis is driven by the proton gradient."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "If oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction. Reduced carriers accumulate, chain electron flow slows or stops, proton pumping cannot be maintained and oxidative phosphorylation rapidly declines. Glycolysis may still supply a small ATP yield if NAD⁺ is regenerated through fermentation. The water formed is metabolic water, distinct from water entering the cell from its environment.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "mitochondrial-chemiosmosis"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-16",
+          "prompt": "What becomes of O₂ at the end of aerobic electron transport?",
+          "understandingIds": [
+            "C1.2.16"
+          ],
+          "options": [
+            {
+              "id": "c12-16-o1",
+              "text": "It accepts electrons and protons and forms water",
+              "correct": true,
+              "feedback": "Reduction of O₂ closes the electron-transfer pathway and forms water."
+            },
+            {
+              "id": "c12-16-o2",
+              "text": "It donates NADH to the Krebs cycle",
+              "correct": false,
+              "feedback": "NADH is a reducing carrier; oxygen accepts its electron equivalents."
+            },
+            {
+              "id": "c12-16-o3",
+              "text": "It is converted directly to glucose",
+              "correct": false,
+              "feedback": "Glucose is not synthesized in aerobic respiration."
+            },
+            {
+              "id": "c12-16-o4",
+              "text": "It phosphorylates ADP as an enzyme",
+              "correct": false,
+              "feedback": "ATP synthase, not oxygen, catalyses ADP phosphorylation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-16",
+          "prompt": "Without looking, explain oxygen is the final electron acceptor.",
+          "answer": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. If oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.16"
+          ]
+        }
+      ],
+      "guidePage": 69,
+      "pdfPage": 75,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          421
+        ],
+        "pdfPages": [
+          433
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Complete the electron-transfer pathway",
+          "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Why oxygen availability matters",
+          "explanation": "If oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction. Reduced carriers accumulate, chain electron flow slows or stops, proton pumping cannot be maintained and oxidative phosphorylation rapidly declines. Glycolysis may still supply a small ATP yield if NAD⁺ is regenerated through fermentation. The water formed is metabolic water, distinct from water entering the cell from its environment.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons.",
+        "example": "Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂.",
+        "different": "Oxygen is reduced to water; ATP synthesis is driven by the proton gradient.",
+        "concepts": [
+          {
+            "title": "Complete the electron-transfer pathway",
+            "keywords": [
+              "Oxygen",
+              "Complete"
+            ],
+            "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "mitochondrial-chemiosmosis",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "c12-17",
+      "understandingIds": [
+        "C1.2.17"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which statement accurately compares fuels?",
+      "explanation": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water.\n\nCarbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production. Fatty acids are degraded principally by β-oxidation to two-carbon acetyl-CoA units that enter the Krebs cycle in mitochondria; they do not enter glycolysis. The reducing equivalents from fatty-acid breakdown ultimately depend on electron-acceptor regeneration associated with aerobic pathways. Consequently, fatty acids cannot replace glucose as the substrate for the human lactate-fermentation route.",
+      "revisionSummary": "Carbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production.",
+      "terms": [
+        "Lipids versus carbohydrates as substrates: More reduced carbon gives greater energy yield",
+        "Mechanism: Different entry points into respiration"
+      ],
+      "workedExample": "During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically.",
+      "misconceptions": [
+        {
+          "misconception": "Fats must first all become glucose before they can be oxidized",
+          "correction": "Fatty acids can supply acetyl-CoA directly through β-oxidation; they need not become glucose first."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "claim": "Carbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production. Fatty acids are degraded principally by β-oxidation to two-carbon acetyl-CoA units that enter the Krebs cycle in mitochondria; they do not enter glycolysis. The reducing equivalents from fatty-acid breakdown ultimately depend on electron-acceptor regeneration associated with aerobic pathways. Consequently, fatty acids cannot replace glucose as the substrate for the human lactate-fermentation route.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "assets": [
+        "fuel-entry"
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "c12-check-17",
+          "prompt": "Which statement accurately compares fuels?",
+          "understandingIds": [
+            "C1.2.17"
+          ],
+          "options": [
+            {
+              "id": "c12-17-o1",
+              "text": "Fatty acids yield acetyl-CoA and more energy per gram, but do not support lactate fermentation",
+              "correct": true,
+              "feedback": "More reduced fatty acids provide dense energy stores but cannot fuel glycolytic lactate formation."
+            },
+            {
+              "id": "c12-17-o2",
+              "text": "Fatty acids feed straight into cytosolic glycolysis",
+              "correct": false,
+              "feedback": "Glycolysis processes sugars, not fatty acyl chains."
+            },
+            {
+              "id": "c12-17-o3",
+              "text": "Glucose contains less oxygen relative to carbon than most fatty acids",
+              "correct": false,
+              "feedback": "Carbohydrates are relatively oxygen-rich."
+            },
+            {
+              "id": "c12-17-o4",
+              "text": "Fatty acids generate ethanol anaerobically in human cells",
+              "correct": false,
+              "feedback": "Human lactate fermentation uses carbohydrate-derived pyruvate, not fatty acids."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "c12-recall-17",
+          "prompt": "Without looking, explain lipids versus carbohydrates as substrates.",
+          "answer": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Carbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production.",
+          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "understandingIds": [
+            "C1.2.17"
+          ]
+        }
+      ],
+      "guidePage": 69,
+      "pdfPage": 75,
+      "textbook": {
+        "referenceId": "hodder-c12",
+        "printedPages": [
+          422
+        ],
+        "pdfPages": [
+          434
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "More reduced carbon gives greater energy yield",
+          "explanation": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        },
+        {
+          "title": "Different entry points into respiration",
+          "explanation": "Carbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production. Fatty acids are degraded principally by β-oxidation to two-carbon acetyl-CoA units that enter the Krebs cycle in mitochondria; they do not enter glycolysis. The reducing equivalents from fatty-acid breakdown ultimately depend on electron-acceptor regeneration associated with aerobic pathways. Consequently, fatty acids cannot replace glucose as the substrate for the human lactate-fermentation route.",
+          "referenceIds": [
+            "ib-c12",
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized.",
+        "example": "During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically.",
+        "different": "Fatty acids can supply acetyl-CoA directly through β-oxidation; they need not become glucose first.",
+        "concepts": [
+          {
+            "title": "More reduced carbon gives greater energy yield",
+            "keywords": [
+              "Lipids",
+              "More"
+            ],
+            "explanation": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water."
+          }
+        ]
+      },
+      "figurePlacements": [
+        {
+          "assetId": "fuel-entry",
+          "afterBlock": 0
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "c12-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.1"
+      ],
+      "level": "shared",
+      "prompt": "Which property makes ATP useful across many different cell processes?",
+      "marks": 1,
+      "sectionId": "c12-1",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-1-o1",
+          "text": "It can couple its hydrolysis to many different endergonic reactions",
+          "correct": true,
+          "feedback": "Yes: ATP couples many kinds of cellular work to favourable reactions."
+        },
+        {
+          "id": "c12-assess-1-o2",
+          "text": "It is the main long-term storage molecule in animals",
+          "correct": false,
+          "feedback": "ATP is rapidly regenerated, not a long-term energy reserve."
+        },
+        {
+          "id": "c12-assess-1-o3",
+          "text": "It contains no phosphate groups",
+          "correct": false,
+          "feedback": "ATP has three phosphate groups."
+        },
+        {
+          "id": "c12-assess-1-o4",
+          "text": "It is made only by mitochondria",
+          "correct": false,
+          "feedback": "ATP is also produced without mitochondria, including by glycolysis."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-1",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.1"
+      ],
+      "level": "shared",
+      "prompt": "Explain the mechanism behind atp: the cell's transferable energy currency and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-1",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups. In a muscle fibre, ATP is regenerated while myosin uses ATP during contraction.",
+      "markingPoints": [
+        "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups.",
+        "In a muscle fibre, ATP is regenerated while myosin uses ATP during contraction."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.2"
+      ],
+      "level": "shared",
+      "prompt": "Which is directly powered by ATP hydrolysis?",
+      "marks": 1,
+      "sectionId": "c12-2",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-2-o1",
+          "text": "Pumping ions against an electrochemical gradient",
+          "correct": true,
+          "feedback": "A membrane pump can couple ATP consumption to uphill transport."
+        },
+        {
+          "id": "c12-assess-2-o2",
+          "text": "Diffusion of oxygen through a lipid bilayer",
+          "correct": false,
+          "feedback": "Oxygen can diffuse passively without direct ATP use."
+        },
+        {
+          "id": "c12-assess-2-o3",
+          "text": "Movement of water down its water-potential gradient",
+          "correct": false,
+          "feedback": "Osmosis is passive transport."
+        },
+        {
+          "id": "c12-assess-2-o4",
+          "text": "A passive ion channel with no coupled pump",
+          "correct": false,
+          "feedback": "Passive channel flux follows an electrochemical gradient."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-2",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.2"
+      ],
+      "level": "shared",
+      "prompt": "Explain the mechanism behind atp powers transport, synthesis and movement and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-2",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Membrane pumps use ATP to move ions or molecules against electrochemical gradients. ATP supplies energy to membrane pumps, peptide synthesis and chromosome movement, although each uses different enzymes.",
+      "markingPoints": [
+        "Membrane pumps use ATP to move ions or molecules against electrochemical gradients.",
+        "ATP supplies energy to membrane pumps, peptide synthesis and chromosome movement, although each uses different enzymes."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.3"
+      ],
+      "level": "shared",
+      "prompt": "Which change needs an energy input when considered on its own?",
+      "marks": 1,
+      "sectionId": "c12-3",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-3-o1",
+          "text": "ADP + Pi → ATP",
+          "correct": true,
+          "feedback": "ATP regeneration is endergonic and must be coupled to an energy-releasing process."
+        },
+        {
+          "id": "c12-assess-3-o2",
+          "text": "ATP + water → ADP + Pi",
+          "correct": false,
+          "feedback": "Hydrolysis is generally exergonic in cells."
+        },
+        {
+          "id": "c12-assess-3-o3",
+          "text": "Phosphate hydration following ATP hydrolysis",
+          "correct": false,
+          "feedback": "Hydration contributes to the favourable hydrolysis products."
+        },
+        {
+          "id": "c12-assess-3-o4",
+          "text": "A favourable ATP-coupled reaction overall",
+          "correct": false,
+          "feedback": "A favourable coupled process has a net negative free-energy change."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-3",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.3"
+      ],
+      "level": "shared",
+      "prompt": "Explain the mechanism behind atp hydrolysis and atp regeneration and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-3",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi). At an actively transporting membrane, ATP → ADP + Pi accompanies an otherwise uphill ion movement.",
+      "markingPoints": [
+        "ATP hydrolysis uses water to convert ATP to ADP and inorganic phosphate (Pi).",
+        "At an actively transporting membrane, ATP → ADP + Pi accompanies an otherwise uphill ion movement."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.4"
+      ],
+      "level": "shared",
+      "prompt": "Where does ATP production during cell respiration take place?",
+      "marks": 1,
+      "sectionId": "c12-4",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-4-o1",
+          "text": "Inside living cells during enzyme-controlled metabolic reactions",
+          "correct": true,
+          "feedback": "Respiration is an intracellular metabolic process."
+        },
+        {
+          "id": "c12-assess-4-o2",
+          "text": "On the external surface of the lungs only",
+          "correct": false,
+          "feedback": "Alveolar exchange supplies oxygen but does not produce ATP."
+        },
+        {
+          "id": "c12-assess-4-o3",
+          "text": "Whenever oxygen diffuses across alveoli",
+          "correct": false,
+          "feedback": "Diffusion does not automatically synthesize ATP."
+        },
+        {
+          "id": "c12-assess-4-o4",
+          "text": "Only in the stomach during digestion",
+          "correct": false,
+          "feedback": "Digestion supplies molecules but ATP-producing respiration occurs throughout cells."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-4",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.4"
+      ],
+      "level": "shared",
+      "prompt": "Explain the mechanism behind respiration transfers energy from carbon compounds and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-4",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP. Lungs exchange gases, while a contracting muscle cell uses substrates to regenerate ATP.",
+      "markingPoints": [
+        "Cell respiration is a network of enzyme-catalysed reactions that transfers energy from carbon-containing substrates to ATP.",
+        "Lungs exchange gases, while a contracting muscle cell uses substrates to regenerate ATP."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.5"
+      ],
+      "level": "shared",
+      "prompt": "Which comparison is correct for human cells?",
+      "marks": 1,
+      "sectionId": "c12-5",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-5-o1",
+          "text": "Aerobic glucose respiration uses mitochondria and yields more ATP than lactate fermentation",
+          "correct": true,
+          "feedback": "Oxygen-supported mitochondrial pathways generate substantially more ATP."
+        },
+        {
+          "id": "c12-assess-5-o2",
+          "text": "Anaerobic glucose respiration requires oxygen at its final step",
+          "correct": false,
+          "feedback": "The lactate route can run without oxygen."
+        },
+        {
+          "id": "c12-assess-5-o3",
+          "text": "Lactate fermentation produces ethanol and carbon dioxide",
+          "correct": false,
+          "feedback": "Ethanol production characterizes yeast fermentation, not humans."
+        },
+        {
+          "id": "c12-assess-5-o4",
+          "text": "Aerobic glucose respiration occurs entirely in cytosol",
+          "correct": false,
+          "feedback": "Only glycolysis is cytosolic; later aerobic stages are mitochondrial."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-5",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.5"
+      ],
+      "level": "shared",
+      "prompt": "Explain the mechanism behind aerobic and anaerobic respiration in humans and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-5",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor. An exercising muscle can obtain ATP from both oxygen-supported mitochondrial respiration and lactate-producing glycolysis.",
+      "markingPoints": [
+        "Human aerobic glucose respiration begins with glycolysis in the cytosol and proceeds through mitochondrial reactions requiring oxygen as the terminal electron acceptor.",
+        "An exercising muscle can obtain ATP from both oxygen-supported mitochondrial respiration and lactate-producing glycolysis."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.6"
+      ],
+      "level": "shared",
+      "prompt": "Why must a respirometer equilibrate to temperature?",
+      "marks": 1,
+      "sectionId": "c12-6",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-6-o1",
+          "text": "Heating or cooling changes gas volume independently of respiration",
+          "correct": true,
+          "feedback": "Temperature-driven gas expansion or contraction can mimic respiration."
+        },
+        {
+          "id": "c12-assess-6-o2",
+          "text": "It converts oxygen into ATP outside cells",
+          "correct": false,
+          "feedback": "A respirometer does not itself make ATP."
+        },
+        {
+          "id": "c12-assess-6-o3",
+          "text": "It removes the need for replication",
+          "correct": false,
+          "feedback": "Replication is still necessary for reliability."
+        },
+        {
+          "id": "c12-assess-6-o4",
+          "text": "It ensures anaerobic ATP can be measured by oxygen uptake",
+          "correct": false,
+          "feedback": "Oxygen uptake cannot directly quantify oxygen-independent glycolysis."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-6",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.6"
+      ],
+      "level": "shared",
+      "prompt": "Explain the mechanism behind investigating the rate of cell respiration and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-6",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time. If calibrated oxygen uptake is V cm³ over t minutes for m grams of germinating seeds, the mass-specific rate is V/(t × m) cm³ min⁻¹ g⁻¹.",
+      "markingPoints": [
+        "Respiration rate is commonly inferred from oxygen uptake, carbon dioxide release or changes in a relevant substrate/product concentration per unit time.",
+        "If calibrated oxygen uptake is V cm³ over t minutes for m grams of germinating seeds, the mass-specific rate is V/(t × m) cm³ min⁻¹ g⁻¹."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.7"
+      ],
+      "level": "HL",
+      "prompt": "When NAD⁺ becomes NADH, it has:",
+      "marks": 1,
+      "sectionId": "c12-7",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-7-o1",
+          "text": "Gained electrons and been reduced",
+          "correct": true,
+          "feedback": "NAD⁺ accepts reducing equivalents and is reduced."
+        },
+        {
+          "id": "c12-assess-7-o2",
+          "text": "Lost electrons and been oxidized",
+          "correct": false,
+          "feedback": "Electron loss defines oxidation, not reduction."
+        },
+        {
+          "id": "c12-assess-7-o3",
+          "text": "Been converted to ATP",
+          "correct": false,
+          "feedback": "NAD is an electron carrier, not ATP."
+        },
+        {
+          "id": "c12-assess-7-o4",
+          "text": "Acted as the final oxygen acceptor",
+          "correct": false,
+          "feedback": "Oxygen is the aerobic terminal electron acceptor."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-7",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.7"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind oxidation, reduction and reduced nad and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-7",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions. In a dehydrogenase reaction, an organic substrate loses electrons as NAD⁺ is reduced to NADH.",
+      "markingPoints": [
+        "Oxidation means loss of electrons and reduction means gain of electrons; they occur together in redox reactions.",
+        "In a dehydrogenase reaction, an organic substrate loses electrons as NAD⁺ is reduced to NADH."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.8"
+      ],
+      "level": "HL",
+      "prompt": "What is the net ATP yield from one glucose in glycolysis?",
+      "marks": 1,
+      "sectionId": "c12-8",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-8-o1",
+          "text": "Two ATP",
+          "correct": true,
+          "feedback": "Four are formed and two invested, so net yield is two."
+        },
+        {
+          "id": "c12-assess-8-o2",
+          "text": "Four ATP after subtracting no investment",
+          "correct": false,
+          "feedback": "Four is the gross production, not the net yield."
+        },
+        {
+          "id": "c12-assess-8-o3",
+          "text": "Zero ATP because all ATP is consumed",
+          "correct": false,
+          "feedback": "Two ATP remain after investment."
+        },
+        {
+          "id": "c12-assess-8-o4",
+          "text": "Thirty ATP directly in cytosol",
+          "correct": false,
+          "feedback": "Most aerobic ATP, not a fixed 30, comes from mitochondrial oxidative phosphorylation."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-8",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.8"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind glycolysis: glucose to two pyruvates and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-8",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions. The two pyruvates from one glucose each retain three carbons, so carbon accounting is 6C → 3C + 3C.",
+      "markingPoints": [
+        "Glycolysis takes place in the cytosol and consists of successive enzyme-catalysed reactions.",
+        "The two pyruvates from one glucose each retain three carbons, so carbon accounting is 6C → 3C + 3C."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.9"
+      ],
+      "level": "HL",
+      "prompt": "Why is pyruvate reduced to lactate?",
+      "marks": 1,
+      "sectionId": "c12-9",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-9-o1",
+          "text": "To reoxidize NADH so glycolysis can continue",
+          "correct": true,
+          "feedback": "NAD⁺ recycling sustains the glycolytic dehydrogenase reaction."
+        },
+        {
+          "id": "c12-assess-9-o2",
+          "text": "To generate oxygen for mitochondria",
+          "correct": false,
+          "feedback": "Lactate fermentation does not produce oxygen."
+        },
+        {
+          "id": "c12-assess-9-o3",
+          "text": "To release carbon dioxide by decarboxylation",
+          "correct": false,
+          "feedback": "Pyruvate to lactate retains all three carbons."
+        },
+        {
+          "id": "c12-assess-9-o4",
+          "text": "To produce most ATP through ATP synthase",
+          "correct": false,
+          "feedback": "No mitochondrial ATP synthase is needed for this cytosolic route."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-9",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.9"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind lactate fermentation regenerates nad and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-9",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH. During intense muscular demand, pyruvate can accept electrons from NADH so glycolysis can continue.",
+      "markingPoints": [
+        "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH.",
+        "During intense muscular demand, pyruvate can accept electrons from NADH so glycolysis can continue."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.10"
+      ],
+      "level": "HL",
+      "prompt": "Which yeast fermentation step releases CO₂?",
+      "marks": 1,
+      "sectionId": "c12-10",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-10-o1",
+          "text": "Conversion of pyruvate to ethanal",
+          "correct": true,
+          "feedback": "Removing one carbon from 3C pyruvate gives 2C ethanal and CO₂."
+        },
+        {
+          "id": "c12-assess-10-o2",
+          "text": "Reduction of ethanal to ethanol",
+          "correct": false,
+          "feedback": "Ethanal reduction consumes NADH but does not remove carbon."
+        },
+        {
+          "id": "c12-assess-10-o3",
+          "text": "Reoxidation of NADH during glycolysis alone",
+          "correct": false,
+          "feedback": "Glycolysis does not release CO₂."
+        },
+        {
+          "id": "c12-assess-10-o4",
+          "text": "Hydrolysis of ATP to ADP",
+          "correct": false,
+          "feedback": "ATP hydrolysis is not the CO₂-releasing step."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-10",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.10"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind yeast fermentation and its uses and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-10",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD. In breadmaking, yeast makes the gas bubbles that expand dough through carbon dioxide release.",
+      "markingPoints": [
+        "Yeast glycolysis initially resembles human glycolysis: glucose becomes two pyruvates with net ATP and reduced NAD.",
+        "In breadmaking, yeast makes the gas bubbles that expand dough through carbon dioxide release."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.11"
+      ],
+      "level": "HL",
+      "prompt": "What is produced directly from each pyruvate in the link reaction?",
+      "marks": 1,
+      "sectionId": "c12-11",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-11-o1",
+          "text": "Acetyl-CoA, carbon dioxide and reduced NAD",
+          "correct": true,
+          "feedback": "Pyruvate is decarboxylated and oxidized to form acetyl-CoA and NADH."
+        },
+        {
+          "id": "c12-assess-11-o2",
+          "text": "Citrate, oxygen and lactate",
+          "correct": false,
+          "feedback": "Citrate forms after acetyl-CoA enters the Krebs cycle."
+        },
+        {
+          "id": "c12-assess-11-o3",
+          "text": "Glucose, water and reduced NADP",
+          "correct": false,
+          "feedback": "The link reaction does not regenerate glucose or use NADP."
+        },
+        {
+          "id": "c12-assess-11-o4",
+          "text": "Two ATP from substrate-level phosphorylation",
+          "correct": false,
+          "feedback": "The link reaction does not directly make ATP."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-11",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.11"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind the link reaction produces acetyl-coa and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-11",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix. Tracing one labelled carbon atom through the link reaction distinguishes decarboxylation from electron transfer.",
+      "markingPoints": [
+        "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix.",
+        "Tracing one labelled carbon atom through the link reaction distinguishes decarboxylation from electron transfer."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-12",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.12"
+      ],
+      "level": "HL",
+      "prompt": "Which pair of carbon skeletons first forms citrate?",
+      "marks": 1,
+      "sectionId": "c12-12",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-12-o1",
+          "text": "A two-carbon acetyl group and four-carbon oxaloacetate",
+          "correct": true,
+          "feedback": "2C + 4C gives citrate with six carbons."
+        },
+        {
+          "id": "c12-assess-12-o2",
+          "text": "Two three-carbon pyruvate molecules",
+          "correct": false,
+          "feedback": "Pyruvate must undergo the link reaction first."
+        },
+        {
+          "id": "c12-assess-12-o3",
+          "text": "One six-carbon glucose and carbon dioxide",
+          "correct": false,
+          "feedback": "Glucose does not enter the Krebs cycle intact."
+        },
+        {
+          "id": "c12-assess-12-o4",
+          "text": "Two four-carbon molecules",
+          "correct": false,
+          "feedback": "4C + 4C cannot directly yield 6C without losing carbon."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-12",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.12"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind the krebs cycle oxidizes acetyl groups and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-12",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C). Tracking 2C acetyl + 4C oxaloacetate → 6C citrate makes the cycle's carbon balance easier to explain.",
+      "markingPoints": [
+        "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C).",
+        "Tracking 2C acetyl + 4C oxaloacetate → 6C citrate makes the cycle's carbon balance easier to explain."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-13",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.13"
+      ],
+      "level": "HL",
+      "prompt": "When NADH gives electrons to the mitochondrial chain, it:",
+      "marks": 1,
+      "sectionId": "c12-13",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-13-o1",
+          "text": "Becomes oxidized NAD⁺",
+          "correct": true,
+          "feedback": "Electron donation oxidizes NADH to NAD⁺."
+        },
+        {
+          "id": "c12-assess-13-o2",
+          "text": "Becomes reduced NADP",
+          "correct": false,
+          "feedback": "NADP is a different carrier used prominently in photosynthesis."
+        },
+        {
+          "id": "c12-assess-13-o3",
+          "text": "Turns directly into carbon dioxide",
+          "correct": false,
+          "feedback": "NADH donation does not release CO₂."
+        },
+        {
+          "id": "c12-assess-13-o4",
+          "text": "Supplies the oxygen atom of water",
+          "correct": false,
+          "feedback": "Water's oxygen originates from molecular oxygen at the terminal step."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-13",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.13"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind reduced nad passes electrons to the chain and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-13",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺.",
+      "markingPoints": [
+        "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle.",
+        "NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-14",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.14"
+      ],
+      "level": "HL",
+      "prompt": "Which way does proton pumping by the electron transport chain operate?",
+      "marks": 1,
+      "sectionId": "c12-14",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-14-o1",
+          "text": "From matrix to intermembrane space",
+          "correct": true,
+          "feedback": "The chain establishes high H⁺ outside the matrix."
+        },
+        {
+          "id": "c12-assess-14-o2",
+          "text": "From intermembrane space to matrix through pump complexes",
+          "correct": false,
+          "feedback": "Return through ATP synthase is the opposite direction."
+        },
+        {
+          "id": "c12-assess-14-o3",
+          "text": "Out of mitochondria directly into cytosol only",
+          "correct": false,
+          "feedback": "The essential boundary is the inner mitochondrial membrane."
+        },
+        {
+          "id": "c12-assess-14-o4",
+          "text": "Along the membrane in exactly the same direction as electron movement",
+          "correct": false,
+          "feedback": "Electron transfer along carriers and proton transfer across membrane are distinct."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-14",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.14"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind electron transfer establishes a proton gradient and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-14",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "The mitochondrial electron transport chain is in the inner membrane. Blocking proton pumping weakens the gradient even if ADP and phosphate remain present.",
+      "markingPoints": [
+        "The mitochondrial electron transport chain is in the inner membrane.",
+        "Blocking proton pumping weakens the gradient even if ADP and phosphate remain present."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-15",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.15"
+      ],
+      "level": "HL",
+      "prompt": "Which flow powers ATP synthase during mitochondrial respiration?",
+      "marks": 1,
+      "sectionId": "c12-15",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-15-o1",
+          "text": "H⁺ from intermembrane space to matrix",
+          "correct": true,
+          "feedback": "Downhill proton return supplies the energy to make ATP."
+        },
+        {
+          "id": "c12-assess-15-o2",
+          "text": "H⁺ from matrix to intermembrane space through synthase during ATP production",
+          "correct": false,
+          "feedback": "That reverses the normal respiratory direction of proton return."
+        },
+        {
+          "id": "c12-assess-15-o3",
+          "text": "Glucose through the inner mitochondrial membrane",
+          "correct": false,
+          "feedback": "Glucose entry does not directly rotate ATP synthase."
+        },
+        {
+          "id": "c12-assess-15-o4",
+          "text": "Oxygen out of the mitochondrion",
+          "correct": false,
+          "feedback": "Oxygen is reduced at the end of the chain; it does not drive synthase by outward diffusion."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-15",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.15"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind chemiosmosis drives mitochondrial atp synthesis and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-15",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "ATP synthase spans the inner mitochondrial membrane. In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase.",
+      "markingPoints": [
+        "ATP synthase spans the inner mitochondrial membrane.",
+        "In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-16",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.16"
+      ],
+      "level": "HL",
+      "prompt": "What becomes of O₂ at the end of aerobic electron transport?",
+      "marks": 1,
+      "sectionId": "c12-16",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-16-o1",
+          "text": "It accepts electrons and protons and forms water",
+          "correct": true,
+          "feedback": "Reduction of O₂ closes the electron-transfer pathway and forms water."
+        },
+        {
+          "id": "c12-assess-16-o2",
+          "text": "It donates NADH to the Krebs cycle",
+          "correct": false,
+          "feedback": "NADH is a reducing carrier; oxygen accepts its electron equivalents."
+        },
+        {
+          "id": "c12-assess-16-o3",
+          "text": "It is converted directly to glucose",
+          "correct": false,
+          "feedback": "Glucose is not synthesized in aerobic respiration."
+        },
+        {
+          "id": "c12-assess-16-o4",
+          "text": "It phosphorylates ADP as an enzyme",
+          "correct": false,
+          "feedback": "ATP synthase, not oxygen, catalyses ADP phosphorylation."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-16",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.16"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind oxygen is the final electron acceptor and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-16",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂.",
+      "markingPoints": [
+        "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons.",
+        "Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-mcq-17",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.2.17"
+      ],
+      "level": "HL",
+      "prompt": "Which statement accurately compares fuels?",
+      "marks": 1,
+      "sectionId": "c12-17",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "options": [
+        {
+          "id": "c12-assess-17-o1",
+          "text": "Fatty acids yield acetyl-CoA and more energy per gram, but do not support lactate fermentation",
+          "correct": true,
+          "feedback": "More reduced fatty acids provide dense energy stores but cannot fuel glycolytic lactate formation."
+        },
+        {
+          "id": "c12-assess-17-o2",
+          "text": "Fatty acids feed straight into cytosolic glycolysis",
+          "correct": false,
+          "feedback": "Glycolysis processes sugars, not fatty acyl chains."
+        },
+        {
+          "id": "c12-assess-17-o3",
+          "text": "Glucose contains less oxygen relative to carbon than most fatty acids",
+          "correct": false,
+          "feedback": "Carbohydrates are relatively oxygen-rich."
+        },
+        {
+          "id": "c12-assess-17-o4",
+          "text": "Fatty acids generate ethanol anaerobically in human cells",
+          "correct": false,
+          "feedback": "Human lactate fermentation uses carbohydrate-derived pyruvate, not fatty acids."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "c12-written-17",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.2.17"
+      ],
+      "level": "HL",
+      "prompt": "Explain the mechanism behind lipids versus carbohydrates as substrates and use one biological example to show its significance. [2]",
+      "marks": 2,
+      "sectionId": "c12-17",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "answer": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically.",
+      "markingPoints": [
+        "Triglycerides yield more energy per gram than carbohydrates when completely oxidized.",
+        "During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically."
+      ],
+      "review": "scientific-review"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-c12",
+      "title": "International Baccalaureate, Biology guide (first assessment 2025)",
+      "locator": "Syllabus C1.2, printed pp. 67–69; PDF pp. 73–75",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-c12",
+      "title": "Clegg, Davis and Talbot, Biology for the IB Diploma, 3rd ed. (Hodder Education, 2023)",
+      "locator": "C1.2 Cell respiration, printed pp. 405–424; supplied PDF pp. 417–436",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "openstax-c12",
+      "title": "OpenStax, Biology 2e, Chapter 7",
+      "url": "https://openstax.org/books/biology-2e/pages/7-4-oxidative-phosphorylation",
+      "locator": "7.1–7.4, especially 7.4 Chemiosmosis and Electron Transport Chain",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "ncbi-c12",
+      "title": "Alberts et al., Molecular Biology of the Cell, NCBI Bookshelf",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK26882/",
+      "locator": "How Cells Obtain Energy from Food, glycolysis, fatty-acid oxidation and acetyl-CoA",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    }
+  ],
+  "assets": [
+    {
+      "id": "atp-cycle",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/atp-cycle.svg",
+      "alt": "ATP regenerated from ADP and phosphate using respiratory energy; ATP hydrolysis can support cell work.",
+      "captionTitle": "Atp Cycle",
+      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
+      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "aerobic-anaerobic",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/aerobic-anaerobic.svg",
+      "alt": "Glycolysis in cytosol branches toward cytosolic lactate production when oxygen is inadequate or toward mitochondrial aerobic metabolism when available.",
+      "captionTitle": "Aerobic Anaerobic",
+      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
+      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "glycolysis",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/glycolysis.svg",
+      "alt": "Glucose six-carbon skeleton phosphorylated and divided into two three-carbon pyruvates, net two ATP, two reduced NAD.",
+      "captionTitle": "Glycolysis",
+      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
+      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "fermentation",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/fermentation.svg",
+      "alt": "Pyruvate reduced to lactate in humans or decarboxylated then reduced to ethanol in yeast; NAD regenerated in both.",
+      "captionTitle": "Fermentation",
+      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
+      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "krebs-cycle",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/krebs-cycle.svg",
+      "alt": "Acetyl group two carbons joins oxaloacetate four carbons forming citrate six carbons; decarboxylations release carbon dioxide and oxaloacetate reforms.",
+      "captionTitle": "Krebs Cycle",
+      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
+      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "mitochondrial-chemiosmosis",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/mitochondrial-chemiosmosis.svg",
+      "alt": "Inner mitochondrial membrane separates proton-rich intermembrane space from matrix; protons pumped outward by electron transport chain and return inward through ATP synthase.",
+      "captionTitle": "Mitochondrial Chemiosmosis",
+      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
+      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "fuel-entry",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/fuel-entry.svg",
+      "alt": "Carbohydrate enters glycolysis, fatty acids enter beta oxidation and form acetyl-CoA; fatty acids cannot undergo glycolytic fermentation.",
+      "captionTitle": "Fuel Entry",
+      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
+      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    }
+  ],
+  "summary": "ATP is regenerated by coupling exergonic respiratory reactions to phosphorylation. Glycolysis begins in cytosol; HL pathways explain redox, electron transfer, chemiosmosis and the distinct roles of oxygen and fuel type.",
+  "review": {
+    "status": "scientific-review",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "Full chapter consulted: Hodder Third Edition C1.2 pp. 405–424; exact scope from IB Guide pp. 67–69.",
+      "Clarification: Hodder p. 408 suggests fats must be converted to carbohydrates before glycolysis. Fatty acids instead undergo β-oxidation to acetyl-CoA directly; corroborated by NCBI Bookshelf.",
+      "All diagrams and assessment items are original drafts; no qualified reviewer approval or image-rights signoff is claimed.",
+      "C1.2.6 uses a symbolic worked calculation, not fabricated measurements.",
+      "Avoid asserting a universal fixed mitochondrial ATP yield; yields depend on conditions and shuttle pathways."
+    ]
+  }
+}

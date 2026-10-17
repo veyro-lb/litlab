@@ -11,10 +11,10 @@
     "hlOnly": 216
   },
   "registeredDrafts": {
-    "topics": 20,
-    "understandings": 235,
-    "shared": 141,
-    "hlOnly": 94,
+    "topics": 24,
+    "understandings": 301,
+    "shared": 162,
+    "hlOnly": 139,
     "ids": [
       "A1.1",
       "A1.2",
@@ -35,7 +35,11 @@
       "B3.3",
       "B4.1",
       "B4.2",
-      "C1.1"
+      "C1.1",
+      "C1.2",
+      "C1.3",
+      "C2.1",
+      "C2.2"
     ],
     "educationallyApproved": 0
   },
@@ -58,7 +62,7 @@
     {
       "name": "feature/biolab-complete-theme-c1-20261017",
       "sha": "bacc4c1e454645f9b476588b6fb250c5eba35e2e",
-      "integrationStatus": "Source HEAD verified; package intake pending"
+      "integrationStatus": "4 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
     },
     {
       "name": "feature/biolab-complete-theme-c2-20261017",
@@ -77,34 +81,6 @@
     }
   ],
   "plannedTopics": [
-    {
-      "id": "C1.2",
-      "title": "Cell respiration",
-      "understandings": 17,
-      "shared": 6,
-      "hlOnly": 11
-    },
-    {
-      "id": "C1.3",
-      "title": "Photosynthesis",
-      "understandings": 19,
-      "shared": 8,
-      "hlOnly": 11
-    },
-    {
-      "id": "C2.1",
-      "title": "Chemical signalling",
-      "understandings": 14,
-      "shared": 0,
-      "hlOnly": 14
-    },
-    {
-      "id": "C2.2",
-      "title": "Neural signalling",
-      "understandings": 16,
-      "shared": 7,
-      "hlOnly": 9
-    },
     {
       "id": "C3.1",
       "title": "Integration of body systems",
@@ -445,8 +421,8 @@
       "understandings": 17,
       "shared": 6,
       "hlOnly": 11,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -456,8 +432,8 @@
       "understandings": 19,
       "shared": 8,
       "hlOnly": 11,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -467,8 +443,8 @@
       "understandings": 14,
       "shared": 0,
       "hlOnly": 14,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -478,8 +454,8 @@
       "understandings": 16,
       "shared": 7,
       "hlOnly": 9,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -775,6 +751,37 @@
           "id": "B4.2",
           "sections": 13,
           "questions": 14
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme C1",
+      "sourceSha": "bacc4c1e454645f9b476588b6fb250c5eba35e2e",
+      "registeredTopics": 24,
+      "registeredUnderstandings": 301,
+      "accepted": [
+        {
+          "id": "C1.2",
+          "sections": 17,
+          "questions": 34
+        },
+        {
+          "id": "C1.3",
+          "sections": 19,
+          "questions": 38
+        },
+        {
+          "id": "C2.1",
+          "sections": 14,
+          "questions": 28
+        },
+        {
+          "id": "C2.2",
+          "sections": 16,
+          "questions": 32
         }
       ],
       "rejected": [],

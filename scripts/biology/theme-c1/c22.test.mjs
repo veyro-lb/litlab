@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {validateLesson} from '../../validate-lesson.mjs';
+const root=new URL('../../../',import.meta.url);const read=p=>JSON.parse(readFileSync(new URL(p,root),'utf8'));
+const lesson=read('src/biology/learning/neural-signalling/lesson.json');const topic=read('src/biology/curriculum/registry.json').find(t=>t.id==='C2.2');
+test('C2.2 schema and every understanding',()=>{assert.deepEqual(validateLesson(lesson,topic),[]);assert.equal(lesson.sections.length,16);assert.equal(lesson.questions.length,32)});
+test('SL and HL sections stay separate',()=>{assert.deepEqual(lesson.sections.filter(s=>s.level==='shared').map(s=>s.understandingIds[0]),Array.from({length:7},(_,i)=>'C2.2.'+(i+1)));assert.equal(lesson.questions.filter(q=>q.level==='shared').length,14)});
+test('original figures exist with provenance',()=>{for(const a of lesson.assets){assert.ok(existsSync(new URL('public'+a.src,root)));assert.ok(a.permissionEvidence&&a.alt)}const svg=readFileSync(new URL('public/biology/neural-signalling/action-potential-trace.svg',root),'utf8');assert.match(svg,/mV/);assert.match(svg,/ms/);assert.match(svg,/Na⁺ influx/);assert.match(svg,/K⁺ efflux/)});
+test('MCQ answers and feedback',()=>{for(const q of lesson.questions.filter(q=>q.paper==='1A')){assert.equal(q.options.length,4);assert.equal(q.options.filter(o=>o.correct).length,1);assert.ok(q.options.every(o=>o.feedback.length>20))}});
