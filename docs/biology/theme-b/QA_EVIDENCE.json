@@ -1,0 +1,162 @@
+{
+  "kind": "Theme B isolated independent verification",
+  "date": "2026-10-17",
+  "sourceFoundation": "0dbe2a0719f24c1ac86297248114c412429ecdc0",
+  "lastTopicCheckpoint": "7fc4a989ff71f5097c653a365441f0af4feb5ad1",
+  "topicReport": [
+    {
+      "id": "B3.1",
+      "lessonPath": "src/biology/learning/gas-exchange/lesson.json",
+      "checkpointSha": "c4982420c230644be14f23b03cb10d9e7744e7d2",
+      "understandings": 13,
+      "shared": 10,
+      "HL": 3,
+      "MCQ": 13,
+      "written": 3,
+      "originalFigures": 3,
+      "teachingWords": 1509,
+      "exactContractErrors": []
+    },
+    {
+      "id": "B3.2",
+      "lessonPath": "src/biology/learning/transport/lesson.json",
+      "checkpointSha": "d5450b351f0328ace51677571015a6580812eb96",
+      "understandings": 18,
+      "shared": 10,
+      "HL": 8,
+      "MCQ": 18,
+      "written": 3,
+      "originalFigures": 3,
+      "teachingWords": 1973,
+      "exactContractErrors": []
+    },
+    {
+      "id": "B3.3",
+      "lessonPath": "src/biology/learning/muscle-motility/lesson.json",
+      "checkpointSha": "3b9ad7daf5fd9349a84c641dd7d5d1f6a6e7c759",
+      "understandings": 10,
+      "shared": 0,
+      "HL": 10,
+      "MCQ": 10,
+      "written": 2,
+      "originalFigures": 2,
+      "teachingWords": 1070,
+      "exactContractErrors": []
+    },
+    {
+      "id": "B4.1",
+      "lessonPath": "src/biology/learning/adaptation-environment/lesson.json",
+      "checkpointSha": "82335c5ce384e17c4bf78206b42d6232e0eb2fef",
+      "understandings": 8,
+      "shared": 8,
+      "HL": 0,
+      "MCQ": 8,
+      "written": 1,
+      "originalFigures": 2,
+      "teachingWords": 979,
+      "exactContractErrors": []
+    },
+    {
+      "id": "B4.2",
+      "lessonPath": "src/biology/learning/ecological-niches/lesson.json",
+      "checkpointSha": "7fc4a989ff71f5097c653a365441f0af4feb5ad1",
+      "understandings": 13,
+      "shared": 13,
+      "HL": 0,
+      "MCQ": 13,
+      "written": 1,
+      "originalFigures": 2,
+      "teachingWords": 1452,
+      "exactContractErrors": []
+    }
+  ],
+  "total": {
+    "topicCount": 5,
+    "understandings": 62,
+    "shared": 41,
+    "additionalHL": 21,
+    "originalMCQ": 62,
+    "structuredQuestions": 10,
+    "originalSVGs": 12,
+    "qualifiedApproved": 0
+  },
+  "tests": {
+    "type": "Actual committed topic validator JavaScript executed in an isolated JavaScript environment against live GitHub file bytes; Node filesystem calls mocked with exact GitHub path inventory, generic validation loaded from source SHA",
+    "perTopic": {
+      "B31": {
+        "positive": true,
+        "negativeCases": [
+          "duplicate ID",
+          "two true MCQ options",
+          "wrong SL/HL level"
+        ]
+      },
+      "B32": {
+        "positive": true,
+        "negativeCases": [
+          "duplicate ID",
+          "two true MCQ options",
+          "wrong SL/HL level"
+        ]
+      },
+      "B33": {
+        "positive": true,
+        "negativeCases": [
+          "duplicate ID",
+          "two true MCQ options",
+          "wrong SL/HL level"
+        ]
+      },
+      "B41": {
+        "positive": true,
+        "negativeCases": [
+          "duplicate ID",
+          "two true MCQ options",
+          "wrong SL/HL level"
+        ]
+      },
+      "B42": {
+        "positive": true,
+        "negativeCases": [
+          "duplicate ID",
+          "two true MCQ options",
+          "wrong SL/HL level"
+        ]
+      }
+    },
+    "genericSharedValidateLesson": {
+      "exactSourceExecuted": true,
+      "positiveErrors": 0,
+      "negativeMutationsRejected": 15
+    },
+    "remoteSvgStaticSyntax": {
+      "count": 12,
+      "balancedTags": true,
+      "accessibleTitleDescription": true,
+      "validViewBox": true,
+      "unescapedAmpersands": 0
+    },
+    "liveBrowserScreenshots": {
+      "attempted": true,
+      "status": "blocked by external browser service insufficient credits; no rendered screenshots obtained"
+    },
+    "npmCi": "not run",
+    "nodeNativeTopicScripts": "not run inside Node; execution via isolated JS with mocked filesystem",
+    "typescriptBuild": "not run",
+    "fullApplicationCI": "not run",
+    "qualifiedScienceReview": "pending"
+  },
+  "contentQuality": {
+    "meanWordsPerUnderstanding": 113,
+    "fullTextbookEditorialApproval": false,
+    "sourceFingerprintVerified": true,
+    "sourceChapterRead": "Chapter content consulted and regions located; claim-specific independent review is still outstanding"
+  },
+  "integrationSafety": {
+    "sharedRendererChanged": false,
+    "registryChanged": false,
+    "catalogChanged": false,
+    "mainMerged": false,
+    "deployed": false
+  }
+}
