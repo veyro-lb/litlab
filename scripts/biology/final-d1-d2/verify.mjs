@@ -18,7 +18,7 @@ const spec=[
   {slug:'water-potential',topic:'D2.3',total:11,shared:7}
 ];
 const get=(path)=>JSON.parse(readFileSync(resolve(root,path),'utf8'));
-export function validate(data, assetAvailable=(path)=>existsSync(resolve(root,'public',path.replace(/^\\//,'')))) {
+export function validate(data, assetAvailable=(path)=>existsSync(resolve(root,'public',(path.startsWith('/')?path.slice(1):path)))) {
   let sectionCount=0,questionCount=0,visualCount=0;
   const details=[];
   for(const s of spec){
