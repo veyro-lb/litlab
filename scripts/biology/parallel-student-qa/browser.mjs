@@ -20,7 +20,7 @@ const lessons=new Map(registry.map(t=>[t.id,read('src/biology/learning/'+catalog
 const base=process.env.LITLAB_PREVIEW_URL||'http://127.0.0.1:4173/';
 const rootUrl=new URL(base),output=resolve('docs/biology/parallel-student-qa/evidence');
 mkdirSync(output,{recursive:true});
-const report={schemaVersion:1,sourceSha:process.env.GITHUB_SHA||null,base,environment:{viewportWidths:[320,390,768,1024,1440,1920],browser:'Chromium',zoom:'CSS zoom approximation, NOT native browser zoom',screenReader:'not tested'},cases:[],screenshots:[],runtime:[],console:[],limitations:[]};
+const report={schemaVersion:1,sourceSha:process.env.GITHUB_SHA||null,base,environment:{viewportWidths:[320,390,768,1024,1440,1920],browser:'Chromium',zoom:'CSS zoom approximation, NOT native browser zoom',screenReader:'not tested'},cases:[],screenshots:[],runtime:[],console:[],failedRequests:[],limitations:[]};
 const browser=await chromium.launch({executablePath:process.env.CHROME_BIN||undefined,headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 const file=(name)=>output+'/'+name;
 async function createContext(width=1440,level='HL',touch=false){
@@ -35,6 +35,7 @@ async function createContext(width=1440,level='HL',touch=false){
 }
 const tracked=page=>{
   page.on('pageerror',e=>report.runtime.push({url:page.url(),error:String(e)}));
+  page.on('requestfailed',r=>report.failedRequests.push({page:page.url(),request:r.url(),failure:r.failure()?.errorText||null}));
   page.on('console',m=>{if(['warning','error'].includes(m.type()))report.console.push({url:page.url(),level:m.type(),message:m.text().slice(0,700)});});
   return page;
 };
@@ -133,6 +134,57 @@ try{
       await expect(button).toBeFocused();
     });
   }
+
+  for(const id of ['A1.1','B2.1','C3.1','D3.2']){
+    const lesson=lessons.get(id),written=lesson.questions.find(q=>q.markingPoints?.length);
+    await check('Written self-review, tab retention and refresh reset '+id,'1440px, practice (real Chromium)',async()=>{
+      if(!written)throw new Error('No written response item in '+id);
+      await visit(page,'biology/topic/'+id+'/practice');
+      const selector='.bio-written[data-question-id="'+written.id+'"]';
+      const card=page.locator(selector),draft='Independent QA draft for '+id+' — ungraded self-review';
+      await card.locator('textarea').fill(draft);
+      await card.getByRole('button',{name:'Compare with marking guidance'}).click();
+      await expect(card.locator('.bio-feedback')).toContainText('Self-review guidance only');
+      await visit(page,'biology/topic/'+id+'/learn');
+      await visit(page,'biology/topic/'+id+'/practice');
+      await expect(page.locator(selector+' textarea')).toHaveValue(draft);
+      await page.reload();
+      await expect(page.locator(selector+' textarea')).toHaveValue('');
+    });
+  }
+  await check('Reproduce PQA-001 A2.1.2 keyed-content contradiction in actual browser','1440px, HL practice',async()=>{
+    const item=lessons.get('A2.1').questions.find(q=>q.id==='a21-p1a-2');
+    if(!item)throw new Error('Missing target question a21-p1a-2');
+    const keyed=item.options?.find(o=>o.correct===true);
+    if(!keyed)throw new Error('Missing keyed response');
+    await visit(page,'biology/topic/A2.1/practice');
+    const card=page.locator('[data-question-id="a21-p1a-2"]');
+    await expect(card.locator('legend')).toContainText('cells are independently living units');
+    await expect(card.locator('label').filter({has:card.locator('input[value="'+keyed.id+'"]')})).toContainText('host');
+    await card.locator('input[value="'+keyed.id+'"]').check();
+    await card.getByRole('button',{name:'Check my answer'}).click();
+    await expect(card.locator('.bio-feedback[data-outcome="correct"]')).toBeVisible();
+    report.reproductions??=[];
+    report.reproductions.push({finding:'PQA-001',topic:'A2.1',questionId:item.id,stem:item.prompt,keyedAnswer:keyed.text,keyedFeedback:keyed.feedback,browserMarkedCorrect:true,specialistScienceReviewRequired:true});
+    await shot(page,'pqa-001-a2-1-2-keyed-contradiction-1440.png');
+  });
+  await check('Reproduce PQA-002 two distinct wrong selections with identical feedback','1440px, HL practice',async()=>{
+    const item=lessons.get('A2.1').questions.find(q=>q.id==='a21-p1a-1');
+    if(!item)throw new Error('Missing target question a21-p1a-1');
+    const wrong=item.options.filter(o=>o.correct===false);
+    if(wrong.length<2)throw new Error('Not enough distractors to compare');
+    await visit(page,'biology/topic/A2.1/practice');
+    const card=page.locator('[data-question-id="a21-p1a-1"]');
+    for(const [index,option] of wrong.slice(0,2).entries()){
+      if(index)await card.getByRole('button',{name:'Try again'}).click();
+      await card.locator('input[value="'+option.id+'"]').check();
+      await card.getByRole('button',{name:'Check my answer'}).click();
+      await expect(card.locator('.bio-feedback[data-outcome="retry"]')).toContainText(option.feedback);
+    }
+    if(wrong[0].feedback!==wrong[1].feedback)throw new Error('PQA-002 source reproduction no longer present; update finding');
+    report.reproductions??=[];
+    report.reproductions.push({finding:'PQA-002',topic:'A2.1',questionId:item.id,distractorOptionIds:wrong.slice(0,2).map(o=>o.id),identicalFeedback:wrong[0].feedback,bothSelectedInBrowser:true});
+  });
   await check('Browser back/forward and invalid route','1440px',async()=>{
     await page.goto(new URL('#biology',base).toString());
     await page.goto(new URL('#biology/topic/A1.1/learn',base).toString());
