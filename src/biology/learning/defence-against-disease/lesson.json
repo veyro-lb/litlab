@@ -1472,7 +1472,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which exposures can transmit HIV, and which do not?",
-      "explanation": "HIV can be transmitted when relevant infected fluids reach another person's bloodstream or susceptible mucosal tissues. Important routes include sexual exposure, sharing contaminated injection equipment, transfusion of unscreened infected blood, and transfer during pregnancy, delivery or breastfeeding. Prevention targets these pathways.\n\nCasual contact such as handshakes, hugging, sharing cutlery or a toilet does not spread HIV. The distinction matters because confusing transmission routes produces stigma without reducing infection. Effective antiretroviral therapy can suppress HIV in blood; when viral load is sustainably undetectable, sexual transmission does not occur (U=U), although management of other exposure routes requires clinical advice.",
+      "explanation": "HIV can be transmitted when relevant infected fluids reach another person's bloodstream or susceptible mucosal tissues. Important routes include sexual exposure, sharing contaminated injection equipment, transfusion of unscreened infected blood, and transfer during pregnancy, delivery or breastfeeding. Prevention targets these pathways.\n\nCasual contact such as handshakes, hugging, sharing cutlery or a toilet does not spread HIV. The distinction matters because confusing transmission routes produces stigma without reducing infection. Effective antiretroviral therapy can suppress HIV in blood; when viral load is sustainably undetectable, sexual transmission does not occur (U=U), although management of other exposure routes requires clinical advice.\n\nTransmission risk depends on the route and the infection status, not on casual proximity. The CDC's U=U evidence states that a person living with HIV who maintains an undetectable viral load on treatment does not transmit HIV sexually. U=U specifically describes sexual transmission under sustained viral suppression; it is not a claim that all body fluids or exposure scenarios are equivalent.",
       "revisionSummary": "HIV spreads through specific infected fluids, not everyday social touch.",
       "terms": [
         "HIV — human immunodeficiency virus",
@@ -1500,11 +1500,18 @@
             "ib-c32",
             "hodder-c32"
           ]
+        },
+        {
+          "claim": "Transmission risk depends on the route and the infection status, not on casual proximity. The CDC's U=U evidence states that a person living with HIV who maintains an undetectable viral load on treatment does not transmit HIV sexually. U=U specifically describes sexual transmission under sustained viral suppression; it is not a claim that all body fluids or exposure scenarios are equivalent.",
+          "referenceIds": [
+            "cdc-c32-hiv-uu"
+          ]
         }
       ],
       "referenceIds": [
         "ib-c32",
-        "hodder-c32"
+        "hodder-c32",
+        "cdc-c32-hiv-uu"
       ],
       "assets": [],
       "interactions": [
@@ -1568,10 +1575,11 @@
         },
         {
           "title": "Biological consequences",
-          "explanation": "Casual contact such as handshakes, hugging, sharing cutlery or a toilet does not spread HIV. The distinction matters because confusing transmission routes produces stigma without reducing infection. Effective antiretroviral therapy can suppress HIV in blood; when viral load is sustainably undetectable, sexual transmission does not occur (U=U), although management of other exposure routes requires clinical advice.",
+          "explanation": "Casual contact such as handshakes, hugging, sharing cutlery or a toilet does not spread HIV. The distinction matters because confusing transmission routes produces stigma without reducing infection. Effective antiretroviral therapy can suppress HIV in blood; when viral load is sustainably undetectable, sexual transmission does not occur (U=U), although management of other exposure routes requires clinical advice.\n\nTransmission risk depends on the route and the infection status, not on casual proximity. The CDC's U=U evidence states that a person living with HIV who maintains an undetectable viral load on treatment does not transmit HIV sexually. U=U specifically describes sexual transmission under sustained viral suppression; it is not a claim that all body fluids or exposure scenarios are equivalent.",
           "referenceIds": [
             "ib-c32",
-            "hodder-c32"
+            "hodder-c32",
+            "cdc-c32-hiv-uu"
           ]
         }
       ],
@@ -1760,7 +1768,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why do antibiotics not cure an infection caused by a virus?",
-      "explanation": "An antibiotic inhibits a bacterial process that can be targeted without comparably damaging human cells. Examples include synthesis of bacterial peptidoglycan cell walls or functions of bacterial ribosomes, which differ from their human counterparts. Selective toxicity has limits: adverse effects and disruption of useful microbiota can still occur.\n\nViruses lack independent ribosomes and the bacterial cell-wall machinery targeted by these drugs. They rely on host-cell systems to reproduce, so antibiotics do not stop viral replication. A person with a viral respiratory infection might need antibiotics only if a separate susceptible bacterial infection is diagnosed—not because antibiotics kill the virus.",
+      "explanation": "An antibiotic inhibits a bacterial process that can be targeted without comparably damaging human cells. Examples include synthesis of bacterial peptidoglycan cell walls or functions of bacterial ribosomes, which differ from their human counterparts. Selective toxicity has limits: adverse effects and disruption of useful microbiota can still occur.\n\nViruses lack independent ribosomes and the bacterial cell-wall machinery targeted by these drugs. They rely on host-cell systems to reproduce, so antibiotics do not stop viral replication. A person with a viral respiratory infection might need antibiotics only if a separate susceptible bacterial infection is diagnosed—not because antibiotics kill the virus.\n\nA drug that inhibits bacterial cell-wall synthesis or bacterial ribosomes acts on targets absent or substantially different in viruses. Viruses instead use host-cell machinery to replicate, so a prescribed antibacterial drug is not a treatment for a purely viral infection. This does not imply all antibiotics are suitable for all bacterial diseases: susceptibility and medical assessment matter.",
       "revisionSummary": "Antibiotics target bacterial structures or reactions, not viral reproduction.",
       "terms": [
         "antibiotic — chemical inhibiting susceptible bacteria",
@@ -1788,11 +1796,18 @@
             "ib-c32",
             "hodder-c32"
           ]
+        },
+        {
+          "claim": "A drug that inhibits bacterial cell-wall synthesis or bacterial ribosomes acts on targets absent or substantially different in viruses. Viruses instead use host-cell machinery to replicate, so a prescribed antibacterial drug is not a treatment for a purely viral infection. This does not imply all antibiotics are suitable for all bacterial diseases: susceptibility and medical assessment matter.",
+          "referenceIds": [
+            "cdc-c32-antibiotics"
+          ]
         }
       ],
       "referenceIds": [
         "ib-c32",
-        "hodder-c32"
+        "hodder-c32",
+        "cdc-c32-antibiotics"
       ],
       "assets": [],
       "interactions": [
@@ -1856,10 +1871,11 @@
         },
         {
           "title": "Biological consequences",
-          "explanation": "Viruses lack independent ribosomes and the bacterial cell-wall machinery targeted by these drugs. They rely on host-cell systems to reproduce, so antibiotics do not stop viral replication. A person with a viral respiratory infection might need antibiotics only if a separate susceptible bacterial infection is diagnosed—not because antibiotics kill the virus.",
+          "explanation": "Viruses lack independent ribosomes and the bacterial cell-wall machinery targeted by these drugs. They rely on host-cell systems to reproduce, so antibiotics do not stop viral replication. A person with a viral respiratory infection might need antibiotics only if a separate susceptible bacterial infection is diagnosed—not because antibiotics kill the virus.\n\nA drug that inhibits bacterial cell-wall synthesis or bacterial ribosomes acts on targets absent or substantially different in viruses. Viruses instead use host-cell machinery to replicate, so a prescribed antibacterial drug is not a treatment for a purely viral infection. This does not imply all antibiotics are suitable for all bacterial diseases: susceptibility and medical assessment matter.",
           "referenceIds": [
             "ib-c32",
-            "hodder-c32"
+            "hodder-c32",
+            "cdc-c32-antibiotics"
           ]
         }
       ],
@@ -1889,7 +1905,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can treatment favour resistant bacteria without creating a purposeful mutation?",
-      "explanation": "Mutations and acquired resistance genes can make some bacteria less susceptible to an antibiotic before treatment begins. Exposure kills or slows susceptible competitors, leaving resistant bacteria more likely to survive and reproduce. Repeated use of several drugs can select strains carrying multiple resistance mechanisms, sometimes helped by gene transfer between bacteria.\n\nCareful prescribing, correct use, infection prevention and surveillance reduce opportunities for selection and spread. A patient should follow professional guidance rather than using leftover antibiotics. Searching chemical libraries and testing novel compounds may reveal future treatments, but discovery cannot substitute for stewardship.",
+      "explanation": "Mutations and acquired resistance genes can make some bacteria less susceptible to an antibiotic before treatment begins. Exposure kills or slows susceptible competitors, leaving resistant bacteria more likely to survive and reproduce. Repeated use of several drugs can select strains carrying multiple resistance mechanisms, sometimes helped by gene transfer between bacteria.\n\nCareful prescribing, correct use, infection prevention and surveillance reduce opportunities for selection and spread. A patient should follow professional guidance rather than using leftover antibiotics. Searching chemical libraries and testing novel compounds may reveal future treatments, but discovery cannot substitute for stewardship.\n\nAntibiotic treatment does not make individual bacteria 'try' to mutate in the required direction. Resistant variants may arise through random mutation or acquisition of resistance genes. Selection changes the proportions of resistant and susceptible bacteria; horizontal gene transfer can also move resistance between lineages. The population-level outcome is different from a deliberate change by a single cell.",
       "revisionSummary": "Antibiotics select resistant bacteria; they do not teach bacteria how to resist.",
       "terms": [
         "antibiotic resistance — heritable capacity to survive an antibiotic",
@@ -1917,11 +1933,18 @@
             "ib-c32",
             "hodder-c32"
           ]
+        },
+        {
+          "claim": "Antibiotic treatment does not make individual bacteria 'try' to mutate in the required direction. Resistant variants may arise through random mutation or acquisition of resistance genes. Selection changes the proportions of resistant and susceptible bacteria; horizontal gene transfer can also move resistance between lineages. The population-level outcome is different from a deliberate change by a single cell.",
+          "referenceIds": [
+            "cdc-c32-antibiotics"
+          ]
         }
       ],
       "referenceIds": [
         "ib-c32",
-        "hodder-c32"
+        "hodder-c32",
+        "cdc-c32-antibiotics"
       ],
       "assets": [],
       "interactions": [
@@ -1985,10 +2008,11 @@
         },
         {
           "title": "Biological consequences",
-          "explanation": "Careful prescribing, correct use, infection prevention and surveillance reduce opportunities for selection and spread. A patient should follow professional guidance rather than using leftover antibiotics. Searching chemical libraries and testing novel compounds may reveal future treatments, but discovery cannot substitute for stewardship.",
+          "explanation": "Careful prescribing, correct use, infection prevention and surveillance reduce opportunities for selection and spread. A patient should follow professional guidance rather than using leftover antibiotics. Searching chemical libraries and testing novel compounds may reveal future treatments, but discovery cannot substitute for stewardship.\n\nAntibiotic treatment does not make individual bacteria 'try' to mutate in the required direction. Resistant variants may arise through random mutation or acquisition of resistance genes. Selection changes the proportions of resistant and susceptible bacteria; horizontal gene transfer can also move resistance between lineages. The population-level outcome is different from a deliberate change by a single cell.",
           "referenceIds": [
             "ib-c32",
-            "hodder-c32"
+            "hodder-c32",
+            "cdc-c32-antibiotics"
           ]
         }
       ],
@@ -2173,7 +2197,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can immunity develop without having to endure the disease?",
-      "explanation": "A vaccine exposes the immune system to a pathogen-associated antigen, or supplies DNA or RNA instructions allowing host cells to make such an antigen. Recognition activates appropriate lymphocytes, leading to plasma-cell antibody production and formation of memory cells. Later exposure to the pathogen can therefore be met with a more effective specific response.\n\nVaccines are designed to stimulate protection without causing the target disease; vaccine platforms and risk profiles differ, and protection is neither immediate nor always complete. The presence of immune memory does not mean all infections will be prevented. Appropriate schedules and boosters depend on evidence about waning immunity, age and the pathogen.",
+      "explanation": "A vaccine exposes the immune system to a pathogen-associated antigen, or supplies DNA or RNA instructions allowing host cells to make such an antigen. Recognition activates appropriate lymphocytes, leading to plasma-cell antibody production and formation of memory cells. Later exposure to the pathogen can therefore be met with a more effective specific response.\n\nVaccines are designed to stimulate protection without causing the target disease; vaccine platforms and risk profiles differ, and protection is neither immediate nor always complete. The presence of immune memory does not mean all infections will be prevented. Appropriate schedules and boosters depend on evidence about waning immunity, age and the pathogen.\n\nVaccines may supply an antigen directly or deliver nucleic-acid instructions that host cells use to produce an antigen. Antigen presentation and lymphocyte activation can establish memory cells, allowing a faster response at later exposure. Immunization does not guarantee sterilizing immunity for every pathogen, and vaccine protection can vary by disease and time since vaccination.",
       "revisionSummary": "Vaccines teach the immune system an antigen without requiring the target illness.",
       "terms": [
         "vaccine — preparation stimulating protective adaptive immunity",
@@ -2269,7 +2293,7 @@
         },
         {
           "title": "Biological consequences",
-          "explanation": "Vaccines are designed to stimulate protection without causing the target disease; vaccine platforms and risk profiles differ, and protection is neither immediate nor always complete. The presence of immune memory does not mean all infections will be prevented. Appropriate schedules and boosters depend on evidence about waning immunity, age and the pathogen.",
+          "explanation": "Vaccines are designed to stimulate protection without causing the target disease; vaccine platforms and risk profiles differ, and protection is neither immediate nor always complete. The presence of immune memory does not mean all infections will be prevented. Appropriate schedules and boosters depend on evidence about waning immunity, age and the pathogen.\n\nVaccines may supply an antigen directly or deliver nucleic-acid instructions that host cells use to produce an antigen. Antigen presentation and lymphocyte activation can establish memory cells, allowing a faster response at later exposure. Immunization does not guarantee sterilizing immunity for every pathogen, and vaccine protection can vary by disease and time since vaccination.",
           "referenceIds": [
             "ib-c32",
             "hodder-c32"
@@ -2293,7 +2317,32 @@
             "explanation": "Vaccines teach the immune system an antigen without requiring the target illness."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Two routes to a vaccine antigen",
+          "afterBlock": 0,
+          "headers": [
+            "Approach",
+            "What enters the body",
+            "How immunity develops"
+          ],
+          "rows": [
+            [
+              "Antigen-based",
+              "An antigenic component or inactivated/non-replicating preparation",
+              "Antigen recognition activates lymphocytes and helps produce memory."
+            ],
+            [
+              "Nucleic-acid-based",
+              "DNA or RNA coding for an antigen",
+              "Host cells synthesize the antigen, enabling antigen-specific responses and memory."
+            ]
+          ],
+          "note": "Categories describe mechanisms, not an assertion that all vaccines work with identical effectiveness."
+        }
+      ]
     },
     {
       "id": "c32-17",
@@ -2302,7 +2351,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why does the immune status of one person affect others?",
-      "explanation": "An infectious agent spreads through a network of contacts. When a sufficiently large proportion of people are immune, many potential transmission chains stop because an infected individual is less likely to reach a susceptible person. This indirect protection is herd immunity, and it may especially benefit people unable to receive a vaccine.\n\nThere is no universal threshold: the required proportion depends on how contagious the pathogen is, mixing patterns, immunity's effect on transmission and waning protection. Uneven coverage can permit local outbreaks even when a national average appears high. Vaccines are rigorously evaluated, but 'safe' means that benefits and risks have been weighed using evidence, not that adverse effects are impossible.",
+      "explanation": "An infectious agent spreads through a network of contacts. When a sufficiently large proportion of people are immune, many potential transmission chains stop because an infected individual is less likely to reach a susceptible person. This indirect protection is herd immunity, and it may especially benefit people unable to receive a vaccine.\n\nThere is no universal threshold: the required proportion depends on how contagious the pathogen is, mixing patterns, immunity's effect on transmission and waning protection. Uneven coverage can permit local outbreaks even when a national average appears high. Vaccines are rigorously evaluated, but 'safe' means that benefits and risks have been weighed using evidence, not that adverse effects are impossible.\n\nCommunity protection depends on how easily the particular pathogen transmits, how immunity affects infection and onward transmission, and how immunity is distributed across contact networks. It is therefore not scientifically valid to promise one fixed percentage of immunized people will halt all epidemics. Reduced transmission protects some susceptible people indirectly, but localized gaps in coverage can still allow outbreaks.",
       "revisionSummary": "When many contacts are immune, it is harder for infection to spread.",
       "terms": [
         "herd immunity — indirect population protection due to reduced transmission",
@@ -2330,11 +2379,18 @@
             "ib-c32",
             "hodder-c32"
           ]
+        },
+        {
+          "claim": "Community protection depends on how easily the particular pathogen transmits, how immunity affects infection and onward transmission, and how immunity is distributed across contact networks. It is therefore not scientifically valid to promise one fixed percentage of immunized people will halt all epidemics. Reduced transmission protects some susceptible people indirectly, but localized gaps in coverage can still allow outbreaks.",
+          "referenceIds": [
+            "who-c32-herd"
+          ]
         }
       ],
       "referenceIds": [
         "ib-c32",
-        "hodder-c32"
+        "hodder-c32",
+        "who-c32-herd"
       ],
       "assets": [],
       "interactions": [
@@ -2398,10 +2454,11 @@
         },
         {
           "title": "Biological consequences",
-          "explanation": "There is no universal threshold: the required proportion depends on how contagious the pathogen is, mixing patterns, immunity's effect on transmission and waning protection. Uneven coverage can permit local outbreaks even when a national average appears high. Vaccines are rigorously evaluated, but 'safe' means that benefits and risks have been weighed using evidence, not that adverse effects are impossible.",
+          "explanation": "There is no universal threshold: the required proportion depends on how contagious the pathogen is, mixing patterns, immunity's effect on transmission and waning protection. Uneven coverage can permit local outbreaks even when a national average appears high. Vaccines are rigorously evaluated, but 'safe' means that benefits and risks have been weighed using evidence, not that adverse effects are impossible.\n\nCommunity protection depends on how easily the particular pathogen transmits, how immunity affects infection and onward transmission, and how immunity is distributed across contact networks. It is therefore not scientifically valid to promise one fixed percentage of immunized people will halt all epidemics. Reduced transmission protects some susceptible people indirectly, but localized gaps in coverage can still allow outbreaks.",
           "referenceIds": [
             "ib-c32",
-            "hodder-c32"
+            "hodder-c32",
+            "who-c32-herd"
           ]
         }
       ],
@@ -2635,7 +2692,7 @@
           "id": "c32-q1-o3",
           "text": "No archaeal pathogen has yet been confirmed in humans.",
           "correct": true,
-          "feedback": "Correct. Some microbes cause infection, but not every disease is infectious."
+          "feedback": "Correct. An absence of confirmed human archaeal pathogens limits what evidence currently supports; it cannot establish that such pathogens are biologically impossible. Infection also need not produce immediate symptoms."
         },
         {
           "id": "c32-q1-o4",
@@ -3810,6 +3867,55 @@
         "Identifies a specific comparability limitation such as population denominators, unequal testing, case definitions or reporting delays."
       ],
       "review": "source-mapped"
+    },
+    {
+      "id": "c32-sprint8-antibiotics-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C3.2.14"
+      ],
+      "level": "shared",
+      "prompt": "A bacterial culture contains a few antibiotic-resistant variants before treatment. Explain why the proportion of resistant bacteria may increase after treatment, without assuming treatment directs mutations. [3]",
+      "marks": 3,
+      "sectionId": "c32-14",
+      "referenceIds": [
+        "ib-c32",
+        "hodder-c32"
+      ],
+      "answer": "Prior resistant variation exists through mutation or acquired resistance genes (1). Antibiotic exposure kills/inhibits more susceptible bacteria (1). Surviving resistant bacteria reproduce or spread their genes, increasing resistant proportion by selection (1).",
+      "markingPoints": [
+        "Prior resistant variation exists through mutation or acquired resistance genes (1).",
+        "Antibiotic exposure kills/inhibits more susceptible bacteria (1).",
+        "Surviving resistant bacteria reproduce or spread their genes, increasing resistant proportion by selection (1)."
+      ],
+      "review": "sprint8-science-edited"
+    },
+    {
+      "id": "c32-sprint8-data-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "C3.2.18"
+      ],
+      "level": "shared",
+      "prompt": "Hypothetical surveillance reports show 120 cases in an earlier week and 90 in a later week. A separate comparison reports 90 versus 60 cases in equal-size districts. Calculate percentage change and percentage difference and state a factor that limits interpretation. [4]",
+      "marks": 4,
+      "sectionId": "c32-18",
+      "referenceIds": [
+        "ib-c32",
+        "hodder-c32"
+      ],
+      "answer": "Percentage change = (90 − 120)/120 × 100 = −25% (1). Explain that −25% represents a decrease relative to the earlier week (1). Percentage difference = |90 − 60|/((90 + 60)/2) × 100 = 40% (1). Name a limitation such as testing access, population denominator, reporting delay or case definition (1).",
+      "markingPoints": [
+        "Percentage change = (90 − 120)/120 × 100 = −25% (1).",
+        "Explain that −25% represents a decrease relative to the earlier week (1).",
+        "Percentage difference = |90 − 60|/((90 + 60)/2) × 100 = 40% (1).",
+        "Name a limitation such as testing access, population denominator, reporting delay or case definition (1)."
+      ],
+      "review": "sprint8-science-edited"
     }
   ],
   "references": [
@@ -3826,6 +3932,24 @@
       "locator": "C3.2 Defence against disease, printed pp. 517–547; supplied PDF pp. 529–559",
       "accessedAt": "2026-10-17",
       "level": "shared"
+    },
+    {
+      "id": "cdc-c32-hiv-uu",
+      "title": "US CDC, Undetectable = Untransmittable, 2024",
+      "url": "https://www.cdc.gov/global-hiv-tb/php/our-approach/undetectable-untransmittable.html",
+      "review": "government public-health evidence"
+    },
+    {
+      "id": "cdc-c32-antibiotics",
+      "title": "US CDC, Healthy Habits: Antibiotic Do's and Don'ts, 2025",
+      "url": "https://www.cdc.gov/antibiotic-use/about/",
+      "review": "government public-health guidance"
+    },
+    {
+      "id": "who-c32-herd",
+      "title": "World Health Organization, Herd immunity and COVID-19, topic explainer",
+      "url": "https://www.who.int/news-room/questions-and-answers/item/herd-immunity-lockdowns-and-COVID-19",
+      "review": "WHO explanation; historical context"
     }
   ],
   "assets": [],
@@ -3841,7 +3965,9 @@
       "Learning diagrams are locally authored semantic process and comparison tables, not copied assets.",
       "C3.2.18 quantitative examples are clearly labelled hypothetical and must not be reported as COVID-19 surveillance observations.",
       "No claim of IB endorsement or independent scientific approval.",
-      "Phase 5 targeted editorial improvement: 18 C3.2 understanding checks and 18 MCQs received distractor-specific explanations (54 unique diagnostic corrections reused consistently); five original semantic process/comparison visuals were added and C3.2.18 now has a 5-mark numerical interpretation task with an explicit hypothetical-data warning. Original source-mapped status retained; independent science, assessment and accessibility approval pending."
+      "Phase 5 targeted editorial improvement: 18 C3.2 understanding checks and 18 MCQs received distractor-specific explanations (54 unique diagnostic corrections reused consistently); five original semantic process/comparison visuals were added and C3.2.18 now has a 5-mark numerical interpretation task with an explicit hypothetical-data warning. Original source-mapped status retained; independent science, assessment and accessibility approval pending.",
+      "Sprint 8: retained original 18 sections and pre-existing Phase 5 visuals; corrected C3.2.1 correct-answer feedback, added source-verified HIV/antibiotic/vaccine nuance and explicitly hypothetical pandemic comparison practice. New links are contextual evidence, not external clinical endorsement.",
+      "Sprint 8: linked CDC and WHO provenance to individual HIV transmission, antibiotic efficacy/resistance and community-immunity assertions rather than referencing only IB/Hodder."
     ]
   }
 }
