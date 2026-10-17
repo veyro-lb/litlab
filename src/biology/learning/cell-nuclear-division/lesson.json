@@ -1013,7 +1013,9 @@
         "hodder-d21",
         "ncbi-meiosis"
       ],
-      "assets": [],
+      "assets": [
+        "d21-mitosis-2n4"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1133,6 +1135,12 @@
             }
           ],
           "note": "Original teaching model of a typical eukaryotic mitosis, not timed microscopy."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "d21-mitosis-2n4",
+          "afterBlock": 1
         }
       ]
     },
@@ -4048,6 +4056,24 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "d21-mitosis-2n4",
+      "kind": "schematic",
+      "src": "/biology/cell-nuclear-division/mitosis-stages-2n4.svg",
+      "alt": "Four stages of mitosis in a model diploid cell with 2n = 4. Prophase shows four duplicated chromosomes. Metaphase aligns the same four. Anaphase separates their sister chromatids into eight chromosomes in the undivided cell, four toward each pole. Telophase has two nuclei of four chromosomes each. Not to scale and not a micrograph.",
+      "captionTitle": "How four duplicated chromosomes become two equal nuclei",
+      "interpretation": "An X represents a duplicated chromosome only until its sister chromatids separate at anaphase. Each line represents a single-chromatid chromosome after separation.",
+      "attribution": "Original BioLab vector diagram authored for Final Sprint D",
+      "license": "Original first-party BioLab illustration",
+      "permissionEvidence": "Drawn as a new theoretical mitosis model; no textbook/publisher artwork copied",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21",
+        "ncbi-meiosis"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
     }
   ],
   "summary": "Eukaryotic division requires accurate chromosome segregation and cytoplasmic allocation. Mitosis maintains genome content in daughter nuclei, meiosis produces haploid diversity, and regulated cell cycles coordinate growth and repair.",
@@ -4060,7 +4086,8 @@
       "Hodder (2023) D2.1 is the primary coursebook; NCBI and NCI corroborate meiosis, cyclins and cancer mechanisms.",
       "Mitotic-index dataset is labelled hypothetical; never present it as observed experimental data.",
       "No qualified cytology, microscopy or assessment approval yet.",
-      "Final Sprint D: 17 understanding-specific expansions and 6 original process/comparison visuals; mitotic-index model remains explicitly hypothetical; live microscopy and qualified review still blockers."
+      "Final Sprint D: 17 understanding-specific expansions and 6 original process/comparison visuals; mitotic-index model remains explicitly hypothetical; live microscopy and qualified review still blockers.",
+      "New original diagram d21-mitosis-2n4 has explanatory figure text and source metadata; independent figure/real-browser review pending."
     ]
   }
 }
