@@ -11,14 +11,20 @@
     "hlOnly": 216
   },
   "registeredDrafts": {
-    "topics": 9,
-    "understandings": 115,
-    "shared": 74,
-    "hlOnly": 41,
+    "topics": 15,
+    "understandings": 173,
+    "shared": 100,
+    "hlOnly": 73,
     "ids": [
       "A1.1",
       "A1.2",
+      "A2.1",
       "A2.2",
+      "A2.3",
+      "A3.1",
+      "A3.2",
+      "A4.1",
+      "A4.2",
       "B1.1",
       "B1.2",
       "B2.1",
@@ -37,7 +43,7 @@
     {
       "name": "feature/biolab-complete-theme-a-20261017",
       "sha": "9a2da5b26f8d4f76a87c53fc5c5984cb7a67f253",
-      "integrationStatus": "Source HEAD verified; package intake pending"
+      "integrationStatus": "6 valid draft packages integrated; exact integration CI pending; expert approvals outstanding"
     },
     {
       "name": "feature/biolab-complete-theme-b-20261017",
@@ -66,48 +72,6 @@
     }
   ],
   "plannedTopics": [
-    {
-      "id": "A2.1",
-      "title": "Origins of cells",
-      "understandings": 9,
-      "shared": 0,
-      "hlOnly": 9
-    },
-    {
-      "id": "A2.3",
-      "title": "Viruses",
-      "understandings": 6,
-      "shared": 0,
-      "hlOnly": 6
-    },
-    {
-      "id": "A3.1",
-      "title": "Diversity of organisms",
-      "understandings": 15,
-      "shared": 11,
-      "hlOnly": 4
-    },
-    {
-      "id": "A3.2",
-      "title": "Classification and cladistics",
-      "understandings": 9,
-      "shared": 0,
-      "hlOnly": 9
-    },
-    {
-      "id": "A4.1",
-      "title": "Evolution and speciation",
-      "understandings": 11,
-      "shared": 7,
-      "hlOnly": 4
-    },
-    {
-      "id": "A4.2",
-      "title": "Conservation of biodiversity",
-      "understandings": 8,
-      "shared": 8,
-      "hlOnly": 0
-    },
     {
       "id": "B3.1",
       "title": "Gas exchange",
@@ -313,8 +277,8 @@
       "understandings": 9,
       "shared": 0,
       "hlOnly": 9,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -335,8 +299,8 @@
       "understandings": 6,
       "shared": 0,
       "hlOnly": 6,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -346,8 +310,8 @@
       "understandings": 15,
       "shared": 11,
       "hlOnly": 4,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -357,8 +321,8 @@
       "understandings": 9,
       "shared": 0,
       "hlOnly": 9,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -368,8 +332,8 @@
       "understandings": 11,
       "shared": 7,
       "hlOnly": 4,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -379,8 +343,8 @@
       "understandings": 8,
       "shared": 8,
       "hlOnly": 0,
-      "cataloguedDraft": false,
-      "editorialStatus": "not integrated; no release claim",
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
       "qualifiedScientificApproval": false,
       "qualifiedEducationalApproval": false
     },
@@ -768,6 +732,47 @@
       "registeredUnderstandings": 115,
       "ci": "https://github.com/veyro-lb/litlab/actions/runs/39022026792",
       "status": "imported; target-branch CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme A",
+      "sourceSha": "9a2da5b26f8d4f76a87c53fc5c5984cb7a67f253",
+      "registeredTopics": 15,
+      "registeredUnderstandings": 173,
+      "accepted": [
+        {
+          "id": "A2.1",
+          "sections": 9,
+          "questions": 18
+        },
+        {
+          "id": "A2.3",
+          "sections": 6,
+          "questions": 12
+        },
+        {
+          "id": "A3.1",
+          "sections": 15,
+          "questions": 30
+        },
+        {
+          "id": "A3.2",
+          "sections": 9,
+          "questions": 18
+        },
+        {
+          "id": "A4.1",
+          "sections": 11,
+          "questions": 22
+        },
+        {
+          "id": "A4.2",
+          "sections": 8,
+          "questions": 17
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
     }
   ]
 }
