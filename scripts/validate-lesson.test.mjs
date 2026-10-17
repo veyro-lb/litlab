@@ -31,11 +31,11 @@ fixture.questions=fixture.sections.map((s,i)=>({id:`fq-${i}`,kind:'selection',pa
 test('synthetic three-understanding topic validates without Water IDs',()=>assert.deepEqual(validateLesson(fixture,fixtureTopic),[]));
 // Compile the real TSX renderer with the existing build dependency; no browser or additional dependency.
 const out=new URL(`.lesson-render-${process.pid}.mjs`,import.meta.url);
-const result=await build({stdin:{contents:`export {default as LessonView} from './src/biology/learning/LessonView.tsx';export {default as TopicOverview} from './src/biology/components/TopicOverview.tsx';`,resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'esm',packages:'external',write:false,jsx:'automatic'});
+const result=await build({stdin:{contents:`export {default as LessonView} from './src/biology/learning/LessonView.tsx';export {saveStudy} from './src/biology/learning/content.ts';export {default as TopicOverview} from './src/biology/components/TopicOverview.tsx';`,resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'esm',packages:'external',write:false,jsx:'automatic'});
 await writeFile(out,result.outputFiles[0].text);
-const {LessonView,TopicOverview}=await import(out.href);await unlink(out);
+const {LessonView,TopicOverview,saveStudy}=await import(out.href);await unlink(out);
 const {createElement}=await import('react');const {renderToStaticMarkup}=await import('react-dom/server');
-const render=(lesson,t,level,mode,id)=>renderToStaticMarkup(createElement(LessonView,{lesson,topic:t,level,mode,hash:`#biology/topic/${t.id}/${mode}${id?'?understanding='+id:''}`}));
+const render=(lesson,t,level,mode,id,phase=0)=>{const section=lesson.sections.find(s=>s.understandingIds.includes(id))??lesson.sections[0];saveStudy(lesson.id,{answers:{},drafts:{[section.id+':phase']:String(phase)},revealed:{},labels:true,sectionId:section.id});return renderToStaticMarkup(createElement(LessonView,{lesson,topic:t,level,mode,hash:`#biology/topic/${t.id}/${mode}${id?'?understanding='+id:''}`}))};
 test('actual Learn and Revision headings use exact registry IDs and titles for all eight',()=>{
  for(const mode of ['learn','revision'])for(const u of topic.understandings){const html=render(water,topic,'HL',mode,u.id);assert.ok(html.includes(`data-understanding-id="${u.id}"`));assert.ok(html.includes(`<b>${u.id}</b>`));assert.ok(html.includes(u.studentTitle.replaceAll('&','&amp;')))}
  const overview=renderToStaticMarkup(createElement(TopicOverview,{topic,level:'HL'}));for(const u of topic.understandings)assert.ok(overview.includes(`understanding=${u.id}`));
@@ -51,18 +51,20 @@ test('progressive Water teaching steps remain evidence-mapped and appear as read
  for(const s of water.sections){
   assert.ok(s.teachingBlocks?.length>=3,`${s.understandingIds[0]} needs distinct teaching steps`);
   assert.equal(s.teachingBlocks.map(x=>x.explanation).join('\n\n'),s.explanation);
-  const html=render(water,topic,'HL','learn',s.understandingIds[0]);
+  const html=render(water,topic,'HL','learn',s.understandingIds[0],1);
   for(const block of s.teachingBlocks)assert.ok(html.includes(block.title.replaceAll('&','&amp;')),`Missing ${block.title}`);
  }
 });
-test('mechanism comparisons have prediction prompts and keyboard-native controls',()=>{
+test('guided predictions and explanation controls are keyboard-native',()=>{
  for(const id of ['A1.1.2','A1.1.4','A1.1.5','A1.1.6']){
   const s=water.sections.find(x=>x.understandingIds.includes(id));
   assert.ok(s.explorer?.prompt?.trim());
   const html=render(water,topic,'HL','learn',id);
-  assert.ok(html.includes(s.explorer.title));
-  assert.ok(html.includes('role="group"'));
-  assert.ok(html.includes('aria-pressed'));
+  assert.ok(html.includes('Make a prediction and give a reason'));
+  assert.ok(html.includes('Learning activity'));
+  const explanation=render(water,topic,'HL','learn',id,1);
+  assert.ok(explanation.includes('role="group"'));
+  assert.ok(explanation.includes('aria-pressed'));
  }
 });
 test('an HL-only or unknown deep link cannot reveal an SL practice target',()=>{

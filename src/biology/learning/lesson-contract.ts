@@ -12,6 +12,7 @@ export interface Section {
  claimReferences:{claim:string;referenceIds:string[]}[];referenceIds:string[];assets:string[];
  interactions:Choice[];recall:Recall[];guidePage:number;pdfPage:number;
  textbook?:{referenceId:string;printedPages:number[];pdfPages:number[]};
+ prediction?:{context:string;question:Choice};scaffold?:string;
  teachingBlocks?:TeachingBlock[];enrichment?:{title:string;text:string;referenceIds:string[]};
  explorer?:{title:string;prompt?:string;features:{id:string;label:string;explanation:string}[]};
  mechanismChallenge?:MechanismChallenge;

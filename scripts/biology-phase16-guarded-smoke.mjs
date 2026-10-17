@@ -303,6 +303,8 @@ try{
   await command('Page.navigate',{url:new URL('#glossary',base).toString()});await sleep(1100);
   await check('Books to Glossary restores React-owned main',async()=>await evaluate("location.hash==='#glossary'&&!document.querySelector('main[data-litlab-special-route-host]')&&!!document.querySelector('.glossary-tools')"));
 
+  // The guided suite replaces the historical article-layout assertions.
+  if(!process.env.ENGLISH_REGRESSIONS_ONLY){
   // Phase 2 Biology uses a shadow tree owned by React, isolated from legacy enhancers.
   const bio = "document.querySelector('[data-biology-host]')?.shadowRoot";
   async function bioEval(expression){return evaluate(`(()=>{const root=${bio};if(!root)return false;return (${expression});})()`)}
@@ -827,6 +829,7 @@ try{
     await evaluate("document.querySelector('.subject-navigation a[href=\"#home\"]').click()");await sleep(400);
     return await evaluate("location.hash==='#home'&&!!document.querySelector('.home-hero')&&!document.querySelector('[data-biology-host]')");
   });
+  }
   await check('No external response bypassed interception',async()=>escapedExternal.length===0&&interceptionErrors.length===0);
   await writeFile(join(outputDir,'phase16-interaction-report.json'),JSON.stringify({interactions,blockedExternal,escapedExternal,interceptionErrors,failures},null,2));
   console.log('Phase 1.6 interactions: '+interactions.filter(x=>x.pass).length+'/'+interactions.length+' passed; '+blockedExternal.length+' external requests blocked');

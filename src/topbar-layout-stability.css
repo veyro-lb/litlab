@@ -71,3 +71,33 @@
   .litlab-account-trigger{max-width:150px;padding-inline:9px}
   .litlab-account-trigger .litlab-auth-label{max-width:90px}
 }
+
+/* Intrinsic header layout. Account controls have an owned slot in normal flow;
+   both guest and authenticated renders use the same space. */
+.topbar{height:auto!important;min-height:78px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.topbar>.top-actions{display:flex;position:static;flex:0 1 auto;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-left:auto;max-width:100%}
+.topbar>.top-actions>.account-slot{display:flex;position:relative;min-width:0;flex:0 1 auto;max-width:100%}
+.topbar .litlab-auth-root{position:relative;inset:auto;transform:none;max-width:100%}
+.topbar .litlab-auth-signin,.topbar .litlab-account-trigger,.topbar .icon-btn,.topbar .search-trigger{min-height:44px;height:auto;min-width:44px}
+.topbar .litlab-account-trigger{max-width:min(210px,25vw)}
+.topbar .litlab-account-menu{width:min(300px,calc(100vw - 28px));right:0;left:auto;top:calc(100% + 10px);max-height:calc(100dvh - 170px)}
+.topbar[data-subject=biology]{gap:12px;justify-content:space-between}
+.bio-brand{display:flex;align-items:center;gap:9px;color:#176c5f;flex:0 0 auto;text-decoration:none;font:800 25px/1.05 var(--display)}
+.bio-brand>span{display:flex;flex-direction:column;gap:5px}.bio-brand small{color:var(--muted);font:650 10px/1.2 var(--body);letter-spacing:.03em}
+.bio-subject-return{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px;border:1px solid var(--line);border-radius:10px;font-size:12px;font-weight:700;color:var(--ink)}
+html[data-theme=dark] .bio-brand{color:#91e2bf}
+.bio-brand:focus-visible,.bio-subject-return:focus-visible{outline:3px solid #d89c2c;outline-offset:4px}
+@media(max-width:700px){
+ .topbar .litlab-auth-signin,.topbar .litlab-account-trigger{width:44px;height:44px;min-width:44px}
+ .topbar .litlab-account-trigger{max-width:44px}
+ .topbar>.top-actions{gap:6px}
+}
+@media(max-width:600px){
+ .topbar[data-subject=english]{align-items:center;gap:8px;padding:10px 14px}
+ .topbar[data-subject=english]>.top-actions{flex-basis:100%;justify-content:flex-end}
+ .topbar[data-subject=biology]{padding:10px 14px;min-height:76px}
+ .bio-brand{font-size:23px;gap:6px}.bio-brand>svg{width:23px}
+ .topbar[data-subject=biology]>.top-actions{flex:0 1 auto;gap:5px}
+ .bio-subject-return{font-size:11px;padding:8px 6px}
+ .topbar .litlab-account-menu{position:fixed;top:80px;right:14px;left:auto;max-height:calc(100dvh - 100px)}
+}

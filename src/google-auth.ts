@@ -187,7 +187,7 @@ function buildAuthRoot(){
 }
 
 function renderAuth(){
-  const topActions=document.querySelector<HTMLElement>('.topbar .top-actions');
+  const topActions=document.querySelector<HTMLElement>('[data-account-slot]')??document.querySelector<HTMLElement>('.topbar .top-actions');
   if(!topActions)return;
   let root=topActions.querySelector<HTMLElement>('[data-litlab-auth-root]');
   if(!root){

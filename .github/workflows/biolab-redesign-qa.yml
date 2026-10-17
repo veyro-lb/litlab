@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - name: Verify complete and clean checkout
         run: |
@@ -84,6 +85,15 @@ jobs:
           set -o pipefail
           npm run build 2>&1 | tee phase16-build.log
 
+      - name: Build exact unmodified baseline for before screenshots
+        if: steps.install.outcome == 'success'
+        run: |
+          mkdir -p .qa-baseline
+          git archive 939ac3a957912c0b2db4135ad4afd719a8daf86c | tar -x -C .qa-baseline
+          ln -s ../node_modules .qa-baseline/node_modules
+          cd .qa-baseline
+          npm run build > ../phase16-baseline-build.log 2>&1
+
       - name: Audit production dependencies
         id: audit
         if: steps.install.outcome == 'success'
@@ -146,7 +156,9 @@ jobs:
               done
               test "$ready" = 1 || { cat qa-artifacts/preview.log; exit 1; }
               node scripts/biology-phase9-figure-render.mjs 2>&1 | tee qa-artifacts/phase9-figures.log
-              node scripts/biology-phase16-guarded-smoke.mjs 2>&1 | tee qa-artifacts/browser-smoke-console.log
+              npm run preview --prefix .qa-baseline -- --host 127.0.0.1 --port 4174 > qa-artifacts/baseline-preview.log 2>&1 &
+              node scripts/biolab-guided-browser.mjs
+              ENGLISH_REGRESSIONS_ONLY=1 node scripts/biology-phase16-guarded-smoke.mjs 2>&1 | tee qa-artifacts/browser-smoke-console.log
             '
 
       - name: Upload actual results and screenshots
