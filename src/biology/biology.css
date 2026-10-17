@@ -200,3 +200,39 @@
 @media(max-width:760px){.bio-lesson-nav{max-height:none}}
 /* Keep long biological topic names intact at phone reading widths. */
 @media(max-width:560px){.bio-lesson-hero h1{font-size:clamp(24px,6.5vw,34px);letter-spacing:-.7px;line-height:1.15}}
+
+
+/* Images teach in place; no repeated captions, credits, URL links or controls below. */
+.bio-figure-clean{padding:0;border:0;background:transparent;border-radius:9px;overflow:visible}
+.bio-figure-clean>.bio-figure-image{display:block;width:100%;border:0;padding:0;margin:0;background:none;border-radius:9px;overflow:hidden;cursor:zoom-in;line-height:0}
+.bio-figure-clean>.bio-figure-image picture{display:block;width:100%}
+.bio-figure-clean>.bio-figure-image img{display:block;width:100%;height:auto;object-fit:contain;background:#f1f7f6}
+.bio-figure-clean>.bio-figure-image:focus-visible{outline:3px solid var(--bio-green);outline-offset:4px}
+.bio-reading-passage .bio-figure-clean{margin:20px 0 30px}
+.bio-figure-dialog{max-width:min(1120px,96vw);max-height:93dvh;padding:18px;border:1px solid var(--line);border-radius:12px;color:var(--ink);background:var(--surface)}
+.bio-figure-dialog::backdrop{background:rgba(12,21,30,.8)}
+.bio-figure-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.bio-figure-dialog-head>strong{font-size:15px}
+.bio-figure-dialog-head button{min-height:44px}
+.bio-figure-dialog p{font-size:13px;line-height:1.7;color:var(--muted)}
+.bio-figure-zoom{max-height:70dvh;overflow:auto;background:#f1f7f6;border:1px solid var(--line)}
+.bio-figure-zoom img{display:block;max-width:none;width:auto;min-width:100%;max-height:none}
+.bio-learning-visual{margin:26px 0 33px;padding:20px 0;border-block:1px solid var(--line)}
+.bio-learning-visual h4{font-size:17px;font-weight:750;line-height:1.45;margin:0 0 12px}
+.bio-visual-note{font-size:12px!important;line-height:1.75;color:var(--muted);margin:0 0 16px;max-width:72ch}
+.bio-learning-visual .bio-table-scroll{border-radius:7px}
+.bio-learning-visual th{font-weight:700;background:color-mix(in srgb,var(--bio-green) 6%,var(--surface))}
+.bio-learning-visual table{font-size:13px;line-height:1.65}
+.bio-learning-visual th,.bio-learning-visual td{vertical-align:top;padding:13px}
+.bio-visual-bars{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px 17px}
+.bio-visual-bar-row{display:grid;grid-template-columns:minmax(100px,1fr) minmax(80px,2fr) auto;gap:13px;align-items:center;margin:13px 0;font-size:13px}
+.bio-visual-bar-label{font-weight:700}
+.bio-visual-bar-row strong{font-variant-numeric:tabular-nums;min-width:55px;text-align:right}
+.bio-visual-bar-track{height:18px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.bio-visual-bar-track>div{height:100%;background:var(--bio-green);border-radius:4px}
+.bio-visual-axis{display:block;margin:14px 0 0;color:var(--muted);font-size:11px;text-align:right}
+.bio-visual-sequence{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:10px;list-style:none;padding:0;margin:12px 0}
+.bio-visual-sequence li{position:relative;display:flex;flex-direction:column;gap:7px;padding:14px;background:color-mix(in srgb,var(--bio-green) 6%,var(--surface));border:1px solid var(--line);border-radius:7px}
+.bio-visual-sequence li strong{font-size:13px}
+.bio-visual-sequence li span{font-size:12px;line-height:1.65}
+@media(max-width:560px){.bio-visual-bar-row{grid-template-columns:1fr auto;gap:4px 12px}.bio-visual-bar-track{grid-column:1 / -1;grid-row:2}.bio-visual-sequence{grid-template-columns:1fr}.bio-figure-dialog{padding:12px}}
