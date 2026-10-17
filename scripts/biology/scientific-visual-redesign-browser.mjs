@@ -45,6 +45,27 @@ try{
   }catch(e){issues.push('recall '+width+': '+String(e));}
  }
  await page.setViewportSize({width:390,height:900});await page.evaluate(()=>{localStorage.litlabTheme='dark'});await page.goto(origin+'/#biology/topic/D3.1/learn?understanding=D3.1.4');try{await page.locator('.bio-figure-image').first().screenshot({path:out+'/dark-390.png'});shots.push('dark-390.png')}catch(e){issues.push('dark mode: '+String(e))}
+ for(const width of [390,1440]){
+  await page.setViewportSize({width,height:900});
+  try{
+   await page.goto(origin+'/#biology/topic/A2.2/learn?understanding=A2.2.8');
+   const p=page.locator('[data-asset-id="a22-plant-palisade"] img');await p.waitFor();
+   await p.scrollIntoViewIfNeeded();await p.evaluate(img=>img.decode());
+   const info=await p.evaluate(img=>({src:img.currentSrc,w:img.naturalWidth,h:img.naturalHeight}));
+   if(info.w<1||info.h<1)throw Error('plant image failed to load');
+   if(width===390&&!info.src.includes('-mobile.svg'))throw Error('plant mobile variant missing');
+   await page.locator('[data-asset-id="a22-plant-palisade"]').screenshot({path:out+'/plant-'+width+'.png'});
+   shots.push('plant-'+width+'.png');
+  }catch(e){issues.push('plant '+width+': '+String(e))}
+ }
+ for(const suffix of ['','-recall','-mobile','-mobile-recall']){
+  const file='a22-plant-palisade'+suffix+'.svg';
+  try{
+   await page.goto(origin+'/biology/cell-structure/'+file);
+   const clipped=await page.evaluate(()=>{const svg=document.querySelector('svg');if(!svg)return ['missing svg'];const sr=svg.getBoundingClientRect();return [...svg.querySelectorAll('text')].filter(t=>{const b=t.getBoundingClientRect();return b.left<sr.left-2||b.top<sr.top-2||b.right>sr.right+2||b.bottom>sr.bottom+2}).map(t=>t.textContent)});
+   if(clipped.length)issues.push('plant SVG text outside viewBox '+file+': '+clipped.join(','));
+  }catch(e){issues.push('plant SVG '+file+': '+String(e))}
+ }
  for(const stem of ['d31-male-anatomy','d31-female-frontal','d31-female-sagittal','d31-flower-structures']){
   for(const suffix of ['','-recall','-mobile','-mobile-recall']){
    const file=stem+suffix+'.svg';
