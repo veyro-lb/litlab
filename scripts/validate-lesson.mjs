@@ -32,7 +32,7 @@ export function validateLesson(d,topic){
    for(const c of s.authenticMicrographs){
     if(!c.id||!c.title||!c.specimen||!['light','TEM'].includes(c.modality)||!c.observationPrompt||!c.expectedEvidence||!c.scaleNote||!c.limitation||!c.author||!c.license||!c.licenseUrl||!refs.has(c.referenceId)||!s.referenceIds.includes(c.referenceId))fail('Unmapped authentic microscopy '+s.id);
     if(!c.imageUrl?.startsWith('https://upload.wikimedia.org/wikipedia/commons/')||!c.sourceUrl?.startsWith('https://commons.wikimedia.org/wiki/File:')||!c.licenseUrl?.startsWith('https://'))fail('Unverified external microscopy domain '+s.id);
-    if(c.scaleNote?.toLowerCase().includes('invented')&&c.scaleNote?.toLowerCase().includes('bar')){/* A cautionary note is valid, not fabricated scale evidence. */}
+    if(!/calibrat|scale|nm|source/i.test(c.scaleNote))fail('Missing scale interpretation limits '+s.id);
    }
   }
 
