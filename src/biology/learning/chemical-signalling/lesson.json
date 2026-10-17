@@ -418,7 +418,42 @@
             "explanation": "Hormones are commonly secreted by endocrine cells and can travel in blood to distant targets. Neurotransmitters are released at synapses and diffuse over a short cleft to receptors on a neighbouring cell. Cytokines are proteins secreted by cells, notably immune cells, to influence inflammation, differentiation and other responses."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Signalling categories compared",
+          "afterBlock": 0,
+          "headers": [
+            "Category",
+            "Typical source and reach",
+            "Typical action"
+          ],
+          "rows": [
+            [
+              "Hormone",
+              "Endocrine cell → blood → target tissues",
+              "Receptor activates response"
+            ],
+            [
+              "Neurotransmitter",
+              "Presynaptic cell → synaptic cleft",
+              "Postsynaptic receptor response"
+            ],
+            [
+              "Cytokine",
+              "Secreting cell → nearby or distant targets",
+              "Modulates gene expression and cell activity"
+            ],
+            [
+              "Ca²⁺ second messenger",
+              "Within responsive cell",
+              "Activates calcium-sensitive proteins"
+            ]
+          ],
+          "note": "Functional categories may overlap; the site and pathway determine the category."
+        }
+      ]
     },
     {
       "id": "c21-4",
@@ -814,7 +849,36 @@
             "explanation": "Transmembrane receptors span the plasma membrane; hydrophobic amino-acid regions contact the membrane's lipid core, while hydrophilic regions face aqueous fluids. Water-soluble ligands such as insulin generally stay outside and transmit information by changing a membrane receptor's conformation."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Receptor location and ligand access",
+          "afterBlock": 0,
+          "headers": [
+            "Feature",
+            "Plasma-membrane receptor",
+            "Intracellular receptor"
+          ],
+          "rows": [
+            [
+              "Typical ligand",
+              "Hydrophilic: insulin, acetylcholine",
+              "Lipid-soluble: steroid hormones"
+            ],
+            [
+              "Ligand crosses bilayer?",
+              "Not required",
+              "Often yes"
+            ],
+            [
+              "Early response",
+              "Ion channel, kinase or GPCR signalling",
+              "DNA-associated gene regulation"
+            ]
+          ]
+        }
+      ]
     },
     {
       "id": "c21-7",
