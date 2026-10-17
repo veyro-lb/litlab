@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "executedAtUtc": "2026-10-17 (session started before midnight local 2026-10-18; exact run timestamps not instrumented)",
+  "baseline": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
+  "codeModeRemoteInspection": {
+    "method": "GitHub Git tree recursive listing, UTF-8 fetch_blob of every public/biology/*.svg, regex presence checks, 40 lesson JSON comparison with Git tree",
+    "totalBiologySvgs": 259,
+    "svgsFetched": 259,
+    "orderedScanSlices": [
+      [
+        0,
+        18
+      ],
+      [
+        18,
+        35
+      ],
+      [
+        35,
+        52
+      ],
+      [
+        52,
+        69
+      ],
+      [
+        69,
+        86
+      ],
+      [
+        86,
+        103
+      ],
+      [
+        103,
+        120
+      ],
+      [
+        120,
+        137
+      ],
+      [
+        137,
+        154
+      ],
+      [
+        154,
+        171
+      ],
+      [
+        171,
+        188
+      ],
+      [
+        188,
+        205
+      ],
+      [
+        205,
+        222
+      ],
+      [
+        222,
+        239
+      ],
+      [
+        239,
+        256
+      ],
+      [
+        256,
+        259
+      ]
+    ],
+    "malformedOrMissingRootClosingTagOrViewbox": 0,
+    "scriptOrOnloadDetected": 0,
+    "lessonJsonCount": 40,
+    "registeredAssetEntries": 160,
+    "missingReferencedFiles": 0,
+    "missingOrVeryShortAlt": 0,
+    "observedPendingScienceFooterInNucleicAcids": true,
+    "caution": "Presence of XML-like delimiters/viewBox is not an XML well-formedness test; no scientific correctness proven by this scan."
+  },
+  "checkedByIndependentSourceReading": [
+    "public/biology/reproduction/d31-flower-structures.svg",
+    "public/biology/transport/heart-circuits.svg",
+    "public/biology/transport/heart-frontal.svg",
+    "public/biology/transport/dicot-stem-root.svg",
+    "public/biology/gas-exchange/dicot-leaf.svg",
+    "public/biology/nucleic-acids/paired.svg",
+    "public/biology/nucleic-acids/nucleotide.svg",
+    "public/biology/proteins/amino.svg",
+    "public/biology/proteins/peptide.svg",
+    "public/biology/muscle-motility/sarcomere.svg",
+    "public/biology/cell-specialization/b23-gametes.svg",
+    "public/biology/cell-structure/a22-prokaryote.svg",
+    "public/biology/cell-structure/a22-groups.svg",
+    "public/biology/membranes-transport/mechanism-10.svg",
+    "public/biology/membranes-transport/sodium-potassium-pump-20261017.svg",
+    "public/biology/membranes-transport/intestinal-glucose-topology-20261017.svg",
+    "public/biology/carbohydrates-lipids/lipids.svg",
+    "public/biology/nucleic-acids/nucleosome-topology-20261017.svg",
+    "public/biology/protein-synthesis/coding-template-transcription.svg",
+    "public/biology/protein-synthesis/translation-codon-anticodon.svg",
+    "public/biology/cell-respiration/mitochondrial-chemiosmosis.svg"
+  ],
+  "testsCommittedButNotExecuted": [
+    "scripts/biology/independent-visual-qa/audit.mjs",
+    "scripts/biology/independent-visual-qa/audit.test.mjs",
+    "scripts/biology/independent-visual-qa/browser.mjs"
+  ],
+  "realWebsiteViewportCasesExecuted": 0,
+  "screenshotFilesCaptured": 0,
+  "blockers": [
+    "Local checkout inaccessible: container DNS could not resolve github.com; no cached git workspace existed.",
+    "TinyFish browser automation refused to start due to insufficient credits; no browser screenshots were returned.",
+    "Vercel ephemeral sandbox creation failed with HTTP 403 scope unauthorized even though project ID was discovered.",
+    "Existing GitHub Actions workflows do not trigger QA scripts from this isolated branch; changing .github/workflows would violate user path constraints."
+  ],
+  "limits": {
+    "scientificManualReview": "Targeted source reading only; not an independent visual verification of every image",
+    "browser": "No actual BioLab site visit at 320,390,768,1024,1440 or 1920; light/dark, enlargement and keyboard test suites remain pending",
+    "tests": "Committed Node scripts and fixture tests are runnable in a cloned environment but remain unexecuted",
+    "screenshots": "No authentic screenshots exist for this QA session. Every issue screenshotEvidence is null."
+  }
+}
