@@ -35,7 +35,7 @@ export default function DrawingPractice({lesson,sections,level,study,update,requ
  const answers=exercise.labels.map(label=>({label,value:study.drafts[key(label.id)]??''}));
  const figure=(hidden:boolean)=><ScientificFigure key={`${asset.id}:${hidden?'recall':'reference'}`} asset={asset} hideLabels={hidden}/>;
  const setReference=(value:boolean)=>update(s=>({...s,revealed:{...s.revealed,[key('reference')]:value}}));
- const setAnswer=(id:string,value:string)=>update(s=>({...s,drafts:{...s.drafts,[key(id)]:value},revealed:{...s.revealed,[key('checked')]:false}}}));
+ const setAnswer=(id:string,value:string)=>update(s=>({...s,drafts:{...s.drafts,[key(id)]:value},revealed:{...s.revealed,[key('checked')]:false}}));
  const markChecked=()=>update(s=>({...s,revealed:{...s.revealed,[key('checked')]:true}}));
  const reset=()=>{
   update(s=>{
