@@ -21,7 +21,7 @@
 
 ## Implemented changes and assessment QA
 
-- **All 94** original numbered understanding IDs preserved: 62 shared SL/HL and 32 HL-only. All **94** structured-response questions have revised **three content-specific marking points**; nine quantitative/mechanism questions now have focused prompts with fully explicit numerical or causal mark allocations. Existing multiple-choice banks and recall activities are preserved.
+- **All 94** original numbered understanding IDs preserved: 60 shared SL/HL and 34 HL-only. All **94** structured-response questions have revised **three content-specific marking points**; nine quantitative/mechanism questions now have focused prompts with fully explicit numerical or causal mark allocations. Existing multiple-choice banks and recall activities are preserved.
 - **18 targeted understandings** gained original teaching explanations grounded to the existing topic sources. The new text is repeated consistently in each understanding's explanation, teaching blocks and claim/reference metadata, preserving compatibility with existing QA contract.
 - **7 original SVGs**, all registered to directly relevant understandings, each with alt text, caption and attribution. Their topics are fertilization sequence, flower anatomy, monohybrid Punnett grid, insulin/glucagon feedback, mechanism of selection, hypothetical harvest accounting and qualitative carbon pathways.
 - Existing twelve SVG figures retained. No decorative figure was added to concepts that already have enough visual support.
@@ -34,7 +34,7 @@
 | D4.1 | 15 | 8 | 7 | 30 | 3 |
 | D4.2 | 15 | 11 | 4 | 30 | 3 |
 | D4.3 | 12 | 8 | 4 | 24 | 3 |
-| **Total** | **94** | **62** | **32** | **168** | **19** |
+| **Total** | **94** | **60** | **34** | **168** | **19** |
 
 ### Topic-specific science and quantitative refinements
 
