@@ -1369,6 +1369,7 @@
         "ncbi-walls"
       ],
       "assets": [
+        "a22-plant-palisade",
         "a22-groups"
       ],
       "interactions": [
@@ -1513,7 +1514,17 @@
             "explanation": "Plant cells commonly have cellulose walls and may contain plastids. Fungi have chitin-rich walls but no chloroplasts. Animal cells lack a rigid cell wall. No single feature identifies every cell perfectly."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "a22-plant-palisade",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "a22-groups",
+          "afterBlock": 1
+        }
+      ]
     },
     {
       "id": "a22-9",
@@ -3761,6 +3772,27 @@
       "sourceUrl": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0129141",
       "originalUrl": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0129141.g003",
       "termsUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "id": "a22-plant-palisade",
+      "kind": "diagram",
+      "src": "/biology/cell-structure/a22-plant-palisade.svg",
+      "recallSrc": "/biology/cell-structure/a22-plant-palisade-recall.svg",
+      "mobileSrc": "/biology/cell-structure/a22-plant-palisade-mobile.svg",
+      "recallMobileSrc": "/biology/cell-structure/a22-plant-palisade-mobile-recall.svg",
+      "alt": "Original labelled anatomical schematic of a photosynthetic leaf palisade plant cell with cellulose cell wall, plasma membrane, cytoplasm, large sap vacuole, chloroplasts, mitochondria, nucleus, Golgi apparatus, rough endoplasmic reticulum, smooth endoplasmic reticulum and free cytosolic ribosomes.",
+      "captionTitle": "Leaf palisade cell: organelles, wall and sap vacuole",
+      "interpretation": "The wall and plasma membrane are distinct boundaries. The large central vacuole is membrane-bounded and surrounded by peripheral cytoplasm containing chloroplasts and other organelles. Schematic, not an observational drawing or micrograph.",
+      "attribution": "Original BioLab vector illustration, 2026-10-18",
+      "license": "Original project artwork; rights and commercial reuse subject to project legal review",
+      "permissionEvidence": "Independently drawn geometric scientific SVG with source-based feature checklist; no textbook, handout or third-party pixels used.",
+      "referenceIds": [
+        "ib-a22",
+        "hodder-a22",
+        "ncbi-visualizing"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
     }
   ],
   "summary": "A universal cellular core coexists with great diversity. Choose microscopy tools for the question, calibrate every size claim and never interpret unseen ultrastructure. Endosymbiotic and multicellular histories are evidence-based evolutionary reconstructions.",
