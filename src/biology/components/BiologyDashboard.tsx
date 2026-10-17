@@ -1,14 +1,11 @@
-import {ArrowRight, BookOpen, Layers3, Compass} from 'lucide-react';
-import {topics, themes, visibleTopics} from '../curriculum/manifest';
-import type {Level, ThemeId} from '../curriculum/schema';
+import type {Level} from '../curriculum/schema';
 import CurriculumOverview from './CurriculumOverview';
-export default function BiologyDashboard({level}: {level: Level}) {
-  return <>
-    <section className="bio-hero"><div><span className="bio-eyebrow">IB DIPLOMA · FIRST ASSESSMENT 2025</span><h1>Life is connected.<br/><em>Start seeing how.</em></h1><p>Build an understanding of IB Biology through guided explanations, original diagrams, questions and revision. Start with an available topic and explore the mechanisms one understanding at a time.</p><a className="bio-primary" href="#biology/topic/A1.1/learn">Explore A1.1 Water <ArrowRight size={18} aria-hidden="true"/></a><span className="bio-hero-note">8 interactive topic drafts available · Scientific and teacher review ongoing</span></div>
-    <aside className="bio-orientation"><span className="bio-eyebrow">START WITH THE BIG PICTURE</span><h2>Four themes.<br/> Every scale of life.</h2><p>Each theme connects molecules, cells, organisms and ecosystems.</p><div className="bio-scale-list">{['Molecules','Cells','Organisms','Ecosystems'].map((x,i) => <span key={x}><b>0{i+1}</b>{x}</span>)}</div><div className="bio-orientation-foot"><BookOpen size={18} aria-hidden="true"/><span>{visibleTopics(level).length} topics in your {level} curriculum</span></div></aside></section>
-    <section className="bio-themes" aria-label="Explore the four themes">{(Object.entries(themes) as [ThemeId, typeof themes.A][]).map(([id,t]) => <a className={`bio-theme-link bio-theme-${id}`} href={`#biology/theme/${id}`} key={id}><span className="bio-theme-letter">{id}</span><h2>{t.title}</h2><p>{t.description}</p><span>Explore theme <ArrowRight size={16} aria-hidden="true"/></span></a>)}</section>
-    <div className="bio-status-strip"><Compass size={21} aria-hidden="true"/><p><strong>Choose a topic that is ready to explore.</strong> All 40 syllabus topics are mapped. {topics.filter(topic => topic.lessonId).length} interactive topic drafts are available, while {topics.filter(topic => !topic.lessonId).length} topics remain planned. Available lessons are early-access teaching drafts, not scientifically approved publications.</p></div>
-    <CurriculumOverview level={level}/>
-    <section className="bio-future"><div><Layers3 size={22} aria-hidden="true"/><h2>Built for understanding that lasts</h2><p>These additional study tools are being considered; they are not available yet.</p></div><ul>{['My Progress','Flashcards','Practice Questions','Spaced Revision','Bookmarks','Exam Preparation'].map(x => <li key={x}><span>{x}</span><small>Planned</small></li>)}</ul></section>
-  </>;
+import ResourceNav,{resourceFromHash} from './ResourceNav';
+export default function BiologyDashboard({level,hash}:{level:Level;hash:string}){
+ const resource=resourceFromHash(hash);
+ return <><header className="bio-course-header"><span className="bio-eyebrow">IB DIPLOMA · FIRST ASSESSMENT 2025</span><h1>Biology</h1><p>Explore the science, one connection at a time.</p><small>8 teaching drafts · 32 topics planned · Scientific review pending</small></header><ResourceNav active={resource}/>
+ {resource==='sources'&&<section className="bio-course-bibliography"><h2>Our teaching references</h2><p><strong>Main coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023).</p><p><strong>Syllabus:</strong> IB Biology Guide, first assessment 2025. Open an available topic for its scientific references, figure provenance and review record.</p></section>}
+ {resource==='flashcards'&&<p className="bio-resource-context">Authored recall prompts and diagram recall are available inside the eight teaching drafts. Card position is not a mastery score.</p>}
+ {resource==='practice'&&<p className="bio-resource-context">Original syllabus-mapped practice with explanatory feedback and written self-review. These are draft teaching questions, not official IB exam items.</p>}
+ <CurriculumOverview level={level} resource={resource}/></>;
 }

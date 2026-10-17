@@ -1,0 +1,18 @@
+import {useState,useRef} from 'react';
+import type {Section} from './content';
+type Mode='simple'|'example'|'words'|'different'|'match';
+/** Deterministic authored support. No remote calls, generated answers or hidden scoring. */
+export default function ExplanationHelp({section}:{section:Section}){
+ const [mode,setMode]=useState<Mode|null>(null),[query,setQuery]=useState('');
+ const output=useRef<HTMLDivElement>(null);
+ const support=section.support;
+ const tokens=query.toLowerCase().match(/[\p{L}\p{N}]+/gu)??[];
+ const ranked=(support?.concepts??[]).map(c=>({c,score:c.keywords.reduce((n,k)=>n+(tokens.some(t=>t===k.toLowerCase())?1:0),0)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
+ function show(next:Mode){setMode(next);requestAnimationFrame(()=>output.current?.focus({preventScroll:true}))}
+ const titles={simple:'The idea in simpler language',example:'Start with a concrete example',words:'The words used here',different:'Another way into the concept',match:'An explanation matched to your words'};
+ return <aside className="bio-inline-help" aria-label="Help with this understanding"><div className="bio-help-top"><span>Need this explained more simply?</span>{mode&&<button type="button" onClick={()=>setMode(null)} aria-label="Close explanation help">Close help ×</button>}</div><div className="bio-help-controls" role="group" aria-label="Choose explanation support"><button type="button" aria-expanded={mode==='simple'} aria-controls={section.id+'-help'} onClick={()=>show('simple')}>Simplify this</button><button type="button" aria-expanded={mode==='example'} aria-controls={section.id+'-help'} onClick={()=>show('example')}>Show an example</button><button type="button" aria-expanded={mode==='words'} aria-controls={section.id+'-help'} onClick={()=>show('words')}>Explain difficult words</button><button type="button" aria-expanded={mode==='different'} aria-controls={section.id+'-help'} onClick={()=>show('different')}>Explain it differently</button></div>
+ {mode&&<div className="bio-help-output" id={section.id+'-help'} tabIndex={-1} ref={output}><h3>{titles[mode]}</h3>{mode==='simple'&&<p>{support?.simple??section.revisionSummary}</p>}{mode==='example'&&<p>{support?.example??section.workedExample}</p>}{mode==='different'&&<p>{support?.different??`${section.workedExample} The connection to carry back to the explanation is: ${section.revisionSummary}`}</p>}{mode==='words'&&<dl>{section.terms.map(t=>{const split=t.indexOf(': ');return <div key={t}><dt>{split<0?t:t.slice(0,split)}</dt><dd>{split<0?'See how this term is used in the full explanation below.':t.slice(split+2).trim()}</dd></div>})}</dl>}
+ {mode==='match'&&(ranked.length?<><p className="bio-muted">Matched authored topic: {ranked[0].c.title}</p><p>{ranked[0].c.explanation}</p>{ranked[1]&&<p><strong>Related connection: {ranked[1].c.title}.</strong> {ranked[1].c.explanation}</p>}</>:<p>I don’t have a matching authored explanation for those words yet. Try a concept used in this understanding, or choose the simpler explanation, example or glossary above.</p>)}<p className="bio-help-limit">Authored study support, not an AI chat. The full scientific explanation stays visible below.</p></div>}
+ <form className="bio-help-match" onSubmit={e=>{e.preventDefault();show('match')}}><label className="bio-sr-only" htmlFor={section.id+'-confusing'}>Which part is confusing you?</label><input id={section.id+'-confusing'} type="text" maxLength={200} value={query} onChange={e=>setQuery(e.target.value)} placeholder="Which part is confusing you?"/><button type="submit">Find an explanation</button></form>
+ </aside>;
+}

@@ -3,7 +3,7 @@ export type Scope = 'shared'|'HL';
 export interface Reference {id:string;title:string;url?:string;locator:string;accessedAt:string;level:Scope}
 export interface Choice {kind:'selection';id:string;prompt:string;understandingIds:string[];options:{id:string;text:string;correct:boolean;feedback:string}[]}
 export interface Recall {enrichment?:boolean;kind:'recall';id:string;prompt:string;answer:string;explanation:string;understandingIds:string[]}
-export interface Asset {id:string;kind:string;src:string;recallSrc?:string;mobileSrc?:string;recallMobileSrc?:string;alt:string;captionTitle:string;attribution:string;license:string;permissionEvidence:string;referenceIds:string[];level:Scope;review:ReviewStatus;sourceUrl?:string;originalUrl?:string;termsUrl?:string}
+export interface Asset {id:string;kind:string;src:string;recallSrc?:string;mobileSrc?:string;recallMobileSrc?:string;alt:string;captionTitle:string;withheldReason?:string;interpretation?:string;attribution:string;license:string;permissionEvidence:string;referenceIds:string[];level:Scope;review:ReviewStatus;sourceUrl?:string;originalUrl?:string;termsUrl?:string}
 export interface TeachingBlock {title:string;explanation:string;referenceIds:string[]}
 export interface MechanismChallenge {title:string;instructions:string;stages:{id:string;prompt:string;options:{id:string;text:string;correct:boolean;feedback:string}[];explanation:string}[]}
 export interface Section {
@@ -12,6 +12,8 @@ export interface Section {
  claimReferences:{claim:string;referenceIds:string[]}[];referenceIds:string[];assets:string[];
  interactions:Choice[];recall:Recall[];guidePage:number;pdfPage:number;
  textbook?:{referenceId:string;printedPages:number[];pdfPages:number[]};
+ support?:{simple:string;example:string;different:string;concepts:{title:string;keywords:string[];explanation:string}[]};
+ figurePlacements?:{assetId:string;afterBlock:number}[];exampleTitle?:string;activityTitle?:string;
  prediction?:{context:string;question:Choice};scaffold?:string;
  teachingBlocks?:TeachingBlock[];enrichment?:{title:string;text:string;referenceIds:string[]};
  explorer?:{title:string;prompt?:string;features:{id:string;label:string;explanation:string}[]};

@@ -157,7 +157,7 @@ jobs:
               test "$ready" = 1 || { cat qa-artifacts/preview.log; exit 1; }
               node scripts/biology-phase9-figure-render.mjs 2>&1 | tee qa-artifacts/phase9-figures.log
               npm run preview --prefix .qa-baseline -- --host 127.0.0.1 --port 4174 > qa-artifacts/baseline-preview.log 2>&1 &
-              node scripts/biolab-guided-browser.mjs
+              node scripts/biolab-reading-browser.mjs
               ENGLISH_REGRESSIONS_ONLY=1 node scripts/biology-phase16-guarded-smoke.mjs 2>&1 | tee qa-artifacts/browser-smoke-console.log
             '
 

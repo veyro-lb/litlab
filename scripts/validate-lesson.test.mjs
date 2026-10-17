@@ -55,16 +55,16 @@ test('progressive Water teaching steps remain evidence-mapped and appear as read
   for(const block of s.teachingBlocks)assert.ok(html.includes(block.title.replaceAll('&','&amp;')),`Missing ${block.title}`);
  }
 });
-test('guided predictions and explanation controls are keyboard-native',()=>{
+test('reading is visible and optional authored support has keyboard-native controls',()=>{
  for(const id of ['A1.1.2','A1.1.4','A1.1.5','A1.1.6']){
   const s=water.sections.find(x=>x.understandingIds.includes(id));
   assert.ok(s.explorer?.prompt?.trim());
   const html=render(water,topic,'HL','learn',id);
-  assert.ok(html.includes('Make a prediction and give a reason'));
-  assert.ok(html.includes('Learning activity'));
-  const explanation=render(water,topic,'HL','learn',id,1);
-  assert.ok(explanation.includes('role="group"'));
-  assert.ok(explanation.includes('aria-pressed'));
+  assert.ok(html.includes('Need this explained more simply?'));
+  assert.ok(html.includes('Choose explanation support'));
+  assert.ok(html.includes('Simplify this'));
+  assert.ok(!html.includes('bio-learning-step'));
+  for(const b of s.teachingBlocks)assert.ok(html.includes(b.explanation.replaceAll('&','&amp;').replaceAll('>','&gt;').replaceAll('<','&lt;').replaceAll('\"','&quot;').replaceAll("'",'&#x27;')));
  }
 });
 test('an HL-only or unknown deep link cannot reveal an SL practice target',()=>{
@@ -102,5 +102,18 @@ for(const slug of ['carbohydrates-lipids','proteins']){
    const body=html.split(`data-question-id="${q.id}"`)[1].split('</fieldset>')[0];
    q.options.forEach((o,i)=>{const encoded=renderToStaticMarkup(createElement('span',null,o.text)).slice(6,-7);assert.ok(body.includes(`<b>${String.fromCharCode(65+i)}.</b> ${encoded}`));assert.ok(body.includes(`value="${o.id}"`))});
   }
+ });
+}
+
+for(const [name,mutate] of [
+ ['empty simpler explanation',d=>d.sections[0].support.simple=''],
+ ['no matching keywords',d=>d.sections[0].support.concepts[0].keywords=[]],
+ ['out-of-range figure placement',d=>d.sections[1].figurePlacements[0].afterBlock=99],
+ ['unmapped figure placement',d=>d.sections[1].figurePlacements[0].assetId='missing']
+])test('authored reading contract rejects '+name,()=>{const d=structuredClone(water);mutate(d);assert.ok(validateLesson(d,topic).length)});
+for(const entry of Object.values(JSON.parse(await readFile(new URL('../src/biology/learning/catalog.json',import.meta.url),'utf8')))){
+ const d=JSON.parse(await readFile(new URL('../src/biology/learning/'+entry.path.slice(2),import.meta.url),'utf8'));const t=registry.find(t=>t.id===d.topicId);
+ test(d.topicId+' full scientific prose renders without opening teaching panels',()=>{
+  for(const section of d.sections){const html=render(d,t,'HL','learn',section.understandingIds[0]);for(const block of section.teachingBlocks){const encoded=renderToStaticMarkup(createElement('p',null,block.explanation)).slice(3,-4);assert.ok(html.includes(encoded),section.understandingIds[0]+' hidden or missing prose')};assert.ok(!html.includes('bio-learning-step'));assert.ok(!html.includes('bio-phase-nav'));assert.ok(html.includes('Need this explained more simply?'))}
  });
 }
