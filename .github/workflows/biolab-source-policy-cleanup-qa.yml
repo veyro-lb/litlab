@@ -46,19 +46,34 @@ jobs:
           node scripts/validate-lessons.mjs
           node scripts/biology/source-policy-cleanup/verify.mjs
           node --test scripts/biology/source-policy-cleanup/verify.test.mjs
-      - name: Existing specialist and negative controls
-        id: specialists
+      - name: Existing D3/D4 specialist and negative controls
+        id: d3d4
+        continue-on-error: true
+        run: node scripts/biology/final-d3-d4/validate.mjs
+      - name: Existing A1/A2 specialist and negative controls
+        id: a1a2
+        continue-on-error: true
+        run: node --test scripts/biology/final-a1-a2/verify.test.mjs
+      - name: Existing B1/B2 specialist and negative controls
+        id: b1b2
+        continue-on-error: true
+        run: node scripts/biology/final-b1-b2/verify.mjs
+      - name: Existing C1/C2 specialist and negative controls
+        id: c1c2
+        continue-on-error: true
+        run: node scripts/biology/final-c1-c2/validate.mjs
+      - name: Existing C3/C4 specialist and negative controls
+        id: c3c4
         continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/biology/final-d3-d4/validate.mjs
-          node --test scripts/biology/final-a1-a2/verify.test.mjs
-          node scripts/biology/final-b1-b2/verify.mjs
-          node scripts/biology/final-c1-c2/validate.mjs
           node scripts/biology/final-c3-c4/validate-final-sprint.mjs
           node --test scripts/biology/final-c3-c4/validate-final-sprint.test.mjs
-          node --test scripts/biology/full-course/integration-negative.test.mjs
+      - name: Existing full-course negative controls
+        id: integralneg
+        continue-on-error: true
+        run: node --test scripts/biology/full-course/integration-negative.test.mjs
       - name: Production build (not deployment)
         run: npm run build
       - name: Install isolated Chromium test runtime
@@ -79,9 +94,13 @@ jobs:
         if: always()
         shell: bash
         run: |
-          echo "Existing specialist result: ${{ steps.specialists.outcome }}"
-          if [[ "${{ steps.specialists.outcome }}" != "success" ]]; then
-            echo "::error::An existing specialist regression failed; release gate remains BLOCKED."
+          failed=0
+          for result in "${{ steps.d3d4.outcome }}" "${{ steps.a1a2.outcome }}" "${{ steps.b1b2.outcome }}" "${{ steps.c1c2.outcome }}" "${{ steps.c3c4.outcome }}" "${{ steps.integralneg.outcome }}"; do
+            echo "Existing specialist step: $result"
+            if [[ "$result" != "success" ]]; then failed=1; fi
+          done
+          if [[ "$failed" -ne 0 ]]; then
+            echo "::error::At least one existing specialist regression failed; release gate remains BLOCKED."
             exit 1
           fi
       - name: Preserve source-policy browser evidence
