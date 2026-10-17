@@ -3302,6 +3302,53 @@
         "A coordinated neural network can integrate visual inputs, memories and decisions in ways one isolated neuron cannot."
       ],
       "review": "scientific-review"
+    },
+    {
+      "id": "c22-data-spike-frequency-20261017",
+      "paper": "1B",
+      "kind": "structured",
+      "understandingIds": [
+        "C2.2.8",
+        "C2.2.10"
+      ],
+      "level": "HL",
+      "prompt": "An oscilloscope trace has six action-potential peaks during a 0.30 s observation window. Their individual heights are approximately +30 mV. Calculate impulse frequency, specify the unit, and explain why a stronger sustained stimulus typically alters frequency rather than spike amplitude. [5]",
+      "marks": 5,
+      "sectionId": "c22-10",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "data": {
+        "caption": "Invented trace summary; approximate positive peak is not an exact universal spike voltage.",
+        "headers": [
+          "Trace property",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Number of peaks",
+            6
+          ],
+          [
+            "Observation window (s)",
+            0.3
+          ],
+          [
+            "Approximate peak membrane voltage (mV)",
+            30
+          ]
+        ]
+      },
+      "answer": "Frequency = 6/0.30 s = 20 Hz. Once threshold is reached, a spike is regenerative and approximately all-or-nothing; stimulus intensity can alter spike frequency. The +30 mV value is voltage, not frequency.",
+      "markingPoints": [
+        "Use impulses divided by time.",
+        "Calculate 6/0.30 = 20.",
+        "Give Hz or s⁻¹ as the unit of frequency.",
+        "Voltage-gated channel opening produces regenerative, approximately all-or-nothing action potentials.",
+        "A stronger stimulus often recruits more spikes per unit time, not a proportionally higher membrane-voltage peak."
+      ],
+      "review": "scientific-review"
     }
   ],
   "references": [
