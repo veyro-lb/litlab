@@ -19,4 +19,22 @@ for(const slug of ['membranes-transport','organelles-compartmentalization']){
   ['missing correction',x=>x.sections[0].misconceptions=[]]
  ])test(d.topicId+' rejects '+name,()=>{const x=JSON.parse(JSON.stringify(d));fn(x);assert.ok(validatePhase7(x,topic).length)});
 }
-test('all 26 original figure pairs exist',async()=>{const r=await checkFiles();assert.deepEqual(r.errors,[]);assert.equal(r.summary.reduce((n,s)=>n+s.figures,0),26)});
+test('all 23 retained recall pairs and 4 reviewed single-frame replacements exist',async()=>{
+ const r=await checkFiles();
+ assert.deepEqual(r.errors,[]);
+ assert.equal(r.summary.reduce((n,s)=>n+s.figures,0),27);
+ const B21=JSON.parse(await readFile(new URL('../src/biology/learning/membranes-transport/lesson.json',import.meta.url),'utf8'));
+ const B22=JSON.parse(await readFile(new URL('../src/biology/learning/organelles-compartmentalization/lesson.json',import.meta.url),'utf8'));
+ assert.equal([...B21.assets,...B22.assets].filter(a=>a.recallSrc).length,23);
+ assert.deepEqual(B21.assets.filter(a=>!a.recallSrc).map(a=>a.id).sort(),['b21-figure-15','b21-figure-16','b21-figure-7','b21-transport-table']);
+});
+test('single-frame replacements cannot evade source-path and recall-pair checks',async()=>{
+ const B21=JSON.parse(await readFile(new URL('../src/biology/learning/membranes-transport/lesson.json',import.meta.url),'utf8'));
+ const topic=t.find(x=>x.id==='B2.1');
+ const bad=structuredClone(B21);
+ bad.assets.find(a=>a.id==='b21-figure-15').src='/biology/membranes-transport/unknown-pump.svg';
+ assert.ok(validatePhase7(bad,topic).some(x=>x.includes('Asset review')));
+ const badPair=structuredClone(B21);
+ badPair.assets.find(a=>a.id==='b21-figure-1').recallSrc='';
+ assert.ok(validatePhase7(badPair,topic).some(x=>x.includes('Asset review')));
+});
