@@ -20,7 +20,7 @@ The five existing lesson packages were **preserved and refined**, rather than re
 | B4.2 Ecological niches | 13 | 0 | 14 | 2 | Nutritional modes, diet inference, predator–prey adaptations, plant forms, competition, actual versus potential niche; conceptual contrasts |
 | **Total** | **41** | **21** | **72** | **9** | **62 numbered lesson sections** |
 
-The original digital-textbook reader is unchanged. Nine purposeful comparisons render through the **existing** `visuals` schema at the relevant reading block. They are not decorative overlays or syllabus inventories. The figures continue to use existing asset and placement schema.
+The original digital-textbook reader is unchanged. Two additional authentic Commons-sourced microscopy observations are now integrated via the existing opt-in `AuthenticMicroscopy` component for B3.1.8 and B3.2.9, with creator and licence links visible to learners; a source-described 0.2 mm scale bar exists for the leaf, while the stem has only nominal 10× magnification. This **does not** certify learner-collected measurements. Nine purposeful comparisons render through the **existing** `visuals` schema at the relevant reading block. They are not decorative overlays or syllabus inventories. The figures continue to use existing asset and placement schema.
 
 ### Visuals and scientific corrections
 
@@ -30,7 +30,7 @@ The original digital-textbook reader is unchanged. Nine purposeful comparisons r
 - **B3.1.11–13:** distinguishes HbF's affinity from binding capacity, adult versus foetal globin and high-CO₂ right shifts at matched oxygen partial pressure. The original haemoglobin plots remain identified as constructed Hill-model curves, **not measured blood samples**.
 - **B3.2.18, B4.1.6, B4.2.12:** xylem/phloem mechanisms are compared; climate tolerance and niche figures remain explicitly **conceptual models**, not recorded observations.
 
-No images, numerical measurements, field observations or rights licenses were fabricated. Existing unverified photography/observational exercise gaps are documented, **not marked completed**.
+No images, numerical measurements, field observations or rights licences were fabricated. The two authentic observations are third-party microscope images with their real creators' published CC terms, not student-collected source data. Other observational gaps are documented, **not marked completed**.
 
 ### Deliverables
 
@@ -38,7 +38,8 @@ No images, numerical measurements, field observations or rights licenses were fa
 - `public/biology/muscle-motility/sarcomere.svg`: corrected old art; `sarcomere-mobile.svg`: new responsive composition.
 - `public/biology/transport/heart-frontal.svg` and `heart-frontal-mobile.svg`: new original anatomy drawings.
 - `docs/biology/final-b3-b4/UNDERSTANDING_LEDGER.json`: **62 separate numbered records** identifying prescribed requirement (paraphrased), scope, Guide/Hodder locators, titles/explanation, scientific correction, visual/assessment changes, real QA state and specialist blockers.
-- `docs/biology/final-b3-b4/QA_RESULTS.json`: explicit executed/not-executed matrix.
+- `docs/biology/final-b3-b4/QA_RESULTS.json`: explicit executed/not-executed matrix and two verified Commons source-licence checks.
+- `docs/biology/final-b3-b4/FIGURE_PROVENANCE.md`: figure changes, exact microscope image URLs, creator attribution, CC licence, scale limits and remaining gaps.
 - `scripts/biology/final-b3-b4/validate.mjs` and `negative.test.mjs`: native positive gate and seven intentional mutation tests awaiting execution from a checkout.
 - This `FINAL_HANDOFF.md`.
 
@@ -67,7 +68,7 @@ Then run an isolated **local** preview for 320, 390, 768 and 1440 CSS-pixel view
 | Topic | Outstanding evidence or qualified review |
 | --- | --- |
 | B3.1 | Verified, rights-cleared low-power dicot leaf microscopy (B3.1.8), real calibrated stomatal density count/leaf casts (B3.1.10), real repeated spirometry where applying observation skills (B3.1.6), specialist validation of alveolus and model Hb curves |
-| B3.2 | Authenticated artery/vein and stem/root micrographs (B3.2.2, .9, .10), source-identified real CHD epidemiological data replacing the synthetic demonstration if empirical claims are intended (.6), physiological sign-off on capillary reabsorption caveat (.11), specialist flow-trace check on new frontal heart (.15) |
+| B3.2 | Authentic artery/vein and root micrographs still needed (B3.2.2, .10); real dicot stem photomicrograph now supplied (.9), but no calibrated dimensional scale or independent species confirmation, source-identified real CHD epidemiological data replacing the synthetic demonstration if empirical claims are intended (.6), physiological sign-off on capillary reabsorption caveat (.11), specialist flow-trace check on new frontal heart (.15) |
 | B3.3 | Independent sarcomere filament and motor-unit diagram review (.2, .4), repeated calibrated goniometer or image-analysis data for student observational assessment (.7) |
 | B4.1 | Real student-collected natural/semi-natural field transects and abiotic readings (.4), independent climate/biome diagram assessment (.6) |
 | B4.2 | Rights-cleared, metadata-backed Hominidae skull/dentition collection (.8), empirical competition evidence if any niche graphic is to be described as observed rather than a theoretical illustration (.12–13) |
