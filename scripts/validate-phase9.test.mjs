@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readNew,checkScientificRegressions,validatePhase9} from './validate-phase9.mjs';
-test('eight registered drafts and frozen 40-topic official registry',()=>{const r=validatePhase9();assert.deepEqual(r.errors,[]);assert.deepEqual([r.summary.activeUnderstandings,r.summary.shared,r.summary.HL],[101,63,38]);});
+test('nine registered source-mapped drafts, 115 understandings and frozen 40-topic official registry',()=>{const r=validatePhase9();assert.deepEqual(r.errors,[]);assert.deepEqual([r.summary.activeTopics,r.summary.activeUnderstandings,r.summary.shared,r.summary.HL],[9,115,74,41]);});
 for(const [name,id,bad,needle] of [
  ['pump cannot reverse Na/K stoichiometry','b21-paper1a-15','Two Na+ leave and three K+ enter per ATP.','stoichiometry'],
  ['secondary transport is driven by sodium, not direct carrier ATP hydrolysis','b21-paper1a-16','ATP is hydrolysed directly by every SGLT.','driving force'],

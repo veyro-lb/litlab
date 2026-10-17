@@ -31,7 +31,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What makes a structure an organelle, and how did researchers discover individual organelle functions?",
-      "explanation": "A ribosome links amino acids into a polypeptide; a vesicle encloses cargo; the plasma membrane controls exchange at the cell boundary. Each is a discrete subunit adapted to a function. For this course, nuclei, vesicles, ribosomes and the plasma membrane are organelles. The cell wall, cytoskeleton and cytoplasm are not classified as organelles in the IB understanding. A membrane is therefore not the defining test: ribosomes are not membrane-bound. Prokaryotes have ribosomes and a plasma membrane, even though they lack a membrane-enclosed nucleus.\n\nSeeing a structure does not tell us all its functions. Researchers can gently disrupt cells in a suitable medium to make a homogenate while retaining many intact organelles. Conditions matter: if organelles rupture, their contents may appear in the wrong fraction. The preparation is then centrifuged. A pellet collects sedimented material, while the supernatant contains material still suspended. The supernatant can be spun again at a higher force or for longer to obtain another enriched fraction.\n\nIn differential centrifugation, nuclei generally sediment before smaller organelles; mitochondria can be enriched in a later pellet, and ribosomes require higher forces or longer times. Sedimentation depends on particle size, density and shape, as well as the medium and spinning conditions. This differs from equilibrium density-gradient separation, which sorts particles by buoyant density. Fractions are enriched mixtures, not automatically pure preparations. Testing more than one marker helps distinguish the activity of an organelle from contamination.\n\nThe ultracentrifuge made much finer separation possible. Scientists could ask whether a biochemical activity followed a particular organelle fraction, then compare results across preparations. This links a structure to evidence of function, rather than relying on appearance alone. A high mitochondrial marker in a fraction supports mitochondrial enrichment. It does not show that every other organelle is absent or that all mitochondria remain functional. In the investigation, use competing markers to decide which fraction deserves further study.",
+      "explanation": "A cell performs many different tasks at once, and each task depends on specialized structures. Ribosomes assemble polypeptides, vesicles enclose and transport cargo, and the plasma membrane regulates exchange at the cell boundary. These are all organelles in the IB Biology classification, as are nuclei. The cell wall, cytoskeleton and cytoplasm are not classified as organelles here. A surrounding membrane is not a requirement: ribosomes lack one. Prokaryotic cells also contain ribosomes and a plasma membrane, although they do not have a membrane-enclosed nucleus.\n\nSeeing a structure does not tell us all its functions. Researchers can gently disrupt cells in a suitable medium to make a homogenate while retaining many intact organelles. Conditions matter: if organelles rupture, their contents may appear in the wrong fraction. The preparation is then centrifuged. A pellet collects sedimented material, while the supernatant contains material still suspended. The supernatant can be spun again at a higher force or for longer to obtain another enriched fraction.\n\nIn differential centrifugation, nuclei generally sediment before smaller organelles; mitochondria can be enriched in a later pellet, and ribosomes require higher forces or longer times. Sedimentation depends on particle size, density and shape, as well as the medium and spinning conditions. This differs from equilibrium density-gradient separation, which sorts particles by buoyant density. Fractions are enriched mixtures, not automatically pure preparations. Testing more than one marker helps distinguish the activity of an organelle from contamination.\n\nThe ultracentrifuge made much finer separation possible. Scientists could ask whether a biochemical activity followed a particular organelle fraction, then compare results across preparations. This links a structure to evidence of function, rather than relying on appearance alone. A high mitochondrial marker in a fraction supports mitochondrial enrichment. It does not show that every other organelle is absent or that all mitochondria remain functional. In the investigation, use competing markers to decide which fraction deserves further study.",
       "revisionSummary": "Nuclei, vesicles, ribosomes and plasma membranes count; cell wall, cytoskeleton and cytoplasm do not.",
       "terms": [
         "Organelle: discrete, functionally specialized cell subunit",
@@ -47,7 +47,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "A ribosome links amino acids into a polypeptide; a vesicle encloses cargo; the plasma membrane controls exchange at the cell boundary. Each is a discrete subunit adapted to a function. For this course, nuclei, vesicles, ribosomes and the plasma membrane are organelles. The cell wall, cytoskeleton and cytoplasm are not classified as organelles in the IB understanding. A membrane is therefore not the defining test: ribosomes are not membrane-bound. Prokaryotes have ribosomes and a plasma membrane, even though they lack a membrane-enclosed nucleus.",
+          "claim": "A cell performs many different tasks at once, and each task depends on specialized structures. Ribosomes assemble polypeptides, vesicles enclose and transport cargo, and the plasma membrane regulates exchange at the cell boundary. These are all organelles in the IB Biology classification, as are nuclei. The cell wall, cytoskeleton and cytoplasm are not classified as organelles here. A surrounding membrane is not a requirement: ribosomes lack one. Prokaryotic cells also contain ribosomes and a plasma membrane, although they do not have a membrane-enclosed nucleus.",
           "referenceIds": [
             "hodder-b22",
             "ib-guide-b22"
@@ -148,7 +148,7 @@
       "teachingBlocks": [
         {
           "title": "A function needs a structure",
-          "explanation": "A ribosome links amino acids into a polypeptide; a vesicle encloses cargo; the plasma membrane controls exchange at the cell boundary. Each is a discrete subunit adapted to a function. For this course, nuclei, vesicles, ribosomes and the plasma membrane are organelles. The cell wall, cytoskeleton and cytoplasm are not classified as organelles in the IB understanding. A membrane is therefore not the defining test: ribosomes are not membrane-bound. Prokaryotes have ribosomes and a plasma membrane, even though they lack a membrane-enclosed nucleus.",
+          "explanation": "A cell performs many different tasks at once, and each task depends on specialized structures. Ribosomes assemble polypeptides, vesicles enclose and transport cargo, and the plasma membrane regulates exchange at the cell boundary. These are all organelles in the IB Biology classification, as are nuclei. The cell wall, cytoskeleton and cytoplasm are not classified as organelles here. A surrounding membrane is not a requirement: ribosomes lack one. Prokaryotic cells also contain ribosomes and a plasma membrane, although they do not have a membrane-enclosed nucleus.",
           "referenceIds": [
             "hodder-b22",
             "ib-guide-b22"
@@ -1883,7 +1883,33 @@
             "explanation": "Secretory vesicle means cargo-containing membrane compartment. Rough ER synthesis → vesicular delivery → Golgi processing/sorting → secretory vesicle → plasma membrane fusion."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "How a secreted protein moves through the cell",
+          "afterBlock": 2,
+          "steps": [
+            {
+              "title": "Rough ER",
+              "description": "A signal-targeted polypeptide is synthesized into or across the ER membrane."
+            },
+            {
+              "title": "Transport carriers",
+              "description": "Cargo travels between compartments in membrane-bounded carriers."
+            },
+            {
+              "title": "Golgi",
+              "description": "Cargo can be modified and sorted along the cis-to-trans pathway."
+            },
+            {
+              "title": "Plasma membrane",
+              "description": "A vesicle fuses and releases soluble cargo by exocytosis."
+            }
+          ],
+          "note": "Simplified secretory route. Cargo-specific modifications and routes vary; membranes preserve their orientation."
+        }
+      ]
     },
     {
       "id": "organelle-9",

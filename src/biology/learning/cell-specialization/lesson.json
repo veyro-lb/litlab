@@ -216,7 +216,33 @@
             "explanation": "development of specialized cellular features and functions. Morphogen concentration gradients can alter expression patterns and influence early cell fates. Position-dependent signals alter gene expression while the inherited genome usually remains the same."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "From position to specialized function",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Positional signal",
+              "description": "Embryonic cells encounter different concentrations of a morphogen."
+            },
+            {
+              "title": "Gene regulation",
+              "description": "Signal pathways alter which genes are expressed."
+            },
+            {
+              "title": "Protein changes",
+              "description": "Different proteins and activities develop inside cells."
+            },
+            {
+              "title": "Differentiation",
+              "description": "Cells acquire distinct structures and roles."
+            }
+          ],
+          "note": "A simplified causal chain; cell competence and developmental history also influence the response."
+        }
+      ]
     },
     {
       "id": "b23-2",
@@ -831,7 +857,37 @@
             "explanation": "group of cells inside a mammalian blastocyst that contributes to the embryo. Totipotent potential is broader than pluripotent, which is broader than multipotent. Totipotency includes the ability to generate all necessary embryonic and extraembryonic lineages; pluripotency does not."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Totipotent, pluripotent and multipotent",
+          "afterBlock": 1,
+          "headers": [
+            "Potency",
+            "Potential",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Totipotent",
+              "Can contribute to embryonic and necessary extraembryonic tissues",
+              "Zygote and some very early blastomeres"
+            ],
+            [
+              "Pluripotent",
+              "Can form cell types of the three embryonic germ layers, but not alone all tissues needed for a complete organism",
+              "Embryonic stem cells from the inner cell mass"
+            ],
+            [
+              "Multipotent",
+              "Can form a restricted family of related cell types",
+              "Haematopoietic stem cells forming blood lineages"
+            ]
+          ],
+          "note": "Potency describes developmental potential, not a promise that any cultured cell will form every listed lineage."
+        }
+      ]
     },
     {
       "id": "b23-5",
@@ -1400,7 +1456,30 @@
             "explanation": "a stated simplification used to analyse a system. For similar shapes, surface area scales as L² and volume as L³, so SA:V decreases as cells enlarge. Area scales with side length squared and volume with its cube; SA:V falls as 1/L."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "bars",
+          "title": "A growing cube has less surface area per volume",
+          "afterBlock": 1,
+          "unit": "µm⁻¹ (SA divided by V)",
+          "values": [
+            {
+              "label": "1 µm cube",
+              "value": 6
+            },
+            {
+              "label": "2 µm cube",
+              "value": 3
+            },
+            {
+              "label": "4 µm cube",
+              "value": 1.5
+            }
+          ],
+          "note": "Calculated geometric model: SA = 6L², V = L³, so SA/V = 6/L. Equal-shaped cubes, not experimental cell measurements."
+        }
+      ]
     },
     {
       "id": "b23-7",
@@ -1583,7 +1662,37 @@
             "explanation": "red blood cell. Flattening, microvilli and invagination can increase effective membrane surface relative to volume. Microvilli are short surface projections that enlarge membrane area; cilia and flagella have different architectures and functions."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Surface adaptations: match form to transport function",
+          "afterBlock": 1,
+          "headers": [
+            "Cell adaptation",
+            "Geometry effect",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Flattened shape",
+              "Shorter diffusion distance and greater area relative to volume",
+              "Thin exchange cells"
+            ],
+            [
+              "Microvilli",
+              "Many small projections increase membrane area",
+              "Kidney proximal-tubule epithelium"
+            ],
+            [
+              "Membrane invaginations",
+              "Additional membrane surface within a volume",
+              "Some transport-specialized epithelial cells"
+            ]
+          ],
+          "note": "Microvilli increase exchange area; motile cilia are not interchangeable with microvilli."
+        }
+      ]
     },
     {
       "id": "b23-8",
@@ -1774,7 +1883,37 @@
             "explanation": "material that reduces surface tension at an interface. Type I pneumocytes shorten gas diffusion distance, while type II release surfactant to lower surface tension. Type I cells are thin for gas diffusion; type II cells store and secrete surfactant from lamellar bodies."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Two alveolar cell types have different jobs",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Type I pneumocyte",
+            "Type II pneumocyte"
+          ],
+          "rows": [
+            [
+              "Typical shape",
+              "Extremely thin and spread out",
+              "More cuboidal"
+            ],
+            [
+              "Principal role",
+              "Provides short gas diffusion path",
+              "Produces and secretes pulmonary surfactant"
+            ],
+            [
+              "Adaptation",
+              "Large, thin exchange surface",
+              "Secretory machinery and surfactant-containing lamellar bodies"
+            ]
+          ],
+          "note": "Surfactant lowers surface tension and helps prevent alveolar collapse; it does not directly increase oxygen concentration."
+        }
+      ]
     },
     {
       "id": "b23-9",
@@ -1973,7 +2112,42 @@
             "explanation": "a multinucleated continuous cellular unit. Cardiac cells are typically branched with central nuclei; skeletal fibres are long, unbranched and multinucleated. Its multiple nuclei occupy a continuous fused cell bounded by one sarcolemma."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Cardiac and skeletal muscle cell organization",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Cardiomyocyte",
+            "Skeletal muscle fibre"
+          ],
+          "rows": [
+            [
+              "Form",
+              "Often branched and relatively short",
+              "Long cylindrical cell, usually unbranched"
+            ],
+            [
+              "Nuclei",
+              "Usually one or two central nuclei",
+              "Many peripheral nuclei"
+            ],
+            [
+              "Connections",
+              "Intercalated discs join neighboring cells",
+              "Each fibre is one fused multinucleate cell"
+            ],
+            [
+              "Control",
+              "Involuntary rhythmic contraction",
+              "Normally voluntary motor-unit activation"
+            ]
+          ],
+          "note": "Both are striated; striation alone cannot distinguish the two tissues."
+        }
+      ]
     },
     {
       "id": "b23-10",
@@ -2171,7 +2345,42 @@
             "explanation": "long cellular projection that can support movement. Sperm have motility-related structures; the oocyte provides substantial cytoplasm for early development. Human gametes are haploid; the egg's larger cytoplasm supports early developmental processes."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Gamete form follows function",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Spermatozoon",
+            "Human secondary oocyte"
+          ],
+          "rows": [
+            [
+              "Size and cytoplasm",
+              "Small cell with limited cytoplasm",
+              "Large cell with abundant cytoplasm"
+            ],
+            [
+              "Motility",
+              "Flagellum supports swimming",
+              "Does not swim using a flagellum"
+            ],
+            [
+              "Fertilization role",
+              "Delivers haploid nuclear material; acrosomal proteins aid interactions",
+              "Supplies maternal haploid material and cytoplasmic resources"
+            ],
+            [
+              "Energy-related structures",
+              "Mitochondria concentrated in midpiece",
+              "Numerous mitochondria in cytoplasm"
+            ]
+          ],
+          "note": "The ovulated human cell is a secondary oocyte arrested in meiosis II until fertilization; avoid treating it as already a completed ovum."
+        }
+      ]
     }
   ],
   "questions": [

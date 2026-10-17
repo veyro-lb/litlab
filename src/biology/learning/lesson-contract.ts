@@ -4,6 +4,18 @@ export interface Reference {id:string;title:string;url?:string;locator:string;ac
 export interface Choice {kind:'selection';id:string;prompt:string;understandingIds:string[];options:{id:string;text:string;correct:boolean;feedback:string}[]}
 export interface Recall {enrichment?:boolean;kind:'recall';id:string;prompt:string;answer:string;explanation:string;understandingIds:string[]}
 export interface Asset {id:string;kind:string;src:string;recallSrc?:string;mobileSrc?:string;recallMobileSrc?:string;alt:string;captionTitle:string;withheldReason?:string;interpretation?:string;attribution:string;license:string;permissionEvidence:string;referenceIds:string[];level:Scope;review:ReviewStatus;sourceUrl?:string;originalUrl?:string;termsUrl?:string}
+/** Contextual visuals are editorially authored for a specific understanding.
+ * Numeric values must be real source values or explicitly declared calculations/models.
+ */
+export type LearningVisual =
+ | {kind:'comparison'; title:string; afterBlock:number; headers:string[]; rows:string[][]; note?:string}
+ | {kind:'sequence'; title:string; afterBlock:number; steps:{title:string;description:string}[]; note?:string}
+ | {kind:'bars'; title:string; afterBlock:number; unit:string; values:{label:string;value:number}[]; note:string};
+export interface AuthenticMicrograph {
+ id:string; title:string; specimen:string; modality:'light'|'TEM'; referenceId:string;
+ imageUrl:string; sourceUrl:string; author:string; license:string; licenseUrl:string;
+ observationPrompt:string; expectedEvidence:string; scaleNote:string; limitation:string;
+}
 export interface TeachingBlock {title:string;explanation:string;referenceIds:string[]}
 export interface MechanismChallenge {title:string;instructions:string;stages:{id:string;prompt:string;options:{id:string;text:string;correct:boolean;feedback:string}[];explanation:string}[]}
 export interface Section {
@@ -20,6 +32,7 @@ export interface Section {
  mechanismChallenge?:MechanismChallenge;
  molecularViewer?:{title:string;structureId:string;url:string;prompt:string;fallback:string;referenceId:string};
  graphTables?:{caption:string;headers:string[];rows:(string|number)[][]}[];
+ visuals?:LearningVisual[]; authenticMicrographs?:AuthenticMicrograph[];
 }
 export interface Question {
  id:string;paper:'1A'|'1B'|'2';kind:string;original:true;understandingIds:string[];level:Scope;prompt:string;marks:number;

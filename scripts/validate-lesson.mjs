@@ -27,6 +27,15 @@ export function validateLesson(d,topic){
   if(s.figurePlacements&&(!Array.isArray(s.figurePlacements)||s.figurePlacements.length!==s.assets.length||new Set(s.figurePlacements.map(p=>p.assetId)).size!==s.assets.length||s.figurePlacements.some(p=>!s.assets.includes(p.assetId)||!Number.isInteger(p.afterBlock)||p.afterBlock<0||p.afterBlock>=(s.teachingBlocks?.length??0))))fail('Invalid in-text figure placement '+s.id);
   if(s.prediction){choice(s.prediction.question);if(!s.prediction.context?.trim()||s.prediction.question.understandingIds?.some(id=>!s.understandingIds.includes(id)))fail('Invalid prediction mapping '+s.id)}
   if(s.graphTables&&(!Array.isArray(s.graphTables)||s.graphTables.some(g=>!g.caption||!g.headers?.length||!g.rows?.length||g.rows.some(row=>row.length!==g.headers.length))))fail('Invalid graph table '+s.id);
+  if(s.authenticMicrographs){
+   if(!Array.isArray(s.authenticMicrographs)||new Set(s.authenticMicrographs.map(c=>c.id)).size!==s.authenticMicrographs.length)fail('Duplicate/invalid authentic microscopy '+s.id);
+   for(const c of s.authenticMicrographs){
+    if(!c.id||!c.title||!c.specimen||!['light','TEM'].includes(c.modality)||!c.observationPrompt||!c.expectedEvidence||!c.scaleNote||!c.limitation||!c.author||!c.license||!c.licenseUrl||!refs.has(c.referenceId)||!s.referenceIds.includes(c.referenceId))fail('Unmapped authentic microscopy '+s.id);
+    if(!c.imageUrl?.startsWith('https://upload.wikimedia.org/wikipedia/commons/')||!c.sourceUrl?.startsWith('https://commons.wikimedia.org/wiki/File:')||!c.licenseUrl?.startsWith('https://'))fail('Unverified external microscopy domain '+s.id);
+    if(!/calibrat|scale|nm|source/i.test(c.scaleNote))fail('Missing scale interpretation limits '+s.id);
+   }
+  }
+
   if(s.molecularViewer&&(!s.molecularViewer.title||!s.molecularViewer.prompt||!s.molecularViewer.fallback||!s.molecularViewer.structureId||!s.molecularViewer.url.startsWith('https://www.rcsb.org/3d-view/')||!refs.has(s.molecularViewer.referenceId)))fail('Invalid molecular viewing '+s.id);
   if(s.enrichment){if(!s.enrichment.title||!s.enrichment.text)fail(`Missing enrichment ${s.id}`);checkRefs(s.enrichment.referenceIds,s.id)}
   if(s.textbook){checkRefs([s.textbook.referenceId],s.id);if(!s.textbook.printedPages?.length||s.textbook.printedPages.length!==s.textbook.pdfPages?.length)fail(`Incomplete textbook locator ${s.id}`)}

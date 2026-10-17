@@ -21,7 +21,7 @@
         "A1.1.1"
       ],
       "level": "shared",
-      "explanation": "Think of a seed after rain: water makes movement and chemical change possible inside living cells. The earliest cells arose in an aqueous environment. Water remains the medium for most cellular processes, including many enzyme-catalysed reactions.\n\nThe cytosol is the aqueous part of the cytoplasm. Dissolved substances can move through it and meet reaction partners. Water also carries solutes between parts of an organism: mineral ions travel in xylem sap, and many substances travel in blood plasma. A medium is the surrounding environment in which a process occurs; it need not be the reactant in every reaction.\n\nLife depends on both an aqueous phase and organized boundaries. Hydrophobic regions of membrane lipids help separate cells from their surroundings. Water enables many processes but does not, by itself, create a living cell.\n\nIn a dry mixture, many reactants cannot move freely enough to meet. In an aqueous phase, dissolved particles move randomly and diffusion can bring a substrate to an enzyme. Dissolving is not the same as reacting: water provides the setting, while the enzyme lowers the activation barrier. Some enzymes are attached to membranes rather than freely dissolved; they still operate in a hydrated environment.",
+      "explanation": "Consider a dry seed after rainfall. As its cells absorb water, dissolved molecules can move, enzymes can function and metabolic reactions can resume. Water is more than something an organism drinks: it is the liquid medium for much cellular chemistry. The earliest cells also evolved in an aqueous environment, although their precise origin remains uncertain.\n\nThe cytosol is the aqueous part of the cytoplasm. Dissolved substances can move through it and meet reaction partners. Water also carries solutes between parts of an organism: mineral ions travel in xylem sap, and many substances travel in blood plasma. A medium is the surrounding environment in which a process occurs; it need not be the reactant in every reaction.\n\nLife depends on both an aqueous phase and organized boundaries. Hydrophobic regions of membrane lipids help separate cells from their surroundings. Water enables many processes but does not, by itself, create a living cell.\n\nIn a dry mixture, many reactants cannot move freely enough to meet. In an aqueous phase, dissolved particles move randomly and diffusion can bring a substrate to an enzyme. Dissolving is not the same as reacting: water provides the setting, while the enzyme lowers the activation barrier. Some enzymes are attached to membranes rather than freely dissolved; they still operate in a hydrated environment.",
       "revisionSummary": "Early cells arose in water. Most cellular chemistry still occurs in an aqueous medium; water also supports transport.",
       "terms": [
         "Aqueous: water-based",
@@ -37,7 +37,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "Think of a seed after rain: water makes movement and chemical change possible inside living cells. The earliest cells arose in an aqueous environment. Water remains the medium for most cellular processes, including many enzyme-catalysed reactions.",
+          "claim": "Consider a dry seed after rainfall. As its cells absorb water, dissolved molecules can move, enzymes can function and metabolic reactions can resume. Water is more than something an organism drinks: it is the liquid medium for much cellular chemistry. The earliest cells also evolved in an aqueous environment, although their precise origin remains uncertain.",
           "referenceIds": [
             "bio-water",
             "chem-solvent",
@@ -142,7 +142,7 @@
       "teachingBlocks": [
         {
           "title": "Why life depends on an aqueous medium",
-          "explanation": "Think of a seed after rain: water makes movement and chemical change possible inside living cells. The earliest cells arose in an aqueous environment. Water remains the medium for most cellular processes, including many enzyme-catalysed reactions.",
+          "explanation": "Consider a dry seed after rainfall. As its cells absorb water, dissolved molecules can move, enzymes can function and metabolic reactions can resume. Water is more than something an organism drinks: it is the liquid medium for much cellular chemistry. The earliest cells also evolved in an aqueous environment, although their precise origin remains uncertain.",
           "referenceIds": [
             "bio-water",
             "chem-solvent",
@@ -886,7 +886,36 @@
           "afterBlock": 2
         }
       ],
-      "activityTitle": "Compare capillary spaces"
+      "activityTitle": "Compare capillary spaces",
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Cohesion and adhesion are different",
+          "afterBlock": 1,
+          "headers": [
+            "",
+            "Cohesion",
+            "Adhesion"
+          ],
+          "rows": [
+            [
+              "Attraction",
+              "Water molecule to water molecule",
+              "Water molecule to a polar or charged surface"
+            ],
+            [
+              "Why it matters",
+              "Maintains a continuous water column under tension",
+              "Wets cell walls and supports movement through narrow spaces"
+            ],
+            [
+              "Example",
+              "Water columns in xylem",
+              "Capillary movement through hydrophilic cell-wall fibres"
+            ]
+          ]
+        }
+      ]
     },
     {
       "id": "water-5",
@@ -1438,7 +1467,26 @@
           "afterBlock": 3
         }
       ],
-      "activityTitle": "Compare movement and heat transfer"
+      "activityTitle": "Compare movement and heat transfer",
+      "visuals": [
+        {
+          "kind": "bars",
+          "title": "Specific heat capacity: water and air",
+          "afterBlock": 2,
+          "unit": "J kg⁻¹ °C⁻¹",
+          "values": [
+            {
+              "label": "Liquid water",
+              "value": 4184
+            },
+            {
+              "label": "Air",
+              "value": 1007
+            }
+          ],
+          "note": "Values at 20°C and 1 atm from the coursebook's physical-properties table. Equal mass and temperature change; this is a comparison, not a heating experiment."
+        }
+      ]
     },
     {
       "id": "water-7",
