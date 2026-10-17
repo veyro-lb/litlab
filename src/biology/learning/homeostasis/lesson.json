@@ -386,6 +386,14 @@
             "ib-d33",
             "hodder-d33"
           ]
+        },
+        {
+          "title": "Compare insulin and glucagon loops",
+          "explanation": "A rise in blood glucose stimulates pancreatic beta-cell insulin release, promoting uptake and glycogen storage to lower blood glucose. A fall stimulates alpha-cell glucagon secretion, increasing hepatic glycogen breakdown and glucose production. Each response opposes the starting deviation; glucagon does not cause skeletal muscle to release free glucose into blood.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
         }
       ],
       "support": {
@@ -1139,6 +1147,14 @@
             "hodder-d33",
             "niddk-kidney"
           ]
+        },
+        {
+          "title": "Filtration versus selective reabsorption",
+          "explanation": "Glomerular hydrostatic pressure drives water and small solutes through the filtration barrier into Bowman's space, while cells and most proteins remain in the blood. The proximal tubule then selectively reabsorbs useful solutes; water follows osmotically. Do not describe filtration as active transport of glucose.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
         }
       ],
       "support": {
@@ -1411,6 +1427,14 @@
         {
           "title": "Feedback, consequences and limits",
           "explanation": "More water can then enter cells from tubular fluid and return to blood across basolateral pathways down the osmotic gradient established in the medulla. Urine becomes smaller in volume and more concentrated, helping reverse the original osmotic rise. When plasma osmotic concentration falls, ADH secretion decreases, aquaporin-2 channels are internalized and more dilute urine can be excreted. This is a two-direction negative-feedback system.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "ADH pathway from stimulus to effect",
+          "explanation": "High plasma osmolality activates hypothalamic osmoreceptors. The posterior pituitary releases ADH, which stimulates aquaporin-2 insertion into the apical membrane of collecting-duct cells. Water then follows an existing medullary gradient by osmosis, producing more concentrated urine; low ADH reduces collecting-duct water permeability.",
           "referenceIds": [
             "ib-d33",
             "hodder-d33"
@@ -1875,7 +1899,7 @@
         "D3.3.3"
       ],
       "level": "shared",
-      "prompt": "Explain the sequence of causes and effects in hormonal control of blood glucose, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Explain how pancreatic beta and alpha cells, their hormones and target organs oppose glucose changes after meals and during fasting.",
       "marks": 3,
       "sectionId": "homeostasis-3",
       "referenceIds": [
@@ -1884,9 +1908,9 @@
       ],
       "answer": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.\nPost-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
       "markingPoints": [
-        "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
-        "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream.",
-        "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓."
+        "Beta cells release insulin with glucose elevation.",
+        "Insulin promotes uptake/storage and lowers blood glucose.",
+        "Alpha cells release glucagon with glucose decline, increasing hepatic glucose output."
       ],
       "data": {
         "caption": "Conceptual stimulus-response pair",
