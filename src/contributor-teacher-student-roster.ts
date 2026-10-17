@@ -14,7 +14,7 @@ let scheduled=false;
 let observer:MutationObserver|null=null;
 
 function route(){return location.hash.replace(/^#/,'').split('#')[0].split('?')[0]||'home'}
-function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]||ch))}
+function esc(value:unknown){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[ch]||ch))}
 function root(){return document.querySelector<HTMLElement>('[data-contributor-workspace]')}
 function isTeacher(host:HTMLElement){return host.classList.contains('ll-teacher-reviewer-mode')||host.classList.contains('ll-hard-teacher-no-evidence')||Boolean(host.querySelector('.ll-teacher-zone,.ll-teacher-assignment'))||document.getElementById('ll-contributor-root')?.dataset.contributorAccountRole==='teacher'}
 function cards(host:HTMLElement){return Array.from(host.querySelectorAll<HTMLElement>('.ll-teacher-zone .ll-teacher-assignment'))}
