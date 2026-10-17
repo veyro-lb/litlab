@@ -1053,7 +1053,37 @@
             "explanation": "Water potential means chemical-potential description of water movement. Individual water molecules move randomly; unequal opposing flows produce the net change."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Osmotic surroundings and the predicted cell response",
+          "afterBlock": 1,
+          "headers": [
+            "Surrounding solution",
+            "Water movement relative to cell",
+            "Typical animal cell response"
+          ],
+          "rows": [
+            [
+              "Hypotonic relative to cytoplasm",
+              "Net water entry",
+              "May swell and lyse"
+            ],
+            [
+              "Isotonic relative to cytoplasm",
+              "No sustained net volume change",
+              "Maintains approximate volume"
+            ],
+            [
+              "Hypertonic relative to cytoplasm",
+              "Net water loss",
+              "Shrinks"
+            ]
+          ],
+          "note": "Tonicity depends on effectively nonpenetrating solutes and the membrane's selectivity, not merely total solution molarity. Plant cells have different outcomes because of their walls."
+        }
+      ]
     },
     {
       "id": "membrane-6",
@@ -2817,7 +2847,32 @@
             "explanation": "Vesicle means small membrane-enclosed compartment. Endocytosis buds inward and brings extracellular material inside; exocytosis fuses outward and releases lumenal material."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Endocytosis and exocytosis face opposite ways",
+          "afterBlock": 1,
+          "headers": [
+            "Event",
+            "Membrane movement",
+            "Where cargo ends up"
+          ],
+          "rows": [
+            [
+              "Endocytosis",
+              "Plasma membrane bends inward and closes around external material",
+              "Cargo enclosed inside a newly formed vesicle"
+            ],
+            [
+              "Exocytosis",
+              "Intracellular vesicle membrane fuses with plasma membrane",
+              "Vesicle contents become extracellular; vesicle membrane joins cell surface"
+            ]
+          ],
+          "note": "The membrane does not become an open hole throughout the process; budding and fusion preserve compartment boundaries."
+        }
+      ]
     },
     {
       "id": "membrane-14",
@@ -3318,7 +3373,33 @@
             "explanation": "Resting potential means membrane voltage in the unstimulated state. Per ATP: three Na+ out, two K+ in; electrogenic action and gradient maintenance support membrane potentials."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Na⁺/K⁺-ATPase: direction and stoichiometry",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Bind three intracellular Na⁺",
+              "description": "The pump binds three sodium ions on the cytosolic side."
+            },
+            {
+              "title": "Hydrolyse ATP and release Na⁺ outside",
+              "description": "ATP-dependent phosphorylation helps drive the pump into an outward-facing conformation."
+            },
+            {
+              "title": "Bind two extracellular K⁺",
+              "description": "Two potassium ions bind to the outward-facing state."
+            },
+            {
+              "title": "Release K⁺ into the cytosol",
+              "description": "Dephosphorylation helps return the protein to its inward-facing state."
+            }
+          ],
+          "note": "One catalytic cycle exchanges 3 Na⁺ out for 2 K⁺ in per ATP hydrolysed. This is electrogenic primary active transport, not a bidirectional open channel."
+        }
+      ]
     },
     {
       "id": "membrane-16",
@@ -3569,7 +3650,29 @@
             "explanation": "Enterocyte means small-intestinal absorptive epithelial cell. ATPase lowers intracellular Na+; Na+ subsequently moves downhill through an apical SGLT and can drive glucose uptake uphill."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Secondary active glucose uptake across intestinal epithelium",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Establish the sodium gradient",
+              "description": "Basolateral Na⁺/K⁺-ATPase uses ATP to maintain low intracellular Na⁺."
+            },
+            {
+              "title": "Couple Na⁺ entry to glucose uptake",
+              "description": "Apical Na⁺–glucose symport brings Na⁺ down its electrochemical gradient while carrying glucose against its gradient."
+            },
+            {
+              "title": "Transfer glucose to the blood-facing side",
+              "description": "Basolateral glucose transporters permit facilitated diffusion when the concentration gradient favors export."
+            }
+          ],
+          "note": "The glucose symporter is not directly hydrolysing ATP. The ATPase maintains the ion gradient that powers the coupled step."
+        }
+      ]
     },
     {
       "id": "membrane-17",
