@@ -71,3 +71,21 @@ test('course inventory remains 40 topics, 553 unique understandings and handout 
  assert.ok(audit.assetInventory.length>=160);
  assert.ok(audit.assetInventory.every(a=>a.scientificReview.includes('Pending')),'no premature certification');
 });
+
+test('A2.2.8 plant palisade cell is present, localized and paired with exact mobile recall',()=>{
+ const a22=json('src/biology/learning/cell-structure/lesson.json');
+ const s=a22.sections.find(s=>s.understandingIds.includes('A2.2.8'));
+ assert.ok(s.assets.includes('a22-plant-palisade'));
+ assert.deepEqual(s.figurePlacements.slice(0,2),[{assetId:'a22-plant-palisade',afterBlock:0},{assetId:'a22-groups',afterBlock:1}]);
+ const a=a22.assets.find(a=>a.id==='a22-plant-palisade');
+ assert.ok(a.alt.length>100&&a.referenceIds.includes('ib-a22'));
+ const key=['Cell wall','Chloroplast','Large central sap vacuole','Golgi apparatus','Mitochondrion','Plasma membrane','Cytoplasm','Free 80S ribosomes','Smooth endoplasmic reticulum','Rough endoplasmic reticulum','Nucleus'];
+ for(const suffix of ['','-recall','-mobile','-mobile-recall']){
+  const name='public/biology/cell-structure/a22-plant-palisade'+suffix+'.svg';
+  const s=readFileSync(join(root,name),'utf8');
+  assert.match(s,/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" viewBox=/);
+  assert.match(s,/<\/svg>\s*$/);
+  assert.doesNotMatch(s,/<script\b|<foreignObject\b|<image\b/i);
+  if(!suffix.includes('recall'))for(const label of key)assert.ok(visibleText(s).includes(label),name+' missing '+label);
+ }
+});
