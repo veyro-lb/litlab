@@ -487,6 +487,51 @@
             "ncbi-visualizing"
           ]
         }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Which microscope answers which question?",
+          "afterBlock": 1,
+          "headers": [
+            "Technique",
+            "What it reveals",
+            "Main limitation"
+          ],
+          "rows": [
+            [
+              "Light microscopy",
+              "Living cells and larger internal structures",
+              "Lower resolution than electron microscopy"
+            ],
+            [
+              "Fluorescence / immunofluorescence",
+              "Selected stains or antibody-labelled targets",
+              "Signal localization depends on marker specificity and resolution"
+            ],
+            [
+              "Transmission electron microscopy",
+              "Thin-section internal ultrastructure",
+              "Specimen preparation; normally not living cells"
+            ],
+            [
+              "Scanning electron microscopy",
+              "Surface topology",
+              "Limited internal detail"
+            ],
+            [
+              "Freeze fracture",
+              "Membrane interior faces and embedded particles",
+              "Fracture plane affects interpretation"
+            ],
+            [
+              "Cryogenic electron microscopy",
+              "Rapidly frozen hydrated structures",
+              "Requires specialist equipment and interpretation"
+            ]
+          ],
+          "note": "Select the method from the biological question; higher magnification alone is not higher resolution."
+        }
       ]
     },
     {
@@ -1222,6 +1267,46 @@
             "ncbi-visualizing",
             "ncbi-walls"
           ]
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Plant, fungal and animal cells",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Plant",
+            "Fungus",
+            "Animal"
+          ],
+          "rows": [
+            [
+              "Cell wall",
+              "Cellulose-rich",
+              "Chitin-rich",
+              "Absent"
+            ],
+            [
+              "Chloroplasts",
+              "In photosynthetic cells",
+              "Absent",
+              "Absent"
+            ],
+            [
+              "Vacuoles",
+              "Often large central sap vacuole",
+              "Variable vacuoles",
+              "Usually smaller vesicles"
+            ],
+            [
+              "Centrioles and cilia",
+              "Depend on cell and lineage",
+              "Depend on cell and lineage",
+              "Common in some animal cells"
+            ]
+          ],
+          "note": "Typical differences, not absolute rules for every cell."
         }
       ]
     },
