@@ -2535,7 +2535,9 @@
         "ncbi-rna",
         "ncbi-translation"
       ],
-      "assets": [],
+      "assets": [
+        "d12-ribosome-orientation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2683,6 +2685,12 @@
               "Releases deacylated tRNA"
             ]
           ]
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "d12-ribosome-orientation",
+          "afterBlock": 1
         }
       ]
     },
@@ -4464,6 +4472,25 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "d12-ribosome-orientation",
+      "kind": "schematic",
+      "src": "/biology/protein-synthesis/translation-codon-anticodon.svg",
+      "alt": "Schematic ribosome showing mRNA 5′-AUG GCU UAA-3′ from left to right. P-site tRNA anticodon 3′-UAC-5′ pairs with AUG and carries methionine; A-site anticodon 3′-CGA-5′ pairs with GCU and carries alanine. Ribosome moves along mRNA 5′ to 3′ during translation. UAA is a stop codon, not an amino acid.",
+      "captionTitle": "Read translation in the correct molecular directions",
+      "interpretation": "First check codon–anticodon polarity. The diagram captures codon recognition before peptide transfer and translocation, not every step in the process.",
+      "attribution": "Original BioLab vector schematic created for Final Sprint D",
+      "license": "Original first-party BioLab illustration",
+      "permissionEvidence": "Entire diagram newly authored; no publisher illustration reproduced",
+      "referenceIds": [
+        "ib-d12",
+        "hodder-d12",
+        "ncbi-rna",
+        "ncbi-translation"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
     }
   ],
   "summary": "DNA is selectively transcribed into RNA, mRNA codons are translated into polypeptide sequence, and cellular processing and turnover contribute to functional protein diversity.",
@@ -4476,7 +4503,8 @@
       "Cross-check RNA template/coding distinction, translation A/P/E sites and insulin processing against NCBI.",
       "Source-mapped teaching draft only; no independently qualified approval, official IB marking or site integration.",
       "SVG orientation and all multiple-choice explanations require figure- and question-specific review.",
-      "Final Sprint D: individually strengthened all 19 molecular explanations; added polarity, ribosome sites, transcript processing and translation visuals, plus a new codon reasoning question."
+      "Final Sprint D: individually strengthened all 19 molecular explanations; added polarity, ribosome sites, transcript processing and translation visuals, plus a new codon reasoning question.",
+      "New original diagram d12-ribosome-orientation has explanatory figure text and source metadata; independent figure/real-browser review pending."
     ]
   }
 }
