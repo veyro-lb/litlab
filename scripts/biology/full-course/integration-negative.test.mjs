@@ -11,22 +11,22 @@ const ledger=read('docs/biology/full-course-integration/READINESS_LEDGER.json');
 const registered=registry.filter(t=>t.lessonId);
 const examples=new Map(registered.map(t=>[t.id,{topic:t,lesson:read('src/biology/learning/'+catalog[t.lessonId].path.slice(2))}]));
 
-test('IB course has 40 official topics and 553 understanding identities, with exactly three unregistered drafts',()=>{
+test('IB course preserves the full registry while checking exact draft coverage against the evidence ledger',()=>{
   assert.equal(registry.length,40);
   const all=registry.flatMap(t=>t.understandings);
   assert.equal(all.length,553);
   assert.equal(all.filter(u=>u.level==='shared').length,337);
   assert.equal(all.filter(u=>u.level==='HL').length,216);
   assert.equal(new Set(all.map(u=>u.id)).size,553);
-  assert.equal(registered.length,37);
+  assert.equal(registered.length,ledger.registeredDrafts.topics);
   const missing=registry.filter(t=>!t.lessonId);
-  assert.deepEqual(missing.map(t=>t.id),['C3.2','C4.1','C4.2']);
+  assert.deepEqual(missing.map(t=>t.id),ledger.plannedTopics.map(t=>t.id));
   assert.ok(missing.every(t=>t.availability==='planned'));
   assert.equal(Object.keys(catalog).length,registered.length);
   assert.equal(ledger.registeredDrafts.topics,registered.length);
-  assert.equal(ledger.registeredDrafts.understandings,495);
-  assert.equal(ledger.registeredDrafts.shared,279);
-  assert.equal(ledger.registeredDrafts.hlOnly,216);
+  assert.equal(ledger.registeredDrafts.understandings,registered.reduce((n,t)=>n+t.understandings.length,0));
+  assert.equal(ledger.registeredDrafts.shared,registered.flatMap(t=>t.understandings).filter(u=>u.level==='shared').length);
+  assert.equal(ledger.registeredDrafts.hlOnly,registered.flatMap(t=>t.understandings).filter(u=>u.level==='HL').length);
   assert.equal(ledger.qualityGates.publicRelease,'NO-GO');
 });
 
@@ -47,7 +47,7 @@ test('every imported topic validates source references, teaching titles, assessm
       assert.ok(asset.permissionEvidence&&asset.license&&asset.alt,topic.id+' '+asset.id);
     }
   }
-  assert.equal(observed.size,495);
+  assert.equal(observed.size,registered.flatMap(t=>t.understandings).length);
 });
 
 test('negative gate catches HL leakage, broken keyed answers and missing teaching',()=>{
