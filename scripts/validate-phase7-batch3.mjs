@@ -24,7 +24,18 @@ export function validatePhase7(d,topic){
  }
  for(const q of d.questions)if(q.paper==='1A'&&(q.options?.length!==4||q.options.filter(o=>o.correct).length!==1||q.options.some(o=>!o.feedback?.trim())))fail('Incorrect options '+q.id);
  for(const q of d.questions)if(q.paper!=='1A'&&(!q.answer||!q.markingPoints?.length))fail('Written marking '+q.id);
- for(const a of d.assets)if(!a.recallSrc||!a.permissionEvidence||a.review==='approved')fail('Asset review '+a.id);
+ const authoredSingleFigures = {
+  'b21-figure-7':'/biology/membranes-transport/pump-alternating-access-20261017.svg',
+  'b21-figure-15':'/biology/membranes-transport/sodium-potassium-pump-20261017.svg',
+  'b21-figure-16':'/biology/membranes-transport/intestinal-glucose-topology-20261017.svg',
+  'b21-transport-table':'/biology/membranes-transport/transport-pathways-20261017.svg'
+ };
+ for(const a of d.assets){
+  const intentionallySingle=d.topicId==='B2.1'&&authoredSingleFigures[a.id]===a.src;
+  if(!a.src||!a.permissionEvidence||a.review==='approved'||(!a.recallSrc&&!intentionallySingle))
+   fail('Asset review '+a.id);
+  if(a.recallSrc===a.src)fail('Distinct recall asset required '+a.id);
+ }
  if(d.topicId==='B2.1'&&!d.sections[14].explanation.includes('three Na+'))fail('Pump stoichiometry');
  if(d.topicId==='B2.2'&&!['cell wall','cytoskeleton','cytoplasm','ribosomes'].every(v=>d.sections[0].explanation.includes(v)))fail('IB organelle definition');
  return errors;
@@ -38,7 +49,7 @@ export async function checkFiles(){
   const d=JSON.parse(await readFile(path.join(root,'src/biology/learning',e.path.slice(2)),'utf8'));
   const t=topics.find(x=>x.id===d.topicId);
   errors.push(...validatePhase7(d,t).map(x=>d.topicId+': '+x));
-  for(const a of d.assets)for(const src of [a.src,a.recallSrc]){
+  for(const a of d.assets)for(const src of [a.src,...(a.recallSrc?[a.recallSrc]:[])]){
    if(!/^[/]biology[/][a-z0-9-]+[/][a-z0-9-]+[.]svg$/.test(src)){errors.push('Unsafe artwork '+src);continue}
    try{
     const f=path.join(root,'public',src.slice(1));await access(f);
