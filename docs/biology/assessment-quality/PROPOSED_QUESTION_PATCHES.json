@@ -5,7 +5,7 @@
   "sourceSha": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
   "integrationMode": "replace by questionId only after verifying current source question equals originalQuestion; reject on mismatch and do not overwrite illustration-team edits",
   "officialPastPapersCopied": false,
-  "patchCount": 13,
+  "patchCount": 14,
   "patches": [
     {
       "lessonFile": "src/biology/learning/dna-replication/lesson.json",
@@ -1570,6 +1570,98 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/cell-structure/lesson.json",
+      "sourceLessonBlobSha": "f159be89c61b7ad2c3f5ad259648bc03d21dc7d6",
+      "questionId": "a22-paper2-1",
+      "understandingIds": [
+        "A2.2.2"
+      ],
+      "sectionId": "a22-2",
+      "level": "shared",
+      "originalIssue": "Question said a photomicrograph was depicted; accompanying section figure a22-scale is explicitly a conceptual vector and not a real micrograph. The task should not imply that a measured image was provided.",
+      "originalQuestion": {
+        "id": "a22-paper2-1",
+        "paper": "2",
+        "kind": "written",
+        "original": true,
+        "understandingIds": [
+          "A2.2.2"
+        ],
+        "level": "shared",
+        "prompt": "A photomicrograph depicts a cell 84 mm long; its actual size is 28 µm. Calculate the magnification and explain unit conversion.",
+        "marks": 3,
+        "sectionId": "a22-2",
+        "referenceIds": [
+          "ib-a22",
+          "hodder-a22",
+          "ncbi-visualizing"
+        ],
+        "answer": "84 mm = 84,000 µm; M = 84,000 ÷ 28 = ×3000; Magnification has no units",
+        "markingPoints": [
+          "84 mm = 84,000 µm",
+          "M = 84,000 ÷ 28 = ×3000",
+          "Magnification has no units"
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "a22-paper2-1",
+        "paper": "2",
+        "kind": "written",
+        "original": true,
+        "understandingIds": [
+          "A2.2.2"
+        ],
+        "level": "shared",
+        "prompt": "A hypothetical microscope image of a cell measures 84 mm on a page, while the corresponding actual cell length is 28 µm. Calculate the magnification and explain why your final value has no units. [3 marks]",
+        "marks": 3,
+        "sectionId": "a22-2",
+        "referenceIds": [
+          "ib-a22",
+          "hodder-a22",
+          "ncbi-visualizing"
+        ],
+        "answer": "Image length 84 mm = 84,000 µm. Magnification = 84,000 µm ÷ 28 µm = ×3000. Magnification is dimensionless because the length units cancel.",
+        "markingPoints": [
+          "Correct conversion: image size 84 mm = 84,000 µm (1).",
+          "Correct calculation: 84,000 ÷ 28 = 3000× (1).",
+          "States that magnification has no units because both sizes are expressed in the same unit before taking the ratio (1)."
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-a22",
+          "title": "IB Biology Guide — first assessment 2025",
+          "locator": "A2.2 Cell structure, printed pp.39–41 (PDF pp.45–47); microscopy and drawing applications; NOS notes",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-a22",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma, third edition (2023)",
+          "locator": "Chapter A2.2, printed pp.49–82 (PDF pp.61–94), researched as secondary explanation",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-visualizing",
+          "title": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "locator": "Microscopy contrasts; diffraction and preparation caveats",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/"
+        }
+      ],
+      "visualDependency": {
+        "sectionAssetId": "a22-scale",
+        "relationship": "illustrative background only; not a measured source image",
+        "requiredLabels": [],
+        "revalidation": "new figure must not be treated as the measurement source"
+      },
+      "reviewLimitations": [
+        "Hypothetical worked numbers; not measurements from a scientific sample",
+        "No figure-editing or assertion that section illustration is a photomicrograph",
+        "Science educator sign-off pending"
       ]
     }
   ]
