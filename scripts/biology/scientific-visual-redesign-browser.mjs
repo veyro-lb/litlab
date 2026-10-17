@@ -49,7 +49,7 @@ try{
   await page.setViewportSize({width,height:900});
   try{
    await page.goto(origin+'/#biology/topic/A2.2/learn?understanding=A2.2.8');
-   const p=page.locator('[data-asset-id="a22-plant-palisade"] img');await p.waitFor();
+   const p=page.locator('[data-asset-id="a22-plant-palisade"] .bio-figure-image img');await p.waitFor();
    await p.scrollIntoViewIfNeeded();await p.evaluate(img=>img.decode());
    const info=await p.evaluate(img=>({src:img.currentSrc,w:img.naturalWidth,h:img.naturalHeight}));
    if(info.w<1||info.h<1)throw Error('plant image failed to load');
