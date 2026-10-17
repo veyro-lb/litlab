@@ -5,7 +5,7 @@
   "baseBranch": "feature/biolab-themes-ab-final-completion-20261017",
   "baseSha": "4cd33a7d54bde055e123bd9052ea59c36aae9232",
   "editorialStatus": "62 substantively refined as development lessons; not science-certified or ready for public release",
-  "sourceAuditLimit": "Official IB topic/guidance scope read in full. Hodder chapter text extracted and spot-checked; source references remain pre-existing metadata unless otherwise noted. No copied book images or passages.",
+  "sourceAuditLimit": "Official IB topic/guidance scope read in full. Hodder chapter text extracted and spot-checked; source references remain pre-existing metadata unless otherwise noted. No copied book images or passages. Two authentic Commons micrograph source files and licenses were independently checked during this sprint; see B3.1.8 and B3.2.9.",
   "topics": [
     {
       "topic": "B3.1",
@@ -500,13 +500,21 @@
         "mechanisticClarification": "A plan diagram records the observed outlines and relative tissue distribution, not imagined cell detail or a decorative three-dimensional leaf.",
         "explanationVisibleInReadingLayout": true
       },
-      "scientificCorrection": "Mechanistic precision and scope refined; no separate underlying factual error documented.",
+      "scientificCorrection": "Mechanistic precision and scope refined; no separate underlying factual error documented. Added a rights-credited original light micrograph for observed tissue-plan drawing, without implying student-origin data.",
       "figures": {
         "inUse": [
           "b31-leaf"
         ],
         "inlineComparisons": [],
-        "newOrCorrected": []
+        "newOrCorrected": [],
+        "authenticMicroscopy": [
+          {
+            "name": "Jon Houseman (2014), dicot leaf low-power micrograph (CC BY-SA 4.0), visible 0.2 mm source scale bar",
+            "url": "https://commons.wikimedia.org/wiki/File:Dicot_leaf.jpg",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Dicot_leaf.jpg",
+            "scale": "Source-described original 0.2 mm scale bar; avoid raw pixel-to-size inference."
+          }
+        ]
       },
       "assessments": {
         "ids": [
@@ -523,10 +531,11 @@
         "nativeNodeValidators": "NOT RUN: no mounted repository checkout",
         "npmQualityAndProductionBuild": "NOT RUN: no mounted repository checkout",
         "browserMobile": "NOT RUN: no locally runnable site or branch preview",
-        "humanScientificReview": "PENDING"
+        "humanScientificReview": "PENDING",
+        "photoLicensePageReview": "Creator, file source and CC terms verified on Wikimedia Commons on 2026-10-18; original image link opened for visual evidence; live lesson browser loading NOT tested."
       },
       "outstandingEvidence": [
-        "Authentic rights-cleared dicot leaf section with specimen provenance and scale, for drawing from observation.",
+        "A rights-credited low-power dicot leaf photomicrograph now exists, with source scale bar; authenticated species ID, independent specimen/science review and learner-generated specimens remain outstanding.",
         "Independent qualified scientific, accessibility, rights and teaching sign-off remains pending."
       ],
       "status": "Implemented editorial refinement; not independently approved"
@@ -1353,13 +1362,21 @@
         "mechanisticClarification": "A low-power plan should locate the vascular bundle ring, with phloem toward the cortex and xylem toward the pith, rather than drawing invented cells.",
         "explanationVisibleInReadingLayout": true
       },
-      "scientificCorrection": "Mechanistic precision and scope refined; no separate underlying factual error documented.",
+      "scientificCorrection": "Mechanistic precision and scope refined; no separate underlying factual error documented. Added a rights-credited original light micrograph for observed tissue-plan drawing, without implying student-origin data.",
       "figures": {
         "inUse": [
           "b32-dicot-stem-root"
         ],
         "inlineComparisons": [],
-        "newOrCorrected": []
+        "newOrCorrected": [],
+        "authenticMicroscopy": [
+          {
+            "name": "Eugeenia Wen (2019), dicot stem light micrograph (CC BY 4.0), reported 10× but no calibrated scale",
+            "url": "https://commons.wikimedia.org/wiki/File:Stem_of_Dicotyledon_C.S.png",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Stem_of_Dicotyledon_C.S.png",
+            "scale": "10× stated magnification is not a reliable specimen scale without field calibration."
+          }
+        ]
       },
       "assessments": {
         "ids": [
@@ -1376,10 +1393,11 @@
         "nativeNodeValidators": "NOT RUN: no mounted repository checkout",
         "npmQualityAndProductionBuild": "NOT RUN: no mounted repository checkout",
         "browserMobile": "NOT RUN: no locally runnable site or branch preview",
-        "humanScientificReview": "PENDING"
+        "humanScientificReview": "PENDING",
+        "photoLicensePageReview": "Creator, file source and CC terms verified on Wikimedia Commons on 2026-10-18; original image link opened for visual evidence; live lesson browser loading NOT tested."
       },
       "outstandingEvidence": [
-        "Authentic labeled young dicot stem micrograph to support observational plan drawing.",
+        "Rights-cleared authentic young dicot stem micrograph now exists; source supplies only 10× magnification and not calibrated image scale, so numerical size claims and independent tissue review remain outstanding.",
         "Independent qualified scientific, accessibility, rights and teaching sign-off remains pending."
       ],
       "status": "Implemented editorial refinement; not independently approved"
