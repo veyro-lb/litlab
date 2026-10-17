@@ -13,12 +13,15 @@ export function validatePhase5Figures(files,lessons){
  for(const lesson of Object.values(lessons)){
   for(const asset of lesson.assets){
    if(asset.kind!=='diagram')continue;
+   const newNucleosome=lesson.topicId==='A1.2'&&asset.id==='a12-nucleosome'&&
+       asset.src==='/biology/nucleic-acids/nucleosome-topology-20261017.svg';
    if(!/^\/biology\/(?:nucleic-acids|enzymes-metabolism)\/[a-z0-9-]+\.svg$/.test(asset.src)||
-       !/^\/biology\/(?:nucleic-acids|enzymes-metabolism)\/[a-z0-9-]+-recall\.svg$/.test(asset.recallSrc||''))fail('Invalid diagram paths '+asset.id);
-   for(const [kind,path] of [['labelled',asset.src],['recall',asset.recallSrc]]){
+       (!newNucleosome&&!/^\/biology\/(?:nucleic-acids|enzymes-metabolism)\/[a-z0-9-]+-recall\.svg$/.test(asset.recallSrc||''))||
+       (newNucleosome&&asset.recallSrc))fail('Invalid diagram paths '+asset.id);
+   for(const [kind,path] of [['labelled',asset.src],...(asset.recallSrc?[['recall',asset.recallSrc]]:[])]) {
     const s=figure(path);
     if(typeof s!=='string'){fail('Missing '+kind+' SVG '+path);continue;}
-    if(!/^<svg\s/.test(s)||!s.includes('</svg>')||!/<title>[^<]+<\/title>/.test(s)||!/<desc>[^<]+<\/desc>/.test(s)||!/viewBox="0 0 \d+ \d+"/.test(s))fail('Invalid accessible SVG structure '+path);
+    if(!/^<svg\s/.test(s)||!s.includes('</svg>')||!/<title(?:\s+[^>]*)?>[^<]+<\/title>/.test(s)||!/<desc(?:\s+[^>]*)?>[^<]+<\/desc>/.test(s)||!/viewBox="0 0 \d+ \d+"/.test(s))fail('Invalid accessible SVG structure '+path);
     if(/<(?:script|foreignObject|image|iframe)\b/i.test(s)||/(?:href|src)="(?:https?:|data:|javascript:)/i.test(s))fail('Unsafe SVG external content '+path);
     for(const [,v] of s.matchAll(/\bfill="([^"]+)"/g)){
      if(!/^(?:#[\da-f]{3,8}|none|transparent|white|black|url\(#[\w-]+\))$/i.test(v))fail('Invalid paint fill '+path);
@@ -28,9 +31,9 @@ export function validatePhase5Figures(files,lessons){
  }
  }
  const a='/biology/nucleic-acids/',c='/biology/enzymes-metabolism/';
- const aN=figure(a+'nucleosome.svg')||'';
+ const aN=figure(a+'nucleosome-topology-20261017.svg')||'';
  for(const histone of ['H2A','H2B','H3','H4'])if(textCount(aN,histone)!==2)fail('Nucleosome octamer histone count '+histone);
- if(textCount(aN,'H1')!==1||(aN.match(/<circle\b/g)||[]).length!==9||!aN.includes('H1 on linker DNA, outside core'))fail('Nucleosome H1 must remain outside core octamer');
+ if(textCount(aN,'H1')!==1||(aN.match(/<circle\b/g)||[]).length!==9||!aN.includes('H1: linker histone')||!aN.includes('Linker DNA')||!aN.includes('Core: 2 × (H2A + H2B + H3 + H4)')||!aN.includes('<circle cx="785" cy="289"'))fail('Nucleosome H1 must remain outside core octamer');
  const anti=figure(a+'paired.svg')||'';
  if(textCount(anti,'5′')!==2||textCount(anti,'3′')!==2||!anti.includes('5′  A  T  G  C  3′')||!anti.includes('3′  T  A  C  G  5′'))fail('DNA antiparallel end labels or base complement reversed');
  const sugar=figure(a+'sugars.svg')||'';
