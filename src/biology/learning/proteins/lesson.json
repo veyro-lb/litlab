@@ -828,7 +828,32 @@
             "explanation": "Denaturation means disruption of native conformation. Temperature and pH can change protein conformation and function; denaturation need not break peptide bonds and can sometimes reverse."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Denaturation is not necessarily peptide-bond hydrolysis",
+          "afterBlock": 1,
+          "headers": [
+            "Process",
+            "What changes",
+            "What usually remains"
+          ],
+          "rows": [
+            [
+              "Denaturation",
+              "Native conformation and some stabilizing interactions are disrupted",
+              "Primary peptide-bond backbone can remain intact"
+            ],
+            [
+              "Hydrolysis of a peptide bond",
+              "The covalent peptide backbone is cleaved",
+              "The original polypeptide chain is not intact"
+            ]
+          ],
+          "note": "Heat and pH may affect protein activity without changing amino-acid sequence; some denaturation is reversible."
+        }
+      ]
     },
     {
       "id": "b12-6",
@@ -983,7 +1008,37 @@
             "explanation": "Acidic/basic means tendency to donate/accept H+. R groups may be hydrophobic, polar hydrophilic, or ionizable acidic/basic; chemistry of side chains drives properties."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Side-chain chemistry drives protein folding",
+          "afterBlock": 1,
+          "headers": [
+            "Side-chain category",
+            "Interaction in an aqueous protein",
+            "Possible structural consequence"
+          ],
+          "rows": [
+            [
+              "Nonpolar",
+              "Tends to avoid exposure to water",
+              "Often packed into a soluble protein's core"
+            ],
+            [
+              "Polar uncharged",
+              "Can form hydrogen bonds",
+              "Stabilizes contacts or interacts with water"
+            ],
+            [
+              "Acidic or basic (ionizable)",
+              "Charge changes with pH",
+              "Can form salt bridges or electrostatic interactions"
+            ]
+          ],
+          "note": "These are tendencies, not absolute rules; pH and the local environment alter the state of ionizable groups."
+        }
+      ]
     },
     {
       "id": "b12-7",
@@ -1302,7 +1357,37 @@
             "explanation": "Backbone means repeated atom chain excluding R groups. Alpha helices and beta-pleated sheets are stabilised by regular backbone hydrogen bonds."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Two backbone-supported secondary structures",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Alpha helix",
+            "Beta-pleated sheet"
+          ],
+          "rows": [
+            [
+              "Backbone arrangement",
+              "Regular helical coil",
+              "Extended aligned strands"
+            ],
+            [
+              "Stabilizing interaction",
+              "Backbone C=O···H–N hydrogen bonds",
+              "Hydrogen bonds between neighboring extended strands"
+            ],
+            [
+              "Side chains",
+              "Project outward from the helix",
+              "Alternate above and below the sheet"
+            ]
+          ],
+          "note": "The H bonds are between backbone groups; drawing them as bonds between side chains would misrepresent secondary structure."
+        }
+      ]
     },
     {
       "id": "b12-9",
@@ -1847,7 +1932,37 @@
             "explanation": "Haem means iron-containing prosthetic group. Quaternary structure associates multiple chains. Insulin/collagen are non-conjugated examples; haemoglobin has haem prosthetic groups."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Subunits and prosthetic groups answer different questions",
+          "afterBlock": 1,
+          "headers": [
+            "Term",
+            "Meaning",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Polypeptide chain",
+              "One amino-acid sequence joined by peptide bonds",
+              "An individual globin chain"
+            ],
+            [
+              "Quaternary structure",
+              "Association of multiple polypeptide subunits",
+              "Four globin subunits of adult haemoglobin"
+            ],
+            [
+              "Conjugated protein",
+              "Protein with an associated nonprotein component",
+              "Haem-containing haemoglobin"
+            ]
+          ],
+          "note": "The haem group is not a polypeptide subunit. A protein may have both quaternary structure and prosthetic groups."
+        }
+      ]
     },
     {
       "id": "b12-12",
@@ -2008,7 +2123,37 @@
             "explanation": "Tensile strength means resistance to pulling forces. Insulin is compact and signals; collagen forms extended strong triple-helical fibres for support."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Globular signalling and fibrous structural proteins",
+          "afterBlock": 1,
+          "headers": [
+            "Feature",
+            "Insulin",
+            "Collagen"
+          ],
+          "rows": [
+            [
+              "Overall form",
+              "Compact peptide hormone",
+              "Elongated triple-helical fibrillar protein"
+            ],
+            [
+              "Primary role",
+              "Chemical signalling to target cells",
+              "Tensile support in extracellular matrices"
+            ],
+            [
+              "Structure–function link",
+              "Specific shape and binding enable receptor recognition",
+              "Staggered fibrils resist pulling forces"
+            ]
+          ],
+          "note": "Collagen fibers assemble from multiple triple-helical molecules; insulin and collagen differ in function as well as overall geometry."
+        }
+      ]
     }
   ],
   "questions": [
