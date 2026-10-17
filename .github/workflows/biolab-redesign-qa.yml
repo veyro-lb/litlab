@@ -65,6 +65,8 @@ jobs:
           node --test scripts/validate-biology.test.mjs
           node scripts/validate-water.mjs
           node scripts/validate-lessons.mjs
+          node scripts/biology/foundation-qa/validate-evidence.mjs
+          node --test scripts/biology/foundation-qa/validate-evidence.test.mjs
           node scripts/validate-batch32.mjs
           node scripts/validate-batch5.mjs
           node --test scripts/validate-batch5.test.mjs
