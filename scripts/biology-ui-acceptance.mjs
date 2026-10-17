@@ -147,17 +147,17 @@ try {
    const focused=await p.evaluate(()=>{const root=document.querySelector('[data-biology-host]').shadowRoot;return root.activeElement?.tagName});
    expect(['BUTTON','A','INPUT','SUMMARY']).toContain(focused);
  });
- await check('Figure lightbox closes with Escape and restores focus when available',async()=>{
-   await navigate(p,'#biology/topic/A1.1/learn','.bio-lesson');
+ await check('Real A1.1.2 scientific figure opens by keyboard and Escape restores focus',async()=>{
+   await navigate(p,'#biology/topic/A1.1/learn?understanding=A1.1.2','.bio-lesson-content[data-understanding-id="A1.1.2"]');
    const figure=p.locator('.bio-figure-image').first();
-   if(await figure.count()){
-     await figure.focus();
-     await p.keyboard.press('Enter');
-     await expect(p.locator('.bio-figure-dialog[open]')).toBeVisible();
-     await p.keyboard.press('Escape');
-     await expect(p.locator('.bio-figure-dialog[open]')).toHaveCount(0);
-     await expect(figure).toBeFocused();
-   }else{report.accessibilityLimitations.push('A1.1 had no available lightbox to test')}
+   await expect(figure).toBeVisible();
+   await expect.poll(()=>figure.locator('img').first().evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
+   await figure.focus();
+   await p.keyboard.press('Enter');
+   await expect(p.locator('.bio-figure-dialog[open]')).toBeVisible();
+   await p.keyboard.press('Escape');
+   await expect(p.locator('.bio-figure-dialog[open]')).toHaveCount(0);
+   await expect(figure).toBeFocused();
  });
 
  await check('Global English subject navigation and actual appearance toggle work',async()=>{
