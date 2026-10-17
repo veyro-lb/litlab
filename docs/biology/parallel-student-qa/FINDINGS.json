@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "project": "BioLab independent student QA",
+  "baselineCommit": "2c321ae547baa2a97294728b337a4dfa46e64408",
+  "qaBranch": "feature/biolab-independent-student-qa-20261017",
+  "evidenceMethod": "Repository-content inspection of all 40 lesson JSON files plus exact-sha existing CI logs; new independent runner not yet executed",
+  "note": "These are source-observed risks and review candidates, not issues verified in a new browser execution. Machine-generated exhaustive findings will be in qa-artifacts/parallel-student-qa/static-audit.json after audit.mjs runs.",
+  "findings": [
+    {
+      "id": "PQA-001",
+      "severity": "high",
+      "kind": "assessment-content-inconsistency",
+      "status": "requires-specialist-review",
+      "topic": "A2.1",
+      "itemId": "a21-p1a-2",
+      "level": "HL",
+      "route": "#biology/topic/A2.1/practice",
+      "sourcePath": "src/biology/learning/origins-cells/lesson.json",
+      "observed": "The stem asks which conclusion supports cells being independently living units; the sole keyed correct answer says 'It depends on the host’s metabolic and translational machinery', which describes a virus rather than cellular independence.",
+      "risk": "An HL student may be rewarded for a response that contradicts the question's stated subject.",
+      "reproduction": "Inspect the selection item a21-p1a-2 in the lesson's questions array; in a local QA browser use HL mode, navigate to the practice route and identify its stem and keyed feedback.",
+      "recommendation": "A qualified IB Biology reviewer should correct or clarify the stem, options and feedback as a complete item; do not flip the boolean key without reviewing the item.",
+      "verifiedInBrowser": false
+    },
+    {
+      "id": "PQA-002",
+      "severity": "medium",
+      "kind": "assessment-feedback-depth",
+      "status": "needs-assessment-review",
+      "topic": "multiple",
+      "itemIds": [
+        "a21-p1a-1",
+        "a23-p1a-1",
+        "c22-mcq-1",
+        "c41-mcq-1",
+        "c42-mcq-1",
+        "d11-mcq-1",
+        "d22-mcq-1"
+      ],
+      "sourcePaths": [
+        "src/biology/learning/origins-cells/lesson.json",
+        "src/biology/learning/viruses/lesson.json",
+        "src/biology/learning/neural-signalling/lesson.json",
+        "src/biology/learning/populations-communities/lesson.json",
+        "src/biology/learning/transfers-energy-matter/lesson.json",
+        "src/biology/learning/dna-replication/lesson.json",
+        "src/biology/learning/gene-expression/lesson.json"
+      ],
+      "observed": "Across multiple topics, all wrong choices of many MCQs share identical explanation text. The correct option is still structurally unique. A source-data inspection flagged hundreds of cases; the new static audit lists each exact ID when run.",
+      "risk": "Students may be told the correct concept without learning why their particular misconception is incorrect.",
+      "reproduction": "Review any listed item and compare feedback values for all incorrect options. In the browser, choose two different incorrect answers after using Try again.",
+      "recommendation": "Prioritize high-frequency and conceptually difficult questions for distinct, diagnostic distractor explanations; retain correct science and original item IDs.",
+      "verifiedInBrowser": false
+    },
+    {
+      "id": "PQA-003",
+      "severity": "medium",
+      "kind": "study-state-lifetime",
+      "status": "documented-design-limitation",
+      "topic": "all",
+      "route": "#biology/topic/A1.1/practice",
+      "sourcePaths": [
+        "src/biology/learning/content.ts",
+        "src/biology/learning/LessonView.tsx",
+        "src/biology/learning/StudyQuestion.tsx"
+      ],
+      "observed": "readStudy and saveStudy use a module-scoped in-memory Map. The lesson UI explicitly states that answers persist across routes in the same tab but that refresh starts a new session. Written drafts use this same transient state.",
+      "risk": "Students can lose unsaved answers, response drafts or flashcard position on page refresh, close or tab crash, even though route navigation preserves them.",
+      "reproduction": "In a disposable local browser, enter a written response or attempt MCQ, navigate away and back to check in-tab retention, then refresh to confirm loss.",
+      "recommendation": "Decide explicitly whether this is intended ephemeral practice. If longer persistence is desired, propose opt-in local storage or authenticated persistence with privacy review; do not modify shared progress implementation on QA branch.",
+      "verifiedInBrowser": false
+    }
+  ],
+  "validatedNoIssue": [
+    {
+      "itemId": "a31-p1a-3",
+      "topic": "A3.1",
+      "note": "Case-insensitive duplicate detection produced a false positive: options intentionally differ in capitalization to test binomial nomenclature. The new detector preserves case and does not flag this."
+    },
+    {
+      "itemId": "a31-c3",
+      "topic": "A3.1",
+      "note": "Same intentional capitalization distinction; not an exact repeated option."
+    }
+  ]
+}
