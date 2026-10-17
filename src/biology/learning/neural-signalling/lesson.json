@@ -722,7 +722,9 @@
         "ib-c22",
         "hodder-c22"
       ],
-      "assets": [],
+      "assets": [
+        "chemical-synapse"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -813,7 +815,13 @@
             "explanation": "Arrival of an action potential depolarizes the presynaptic terminal, opening voltage-gated Ca²⁺ channels. Ca²⁺ enters down its electrochemical gradient and acts as an intracellular signal that activates proteins controlling synaptic-vesicle fusion."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "chemical-synapse",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c22-7",
@@ -1250,7 +1258,9 @@
         "ib-c22",
         "hodder-c22"
       ],
-      "assets": [],
+      "assets": [
+        "action-potential-trace"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1341,7 +1351,13 @@
             "explanation": "An oscilloscope trace of membrane potential plots voltage, typically in millivolts (mV), against time, typically milliseconds (ms). A resting baseline is negative, an action potential shows a rapid depolarization and repolarization, and after-hyperpolarization can dip below baseline."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "action-potential-trace",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c22-11",
@@ -3226,7 +3242,40 @@
       "level": "shared"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "chemical-synapse",
+      "kind": "diagram",
+      "src": "/biology/neural-signalling/chemical-synapse.svg",
+      "alt": "Presynaptic terminal with vesicles; voltage-gated calcium entry triggers transmitter exocytosis. Transmitter diffuses downward across cleft and binds postsynaptic receptors.",
+      "captionTitle": "Direction of chemical synaptic transmission",
+      "attribution": "Original BioLab scientific vector schematic (2026); independent scientific review pending",
+      "license": "Original BioLab artwork; project copyright retained",
+      "permissionEvidence": "Text and shapes independently drawn for this topic; no third-party figure reproduced",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "action-potential-trace",
+      "kind": "diagram",
+      "src": "/biology/neural-signalling/action-potential-trace.svg",
+      "alt": "Horizontal time axis from zero to six milliseconds; vertical membrane voltage axis from minus ninety to plus forty millivolts. Rapid sodium-dependent rise followed by potassium-dependent fall and hyperpolarization. Illustrative not experimental.",
+      "captionTitle": "Schematic neuronal action potential: membrane voltage (mV) versus time (ms)",
+      "attribution": "Original BioLab scientific vector schematic (2026); independent scientific review pending",
+      "license": "Original BioLab artwork; project copyright retained",
+      "permissionEvidence": "Text and shapes independently drawn for this topic; no third-party figure reproduced",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    }
+  ],
   "summary": "Ion gradients enable signals in nerve fibres, calcium mediates neurotransmitter release, and graded postsynaptic changes determine threshold crossing. HL adds voltage-channel phases, myelination, inhibitory summation and network emergence.",
   "review": {
     "status": "scientific-review",
