@@ -10,23 +10,23 @@
 
 - **81 / 81** mapped syllabus understandings retained in four isolated lesson JSON packages. Each explanation and all 81 multiple-choice answer keys received an internal first-pass content/scope read against the IB guide; this is *not* an independent scientific peer review or the same as deep external verification of every example.
 - **158 questions:** 81 one-answer multiple-choice questions with populated option feedback and 77 written/structured questions with populated markschemes. **11 new original mechanism, numerical and reasoning questions** were added on top of 147 pre-existing questions. All answer keys and written mark-point counts received structural review, with targeted detailed scientific edits.
-- **25 specific understandings** received explicit written scientific clarifications or changed feedback in Sprint 8. See each row in the ledger below. The remaining 56 were read for a first-pass guide/scope check and carried forward without a new scientific rewrite; they should not be counted as newly independent source-verified.
+- **28 specific understandings** received explicit written scientific clarifications or changed feedback in Sprint 8. See each row in the ledger below. The remaining 53 were read for a first-pass guide/scope check and carried forward without a new scientific rewrite; they should not be counted as newly independent source-verified.
 - **9 new inline learning visualizations** added where useful (process sequences and comparison tables), plus **one original semi-logarithmic model SVG**. Previous C3.2 Phase 5 visual/feedback infrastructure was not removed.
 
 ## Topic interventions
 
 - **C3.1** — 23 sections, 34 questions, 6 specifically re-edited understandings. System coordination, spinal circuit, baroreflex, auxin transport, cell-wall acidification and auxin–cytokinin signalling.
 - **C3.2** — 18 sections, 38 questions, 6 specifically re-edited understandings. Evidence-limited archaeal claim feedback, HIV transmission, antibiotics, resistance, antigen vaccines and community immunity.
-- **C4.1** — 18 sections, 39 questions, 6 specifically re-edited understandings. Random sampling, quadrat extrapolation, Lincoln-index limits, logarithmic axes, chi-squared calculations and chemical competition examples.
-- **C4.2** — 22 sections, 47 questions, 7 specifically re-edited understandings. Food-web arrows, historic Silver Springs energy fluxes, energy partitioning, primary production units, carbon-cycle arrows, Mauna Loa trend and element cycling.
+- **C4.1** — 18 sections, 39 questions, 7 specifically re-edited understandings. Random sampling, quadrat extrapolation, Lincoln-index limits, logarithmic axes, chi-squared calculations and chemical competition examples.
+- **C4.2** — 22 sections, 47 questions, 9 specifically re-edited understandings. Food-web arrows, historic Silver Springs energy fluxes, energy partitioning, primary production units, carbon-cycle arrows, Mauna Loa trend and element cycling.
 
 **C3.1:** Added an integrated exercise cause–effect sequence, explicit spinal withdrawal topology, sign-correct baroreflex explanation, and HL polar-auxin / acid-growth stages. The 7 additional C3.1 understandings C3.1.17–C3.1.23 remain HL-only. Original diagrams for reflexes, peripheral nerve structure, phototropism and pressure control are preserved.
 
-**C3.2:** Preserved all earlier 18 sections, their pre-existing supporting visuals and existing misconception feedback; corrected the answer feedback for C3.2.1 so the explanation actually addresses the evidence-limited archaea claim. Strengthened the distinction between sexual U=U evidence and other HIV exposures, antibacterial targets versus viruses, selection versus purposeful mutation, vaccines and memory, and variable herd-immunity thresholds. Added an antigen-vaccine comparison and two original questions including an explicitly hypothetical COVID-era-style percentage exercise.
+**C3.2:** Connected the new CDC and WHO evidence to the relevant numbered claims. Preserved all earlier 18 sections, their pre-existing supporting visuals and existing misconception feedback; corrected the answer feedback for C3.2.1 so the explanation actually addresses the evidence-limited archaea claim. Strengthened the distinction between sexual U=U evidence and other HIV exposures, antibacterial targets versus viruses, selection versus purposeful mutation, vaccines and memory, and variable herd-immunity thresholds. Added an antigen-vaccine comparison and two original questions including an explicitly hypothetical COVID-era-style percentage exercise.
 
-**C4.1:** Added random sampling protocol, worked quadrat density and area extrapolation, the undefined case of a zero recapture count, semi-log interpretation with correctly labelled mathematical model graph, a complete 2×2 chi-squared worked calculation and model-dependent allelopathy examples. All quadrat, Lincoln-index and contingency-table values are constructed teaching examples, not fabricated field measurements. Preserved the existing sigmoid SVG and its constructed values.
+**C4.1:** Replaced 18 generic incorrect-option messages in six MCQs with misconception-specific feedback. Added random sampling protocol, worked quadrat density and area extrapolation, the undefined case of a zero recapture count, semi-log interpretation with correctly labelled mathematical model graph, a complete 2×2 chi-squared worked calculation and model-dependent allelopathy examples. All quadrat, Lincoln-index and contingency-table values are constructed teaching examples, not fabricated field measurements. Preserved the existing sigmoid SVG and its constructed values.
 
-**C4.2:** Checked the EPA's historical Silver Springs productivity panel values (20,810, 3,368, 383 and 21 kcal m⁻² yr⁻¹) against the actual source illustration. The separate decomposer value **5,060** belongs to a different pathway, **not** a higher-level predator bar. Transfer percentages 16.2%, 11.4% and 5.5% are derived classroom calculations, not separately measured efficiencies. Confirmed NOAA's Scripps-series annual means of **315.98 ppm in 1959** and **377.38 ppm in 2004**; these cannot alone demonstrate the seasonal Keeling oscillation. Explained trophic arrows, carbon-cycle topology, assimilation/heat losses and carbon-based productivity dimensions. Preserved historical source records.
+**C4.2:** Replaced 24 generic incorrect-option messages in eight MCQs with misconception-specific feedback. Checked the EPA's historical Silver Springs productivity panel values (20,810, 3,368, 383 and 21 kcal m⁻² yr⁻¹) against the actual source illustration. The separate decomposer value **5,060** belongs to a different pathway, **not** a higher-level predator bar. Transfer percentages 16.2%, 11.4% and 5.5% are derived classroom calculations, not separately measured efficiencies. Confirmed NOAA's Scripps-series annual means of **315.98 ppm in 1959** and **377.38 ppm in 2004**; these cannot alone demonstrate the seasonal Keeling oscillation. Explained trophic arrows, carbon-cycle topology, assimilation/heat losses and carbon-based productivity dimensions. Preserved historical source records.
 
 ## Scientific sources and provenance
 
@@ -67,99 +67,103 @@ npm run build
 ```
 Production browser QA (desktop/mobile lesson navigation, all diagram renders and interactive assessments), full existing curriculum validators, and a production build remain **not run** in this connector-only execution. Do not convert the observed structural checks into a claim of build or browser success. No preview deployment was used.
 
+## Assessment-feedback verification
+
+Forty-two previously generic or repeated incorrect-option feedback messages were revised: 18 in C4.1 and 24 in C4.2. These are targeted corrections for misconceptions in sampling, dispersion, mark–recapture, growth graphs, association, trophic arrows, energy-flow units, heat and carbon cycling. Correct-answer options were not changed. The edits additionally count C4.1.8, C4.2.13 and C4.2.14 as revised understandings in the ledger.
+
 ## Individually reviewed understanding ledger
 
 Every row below denotes an internal first-pass read of lesson explanation and the corresponding multiple-choice key and a check of section mapping. **Revised** additionally identifies an explicit Sprint 8 scientific edit/feedback change. **Retained** means no fresh edit justified from that pass; neither label implies independent expert sign-off.
 
 | Understanding | Syllabus level | Questions | Sprint 8 disposition |
 |---|---|---:|---|
-C3.1.1 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C3.1.2 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.1.3 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.4 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.5 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.6 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.7 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.8 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.9 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C3.1.10 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.11 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.12 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.13 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.14 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C3.1.15 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.1.16 | SL + HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.17 | HL | 2 | Retained after internal first-pass guide/scope review
-C3.1.18 | HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.19 | HL | 1 | Retained after internal first-pass guide/scope review
-C3.1.20 | HL | 2 | Revised scientific explanation and/or answer feedback
-C3.1.21 | HL | 2 | Revised scientific explanation and/or answer feedback
-C3.1.22 | HL | 2 | Revised scientific explanation and/or answer feedback
-C3.1.23 | HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.1 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C3.2.2 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.3 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.4 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.5 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.6 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.7 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.8 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.9 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.10 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.11 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C3.2.12 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.13 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C3.2.14 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C3.2.15 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C3.2.16 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C3.2.17 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C3.2.18 | SL + HL | 3 | Retained after internal first-pass guide/scope review
-C4.1.1 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.2 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C4.1.3 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C4.1.4 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C4.1.5 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.6 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.7 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C4.1.8 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.9 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.10 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.11 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.12 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.13 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.14 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.15 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C4.1.16 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.17 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.1.18 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C4.2.1 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.2 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.3 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.4 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C4.2.5 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.6 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.7 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.8 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.9 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.10 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.11 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C4.2.12 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C4.2.13 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.14 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.15 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C4.2.16 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.17 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
-C4.2.18 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.19 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.20 | SL + HL | 3 | Revised scientific explanation and/or answer feedback
-C4.2.21 | SL + HL | 2 | Retained after internal first-pass guide/scope review
-C4.2.22 | SL + HL | 2 | Revised scientific explanation and/or answer feedback
+| C3.1.1 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.1.2 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.1.3 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.4 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.5 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.6 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.7 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.8 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.9 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.1.10 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.11 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.12 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.13 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.14 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C3.1.15 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.1.16 | SL + HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.17 | HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.1.18 | HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.19 | HL | 1 | Retained after internal first-pass guide/scope review |
+| C3.1.20 | HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.1.21 | HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.1.22 | HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.1.23 | HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.1 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.2.2 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.3 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.4 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.5 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.6 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.7 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.8 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.9 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.10 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.11 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.2.12 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.13 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.2.14 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C3.2.15 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C3.2.16 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.2.17 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C3.2.18 | SL + HL | 3 | Retained after internal first-pass guide/scope review |
+| C4.1.1 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.2 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C4.1.3 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C4.1.4 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C4.1.5 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.6 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.7 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C4.1.8 | SL + HL | 2 | Revised incorrect-option misconception feedback |
+| C4.1.9 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.10 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.11 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.12 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.13 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.14 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.15 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C4.1.16 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.17 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.1.18 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C4.2.1 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.2 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.3 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.4 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C4.2.5 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.6 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.7 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.8 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.9 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.10 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.11 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C4.2.12 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C4.2.13 | SL + HL | 2 | Revised incorrect-option misconception feedback |
+| C4.2.14 | SL + HL | 2 | Revised incorrect-option misconception feedback |
+| C4.2.15 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C4.2.16 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.17 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
+| C4.2.18 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.19 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.20 | SL + HL | 3 | Revised scientific explanation and/or answer feedback |
+| C4.2.21 | SL + HL | 2 | Retained after internal first-pass guide/scope review |
+| C4.2.22 | SL + HL | 2 | Revised scientific explanation and/or answer feedback |
 
 ## Outstanding work and approval boundary
 
-The 56 retained understandings below are **not known to be erroneous**, but they have not each received a fresh in-depth, example-by-example external literature audit in Sprint 8. They are the precise scope to prioritize if a second scientific pass is required:
+The 53 retained understandings below are **not known to be erroneous**, but they have not each received a fresh in-depth, example-by-example external literature audit in Sprint 8. They are the precise scope to prioritize if a second scientific pass is required:
 
-C3.1.2, C3.1.3, C3.1.4, C3.1.5, C3.1.6, C3.1.7, C3.1.8, C3.1.10, C3.1.11, C3.1.12, C3.1.13, C3.1.15, C3.1.16, C3.1.17, C3.1.18, C3.1.19, C3.1.23, C3.2.2, C3.2.3, C3.2.4, C3.2.5, C3.2.6, C3.2.7, C3.2.8, C3.2.9, C3.2.10, C3.2.12, C3.2.15, C3.2.18, C4.1.1, C4.1.5, C4.1.6, C4.1.8, C4.1.9, C4.1.10, C4.1.11, C4.1.12, C4.1.13, C4.1.14, C4.1.16, C4.1.17, C4.2.1, C4.2.2, C4.2.3, C4.2.5, C4.2.6, C4.2.7, C4.2.8, C4.2.9, C4.2.10, C4.2.13, C4.2.14, C4.2.16, C4.2.18, C4.2.19, C4.2.21.
+C3.1.2, C3.1.3, C3.1.4, C3.1.5, C3.1.6, C3.1.7, C3.1.8, C3.1.10, C3.1.11, C3.1.12, C3.1.13, C3.1.15, C3.1.16, C3.1.17, C3.1.18, C3.1.19, C3.1.23, C3.2.2, C3.2.3, C3.2.4, C3.2.5, C3.2.6, C3.2.7, C3.2.8, C3.2.9, C3.2.10, C3.2.12, C3.2.15, C3.2.18, C4.1.1, C4.1.5, C4.1.6, C4.1.9, C4.1.10, C4.1.11, C4.1.12, C4.1.13, C4.1.14, C4.1.16, C4.1.17, C4.2.1, C4.2.2, C4.2.3, C4.2.5, C4.2.6, C4.2.7, C4.2.8, C4.2.9, C4.2.10, C4.2.16, C4.2.18, C4.2.19, C4.2.21
 
 Before treating Sprint 8 as complete/release-ready, run the committed validator and negative tests in a real checkout, run existing validators, quality and production build, and perform actual browser QA of all four lessons including the new semi-log figure. Commission a qualified independent biology/assessment reviewer to approve the scientific explanations, original questions, ecological examples and diagram accuracy. Accessibility and permissions review of externally sourced material also remains separate. The current report records **internal verification only**, not independent expert certification.
 
