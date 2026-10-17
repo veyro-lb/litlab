@@ -32,6 +32,8 @@ export function validateEvidence(evidence,lessons=topicLessons){
   if(JSON.stringify(x.sources?.references)!==JSON.stringify(names))mark('Reference mapping drift');
   const visuals=(s.visuals||[]).map(v=>({title:v.title,kind:v.kind,afterBlock:v.afterBlock,needsScientistAndAccessibilityApproval:true}));
   if(JSON.stringify(x.figures?.learningVisuals)!==JSON.stringify(visuals))mark('Scientific visuals drift');
+  const micrographs=(s.authenticMicrographs||[]).map(c=>({id:c.id,modality:c.modality,sourceUrl:c.sourceUrl,license:c.license,scaleStatement:c.scaleNote,expertScientificApproval:'pending'}));
+  if(JSON.stringify(x.authenticMicroscopy||[])!==JSON.stringify(micrographs))mark('Licensed microscopy evidence drift');
   const assets=s.assets.map(id=>{const a=l.assets.find(a=>a.id===id);return{id,kind:a?.kind||'unknown',license:a?.license||null,provenancePresent:Boolean(a?.permissionEvidence),withheld:Boolean(a?.withheldReason),withheldReason:a?.withheldReason??null,scientificReview:'unapproved'}});
   if(JSON.stringify(x.figures?.assets)!==JSON.stringify(assets))mark('Figure provenance or withholding drift');
   if(x.figures?.allScientificAccuracyAndLicensingApprovals!=='pending'||x.figures?.allAccessibilityApprovals!=='pending')mark('Automated evidence must not claim qualified approval');
@@ -49,6 +51,9 @@ export function validateEvidence(evidence,lessons=topicLessons){
  if(evidence.qualitySignals.authoredSimplifications!==helps)fail('Authored simplification count drift');
  const withheld=[...new Set(lessons.flatMap(l=>l.assets.filter(a=>a.withheldReason).map(a=>a.id)))].sort();
  if(JSON.stringify([...evidence.qualitySignals.withheldAssets].sort())!==JSON.stringify(withheld))fail('Withheld figure ledger drift');
+ const sourceImages=new Set(actual.flatMap(({s})=>(s.authenticMicrographs||[]).map(c=>c.id)));
+ const assignments=actual.reduce((n,{s})=>n+(s.authenticMicrographs?.length||0),0);
+ if(evidence.qualitySignals.externalLicensedMicroscopySourceCount!==sourceImages.size||evidence.qualitySignals.externalCaseAssignments!==assignments)fail('Licensed microscopy source inventory drift');
  if(!evidence.evidenceType?.includes('not independent expert approval'))fail('Approval boundary missing');
  return errors;
 }
