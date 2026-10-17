@@ -8,6 +8,7 @@ import OrganelleInvestigation from './OrganelleInvestigation';
 import ExplanationHelp from './ExplanationHelp';
 import WaterHeatInvestigation from './WaterHeatInvestigation';
 import LearningVisual from './LearningVisual';
+import AuthenticMicroscopy from './AuthenticMicroscopy';
 
 export default function ReadingUnderstanding({lesson,section,study,update}:{lesson:Lesson;section:Section;study:StudyState;update:UpdateStudy}){
  const blocks=section.teachingBlocks??section.explanation.split('\n\n').map((explanation,i)=>({title:section.terms[i]?.split(':')[0]??'Biological connection',explanation,referenceIds:section.referenceIds}));
@@ -15,6 +16,7 @@ export default function ReadingUnderstanding({lesson,section,study,update}:{less
  const figure=(id:string)=>{const asset=lesson.assets.find(a=>a.id===id);return asset?<ScientificFigure key={id} asset={asset} hideLabels={!study.labels&&asset.kind!=='photograph'}/>:null};
  return <div className="bio-reading" data-reading-id={section.understandingIds[0]}>
   {blocks.map((b,i)=><div className="bio-reading-passage" key={b.title}><section aria-labelledby={section.id+'-heading-'+i}><h3 id={section.id+'-heading-'+i}>{b.title}</h3>{b.explanation.split('\n\n').map(p=><p key={p}>{p}</p>)}</section>{placements.filter(p=>p.afterBlock===i).map(p=>figure(p.assetId))}{section.visuals?.filter(v=>v.afterBlock===i).map((v,j)=><LearningVisual key={v.title+j} visual={v}/>)}</div>)}
+  {section.authenticMicrographs?.length>0&&<AuthenticMicroscopy cases={section.authenticMicrographs} study={study} update={update}/>}
   {section.enrichment&&<section className="bio-reading-extension"><h3>{section.enrichment.title}</h3><p>{section.enrichment.text}</p><span className="bio-muted">Extension beyond the core understanding</span></section>}
   <aside className="bio-worked-example"><span className="bio-eyebrow">IN A LIVING SYSTEM</span><h3>{section.exampleTitle??'Connect the explanation to an example'}</h3><p>{section.workedExample}</p></aside>
   {(section.molecularViewer||section.graphTables?.length)&&<section className="bio-reading-data"><h3>Look at the evidence</h3>{section.molecularViewer&&<MolecularViewerActivity activity={section.molecularViewer}/>} {section.graphTables?.map((g,i)=><div className="bio-table-scroll" key={i} tabIndex={0} role="region" aria-label={g.caption}><table><caption>{g.caption}</caption><thead><tr>{g.headers.map(h=><th key={h} scope="col">{h}</th>)}</tr></thead><tbody>{g.rows.map((r,j)=><tr key={j}>{r.map((v,k)=><td key={k}>{v}</td>)}</tr>)}</tbody></table></div>)}</section>}
