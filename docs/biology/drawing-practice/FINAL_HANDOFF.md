@@ -4,8 +4,8 @@
 **Repository:** `veyro-lb/litlab`  
 **Branch:** `feature/biolab-interactive-drawing-practice-20261018`  
 **Stable starting point:** UI acceptance branch commit `bb37ae9ffc9c4221ff0a1339b35aab1c326be319`  
-**Code tested in Chromium:** `5bd19d5bdbfc8dff0c7f41caaf1c29134bfedcec`  
-**Successful workflow:** [BioLab Drawing Practice QA run 39073738007](https://github.com/veyro-lb/litlab/actions/runs/39073738007) (11/11 browser journeys, four screenshots, no browser page errors)
+**Code tested in Chromium:** `d13825d65d437aa289121654fcf4c4b233d3456b`  
+**Successful workflow:** [BioLab Drawing Practice QA run 39073973417](https://github.com/veyro-lb/litlab/actions/runs/39073973417) (11/11 browser journeys, four screenshots, no browser page errors)
 
 ## Scope and result
 
@@ -75,7 +75,7 @@ No modifications to science artwork, authoring lesson JSON, source-policy cleanu
 
 ## Test evidence (exact code SHA)
 
-**Real Chromium:** on commit `5bd19d5bdbfc8dff0c7f41caaf1c29134bfedcec`, GitHub Actions run [39073738007](https://github.com/veyro-lb/litlab/actions/runs/39073738007) passed **11/11** cases with **0 browser page errors**:
+**Real Chromium:** on commit `d13825d65d437aa289121654fcf4c4b233d3456b`, GitHub Actions run [39073973417](https://github.com/veyro-lb/litlab/actions/runs/39073973417) passed **11/11** cases with **0 browser page errors**:
 
 1. Existing study-mode link navigates to the drawing route.
 2. Genuine labelled/unlabelled original SVGs toggle and load.
@@ -94,7 +94,7 @@ The workflow also passed `npm ci`, **five new targeted unit/negative tests**, `n
 
 - Native labelled inputs and checkboxes; semantic `<fieldset>`/`<legend>` and ordered workflow steps; button `aria-pressed`; status text for checking and self-assessment.
 - Same existing `ScientificFigure` dialog with focus restoration, Escape, enlarge controls and descriptive alt text. Text input exposes precise scientific clues and item-level status. No forced drag-and-drop or pointer-only canvas.
-- CSS is loaded into the pre-existing BioLab shadow-root after premium styling; responsive cards and narrow-screen controls use existing colour tokens, with visible keyboard focus in both themes and reduced-motion support.
+- CSS is loaded into the pre-existing BioLab shadow-root after premium styling; six study modes use six desktop columns and three-by-two mobile columns. Responsive cards and narrow-screen controls use existing colour tokens, with visible keyboard focus in both themes and reduced-motion support.
 - 390px and 1440px light/dark captures inspected manually for fit and readability. **No formal manual screen-reader session, axe audit, accessibility certification, or comprehensive browser/device matrix has been completed.** Automated DOM role/keyboard checks are useful but not a substitute.
 
 ## Handoff / remaining release gates
