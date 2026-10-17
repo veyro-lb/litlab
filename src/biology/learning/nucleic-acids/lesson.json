@@ -615,7 +615,47 @@
             "explanation": "Pyrimidines means cytosine, thymine and uracil. DNA contains the named bases adenine (A), thymine (T), cytosine (C) and guanine (G). Adenine and guanine are two-ring purines; cytosine, thymine and uracil are one-ring pyrimidines."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Purines and pyrimidines: recognizing nitrogenous bases",
+          "afterBlock": 1,
+          "headers": [
+            "Base family",
+            "Ring system",
+            "Named bases",
+            "Where found"
+          ],
+          "rows": [
+            [
+              "Purines",
+              "Two fused rings",
+              "Adenine (A), guanine (G)",
+              "DNA and RNA"
+            ],
+            [
+              "Pyrimidines",
+              "One ring",
+              "Cytosine (C)",
+              "DNA and RNA"
+            ],
+            [
+              "Pyrimidines",
+              "One ring",
+              "Thymine (T)",
+              "DNA"
+            ],
+            [
+              "Pyrimidines",
+              "One ring",
+              "Uracil (U)",
+              "RNA"
+            ]
+          ],
+          "note": "Ring classification concerns the nitrogenous base, not the pentose or the whole nucleotide."
+        }
+      ]
     },
     {
       "id": "a12-5",
@@ -1360,7 +1400,38 @@
             "explanation": "Coding DNA strand means sequence generally matches RNA except T/U. Complementary base pairing allows one existing DNA strand to act as a template for synthesising another DNA strand during semiconservative replication. RNA polymerase reads template DNA 3′→5′ and synthesises RNA 5′→3′."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Using a nucleic-acid template",
+          "afterBlock": 1,
+          "headers": [
+            "Process",
+            "Template",
+            "Product",
+            "Synthesis direction",
+            "Base rule"
+          ],
+          "rows": [
+            [
+              "DNA replication",
+              "Parental DNA strands",
+              "DNA strands",
+              "5′ → 3′",
+              "A–T, C–G"
+            ],
+            [
+              "Transcription",
+              "One DNA template strand for a gene",
+              "RNA strand",
+              "5′ → 3′",
+              "A–U, C–G in RNA–DNA pairing"
+            ]
+          ],
+          "note": "A polymerase reads its template 3′ → 5′ while extending the new strand at its 3′ end."
+        }
+      ]
     },
     {
       "id": "a12-9",
@@ -2107,7 +2178,37 @@
             "explanation": "Nucleosome means DNA wrapped around a core histone octamer. A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. The guide also requires actual use of molecular visualization software."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Nucleosome core and linker: keep the components distinct",
+          "afterBlock": 1,
+          "headers": [
+            "Component",
+            "Composition",
+            "Relationship to DNA"
+          ],
+          "rows": [
+            [
+              "Histone octamer",
+              "Two each of H2A, H2B, H3 and H4",
+              "Core around which nucleosomal DNA wraps"
+            ],
+            [
+              "Core DNA",
+              "Approximately 147 base pairs of DNA",
+              "Wraps around the histone octamer in a nucleosome core particle"
+            ],
+            [
+              "Histone H1",
+              "A linker histone; not one of the eight core histones",
+              "Associates with linker/entry–exit DNA and helps higher-order chromatin organization"
+            ]
+          ],
+          "note": "Concept comparison only; the inaccurate old nucleosome illustration remains withheld. Use the credited molecular viewer to inspect geometry."
+        }
+      ]
     },
     {
       "id": "a12-14",
@@ -2252,7 +2353,35 @@
             "explanation": "Pellet means centrifuged bacterial fraction. Hershey and Chase separately labelled bacteriophage DNA using phosphorus-32 and protein using sulfur-35. Most 32P radioactivity accompanied the bacterial pellet, whereas most 35S remained with the supernatant."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Hershey–Chase: two tracers distinguish competing explanations",
+          "afterBlock": 1,
+          "headers": [
+            "Tracer",
+            "Atom labelled",
+            "Main macromolecule tracked",
+            "Where radioactivity was mainly recovered"
+          ],
+          "rows": [
+            [
+              "Phosphorus-32 (³²P)",
+              "Phosphorus",
+              "Phage DNA",
+              "Bacterial pellet"
+            ],
+            [
+              "Sulfur-35 (³⁵S)",
+              "Sulfur",
+              "Phage protein coats",
+              "Supernatant with detached coats"
+            ]
+          ],
+          "note": "This is a qualitative summary of experimental evidence, not a numerical plot. Labelling relies on the different elemental composition of DNA and proteins."
+        }
+      ]
     },
     {
       "id": "a12-15",
