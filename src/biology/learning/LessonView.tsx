@@ -11,7 +11,8 @@ import ScientificFigure from './ScientificFigure';
 import ReadingUnderstanding from './ReadingUnderstanding';
 import ResourceNav from '../components/ResourceNav';
 import FlashcardStudy from './FlashcardStudy';
-export type LessonMode = 'learn'|'revision'|'practice'|'sources'|'flashcards';
+import DrawingPractice from './drawing-practice/DrawingPractice';
+export type LessonMode = 'learn'|'revision'|'practice'|'sources'|'flashcards'|'drawing';
 export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesson;topic:Topic;level:Level;mode:LessonMode;hash:string}) {
   const requestedCandidate=new URLSearchParams(hash.split('?')[1]??'').get('understanding');
   // Discard unknown or out-of-scope deep links before selecting a section or practice target.
@@ -55,6 +56,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
       {(missedOnly?missed:choices).map(q=>'options' in q&&q.options?<div className="bio-practice-choice" key={q.id}><span className="bio-eyebrow">PAPER 1A STYLE · {q.understandingIds.join(' / ')}{q.level==='HL'?' · ADDITIONAL HL':''}</span><p className="bio-question-syllabus">Syllabus: <UnderstandingLabel topic={topic} ids={q.understandingIds}/></p><ChoiceQuestion item={{...q,kind:'selection',options:q.options}} study={study} update={update} returnTo={()=>revisit(q.sectionId)}/></div>:null)}
       {!missedOnly&&targeted.filter(q=>q.markingPoints).map(q=><WrittenQuestion key={q.id} topic={topic} item={q} study={study} update={update}/>)}
     </section>}
+    {mode==='drawing'&&<DrawingPractice lesson={lesson} sections={sections} level={level} study={study} update={update} requestedId={requestedId}/>}
     {mode==='flashcards'&&<FlashcardStudy lesson={lesson} sections={sections} requestedId={requestedId} study={study} update={update}/>}
     {mode==='sources'&&<section className="bio-sources"><h2>Trace the evidence.</h2><p><strong>Core syllabus:</strong> IB Biology Guide, first assessment 2025. <strong>Main teaching coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme, Third Edition</em> (Hodder Education, 2023). BioLab lessons are original teaching drafts based on these resources; scientific cross-checks and appropriately licensed imagery are recorded below. We do not reproduce the publisher’s protected figures or text.</p><h3>Review record</h3><ul>{lesson.review.notes.filter(n=>!/(?:PDF|printed|Guide) (?:p|pp)\./i.test(n)).map(n=><li key={n}>{n}</li>)}</ul><p>Source check: {lesson.review.sourceCheckedAt}. Qualified reviewer: not yet assigned. Software tests verify behavior and structure; they do not certify science.</p><h3>References in your {level} scope</h3><ol>{lesson.references.filter(r=>inScope(r,level)).map(r=><li key={r.id}><a href={r.url} target="_blank" rel="noreferrer">{r.title}{r.url?' ↗':''}</a><p>{r.url ? 'Independent research or figure reference' : 'Main teaching and curriculum reference'}</p></li>)}</ol><h3>Figures and reuse</h3>{lesson.assets.filter(a=>inScope(a,level)).map(a=><details className="bio-source-note" key={a.id}><summary>{a.id} · {a.kind}</summary><p>{a.attribution}</p><p>{a.license}</p><p>{a.permissionEvidence}</p>{'sourceUrl' in a&&a.sourceUrl&&<p><a href={a.sourceUrl} target="_blank" rel="noreferrer">Original source ↗</a> · <a href={a.termsUrl} target="_blank" rel="noreferrer">Reuse terms ↗</a></p>}<p>Scientific status: source-checked draft, qualified review pending.</p></details>)}<h3>Questions to carry forward</h3><p>{lesson.summary}</p></section>}
   </article>;
