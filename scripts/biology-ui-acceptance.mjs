@@ -20,7 +20,7 @@ async function check(name,fn){
  try{await fn();report.cases.push({name,pass:true});console.log('PASS '+name)}
  catch(e){const message=String(e).slice(0,1300);report.cases.push({name,pass:false,error:message});console.error('FAIL '+name+' '+message)}
 }
-async function navigate(page,hash,selector='.bio-app'){await page.goto(origin+hash,{waitUntil:'domcontentloaded'});await page.locator(selector).waitFor()}
+async function navigate(page,hash,selector='.bio-app'){await page.goto(origin+hash,{waitUntil:'domcontentloaded'});await page.locator(selector).first().waitFor()}
 async function shot(page,name){await page.screenshot({path:output+'/'+name,fullPage:true,animations:'disabled'});report.screenshots.push(name)}
 async function noOverflow(page,width){
  const m=await page.evaluate(()=>{const app=document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector('.bio-app');return {page:document.documentElement.scrollWidth,viewport:document.documentElement.clientWidth,app:app?.getBoundingClientRect().width}});
