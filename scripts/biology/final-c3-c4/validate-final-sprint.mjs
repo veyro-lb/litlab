@@ -24,7 +24,7 @@ export function validateLesson(lesson, prefix, expected) {
     for (const id of section.understandingIds || []) {
       if (ids.has(id)) fail("duplicate understanding " + id);
       ids.add(id);
-      if (!/^([A-D][1-4]\\.[1-4]\\.\\d+)$/.test(id)) fail("malformed understanding " + id);
+      if (!/^([A-D][1-4]\.[1-4]\.\d+)$/.test(id)) fail("malformed understanding " + id);
       if (!section.explanation || section.explanation.trim().length < 150) fail("empty/short explanation " + id);
       const isHL = prefix === "C3.1" && Number(id.split(".")[2]) >= 17;
       if (section.level !== (isHL ? "HL" : "shared")) fail("level boundary " + id);
@@ -68,8 +68,8 @@ export function validateLesson(lesson, prefix, expected) {
 
 export function validateDiagram(svg, name) {
   const problems = [];
-  if (!/<svg\\b/.test(svg) || !/<\\/svg>/.test(svg)) problems.push(name + ": bad SVG root");
-  if (!/<title\\b/.test(svg) || !/<desc\\b/.test(svg)) problems.push(name + ": missing visible semantics");
+  if (!/<svg\b/.test(svg) || !/<\/svg>/.test(svg)) problems.push(name + ": bad SVG root");
+  if (!/<title\b/.test(svg) || !/<desc\b/.test(svg)) problems.push(name + ": missing visible semantics");
   if (/href=["']https?:/.test(svg)) problems.push(name + ": remote resource/link not permitted");
   return problems;
 }
@@ -92,7 +92,7 @@ export function runAudit() {
   const sigmoid = lessons.get("C4.1").sections.find(s => s.understandingIds.includes("C4.1.8"));
   const points = [...graph.matchAll(/<polyline points="([^"]+)"/g)][0]?.[1];
   const counts = sigmoid.graphTables[0].rows.map(r => r[1]);
-  const expectedPoints = counts.map((count, index) => (134 + 133.2 * index).toFixed(1).replace(/\\.0$/, "") + "," + (375 - 4.75 * count)).join(" ");
+  const expectedPoints = counts.map((count, index) => (134 + 133.2 * index).toFixed(1).replace(/\.0$/, "") + "," + (375 - 4.75 * count)).join(" ");
   if (points !== expectedPoints) errors.push("C4.1.8: sigmoid SVG points do not match model table and axis scale");
   const logGraph = load("public/biology/populations-communities/exponential-semilog.svg");
   if (!logGraph.includes("M152 332L362 252L572 172L782 92") || !logGraph.includes("Population size (individuals; log scale)") || !logGraph.includes("Elapsed time (arbitrary units; linear scale)")) errors.push("C4.1.7: semi-log plotted geometry or axis units invalid");
