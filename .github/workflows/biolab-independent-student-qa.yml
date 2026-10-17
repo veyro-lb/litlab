@@ -1,0 +1,188 @@
+name: BioLab Independent Student QA (isolated, no deploy)
+
+on:
+  push:
+    branches:
+      - feature/biolab-independent-student-qa-20261017
+    paths:
+      - '.github/workflows/biolab-independent-student-qa.yml'
+      - 'scripts/biology/parallel-student-qa/**'
+      - 'docs/biology/parallel-student-qa/**'
+
+permissions:
+  contents: read
+
+jobs:
+  independent-qa:
+    name: Verify, audit and browser-exercise isolated QA branch
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    env:
+      CI: 'true'
+    steps:
+      - name: Checkout exact audited commit without credentials
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Verify isolated branch and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'feature/biolab-independent-student-qa-20261017'
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          printf 'source_sha=%s\nbranch=%s\n' "$GITHUB_SHA" "$GITHUB_REF_NAME" | tee qa-checkout.txt
+
+      - name: Setup Node 22 and npm cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install exact lockfile dependencies
+        id: install
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm ci 2>&1 | tee qa-install.log
+
+      - name: Existing quality and Biology validators
+        id: existing
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            npm run quality
+            node scripts/biology/full-course/readiness-audit.mjs
+            node scripts/validate-phase9.mjs
+            node --test scripts/validate-phase9.test.mjs
+            node scripts/validate-phase7-batch3.mjs
+            node --test scripts/validate-phase7-batch3.test.mjs
+            node scripts/biology/phase8/validate.mjs
+            node scripts/biology/phase8/negative.test.mjs
+            node scripts/validate-biology.mjs
+            node --test scripts/validate-biology.test.mjs
+            node scripts/validate-water.mjs
+            node scripts/validate-lessons.mjs
+            node scripts/validate-batch32.mjs
+            node scripts/validate-batch5.mjs
+            node --test scripts/validate-batch5.test.mjs
+            node scripts/validate-phase5-figures.mjs
+            node --test scripts/validate-phase5-figures.test.mjs
+            node scripts/validate-phase6-editorial.mjs
+            node --test scripts/validate-phase6-editorial.test.mjs
+            node scripts/validate-phase4-figures.mjs
+            node --test scripts/validate-phase4-figures.test.mjs
+            node --test scripts/validate-batch32.test.mjs
+            node --test scripts/validate-water.test.mjs scripts/validate-lesson.test.mjs
+            node --test scripts/biology/full-course/integration-negative.test.mjs
+            for file in scripts/biology/theme-a/*-qa.mjs; do node "$file"; done
+            node scripts/biology/theme-b/validate-all.mjs
+            node --test scripts/biology/theme-c1/*.test.mjs scripts/biology/theme-c2/*.test.mjs
+            node --test src/biology/learning/*/*.test.mjs
+          } 2>&1 | tee qa-existing.log
+
+      - name: Build distributable (no deploy)
+        id: build
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee qa-build.log
+
+      - name: Run independent negative fixture tests
+        id: negative
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          node --test scripts/biology/parallel-student-qa/audit.test.mjs 2>&1 | tee qa-negative.log
+
+      - name: Run independent all-topic static audit
+        id: audit
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/biology/parallel-student-qa/audit.mjs 2>&1 | tee qa-static.log
+
+      - name: Run actual Chromium QA inside network-disabled container
+        id: browser
+        if: steps.build.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/parallel-student-qa docs/biology/parallel-student-qa/evidence node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm \
+            --network none \
+            --cap-drop ALL \
+            --security-opt no-new-privileges \
+            --read-only \
+            --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp \
+            --env CI=true \
+            --env GITHUB_SHA="$GITHUB_SHA" \
+            --tmpfs /tmp:rw,nosuid,size=1024m \
+            --shm-size=1g \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/docs/biology/parallel-student-qa/evidence,dst=/work/docs/biology/parallel-student-qa/evidence" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
+            --workdir /work \
+            mcr.microsoft.com/playwright:v1.56.1-noble \
+            bash -euo pipefail -c '
+              test "$(ls -1 /sys/class/net | tr "\n" " ")" = "lo "
+              CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              test -n "$CHROME_BIN" && test -x "$CHROME_BIN"
+              export CHROME_BIN
+              printf "network=none; only=lo; chrome=%s; source_sha=%s\n" "$CHROME_BIN" "$GITHUB_SHA" | tee qa-artifacts/parallel-student-qa/isolation.txt
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/parallel-student-qa/preview.log 2>&1 &
+              preview_pid=$!
+              trap "kill $preview_pid 2>/dev/null || true" EXIT
+              ready=0
+              for attempt in $(seq 1 45); do
+                if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4173/; then ready=1; break; fi
+                sleep 1
+              done
+              test "$ready" = 1 || { cat qa-artifacts/parallel-student-qa/preview.log; exit 1; }
+              node scripts/biology/parallel-student-qa/browser.mjs 2>&1 | tee qa-artifacts/parallel-student-qa/browser-console.log
+            '
+
+      - name: Upload real logs, findings and screenshots even on failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-independent-student-qa-evidence
+          path: |
+            qa-checkout.txt
+            qa-*.log
+            qa-artifacts/parallel-student-qa/
+            docs/biology/parallel-student-qa/evidence/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Fail the workflow if any actual gate failed or was skipped
+        if: always()
+        shell: bash
+        env:
+          INSTALL: ${{ steps.install.outcome }}
+          EXISTING: ${{ steps.existing.outcome }}
+          BUILD: ${{ steps.build.outcome }}
+          NEGATIVE: ${{ steps.negative.outcome }}
+          AUDIT: ${{ steps.audit.outcome }}
+          BROWSER: ${{ steps.browser.outcome }}
+        run: |
+          printf 'install=%s\nexisting=%s\nbuild=%s\nnegative=%s\naudit=%s\nbrowser=%s\n' "$INSTALL" "$EXISTING" "$BUILD" "$NEGATIVE" "$AUDIT" "$BROWSER"
+          for state in "$INSTALL" "$EXISTING" "$BUILD" "$NEGATIVE" "$AUDIT" "$BROWSER"; do
+            test "$state" = success || exit 1
+          done
