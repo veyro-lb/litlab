@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "title": "BioLab independent visual QA issue ledger",
+  "baselineSha": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
+  "auditBranch": "feature/biolab-independent-visual-qa-20261018",
+  "scannedSvgCount": 259,
+  "registeredTopicCount": 40,
+  "registeredFigureCount": 160,
+  "sourceChecks": "All 259 Biology SVG bytes fetched and checked for root/viewBox, embedded script/onload; all 40 topic asset references cross-checked for existence and alt text. No findings from these narrow checks.",
+  "verificationLimits": "Science defects are independently inferred from inspected original SVG source. Full-site Chromium at six widths and screenshot evidence were not executed; screenshotEvidence is null. This is NOT scientific certification.",
+  "counts": {
+    "high": 1,
+    "medium": 8,
+    "low": 2
+  },
+  "issues": [
+    {
+      "id": "IVQA-001",
+      "topic": "B3.2",
+      "understandingIds": [
+        "B3.2.14"
+      ],
+      "assetPath": "public/biology/transport/heart-circuits.svg",
+      "sourceEvidence": "SVG paths M155 205 V267; M150 327 V377 H33 V175 H59; M252 298 H329 V175 H253, and all strokes lack marker-end.",
+      "screenshotEvidence": null,
+      "defect": "Fish circulation has an unlabeled/missing body-tissue stage and ambiguous paths. A line runs from the gill area around the bottom back toward the heart; no flow arrowheads are defined. Mammalian diagram adds directionless parallel paths.",
+      "severity": "high",
+      "educationalImpact": "May teach that fish blood can return directly from gills to heart rather than passing through systemic capillaries first.",
+      "expectedStructure": "Fish: heart → gill capillaries → systemic capillaries → heart, one continuous circulation. Mammal: right heart → lungs → left heart → body → right heart, two unambiguous ordered circuits.",
+      "recommendedChange": "Replace with discrete gill, body, heart nodes and one-way clearly arrowheaded connectors; validate one continuous fish circuit and two mammalian circuits against B3.2.",
+      "disposition": "withhold until corrected",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-002",
+      "topic": "D3.1",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "assetPath": "public/biology/reproduction/d31-flower-structures.svg",
+      "sourceEvidence": "SVG style path M581 225V155, ovary connector M581 266V330, label path M810 268L590 255.",
+      "screenshotEvidence": null,
+      "defect": "Style callout leader ends at x590,y255, in a vertical drawing gap: the style line at x581 ends at y225 and the ovarian connector starts at y266.",
+      "severity": "medium",
+      "educationalImpact": "A student following the label may identify blank petal/background area rather than the continuous style.",
+      "expectedStructure": "A continuous stigma–style–ovary central carpel and an unobstructed leader line terminating directly on the style shaft.",
+      "recommendedChange": "Draw uninterrupted style contour to the ovary; anchor the style label to that shaft; recheck petal overlap and labels.",
+      "disposition": "correct",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-003",
+      "topic": "D3.1",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "assetPath": "public/biology/reproduction/d31-flower-structures.svg",
+      "sourceEvidence": "SVG text labels only Anther, Filament, Ovary, Stigma, Style and Ovule (plus explanatory sentence).",
+      "screenshotEvidence": null,
+      "defect": "Diagram visibly draws petals and basal green structures but provides no explicit Petal or Sepal labels and no Stamen/Carpel grouping.",
+      "severity": "medium",
+      "educationalImpact": "Incomplete practice reference for the page-10 insect-pollinated-flower drawing checklist; organ-group relationships remain implicit.",
+      "expectedStructure": "Identify petal, sepal, anther, filament, stigma, style, ovary and ovule; bracket stamen and carpel only if useful.",
+      "recommendedChange": "Add accurate callouts with non-crossing leader lines; retain the existing functional labels. Do not copy the watermarked handout.",
+      "disposition": "correct",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-004",
+      "topic": "D3.1",
+      "understandingIds": [
+        "D3.1.4",
+        "D3.1.13"
+      ],
+      "assetPath": "src/biology/learning/reproduction/lesson.json",
+      "sourceEvidence": "D3.1 lesson assets: d31-cycle-feedback, d31-fertilization-sequence, d31-flower-structures. Do not treat handout D3.2 as current syllabus code.",
+      "screenshotEvidence": null,
+      "defect": "No dedicated registered male or female reproductive-system anatomy figure exists in D3.1; only cycle, fertilization and flower assets are registered.",
+      "severity": "medium",
+      "educationalImpact": "Students have no internal structural reference for ovary/oviduct/uterus/cervix/vagina or vas deferens/testis/epididymis/urethra during relevant teaching.",
+      "expectedStructure": "Where anatomical diagrams are needed, show typical female and male systems with correctly oriented ducts, distinct routes, and structure names; distinguish typical anatomical variation.",
+      "recommendedChange": "Commission original figures with clinically and biologically correct pathways; attach only to relevant understandings, not as generic decoration.",
+      "disposition": "add",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-005",
+      "topic": "B3.2",
+      "understandingIds": [
+        "B3.2.15"
+      ],
+      "assetPath": "public/biology/transport/heart-frontal.svg",
+      "sourceEvidence": "Rectangular chamber elements at x226–526 and x672–972; labels 'Pulmonary valve' at x27,525 and 'Aortic valve' at x986,473; no visible cusps.",
+      "screenshotEvidence": null,
+      "defect": "Diagram calls itself a frontal heart and names pulmonary/aortic/tricuspid/mitral valves, but its organs are detached rectangles; the semilunar valve labels do not indicate visible valve leaflets.",
+      "severity": "medium",
+      "educationalImpact": "Functional blood flow is broadly sound, but students may wrongly use this as a heart-anatomy drawing model or fail to locate valve structures.",
+      "expectedStructure": "Two atria, two ventricular chambers with correct relative wall thickness, septum, four visibly distinct valves and connected great vessels with unambiguous arrows.",
+      "recommendedChange": "Either retitle as flow-topology chart and add a separate anatomical frontal diagram, or replace with anatomical plan showing valves at correct outflow/atrioventricular junctions.",
+      "disposition": "correct or replace",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-006",
+      "topic": "B3.2",
+      "understandingIds": [
+        "B3.2.9",
+        "B3.2.10"
+      ],
+      "assetPath": "public/biology/transport/dicot-stem-root.svg",
+      "sourceEvidence": "Only visible explanatory labels: 'Bundles in a peripheral ring' and 'Central xylem; phloem between arms'.",
+      "screenshotEvidence": null,
+      "defect": "Stem/root tissue cross-sections show colored bundles but do not identify xylem versus phloem with direct leaders; epidermis, cortex, and stem pith are not explicitly labeled.",
+      "severity": "medium",
+      "educationalImpact": "Students may memorize general ring/star shapes yet fail to map named tissues in an observation-plan drawing.",
+      "expectedStructure": "Stem: bundles arranged in ring, xylem inward and phloem outward, epidermis/cortex/pith as appropriate. Root: central star xylem, phloem between arms and outer tissue layers.",
+      "recommendedChange": "Keep geometric arrangements but add tissue-specific leaders or a small matched key; verify each colored tissue against an authentic micrograph.",
+      "disposition": "correct",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-007",
+      "topic": "B3.1",
+      "understandingIds": [
+        "B3.1.7",
+        "B3.1.8"
+      ],
+      "assetPath": "public/biology/gas-exchange/dicot-leaf.svg",
+      "sourceEvidence": "SVG drawing ends at x632; labels start x650 with no intervening line/path to tissue targets, despite xylem/phloem text inside the vein.",
+      "screenshotEvidence": null,
+      "defect": "Named tissue labels appear in a right-side list without leaders; at narrow sizes, the diagram is likely too small for reliable association with the correct tissue layer.",
+      "severity": "medium",
+      "educationalImpact": "Misidentification of spongy/palisade tissue, upper/lower epidermis and stomatal position, particularly on mobile.",
+      "expectedStructure": "Clear plan-section tissue layers with direct, non-crossing leaders: upper cuticle/epidermis; palisade; vascular xylem above phloem; spongy; lower epidermis/stoma.",
+      "recommendedChange": "Add leaders or a responsive annotation key. Inspect mobile at 320/390 and enlarged modal before release.",
+      "disposition": "correct",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-008",
+      "topic": "A1.2",
+      "understandingIds": [
+        "A1.2.6",
+        "A1.2.8"
+      ],
+      "assetPath": "public/biology/nucleic-acids/paired.svg",
+      "sourceEvidence": "Four identical vertical <line> elements at x230,380,530,680 from y135 to290 with identical dasharray 7 8.",
+      "screenshotEvidence": null,
+      "defect": "One unbroken dashed vertical line connects each A–T and G–C pair. If interpreted as hydrogen bonds, this implies equal single dashed contacts rather than the 2 A–T and 3 G–C pattern.",
+      "severity": "medium",
+      "educationalImpact": "Could obscure the reason complementary base-pair strengths differ and fail the handout's DNA model convention.",
+      "expectedStructure": "A–T pairs represented by two hydrogen-bond contacts and G–C by three; antiparallel strands remain correctly oriented 5′/3′.",
+      "recommendedChange": "Depict two/three short dashed contacts respectively, or explicitly label existing dashes as generic pair alignment rather than bond counts.",
+      "disposition": "correct",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-009",
+      "topic": "B1.2",
+      "understandingIds": [
+        "B1.2.2"
+      ],
+      "assetPath": "public/biology/proteins/peptide.svg",
+      "sourceEvidence": "SVG reactant text 'Amino acid 1 + amino acid 2'; product H2N–CH(R1)–C(=O)–NH–CH(R2)–COOH + H2O.",
+      "screenshotEvidence": null,
+      "defect": "Condensation reaction names 'amino acid 1 + amino acid 2' but shows only the generalized product formula; the OH and H lost from reactants are not drawn.",
+      "severity": "low",
+      "educationalImpact": "Does not itself teach how the covalent peptide linkage forms, despite being used as a bonding process diagram.",
+      "expectedStructure": "Two complete generalized amino acid reactants showing -COOH and -NH2, a water product and -C(=O)-NH- in the dipeptide; chemically valid carbon and nitrogen valences.",
+      "recommendedChange": "Keep the correct product formula; add a separate explicit reaction inset, or retitle the figure as a peptide-bond product summary.",
+      "disposition": "correct",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-010",
+      "topic": "A1.2",
+      "understandingIds": [
+        "A1.2.2",
+        "A1.2.6"
+      ],
+      "assetPath": "public/biology/nucleic-acids/paired.svg",
+      "sourceEvidence": "Visible SVG footer at x30,y409 reads '... scientific review pending'; repeated in labelled and recall variants.",
+      "screenshotEvidence": null,
+      "defect": "Prominent student-facing footer states 'scientific review pending' in the labelled source and recall variant; similar status text occurs across other nucleic-acid SVGs.",
+      "severity": "low",
+      "educationalImpact": "Internal authoring-status text distracts from content and can be mistaken for a scientific caveat.",
+      "expectedStructure": "Student figure shows concise scientific meaning without internal production workflow notes; internal QA status remains in source metadata/reporting.",
+      "recommendedChange": "Remove production-status footer only after actual scientific sign-off; keep provenance and review state in QA ledger.",
+      "disposition": "correct after review",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    },
+    {
+      "id": "IVQA-011",
+      "topic": "D3.1",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "assetPath": "public/biology/reproduction/d31-flower-structures.svg",
+      "sourceEvidence": "SVG viewBox width 1160; labels font-size 17; 17×320/1160 ≈ 4.69 (source-size estimate, NOT browser-measured).",
+      "screenshotEvidence": null,
+      "defect": "At a proposed 320px image width, source labels 17 SVG units high on a 1160-unit viewBox project to approximately 4.7 CSS pixels if the graphic is scaled to fit; actual BioLab CSS rendering is unverified.",
+      "severity": "medium",
+      "educationalImpact": "Default inline labels risk being unreadable on small phones, even if enlargement is functional.",
+      "expectedStructure": "Key annotations legible without accidental zooming, or a mobile-specific stacked drawing/label layout.",
+      "recommendedChange": "Provide a dedicated mobile figure or accessible matched key and capture actual 320/390px site screenshots to verify.",
+      "disposition": "correct after browser confirmation",
+      "verificationStatus": "source-inspected at pinned Git commit; not browser-verified",
+      "browserVerification": "pending; no screenshot exists at this SHA"
+    }
+  ]
+}
