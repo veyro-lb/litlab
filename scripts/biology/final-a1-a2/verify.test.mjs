@@ -69,7 +69,7 @@ test('A1.1.6 heat-capacity calculation states mass, consistent units and solutio
 test('critical source-branch additions are preserved', () => {
   const dna = load('A1.2').lesson;
   const a1213 = dna.sections.find(s => s.understandingIds[0] === 'A1.2.13');
-  assert.match(a1213.explanation, /H1 is not part of the octamer/);
+  assert.match(a1213.explanation, /H1 is a separate linker histone, not/);
   assert.ok(dna.questions.some(q => q.id === 'a12-nucleosome-explanation'));
   const cell = load('A2.2').lesson;
   assert.ok(cell.questions.some(q => q.id === 'a22-graticule-calibration'));
