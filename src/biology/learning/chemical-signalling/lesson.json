@@ -1251,7 +1251,9 @@
         "ib-c21",
         "hodder-c21"
       ],
-      "assets": [],
+      "assets": [
+        "gpcr-camp"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1342,7 +1344,13 @@
             "explanation": "Epinephrine (adrenaline) binds a beta-adrenergic GPCR on the cell surface. Ligand binding activates the Gs protein, whose GTP-bound alpha subunit stimulates adenylyl cyclase. This enzyme converts ATP into cyclic AMP (cAMP), an intracellular second messenger."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "gpcr-camp",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c21-11",
@@ -1383,7 +1391,9 @@
         "ib-c21",
         "hodder-c21"
       ],
-      "assets": [],
+      "assets": [
+        "insulin-glut4"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1474,7 +1484,13 @@
             "explanation": "Insulin is a protein hormone that binds to the extracellular part of its receptor, a transmembrane protein with intrinsic tyrosine kinase activity. Binding promotes receptor activation and phosphorylation of tyrosine residues on intracellular receptor domains."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "insulin-glut4",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c21-12",
@@ -2829,7 +2845,40 @@
       "level": "HL"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "gpcr-camp",
+      "kind": "diagram",
+      "src": "/biology/chemical-signalling/gpcr-camp.svg",
+      "alt": "Epinephrine binds extracellular side of membrane GPCR; cytosolic Gs activates adenylyl cyclase, making cAMP that activates PKA.",
+      "captionTitle": "Epinephrine—G protein—cAMP cascade",
+      "attribution": "Original BioLab vector schematic (2026); scientific review pending",
+      "license": "Original BioLab project artwork; no externally licensed visual incorporated",
+      "permissionEvidence": "Text and shapes authored for this lesson from biological mechanism; does not reproduce IB/Hodder artwork",
+      "referenceIds": [
+        "ib-c21",
+        "hodder-c21"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "insulin-glut4",
+      "kind": "diagram",
+      "src": "/biology/chemical-signalling/insulin-glut4.svg",
+      "alt": "Insulin binds extracellular receptor; intracellular tyrosine phosphorylation induces GLUT4 vesicle recruitment and transporter insertion.",
+      "captionTitle": "Insulin receptor activation and GLUT4 insertion",
+      "attribution": "Original BioLab vector schematic (2026); scientific review pending",
+      "license": "Original BioLab project artwork; no externally licensed visual incorporated",
+      "permissionEvidence": "Text and shapes authored for this lesson from biological mechanism; does not reproduce IB/Hodder artwork",
+      "referenceIds": [
+        "ib-c21",
+        "hodder-c21"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    }
+  ],
   "summary": "Signals are interpreted by specific receptors; different pathways change membrane potential, enzyme activity, glucose transporter insertion or transcription. Feedback controls the duration and magnitude of signalling.",
   "review": {
     "status": "scientific-review",
