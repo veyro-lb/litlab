@@ -65,7 +65,7 @@ for(const [topic,slug,count,sharedCount] of specs){
       if(file.endsWith(".svg")){
         const xml=readFileSync(file,"utf8");
         assert(xml.includes("<svg")&&xml.includes("</svg>"),`${a.id} invalid SVG root`);
-        assert(!/<script\\b|<foreignObject\\b/i.test(xml),`${a.id} risky SVG content`);
+        assert(!xml.toLowerCase().includes("<script") && !xml.toLowerCase().includes("<foreignobject"),`${a.id} risky SVG content`);
       }
     }
     stat.figures++;
