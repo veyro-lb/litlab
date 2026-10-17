@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-17",
+  "branch": "feature/biolab-final-c3-c4-20261017",
+  "baseline_sha": "2c321ae547baa2a97294728b337a4dfa46e64408",
+  "evidenceType": "internal GitHub-connector content and path checks, not a local build nor a browser verification",
+  "sectionsMapped": 81,
+  "questionCount": 158,
+  "selectionCount": 81,
+  "writtenCount": 77,
+  "understandingLedgerRows": 81,
+  "understandingsExplicitlyEdited": 28,
+  "MCQDistractorFeedbackTargeted": 42,
+  "checks": [
+    {
+      "topic": "C3.1",
+      "understandings": 23,
+      "questions": 34,
+      "selectionQuestions": 23,
+      "writtenQuestions": 11,
+      "preexistingAssetsUnchanged": true,
+      "sectionsWithIllustrativeGraphs": 8,
+      "checkedReferences": 6
+    },
+    {
+      "topic": "C3.2",
+      "understandings": 18,
+      "questions": 38,
+      "selectionQuestions": 18,
+      "writtenQuestions": 20,
+      "preexistingAssetsUnchanged": true,
+      "sectionsWithIllustrativeGraphs": 10,
+      "checkedReferences": 5,
+      "phase5VisualsCompared": 9,
+      "phase5VisualsPreserved": true,
+      "cdcWHORefsLinked": true
+    },
+    {
+      "topic": "C4.1",
+      "understandings": 18,
+      "questions": 39,
+      "selectionQuestions": 18,
+      "writtenQuestions": 21,
+      "preexistingAssetsUnchanged": true,
+      "sectionsWithIllustrativeGraphs": 8,
+      "checkedReferences": 2
+    },
+    {
+      "topic": "C4.2",
+      "understandings": 22,
+      "questions": 47,
+      "selectionQuestions": 22,
+      "writtenQuestions": 25,
+      "preexistingAssetsUnchanged": true,
+      "sectionsWithIllustrativeGraphs": 7,
+      "checkedReferences": 4
+    }
+  ],
+  "errors": [],
+  "notExecuted": [
+    "node scripts/biology/final-c3-c4/validate-final-sprint.mjs",
+    "node --test scripts/biology/final-c3-c4/validate-final-sprint.test.mjs",
+    "node scripts/validate-biology.mjs",
+    "node --test scripts/validate-biology.test.mjs",
+    "npm run quality",
+    "npm run build",
+    "production browser QA and pixel-level SVG render review",
+    "independent subject expert sign-off"
+  ]
+}
