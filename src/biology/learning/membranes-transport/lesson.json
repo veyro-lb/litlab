@@ -1735,6 +1735,26 @@
             ]
           ],
           "note": "Opening a channel does not turn it into a pump. Specificity, direction and energy coupling must be considered separately."
+        },
+        {
+          "kind": "sequence",
+          "title": "Alternating access prevents an unrestricted leak",
+          "afterBlock": 2,
+          "steps": [
+            {
+              "title": "Binding pocket faces the loading side",
+              "description": "The protein exposes its selective binding site to one aqueous compartment."
+            },
+            {
+              "title": "Protein becomes occluded",
+              "description": "A transport cycle coupled to ATP changes conformation while limiting a through-pore."
+            },
+            {
+              "title": "Protein exposes the other side",
+              "description": "Bound solute is released to the opposite compartment; the protein can reset."
+            }
+          ],
+          "note": "Schematic ATP-driven transport cycle: specific details vary between pump families. This is different from an always-open passive channel."
         }
       ]
     },
@@ -3384,6 +3404,10 @@
         {
           "misconception": "The pump moves three K+ out and two Na+ in, directly producing every action potential.",
           "correction": "It moves 3 Na+ out and 2 K+ in per ATP, maintaining gradients; action potentials rely on gated channels."
+        },
+        {
+          "misconception": "The pump alone causes the full resting membrane voltage.",
+          "correction": "Its electrogenic 3:2 cycle contributes directly, but the resting potential primarily reflects selective passive ion permeability and the ion gradients the pump maintains."
         }
       ],
       "claimReferences": [
@@ -3945,6 +3969,38 @@
             }
           ],
           "note": "The glucose symporter is not directly hydrolysing ATP. The ATPase maintains the ion gradient that powers the coupled step."
+        },
+        {
+          "kind": "comparison",
+          "title": "Three different transport roles in one intestinal epithelial cell",
+          "afterBlock": 2,
+          "headers": [
+            "Membrane face",
+            "Transporter",
+            "Net physiological role",
+            "Immediate energy relation"
+          ],
+          "rows": [
+            [
+              "Apical (lumen-facing)",
+              "Na⁺–glucose symporter (SGLT)",
+              "Na⁺ and glucose enter cell together",
+              "Inward Na⁺ electrochemical gradient"
+            ],
+            [
+              "Basolateral (blood-facing)",
+              "Na⁺/K⁺-ATPase",
+              "Exports Na⁺ and imports K⁺",
+              "Direct ATP hydrolysis"
+            ],
+            [
+              "Basolateral (blood-facing)",
+              "Glucose uniporter (GLUT)",
+              "Glucose can exit toward blood",
+              "Glucose gradient; facilitated diffusion"
+            ]
+          ],
+          "note": "Do not apply a universal Na⁺:glucose ratio to every SGLT isoform. Direction of GLUT flux depends on its glucose gradient."
         }
       ]
     },
@@ -5154,6 +5210,58 @@
         ]
       },
       "review": "source-mapped"
+    },
+    {
+      "id": "b21-pump-inhibitor",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.1.15"
+      ],
+      "level": "HL",
+      "prompt": "A nerve cell is exposed for an extended period to a specific inhibitor of Na⁺/K⁺-ATPase. Predict how Na⁺ and K⁺ concentration gradients change, and explain why action potentials may initially remain possible before signalling eventually deteriorates. [4 marks]",
+      "marks": 4,
+      "sectionId": "membrane-15",
+      "referenceIds": [
+        "ib-guide-b21",
+        "hodder-b21",
+        "ncbi-pumps"
+      ],
+      "answer": "The ATPase no longer expels Na⁺ and imports K⁺. Over time the Na⁺ and K⁺ gradients dissipate because passive conductances continue. Voltage-gated channels can initially use existing stored gradients to support action potentials, but repetitive signalling becomes less reliable as gradients decline.",
+      "markingPoints": [
+        "Identifies that Na⁺ export by the pump is inhibited.",
+        "Identifies that K⁺ import by the pump is inhibited.",
+        "Explains that pre-existing ion gradients may temporarily support voltage-gated-channel flux/action potentials.",
+        "Explains that continued passive movements progressively dissipate gradients and impair repeated signalling."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "b21-cotransport-inhibitor",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B2.1.16"
+      ],
+      "level": "HL",
+      "prompt": "An intestinal epithelial cell has functioning apical SGLT and basolateral GLUT but its basolateral Na⁺/K⁺-ATPase is inhibited. Predict the longer-term change in sodium-linked glucose absorption. Explain the causal chain from ATP use to the glucose gradient. [4 marks]",
+      "marks": 4,
+      "sectionId": "membrane-16",
+      "referenceIds": [
+        "ib-guide-b21",
+        "hodder-b21",
+        "ncbi-pumps"
+      ],
+      "answer": "The inhibited basolateral pump no longer maintains the large inward Na⁺ electrochemical gradient. As cytosolic Na⁺ tends to rise and the gradient declines, less free energy is available for apical SGLT to bring glucose inward against its gradient. SGLT does not hydrolyse ATP directly; it indirectly depends on basolateral ATPase activity. Basolateral GLUT remains a passive facilitated transporter and does not restore an uphill uptake mechanism.",
+      "markingPoints": [
+        "Places ATP-consuming Na⁺/K⁺-ATPase on the basolateral membrane and identifies its role in maintaining low cytosolic Na⁺.",
+        "Predicts weakening of the inward Na⁺ electrochemical gradient after prolonged inhibition.",
+        "Predicts reduced SGLT-mediated glucose uptake against its gradient on the apical membrane.",
+        "Explains that SGLT uses stored Na⁺ gradient energy indirectly rather than directly hydrolysing ATP (and GLUT cannot replace that coupling)."
+      ],
+      "review": "scientific-review"
     }
   ],
   "references": [
@@ -5308,21 +5416,20 @@
     {
       "id": "b21-figure-7",
       "kind": "original-svg",
-      "src": "/biology/membranes-transport/mechanism-7.svg",
-      "recallSrc": "/biology/membranes-transport/mechanism-7-recall.svg",
-      "alt": "Conceptual, not-to-scale original illustration for B2.1.7: ATP-powered pumps establish concentration gradients. The key principle: A channel permits downhill transport; a pump couples a conformational cycle to energy to move solutes uphill.",
-      "captionTitle": "B2.1.7 • ATP-powered pumps establish concentration gradients",
-      "attribution": "LitLab Phase 7 original vector artwork; derived from scientific concepts, not publisher figures",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Drawn from scratch for Phase 7; no third-party artwork or micrographs imported",
+      "src": "/biology/membranes-transport/pump-alternating-access-20261017.svg",
+      "alt": "Original labelled scientific schematic: Three adjacent conceptual states: inward-open binding pocket, occluded ATP-coupled transition, outward-open release. No continuous channel.",
+      "captionTitle": "ATP-coupled pump alternating access",
+      "attribution": "Original BioLab vector figure, 17 October 2026",
+      "license": "Original figure; owner publication clearance pending",
+      "permissionEvidence": "Authored with new vector geometry and labels; not copied or traced from textbook artwork or molecular images.",
       "referenceIds": [
         "ib-guide-b21",
         "hodder-b21",
         "ncbi-transport"
       ],
       "level": "shared",
-      "review": "source-mapped",
-      "withheldReason": "The old schematic depicts a pump too much like an open channel. An alternating-access mechanism diagram is required."
+      "review": "scientific-review",
+      "interpretation": "Conceptual teaching diagram, not atom-resolved or an empirical observation. See nearby explanation for assumptions and limitations."
     },
     {
       "id": "b21-figure-8",
@@ -5453,40 +5560,38 @@
     {
       "id": "b21-figure-15",
       "kind": "original-svg",
-      "src": "/biology/membranes-transport/mechanism-15.svg",
-      "recallSrc": "/biology/membranes-transport/mechanism-15-recall.svg",
-      "alt": "Conceptual, not-to-scale original illustration for B2.1.15: The sodium–potassium pump exchanges ions and maintains gradients. The key principle: Per ATP: three Na+ out, two K+ in; electrogenic action and gradient maintenance support membrane potentials.",
-      "captionTitle": "B2.1.15 • The sodium–potassium pump exchanges ions and maintains gradients",
-      "attribution": "LitLab Phase 7 original vector artwork; derived from scientific concepts, not publisher figures",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Drawn from scratch for Phase 7; no third-party artwork or micrographs imported",
+      "src": "/biology/membranes-transport/sodium-potassium-pump-20261017.svg",
+      "alt": "Original labelled scientific schematic: Across an animal cell membrane, one ATP moves 3 sodium ions out and 2 potassium ions in; a net positive charge leaves. Protein cycles rather than remaining an open pore.",
+      "captionTitle": "Sodium–potassium pump directionality",
+      "attribution": "Original BioLab vector figure, 17 October 2026",
+      "license": "Original figure; owner publication clearance pending",
+      "permissionEvidence": "Authored with new vector geometry and labels; not copied or traced from textbook artwork or molecular images.",
       "referenceIds": [
         "ib-guide-b21",
         "hodder-b21",
         "ncbi-pumps"
       ],
       "level": "HL",
-      "review": "source-mapped",
-      "withheldReason": "The old pump shape can be mistaken for an open ion pore. Correct 3 Na+ out / 2 K+ in stoichiometry remains explained in the text and practice while a conformational-cycle figure is prepared."
+      "review": "scientific-review",
+      "interpretation": "Conceptual teaching diagram, not atom-resolved or an empirical observation. See nearby explanation for assumptions and limitations."
     },
     {
       "id": "b21-figure-16",
       "kind": "original-svg",
-      "src": "/biology/membranes-transport/mechanism-16.svg",
-      "recallSrc": "/biology/membranes-transport/mechanism-16-recall.svg",
-      "alt": "Conceptual, not-to-scale original illustration for B2.1.16: Sodium gradients power glucose cotransport. The key principle: ATPase lowers intracellular Na+; Na+ subsequently moves downhill through an apical SGLT and can drive glucose uptake uphill.",
-      "captionTitle": "B2.1.16 • Sodium gradients power glucose cotransport",
-      "attribution": "LitLab Phase 7 original vector artwork; derived from scientific concepts, not publisher figures",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Drawn from scratch for Phase 7; no third-party artwork or micrographs imported",
+      "src": "/biology/membranes-transport/intestinal-glucose-topology-20261017.svg",
+      "alt": "Original labelled scientific schematic: Intestinal lumen on left, epithelial cytosol in center and blood-facing fluid on right. Apical sodium–glucose symport imports both substrates, basolateral sodium–potassium ATPase exports Na+ and imports K+ using ATP, and basolateral GLUT facilitates glucose exit.",
+      "captionTitle": "Apical glucose uptake and basolateral ATPase",
+      "attribution": "Original BioLab vector figure, 17 October 2026",
+      "license": "Original figure; owner publication clearance pending",
+      "permissionEvidence": "Authored with new vector geometry and labels; not copied or traced from textbook artwork or molecular images.",
       "referenceIds": [
         "ib-guide-b21",
         "hodder-b21",
         "ncbi-pumps"
       ],
       "level": "HL",
-      "review": "source-mapped",
-      "withheldReason": "The older transporter icons do not distinguish alternating access from an open channel clearly enough. Apical/basolateral locations and the ATP-maintained sodium gradient remain covered in the text."
+      "review": "scientific-review",
+      "interpretation": "Conceptual teaching diagram, not atom-resolved or an empirical observation. See nearby explanation for assumptions and limitations."
     },
     {
       "id": "b21-figure-17",
@@ -5510,14 +5615,15 @@
   "summary": "A phospholipid bilayer separates aqueous compartments while lipid chemistry sets baseline permeability. Integral and peripheral proteins provide selective pathways and communication. HL extends to lipid adaptation, vesicle dynamics, ion-channel gating, ATP-powered gradients, secondary active transport and cell adhesion.",
   "review": {
     "status": "source-mapped",
-    "sourceCheckedAt": "2026-10-16",
+    "sourceCheckedAt": "2026-10-17",
     "reviewer": null,
     "notes": [
       "Original source-checked development draft only; not IB-endorsed or qualified-reviewer approved.",
       "IB B2.1.9 printed identifier contains a typographic extra dot (B.2.1.9); normalized understanding ID is B2.1.9.",
       "Hodder location is supplied PDF page = printed page + 12; chapter pp.223–243.",
       "No copied questions, textbook diagrams, laboratory readings or microscopy.",
-      "Independent science references corroborate membrane permeability and transport; qualified scientific, assessment and accessibility reviews remain pending."
+      "Independent science references corroborate membrane permeability and transport; qualified scientific, assessment and accessibility reviews remain pending.",
+      "17 Oct Themes A/B separate-branch batch: replaced three withheld channel-like pump/cotransport assets with original conceptual vector schematics; added alternating-access and apical/basolateral comparison visuals plus two original cause-and-effect HL questions. Independent expertise, microscopy, mobile checks and asset-owner approval remain outstanding."
     ]
   }
 }

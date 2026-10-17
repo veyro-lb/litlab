@@ -354,6 +354,35 @@
               "×2000"
             ]
           ]
+        },
+        {
+          "caption": "Calculated calibration practice, not laboratory observations: two example objectives and the same 30 µm feature",
+          "headers": [
+            "Objective model",
+            "Known stage length",
+            "Graticule divisions for stage length",
+            "Cell spans",
+            "Scale (µm per division)",
+            "Calculated cell size"
+          ],
+          "rows": [
+            [
+              "Lens A",
+              "100 µm",
+              40,
+              12,
+              2.5,
+              "30 µm"
+            ],
+            [
+              "Lens B",
+              "100 µm",
+              80,
+              24,
+              1.25,
+              "30 µm"
+            ]
+          ]
         }
       ],
       "support": {
@@ -386,6 +415,32 @@
           "expectedEvidence": "The repeated elongated compartments are consistent with epidermal plant cells and their visible cell-wall boundaries. The image alone does not resolve ribosomes or membranes of typical small organelles.",
           "scaleNote": "No verified calibrated scale is supplied for this particular source image. Do not assign a cell size or draw a scale bar from appearance alone.",
           "limitation": "Do not label every bright or dark region as a nucleus or chloroplast without independent identification evidence."
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Calibrate an eyepiece graticule before measuring",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Align the two scales",
+              "description": "Focus a stage micrometer and eyepiece graticule together using the actual objective lens to be used for measuring the cell."
+            },
+            {
+              "title": "Calculate µm per division",
+              "description": "Divide the known micrometer length by the number of graticule divisions it spans; this calibrates the arbitrary graticule units."
+            },
+            {
+              "title": "Measure the specimen",
+              "description": "Replace the micrometer slide with the specimen, count the graticule divisions it spans and multiply by the calibrated µm per division."
+            },
+            {
+              "title": "Recalibrate at a new objective",
+              "description": "A different objective changes the specimen distance represented by one eyepiece division. The old conversion cannot simply be reused."
+            }
+          ],
+          "note": "This describes an instrument calibration, not a measurement of a real specimen. Image scaling, magnification and spatial resolution are distinct."
         }
       ]
     },
@@ -1618,7 +1673,42 @@
             "explanation": "One nucleus per cell is not a universal rule. Some fungal hyphae and skeletal muscle fibres contain many nuclei, while mature mammalian red blood cells and phloem sieve-tube elements lack nuclei."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Four eukaryotic exceptions to the single-nucleus cartoon",
+          "afterBlock": 1,
+          "headers": [
+            "Example",
+            "Nuclear condition",
+            "Why the structure differs"
+          ],
+          "rows": [
+            [
+              "Aseptate fungal hypha",
+              "Many nuclei in continuous cytoplasm",
+              "Incomplete septation allows a shared cytoplasmic tube"
+            ],
+            [
+              "Skeletal muscle fibre",
+              "Many nuclei within one long fibre",
+              "Fusion of precursor cells produces a multinucleate syncytium"
+            ],
+            [
+              "Mature mammalian erythrocyte",
+              "No nucleus",
+              "Loses nucleus during differentiation, retaining haemoglobin-rich cytoplasm"
+            ],
+            [
+              "Mature phloem sieve-tube element",
+              "No nucleus",
+              "Remains a living transport element supported by a nucleated companion cell"
+            ]
+          ],
+          "note": "Anucleate does not mean prokaryotic. These are specialized eukaryotic cells or developmental products."
+        }
+      ]
     },
     {
       "id": "a22-10",
@@ -3348,6 +3438,59 @@
         "No conscious direction; selection acts on heritable variation"
       ],
       "review": "draft"
+    },
+    {
+      "id": "a22-graticule-calibration",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A2.2.2"
+      ],
+      "level": "shared",
+      "prompt": "Two hypothetical calibration records show the same 100 µm interval on a stage micrometer. With lens A, it spans 40 eyepiece divisions and a cell spans 12 divisions. With lens B, the interval spans 80 divisions and the same cell spans 24 divisions. Calculate the µm/division at each objective, calculate the cell size using either calibration, and explain why reusing lens A's calibration for lens B would be invalid. [5 marks]",
+      "marks": 5,
+      "sectionId": "a22-2",
+      "referenceIds": [
+        "ib-a22",
+        "hodder-a22",
+        "ncbi-visualizing"
+      ],
+      "answer": "Lens A: 100/40 = 2.5 µm per graticule division, giving 12 × 2.5 = 30 µm. Lens B: 100/80 = 1.25 µm per division, giving 24 × 1.25 = 30 µm. Each objective maps a different specimen distance to one eyepiece division; using the wrong lens calibration for lens B would incorrectly give 24 × 2.5 = 60 µm.",
+      "markingPoints": [
+        "Lens A calibration calculated as 2.5 µm per eyepiece division.",
+        "Lens B calibration calculated as 1.25 µm per eyepiece division.",
+        "Correct specimen size of 30 µm obtained using lens A.",
+        "Correct specimen size of 30 µm obtained using lens B.",
+        "Explains objective-dependent calibration and/or shows the invalid 60 µm estimate if lens A calibration were reused."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a22-atypical-reasoning",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A2.2.9"
+      ],
+      "level": "shared",
+      "prompt": "An investigator observes a long eukaryotic structure containing several nuclei and a second mature plant transport cell with no nucleus. Give one syllabus example of each and explain how the two structures remain consistent with cell theory even though they differ from common cell diagrams. [4 marks]",
+      "marks": 4,
+      "sectionId": "a22-9",
+      "referenceIds": [
+        "ib-a22",
+        "hodder-a22",
+        "ncbi-visualizing"
+      ],
+      "answer": "A multinucleate eukaryotic example is an aseptate fungal hypha or a skeletal muscle fibre. The anucleate mature plant transport element is a phloem sieve-tube element. The multinucleate examples are living membrane-bounded cytoplasmic structures with many nuclei; mature sieve elements are specialized eukaryotic cells that lose their nucleus and are sustained by companion cells. Typical one-nucleus diagrams are models, not universal laws.",
+      "markingPoints": [
+        "Identifies aseptate fungal hypha or skeletal muscle fibre as a multinucleate eukaryotic example.",
+        "Explains the continuous hyphal cytoplasm or muscle precursor fusion supporting more than one nucleus.",
+        "Identifies the anucleate plant example as mature phloem sieve-tube element.",
+        "Explains dependence on companion cells and/or why a differentiated anucleate eukaryotic element is not prokaryotic."
+      ],
+      "review": "scientific-review"
     }
   ],
   "references": [
@@ -3623,7 +3766,7 @@
   "summary": "A universal cellular core coexists with great diversity. Choose microscopy tools for the question, calibrate every size claim and never interpret unseen ultrastructure. Endosymbiotic and multicellular histories are evidence-based evolutionary reconstructions.",
   "review": {
     "status": "source-mapped",
-    "sourceCheckedAt": "2026-10-16",
+    "sourceCheckedAt": "2026-10-17",
     "reviewer": null,
     "notes": [
       "Source-aligned development draft; no qualified science/assessment review.",
@@ -3631,7 +3774,8 @@
       "Microscopy diagrams are explicitly conceptual, not photographic evidence.",
       "A2.2.2 includes hands-on mounting, staining, graticule calibration, focusing, scale bars and photography; lab oversight remains necessary.",
       "Original assessment guidance is provisional, never official IB grading.",
-      "Phase 9 acquired authenticated, CC BY 4.0 cucumber TEM Figure 3 and original observation/drawing activities. A2.2 remains incomplete: these plant panels do not cover all required cell types, modalities or structures. No qualified microscopy review is claimed."
+      "Phase 9 acquired authenticated, CC BY 4.0 cucumber TEM Figure 3 and original observation/drawing activities. A2.2 remains incomplete: these plant panels do not cover all required cell types, modalities or structures. No qualified microscopy review is claimed.",
+      "17 Oct A/B branch: A2.2.2 original calculated two-objective graticule calibration task added; A2.2.9 four-syllabus-example nuclear-condition comparison and reasoned written response added. Values are deliberately hypothetical. Existing authentic micrographs and explicit scale caveats preserved, not independently reverified."
     ]
   }
 }

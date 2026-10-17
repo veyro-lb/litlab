@@ -889,7 +889,29 @@
             "explanation": "Polymer means many covalently joined monomers. RNA is a polymer of ribonucleotide monomers. At the biochemical level, cellular RNA polymerases use activated nucleoside triphosphates and release pyrophosphate as the direct leaving group; the simplified condensation equation must not be misrepresented as the precise enzymatic pathway."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "How a growing RNA chain is extended",
+          "afterBlock": 2,
+          "steps": [
+            {
+              "title": "Select the complementary ribonucleotide",
+              "description": "RNA polymerase selects an incoming ribonucleoside triphosphate (ATP, UTP, CTP or GTP) according to the DNA template."
+            },
+            {
+              "title": "Extend the 3′ end",
+              "description": "The growing RNA strand's 3′ hydroxyl participates in forming a new phosphodiester bond to the incoming nucleotide's phosphate."
+            },
+            {
+              "title": "Release pyrophosphate",
+              "description": "The incoming nucleotide contributes one phosphate to the backbone and releases pyrophosphate; the chain now has a new free 3′ end."
+            }
+          ],
+          "note": "The IB condensation description is a useful overall polymer model. The enzyme-driven reaction uses activated triphosphate substrates; it is not simply two free monophosphates releasing one water molecule."
+        }
+      ]
     },
     {
       "id": "a12-6",
@@ -1111,7 +1133,37 @@
             "explanation": "Complementary means A–T and C–G pairing. DNA has two nucleotide strands arranged antiparallel in a double helix. Draw paired bases opposite one another with two sugar–phosphate backbones and arrows indicating opposite orientation."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "An antiparallel pair is read in opposite directions",
+          "afterBlock": 1,
+          "headers": [
+            "Strand",
+            "Bases as aligned",
+            "Direction written"
+          ],
+          "rows": [
+            [
+              "Given DNA strand",
+              "A G T C",
+              "5′ → 3′"
+            ],
+            [
+              "Paired DNA strand",
+              "T C A G",
+              "3′ → 5′"
+            ],
+            [
+              "Paired strand rewritten 5′ → 3′",
+              "G A C T",
+              "5′ → 3′"
+            ]
+          ],
+          "note": "Illustrative sequence, not measured data. Distinguish the aligned complement (TCAG) from the reverse complement written in the 5′→3′ convention (GACT)."
+        }
+      ]
     },
     {
       "id": "a12-7",
@@ -1727,7 +1779,42 @@
             "explanation": "Base sequence means order of A/T/G/C. Four base choices at each of n independent positions yield 4ⁿ possible sequences in a simplified model. The guide's phrase 'limitless capacity' emphasizes that the length and base order are not confined to one short fixed molecule: in a DNA molecule of any fixed finite length, the number of sequences and its data capacity are also finite."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "DNA sequence capacity grows exponentially",
+          "afterBlock": 1,
+          "headers": [
+            "Independent positions (n)",
+            "Number of possible base sequences (4ⁿ)",
+            "Example"
+          ],
+          "rows": [
+            [
+              "1",
+              "4",
+              "A, T, C or G"
+            ],
+            [
+              "2",
+              "16",
+              "e.g. AC, CA"
+            ],
+            [
+              "4",
+              "256",
+              "Four-base sequences"
+            ],
+            [
+              "6",
+              "4,096",
+              "Six-base sequences"
+            ]
+          ],
+          "note": "Calculated mathematical model with four choices at every position; not observational data. At any fixed length the number is finite, but longer DNA allows extraordinarily many possibilities."
+        }
+      ]
     },
     {
       "id": "a12-10",
@@ -1892,7 +1979,29 @@
             "explanation": "Genetic code means codon-to-amino-acid rules. The genetic code is the mapping of messenger RNA codons to amino acids or translation-stop signals. The code's widespread conservation supports the inference of universal common ancestry, because descendants can inherit a common translation system."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Why shared codon assignments support common ancestry",
+          "afterBlock": 2,
+          "steps": [
+            {
+              "title": "Identify a conserved rule",
+              "description": "Across nearly all organisms, the same messenger-RNA codon specifies the same amino acid or stop signal."
+            },
+            {
+              "title": "Connect the rule with inherited machinery",
+              "description": "Translation relies on homologous cellular machinery, including ribosomes and transfer RNAs, inherited with evolutionary modification."
+            },
+            {
+              "title": "Make a supported inference",
+              "description": "A deeply conserved translation system is strong evidence of shared ancestry, while exceptions in some genetic codes prevent claiming perfect universality."
+            }
+          ],
+          "note": "Evidence of common ancestry does not imply that all species possess identical DNA sequences or an identical number of chromosomes."
+        }
+      ]
     },
     {
       "id": "a12-11",
@@ -2058,7 +2167,29 @@
             "explanation": "3′ end means end with 3′ hydroxyl. A nucleotide's sugar carbons are numbered 1′ through 5′. The same polarity is essential in transcription and replication; ribosomes read mRNA codons 5′→3′ during translation."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Why polymerases extend 5′ → 3′",
+          "afterBlock": 2,
+          "steps": [
+            {
+              "title": "Read the template 3′ → 5′",
+              "description": "A polymerase follows the opposite template strand in the direction that permits the nascent complementary strand to grow."
+            },
+            {
+              "title": "Join at the free 3′ hydroxyl",
+              "description": "The 3′ OH of the existing strand forms a new phosphodiester bond with an incoming activated nucleotide."
+            },
+            {
+              "title": "Continue toward the new 3′ end",
+              "description": "Each reaction lengthens the product at its 3′ end, so the new chain is synthesized 5′ → 3′ in replication and transcription."
+            }
+          ],
+          "note": "This describes chain elongation. In translation, ribosomes read mRNA codons in the 5′ → 3′ direction; the ribosome does not synthesize RNA."
+        }
+      ]
     },
     {
       "id": "a12-12",
@@ -2224,7 +2355,42 @@
             "explanation": "Pyrimidine means one-ring base. Adenine and guanine are two-ring purines, whereas thymine and cytosine are one-ring pyrimidines. Purine–purine pairs would usually be too wide for ordinary Watson–Crick geometry and pyrimidine–pyrimidine pairs too narrow."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Pair geometry keeps the double helix approximately constant in width",
+          "afterBlock": 1,
+          "headers": [
+            "Proposed paired bases",
+            "Ring sizes combined",
+            "Fit in canonical DNA"
+          ],
+          "rows": [
+            [
+              "A–T",
+              "Purine (two rings) + pyrimidine (one ring)",
+              "Correct complementary pair"
+            ],
+            [
+              "G–C",
+              "Purine (two rings) + pyrimidine (one ring)",
+              "Correct complementary pair"
+            ],
+            [
+              "A–G",
+              "Two purines",
+              "Too wide for normal Watson–Crick geometry"
+            ],
+            [
+              "T–C",
+              "Two pyrimidines",
+              "Too narrow for normal Watson–Crick geometry"
+            ]
+          ],
+          "note": "Simplified geometric comparison; base-pair specificity also depends on matching hydrogen-bond donors and acceptors."
+        }
+      ]
     },
     {
       "id": "a12-13",
@@ -2233,13 +2399,13 @@
       ],
       "level": "HL",
       "guidingQuestion": "What are the eight core histones and where does H1 belong?",
-      "explanation": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones.\n\nThe guide also requires actual use of molecular visualization software. Open the opt-in RCSB 1KX5 activity below, rotate the experimentally determined nucleosome core, and identify the DNA double helix and protein core. 1KX5 is a core-particle structure without histone H1; H1's absence is consistent with the stated structural scope. The diagram and written description are accessible alternatives but cannot replace hands-on software use.\n\nA nucleosome core particle contains a histone octamer and a length of DNA wound around its outside. The octamer has two molecules each of H2A, H2B, H3 and H4; H1 is an additional linker histone and must not replace one of those eight core subunits. Histones are rich in basic amino acids, which help interaction with negatively charged DNA phosphate groups. Nucleosome arrangements help package DNA and influence access for transcription, replication and repair. The source-mapped molecular viewer is useful for inspecting a real structure; an inaccurate schematic cannot substitute for showing DNA winding around an actual protein core.",
-      "revisionSummary": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. The guide also requires actual use of molecular visualization software.",
+      "explanation": "In a nucleosome core particle, approximately 147 base pairs of double-stranded DNA wind about 1.7 turns around eight histone proteins: two each of H2A, H2B, H3 and H4. The DNA phosphates are negatively charged and interact with positively charged regions of the core histones, rich in lysine and arginine. This helps DNA bend around and remain associated with the protein core. DNA between adjacent core particles is called linker DNA; histone H1 interacts near DNA's entry and exit and with linker DNA. H1 is a separate linker histone, not one of the eight core subunits.\n\nThe guide also requires actual use of molecular visualization software. Open the opt-in RCSB 1KX5 activity below, rotate the experimentally determined nucleosome core, and identify the DNA double helix and protein core. 1KX5 is a core-particle structure without histone H1; H1's absence is consistent with the stated structural scope. The diagram and written description are accessible alternatives but cannot replace hands-on software use.\n\nThe DNA must be compact enough to fit in a nucleus but available when cells copy, transcribe or repair particular regions. Nucleosomes create this adjustable packaging: core DNA is wrapped around an octamer, while access can change through nucleosome positioning and chromatin remodeling. A schematic establishes the components but cannot show individual atomic contacts. Rotate the actual 1KX5 nucleosome core in the RCSB viewer to distinguish DNA from histones; the deposited core structure does not contain H1, so never identify an unrelated core histone as H1.",
+      "revisionSummary": "Nucleosome core: ~147 bp of DNA wraps ~1.7 turns around two each of H2A, H2B, H3 and H4; H1 associates with linker/entry–exit DNA outside the octamer. HL also requires molecular visualization.",
       "terms": [
         "Histone octamer: two each H2A/H2B/H3/H4",
         "Nucleosome: DNA wrapped around a core histone octamer"
       ],
-      "workedExample": "At the RCSB 1KX5 3D view, locate wrapped DNA; list core histones and describe why linker H1 is outside the octamer.",
+      "workedExample": "In the RCSB 1KX5 model, identify the DNA, count the core histone types and explain why H1 need not appear. Explain how DNA can be packaged yet remain available for expression.",
       "misconceptions": [
         {
           "misconception": "H1 is the ninth histone in the octamer.",
@@ -2248,7 +2414,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones.",
+          "claim": "In a nucleosome core particle, approximately 147 base pairs of double-stranded DNA wind about 1.7 turns around eight histone proteins: two each of H2A, H2B, H3 and H4. The DNA phosphates are negatively charged and interact with positively charged regions of the core histones, rich in lysine and arginine. This helps DNA bend around and remain associated with the protein core. DNA between adjacent core particles is called linker DNA; histone H1 interacts near DNA's entry and exit and with linker DNA. H1 is a separate linker histone, not one of the eight core subunits.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -2264,7 +2430,7 @@
           ]
         },
         {
-          "claim": "A nucleosome core particle contains a histone octamer and a length of DNA wound around its outside. The octamer has two molecules each of H2A, H2B, H3 and H4; H1 is an additional linker histone and must not replace one of those eight core subunits. Histones are rich in basic amino acids, which help interaction with negatively charged DNA phosphate groups. Nucleosome arrangements help package DNA and influence access for transcription, replication and repair. The source-mapped molecular viewer is useful for inspecting a real structure; an inaccurate schematic cannot substitute for showing DNA winding around an actual protein core.",
+          "claim": "The DNA must be compact enough to fit in a nucleus but available when cells copy, transcribe or repair particular regions. Nucleosomes create this adjustable packaging: core DNA is wrapped around an octamer, while access can change through nucleosome positioning and chromatin remodeling. A schematic establishes the components but cannot show individual atomic contacts. Rotate the actual 1KX5 nucleosome core in the RCSB viewer to distinguish DNA from histones; the deposited core structure does not contain H1, so never identify an unrelated core histone as H1.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -2284,34 +2450,34 @@
         {
           "kind": "selection",
           "id": "a12-check-13",
-          "prompt": "How many copies of each core histone make up the octamer?",
+          "prompt": "A 3D structure shows DNA wrapped around eight core histones but no H1. Which explanation is correct?",
           "understandingIds": [
             "A1.2.13"
           ],
           "options": [
             {
-              "text": "Two each of H2A, H2B, H3 and H4",
+              "id": "check-o1",
+              "text": "H1 associates with linker/entry–exit DNA and is not one of the eight core histones",
               "correct": true,
-              "feedback": "Two copies of four types yields eight histone molecules.",
-              "id": "check-o1"
+              "feedback": "Correct: the octamer consists of two each of H2A, H2B, H3 and H4. Core-only structures need not include linker H1."
             },
             {
-              "text": "One H1 plus seven other histones",
+              "id": "check-o2",
+              "text": "H1 replaces both H2A molecules to make an octamer",
               "correct": false,
-              "feedback": "H1 is not a core member.",
-              "id": "check-o2"
+              "feedback": "Replacing H2A would change the core's required pair of each histone; H1 is not a core subunit."
             },
             {
-              "text": "Eight copies of H1",
+              "id": "check-o3",
+              "text": "A nucleosome is built from H1 and seven DNA molecules",
               "correct": false,
-              "feedback": "H1 is a linker histone, not an octamer replacement.",
-              "id": "check-o3"
+              "feedback": "The core is a protein octamer wrapped by one continuous DNA duplex segment, not seven DNA molecules."
             },
             {
-              "text": "One of each H2A, H2B, H3 and H4",
+              "id": "check-o4",
+              "text": "The absence of H1 proves that the DNA cannot wrap around histones",
               "correct": false,
-              "feedback": "One each yields only four, not eight.",
-              "id": "check-o4"
+              "feedback": "Wrapped DNA is observed in the nucleosome core; H1 may stabilize entry/exit DNA but is not necessary for core wrapping."
             }
           ]
         }
@@ -2323,8 +2489,8 @@
           "understandingIds": [
             "A1.2.13"
           ],
-          "prompt": "Without notes: What are the eight core histones and where does H1 belong?",
-          "answer": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones. At the RCSB 1KX5 3D view, locate wrapped DNA; list core histones and describe why linker H1 is outside the octamer.",
+          "prompt": "Describe the route of DNA around a nucleosome core, identify the eight core proteins, and explain the role of H1 without using the viewer.",
+          "answer": "About 147 bp of DNA wraps ~1.7 times around an octamer of two each H2A, H2B, H3, H4. H1 is not part of the octamer; it associates with linker or entry–exit DNA. Adjustable packing helps organize DNA while permitting access.",
           "explanation": "Explain the mechanism and its evidence, not just the vocabulary."
         }
       ],
@@ -2344,7 +2510,7 @@
       "teachingBlocks": [
         {
           "title": "DNA wraps around a histone octamer",
-          "explanation": "A nucleosome core consists of DNA wrapped around an octamer with two copies each of histones H2A, H2B, H3 and H4. DNA extends as linker DNA between adjacent core particles. A separate linker histone H1 helps organise DNA near the entry and exit region and is NOT counted among the eight core histones.",
+          "explanation": "In a nucleosome core particle, approximately 147 base pairs of double-stranded DNA wind about 1.7 turns around eight histone proteins: two each of H2A, H2B, H3 and H4. The DNA phosphates are negatively charged and interact with positively charged regions of the core histones, rich in lysine and arginine. This helps DNA bend around and remain associated with the protein core. DNA between adjacent core particles is called linker DNA; histone H1 interacts near DNA's entry and exit and with linker DNA. H1 is a separate linker histone, not one of the eight core subunits.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -2362,7 +2528,7 @@
         },
         {
           "title": "Why histone packing is functional",
-          "explanation": "A nucleosome core particle contains a histone octamer and a length of DNA wound around its outside. The octamer has two molecules each of H2A, H2B, H3 and H4; H1 is an additional linker histone and must not replace one of those eight core subunits. Histones are rich in basic amino acids, which help interaction with negatively charged DNA phosphate groups. Nucleosome arrangements help package DNA and influence access for transcription, replication and repair. The source-mapped molecular viewer is useful for inspecting a real structure; an inaccurate schematic cannot substitute for showing DNA winding around an actual protein core.",
+          "explanation": "The DNA must be compact enough to fit in a nucleus but available when cells copy, transcribe or repair particular regions. Nucleosomes create this adjustable packaging: core DNA is wrapped around an octamer, while access can change through nucleosome positioning and chromatin remodeling. A schematic establishes the components but cannot show individual atomic contacts. Rotate the actual 1KX5 nucleosome core in the RCSB viewer to distinguish DNA from histones; the deposited core structure does not contain H1, so never identify an unrelated core histone as H1.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -2786,7 +2952,37 @@
             "explanation": "Falsification means inconsistency with a universal model prediction. Chargaff showed that DNA base composition varies between species, while in double-stranded DNA adenine is approximately equal to thymine and guanine approximately equal to cytosine. Scientific induction infers general patterns from finite observations but cannot establish all cases with logical certainty."
           }
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Chargaff's evidence versus the old tetranucleotide hypothesis",
+          "afterBlock": 2,
+          "headers": [
+            "Testable idea",
+            "Expected pattern",
+            "Scientific interpretation"
+          ],
+          "rows": [
+            [
+              "Strict equal-base tetranucleotide model",
+              "A, T, C and G always 25% each",
+              "Differences between species contradict this prediction"
+            ],
+            [
+              "Complementary double-stranded DNA",
+              "A ≈ T and G ≈ C within a sample",
+              "Pairing explains equality without requiring each base to be 25%"
+            ],
+            [
+              "Sequence information",
+              "Different base order is possible at identical overall percentages",
+              "Base percentages alone do not reveal a sequence"
+            ]
+          ],
+          "note": "Qualitative historical-model comparison, not a transcription of a published dataset. Illustrative calculations elsewhere in this lesson are explicitly hypothetical."
+        }
+      ]
     }
   ],
   "questions": [
@@ -3339,7 +3535,7 @@
         "A1.2.13"
       ],
       "level": "HL",
-      "prompt": "How many copies of each core histone make up the octamer?",
+      "prompt": "A 3D structure shows DNA wrapped around eight core histones but no H1. Which explanation is correct?",
       "marks": 1,
       "sectionId": "a12-13",
       "referenceIds": [
@@ -3349,28 +3545,28 @@
       ],
       "options": [
         {
-          "text": "Two each of H2A, H2B, H3 and H4",
+          "id": "o1",
+          "text": "H1 associates with linker/entry–exit DNA and is not one of the eight core histones",
           "correct": true,
-          "feedback": "Two copies of four types yields eight histone molecules.",
-          "id": "o1"
+          "feedback": "Correct: the octamer consists of two each of H2A, H2B, H3 and H4. Core-only structures need not include linker H1."
         },
         {
-          "text": "One H1 plus seven other histones",
+          "id": "o2",
+          "text": "H1 replaces both H2A molecules to make an octamer",
           "correct": false,
-          "feedback": "H1 is not a core member.",
-          "id": "o2"
+          "feedback": "Replacing H2A would change the core's required pair of each histone; H1 is not a core subunit."
         },
         {
-          "text": "Eight copies of H1",
+          "id": "o3",
+          "text": "A nucleosome is built from H1 and seven DNA molecules",
           "correct": false,
-          "feedback": "H1 is a linker histone, not an octamer replacement.",
-          "id": "o3"
+          "feedback": "The core is a protein octamer wrapped by one continuous DNA duplex segment, not seven DNA molecules."
         },
         {
-          "text": "One of each H2A, H2B, H3 and H4",
+          "id": "o4",
+          "text": "The absence of H1 proves that the DNA cannot wrap around histones",
           "correct": false,
-          "feedback": "One each yields only four, not eight.",
-          "id": "o4"
+          "feedback": "Wrapped DNA is observed in the nucleosome core; H1 may stabilize entry/exit DNA but is not necessary for core wrapping."
         }
       ],
       "review": "scientific-review"
@@ -3587,6 +3783,58 @@
         "Connect entry to DNA hereditary function, acknowledging an inference limit."
       ],
       "review": "scientific-review"
+    },
+    {
+      "id": "a12-direction-worked",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A1.2.11"
+      ],
+      "level": "HL",
+      "prompt": "A DNA polymerase reads a template 3′-ATGC-5′. Give the new DNA strand in 5′→3′ order. Explain why nucleotide addition occurs at its 3′ end and why a polymerase cannot simply extend the same strand from its 5′ end. [4 marks]",
+      "marks": 4,
+      "sectionId": "a12-11",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "answer": "The complement is 5′-TACG-3′. DNA synthesis requires the 3′ hydroxyl of the growing strand to attack the incoming nucleotide's phosphate, making the phosphodiester bond. Each addition renews a free 3′ hydroxyl, so synthesis is 5′→3′; changing the writing convention does not reverse the chemistry.",
+      "markingPoints": [
+        "Correct complementary bases TACG.",
+        "Product labelled 5′-TACG-3′ opposite 3′-ATGC-5′.",
+        "States that the growing strand's 3′ hydroxyl makes the next phosphodiester linkage to an incoming nucleotide.",
+        "Explains that extension occurs at the 3′ terminus, making the new strand elongate 5′→3′."
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "a12-nucleosome-explanation",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "A1.2.13"
+      ],
+      "level": "HL",
+      "prompt": "A molecular model of a nucleosome core shows DNA surrounding eight protein subunits. Identify the core composition and explain why an additional histone H1 may be absent from this particular model. Explain one functional consequence of DNA packaging. [4 marks]",
+      "marks": 4,
+      "sectionId": "a12-13",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "rcsb-nucleosome"
+      ],
+      "answer": "A core histone octamer contains two each of H2A, H2B, H3 and H4 and is wrapped by nucleosomal DNA. H1 associates with linker/entry–exit DNA outside the octamer; core-only structures such as 1KX5 need not contain H1. Nucleosome assembly packages DNA while allowing regulation of access during transcription, replication or repair.",
+      "markingPoints": [
+        "Two copies each of H2A, H2B, H3 and H4 make the histone octamer.",
+        "DNA is wrapped around the histone octamer (not enclosed inside a lipid membrane).",
+        "H1 is a linker/entry–exit-associated histone outside the octamer, explaining its absence from a core-only model.",
+        "Links nucleosome organization to compact DNA storage and/or regulated access during transcription, replication or repair."
+      ],
+      "review": "scientific-review"
     }
   ],
   "references": [
@@ -3742,13 +3990,12 @@
     {
       "id": "a12-nucleosome",
       "kind": "diagram",
-      "src": "/biology/nucleic-acids/nucleosome.svg",
-      "recallSrc": "/biology/nucleic-acids/nucleosome-recall.svg",
-      "captionTitle": "Nucleosome octamer plus H1",
-      "alt": "Original conceptual diagram. DNA wraps around eight histones; 2 × (H2A, H2B, H3, H4); H1 on linker DNA, outside core. Drawn symbolically, not as an atom-resolved molecular structure.",
-      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
-      "license": "Original work; owner clearance for publication still pending",
-      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "src": "/biology/nucleic-acids/nucleosome-topology-20261017.svg",
+      "captionTitle": "Nucleosome topology: DNA, histone octamer and linker H1",
+      "alt": "Original labelled conceptual schematic, not to scale: blue double-stranded DNA curves around a core of eight histones, two of each H2A, H2B, H3 and H4. Orange H1 is outside the core, associated with linker DNA.",
+      "attribution": "Original BioLab vector drawing, 17 October 2026",
+      "license": "Original illustration; publication/owner sign-off pending",
+      "permissionEvidence": "New authored vector topology; not copied or traced from Hodder, IB, or PDB imagery.",
       "referenceIds": [
         "ib-a12",
         "hodder-a12",
@@ -3756,7 +4003,7 @@
       ],
       "level": "HL",
       "review": "scientific-review",
-      "withheldReason": "The existing oval does not adequately represent DNA wrapping around the histone core. Use the written explanation and the opt-in RCSB nucleosome viewer while replacement artwork is reviewed."
+      "interpretation": "Diagram shows component relationships rather than atom-level structure; inspect PDB 1KX5 for experimental 3D geometry. H1 is absent in that deposited core-only model."
     },
     {
       "id": "a12-hershey",
@@ -3798,14 +4045,15 @@
   "summary": "Nucleotide chemistry produces strong directional sugar–phosphate backbones and complementary strands. DNA's enormous sequence space allows genetic storage; a conserved translation code supports ancestry. HL studies nucleosomes, tracers and falsification.",
   "review": {
     "status": "scientific-review",
-    "sourceCheckedAt": "2026-10-16",
+    "sourceCheckedAt": "2026-10-17",
     "reviewer": null,
     "notes": [
       "All 15 A1.2 understandings mapped to the first-assessment-2025 guide; source locators are reviewable and Hodder chapter was consulted.",
       "Hodder printed page 25 coding-strand/template reversal corrected in A1.2.8.",
       "All artwork is original conceptual SVG rather than chemically atom-resolved figures; chemistry and illustration review pending.",
       "A1.2.13 provides opt-in RCSB molecular software use with written fallback; hands-on activity requires internet and manual accessibility testing.",
-      "Independent scientific validation, subject-teacher assessment calibration, actual molecular viewer use, mobile visual verification and publication-rights review are not completed."
+      "Independent scientific validation, subject-teacher assessment calibration, actual molecular viewer use, mobile visual verification and publication-rights review are not completed.",
+      "17 Oct isolated A/B batch: added seven pedagogical diagrams/models, corrected the withheld nucleosome schematic with an original explicitly non-atomistic topology figure, strengthened H1/core distinction, and added two HL original written questions. Not independently certified; mobile and molecular-viewer practical verification remain outstanding."
     ]
   }
 }
