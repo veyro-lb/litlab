@@ -1178,7 +1178,8 @@
       ],
       "referenceIds": [
         "ib-b31-guide",
-        "hodder-b31"
+        "hodder-b31",
+        "commons-dicot-leaf-houseman-2014"
       ],
       "assets": [
         "b31-leaf"
@@ -1276,6 +1277,24 @@
             "ib-b31-guide",
             "hodder-b31"
           ]
+        }
+      ],
+      "authenticMicrographs": [
+        {
+          "id": "b31-dicot-leaf-authentic",
+          "title": "Examine an authentic dicot leaf section",
+          "specimen": "Unidentified dicot leaf, transverse section through the leaf vein; source specimen is not identified to species",
+          "modality": "light",
+          "referenceId": "commons-dicot-leaf-houseman-2014",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Dicot_leaf.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dicot_leaf.jpg",
+          "author": "Jon Houseman; source credits Jon Houseman and Matthew Ford (2014)",
+          "license": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "observationPrompt": "With the original image displayed, draw a simple low-power tissue plan from observation: mark upper versus lower epidermis, more tightly packed elongated mesophyll, looser mesophyll with air spaces and the large central leaf vein. Label observed boundaries with straight, non-crossing lines. Identify which tissue labels are certain and which are tentative; refer to the source's visible 0.2 mm bar, never invent a new scale.",
+          "expectedEvidence": "In the image, an epidermal boundary lies above and below the section. The upper region includes closely packed elongated cells, and a large vascular region occupies the centre above loose tissue with wide spaces. Do not identify xylem or phloem from colour alone if their boundaries are not resolvable. The image is an authentic specimen, not a generalized textbook cross section.",
+          "scaleNote": "A black scale bar at the lower right is described by the source as 0.2 mm. Calibration is specific to this image; only infer lengths if measuring against that visible bar at the same rendering scale. Never use stated microscope magnification alone or claim a student-collected measurement.",
+          "limitation": "Species not given; image colour/brightness balanced and background retouched according to source. This is a rights-credited external light micrograph, not a student-prepared slide. Atypical leaf anatomy and oblique cuts can differ from generalized leaf schematics."
         }
       ]
     },
@@ -2769,6 +2788,14 @@
       "locator": "B3.1 Gas exchange, printed pp.273–294; PDF pages 285–306",
       "accessedAt": "2026-10-17",
       "level": "shared"
+    },
+    {
+      "id": "commons-dicot-leaf-houseman-2014",
+      "title": "Jon Houseman (2014), Dicot leaf — original calibrated photomicrograph, Wikimedia Commons, CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Dicot_leaf.jpg",
+      "locator": "Unlabelled transverse section; source-described 0.2 mm scale bar; photograph by Jon Houseman, source Jon Houseman and Matthew Ford",
+      "accessedAt": "2026-10-18",
+      "level": "shared"
     }
   ],
   "assets": [
@@ -2831,7 +2858,8 @@
       "Model data are explicitly illustrative, not actual observations.",
       "B3.1.8 drawing from authentic micrographs and B3.1.10 leaf-cast measurements require real calibrated observation materials before full skill acceptance.",
       "Planned topic remains unregistered; integration engineer must apply titles and lesson ID after full tests.",
-      "Editorial note: textbook page ranges were refined from the read-only Theme B research mapping. These are source-navigation candidates, not a qualified claim-by-claim sign-off."
+      "Editorial note: textbook page ranges were refined from the read-only Theme B research mapping. These are source-navigation candidates, not a qualified claim-by-claim sign-off.",
+      "B3.1.8 now includes a verifiably licensed original Wikimedia Commons light photomicrograph with author, terms and explicit scale limitations; expert specimen interpretation and live browser loading are pending."
     ]
   }
 }
