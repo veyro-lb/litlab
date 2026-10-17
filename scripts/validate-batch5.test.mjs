@@ -13,3 +13,13 @@ test('negative: graph must disclose modelling not real measurements',()=>{const 
 test('negative: graph calculations must agree',()=>{const a=clone();a.lessons['C1.1'].sections[7].graphTables[2].rows[2][1]=6;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Michaelis/)});
 test('negative: altered textbook page offset is blocked',()=>{const a=clone();a.lessons['C1.1'].sections[10].textbook.pdfPages[0]+=1;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Hodder/)});
 test('negative: no falsely qualified reviewer',()=>{const a=clone();a.lessons['A1.2'].review.reviewer={name:'Invented',qualification:'none'};assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Human review/)});
+test('negative: arbitrary replacement cannot skip required recall figure',()=>{
+ const a=clone();
+ a.lessons['A1.2'].assets.find(x=>x.id==='a12-nucleosome').src='/biology/nucleic-acids/unknown.svg';
+ assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Original\/recall/);
+});
+test('negative: inherited DNA figure cannot lose its recall asset',()=>{
+ const a=clone();
+ a.lessons['A1.2'].assets.find(x=>x.id==='a12-nucleotide').recallSrc='';
+ assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Original\/recall/);
+});
