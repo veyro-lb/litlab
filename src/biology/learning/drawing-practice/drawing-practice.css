@@ -1,3 +1,8 @@
+/* Six BioLab study modes: prevent an orphan sixth item in the five-column premium navigation. */
+.bio-app .bio-resource-nav{grid-template-columns:repeat(6,minmax(0,1fr))}
+@media(max-width:760px){.bio-app .bio-resource-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.bio-app .bio-resource-nav>a{flex-direction:row;gap:6px;min-height:46px;font-size:12px;padding:8px 4px}}
+@media(max-width:345px){.bio-app .bio-resource-nav>a{font-size:11px}}
+
 /* Optional diagram practice lives in the existing BioLab shadow-root, not beneath lesson figures. */
 .bio-drawing{max-width:980px;margin:26px auto 56px;min-width:0;color:var(--ink)}
 .bio-drawing *{box-sizing:border-box}
