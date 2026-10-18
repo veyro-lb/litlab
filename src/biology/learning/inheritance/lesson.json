@@ -2002,7 +2002,9 @@
         "ib-d32",
         "hodder-d32"
       ],
-      "assets": [],
+      "assets": [
+        "autosomal-recessive-pedigree"
+      ],
       "teachingBlocks": [
         {
           "title": "Read pedigrees as evidence, not certainty",
@@ -2106,7 +2108,13 @@
         ]
       },
       "exampleTitle": "Worked biological example",
-      "activityTitle": "Check your understanding"
+      "activityTitle": "Check your understanding",
+      "figurePlacements": [
+        {
+          "assetId": "autosomal-recessive-pedigree",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "inheritance-14",
@@ -5135,6 +5143,23 @@
       ],
       "level": "shared",
       "review": "sprint9-source-mapped"
+    },
+    {
+      "id": "autosomal-recessive-pedigree",
+      "kind": "diagram",
+      "src": "/biology/inheritance/autosomal-recessive-pedigree.svg",
+      "alt": "Constructed autosomal recessive pedigree: unaffected Aa parents have illustrative affected (aa) and unaffected (AA or Aa) sons and daughters. Squares are male, circles female, filled symbols affected. Each child has an independent 1/4 chance of aa; no exact ratio is guaranteed in a small family.",
+      "captionTitle": "Pedigrees constrain possible genotypes",
+      "attribution": "Original BioLab scientific model, 18 October 2026",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Independent vector model. No publisher artwork or patient/family data used.",
+      "referenceIds": [
+        "ib-d32",
+        "hodder-d32"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "displaySize": "standard"
     }
   ],
   "summary": "Meiosis and fertilization transmit alleles. Genotype interacts with inheritance modes and environment to produce phenotype. Crosses predict probabilities, while real pedigree and population data require evidence and uncertainty. At HL, chromosome assortment, linkage and recombination explain dihybrid ratios, and chi-squared tests assess their fit.",

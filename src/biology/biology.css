@@ -390,3 +390,47 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
   .bio-app .bio-educational-sources h4{font-size:16px}
   .bio-app .bio-sources .bio-sources-intro{font-size:14px}
 }
+
+/* Scientific asset repair: keep detailed figures inspectable at natural proportions. */
+.bio-app .bio-reading .bio-figure .bio-figure-zoom img{max-width:none;max-height:none}
+.bio-app .bio-figure[data-image-kind="photograph"] .bio-figure-zoom img{width:auto;min-width:0;max-width:none;height:auto}
+.bio-app .bio-figure[data-image-kind="photograph"]>.bio-figure-image{max-width:760px;margin-inline:auto}
+.bio-app .bio-figure[data-image-kind="photograph"]>.bio-figure-image img{max-height:440px;object-fit:contain}
+.bio-app .bio-photo-context{font-size:12px;line-height:1.6;color:var(--muted);margin:8px 0 0}
+.bio-figure-credit{font-size:12px;line-height:1.7;margin-top:12px}
+.bio-figure-credit summary{cursor:pointer}
+
+/* Selectively integrated figure-layout work at 105cdd7bc7291c2ddced6c0e7d1cca8afe29fa17; keep photo context and source credits above. */
+
+/* Context-sensitive scientific figures: no fixed-height crops or forced aspect ratios. */
+.bio-figure-clean{--figure-max:600px;inline-size:min(100%,var(--figure-max));max-inline-size:100%;margin:24px auto 32px;border:0;background:transparent;overflow:visible}
+.bio-figure-clean[data-size="compact"]{--figure-max:400px}
+.bio-figure-clean[data-size="standard"]{--figure-max:600px}
+.bio-figure-clean[data-size="detailed"]{--figure-max:800px}
+.bio-figure-clean[data-size="wide"]{--figure-max:100%}
+.bio-reading .bio-figure.bio-figure-clean{margin:24px auto 32px;border:0;border-radius:0;background:transparent;overflow:visible}
+.bio-figure-clean>.bio-figure-image{display:block;width:100%;min-height:0;border:0;padding:0;margin:0;border-radius:7px;background:none;line-height:0;overflow:visible;cursor:zoom-in}
+.bio-figure-clean>.bio-figure-image picture{display:flex;width:100%;justify-content:center;align-items:center;overflow:visible}
+.bio-figure-clean>.bio-figure-image img,.bio-reading .bio-figure-clean>.bio-figure-image img{display:block;width:100%;height:auto;max-width:100%;max-height:none;object-fit:contain;border-radius:7px;background:transparent}
+.bio-figure-clean[data-raster="true"]>.bio-figure-image picture>img{width:auto;max-width:100%}
+.bio-figure-clean>.bio-figure-image:focus-visible{outline:3px solid var(--bio-green);outline-offset:4px}
+.bio-figure-dialog{width:min(1120px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:93dvh;overflow:auto}
+.bio-figure-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:2;padding:5px 0 9px;background:var(--surface)}
+.bio-figure-dialog-head>strong{min-width:0;overflow-wrap:anywhere}
+.bio-figure-dialog-controls{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px;margin:10px 0}
+.bio-figure-dialog-controls button{min-height:44px;min-width:44px}
+.bio-figure-dialog-controls output{min-width:54px;text-align:center;font-size:13px;font-weight:700}
+.bio-figure-zoom{overflow:auto;max-height:65dvh;max-width:100%;overscroll-behavior:contain;background:#f1f7f6}
+.bio-figure-zoom img{display:block;min-width:0;max-width:none;max-height:none;height:auto;object-fit:contain}
+.bio-figure-dialog .bio-figure-dialog-hint{font-size:12px;margin:10px 0 0}
+.bio-microscopy-photo{max-width:min(100%,740px);margin:15px auto}
+.bio-microscopy-photo img{display:block;width:auto;max-width:100%;height:auto;max-height:none;margin:0 auto;object-fit:contain}
+@media(min-width:1200px){
+ .bio-reading-passage:has(>section:first-child + figure.bio-figure-clean[data-size="compact"]:last-child){display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,320px);gap:26px;align-items:start}
+ .bio-reading-passage:has(>section:first-child + figure.bio-figure-clean[data-size="compact"]:last-child)>section{min-width:0}
+ .bio-reading-passage:has(>section:first-child + figure.bio-figure-clean[data-size="compact"]:last-child)>figure{margin:40px 0 22px}
+}
+@media(max-width:760px){.bio-figure-clean,.bio-reading .bio-figure.bio-figure-clean{max-inline-size:100%;margin:20px auto 26px}.bio-figure-dialog{padding:12px}.bio-figure-dialog-controls{justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.bio-figure-clean *,.bio-figure-dialog *{scroll-behavior:auto;transition:none}}
+/* Modal zoom must escape the higher-specificity general lesson image cap. */
+.bio-app .bio-figure.bio-figure-clean .bio-figure-dialog .bio-figure-zoom img{max-width:none;min-width:0;max-height:none}

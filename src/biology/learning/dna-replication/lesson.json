@@ -399,7 +399,9 @@
         "hodder-d11",
         "ncbi-replication"
       ],
-      "assets": [],
+      "assets": [
+        "helicase-opening"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -507,7 +509,13 @@
             "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "helicase-opening",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d11-4",
@@ -1274,24 +1282,24 @@
       ],
       "level": "HL",
       "guidingQuestion": "In bacterial DNA replication, which enzyme mainly extends new DNA from RNA primers?",
-      "explanation": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment.\n\nDNA polymerase I removes the temporary RNA primers and replaces those nucleotides with DNA. DNA ligase then seals the remaining nicks in the sugar–phosphate backbone. Primase, polymerase III, polymerase I and ligase have distinct roles in this prokaryotic model.\n\nIn the prescribed prokaryotic model, primase synthesizes RNA primers, DNA polymerase III extends DNA and proofreads, DNA polymerase I replaces RNA primers with DNA, and DNA ligase seals the remaining backbone nicks. These polymerase I/III names should not be presented as the enzyme names for eukaryotic replication.\n\nIn the prescribed bacterial model, DNA primase synthesizes an RNA primer, creating a free 3′ end. DNA polymerase III extends a DNA daughter strand in the 5′→3′ direction by adding complementary DNA nucleotides. DNA polymerase I removes the RNA primer and replaces it with DNA; DNA ligase seals the remaining break in the sugar–phosphate backbone. On the lagging strand this sequence operates on successive Okazaki fragments. Do not assume the same polymerase names identify every eukaryotic enzyme: the Guide's named polymerases apply to this bacterial example.",
-      "revisionSummary": "In prokaryotic replication, primase starts an RNA primer; DNA polymerase III extends DNA; polymerase I replaces RNA primers with DNA; ligase seals the remaining backbone nicks.",
+      "explanation": "DNA polymerase cannot begin a new DNA strand without an existing free 3′ end. In the IB's prokaryotic model, DNA primase builds a short RNA primer complementary to the template. That primer provides the 3′ end from which DNA polymerase III can begin extending a daughter strand. This is why primase must act before polymerase III on each new segment.\n\nDNA polymerase III adds complementary DNA nucleotides to the primer's 3′ end, synthesizing the daughter strand in the 5′→3′ direction. On the leading strand this extension can continue towards the fork after an initial primer; on the lagging strand a fresh primer is needed for each Okazaki fragment because each fragment grows away from the opening fork.\n\nDNA polymerase I removes the RNA primer and replaces its nucleotides with DNA. This still leaves a nick in the sugar–phosphate backbone between adjacent DNA segments. DNA ligase closes that nick by forming the missing covalent connection. Polymerase I replaces nucleotide material; ligase joins the backbone. These polymerase names refer to the specified prokaryotic model, not to all eukaryotic replication enzymes.",
+      "revisionSummary": "In the prokaryotic model: primase makes RNA primers → DNA polymerase III extends 5′→3′ → polymerase I replaces primer RNA → ligase seals DNA nicks.",
       "terms": [
         "Primase: enzyme making short RNA primers that supply free 3′ ends",
         "DNA polymerase III: main DNA-extending polymerase in the specified bacterial system",
         "DNA polymerase I: bacterial enzyme that removes RNA primers and replaces them with DNA",
         "DNA ligase: enzyme sealing nicks between adjacent DNA fragments"
       ],
-      "workedExample": "After two bacterial Okazaki fragments are extended, polymerase I replaces their RNA starts and ligase joins adjacent DNA segments.",
+      "workedExample": "Imagine three Okazaki fragments: primase must start each one; polymerase III extends each; polymerase I replaces their RNA primers; ligase seals the resulting nicks. All three fragments were built 5′→3′.",
       "misconceptions": [
         {
-          "misconception": "Ligase synthesizes RNA primers and polymerase III seals nicks.",
-          "correction": "Primase makes RNA primers, polymerase III extends DNA, polymerase I replaces primers, and ligase seals nicks."
+          "misconception": "The enzyme that extends DNA also makes RNA primers and seals all remaining nicks.",
+          "correction": "Primase starts RNA primers; polymerase III extends DNA; polymerase I replaces primer RNA; ligase seals backbone nicks."
         }
       ],
       "claimReferences": [
         {
-          "claim": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment.",
+          "claim": "DNA polymerase cannot begin a new DNA strand without an existing free 3′ end. In the IB's prokaryotic model, DNA primase builds a short RNA primer complementary to the template. That primer provides the 3′ end from which DNA polymerase III can begin extending a daughter strand. This is why primase must act before polymerase III on each new segment.",
           "referenceIds": [
             "ib-d11",
             "hodder-d11",
@@ -1299,7 +1307,7 @@
           ]
         },
         {
-          "claim": "DNA polymerase I removes the temporary RNA primers and replaces those nucleotides with DNA. DNA ligase then seals the remaining nicks in the sugar–phosphate backbone. Primase, polymerase III, polymerase I and ligase have distinct roles in this prokaryotic model.",
+          "claim": "DNA polymerase III adds complementary DNA nucleotides to the primer's 3′ end, synthesizing the daughter strand in the 5′→3′ direction. On the leading strand this extension can continue towards the fork after an initial primer; on the lagging strand a fresh primer is needed for each Okazaki fragment because each fragment grows away from the opening fork.",
           "referenceIds": [
             "ib-d11",
             "hodder-d11",
@@ -1307,17 +1315,11 @@
           ]
         },
         {
-          "claim": "In the prescribed prokaryotic model, primase synthesizes RNA primers, DNA polymerase III extends DNA and proofreads, DNA polymerase I replaces RNA primers with DNA, and DNA ligase seals the remaining backbone nicks. These polymerase I/III names should not be presented as the enzyme names for eukaryotic replication.",
+          "claim": "DNA polymerase I removes the RNA primer and replaces its nucleotides with DNA. This still leaves a nick in the sugar–phosphate backbone between adjacent DNA segments. DNA ligase closes that nick by forming the missing covalent connection. Polymerase I replaces nucleotide material; ligase joins the backbone. These polymerase names refer to the specified prokaryotic model, not to all eukaryotic replication enzymes.",
           "referenceIds": [
             "ib-d11",
-            "hodder-d11"
-          ]
-        },
-        {
-          "claim": "In the prescribed bacterial model, DNA primase synthesizes an RNA primer, creating a free 3′ end. DNA polymerase III extends a DNA daughter strand in the 5′→3′ direction by adding complementary DNA nucleotides. DNA polymerase I removes the RNA primer and replaces it with DNA; DNA ligase seals the remaining break in the sugar–phosphate backbone. On the lagging strand this sequence operates on successive Okazaki fragments. Do not assume the same polymerase names identify every eukaryotic enzyme: the Guide's named polymerases apply to this bacterial example.",
-          "referenceIds": [
-            "ib-d11",
-            "hodder-d11"
+            "hodder-d11",
+            "ncbi-replication"
           ]
         }
       ],
@@ -1326,7 +1328,10 @@
         "hodder-d11",
         "ncbi-replication"
       ],
-      "assets": [],
+      "assets": [
+        "bacterial-replication-enzymes",
+        "d11-enzymes-sequence"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1388,8 +1393,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "Initiating replication on a bacterial template",
-          "explanation": "In the prokaryotic system specified by the guide, primase makes short RNA primers that provide the free 3′ end needed by DNA polymerase III. Polymerase III extends the DNA segment while reading the parental template. Leading synthesis typically needs one initiation at a fork; lagging synthesis needs a fresh primer for each fragment.",
+          "title": "Why synthesis needs a primer",
+          "explanation": "DNA polymerase cannot begin a new DNA strand without an existing free 3′ end. In the IB's prokaryotic model, DNA primase builds a short RNA primer complementary to the template. That primer provides the 3′ end from which DNA polymerase III can begin extending a daughter strand. This is why primase must act before polymerase III on each new segment.",
           "referenceIds": [
             "ib-d11",
             "hodder-d11",
@@ -1397,8 +1402,8 @@
           ]
         },
         {
-          "title": "Replacing primers and sealing the product",
-          "explanation": "DNA polymerase I removes the temporary RNA primers and replaces those nucleotides with DNA. DNA ligase then seals the remaining nicks in the sugar–phosphate backbone. Primase, polymerase III, polymerase I and ligase have distinct roles in this prokaryotic model.",
+          "title": "How a fragment becomes DNA",
+          "explanation": "DNA polymerase III adds complementary DNA nucleotides to the primer's 3′ end, synthesizing the daughter strand in the 5′→3′ direction. On the leading strand this extension can continue towards the fork after an initial primer; on the lagging strand a fresh primer is needed for each Okazaki fragment because each fragment grows away from the opening fork.",
           "referenceIds": [
             "ib-d11",
             "hodder-d11",
@@ -1406,19 +1411,12 @@
           ]
         },
         {
-          "title": "Guide-limited bacterial replication enzymes",
-          "explanation": "In the prescribed prokaryotic model, primase synthesizes RNA primers, DNA polymerase III extends DNA and proofreads, DNA polymerase I replaces RNA primers with DNA, and DNA ligase seals the remaining backbone nicks. These polymerase I/III names should not be presented as the enzyme names for eukaryotic replication.",
+          "title": "Remove temporary RNA and join the fragments",
+          "explanation": "DNA polymerase I removes the RNA primer and replaces its nucleotides with DNA. This still leaves a nick in the sugar–phosphate backbone between adjacent DNA segments. DNA ligase closes that nick by forming the missing covalent connection. Polymerase I replaces nucleotide material; ligase joins the backbone. These polymerase names refer to the specified prokaryotic model, not to all eukaryotic replication enzymes.",
           "referenceIds": [
             "ib-d11",
-            "hodder-d11"
-          ]
-        },
-        {
-          "title": "Four bacterial replication enzyme roles",
-          "explanation": "In the prescribed bacterial model, DNA primase synthesizes an RNA primer, creating a free 3′ end. DNA polymerase III extends a DNA daughter strand in the 5′→3′ direction by adding complementary DNA nucleotides. DNA polymerase I removes the RNA primer and replaces it with DNA; DNA ligase seals the remaining break in the sugar–phosphate backbone. On the lagging strand this sequence operates on successive Okazaki fragments. Do not assume the same polymerase names identify every eukaryotic enzyme: the Guide's named polymerases apply to this bacterial example.",
-          "referenceIds": [
-            "ib-d11",
-            "hodder-d11"
+            "hodder-d11",
+            "ncbi-replication"
           ]
         }
       ],
@@ -1467,6 +1465,16 @@
             }
           ],
           "note": "This named polymerase pathway is the prokaryotic model specified for HL."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "bacterial-replication-enzymes",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "d11-enzymes-sequence",
+          "afterBlock": 1
         }
       ]
     },
@@ -2358,6 +2366,59 @@
       ],
       "level": "HL",
       "review": "source-mapped"
+    },
+    {
+      "id": "bacterial-replication-enzymes",
+      "kind": "diagram",
+      "src": "/biology/dna-replication/bacterial-replication-enzymes.svg",
+      "alt": "Primase lays RNA primer; bacterial DNA polymerase III extends DNA 5′ to 3′, polymerase I replaces primer with DNA and ligase seals the remaining backbone nick. Four successive states of one fragment, not four strands.",
+      "captionTitle": "Replication enzymes divide the work",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "displaySize": "standard"
+    },
+    {
+      "id": "helicase-opening",
+      "kind": "diagram",
+      "src": "/biology/dna-replication/helicase-opening.svg",
+      "alt": "Helicase advances along a paired DNA duplex and disrupts hydrogen bonds between complementary bases. Two blue covalent backbones separate behind it and remain intact. ATP supplies energy; the symbolic enzyme does not cut the sugar–phosphate rails.",
+      "captionTitle": "Helicase separates the DNA strands",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Independent layout and geometry authored for this repository; no publisher image crop, tracing or source pixels.",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "displaySize": "standard"
+    },
+    {
+      "id": "d11-enzymes-sequence",
+      "kind": "schematic",
+      "src": "/biology/dna-replication/replication-enzyme-sequence.svg",
+      "alt": "Four consecutive roles in a prokaryotic lagging-strand fragment: primase forms an RNA primer, DNA polymerase III extends DNA from its 3-prime end, DNA polymerase I replaces primer RNA with DNA, and DNA ligase seals the remaining nick. Each new DNA segment grows five-prime to three-prime.",
+      "captionTitle": "From an RNA primer to a sealed DNA fragment",
+      "interpretation": "Original, conceptual teaching figure; labels and arrow directions correspond to the numbered understanding.",
+      "attribution": "Original BioLab SVG created for this syllabus-understanding depth audit (2026)",
+      "license": "Original first-party BioLab illustration",
+      "permissionEvidence": "Independently drawn from underlying biological mechanisms; no external textbook figures copied or traced",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
     }
   ],
   "summary": "Replication copies the DNA sequence by complementary base pairing and enzyme-guided synthesis; both new daughter strands always elongate 5′→3′, but leading and lagging synthesis differ.",

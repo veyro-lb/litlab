@@ -1299,7 +1299,9 @@
         "hodder-d21",
         "ncbi-meiosis"
       ],
-      "assets": [],
+      "assets": [
+        "onion-root-mitosis"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1402,7 +1404,13 @@
             "explanation": "Microscopy can reveal the position, condensation and arrangement of chromosomes in fixed dividing cells. Metaphase has chromosomes aligned near the spindle equator; anaphase shows two groups of separating chromatids; telophase shows two reforming nuclear regions, often with cytokinesis beginning."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "onion-root-mitosis",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d21-9",
@@ -1454,7 +1462,9 @@
         "hodder-d21",
         "ncbi-meiosis"
       ],
-      "assets": [],
+      "assets": [
+        "meiosis-separation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1623,6 +1633,12 @@
           ],
           "note": "Counts are theoretical and assume normal segregation; each product of meiosis I has duplicated chromosomes."
         }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "meiosis-separation",
+          "afterBlock": 1
+        }
       ]
     },
     {
@@ -1787,22 +1803,22 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which process contributes to genetic variation in gametes?",
-      "explanation": "In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids. Random orientation of homologous pairs at metaphase I independently changes which parental homologs enter each daughter nucleus.\n\nFor n independently assorting homologous pairs, there are 2^n combinations of whole chromosomes before considering crossing over. These processes reorganize existing sequence variants; new alleles originate through mutation rather than independent assortment alone.\n\nCrossing over exchanges material between nonsister chromatids of homologous chromosomes during meiosis I. Random orientation of homologous pairs at metaphase I then independently distributes maternal and paternal homologs, creating combinations among gametes. Genetic variation emerges even without a brand-new gene mutation in that meiotic event.\n\nDuring prophase I, paired homologous chromosomes can exchange corresponding segments by crossing over, generating new allele combinations along chromatids. At metaphase I, each homologous pair orients independently of other pairs, producing alternative maternal/paternal chromosome combinations in gametes. Random gamete fusion adds variation at fertilization. These processes reshuffle inherited alleles; mutation is the process that ultimately creates novel sequence variants. Neither crossing over nor random orientation guarantees every possible genotype in a small number of gametes.",
-      "revisionSummary": "In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids. For n independently assorting homologous pairs, there are 2^n combinations of whole chromosomes before considering crossing over.",
+      "explanation": "During prophase I, homologous chromosomes pair to form bivalents. Two non-sister chromatids from a homologous pair can break and rejoin at corresponding positions, exchanging DNA segments. This crossing over produces recombinant chromatids with combinations of maternal and paternal alleles that were not together on the original chromatids. It does not itself invent a new allele: the variants already existed on the homologous chromosomes.\n\nAt metaphase I each bivalent faces the spindle poles in either of two orientations, independently of the other bivalents. Homologs then separate in anaphase I, so the haploid nuclei inherit different combinations of maternal and paternal chromosomes. With n independently orienting homologous pairs, up to 2ⁿ combinations of whole chromosomes are possible before counting crossing over. For n = 2 this gives four possible combinations.\n\nCrossing over changes allele combinations along individual chromatids; independent assortment changes which homologs are distributed together. Both happen during meiosis I, but at different stages and by different mechanisms. These processes explain diversity among gametes without requiring a new mutation during that meiosis. Fertilization adds a further source of variation, but it is not itself a meiotic event.",
+      "revisionSummary": "Prophase I crossing over exchanges segments between non-sister chromatids; metaphase I random bivalent orientation enables 2ⁿ whole-chromosome combinations, before crossing over.",
       "terms": [
         "Meiosis recombines and assorted variants: mechanism",
         "Why independent assortment matters: relevant comparison"
       ],
-      "workedExample": "With two homologous pairs, there are up to four whole-chromosome orientation combinations even before crossing over.",
+      "workedExample": "For a diploid organism with 2n = 4, there are two homologous pairs. Independent assortment alone permits 2² = 4 whole-chromosome combinations in gametes; crossing over can add further allele combinations within those chromosomes.",
       "misconceptions": [
         {
-          "misconception": "Crossing over and independent assortment create sequence mutations on demand.",
-          "correction": "They recombine or redistribute existing alleles without purposeful mutation."
+          "misconception": "Crossing over creates new alleles, and independent assortment is the same process.",
+          "correction": "Crossing over exchanges existing alleles along chromatids in prophase I; independent assortment distributes homologous chromosomes in different combinations at metaphase I."
         }
       ],
       "claimReferences": [
         {
-          "claim": "In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids. Random orientation of homologous pairs at metaphase I independently changes which parental homologs enter each daughter nucleus.",
+          "claim": "During prophase I, homologous chromosomes pair to form bivalents. Two non-sister chromatids from a homologous pair can break and rejoin at corresponding positions, exchanging DNA segments. This crossing over produces recombinant chromatids with combinations of maternal and paternal alleles that were not together on the original chromatids. It does not itself invent a new allele: the variants already existed on the homologous chromosomes.",
           "referenceIds": [
             "ib-d21",
             "hodder-d21",
@@ -1810,7 +1826,7 @@
           ]
         },
         {
-          "claim": "For n independently assorting homologous pairs, there are 2^n combinations of whole chromosomes before considering crossing over. These processes reorganize existing sequence variants; new alleles originate through mutation rather than independent assortment alone.\n\nCrossing over exchanges material between nonsister chromatids of homologous chromosomes during meiosis I. Random orientation of homologous pairs at metaphase I then independently distributes maternal and paternal homologs, creating combinations among gametes. Genetic variation emerges even without a brand-new gene mutation in that meiotic event.",
+          "claim": "At metaphase I each bivalent faces the spindle poles in either of two orientations, independently of the other bivalents. Homologs then separate in anaphase I, so the haploid nuclei inherit different combinations of maternal and paternal chromosomes. With n independently orienting homologous pairs, up to 2ⁿ combinations of whole chromosomes are possible before counting crossing over. For n = 2 this gives four possible combinations.",
           "referenceIds": [
             "ib-d21",
             "hodder-d21",
@@ -1818,10 +1834,11 @@
           ]
         },
         {
-          "claim": "During prophase I, paired homologous chromosomes can exchange corresponding segments by crossing over, generating new allele combinations along chromatids. At metaphase I, each homologous pair orients independently of other pairs, producing alternative maternal/paternal chromosome combinations in gametes. Random gamete fusion adds variation at fertilization. These processes reshuffle inherited alleles; mutation is the process that ultimately creates novel sequence variants. Neither crossing over nor random orientation guarantees every possible genotype in a small number of gametes.",
+          "claim": "Crossing over changes allele combinations along individual chromatids; independent assortment changes which homologs are distributed together. Both happen during meiosis I, but at different stages and by different mechanisms. These processes explain diversity among gametes without requiring a new mutation during that meiosis. Fertilization adds a further source of variation, but it is not itself a meiotic event.",
           "referenceIds": [
             "ib-d21",
-            "hodder-d21"
+            "hodder-d21",
+            "ncbi-meiosis"
           ]
         }
       ],
@@ -1830,7 +1847,11 @@
         "hodder-d21",
         "ncbi-meiosis"
       ],
-      "assets": [],
+      "assets": [
+        "crossing-over",
+        "meiosis-separation",
+        "d21-meiotic-variation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1892,8 +1913,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "Meiosis recombines and assorted variants",
-          "explanation": "In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids. Random orientation of homologous pairs at metaphase I independently changes which parental homologs enter each daughter nucleus.",
+          "title": "Crossing over rearranges alleles along chromosomes",
+          "explanation": "During prophase I, homologous chromosomes pair to form bivalents. Two non-sister chromatids from a homologous pair can break and rejoin at corresponding positions, exchanging DNA segments. This crossing over produces recombinant chromatids with combinations of maternal and paternal alleles that were not together on the original chromatids. It does not itself invent a new allele: the variants already existed on the homologous chromosomes.",
           "referenceIds": [
             "ib-d21",
             "hodder-d21",
@@ -1901,8 +1922,8 @@
           ]
         },
         {
-          "title": "Why independent assortment matters",
-          "explanation": "For n independently assorting homologous pairs, there are 2^n combinations of whole chromosomes before considering crossing over. These processes reorganize existing sequence variants; new alleles originate through mutation rather than independent assortment alone.\n\nCrossing over exchanges material between nonsister chromatids of homologous chromosomes during meiosis I. Random orientation of homologous pairs at metaphase I then independently distributes maternal and paternal homologs, creating combinations among gametes. Genetic variation emerges even without a brand-new gene mutation in that meiotic event.",
+          "title": "Random orientation rearranges whole chromosomes",
+          "explanation": "At metaphase I each bivalent faces the spindle poles in either of two orientations, independently of the other bivalents. Homologs then separate in anaphase I, so the haploid nuclei inherit different combinations of maternal and paternal chromosomes. With n independently orienting homologous pairs, up to 2ⁿ combinations of whole chromosomes are possible before counting crossing over. For n = 2 this gives four possible combinations.",
           "referenceIds": [
             "ib-d21",
             "hodder-d21",
@@ -1910,11 +1931,12 @@
           ]
         },
         {
-          "title": "Identify two independent sources of variation",
-          "explanation": "During prophase I, paired homologous chromosomes can exchange corresponding segments by crossing over, generating new allele combinations along chromatids. At metaphase I, each homologous pair orients independently of other pairs, producing alternative maternal/paternal chromosome combinations in gametes. Random gamete fusion adds variation at fertilization. These processes reshuffle inherited alleles; mutation is the process that ultimately creates novel sequence variants. Neither crossing over nor random orientation guarantees every possible genotype in a small number of gametes.",
+          "title": "Why the resulting gametes differ",
+          "explanation": "Crossing over changes allele combinations along individual chromatids; independent assortment changes which homologs are distributed together. Both happen during meiosis I, but at different stages and by different mechanisms. These processes explain diversity among gametes without requiring a new mutation during that meiosis. Fertilization adds a further source of variation, but it is not itself a meiotic event.",
           "referenceIds": [
             "ib-d21",
-            "hodder-d21"
+            "hodder-d21",
+            "ncbi-meiosis"
           ]
         }
       ],
@@ -1933,7 +1955,43 @@
             "explanation": "In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids. Random orientation of homologous pairs at metaphase I independently changes which parental homologs enter each daughter nucleus."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "crossing-over",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "meiosis-separation",
+          "afterBlock": 1
+        },
+        {
+          "assetId": "d21-meiotic-variation",
+          "afterBlock": 2
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Independent alignment produces different combinations",
+          "afterBlock": 1,
+          "headers": [
+            "Alignment of two homologous pairs",
+            "Products of one meiosis (without crossing over)"
+          ],
+          "rows": [
+            [
+              "A and B toward the same pole; a and b toward the other",
+              "AB and ab: two of each"
+            ],
+            [
+              "A and b toward the same pole; a and B toward the other",
+              "Ab and aB: two of each"
+            ]
+          ],
+          "note": "Illustrative two-pair model. Each pair aligns independently; across many meioses n = 2 gives 2ⁿ = 4 possible combinations before crossing over. These are possible outcomes, not an observed family dataset."
+        }
+      ]
     },
     {
       "id": "d21-12",
@@ -4329,6 +4387,79 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "crossing-over",
+      "kind": "diagram",
+      "src": "/biology/cell-nuclear-division/crossing-over.svg",
+      "alt": "Two replicated homologues exchange equivalent distal segments between non-sister chromatids during prophase I, leaving two recombinant and two unchanged chromatids. Centromeres remain; chromosome number does not change.",
+      "captionTitle": "Crossing over exchanges DNA",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "displaySize": "standard"
+    },
+    {
+      "id": "meiosis-separation",
+      "kind": "diagram",
+      "src": "/biology/cell-nuclear-division/meiosis-separation.svg",
+      "alt": "A 2n=4 cell separates homologues in meiosis I and sister chromatids in meiosis II, forming four n=2 products. One of the possible independent orientations shown; crossing over omitted to isolate chromosome accounting.",
+      "captionTitle": "Meiosis: one replication, two divisions",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "displaySize": "standard"
+    },
+    {
+      "id": "onion-root-mitosis",
+      "kind": "photograph",
+      "src": "/biology/authentic/onion-root-mitosis.webp",
+      "alt": "Light micrograph of stained onion root cells with interphase nuclei, condensed chromosomes and cells at different mitotic stages. Compare chromosome arrangements rather than cell colour to infer a stage. Do not use the clear circular feature at lower right to identify a cell structure. No calibrated scale bar is supplied.",
+      "captionTitle": "Mitosis in onion root cells",
+      "interpretation": "Stained light micrograph: identify stages from chromosome arrangement. No calibrated scale is supplied.",
+      "attribution": "Roval312. Mitosis in onion root cells. CC BY-SA 4.0. Complete frame resized and WebP-encoded without cropping.",
+      "license": "CC BY-SA 4.0",
+      "permissionEvidence": "Individual file licence verified 2026-10-18: https://commons.wikimedia.org/wiki/File:Mitosis_in_onion_cells.jpg#Licensing. Public redistribution and modification permitted with attribution and ShareAlike.",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21",
+        "ncbi-meiosis"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitosis_in_onion_cells.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Mitosis_in_onion_cells.jpg",
+      "termsUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "d21-meiotic-variation",
+      "kind": "schematic",
+      "src": "/biology/cell-nuclear-division/meiosis-two-variation-mechanisms.svg",
+      "alt": "Side-by-side original schematic. During prophase I, non-sister chromatids of homologous chromosomes exchange corresponding segments by crossing over. At metaphase I, different homologous pairs orient independently, yielding up to four combinations of whole homologs for n equals two, before crossing over.",
+      "captionTitle": "Two distinct sources of genetic variation in meiosis I",
+      "interpretation": "Original conceptual figure, not to scale. Read the arrows with the adjacent mechanism explanation.",
+      "attribution": "Original BioLab SVG created for this syllabus-understanding depth audit (2026)",
+      "license": "Original first-party BioLab illustration",
+      "permissionEvidence": "Authored independently using general biological mechanisms; no textbook artwork reproduced or traced",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21",
+        "ncbi-meiosis"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
     }
   ],
   "summary": "Eukaryotic division requires accurate chromosome segregation and cytoplasmic allocation. Mitosis maintains genome content in daughter nuclei, meiosis produces haploid diversity, and regulated cell cycles coordinate growth and repair.",

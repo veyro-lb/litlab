@@ -2957,7 +2957,9 @@
         "hodder-c42",
         "noaa-keeling"
       ],
-      "assets": [],
+      "assets": [
+        "keeling-monthly-observed"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -3070,6 +3072,87 @@
               377.38
             ]
           ]
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "keeling-monthly-observed",
+          "afterBlock": 1
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Monthly values behind the observed curves",
+          "afterBlock": 1,
+          "headers": [
+            "Month",
+            "2024 CO₂ (ppm)",
+            "2025 CO₂ (ppm)"
+          ],
+          "rows": [
+            [
+              "Jan",
+              "422.80",
+              "426.65"
+            ],
+            [
+              "Feb",
+              "424.55",
+              "427.09"
+            ],
+            [
+              "Mar",
+              "425.38",
+              "428.15"
+            ],
+            [
+              "Apr",
+              "426.51",
+              "429.64"
+            ],
+            [
+              "May",
+              "426.90",
+              "430.51"
+            ],
+            [
+              "Jun",
+              "426.91",
+              "429.61"
+            ],
+            [
+              "Jul",
+              "425.55",
+              "427.87"
+            ],
+            [
+              "Aug",
+              "422.99",
+              "425.48"
+            ],
+            [
+              "Sep",
+              "422.03",
+              "424.37"
+            ],
+            [
+              "Oct",
+              "422.38",
+              "424.87"
+            ],
+            [
+              "Nov",
+              "423.85",
+              "426.46"
+            ],
+            [
+              "Dec",
+              "425.40",
+              "427.49"
+            ]
+          ],
+          "note": "NOAA GML, 9 October 2026 release. Monthly averages, not de-seasonalized. Mauna Loa is one monitoring station; these are not global monthly means."
         }
       ]
     },
@@ -4930,6 +5013,14 @@
       "locator": "Mauna Loa historical annual means for 1959 and 2004; seasonal cycle explanation",
       "accessedAt": "2026-10-17",
       "level": "shared"
+    },
+    {
+      "id": "noaa-monthly-observed",
+      "title": "NOAA GML Mauna Loa observed monthly CO₂, 2024–2025",
+      "url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt",
+      "locator": "9 October 2026 release, monthly average (not de-seasonalized) column; 24 observed months independently rechecked against graph coordinates on 18 October 2026",
+      "accessedAt": "2026-10-18",
+      "level": "shared"
     }
   ],
   "assets": [
@@ -4948,6 +5039,26 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "keeling-monthly-observed",
+      "kind": "diagram",
+      "src": "/biology/transfers-energy-matter/keeling-monthly-2024-2025.svg",
+      "mobileSrc": "/biology/transfers-energy-matter/keeling-monthly-2024-2025-mobile.svg",
+      "alt": "Observed NOAA GML Mauna Loa monthly CO₂ means in ppm for January through December of 2024 and 2025. Both series rise toward late spring and fall into early autumn; 2025 concentrations are higher. Plot uses the monthly-average column and preserves all 24 values. It is not a smoothed model, a global average or the full multi-decade Keeling record.",
+      "captionTitle": "Observed seasonal variation in atmospheric CO₂",
+      "attribution": "Data: NOAA Global Monitoring Laboratory; original BioLab plot selectively adopted from the source-policy cleanup branch and independently revalidated on 18 October 2026. Monthly data source: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt",
+      "license": "NOAA GML data freely available with source citation; original BioLab vector artwork",
+      "permissionEvidence": "Source data header permits public/scientific dissemination and requests attribution. No third-party plotted image copied. Full values and rights: docs/biology/scientific-visual-assets-repair/CO2_DATA_RIGHTS_AND_VALUES.json.",
+      "referenceIds": [
+        "noaa-monthly-observed"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "sourceUrl": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt",
+      "originalUrl": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt",
+      "termsUrl": "https://gml.noaa.gov/ccgg/trends/data.html",
+      "displaySize": "wide"
     }
   ],
   "summary": "Solar or chemical energy is captured by autotrophs and transferred through feeding, but conversions release heat at each level. Carbon and other elements move between biotic and abiotic reservoirs and are reused. Observations such as energy pyramids and the Keeling Curve reveal patterns that require careful interpretation.",

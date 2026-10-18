@@ -199,8 +199,8 @@
       "workedExample": "In oxygenic photosynthesis, water is oxidized to replace electrons lost from photosystem II, while carbon from CO₂ enters organic compounds through fixation.",
       "misconceptions": [
         {
-          "misconception": "Molecular oxygen",
-          "correction": "Oxygen is a product of water splitting, not the input electron donor."
+          "misconception": "The oxygen gas released during photosynthesis comes from carbon dioxide.",
+          "correction": "Photosystem II releases O₂ by splitting water. Carbon from carbon dioxide enters organic molecules during carbon fixation."
         }
       ],
       "claimReferences": [
@@ -1894,22 +1894,26 @@
       ],
       "level": "HL",
       "guidingQuestion": "During chloroplast ATP synthesis, which side receives protons from ATP synthase?",
-      "explanation": "Energy from electron flow is coupled to proton accumulation inside the thylakoid lumen. Protons are translocated from the stroma into the lumen by electron-transfer processes, and water photolysis supplies additional lumen protons. The thylakoid membrane restricts free proton movement so an electrochemical gradient forms.\n\nH⁺ flows down its gradient from lumen to stroma through ATP synthase. Its catalytic region on the stromal side makes ATP from ADP and Pi, making ATP available to the Calvin cycle. In non-cyclic photophosphorylation electrons originate from PSII and ultimately contribute to reduction of NADP; cyclic flow uses PSI-excited electrons that return to the electron transport pathway, increasing ATP production without net NADPH or oxygen production.\n\nIn non-cyclic photophosphorylation, excitation at photosystem II supplies electrons that travel through the chain toward photosystem I; water replaces the electrons lost by PSII, and PSI ultimately supports reduction of NADP. Electron transport helps build a lumen-to-stroma proton-motive force used by ATP synthase. Cyclic photophosphorylation involves electrons excited by photosystem I being routed back into an electron-transfer pathway instead of reducing NADP, providing additional proton-gradient-driven ATP production. Consequently cyclic flow does not directly make NADPH or release oxygen, whereas non-cyclic flow supports both outcomes. These are alternative electron routes, not two different locations of ATP synthase.",
-      "revisionSummary": "H⁺ flows down its gradient from lumen to stroma through ATP synthase.",
+      "explanation": "The thylakoid membrane separates the stroma outside from the lumen inside. Light-excited electrons pass through carriers embedded in this membrane; electron-transfer energy drives net H⁺ movement from the stroma into the lumen. Water splitting at photosystem II also releases protons into the lumen. Because the membrane restricts free H⁺ leakage, an electrochemical proton gradient accumulates across it.\n\nProtons flow from the thylakoid lumen back into the stroma through ATP synthase. The energy released as they move down their electrochemical gradient drives phosphorylation of ADP with inorganic phosphate to form ATP on the stromal side. The gradient is built by the electron transport system; ATP synthase uses it. Merely pumping H⁺ into the lumen is not the step that directly bonds phosphate to ADP.\n\nIn non-cyclic photophosphorylation, photosystem II provides the light-excited electrons entering the transport pathway, and water supplies replacement electrons after photolysis; electron transfer continues via photosystem I toward reduction of NADP. In cyclic photophosphorylation, electrons excited in photosystem I return to an electron-transport pathway rather than reducing NADP. Both routes can support the H⁺ gradient and ATP formation, but cyclic flow does not yield net reduced NADP or oxygen.",
+      "revisionSummary": "Light-driven electron transfer pumps H⁺ into the thylakoid lumen; H⁺ return to the stroma through ATP synthase drives ATP production. Non-cyclic electrons originate at PSII; cyclic electrons are recycled from PSI.",
       "terms": [
         "Photophosphorylation: ATP formation using light-driven electron transfer",
         "Thylakoid lumen: internal space where H⁺ accumulates"
       ],
-      "workedExample": "Thylakoid lumen → ATP synthase → stroma is the direction of proton return during photophosphorylation.",
+      "workedExample": "If the thylakoid membrane becomes freely permeable to H⁺, the lumen-to-stroma gradient collapses and ATP synthesis falls even though photosystems may still absorb light.",
       "misconceptions": [
         {
-          "misconception": "The thylakoid lumen during downhill return",
-          "correction": "Pumping into the lumen establishes the gradient, not its productive release."
+          "misconception": "Proton pumping into the lumen directly joins ADP to phosphate, while protons moving back are unimportant.",
+          "correction": "Electron transport builds the gradient by moving protons into the lumen; return flow through ATP synthase powers ATP formation on the stromal side."
+        },
+        {
+          "misconception": "Both cyclic and non-cyclic photophosphorylation release oxygen and reduce NADP.",
+          "correction": "Non-cyclic electron flow involves PSII water splitting and NADP reduction; cyclic PSI electron flow adds ATP-producing proton flow without net oxygen or reduced NADP production."
         }
       ],
       "claimReferences": [
         {
-          "claim": "Energy from electron flow is coupled to proton accumulation inside the thylakoid lumen. Protons are translocated from the stroma into the lumen by electron-transfer processes, and water photolysis supplies additional lumen protons. The thylakoid membrane restricts free proton movement so an electrochemical gradient forms.",
+          "claim": "The thylakoid membrane separates the stroma outside from the lumen inside. Light-excited electrons pass through carriers embedded in this membrane; electron-transfer energy drives net H⁺ movement from the stroma into the lumen. Water splitting at photosystem II also releases protons into the lumen. Because the membrane restricts free H⁺ leakage, an electrochemical proton gradient accumulates across it.",
           "referenceIds": [
             "ib-c13",
             "hodder-c13",
@@ -1918,7 +1922,7 @@
           ]
         },
         {
-          "claim": "H⁺ flows down its gradient from lumen to stroma through ATP synthase. Its catalytic region on the stromal side makes ATP from ADP and Pi, making ATP available to the Calvin cycle. In non-cyclic photophosphorylation electrons originate from PSII and ultimately contribute to reduction of NADP; cyclic flow uses PSI-excited electrons that return to the electron transport pathway, increasing ATP production without net NADPH or oxygen production.",
+          "claim": "Protons flow from the thylakoid lumen back into the stroma through ATP synthase. The energy released as they move down their electrochemical gradient drives phosphorylation of ADP with inorganic phosphate to form ATP on the stromal side. The gradient is built by the electron transport system; ATP synthase uses it. Merely pumping H⁺ into the lumen is not the step that directly bonds phosphate to ADP.",
           "referenceIds": [
             "ib-c13",
             "hodder-c13",
@@ -1927,10 +1931,12 @@
           ]
         },
         {
-          "claim": "In non-cyclic photophosphorylation, excitation at photosystem II supplies electrons that travel through the chain toward photosystem I; water replaces the electrons lost by PSII, and PSI ultimately supports reduction of NADP. Electron transport helps build a lumen-to-stroma proton-motive force used by ATP synthase. Cyclic photophosphorylation involves electrons excited by photosystem I being routed back into an electron-transfer pathway instead of reducing NADP, providing additional proton-gradient-driven ATP production. Consequently cyclic flow does not directly make NADPH or release oxygen, whereas non-cyclic flow supports both outcomes. These are alternative electron routes, not two different locations of ATP synthase.",
+          "claim": "In non-cyclic photophosphorylation, photosystem II provides the light-excited electrons entering the transport pathway, and water supplies replacement electrons after photolysis; electron transfer continues via photosystem I toward reduction of NADP. In cyclic photophosphorylation, electrons excited in photosystem I return to an electron-transport pathway rather than reducing NADP. Both routes can support the H⁺ gradient and ATP formation, but cyclic flow does not yield net reduced NADP or oxygen.",
           "referenceIds": [
             "ib-c13",
-            "hodder-c13"
+            "hodder-c13",
+            "openstax-c13",
+            "openstax-calvin"
           ]
         }
       ],
@@ -2004,8 +2010,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "Photophosphorylation uses a thylakoid proton gradient",
-          "explanation": "Energy from electron flow is coupled to proton accumulation inside the thylakoid lumen. Protons are translocated from the stroma into the lumen by electron-transfer processes, and water photolysis supplies additional lumen protons. The thylakoid membrane restricts free proton movement so an electrochemical gradient forms.",
+          "title": "Build the proton gradient",
+          "explanation": "The thylakoid membrane separates the stroma outside from the lumen inside. Light-excited electrons pass through carriers embedded in this membrane; electron-transfer energy drives net H⁺ movement from the stroma into the lumen. Water splitting at photosystem II also releases protons into the lumen. Because the membrane restricts free H⁺ leakage, an electrochemical proton gradient accumulates across it.",
           "referenceIds": [
             "ib-c13",
             "hodder-c13",
@@ -2014,8 +2020,8 @@
           ]
         },
         {
-          "title": "ATP synthase uses lumen-to-stroma H⁺ flow",
-          "explanation": "H⁺ flows down its gradient from lumen to stroma through ATP synthase. Its catalytic region on the stromal side makes ATP from ADP and Pi, making ATP available to the Calvin cycle. In non-cyclic photophosphorylation electrons originate from PSII and ultimately contribute to reduction of NADP; cyclic flow uses PSI-excited electrons that return to the electron transport pathway, increasing ATP production without net NADPH or oxygen production.",
+          "title": "Use that gradient to synthesize ATP",
+          "explanation": "Protons flow from the thylakoid lumen back into the stroma through ATP synthase. The energy released as they move down their electrochemical gradient drives phosphorylation of ADP with inorganic phosphate to form ATP on the stromal side. The gradient is built by the electron transport system; ATP synthase uses it. Merely pumping H⁺ into the lumen is not the step that directly bonds phosphate to ADP.",
           "referenceIds": [
             "ib-c13",
             "hodder-c13",
@@ -2024,11 +2030,13 @@
           ]
         },
         {
-          "title": "Compare non-cyclic and cyclic electron flow",
-          "explanation": "In non-cyclic photophosphorylation, excitation at photosystem II supplies electrons that travel through the chain toward photosystem I; water replaces the electrons lost by PSII, and PSI ultimately supports reduction of NADP. Electron transport helps build a lumen-to-stroma proton-motive force used by ATP synthase. Cyclic photophosphorylation involves electrons excited by photosystem I being routed back into an electron-transfer pathway instead of reducing NADP, providing additional proton-gradient-driven ATP production. Consequently cyclic flow does not directly make NADPH or release oxygen, whereas non-cyclic flow supports both outcomes. These are alternative electron routes, not two different locations of ATP synthase.",
+          "title": "Compare the two routes supplying electrons",
+          "explanation": "In non-cyclic photophosphorylation, photosystem II provides the light-excited electrons entering the transport pathway, and water supplies replacement electrons after photolysis; electron transfer continues via photosystem I toward reduction of NADP. In cyclic photophosphorylation, electrons excited in photosystem I return to an electron-transport pathway rather than reducing NADP. Both routes can support the H⁺ gradient and ATP formation, but cyclic flow does not yield net reduced NADP or oxygen.",
           "referenceIds": [
             "ib-c13",
-            "hodder-c13"
+            "hodder-c13",
+            "openstax-c13",
+            "openstax-calvin"
           ]
         }
       ],
@@ -2738,8 +2746,8 @@
       "workedExample": "Six 3C triose phosphates contain 18 carbons: five (15 carbons) regenerate three 5C RuBP, while one 3C TP leaves as net product.",
       "misconceptions": [
         {
-          "misconception": "One",
-          "correction": "One TP is the net exported carbon product."
+          "misconception": "All six triose-phosphate molecules formed from three fixed CO₂ can be exported as net products.",
+          "correction": "Five of the six three-carbon triose phosphates must be rearranged to regenerate three five-carbon RuBP molecules; only one is available as net product."
         }
       ],
       "claimReferences": [
@@ -4797,11 +4805,11 @@
       "id": "thylakoid-chemiosmosis",
       "kind": "diagram",
       "src": "/biology/photosynthesis/thylakoid-chemiosmosis.svg",
-      "alt": "Original scientific schematic for thylakoid chemiosmosis; the associated explanation provides process orientation and context.",
-      "captionTitle": "Thylakoid Chemiosmosis",
-      "attribution": "BioLab original diagram (2026), pending qualified science and accessibility review",
+      "alt": "In linear electron flow, light excites PSII and PSI. Electrons from lumen-side water splitting travel PSII to carriers to PSI and support NADP reduction in stroma. Chain pumps H⁺ into lumen; H⁺ returns to stroma via ATP synthase. Bottom inset isolates ATP synthase orientation, not a second membrane.",
+      "captionTitle": "Light reactions: two linked pathways",
+      "attribution": "Original BioLab scientific schematic, revised 18 October 2026; independent design, no copied artwork.",
       "license": "Original project artwork; no external publisher figure reused",
-      "permissionEvidence": "Drawn independently for this lesson, not extracted or traced from any source figure",
+      "permissionEvidence": "Original project vector geometry. Review and before/after evidence: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-c13",
         "hodder-c13",
@@ -4809,17 +4817,18 @@
         "openstax-calvin"
       ],
       "level": "HL",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "displaySize": "standard"
     },
     {
       "id": "calvin-carbon",
       "kind": "diagram",
       "src": "/biology/photosynthesis/calvin-carbon.svg",
-      "alt": "Original scientific schematic for calvin carbon; the associated explanation provides process orientation and context.",
-      "captionTitle": "Calvin Carbon",
-      "attribution": "BioLab original diagram (2026), pending qualified science and accessibility review",
+      "alt": "In chloroplast stroma, 3 CO₂ plus 3 RuBP form 6 GP, reduced using 6 ATP and 6 NADPH to 6 TP. One TP exits; 5 TP and 3 ATP regenerate 3 RuBP. Carbon totals and return arrow shown; not a direct one-step conversion to glucose.",
+      "captionTitle": "Calvin cycle: fixation to regeneration",
+      "attribution": "Original BioLab scientific schematic, revised 18 October 2026; independent design, no copied artwork.",
       "license": "Original project artwork; no external publisher figure reused",
-      "permissionEvidence": "Drawn independently for this lesson, not extracted or traced from any source figure",
+      "permissionEvidence": "Original project vector geometry. Review and before/after evidence: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-c13",
         "hodder-c13",
@@ -4827,7 +4836,8 @@
         "openstax-calvin"
       ],
       "level": "HL",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "displaySize": "standard"
     },
     {
       "id": "photosynthesis-feedback",

@@ -428,9 +428,7 @@
       "assets": [
         "d31-male-anatomy",
         "d31-female-frontal",
-        "d31-female-sagittal",
-        "d31-hodder-male",
-        "d31-hodder-female"
+        "d31-female-sagittal"
       ],
       "interactions": [
         {
@@ -526,14 +524,6 @@
         },
         {
           "assetId": "d31-female-sagittal",
-          "afterBlock": 0
-        },
-        {
-          "assetId": "d31-hodder-male",
-          "afterBlock": 0
-        },
-        {
-          "assetId": "d31-hodder-female",
           "afterBlock": 0
         }
       ],
@@ -3100,36 +3090,36 @@
     {
       "id": "d31-flower-structures",
       "kind": "diagram",
-      "src": "/biology/source-pdf-figures/d31-flower-structures.png",
-      "alt": "Original PDF illustration: Insect-pollinated flower. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 10.",
-      "captionTitle": "Insect-pollinated flower",
+      "src": "/biology/reproduction/d31-flower-structures.svg",
+      "alt": "Original insect-pollinated flower schematic showing stigma, style, ovary and ovules (female carpel); anthers and filaments (stamens); petals and sepals, with lines terminating at the corresponding anatomical structures.",
+      "captionTitle": "Annotating an insect-pollinated flower",
       "interpretation": "The carpel is the female reproductive unit (stigma, style, ovary) and the stamen is an anther supported by a filament. Ovules lie inside the ovary; pollen is produced in the anther.",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 10.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
+      "attribution": "Original BioLab vector illustration (redesigned 2026-10-18)",
+      "license": "Original project work; no textbook figure reused",
+      "permissionEvidence": "Replaced the prior SVG with independently authored geometric paths, added scientifically distinct complete labels and associated recall/mobile variants; scientific specialist approval pending.",
       "referenceIds": [
         "ib-d31",
         "hodder-d31"
       ],
       "level": "shared",
       "review": "sprint9-source-mapped",
-      "recallSrc": "/biology/source-pdf-figures/d31-flower-structures.png",
-      "mobileSrc": "/biology/source-pdf-figures/d31-flower-structures.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/d31-flower-structures.png"
+      "recallSrc": "/biology/reproduction/d31-flower-structures-recall.svg",
+      "mobileSrc": "/biology/reproduction/d31-flower-structures-mobile.svg",
+      "recallMobileSrc": "/biology/reproduction/d31-flower-structures-mobile-recall.svg"
     },
     {
       "id": "d31-male-anatomy",
-      "src": "/biology/source-pdf-figures/d31-male-anatomy.png",
-      "recallSrc": "/biology/source-pdf-figures/d31-male-anatomy.png",
-      "mobileSrc": "/biology/source-pdf-figures/d31-male-anatomy.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/d31-male-anatomy.png",
-      "captionTitle": "Male reproductive anatomy",
-      "alt": "Original PDF illustration: Male reproductive anatomy. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 8.",
+      "src": "/biology/reproduction/d31-male-anatomy.svg",
+      "recallSrc": "/biology/reproduction/d31-male-anatomy-recall.svg",
+      "mobileSrc": "/biology/reproduction/d31-male-anatomy-mobile.svg",
+      "recallMobileSrc": "/biology/reproduction/d31-male-anatomy-mobile-recall.svg",
+      "captionTitle": "Male-typical reproductive anatomy: sagittal schematic",
+      "alt": "Original labelled side-view teaching diagram showing testis inside scrotum, epididymis, sperm duct curving around the bladder toward the prostate, seminal vesicle, prostate, urethra extending through the penis, and erectile tissue.",
       "interpretation": "Follow the continuous sperm pathway: testis → epididymis → sperm duct → urethra. The bladder is shown for positional context only. The anatomy is simplified and not to scale.",
       "kind": "diagram",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 8.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
+      "attribution": "Original BioLab vector illustration, authored specifically for this project, 2026-10-18",
+      "license": "Original project artwork; rights and commercial reuse subject to project legal review",
+      "permissionEvidence": "New independent SVG paths and label placement; no pixels, tracings, crops or watermarks copied from the supplied handout.",
       "referenceIds": [
         "ib-d31",
         "hodder-d31"
@@ -3139,17 +3129,17 @@
     },
     {
       "id": "d31-female-frontal",
-      "src": "/biology/source-pdf-figures/d31-female-frontal.png",
-      "recallSrc": "/biology/source-pdf-figures/d31-female-frontal.png",
-      "mobileSrc": "/biology/source-pdf-figures/d31-female-frontal.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/d31-female-frontal.png",
-      "captionTitle": "Female frontal reproductive anatomy",
-      "alt": "Original PDF illustration: Female frontal reproductive anatomy. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 9.",
+      "src": "/biology/reproduction/d31-female-frontal.svg",
+      "recallSrc": "/biology/reproduction/d31-female-frontal-recall.svg",
+      "mobileSrc": "/biology/reproduction/d31-female-frontal-mobile.svg",
+      "recallMobileSrc": "/biology/reproduction/d31-female-frontal-mobile-recall.svg",
+      "captionTitle": "Female-typical reproductive anatomy: frontal schematic",
+      "alt": "Original labelled frontal teaching diagram with two ovaries, oviducts and their fimbriae, uterus, inner endometrium, cervix and vagina. Oviducts approach ovaries without directly attaching to them.",
       "interpretation": "The endometrium is the inner lining of the uterus; the cervix is its lower neck opening into the vagina. The oviduct receives the ovulated oocyte. Simplified and not to scale.",
       "kind": "diagram",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 9.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
+      "attribution": "Original BioLab vector illustration, authored specifically for this project, 2026-10-18",
+      "license": "Original project artwork; rights and commercial reuse subject to project legal review",
+      "permissionEvidence": "New independent SVG paths and label placement; no pixels, tracings, crops or watermarks copied from the supplied handout.",
       "referenceIds": [
         "ib-d31",
         "hodder-d31"
@@ -3159,63 +3149,23 @@
     },
     {
       "id": "d31-female-sagittal",
-      "src": "/biology/source-pdf-figures/d31-female-sagittal.png",
-      "recallSrc": "/biology/source-pdf-figures/d31-female-sagittal.png",
-      "mobileSrc": "/biology/source-pdf-figures/d31-female-sagittal.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/d31-female-sagittal.png",
-      "captionTitle": "Female sagittal reproductive anatomy",
-      "alt": "Original PDF illustration: Female sagittal reproductive anatomy. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 9.",
+      "src": "/biology/reproduction/d31-female-sagittal.svg",
+      "recallSrc": "/biology/reproduction/d31-female-sagittal-recall.svg",
+      "mobileSrc": "/biology/reproduction/d31-female-sagittal-mobile.svg",
+      "recallMobileSrc": "/biology/reproduction/d31-female-sagittal-mobile-recall.svg",
+      "captionTitle": "Female reproductive tract: internal anatomy and external vulva",
+      "alt": "Original simplified sagittal cutaway of the female reproductive tract identifying uterus, endometrium, cervix, vagina and external vulva; a pale bladder is anterior and a muted rectum posterior for orientation.",
       "interpretation": "The vagina is an internal muscular canal extending from the cervix to the external opening; the vulva refers to external genital structures. Schematic, not to scale.",
       "kind": "diagram",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 9.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
+      "attribution": "Original BioLab vector illustration, authored specifically for this project, 2026-10-18",
+      "license": "Original project artwork; rights and commercial reuse subject to project legal review",
+      "permissionEvidence": "New independent SVG paths and label placement; no pixels, tracings, crops or watermarks copied from the supplied handout.",
       "referenceIds": [
         "ib-d31",
         "hodder-d31"
       ],
       "level": "shared",
       "review": "source-mapped"
-    },
-    {
-      "id": "d31-hodder-male",
-      "kind": "diagram",
-      "referenceIds": [
-        "ib-d31",
-        "hodder-d31"
-      ],
-      "level": "shared",
-      "review": "source-mapped",
-      "src": "/biology/source-pdf-figures/hodder-d31-male.png",
-      "recallSrc": "/biology/source-pdf-figures/hodder-d31-male.png",
-      "mobileSrc": "/biology/source-pdf-figures/hodder-d31-male.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/hodder-d31-male.png",
-      "alt": "Original PDF illustration: Hodder original male anatomy page reference. C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D3.1.4, printed page 696 (PDF page 708).",
-      "captionTitle": "Hodder original male anatomy page reference",
-      "attribution": "C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D3.1.4, printed page 696 (PDF page 708).",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
-      "sourceUrl": "https://www.hachettelearning.com/biology/biology-for-the-ib-diploma-third-edition"
-    },
-    {
-      "id": "d31-hodder-female",
-      "kind": "diagram",
-      "referenceIds": [
-        "ib-d31",
-        "hodder-d31"
-      ],
-      "level": "shared",
-      "review": "source-mapped",
-      "src": "/biology/source-pdf-figures/hodder-d31-female.png",
-      "recallSrc": "/biology/source-pdf-figures/hodder-d31-female.png",
-      "mobileSrc": "/biology/source-pdf-figures/hodder-d31-female.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/hodder-d31-female.png",
-      "alt": "Original PDF illustration: Hodder original female anatomy page reference. C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D3.1.5, printed page 697 (PDF page 709).",
-      "captionTitle": "Hodder original female anatomy page reference",
-      "attribution": "C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D3.1.5, printed page 697 (PDF page 709).",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
-      "sourceUrl": "https://www.hachettelearning.com/biology/biology-for-the-ib-diploma-third-edition"
     }
   ],
   "summary": "Reproduction preserves continuity through gametes, fertilization and development, and generates change through recombination, assortment and gamete fusion. Hormonal coordination and compatibility systems determine when reproduction succeeds; sound evidence distinguishes mechanisms from unsupported causal claims.",

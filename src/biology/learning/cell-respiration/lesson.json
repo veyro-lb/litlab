@@ -2071,23 +2071,24 @@
         "C1.2.13"
       ],
       "level": "HL",
-      "guidingQuestion": "When NADH gives electrons to the mitochondrial chain, it:",
-      "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.\n\nElectron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.\n\nGlycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
-      "revisionSummary": "Electron carriers pass electrons through a sequence of redox reactions.",
+      "guidingQuestion": "How does reduced NAD transfer energy to the mitochondrial electron transport chain?",
+      "explanation": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.\n\nAt the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.\n\nAs electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
+      "revisionSummary": "Reduced NAD supplies a pair of electrons to the mitochondrial electron transport chain and regenerates NAD. Energy released as electrons pass along the chain supports proton pumping, with ATP synthesis occurring later by chemiosmosis.",
       "terms": [
-        "Electron transport chain: inner-membrane electron carriers",
-        "NADH oxidation: donation of electrons while NAD⁺ is regenerated"
+        "Reduced NAD (NADH): electron-carrying reduced form of NAD",
+        "Oxidation: loss of electrons; NADH is oxidized to NAD⁺",
+        "Electron transport chain: a series of carriers in the inner mitochondrial membrane"
       ],
-      "workedExample": "NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺.",
+      "workedExample": "After the link reaction, NADH transfers its pair of electrons to the electron transport chain and becomes NAD⁺ again. The electron transfer helps drive proton pumping, not direct ATP formation.",
       "misconceptions": [
         {
-          "misconception": "Reduced NAD is a permanent end product of aerobic respiration",
-          "correction": "NADH is oxidized when it donates electrons and its NAD⁺ form is recycled."
+          "misconception": "NADH changes directly into ATP when it reaches the mitochondrion.",
+          "correction": "NADH donates electrons and regenerates NAD⁺. Electron-transfer energy is used to pump protons, and the proton gradient subsequently drives ATP synthase."
         }
       ],
       "claimReferences": [
         {
-          "claim": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.",
+          "claim": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2096,7 +2097,7 @@
           ]
         },
         {
-          "claim": "Electron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.",
+          "claim": "At the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2105,10 +2106,12 @@
           ]
         },
         {
-          "claim": "Glycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
+          "claim": "As electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
           "referenceIds": [
             "ib-c12",
-            "hodder-c12"
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
           ]
         }
       ],
@@ -2118,7 +2121,10 @@
         "openstax-c12",
         "ncbi-c12"
       ],
-      "assets": [],
+      "assets": [
+        "mitochondrial-chemiosmosis",
+        "nadh-electron-energy-transfer"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2159,9 +2165,9 @@
         {
           "kind": "recall",
           "id": "c12-recall-13",
-          "prompt": "Without looking, explain reduced nad passes electrons to the chain.",
-          "answer": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.\n\nElectron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.\n\nGlycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
-          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "prompt": "Explain where reduced NAD is formed and how its electron donation ultimately supports ATP synthesis.",
+          "answer": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.\n\nAt the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.\n\nAs electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
+          "explanation": "Include the two-electron donation, NAD regeneration, stepwise energy release, proton pumping and later ATP synthase action.",
           "understandingIds": [
             "C1.2.13"
           ]
@@ -2180,8 +2186,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "Electron donation in mitochondria",
-          "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.",
+          "title": "Where reduced NAD comes from",
+          "explanation": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2190,8 +2196,8 @@
           ]
         },
         {
-          "title": "Reduced carriers donate electrons",
-          "explanation": "Electron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.",
+          "title": "Electron donation and NAD regeneration",
+          "explanation": "At the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2200,29 +2206,41 @@
           ]
         },
         {
-          "title": "Why electron carriers connect stages",
-          "explanation": "Glycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
+          "title": "How electron transfer supports ATP synthesis",
+          "explanation": "As electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
           "referenceIds": [
             "ib-c12",
-            "hodder-c12"
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
           ]
         }
       ],
       "support": {
-        "simple": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle.",
-        "example": "NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺.",
-        "different": "NADH is oxidized when it donates electrons and its NAD⁺ form is recycled.",
+        "simple": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.",
+        "example": "After the link reaction, NADH transfers its pair of electrons to the electron transport chain and becomes NAD⁺ again. The electron transfer helps drive proton pumping, not direct ATP formation.",
+        "different": "NADH donates electrons and regenerates NAD⁺. Electron-transfer energy is used to pump protons, and the proton gradient subsequently drives ATP synthase.",
         "concepts": [
           {
-            "title": "Electron donation in mitochondria",
+            "title": "Electron donation and NAD regeneration",
             "keywords": [
-              "Reduced",
-              "Electron"
+              "NADH",
+              "electron transport"
             ],
-            "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation."
+            "explanation": "At the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "mitochondrial-chemiosmosis",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "nadh-electron-energy-transfer",
+          "afterBlock": 1
+        }
+      ]
     },
     {
       "id": "c12-14",
@@ -2231,13 +2249,13 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which way does proton pumping by the electron transport chain operate?",
-      "explanation": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side.\n\nThere is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient. This stores potential energy for ATP synthesis. Carrier complex names are not required. Protons do not flow down the chain with electrons: electron flow powers proton pumping across the membrane, and subsequent proton return can drive ATP synthase.\n\nElectron transfer along proteins of the inner mitochondrial membrane releases energy in several stages. The chain uses part of this energy to move H⁺ ions from the matrix into the intermembrane space against their electrochemical gradient. This stores energy as both a concentration difference and a voltage difference across the inner membrane. The membrane's relative impermeability to protons is essential: if protons could freely diffuse back, the gradient would dissipate as heat without driving ATP synthesis. No names of individual respiratory complexes are required for this understanding. Be explicit about the direction of H⁺ pumping and distinguish the matrix from the intermembrane space.",
-      "revisionSummary": "There is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient.",
+      "explanation": "Reduced NAD passes electrons to carriers in the inner mitochondrial membrane. As electrons move along the transport chain, energy is released in stages. The carriers transfer electrons; electrons themselves are not pumped across the membrane with the protons.\n\nEnergy from electron transfer drives H⁺ pumping from the mitochondrial matrix into the intermembrane space, against the H⁺ electrochemical gradient. The inner membrane is relatively impermeable to H⁺, so the pumped protons do not immediately diffuse back.\n\nThe intermembrane space consequently has a higher H⁺ concentration and a more positive charge than the matrix. This proton electrochemical gradient stores potential energy that ATP synthase can use (C1.2.15). Names of individual respiratory protein complexes are not required by the IB Guide.",
+      "revisionSummary": "Electron flow through the inner-membrane chain drives H⁺ pumping from matrix to intermembrane space, building an electrochemical gradient.",
       "terms": [
         "Electrochemical gradient: combined charge and concentration difference",
         "Proton pumping: H⁺ movement from mitochondrial matrix to intermembrane space"
       ],
-      "workedExample": "Blocking proton pumping weakens the gradient even if ADP and phosphate remain present.",
+      "workedExample": "If proton pumping stops while the membrane remains intact, the stored gradient will fall as H⁺ returns through available pathways.",
       "misconceptions": [
         {
           "misconception": "The electron transport chain pumps H⁺ from the intermembrane space into the matrix",
@@ -2246,7 +2264,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side.",
+          "claim": "Reduced NAD passes electrons to carriers in the inner mitochondrial membrane. As electrons move along the transport chain, energy is released in stages. The carriers transfer electrons; electrons themselves are not pumped across the membrane with the protons.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2255,7 +2273,7 @@
           ]
         },
         {
-          "claim": "There is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient. This stores potential energy for ATP synthesis. Carrier complex names are not required. Protons do not flow down the chain with electrons: electron flow powers proton pumping across the membrane, and subsequent proton return can drive ATP synthase.",
+          "claim": "Energy from electron transfer drives H⁺ pumping from the mitochondrial matrix into the intermembrane space, against the H⁺ electrochemical gradient. The inner membrane is relatively impermeable to H⁺, so the pumped protons do not immediately diffuse back.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2264,7 +2282,7 @@
           ]
         },
         {
-          "claim": "Electron transfer along proteins of the inner mitochondrial membrane releases energy in several stages. The chain uses part of this energy to move H⁺ ions from the matrix into the intermembrane space against their electrochemical gradient. This stores energy as both a concentration difference and a voltage difference across the inner membrane. The membrane's relative impermeability to protons is essential: if protons could freely diffuse back, the gradient would dissipate as heat without driving ATP synthesis. No names of individual respiratory complexes are required for this understanding. Be explicit about the direction of H⁺ pumping and distinguish the matrix from the intermembrane space.",
+          "claim": "The intermembrane space consequently has a higher H⁺ concentration and a more positive charge than the matrix. This proton electrochemical gradient stores potential energy that ATP synthase can use (C1.2.15). Names of individual respiratory protein complexes are not required by the IB Guide.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2321,7 +2339,7 @@
           "kind": "recall",
           "id": "c12-recall-14",
           "prompt": "Without looking, explain electron transfer establishes a proton gradient.",
-          "answer": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side.\n\nThere is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient. This stores potential energy for ATP synthesis. Carrier complex names are not required. Protons do not flow down the chain with electrons: electron flow powers proton pumping across the membrane, and subsequent proton return can drive ATP synthase.\n\nElectron transfer along proteins of the inner mitochondrial membrane releases energy in several stages. The chain uses part of this energy to move H⁺ ions from the matrix into the intermembrane space against their electrochemical gradient. This stores energy as both a concentration difference and a voltage difference across the inner membrane. The membrane's relative impermeability to protons is essential: if protons could freely diffuse back, the gradient would dissipate as heat without driving ATP synthesis. No names of individual respiratory complexes are required for this understanding. Be explicit about the direction of H⁺ pumping and distinguish the matrix from the intermembrane space.",
+          "answer": "Reduced NAD passes electrons to carriers in the inner mitochondrial membrane. As electrons move along the transport chain, energy is released in stages. The carriers transfer electrons; electrons themselves are not pumped across the membrane with the protons.\n\nEnergy from electron transfer drives H⁺ pumping from the mitochondrial matrix into the intermembrane space, against the H⁺ electrochemical gradient. The inner membrane is relatively impermeable to H⁺, so the pumped protons do not immediately diffuse back.\n\nThe intermembrane space consequently has a higher H⁺ concentration and a more positive charge than the matrix. This proton electrochemical gradient stores potential energy that ATP synthase can use (C1.2.15). Names of individual respiratory protein complexes are not required by the IB Guide.",
           "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
           "understandingIds": [
             "C1.2.14"
@@ -2333,16 +2351,16 @@
       "textbook": {
         "referenceId": "hodder-c12",
         "printedPages": [
-          419
+          421
         ],
         "pdfPages": [
-          431
+          433
         ]
       },
       "teachingBlocks": [
         {
-          "title": "Pump protons outward",
-          "explanation": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side.",
+          "title": "Electron flow releases energy",
+          "explanation": "Reduced NAD passes electrons to carriers in the inner mitochondrial membrane. As electrons move along the transport chain, energy is released in stages. The carriers transfer electrons; electrons themselves are not pumped across the membrane with the protons.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2351,8 +2369,8 @@
           ]
         },
         {
-          "title": "Electron flow powers H⁺ export",
-          "explanation": "There is both a concentration difference (more H⁺ outside the matrix) and an electrical difference (relative positive charge outside), together called a proton electrochemical gradient. This stores potential energy for ATP synthesis. Carrier complex names are not required. Protons do not flow down the chain with electrons: electron flow powers proton pumping across the membrane, and subsequent proton return can drive ATP synthase.",
+          "title": "Use that energy to pump protons",
+          "explanation": "Energy from electron transfer drives H⁺ pumping from the mitochondrial matrix into the intermembrane space, against the H⁺ electrochemical gradient. The inner membrane is relatively impermeable to H⁺, so the pumped protons do not immediately diffuse back.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2361,8 +2379,8 @@
           ]
         },
         {
-          "title": "Turn electron transfer into an electrochemical gradient",
-          "explanation": "Electron transfer along proteins of the inner mitochondrial membrane releases energy in several stages. The chain uses part of this energy to move H⁺ ions from the matrix into the intermembrane space against their electrochemical gradient. This stores energy as both a concentration difference and a voltage difference across the inner membrane. The membrane's relative impermeability to protons is essential: if protons could freely diffuse back, the gradient would dissipate as heat without driving ATP synthesis. No names of individual respiratory complexes are required for this understanding. Be explicit about the direction of H⁺ pumping and distinguish the matrix from the intermembrane space.",
+          "title": "Preserve the gradient",
+          "explanation": "The intermembrane space consequently has a higher H⁺ concentration and a more positive charge than the matrix. This proton electrochemical gradient stores potential energy that ATP synthase can use (C1.2.15). Names of individual respiratory protein complexes are not required by the IB Guide.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2370,17 +2388,17 @@
         }
       ],
       "support": {
-        "simple": "The mitochondrial electron transport chain is in the inner membrane.",
-        "example": "Blocking proton pumping weakens the gradient even if ADP and phosphate remain present.",
+        "simple": "Reduced NAD passes electrons to carriers in the inner mitochondrial membrane. As electrons move along the transport chain, energy is released in stages. The carriers transfer electrons; electrons themselves are not pumped across the membrane with the protons.",
+        "example": "If proton pumping stops while the membrane remains intact, the stored gradient will fall as H⁺ returns through available pathways.",
         "different": "In mitochondria, pumping moves protons from matrix to intermembrane space.",
         "concepts": [
           {
-            "title": "Pump protons outward",
+            "title": "Electron flow releases energy",
             "keywords": [
               "Electron",
               "Pump"
             ],
-            "explanation": "The mitochondrial electron transport chain is in the inner membrane. Energy released as electrons pass between carriers drives the transfer of H⁺ from the matrix across the inner membrane into the intermembrane space. The inner membrane restricts free proton movement, allowing H⁺ to accumulate on the intermembrane-space side."
+            "explanation": "Reduced NAD passes electrons to carriers in the inner mitochondrial membrane. As electrons move along the transport chain, energy is released in stages. The carriers transfer electrons; electrons themselves are not pumped across the membrane with the protons."
           }
         ]
       },
@@ -2398,13 +2416,13 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which flow powers ATP synthase during mitochondrial respiration?",
-      "explanation": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation.\n\nATP synthase catalyses ADP + Pi → ATP on the matrix side. Chemiosmosis is the use of an ion electrochemical gradient to perform work, not simply the passive diffusion of protons through the lipid bilayer. If the membrane became permeable to H⁺ everywhere, the gradient would dissipate without adequate ATP formation. The electron transport chain creates the gradient; ATP synthase harnesses it. These processes together underpin oxidative phosphorylation.\n\nATP synthase spans the inner mitochondrial membrane and provides a controlled path for H⁺ ions to return from the intermembrane space to the matrix. Movement down the electrochemical gradient drives conformational changes in the enzyme that couple ADP and inorganic phosphate into ATP. This is chemiosmosis: electron transport first establishes the proton-motive force, and ATP synthase uses that stored energy. Energy is not released because protons are chemically destroyed, and ATP is not synthesized by the respiratory chain's electron carriers directly. If an uncoupler makes the inner membrane permeable to H⁺, electron transport may continue but much less energy is captured as ATP.",
-      "revisionSummary": "ATP synthase catalyses ADP + Pi → ATP on the matrix side.",
+      "explanation": "Electron transport has already established a proton electrochemical gradient across the inner mitochondrial membrane: H⁺ has a higher electrochemical potential in the intermembrane space than in the matrix.\n\nH⁺ flows down this gradient from the intermembrane space into the matrix through ATP synthase, an enzyme spanning the inner membrane. The proton flow drives rotation and conformational changes in the enzyme rather than freely leaking through the phospholipid bilayer.\n\nATP synthase couples this released potential energy to phosphorylation of ADP with inorganic phosphate (ADP + Pi → ATP), with ATP formed on the matrix side. Together, proton-gradient formation and its use to synthesize ATP explain oxidative phosphorylation. If an uncoupler allows H⁺ to bypass ATP synthase, the gradient weakens and much less ATP can be made.",
+      "revisionSummary": "H⁺ returns from intermembrane space to matrix through ATP synthase, which couples downhill flow to ADP + Pi → ATP.",
       "terms": [
         "Chemiosmosis: ATP synthesis coupled to the movement of H⁺ down its gradient",
         "ATP synthase: membrane enzyme forming ATP from ADP and Pi"
       ],
-      "workedExample": "In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase.",
+      "workedExample": "An uncoupler carries H⁺ across the inner membrane without ATP synthase; respiration may continue but ATP production falls.",
       "misconceptions": [
         {
           "misconception": "ATP synthase pumps protons outward during normal ATP production",
@@ -2413,7 +2431,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation.",
+          "claim": "Electron transport has already established a proton electrochemical gradient across the inner mitochondrial membrane: H⁺ has a higher electrochemical potential in the intermembrane space than in the matrix.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2422,7 +2440,7 @@
           ]
         },
         {
-          "claim": "ATP synthase catalyses ADP + Pi → ATP on the matrix side. Chemiosmosis is the use of an ion electrochemical gradient to perform work, not simply the passive diffusion of protons through the lipid bilayer. If the membrane became permeable to H⁺ everywhere, the gradient would dissipate without adequate ATP formation. The electron transport chain creates the gradient; ATP synthase harnesses it. These processes together underpin oxidative phosphorylation.",
+          "claim": "H⁺ flows down this gradient from the intermembrane space into the matrix through ATP synthase, an enzyme spanning the inner membrane. The proton flow drives rotation and conformational changes in the enzyme rather than freely leaking through the phospholipid bilayer.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2431,7 +2449,7 @@
           ]
         },
         {
-          "claim": "ATP synthase spans the inner mitochondrial membrane and provides a controlled path for H⁺ ions to return from the intermembrane space to the matrix. Movement down the electrochemical gradient drives conformational changes in the enzyme that couple ADP and inorganic phosphate into ATP. This is chemiosmosis: electron transport first establishes the proton-motive force, and ATP synthase uses that stored energy. Energy is not released because protons are chemically destroyed, and ATP is not synthesized by the respiratory chain's electron carriers directly. If an uncoupler makes the inner membrane permeable to H⁺, electron transport may continue but much less energy is captured as ATP.",
+          "claim": "ATP synthase couples this released potential energy to phosphorylation of ADP with inorganic phosphate (ADP + Pi → ATP), with ATP formed on the matrix side. Together, proton-gradient formation and its use to synthesize ATP explain oxidative phosphorylation. If an uncoupler allows H⁺ to bypass ATP synthase, the gradient weakens and much less ATP can be made.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2488,7 +2506,7 @@
           "kind": "recall",
           "id": "c12-recall-15",
           "prompt": "Without looking, explain chemiosmosis drives mitochondrial atp synthesis.",
-          "answer": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation.\n\nATP synthase catalyses ADP + Pi → ATP on the matrix side. Chemiosmosis is the use of an ion electrochemical gradient to perform work, not simply the passive diffusion of protons through the lipid bilayer. If the membrane became permeable to H⁺ everywhere, the gradient would dissipate without adequate ATP formation. The electron transport chain creates the gradient; ATP synthase harnesses it. These processes together underpin oxidative phosphorylation.\n\nATP synthase spans the inner mitochondrial membrane and provides a controlled path for H⁺ ions to return from the intermembrane space to the matrix. Movement down the electrochemical gradient drives conformational changes in the enzyme that couple ADP and inorganic phosphate into ATP. This is chemiosmosis: electron transport first establishes the proton-motive force, and ATP synthase uses that stored energy. Energy is not released because protons are chemically destroyed, and ATP is not synthesized by the respiratory chain's electron carriers directly. If an uncoupler makes the inner membrane permeable to H⁺, electron transport may continue but much less energy is captured as ATP.",
+          "answer": "Electron transport has already established a proton electrochemical gradient across the inner mitochondrial membrane: H⁺ has a higher electrochemical potential in the intermembrane space than in the matrix.\n\nH⁺ flows down this gradient from the intermembrane space into the matrix through ATP synthase, an enzyme spanning the inner membrane. The proton flow drives rotation and conformational changes in the enzyme rather than freely leaking through the phospholipid bilayer.\n\nATP synthase couples this released potential energy to phosphorylation of ADP with inorganic phosphate (ADP + Pi → ATP), with ATP formed on the matrix side. Together, proton-gradient formation and its use to synthesize ATP explain oxidative phosphorylation. If an uncoupler allows H⁺ to bypass ATP synthase, the gradient weakens and much less ATP can be made.",
           "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
           "understandingIds": [
             "C1.2.15"
@@ -2500,16 +2518,18 @@
       "textbook": {
         "referenceId": "hodder-c12",
         "printedPages": [
-          420
+          421,
+          422
         ],
         "pdfPages": [
-          432
+          433,
+          434
         ]
       },
       "teachingBlocks": [
         {
-          "title": "Protons return through ATP synthase",
-          "explanation": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation.",
+          "title": "Locate the stored energy",
+          "explanation": "Electron transport has already established a proton electrochemical gradient across the inner mitochondrial membrane: H⁺ has a higher electrochemical potential in the intermembrane space than in the matrix.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2518,8 +2538,8 @@
           ]
         },
         {
-          "title": "H⁺ re-entry makes ATP",
-          "explanation": "ATP synthase catalyses ADP + Pi → ATP on the matrix side. Chemiosmosis is the use of an ion electrochemical gradient to perform work, not simply the passive diffusion of protons through the lipid bilayer. If the membrane became permeable to H⁺ everywhere, the gradient would dissipate without adequate ATP formation. The electron transport chain creates the gradient; ATP synthase harnesses it. These processes together underpin oxidative phosphorylation.",
+          "title": "Follow proton return through ATP synthase",
+          "explanation": "H⁺ flows down this gradient from the intermembrane space into the matrix through ATP synthase, an enzyme spanning the inner membrane. The proton flow drives rotation and conformational changes in the enzyme rather than freely leaking through the phospholipid bilayer.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2528,8 +2548,8 @@
           ]
         },
         {
-          "title": "From a gradient to the ATP-synthase rotor",
-          "explanation": "ATP synthase spans the inner mitochondrial membrane and provides a controlled path for H⁺ ions to return from the intermembrane space to the matrix. Movement down the electrochemical gradient drives conformational changes in the enzyme that couple ADP and inorganic phosphate into ATP. This is chemiosmosis: electron transport first establishes the proton-motive force, and ATP synthase uses that stored energy. Energy is not released because protons are chemically destroyed, and ATP is not synthesized by the respiratory chain's electron carriers directly. If an uncoupler makes the inner membrane permeable to H⁺, electron transport may continue but much less energy is captured as ATP.",
+          "title": "Couple proton movement to ATP",
+          "explanation": "ATP synthase couples this released potential energy to phosphorylation of ADP with inorganic phosphate (ADP + Pi → ATP), with ATP formed on the matrix side. Together, proton-gradient formation and its use to synthesize ATP explain oxidative phosphorylation. If an uncoupler allows H⁺ to bypass ATP synthase, the gradient weakens and much less ATP can be made.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2537,17 +2557,17 @@
         }
       ],
       "support": {
-        "simple": "ATP synthase spans the inner mitochondrial membrane.",
-        "example": "In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase.",
+        "simple": "Electron transport has already established a proton electrochemical gradient across the inner mitochondrial membrane: H⁺ has a higher electrochemical potential in the intermembrane space than in the matrix.",
+        "example": "An uncoupler carries H⁺ across the inner membrane without ATP synthase; respiration may continue but ATP production falls.",
         "different": "ATP production generally uses downhill proton return into the matrix; proton pumping outward is driven by the chain.",
         "concepts": [
           {
-            "title": "Protons return through ATP synthase",
+            "title": "Locate the stored energy",
             "keywords": [
               "Chemiosmosis",
               "Protons"
             ],
-            "explanation": "ATP synthase spans the inner mitochondrial membrane. The intermembrane space has the higher electrochemical potential for H⁺, so protons move back into the matrix through the enzyme. Their downhill flow drives conformational and rotational changes in ATP synthase that couple to ADP phosphorylation."
+            "explanation": "Electron transport has already established a proton electrochemical gradient across the inner mitochondrial membrane: H⁺ has a higher electrochemical potential in the intermembrane space than in the matrix."
           }
         ]
       },
@@ -2565,13 +2585,13 @@
       ],
       "level": "HL",
       "guidingQuestion": "What becomes of O₂ at the end of aerobic electron transport?",
-      "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly.\n\nIf oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction. Reduced carriers accumulate, chain electron flow slows or stops, proton pumping cannot be maintained and oxidative phosphorylation rapidly declines. Glycolysis may still supply a small ATP yield if NAD⁺ is regenerated through fermentation. The water formed is metabolic water, distinct from water entering the cell from its environment.\n\nAt the end of the mitochondrial electron transport chain, molecular oxygen accepts electrons and combines with protons from the matrix to form metabolic water. This removal of electrons permits continued electron flow through the preceding carriers and, indirectly, continued proton pumping and ATP synthesis. Without oxygen as the terminal electron acceptor, the chain backs up as carriers remain reduced and oxidative phosphorylation soon declines. Oxygen therefore serves as an electron sink, not a source of the electrons carried by NADH; those electrons originated in respiratory substrates. The water produced here is chemically distinct in origin from the carbon dioxide generated by decarboxylation in earlier respiratory stages.",
-      "revisionSummary": "If oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction.",
+      "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen acts as the terminal electron acceptor. It gains electrons from the chain and combines with H⁺ from the matrix to form metabolic water: O₂ + 4e⁻ + 4H⁺ → 2H₂O.\n\nRemoving electrons at the end of the chain allows upstream carriers to pass on further electrons from reduced NAD and other reduced carriers. Their electron transfer can continue to support proton pumping, maintaining the gradient used for ATP synthesis.\n\nWithout oxygen, normal terminal electron transfer cannot continue: carriers become reduced, proton pumping declines and oxidative phosphorylation stops or greatly decreases. Cells capable of fermentation may still regenerate NAD⁺ for glycolysis, but this does not replace oxygen's role in mitochondrial electron transport. Oxygen is reduced to water; it does not directly become ATP.",
+      "revisionSummary": "O₂ accepts electrons and matrix H⁺ to make water, permitting continued electron transport, proton pumping and ATP synthesis.",
       "terms": [
         "Terminal electron acceptor: final recipient of electrons in a transport chain",
         "Reduction of O₂: formation of H₂O after accepting electrons and protons"
       ],
-      "workedExample": "Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂.",
+      "workedExample": "When oxygen is depleted, mitochondrial electron transfer slows even if carbohydrate substrate is still available.",
       "misconceptions": [
         {
           "misconception": "Oxygen is reduced into ATP",
@@ -2580,7 +2600,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly.",
+          "claim": "At the end of the mitochondrial electron transport chain, molecular oxygen acts as the terminal electron acceptor. It gains electrons from the chain and combines with H⁺ from the matrix to form metabolic water: O₂ + 4e⁻ + 4H⁺ → 2H₂O.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2589,7 +2609,7 @@
           ]
         },
         {
-          "claim": "If oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction. Reduced carriers accumulate, chain electron flow slows or stops, proton pumping cannot be maintained and oxidative phosphorylation rapidly declines. Glycolysis may still supply a small ATP yield if NAD⁺ is regenerated through fermentation. The water formed is metabolic water, distinct from water entering the cell from its environment.",
+          "claim": "Removing electrons at the end of the chain allows upstream carriers to pass on further electrons from reduced NAD and other reduced carriers. Their electron transfer can continue to support proton pumping, maintaining the gradient used for ATP synthesis.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2598,7 +2618,7 @@
           ]
         },
         {
-          "claim": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts electrons and combines with protons from the matrix to form metabolic water. This removal of electrons permits continued electron flow through the preceding carriers and, indirectly, continued proton pumping and ATP synthesis. Without oxygen as the terminal electron acceptor, the chain backs up as carriers remain reduced and oxidative phosphorylation soon declines. Oxygen therefore serves as an electron sink, not a source of the electrons carried by NADH; those electrons originated in respiratory substrates. The water produced here is chemically distinct in origin from the carbon dioxide generated by decarboxylation in earlier respiratory stages.",
+          "claim": "Without oxygen, normal terminal electron transfer cannot continue: carriers become reduced, proton pumping declines and oxidative phosphorylation stops or greatly decreases. Cells capable of fermentation may still regenerate NAD⁺ for glycolysis, but this does not replace oxygen's role in mitochondrial electron transport. Oxygen is reduced to water; it does not directly become ATP.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2655,7 +2675,7 @@
           "kind": "recall",
           "id": "c12-recall-16",
           "prompt": "Without looking, explain oxygen is the final electron acceptor.",
-          "answer": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly.\n\nIf oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction. Reduced carriers accumulate, chain electron flow slows or stops, proton pumping cannot be maintained and oxidative phosphorylation rapidly declines. Glycolysis may still supply a small ATP yield if NAD⁺ is regenerated through fermentation. The water formed is metabolic water, distinct from water entering the cell from its environment.\n\nAt the end of the mitochondrial electron transport chain, molecular oxygen accepts electrons and combines with protons from the matrix to form metabolic water. This removal of electrons permits continued electron flow through the preceding carriers and, indirectly, continued proton pumping and ATP synthesis. Without oxygen as the terminal electron acceptor, the chain backs up as carriers remain reduced and oxidative phosphorylation soon declines. Oxygen therefore serves as an electron sink, not a source of the electrons carried by NADH; those electrons originated in respiratory substrates. The water produced here is chemically distinct in origin from the carbon dioxide generated by decarboxylation in earlier respiratory stages.",
+          "answer": "At the end of the mitochondrial electron transport chain, molecular oxygen acts as the terminal electron acceptor. It gains electrons from the chain and combines with H⁺ from the matrix to form metabolic water: O₂ + 4e⁻ + 4H⁺ → 2H₂O.\n\nRemoving electrons at the end of the chain allows upstream carriers to pass on further electrons from reduced NAD and other reduced carriers. Their electron transfer can continue to support proton pumping, maintaining the gradient used for ATP synthesis.\n\nWithout oxygen, normal terminal electron transfer cannot continue: carriers become reduced, proton pumping declines and oxidative phosphorylation stops or greatly decreases. Cells capable of fermentation may still regenerate NAD⁺ for glycolysis, but this does not replace oxygen's role in mitochondrial electron transport. Oxygen is reduced to water; it does not directly become ATP.",
           "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
           "understandingIds": [
             "C1.2.16"
@@ -2667,16 +2687,16 @@
       "textbook": {
         "referenceId": "hodder-c12",
         "printedPages": [
-          421
+          423
         ],
         "pdfPages": [
-          433
+          435
         ]
       },
       "teachingBlocks": [
         {
-          "title": "Complete the electron-transfer pathway",
-          "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly.",
+          "title": "Oxygen receives the final electrons",
+          "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen acts as the terminal electron acceptor. It gains electrons from the chain and combines with H⁺ from the matrix to form metabolic water: O₂ + 4e⁻ + 4H⁺ → 2H₂O.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2685,8 +2705,8 @@
           ]
         },
         {
-          "title": "O₂ maintains electron transfer",
-          "explanation": "If oxygen is absent, electrons cannot leave the respiratory chain through the normal aerobic terminal reaction. Reduced carriers accumulate, chain electron flow slows or stops, proton pumping cannot be maintained and oxidative phosphorylation rapidly declines. Glycolysis may still supply a small ATP yield if NAD⁺ is regenerated through fermentation. The water formed is metabolic water, distinct from water entering the cell from its environment.",
+          "title": "Water formation keeps the chain running",
+          "explanation": "Removing electrons at the end of the chain allows upstream carriers to pass on further electrons from reduced NAD and other reduced carriers. Their electron transfer can continue to support proton pumping, maintaining the gradient used for ATP synthesis.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2695,8 +2715,8 @@
           ]
         },
         {
-          "title": "Why oxygen is the terminal acceptor",
-          "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts electrons and combines with protons from the matrix to form metabolic water. This removal of electrons permits continued electron flow through the preceding carriers and, indirectly, continued proton pumping and ATP synthesis. Without oxygen as the terminal electron acceptor, the chain backs up as carriers remain reduced and oxidative phosphorylation soon declines. Oxygen therefore serves as an electron sink, not a source of the electrons carried by NADH; those electrons originated in respiratory substrates. The water produced here is chemically distinct in origin from the carbon dioxide generated by decarboxylation in earlier respiratory stages.",
+          "title": "Predict what happens without oxygen",
+          "explanation": "Without oxygen, normal terminal electron transfer cannot continue: carriers become reduced, proton pumping declines and oxidative phosphorylation stops or greatly decreases. Cells capable of fermentation may still regenerate NAD⁺ for glycolysis, but this does not replace oxygen's role in mitochondrial electron transport. Oxygen is reduced to water; it does not directly become ATP.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2704,17 +2724,17 @@
         }
       ],
       "support": {
-        "simple": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons.",
-        "example": "Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂.",
+        "simple": "At the end of the mitochondrial electron transport chain, molecular oxygen acts as the terminal electron acceptor. It gains electrons from the chain and combines with H⁺ from the matrix to form metabolic water: O₂ + 4e⁻ + 4H⁺ → 2H₂O.",
+        "example": "When oxygen is depleted, mitochondrial electron transfer slows even if carbohydrate substrate is still available.",
         "different": "Oxygen is reduced to water; ATP synthesis is driven by the proton gradient.",
         "concepts": [
           {
-            "title": "Complete the electron-transfer pathway",
+            "title": "Oxygen receives the final electrons",
             "keywords": [
               "Oxygen",
               "Complete"
             ],
-            "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Along with protons obtained on the matrix side, this produces water (overall O₂ + 4e⁻ + 4H⁺ → 2H₂O). Oxygen is reduced; it is not a fuel broken down to release ATP directly."
+            "explanation": "At the end of the mitochondrial electron transport chain, molecular oxygen acts as the terminal electron acceptor. It gains electrons from the chain and combines with H⁺ from the matrix to form metabolic water: O₂ + 4e⁻ + 4H⁺ → 2H₂O."
           }
         ]
       },
@@ -2732,13 +2752,13 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which statement accurately compares fuels?",
-      "explanation": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water.\n\nCarbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production. Fatty acids are degraded principally by β-oxidation to two-carbon acetyl-CoA units that enter the Krebs cycle in mitochondria; they do not enter glycolysis. The reducing equivalents from fatty-acid breakdown ultimately depend on electron-acceptor regeneration associated with aerobic pathways. Consequently, fatty acids cannot replace glucose as the substrate for the human lactate-fermentation route.\n\nLipids contain proportionally more reduced carbon–hydrogen bonds and less oxygen than carbohydrates, so complete oxidation transfers more electrons to respiratory carriers and yields more energy per gram. Fatty acids are broken into two-carbon acetyl groups and enter mitochondrial respiration through acetyl-CoA; they do not first pass through glycolysis as fatty acids. By contrast glycolysis is the entry route for glucose and can sustain anaerobic ATP formation when NAD⁺ is regenerated by fermentation. Anaerobic respiration in the prescribed human/yeast examples therefore depends on carbohydrate-derived pathways. Compare substrates per unit mass and pathway entry rather than concluding that fats are universally 'better' fuels in every physiological condition.",
-      "revisionSummary": "Carbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production.",
+      "explanation": "Lipids contain relatively more hydrogen and less oxygen than carbohydrates. Their carbon and hydrogen are more reduced, so complete oxidation transfers more electrons and releases more energy per gram. This makes triglycerides concentrated energy stores.\n\nGlucose enters glycolysis in the cytosol, producing pyruvate and a net ATP yield. Glycolysis can continue without oxygen if NAD⁺ is regenerated by fermentation. Fatty acids instead break down to two-carbon acetyl groups carried by coenzyme A into the Krebs cycle; they do not enter glycolysis as fatty acids.\n\nFatty-acid oxidation relies on aerobic respiration to reoxidize reduced electron carriers. In the human and yeast pathways specified here, carbohydrate can support anaerobic ATP production, whereas fatty acids cannot replace glucose in fermentation. Compare both the energy yield per unit mass and the different routes into respiration; higher energy density alone does not mean a substrate works anaerobically.",
+      "revisionSummary": "Lipids yield more energy per gram; fatty-acid acetyl groups enter via acetyl-CoA, while carbohydrate can fuel glycolysis and anaerobic respiration.",
       "terms": [
         "Fatty-acid β-oxidation: breakdown yielding acetyl-CoA",
         "Respiratory substrate: compound oxidized during ATP-producing metabolism"
       ],
-      "workedExample": "During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically.",
+      "workedExample": "During oxygen shortage, a human muscle cell can maintain a small glycolytic ATP supply from glucose, but not by sending fatty acids through glycolysis.",
       "misconceptions": [
         {
           "misconception": "Fats must first all become glucose before they can be oxidized",
@@ -2747,7 +2767,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water.",
+          "claim": "Lipids contain relatively more hydrogen and less oxygen than carbohydrates. Their carbon and hydrogen are more reduced, so complete oxidation transfers more electrons and releases more energy per gram. This makes triglycerides concentrated energy stores.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2756,7 +2776,7 @@
           ]
         },
         {
-          "claim": "Carbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production. Fatty acids are degraded principally by β-oxidation to two-carbon acetyl-CoA units that enter the Krebs cycle in mitochondria; they do not enter glycolysis. The reducing equivalents from fatty-acid breakdown ultimately depend on electron-acceptor regeneration associated with aerobic pathways. Consequently, fatty acids cannot replace glucose as the substrate for the human lactate-fermentation route.",
+          "claim": "Glucose enters glycolysis in the cytosol, producing pyruvate and a net ATP yield. Glycolysis can continue without oxygen if NAD⁺ is regenerated by fermentation. Fatty acids instead break down to two-carbon acetyl groups carried by coenzyme A into the Krebs cycle; they do not enter glycolysis as fatty acids.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2765,7 +2785,7 @@
           ]
         },
         {
-          "claim": "Lipids contain proportionally more reduced carbon–hydrogen bonds and less oxygen than carbohydrates, so complete oxidation transfers more electrons to respiratory carriers and yields more energy per gram. Fatty acids are broken into two-carbon acetyl groups and enter mitochondrial respiration through acetyl-CoA; they do not first pass through glycolysis as fatty acids. By contrast glycolysis is the entry route for glucose and can sustain anaerobic ATP formation when NAD⁺ is regenerated by fermentation. Anaerobic respiration in the prescribed human/yeast examples therefore depends on carbohydrate-derived pathways. Compare substrates per unit mass and pathway entry rather than concluding that fats are universally 'better' fuels in every physiological condition.",
+          "claim": "Fatty-acid oxidation relies on aerobic respiration to reoxidize reduced electron carriers. In the human and yeast pathways specified here, carbohydrate can support anaerobic ATP production, whereas fatty acids cannot replace glucose in fermentation. Compare both the energy yield per unit mass and the different routes into respiration; higher energy density alone does not mean a substrate works anaerobically.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2822,7 +2842,7 @@
           "kind": "recall",
           "id": "c12-recall-17",
           "prompt": "Without looking, explain lipids versus carbohydrates as substrates.",
-          "answer": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water.\n\nCarbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production. Fatty acids are degraded principally by β-oxidation to two-carbon acetyl-CoA units that enter the Krebs cycle in mitochondria; they do not enter glycolysis. The reducing equivalents from fatty-acid breakdown ultimately depend on electron-acceptor regeneration associated with aerobic pathways. Consequently, fatty acids cannot replace glucose as the substrate for the human lactate-fermentation route.\n\nLipids contain proportionally more reduced carbon–hydrogen bonds and less oxygen than carbohydrates, so complete oxidation transfers more electrons to respiratory carriers and yields more energy per gram. Fatty acids are broken into two-carbon acetyl groups and enter mitochondrial respiration through acetyl-CoA; they do not first pass through glycolysis as fatty acids. By contrast glycolysis is the entry route for glucose and can sustain anaerobic ATP formation when NAD⁺ is regenerated by fermentation. Anaerobic respiration in the prescribed human/yeast examples therefore depends on carbohydrate-derived pathways. Compare substrates per unit mass and pathway entry rather than concluding that fats are universally 'better' fuels in every physiological condition.",
+          "answer": "Lipids contain relatively more hydrogen and less oxygen than carbohydrates. Their carbon and hydrogen are more reduced, so complete oxidation transfers more electrons and releases more energy per gram. This makes triglycerides concentrated energy stores.\n\nGlucose enters glycolysis in the cytosol, producing pyruvate and a net ATP yield. Glycolysis can continue without oxygen if NAD⁺ is regenerated by fermentation. Fatty acids instead break down to two-carbon acetyl groups carried by coenzyme A into the Krebs cycle; they do not enter glycolysis as fatty acids.\n\nFatty-acid oxidation relies on aerobic respiration to reoxidize reduced electron carriers. In the human and yeast pathways specified here, carbohydrate can support anaerobic ATP production, whereas fatty acids cannot replace glucose in fermentation. Compare both the energy yield per unit mass and the different routes into respiration; higher energy density alone does not mean a substrate works anaerobically.",
           "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
           "understandingIds": [
             "C1.2.17"
@@ -2834,16 +2854,16 @@
       "textbook": {
         "referenceId": "hodder-c12",
         "printedPages": [
-          422
+          424
         ],
         "pdfPages": [
-          434
+          436
         ]
       },
       "teachingBlocks": [
         {
-          "title": "More reduced carbon gives greater energy yield",
-          "explanation": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water.",
+          "title": "Compare energy per gram",
+          "explanation": "Lipids contain relatively more hydrogen and less oxygen than carbohydrates. Their carbon and hydrogen are more reduced, so complete oxidation transfers more electrons and releases more energy per gram. This makes triglycerides concentrated energy stores.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2852,8 +2872,8 @@
           ]
         },
         {
-          "title": "Fatty acids supply acetyl groups, not glycolysis",
-          "explanation": "Carbohydrate-derived glucose can enter glycolysis in the cytosol, supporting both oxygen-dependent respiration and anaerobic lactate production. Fatty acids are degraded principally by β-oxidation to two-carbon acetyl-CoA units that enter the Krebs cycle in mitochondria; they do not enter glycolysis. The reducing equivalents from fatty-acid breakdown ultimately depend on electron-acceptor regeneration associated with aerobic pathways. Consequently, fatty acids cannot replace glucose as the substrate for the human lactate-fermentation route.",
+          "title": "Trace the two entry routes",
+          "explanation": "Glucose enters glycolysis in the cytosol, producing pyruvate and a net ATP yield. Glycolysis can continue without oxygen if NAD⁺ is regenerated by fermentation. Fatty acids instead break down to two-carbon acetyl groups carried by coenzyme A into the Krebs cycle; they do not enter glycolysis as fatty acids.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2862,8 +2882,8 @@
           ]
         },
         {
-          "title": "Why fatty acids have a higher energy density",
-          "explanation": "Lipids contain proportionally more reduced carbon–hydrogen bonds and less oxygen than carbohydrates, so complete oxidation transfers more electrons to respiratory carriers and yields more energy per gram. Fatty acids are broken into two-carbon acetyl groups and enter mitochondrial respiration through acetyl-CoA; they do not first pass through glycolysis as fatty acids. By contrast glycolysis is the entry route for glucose and can sustain anaerobic ATP formation when NAD⁺ is regenerated by fermentation. Anaerobic respiration in the prescribed human/yeast examples therefore depends on carbohydrate-derived pathways. Compare substrates per unit mass and pathway entry rather than concluding that fats are universally 'better' fuels in every physiological condition.",
+          "title": "Connect fuel choice to oxygen availability",
+          "explanation": "Fatty-acid oxidation relies on aerobic respiration to reoxidize reduced electron carriers. In the human and yeast pathways specified here, carbohydrate can support anaerobic ATP production, whereas fatty acids cannot replace glucose in fermentation. Compare both the energy yield per unit mass and the different routes into respiration; higher energy density alone does not mean a substrate works anaerobically.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12"
@@ -2871,17 +2891,17 @@
         }
       ],
       "support": {
-        "simple": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized.",
-        "example": "During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically.",
+        "simple": "Lipids contain relatively more hydrogen and less oxygen than carbohydrates. Their carbon and hydrogen are more reduced, so complete oxidation transfers more electrons and releases more energy per gram. This makes triglycerides concentrated energy stores.",
+        "example": "During oxygen shortage, a human muscle cell can maintain a small glycolytic ATP supply from glucose, but not by sending fatty acids through glycolysis.",
         "different": "Fatty acids can supply acetyl-CoA directly through β-oxidation; they need not become glucose first.",
         "concepts": [
           {
-            "title": "More reduced carbon gives greater energy yield",
+            "title": "Compare energy per gram",
             "keywords": [
               "Lipids",
               "More"
             ],
-            "explanation": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. Fatty acid chains contain relatively many C–H bonds and comparatively little oxygen, so they can surrender more electrons during oxidation. Their high energy density makes them effective long-term reserves, and oxidation also yields metabolic water."
+            "explanation": "Lipids contain relatively more hydrogen and less oxygen than carbohydrates. Their carbon and hydrogen are more reduced, so complete oxidation transfers more electrons and releases more energy per gram. This makes triglycerides concentrated energy stores."
           }
         ]
       },
@@ -4014,7 +4034,7 @@
         "C1.2.16"
       ],
       "level": "HL",
-      "prompt": "Explain the mechanism behind oxygen is the final electron acceptor and use one biological example to show its significance. [2]",
+      "prompt": "Explain why oxygen must accept electrons for oxidative phosphorylation to continue. [2]",
       "marks": 2,
       "sectionId": "c12-16",
       "referenceIds": [
@@ -4023,10 +4043,10 @@
         "openstax-c12",
         "ncbi-c12"
       ],
-      "answer": "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons. Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂.",
+      "answer": "Oxygen accepts electrons at the end of the electron transport chain and combines with protons from the matrix to form water. This prevents electron carriers backing up and allows continued electron transfer and proton pumping.",
       "markingPoints": [
-        "At the end of the mitochondrial electron transport chain, molecular oxygen accepts low-energy electrons.",
-        "Water produced by the mitochondrial electron transport chain contains oxygen derived from O₂."
+        "Oxygen accepts terminal electrons and matrix protons, forming water.",
+        "Removal of electrons maintains chain flow and proton pumping needed for ATP synthesis."
       ],
       "review": "scientific-review"
     },
@@ -4085,7 +4105,7 @@
         "C1.2.17"
       ],
       "level": "HL",
-      "prompt": "Explain the mechanism behind lipids versus carbohydrates as substrates and use one biological example to show its significance. [2]",
+      "prompt": "Explain one reason why lipids yield more energy per gram than carbohydrates and state one difference in their respiratory pathways. [2]",
       "marks": 2,
       "sectionId": "c12-17",
       "referenceIds": [
@@ -4094,10 +4114,10 @@
         "openstax-c12",
         "ncbi-c12"
       ],
-      "answer": "Triglycerides yield more energy per gram than carbohydrates when completely oxidized. During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically.",
+      "answer": "Lipids have more reduced carbon–hydrogen bonds and proportionally less oxygen, allowing greater energy release per gram on oxidation. Fatty acids enter respiration as acetyl-CoA, whereas glucose enters glycolysis, which can supply ATP anaerobically.",
       "markingPoints": [
-        "Triglycerides yield more energy per gram than carbohydrates when completely oxidized.",
-        "During prolonged endurance activity, muscle may oxidize fatty acids aerobically but still relies on carbohydrate when producing lactate anaerobically."
+        "Lipids contain more reduced carbon–hydrogen bonds/proportionally less oxygen, giving greater energy release per gram.",
+        "Fatty acids enter via acetyl-CoA; carbohydrate glucose enters glycolysis and can supply ATP anaerobically."
       ],
       "review": "scientific-review"
     },
@@ -4260,11 +4280,11 @@
       "id": "krebs-cycle",
       "kind": "diagram",
       "src": "/biology/cell-respiration/krebs-cycle.svg",
-      "alt": "Acetyl group two carbons joins oxaloacetate four carbons forming citrate six carbons; decarboxylations release carbon dioxide and oxaloacetate reforms.",
-      "captionTitle": "Krebs Cycle",
-      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "alt": "Acetyl 2C joins oxaloacetate 4C to form citrate 6C. Two decarboxylations release CO₂; oxaloacetate is regenerated. Per turn: 3 NADH, 1 FADH₂ and 1 ATP equivalent from four oxidations. Intermediate steps grouped.",
+      "captionTitle": "Krebs cycle: carbon returns to 4C",
+      "attribution": "Original BioLab scientific schematic, revised 18 October 2026; independent design, no copied artwork.",
       "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
-      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "permissionEvidence": "Original project vector geometry. Review and before/after evidence: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-c12",
         "hodder-c12",
@@ -4272,17 +4292,18 @@
         "ncbi-c12"
       ],
       "level": "HL",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "displaySize": "standard"
     },
     {
       "id": "mitochondrial-chemiosmosis",
       "kind": "diagram",
       "src": "/biology/cell-respiration/mitochondrial-chemiosmosis.svg",
-      "alt": "Inner mitochondrial membrane separates proton-rich intermembrane space from matrix; protons pumped outward by electron transport chain and return inward through ATP synthase.",
-      "captionTitle": "Mitochondrial Chemiosmosis",
-      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "alt": "Electron transport pumps H⁺ from matrix into intermembrane space; H⁺ returns through ATP synthase to matrix. NADH donates electrons to chain carriers and oxygen is the final acceptor forming water. Proton movement and electron flow shown separately; no fixed ATP yield per NADH.",
+      "captionTitle": "Chemiosmosis in mitochondria",
+      "attribution": "Original BioLab scientific schematic, revised 18 October 2026; independent design, no copied artwork.",
       "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
-      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "permissionEvidence": "Original project vector geometry. Review and before/after evidence: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-c12",
         "hodder-c12",
@@ -4290,7 +4311,8 @@
         "ncbi-c12"
       ],
       "level": "HL",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "displaySize": "standard"
     },
     {
       "id": "fuel-entry",
@@ -4325,6 +4347,24 @@
       ],
       "level": "HL",
       "review": "internal-editorial-review; external expert review not performed"
+    },
+    {
+      "id": "nadh-electron-energy-transfer",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/nadh-electron-energy-transfer.svg",
+      "alt": "Diagram showing reduced NAD from glycolysis, link reaction and Krebs cycle donating two electrons to the inner-membrane electron transport chain and regenerating NAD, with stepwise electron transfer powering proton pumping from matrix to intermembrane space; proton return through ATP synthase happens later.",
+      "captionTitle": "Electron donation by reduced NAD and proton pumping",
+      "attribution": "Original BioLab vector diagram created for the full-course depth audit (2026)",
+      "license": "Original BioLab project artwork",
+      "permissionEvidence": "Independently authored schematic; no third-party diagram imported, traced or reproduced",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "HL",
+      "review": "scientific-review-pending"
     }
   ],
   "summary": "ATP is regenerated by coupling exergonic respiratory reactions to phosphorylation. Glycolysis begins in cytosol; HL pathways explain redox, electron transfer, chemiosmosis and the distinct roles of oxygen and fuel type.",

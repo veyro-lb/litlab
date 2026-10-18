@@ -1,0 +1,32 @@
+name: BioLab Full Course Depth Audit (Isolated)
+on:
+  push:
+    branches:
+      - feature/biolab-full-course-content-depth-audit-20261018
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-syllabus-matrix-and-build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Verify all 553 mappings and new figure registrations
+        run: node scripts/biology/validate-full-course-depth-audit.mjs
+      - name: Validate existing Biology lesson schema
+        run: node scripts/validate-lessons.mjs
+      - name: Site quality checks
+        run: npm run quality
+      - name: Production build test only, no deployment
+        run: npm run build

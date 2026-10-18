@@ -1340,12 +1340,17 @@
         "commons-dicot-leaf-houseman-2014"
       ],
       "assets": [
-        "b31-leaf"
+        "b31-leaf",
+        "dicot-leaf-light"
       ],
       "figurePlacements": [
         {
           "assetId": "b31-leaf",
           "afterBlock": 1
+        },
+        {
+          "assetId": "dicot-leaf-light",
+          "afterBlock": 0
         }
       ],
       "interactions": [
@@ -3110,21 +3115,18 @@
     {
       "id": "b31-leaf",
       "kind": "original-schematic",
-      "src": "/biology/source-pdf-figures/b31-leaf-plan.png",
-      "alt": "Original PDF illustration: Plan diagram of leaf tissues. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 7.",
-      "captionTitle": "Plan diagram of leaf tissues",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 7.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
+      "src": "/biology/gas-exchange/dicot-leaf.svg",
+      "alt": "Cross section of a typical dicot leaf with upper cuticle and epidermis, palisade and spongy tissues, lower stoma; xylem above phloem.",
+      "captionTitle": "dicot leaf",
+      "attribution": "Original BioLab vector work, authored 2026-10-17; not copied from published diagrams",
+      "license": "Newly authored; editorial rights and independent scientific review pending",
+      "permissionEvidence": "Vector elements drawn anew; no source-image pixels, logos or textbook illustrations included",
       "referenceIds": [
         "ib-b31-guide",
         "hodder-b31"
       ],
       "level": "shared",
-      "review": "scientific-review",
-      "recallSrc": "/biology/source-pdf-figures/b31-leaf-plan.png",
-      "mobileSrc": "/biology/source-pdf-figures/b31-leaf-plan.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/b31-leaf-plan.png"
+      "review": "scientific-review"
     },
     {
       "id": "b31-hb",
@@ -3141,6 +3143,26 @@
       ],
       "level": "HL",
       "review": "scientific-review"
+    },
+    {
+      "id": "dicot-leaf-light",
+      "kind": "photograph",
+      "src": "/biology/authentic/dicot-leaf-light.webp",
+      "alt": "Light micrograph of a dicot leaf transverse section: epidermal boundaries, packed upper mesophyll and looser tissue with air spaces around a vein. The source scale is 0.2 mm; preserve it when comparing lengths. Source colour, brightness, contrast and background were adjusted. Species is not identified.",
+      "captionTitle": "A real leaf transverse section",
+      "attribution": "Jon Houseman; source credits Jon Houseman and Matthew Ford (2014). A real leaf transverse section. CC BY-SA 4.0. Display resized and re-encoded without cropping; original preserved.",
+      "license": "CC BY-SA 4.0",
+      "permissionEvidence": "Individual file licence checked 2026-10-18 at https://commons.wikimedia.org/wiki/File:Dicot_leaf.jpg#Licensing. Record with author, source terms and derivative details in docs/biology/scientific-visual-assets-repair/EXTERNAL_RIGHTS_LEDGER.json.",
+      "referenceIds": [
+        "ib-b31-guide",
+        "hodder-b31"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dicot_leaf.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Dicot_leaf.jpg",
+      "termsUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "interpretation": "Light micrograph: preserve the original 0.2 mm scale when comparing tissue dimensions."
     }
   ],
   "summary": "Large organisms need specialized gas-exchange surfaces and renewed gradients. Alveoli, ventilation and circulation support animals; guard cells, mesophyll air spaces and leaf vascular supply support plants. HL haemoglobin affinity explains oxygen loading and release.",

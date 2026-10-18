@@ -828,7 +828,8 @@
         "ncbi-protein"
       ],
       "assets": [
-        "b22-figure-4"
+        "b22-figure-4",
+        "mitochondrion-tem"
       ],
       "interactions": [
         {
@@ -988,7 +989,17 @@
             "explanation": "Proton-motive force means proton electrochemical gradient across a membrane. Cristae: inner-membrane area; small intermembrane space: gradient compartment; matrix: Krebs enzymes/substrates; double membrane: distinct spaces."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-4",
+          "afterBlock": 1
+        },
+        {
+          "assetId": "mitochondrion-tem",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "organelle-5",
@@ -1518,7 +1529,8 @@
         "ncbi-protein"
       ],
       "assets": [
-        "b22-figure-7"
+        "b22-figure-7",
+        "pancreas-secretory-cell-tem"
       ],
       "interactions": [
         {
@@ -1735,7 +1747,17 @@
             "explanation": "Co-translational translocation means entry into ER during synthesis. Free: cytosolic enzymes; bound: proteins entering secretory or endomembrane pathway."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-7",
+          "afterBlock": 1
+        },
+        {
+          "assetId": "pancreas-secretory-cell-tem",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "organelle-8",
@@ -3243,6 +3265,46 @@
       ],
       "level": "HL",
       "review": "source-mapped"
+    },
+    {
+      "id": "mitochondrion-tem",
+      "kind": "photograph",
+      "src": "/biology/authentic/mitochondrion-tem.webp",
+      "alt": "TEM of mammalian lung tissue. Cristae are visible within a mitochondrial section. This static image shows structure, not proton movement or ATP production. Preserve the original 50 nm scale bar; use the source calibration before measuring.",
+      "captionTitle": "Mitochondrion in mammalian lung tissue",
+      "attribution": "Louisa Howard / Dartmouth Electron Microscope Facility. Mitochondrion in mammalian lung tissue. Public domain — author release. Display resized and re-encoded without cropping; original preserved.",
+      "license": "Public domain — author release",
+      "permissionEvidence": "Individual file licence checked 2026-10-18 at https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg#Licensing. Record with author, source terms and derivative details in docs/biology/scientific-visual-assets-repair/EXTERNAL_RIGHTS_LEDGER.json.",
+      "referenceIds": [
+        "ib-guide-b22",
+        "hodder-b22"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Mitochondria_-_TEM.jpg",
+      "termsUrl": "https://commons.wikimedia.org/wiki/File:Mitochondria_-_TEM.jpg",
+      "interpretation": "TEM: internal membrane folds are visible. A still image does not show proton flow."
+    },
+    {
+      "id": "pancreas-secretory-cell-tem",
+      "kind": "photograph",
+      "src": "/biology/authentic/pancreas-secretory-cell-tem.webp",
+      "alt": "TEM of mammalian pancreatic acinar tissue showing nucleus, rough endoplasmic reticulum and secretory granules. The source identifies these structures; secretion is inferred from cell biology, not directly observed moving in this still image. No new scale is asserted.",
+      "captionTitle": "Secretory tissue under TEM",
+      "attribution": "Louisa Howard / Dartmouth Electron Microscope Facility. Secretory tissue under TEM. Public domain — author release. Display resized and re-encoded without cropping; original preserved.",
+      "license": "Public domain — author release",
+      "permissionEvidence": "Individual file licence checked 2026-10-18 at https://commons.wikimedia.org/wiki/File:Pancreatic_acinar_cells_-_TEM.jpg#Licensing. Record with author, source terms and derivative details in docs/biology/scientific-visual-assets-repair/EXTERNAL_RIGHTS_LEDGER.json.",
+      "referenceIds": [
+        "ib-guide-b22",
+        "hodder-b22"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pancreatic_acinar_cells_-_TEM.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Pancreatic_acinar_cells_-_TEM.jpg",
+      "termsUrl": "https://commons.wikimedia.org/wiki/File:Pancreatic_acinar_cells_-_TEM.jpg",
+      "interpretation": "TEM of pancreatic secretory tissue: compare membrane systems and dense granules."
     }
   ],
   "summary": "Compartmentalization enables chemical specialization and coordinated flow. The nucleus separates transcription from translation; acidic digestive compartments isolate breakdown; mitochondria and chloroplasts couple membrane gradients to ATP synthesis; rough ER, Golgi and vesicles collaborate to target and secrete proteins.",
