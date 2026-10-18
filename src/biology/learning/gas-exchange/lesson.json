@@ -509,6 +509,29 @@
             ]
           ],
           "note": "Qualitative anatomical comparison; no constructed measurements."
+        },
+        {
+          "kind": "comparison",
+          "title": "Two continuing flows maintain exchange gradients",
+          "afterBlock": 3,
+          "headers": [
+            "Flow",
+            "Renewed material",
+            "Diffusion consequence"
+          ],
+          "rows": [
+            [
+              "Ventilation",
+              "Air at alveoli or water at gills",
+              "Restores external gas differences"
+            ],
+            [
+              "Perfusion",
+              "Capillary blood",
+              "Carries exchanged gases away from the surface"
+            ]
+          ],
+          "note": "Conceptual comparison, not quantitative physiological measurements."
         }
       ]
     },
@@ -1235,6 +1258,28 @@
             "hodder-b31"
           ]
         }
+      ],
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Carbon dioxide route through the leaf",
+          "afterBlock": 3,
+          "steps": [
+            {
+              "title": "Stomatal pore",
+              "description": "Carbon dioxide enters an open stomatal pore."
+            },
+            {
+              "title": "Air spaces",
+              "description": "The gas diffuses through spaces between spongy mesophyll cells."
+            },
+            {
+              "title": "Photosynthetic cell",
+              "description": "Carbon dioxide diffuses into the moist cell surface and reaches chloroplasts."
+            }
+          ],
+          "note": "Water vapour can diffuse outward through the same pore."
+        }
       ]
     },
     {
@@ -1771,7 +1816,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Adult and foetal haemoglobin bind oxygen differently?",
-      "explanation": "Haemoglobin has four haem groups containing Fe²⁺, each able to bind one oxygen reversibly. Binding promotes a conformational change that generally makes the next oxygen easier to bind: cooperative binding. This helps account for the sigmoid oxygen saturation curve.\n\nFoetal HbF contains gamma rather than adult beta globin subunits and interacts less strongly with 2,3-BPG, giving higher oxygen affinity in the relevant range. This assists oxygen transfer across the placenta. Carbon dioxide also binds globin amino groups and influences haemoglobin allosterically; it does not compete directly for the haem Fe²⁺ oxygen site. Greater foetal haemoglobin affinity supports transfer at placental oxygen partial pressures; it does not mean foetal haemoglobin has more than four oxygen-binding haem groups.\n\nAt the same intermediate oxygen partial pressure, foetal blood haemoglobin may be more saturated. Both adult and foetal tetramers have four haem sites but different physiological affinities.",
+      "explanation": "Haemoglobin has four haem groups containing Fe²⁺, each able to bind one oxygen reversibly. Binding promotes a conformational change that generally makes the next oxygen easier to bind: cooperative binding. This helps account for the sigmoid oxygen saturation curve.\n\nFoetal HbF contains gamma rather than adult beta globin subunits and interacts less strongly with 2,3-BPG, giving higher oxygen affinity in the relevant range. This assists oxygen transfer across the placenta. Carbon dioxide also binds globin amino groups and influences haemoglobin allosterically; it does not compete directly for the haem Fe²⁺ oxygen site. Greater foetal haemoglobin affinity supports transfer at placental oxygen partial pressures; it does not mean foetal haemoglobin has more than four oxygen-binding haem groups.\n\nAt the same intermediate oxygen partial pressure, foetal blood haemoglobin may be more saturated. Both adult and foetal tetramers have four haem sites but different physiological affinities.\n\nEach haemoglobin molecule contains four haem groups able to bind oxygen reversibly. Binding one oxygen molecule increases affinity at remaining sites through conformational change, explaining cooperative binding. Foetal haemoglobin differs in globin-chain composition from adult haemoglobin and has greater oxygen affinity under comparable conditions. This facilitates oxygen transfer from maternal to foetal blood across the placenta without their blood supplies mixing. Both forms can bind up to four oxygen molecules per tetramer, so maximum molecular capacity should not be confused with affinity. Carbon dioxide can bind at allosteric sites on haemoglobin and influence oxygen binding in tissues.",
       "revisionSummary": "Both adult and foetal tetramers have four haem sites but different physiological affinities.",
       "terms": [
         "Haem groups and cooperative binding",
@@ -1802,6 +1847,13 @@
         },
         {
           "claim": "At the same intermediate oxygen partial pressure, foetal blood haemoglobin may be more saturated. Both adult and foetal tetramers have four haem sites but different physiological affinities.",
+          "referenceIds": [
+            "ib-b31-guide",
+            "hodder-b31"
+          ]
+        },
+        {
+          "claim": "Each haemoglobin molecule contains four haem groups able to bind oxygen reversibly. Binding one oxygen molecule increases affinity at remaining sites through conformational change, explaining cooperative binding. Foetal haemoglobin differs in globin-chain composition from adult haemoglobin and has greater oxygen affinity under comparable conditions. This facilitates oxygen transfer from maternal to foetal blood across the placenta without their blood supplies mixing. Both forms can bind up to four oxygen molecules per tetramer, so maximum molecular capacity should not be confused with affinity. Carbon dioxide can bind at allosteric sites on haemoglobin and influence oxygen binding in tissues.",
           "referenceIds": [
             "ib-b31-guide",
             "hodder-b31"
@@ -1908,6 +1960,14 @@
             "ib-b31-guide",
             "hodder-b31"
           ]
+        },
+        {
+          "title": "Why foetal haemoglobin can receive maternal oxygen",
+          "explanation": "Each haemoglobin molecule contains four haem groups able to bind oxygen reversibly. Binding one oxygen molecule increases affinity at remaining sites through conformational change, explaining cooperative binding. Foetal haemoglobin differs in globin-chain composition from adult haemoglobin and has greater oxygen affinity under comparable conditions. This facilitates oxygen transfer from maternal to foetal blood across the placenta without their blood supplies mixing. Both forms can bind up to four oxygen molecules per tetramer, so maximum molecular capacity should not be confused with affinity. Carbon dioxide can bind at allosteric sites on haemoglobin and influence oxygen binding in tissues.",
+          "referenceIds": [
+            "ib-b31-guide",
+            "hodder-b31"
+          ]
         }
       ],
       "visuals": [
@@ -1943,6 +2003,34 @@
             ]
           ],
           "note": "Qualitative comparison; binding-site count is four for both haemoglobin types."
+        },
+        {
+          "kind": "comparison",
+          "title": "Foetal and adult haemoglobin",
+          "afterBlock": 3,
+          "headers": [
+            "Property",
+            "Adult maternal haemoglobin",
+            "Foetal haemoglobin"
+          ],
+          "rows": [
+            [
+              "Globin-chain composition",
+              "Adult type",
+              "Foetal type"
+            ],
+            [
+              "Oxygen affinity",
+              "Lower relative affinity",
+              "Higher relative affinity"
+            ],
+            [
+              "Haem binding sites per tetramer",
+              "Four",
+              "Four"
+            ]
+          ],
+          "note": "Oxygen transfer across the placenta does not require direct mixing of maternal and foetal blood."
         }
       ]
     },
@@ -1953,7 +2041,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "The Bohr shift releases oxygen in active tissues?",
-      "explanation": "Active muscle makes extra CO₂ during aerobic respiration. In blood, carbon dioxide chemistry can increase hydrogen-ion concentration and lower pH. Increased CO₂ and H⁺ favour the lower-affinity state of haemoglobin, so a given oxygen partial pressure yields lower oxygen saturation.\n\nThe oxygen dissociation curve shifts to the right and its P₅₀ rises. More oxygen can be unloaded exactly where the tissue demands it. In pulmonary capillaries, removal of CO₂ and high oxygen partial pressure favour reloading. Neither the Bohr effect nor a curve shift changes the maximum number of haem sites per molecule. At the same partial pressure of oxygen, a right-shifted curve has a lower percentage saturation, allowing more oxygen to be released into active tissue.\n\nMuscle CO₂ rises during vigorous exercise, promoting local oxygen unloading. High CO₂ decreases oxygen affinity and favours oxygen release.",
+      "explanation": "Active muscle makes extra CO₂ during aerobic respiration. In blood, carbon dioxide chemistry can increase hydrogen-ion concentration and lower pH. Increased CO₂ and H⁺ favour the lower-affinity state of haemoglobin, so a given oxygen partial pressure yields lower oxygen saturation.\n\nThe oxygen dissociation curve shifts to the right and its P₅₀ rises. More oxygen can be unloaded exactly where the tissue demands it. In pulmonary capillaries, removal of CO₂ and high oxygen partial pressure favour reloading. Neither the Bohr effect nor a curve shift changes the maximum number of haem sites per molecule. At the same partial pressure of oxygen, a right-shifted curve has a lower percentage saturation, allowing more oxygen to be released into active tissue.\n\nMuscle CO₂ rises during vigorous exercise, promoting local oxygen unloading. High CO₂ decreases oxygen affinity and favours oxygen release.\n\nActively respiring cells release more carbon dioxide, changing acid-base conditions around haemoglobin and favoring states with lower oxygen affinity. On a saturation-versus-oxygen-partial-pressure graph the curve shifts right: at the same partial pressure, a smaller proportion of binding sites is occupied, so more oxygen can be delivered to demanding cells. Carbon dioxide removal and high oxygen partial pressure favor loading in the lungs. Compare curves at equal oxygen partial pressure when identifying an affinity shift; following one curve from lungs to tissues is a different comparison. A right shift reflects reduced affinity, not an increase in the number of haem groups.",
       "revisionSummary": "High CO₂ decreases oxygen affinity and favours oxygen release.",
       "terms": [
         "Tissue carbon dioxide and pH",
@@ -1984,6 +2072,13 @@
         },
         {
           "claim": "Muscle CO₂ rises during vigorous exercise, promoting local oxygen unloading. High CO₂ decreases oxygen affinity and favours oxygen release.",
+          "referenceIds": [
+            "ib-b31-guide",
+            "hodder-b31"
+          ]
+        },
+        {
+          "claim": "Actively respiring cells release more carbon dioxide, changing acid-base conditions around haemoglobin and favoring states with lower oxygen affinity. On a saturation-versus-oxygen-partial-pressure graph the curve shifts right: at the same partial pressure, a smaller proportion of binding sites is occupied, so more oxygen can be delivered to demanding cells. Carbon dioxide removal and high oxygen partial pressure favor loading in the lungs. Compare curves at equal oxygen partial pressure when identifying an affinity shift; following one curve from lungs to tissues is a different comparison. A right shift reflects reduced affinity, not an increase in the number of haem groups.",
           "referenceIds": [
             "ib-b31-guide",
             "hodder-b31"
@@ -2088,6 +2183,14 @@
             "ib-b31-guide",
             "hodder-b31"
           ]
+        },
+        {
+          "title": "Link the Bohr shift to tissue carbon dioxide",
+          "explanation": "Actively respiring cells release more carbon dioxide, changing acid-base conditions around haemoglobin and favoring states with lower oxygen affinity. On a saturation-versus-oxygen-partial-pressure graph the curve shifts right: at the same partial pressure, a smaller proportion of binding sites is occupied, so more oxygen can be delivered to demanding cells. Carbon dioxide removal and high oxygen partial pressure favor loading in the lungs. Compare curves at equal oxygen partial pressure when identifying an affinity shift; following one curve from lungs to tissues is a different comparison. A right shift reflects reduced affinity, not an increase in the number of haem groups.",
+          "referenceIds": [
+            "ib-b31-guide",
+            "hodder-b31"
+          ]
         }
       ]
     },
@@ -2098,7 +2201,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Interpret haemoglobin oxygen dissociation curves?",
-      "explanation": "At low oxygen partial pressure, relatively few haemoglobin binding sites are occupied. Oxygen binding at one haem group alters the molecule's conformation and increases affinity at other sites, producing the steep middle of a cooperative sigmoid curve. At higher oxygen partial pressures, the sites approach full occupation and the curve plateaus. On a diagram identify oxygen partial pressure on the horizontal axis and percentage oxygen saturation on the vertical axis.\n\nThe S-shaped form results from cooperative binding: attachment of one O₂ facilitates subsequent attachment until most sites are occupied. A left shift indicates greater affinity at a shared pO₂, for example HbF; a right shift indicates lower affinity, for example at elevated CO₂. Mathematical schematic curves are not actual clinical measurements. Compare saturation values vertically at the same oxygen partial pressure; changing both axes at once does not demonstrate a Bohr shift.\n\nCompare adult and foetal model saturations at the same pO₂ rather than at different pressures. A left shift reports higher affinity, not greater maximum binding-site number.",
+      "explanation": "At low oxygen partial pressure, relatively few haemoglobin binding sites are occupied. Oxygen binding at one haem group alters the molecule's conformation and increases affinity at other sites, producing the steep middle of a cooperative sigmoid curve. At higher oxygen partial pressures, the sites approach full occupation and the curve plateaus. On a diagram identify oxygen partial pressure on the horizontal axis and percentage oxygen saturation on the vertical axis.\n\nThe S-shaped form results from cooperative binding: attachment of one O₂ facilitates subsequent attachment until most sites are occupied. A left shift indicates greater affinity at a shared pO₂, for example HbF; a right shift indicates lower affinity, for example at elevated CO₂. Mathematical schematic curves are not actual clinical measurements. Compare saturation values vertically at the same oxygen partial pressure; changing both axes at once does not demonstrate a Bohr shift.\n\nCompare adult and foetal model saturations at the same pO₂ rather than at different pressures. A left shift reports higher affinity, not greater maximum binding-site number.\n\nPlot oxygen partial pressure horizontally and haemoglobin percentage saturation vertically. The low-pressure segment is shallow because the first binding events are less favored. After oxygen binds, conformational changes increase affinity at other sites, causing a steep middle section. The curve levels off as most of the available haem sites become occupied. The plateau helps maintain loading in lungs despite modest pressure changes, while the steep part supports unloading in tissues. A left shift represents higher affinity at equal partial pressure; a right shift represents lower affinity. Saturation measures the occupied fraction of haemoglobin sites, not oxygen merely dissolved in plasma.",
       "revisionSummary": "A left shift reports higher affinity, not greater maximum binding-site number.",
       "terms": [
         "Read axes before curves",
@@ -2129,6 +2232,13 @@
         },
         {
           "claim": "Compare adult and foetal model saturations at the same pO₂ rather than at different pressures. A left shift reports higher affinity, not greater maximum binding-site number.",
+          "referenceIds": [
+            "ib-b31-guide",
+            "hodder-b31"
+          ]
+        },
+        {
+          "claim": "Plot oxygen partial pressure horizontally and haemoglobin percentage saturation vertically. The low-pressure segment is shallow because the first binding events are less favored. After oxygen binds, conformational changes increase affinity at other sites, causing a steep middle section. The curve levels off as most of the available haem sites become occupied. The plateau helps maintain loading in lungs despite modest pressure changes, while the steep part supports unloading in tissues. A left shift represents higher affinity at equal partial pressure; a right shift represents lower affinity. Saturation measures the occupied fraction of haemoglobin sites, not oxygen merely dissolved in plasma.",
           "referenceIds": [
             "ib-b31-guide",
             "hodder-b31"
@@ -2231,6 +2341,14 @@
         {
           "title": "Apply the curve at equal pO₂",
           "explanation": "Compare adult and foetal model saturations at the same pO₂ rather than at different pressures. A left shift reports higher affinity, not greater maximum binding-site number.",
+          "referenceIds": [
+            "ib-b31-guide",
+            "hodder-b31"
+          ]
+        },
+        {
+          "title": "Cooperative binding explains the sigmoid curve",
+          "explanation": "Plot oxygen partial pressure horizontally and haemoglobin percentage saturation vertically. The low-pressure segment is shallow because the first binding events are less favored. After oxygen binds, conformational changes increase affinity at other sites, causing a steep middle section. The curve levels off as most of the available haem sites become occupied. The plateau helps maintain loading in lungs despite modest pressure changes, while the steep part supports unloading in tissues. A left shift represents higher affinity at equal partial pressure; a right shift represents lower affinity. Saturation measures the occupied fraction of haemoglobin sites, not oxygen merely dissolved in plasma.",
           "referenceIds": [
             "ib-b31-guide",
             "hodder-b31"
