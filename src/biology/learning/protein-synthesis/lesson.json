@@ -1561,22 +1561,22 @@
       ],
       "level": "shared",
       "guidingQuestion": "How far does a ribosome normally advance along mRNA after adding one amino acid?",
-      "explanation": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat.\n\nThe chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.\n\nDuring elongation, an aminoacyl-tRNA matches the next codon, a peptide bond forms, and the ribosome advances by three bases along 5′→3′ mRNA. The chain grows through successive peptide transfers; the ribosome does not add RNA nucleotides during this step.\n\nThe next matching aminoacyl-tRNA binds the ribosomal A site; a peptide bond forms so the growing chain is transferred to that tRNA. Translocation moves the ribosome one codon in the 5′→3′ direction, shifting tRNAs through the P site towards exit. This is a conceptual step sequence, not a time-resolved observation.",
-      "revisionSummary": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids.",
+      "explanation": "The ribosome reads the next mRNA codon in the 5′→3′ direction. A tRNA carrying an amino acid enters the A (aminoacyl) site when its anticodon can pair with that codon. The P (peptidyl) site already holds the tRNA carrying the growing polypeptide. The tRNA is an adaptor: its anticodon matches the instruction, while its attached amino acid supplies the material.\n\nThe ribosome catalyses a peptide bond between the growing chain and the amino acid on the A-site tRNA. The chain transfers from the P-site tRNA to the A-site tRNA and becomes one amino acid longer at its carboxyl end. The mRNA itself does not become part of the polypeptide; it determines the order in which amino acids are added.\n\nThe ribosome then translocates by one codon—three mRNA bases—towards the 3′ end. The tRNA now bearing the growing chain shifts into the P site, and the empty tRNA moves towards the E (exit) site and leaves. The A site becomes available for the next matching aminoacyl-tRNA. This repeating sequence explains why the reading frame must be maintained; moving one or two bases would change subsequent codons.",
+      "revisionSummary": "Elongation repeats: anticodon pairing at A → peptide bond transfers the chain to A-site tRNA → ribosome advances one codon 5′→3′ → tRNAs shift through P and E.",
       "terms": [
         "The ribosome advances one codon at a time: underlying concept",
         "Peptide-bond direction: complementary process"
       ],
-      "workedExample": "After a ribosome reads AUG then GCU, its growing peptide contains methionine linked to alanine.",
+      "workedExample": "Suppose an elongating ribosome has a growing chain on its P-site tRNA and the next mRNA codon is UUU. A tRNA carrying phenylalanine enters the A site, peptide-bond formation transfers the chain to it, and translocation moves UUU from the A to the P position.",
       "misconceptions": [
         {
-          "misconception": "The ribosome moves one nucleotide after each added amino acid.",
-          "correction": "It advances by one three-base codon per elongation cycle."
+          "misconception": "The ribosome advances one nucleotide each time an amino acid is added.",
+          "correction": "During elongation the ribosome advances one complete codon, or three nucleotides; the growing chain transfers to the A-site tRNA before translocation."
         }
       ],
       "claimReferences": [
         {
-          "claim": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat.",
+          "claim": "The ribosome reads the next mRNA codon in the 5′→3′ direction. A tRNA carrying an amino acid enters the A (aminoacyl) site when its anticodon can pair with that codon. The P (peptidyl) site already holds the tRNA carrying the growing polypeptide. The tRNA is an adaptor: its anticodon matches the instruction, while its attached amino acid supplies the material.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1585,7 +1585,7 @@
           ]
         },
         {
-          "claim": "The chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.\n\nDuring elongation, an aminoacyl-tRNA matches the next codon, a peptide bond forms, and the ribosome advances by three bases along 5′→3′ mRNA. The chain grows through successive peptide transfers; the ribosome does not add RNA nucleotides during this step.",
+          "claim": "The ribosome catalyses a peptide bond between the growing chain and the amino acid on the A-site tRNA. The chain transfers from the P-site tRNA to the A-site tRNA and becomes one amino acid longer at its carboxyl end. The mRNA itself does not become part of the polypeptide; it determines the order in which amino acids are added.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1594,10 +1594,12 @@
           ]
         },
         {
-          "claim": "The next matching aminoacyl-tRNA binds the ribosomal A site; a peptide bond forms so the growing chain is transferred to that tRNA. Translocation moves the ribosome one codon in the 5′→3′ direction, shifting tRNAs through the P site towards exit. This is a conceptual step sequence, not a time-resolved observation.",
+          "claim": "The ribosome then translocates by one codon—three mRNA bases—towards the 3′ end. The tRNA now bearing the growing chain shifts into the P site, and the empty tRNA moves towards the E (exit) site and leaves. The A site becomes available for the next matching aminoacyl-tRNA. This repeating sequence explains why the reading frame must be maintained; moving one or two bases would change subsequent codons.",
           "referenceIds": [
             "ib-d12",
-            "hodder-d12"
+            "hodder-d12",
+            "ncbi-rna",
+            "ncbi-translation"
           ]
         }
       ],
@@ -1607,7 +1609,9 @@
         "ncbi-rna",
         "ncbi-translation"
       ],
-      "assets": [],
+      "assets": [
+        "d12-elongation-cycle"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1669,8 +1673,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "The ribosome advances one codon at a time",
-          "explanation": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat.",
+          "title": "A site: select the next amino acid",
+          "explanation": "The ribosome reads the next mRNA codon in the 5′→3′ direction. A tRNA carrying an amino acid enters the A (aminoacyl) site when its anticodon can pair with that codon. The P (peptidyl) site already holds the tRNA carrying the growing polypeptide. The tRNA is an adaptor: its anticodon matches the instruction, while its attached amino acid supplies the material.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1679,8 +1683,8 @@
           ]
         },
         {
-          "title": "Peptide-bond direction",
-          "explanation": "The chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.\n\nDuring elongation, an aminoacyl-tRNA matches the next codon, a peptide bond forms, and the ribosome advances by three bases along 5′→3′ mRNA. The chain grows through successive peptide transfers; the ribosome does not add RNA nucleotides during this step.",
+          "title": "Peptide-bond formation extends the chain",
+          "explanation": "The ribosome catalyses a peptide bond between the growing chain and the amino acid on the A-site tRNA. The chain transfers from the P-site tRNA to the A-site tRNA and becomes one amino acid longer at its carboxyl end. The mRNA itself does not become part of the polypeptide; it determines the order in which amino acids are added.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12",
@@ -1689,11 +1693,13 @@
           ]
         },
         {
-          "title": "Elongation as a repeatable cycle",
-          "explanation": "The next matching aminoacyl-tRNA binds the ribosomal A site; a peptide bond forms so the growing chain is transferred to that tRNA. Translocation moves the ribosome one codon in the 5′→3′ direction, shifting tRNAs through the P site towards exit. This is a conceptual step sequence, not a time-resolved observation.",
+          "title": "Move three bases and repeat",
+          "explanation": "The ribosome then translocates by one codon—three mRNA bases—towards the 3′ end. The tRNA now bearing the growing chain shifts into the P site, and the empty tRNA moves towards the E (exit) site and leaves. The A site becomes available for the next matching aminoacyl-tRNA. This repeating sequence explains why the reading frame must be maintained; moving one or two bases would change subsequent codons.",
           "referenceIds": [
             "ib-d12",
-            "hodder-d12"
+            "hodder-d12",
+            "ncbi-rna",
+            "ncbi-translation"
           ]
         }
       ],
@@ -4776,6 +4782,25 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "d12-elongation-cycle",
+      "kind": "schematic",
+      "src": "/biology/protein-synthesis/translation-elongation-cycle.svg",
+      "alt": "A three-step model of translation elongation: a matching charged tRNA enters the ribosome A site, a peptide bond transfers the growing polypeptide from the P-site tRNA to the A-site amino acid, and the ribosome advances one three-base codon along mRNA from 5-prime to 3-prime while the tRNAs shift towards the exit site.",
+      "captionTitle": "How one codon adds one amino acid to a chain",
+      "interpretation": "Original, conceptual teaching figure; labels and arrow directions correspond to the numbered understanding.",
+      "attribution": "Original BioLab SVG created for this syllabus-understanding depth audit (2026)",
+      "license": "Original first-party BioLab illustration",
+      "permissionEvidence": "Independently drawn from underlying biological mechanisms; no external textbook figures copied or traced",
+      "referenceIds": [
+        "ib-d12",
+        "hodder-d12",
+        "ncbi-rna",
+        "ncbi-translation"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
     }
   ],
   "summary": "DNA is selectively transcribed into RNA, mRNA codons are translated into polypeptide sequence, and cellular processing and turnover contribute to functional protein diversity.",
