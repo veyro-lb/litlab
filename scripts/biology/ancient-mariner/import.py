@@ -16,7 +16,7 @@ FIGS=[
 ("03_RNA_nucleotide",2,.490,.648,"rna nucleotide"),
 ("04_DNA_antiparallel_pairing",2,.654,.933,"dna structure"),
 ("05_RNA_polymer",3,.052,.407,"rna structure"),
-("06_prokaryotic_cell",3,.407,.789,"prokaryotic cell"),
+("06_prokaryotic_cell",3,.048,.410,"prokaryotic cell"),
 ("07_eukaryotic_animal_cell",4,.048,.687,"animal cell"),
 ("08_leaf_palisade_plant_cell",5,.048,.723,"leaf palisade plant cell"),
 ("09_generalized_amino_acid",6,.050,.262,"generalized amino acid"),
@@ -51,6 +51,7 @@ def screenshot(doc,fig):
     print(f"Verified source match: {name} on page {idx+1}; all matches {[n+1 for n in matching]}")
     pix=page.get_pixmap(matrix=fitz.Matrix(2.3,2.3),clip=fitz.Rect(0,page.rect.height*y1,page.rect.width,page.rect.height*y2),alpha=False)
     if pix.width<800 or pix.height<150:raise RuntimeError("Bad crop for "+name)
+    if name=="06_prokaryotic_cell" and "nucleoid" not in normalized(page.get_textbox(fitz.Rect(0,page.rect.height*y1,page.rect.width,page.rect.height*y2))):raise RuntimeError("Prokaryote crop lacks nucleoid label")
     return pix.tobytes("png"),idx+1
 def main(pdf):
     source=fitz.open(pdf)
@@ -73,7 +74,12 @@ def main(pdf):
              "sourceUrl":URL,"review":"source-mapped"})
         for id,media,sectionid,uid in EXTRA.get(topic,[]):
             section=[s for s in lesson["sections"] if s["id"]==sectionid and uid in s["understandingIds"]]
-            if len(section)!=1 or any(a["id"]==id for a in lesson["assets"]):raise RuntimeError("Invalid new placement "+id)
+            if len(section)!=1:raise RuntimeError("Invalid new placement "+id)
+            present=[a for a in lesson["assets"] if a["id"]==id]
+            if present:
+                if len(present)!=1 or present[0].get("src")!=PREFIX+media+".png" or id not in section[0]["assets"]:
+                    raise RuntimeError("Existing PDF asset conflicts with planned placement "+id)
+                continue
             refs=section[0].get("referenceIds") or [lesson["references"][0]["id"]]
             lesson["assets"].append({"id":id,"kind":"diagram","src":PREFIX+media+".png",
              "alt":"Original hand-drawn labelled biological illustration: "+media.replace("_"," "),
