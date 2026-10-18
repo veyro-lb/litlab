@@ -1,0 +1,1668 @@
+{
+  "schemaVersion": 1,
+  "format": "entire-replacement-question-record",
+  "sourceBranch": "feature/biolab-all-sprints-integration-20261018",
+  "sourceSha": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
+  "integrationMode": "replace by questionId only after verifying current source question equals originalQuestion; reject on mismatch and do not overwrite illustration-team edits",
+  "officialPastPapersCopied": false,
+  "patchCount": 14,
+  "patches": [
+    {
+      "lessonFile": "src/biology/learning/dna-replication/lesson.json",
+      "sourceLessonBlobSha": "d259980f5503210933350f47d7db96758f035455",
+      "questionId": "d11-mcq-1",
+      "understandingIds": [
+        "D1.1.1"
+      ],
+      "sectionId": "d11-1",
+      "level": "shared",
+      "originalIssue": "Stem tested bare recall; three mechanistically different wrong answers had repetitive nondiagnostic feedback",
+      "originalQuestion": {
+        "id": "d11-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D1.1.1"
+        ],
+        "level": "shared",
+        "prompt": "What must happen before two daughter cells inherit complete copies of a chromosome?",
+        "marks": 1,
+        "sectionId": "d11-1",
+        "referenceIds": [
+          "ib-d11",
+          "hodder-d11",
+          "ncbi-replication"
+        ],
+        "options": [
+          {
+            "id": "d11-1-o1",
+            "text": "Replicate its DNA base sequence",
+            "correct": true,
+            "feedback": "Correct. Replication precedes cell division because each daughter cell requires an inherited copy of the DNA base sequence."
+          },
+          {
+            "id": "d11-1-o2",
+            "text": "Translate every gene into a protein",
+            "correct": false,
+            "feedback": "Consider why “Translate every gene into a protein” does not answer this question. Replication produces new DNA molecules; transcription produces RNA."
+          },
+          {
+            "id": "d11-1-o3",
+            "text": "Break all phosphodiester bonds",
+            "correct": false,
+            "feedback": "Consider why “Break all phosphodiester bonds” does not answer this question. Replication produces new DNA molecules; transcription produces RNA."
+          },
+          {
+            "id": "d11-1-o4",
+            "text": "Replace every thymine with uracil",
+            "correct": false,
+            "feedback": "Consider why “Replace every thymine with uracil” does not answer this question. Replication produces new DNA molecules; transcription produces RNA."
+          }
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "d11-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D1.1.1"
+        ],
+        "level": "shared",
+        "prompt": "A cell enters mitosis without duplicating its chromosomal DNA, although it has synthesized many proteins. Which process was missing for both daughter cells to receive complete copies of the chromosomes?",
+        "marks": 1,
+        "sectionId": "d11-1",
+        "referenceIds": [
+          "ib-d11",
+          "hodder-d11",
+          "ncbi-replication"
+        ],
+        "options": [
+          {
+            "id": "d11-1-o1",
+            "text": "Template-directed DNA replication before division",
+            "correct": true,
+            "feedback": "DNA replication produces two copies of each chromosome's sequence; subsequent chromosome segregation can then distribute one copy to each daughter cell."
+          },
+          {
+            "id": "d11-1-o2",
+            "text": "Translation of every mRNA into protein",
+            "correct": false,
+            "feedback": "Translation uses ribosomes to make proteins from mRNA. Making proteins does not copy the DNA sequences that daughter cells inherit."
+          },
+          {
+            "id": "d11-1-o3",
+            "text": "Breaking every phosphodiester bond in each chromosome",
+            "correct": false,
+            "feedback": "Phosphodiester bonds form the sugar–phosphate backbone. Replication separates base-paired strands without destroying the entire DNA backbone."
+          },
+          {
+            "id": "d11-1-o4",
+            "text": "Replacing thymine in DNA with uracil",
+            "correct": false,
+            "feedback": "Uracil is ordinarily found in RNA; DNA replication preserves complementary DNA base pairing (A–T, C–G) rather than converting DNA to RNA."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d11",
+          "title": "IB Biology Guide (first assessment 2025), D1.1",
+          "locator": "Syllabus pp.85–86; understandings D1.1.1–D1.1.9 and prescribed guidance",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d11",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+          "locator": "D1.1 DNA replication, printed pp.602–614 (PDF pp.614–626)",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-replication",
+          "title": "Cooper, The Cell: A Molecular Approach — DNA Replication, NCBI Bookshelf",
+          "locator": "DNA polymerases, primase, leading/lagging strands, proofreading",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9940/"
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/dna-replication/lesson.json",
+      "sourceLessonBlobSha": "d259980f5503210933350f47d7db96758f035455",
+      "questionId": "d11-mcq-2",
+      "understandingIds": [
+        "D1.1.2"
+      ],
+      "sectionId": "d11-2",
+      "level": "shared",
+      "originalIssue": "Distractors mixed conservative, unrelated and all-new models but feedback repeated a correct definition",
+      "originalQuestion": {
+        "id": "d11-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D1.1.2"
+        ],
+        "level": "shared",
+        "prompt": "After semi-conservative replication, each daughter DNA duplex contains which strands?",
+        "marks": 1,
+        "sectionId": "d11-2",
+        "referenceIds": [
+          "ib-d11",
+          "hodder-d11",
+          "ncbi-replication"
+        ],
+        "options": [
+          {
+            "id": "d11-2-o1",
+            "text": "One parental and one new strand",
+            "correct": true,
+            "feedback": "Correct. The two parental DNA strands separate."
+          },
+          {
+            "id": "d11-2-o2",
+            "text": "Two original parental strands",
+            "correct": false,
+            "feedback": "Consider why “Two original parental strands” does not answer this question. Each daughter duplex contains one original and one newly synthesized strand."
+          },
+          {
+            "id": "d11-2-o3",
+            "text": "Two unrelated DNA molecules",
+            "correct": false,
+            "feedback": "Consider why “Two unrelated DNA molecules” does not answer this question. Each daughter duplex contains one original and one newly synthesized strand."
+          },
+          {
+            "id": "d11-2-o4",
+            "text": "Only newly synthesized strands",
+            "correct": false,
+            "feedback": "Consider why “Only newly synthesized strands” does not answer this question. Each daughter duplex contains one original and one newly synthesized strand."
+          }
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "d11-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D1.1.2"
+        ],
+        "level": "shared",
+        "prompt": "After semi-conservative replication, each daughter DNA duplex contains which strands?",
+        "marks": 1,
+        "sectionId": "d11-2",
+        "referenceIds": [
+          "ib-d11",
+          "hodder-d11",
+          "ncbi-replication"
+        ],
+        "options": [
+          {
+            "id": "d11-2-o1",
+            "text": "One parental and one new strand",
+            "correct": true,
+            "feedback": "Each original strand templates a new complementary strand, so each daughter DNA duplex contains one parental and one newly synthesized strand."
+          },
+          {
+            "id": "d11-2-o2",
+            "text": "Two original parental strands",
+            "correct": false,
+            "feedback": "Keeping both parental strands together in one duplex describes the conservative model, not semiconservative replication."
+          },
+          {
+            "id": "d11-2-o3",
+            "text": "Two unrelated DNA molecules",
+            "correct": false,
+            "feedback": "Daughter DNA is related to the parental molecule by complementary base pairing; new strands are not random unrelated molecules."
+          },
+          {
+            "id": "d11-2-o4",
+            "text": "Only newly synthesized strands",
+            "correct": false,
+            "feedback": "Each daughter duplex retains one original template strand; a duplex containing only new strands is not the semiconservative outcome."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d11",
+          "title": "IB Biology Guide (first assessment 2025), D1.1",
+          "locator": "Syllabus pp.85–86; understandings D1.1.1–D1.1.9 and prescribed guidance",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d11",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+          "locator": "D1.1 DNA replication, printed pp.602–614 (PDF pp.614–626)",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-replication",
+          "title": "Cooper, The Cell: A Molecular Approach — DNA Replication, NCBI Bookshelf",
+          "locator": "DNA polymerases, primase, leading/lagging strands, proofreading",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9940/"
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/dna-replication/lesson.json",
+      "sourceLessonBlobSha": "d259980f5503210933350f47d7db96758f035455",
+      "questionId": "d11-mcq-3",
+      "understandingIds": [
+        "D1.1.3"
+      ],
+      "sectionId": "d11-3",
+      "level": "shared",
+      "originalIssue": "Helicase distractors represent ligase, translation and primer-processing roles, previously collapsed into one explanation",
+      "originalQuestion": {
+        "id": "d11-mcq-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D1.1.3"
+        ],
+        "level": "shared",
+        "prompt": "What is the immediate action of helicase at a replication fork?",
+        "marks": 1,
+        "sectionId": "d11-3",
+        "referenceIds": [
+          "ib-d11",
+          "hodder-d11",
+          "ncbi-replication"
+        ],
+        "options": [
+          {
+            "id": "d11-3-o1",
+            "text": "Separate DNA strands by disrupting base-pair hydrogen bonds",
+            "correct": true,
+            "feedback": "Correct. Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands."
+          },
+          {
+            "id": "d11-3-o2",
+            "text": "Join Okazaki fragments by covalent bonds",
+            "correct": false,
+            "feedback": "Consider why “Join Okazaki fragments by covalent bonds” does not answer this question. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+          },
+          {
+            "id": "d11-3-o3",
+            "text": "Add amino acids to DNA",
+            "correct": false,
+            "feedback": "Consider why “Add amino acids to DNA” does not answer this question. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+          },
+          {
+            "id": "d11-3-o4",
+            "text": "Replace RNA primers with DNA",
+            "correct": false,
+            "feedback": "Consider why “Replace RNA primers with DNA” does not answer this question. Helicase separates strands by disrupting base-pair hydrogen bonds, leaving both backbones intact."
+          }
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "d11-mcq-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D1.1.3"
+        ],
+        "level": "shared",
+        "prompt": "What is the immediate action of helicase at a replication fork?",
+        "marks": 1,
+        "sectionId": "d11-3",
+        "referenceIds": [
+          "ib-d11",
+          "hodder-d11",
+          "ncbi-replication"
+        ],
+        "options": [
+          {
+            "id": "d11-3-o1",
+            "text": "Separate DNA strands by disrupting base-pair hydrogen bonds",
+            "correct": true,
+            "feedback": "Helicase unwinds the parental duplex by disrupting hydrogen bonds between complementary bases; covalent sugar–phosphate backbones remain intact."
+          },
+          {
+            "id": "d11-3-o2",
+            "text": "Join Okazaki fragments by covalent bonds",
+            "correct": false,
+            "feedback": "DNA ligase seals nicks in the sugar–phosphate backbone between Okazaki fragments; helicase unwinds double-stranded DNA."
+          },
+          {
+            "id": "d11-3-o3",
+            "text": "Add amino acids to DNA",
+            "correct": false,
+            "feedback": "Ribosomes join amino acids during protein synthesis; helicase acts on DNA base pairs, not peptide formation."
+          },
+          {
+            "id": "d11-3-o4",
+            "text": "Replace RNA primers with DNA",
+            "correct": false,
+            "feedback": "RNA primer removal and replacement involve nucleases and DNA polymerase, not helicase's strand-separation function."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d11",
+          "title": "IB Biology Guide (first assessment 2025), D1.1",
+          "locator": "Syllabus pp.85–86; understandings D1.1.1–D1.1.9 and prescribed guidance",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d11",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+          "locator": "D1.1 DNA replication, printed pp.602–614 (PDF pp.614–626)",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-replication",
+          "title": "Cooper, The Cell: A Molecular Approach — DNA Replication, NCBI Bookshelf",
+          "locator": "DNA polymerases, primase, leading/lagging strands, proofreading",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9940/"
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/gene-expression/lesson.json",
+      "sourceLessonBlobSha": "a4fb8ddf77d756722e6167961539f13d4d46067c",
+      "questionId": "d22-mcq-1",
+      "understandingIds": [
+        "D2.2.1"
+      ],
+      "sectionId": "d22-1",
+      "level": "HL",
+      "originalIssue": "Three biologically unrelated wrong choices received the same generic gene-to-protein description",
+      "originalQuestion": {
+        "id": "d22-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D2.2.1"
+        ],
+        "level": "HL",
+        "prompt": "What links a protein-coding gene to a cellular trait?",
+        "marks": 1,
+        "sectionId": "d22-1",
+        "referenceIds": [
+          "ib-d22",
+          "hodder-d22",
+          "ncbi-reg"
+        ],
+        "options": [
+          {
+            "id": "d22-1-o1",
+            "text": "Transcription, translation and protein function",
+            "correct": true,
+            "feedback": "Correct. A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide."
+          },
+          {
+            "id": "d22-1-o2",
+            "text": "Conversion of DNA directly into amino acids",
+            "correct": false,
+            "feedback": "Consider why “Conversion of DNA directly into amino acids” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+          },
+          {
+            "id": "d22-1-o3",
+            "text": "Universal expression of every gene",
+            "correct": false,
+            "feedback": "Consider why “Universal expression of every gene” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+          },
+          {
+            "id": "d22-1-o4",
+            "text": "Division of every organelle",
+            "correct": false,
+            "feedback": "Consider why “Division of every organelle” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+          }
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "d22-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D2.2.1"
+        ],
+        "level": "HL",
+        "prompt": "Two tissues carry the same protein-coding gene but produce different amounts of its product. Which chain most directly links gene expression to a tissue-specific trait?",
+        "marks": 1,
+        "sectionId": "d22-1",
+        "referenceIds": [
+          "ib-d22",
+          "hodder-d22",
+          "ncbi-reg"
+        ],
+        "options": [
+          {
+            "id": "d22-1-o1",
+            "text": "Regulated transcription, translation and action of the resulting protein",
+            "correct": true,
+            "feedback": "Different transcription rates can change mRNA abundance, protein production and consequently a trait, without a change in the DNA sequence."
+          },
+          {
+            "id": "d22-1-o2",
+            "text": "Conversion of DNA directly into amino acids",
+            "correct": false,
+            "feedback": "DNA is transcribed to RNA, then ribosomes translate mRNA codons into a polypeptide; the DNA template does not convert directly into amino acids."
+          },
+          {
+            "id": "d22-1-o3",
+            "text": "Universal expression of every gene",
+            "correct": false,
+            "feedback": "Cell types selectively express genes. If every gene were expressed equally, differential gene expression could not explain tissue-specific protein abundance."
+          },
+          {
+            "id": "d22-1-o4",
+            "text": "Division of every organelle",
+            "correct": false,
+            "feedback": "Organelle division is not the informational pathway from a protein-coding DNA sequence to a polypeptide and its cellular effect."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d22",
+          "title": "IB Biology Guide (first assessment 2025) — D2.2 additional HL",
+          "locator": "Syllabus pp.92–93, D2.2.1–D2.2.11; no SL content",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d22",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+          "locator": "D2.2 Gene expression, printed pp.670–680 (PDF pp.682–692)",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-reg",
+          "title": "Cooper, The Cell — Regulation of Transcription in Eukaryotes, NCBI Bookshelf",
+          "locator": "Promoters, enhancers, transcription factors, DNA methylation",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9904/"
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/gene-expression/lesson.json",
+      "sourceLessonBlobSha": "a4fb8ddf77d756722e6167961539f13d4d46067c",
+      "questionId": "d22-mcq-2",
+      "understandingIds": [
+        "D2.2.2"
+      ],
+      "sectionId": "d22-2",
+      "level": "HL",
+      "originalIssue": "Initiation-control misconceptions about translation, chromatin and metabolic state received the same enhancer explanation",
+      "originalQuestion": {
+        "id": "d22-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D2.2.2"
+        ],
+        "level": "HL",
+        "prompt": "Which pair is directly involved in transcription initiation control?",
+        "marks": 1,
+        "sectionId": "d22-2",
+        "referenceIds": [
+          "ib-d22",
+          "hodder-d22",
+          "ncbi-reg"
+        ],
+        "options": [
+          {
+            "id": "d22-2-o1",
+            "text": "Promoter DNA and sequence-binding transcription factors",
+            "correct": true,
+            "feedback": "Correct. Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription."
+          },
+          {
+            "id": "d22-2-o2",
+            "text": "Anticodon and tRNA exit site",
+            "correct": false,
+            "feedback": "Consider why “Anticodon and tRNA exit site” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+          },
+          {
+            "id": "d22-2-o3",
+            "text": "Histone amino acid and newly formed peptide bond",
+            "correct": false,
+            "feedback": "Consider why “Histone amino acid and newly formed peptide bond” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+          },
+          {
+            "id": "d22-2-o4",
+            "text": "Mitochondrial ATP and osmotic pressure",
+            "correct": false,
+            "feedback": "Consider why “Mitochondrial ATP and osmotic pressure” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+          }
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "d22-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D2.2.2"
+        ],
+        "level": "HL",
+        "prompt": "Which pair is directly involved in transcription initiation control?",
+        "marks": 1,
+        "sectionId": "d22-2",
+        "referenceIds": [
+          "ib-d22",
+          "hodder-d22",
+          "ncbi-reg"
+        ],
+        "options": [
+          {
+            "id": "d22-2-o1",
+            "text": "Promoter DNA and sequence-binding transcription factors",
+            "correct": true,
+            "feedback": "Transcription factors recognize DNA regulatory sequences such as promoters or enhancers and influence RNA polymerase recruitment and initiation."
+          },
+          {
+            "id": "d22-2-o2",
+            "text": "Anticodon and tRNA exit site",
+            "correct": false,
+            "feedback": "An anticodon on tRNA pairs with an mRNA codon at a ribosome during translation, after transcription has already made the mRNA."
+          },
+          {
+            "id": "d22-2-o3",
+            "text": "Histone amino acid and newly formed peptide bond",
+            "correct": false,
+            "feedback": "Histones influence DNA accessibility, but peptide-bond formation is a translation event; this pair does not describe promoter-bound transcription initiation machinery."
+          },
+          {
+            "id": "d22-2-o4",
+            "text": "Mitochondrial ATP and osmotic pressure",
+            "correct": false,
+            "feedback": "ATP availability can influence cellular activity, but osmotic pressure and mitochondrial ATP are not the DNA-binding regulatory pair specified for initiation."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d22",
+          "title": "IB Biology Guide (first assessment 2025) — D2.2 additional HL",
+          "locator": "Syllabus pp.92–93, D2.2.1–D2.2.11; no SL content",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d22",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+          "locator": "D2.2 Gene expression, printed pp.670–680 (PDF pp.682–692)",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-reg",
+          "title": "Cooper, The Cell — Regulation of Transcription in Eukaryotes, NCBI Bookshelf",
+          "locator": "Promoters, enhancers, transcription factors, DNA methylation",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9904/"
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/gene-expression/lesson.json",
+      "sourceLessonBlobSha": "a4fb8ddf77d756722e6167961539f13d4d46067c",
+      "questionId": "d22-mcq-3",
+      "understandingIds": [
+        "D2.2.3"
+      ],
+      "sectionId": "d22-3",
+      "level": "HL",
+      "originalIssue": "mRNA decay distractors mixed abundance, DNA-to-RNA confusion and ribosome biology",
+      "originalQuestion": {
+        "id": "d22-mcq-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D2.2.3"
+        ],
+        "level": "HL",
+        "prompt": "If mRNA is degraded faster while transcription stays constant, what generally happens to its abundance?",
+        "marks": 1,
+        "sectionId": "d22-3",
+        "referenceIds": [
+          "ib-d22",
+          "hodder-d22",
+          "ncbi-reg"
+        ],
+        "options": [
+          {
+            "id": "d22-3-o1",
+            "text": "It falls",
+            "correct": true,
+            "feedback": "Correct. A newly made mRNA can be translated repeatedly while it persists."
+          },
+          {
+            "id": "d22-3-o2",
+            "text": "It must rise",
+            "correct": false,
+            "feedback": "Consider why “It must rise” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+          },
+          {
+            "id": "d22-3-o3",
+            "text": "The DNA sequence changes to RNA",
+            "correct": false,
+            "feedback": "Consider why “The DNA sequence changes to RNA” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+          },
+          {
+            "id": "d22-3-o4",
+            "text": "Every ribosome gains a new gene",
+            "correct": false,
+            "feedback": "Consider why “Every ribosome gains a new gene” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+          }
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "d22-mcq-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D2.2.3"
+        ],
+        "level": "HL",
+        "prompt": "If mRNA is degraded faster while transcription stays constant, what generally happens to its abundance?",
+        "marks": 1,
+        "sectionId": "d22-3",
+        "referenceIds": [
+          "ib-d22",
+          "hodder-d22",
+          "ncbi-reg"
+        ],
+        "options": [
+          {
+            "id": "d22-3-o1",
+            "text": "It falls",
+            "correct": true,
+            "feedback": "If transcripts are produced at the same rate but degraded more rapidly, their steady-state abundance normally falls and less mRNA is available for translation."
+          },
+          {
+            "id": "d22-3-o2",
+            "text": "It must rise",
+            "correct": false,
+            "feedback": "Increased degradation removes transcripts faster; with transcription unchanged, it does not force the mRNA pool to grow."
+          },
+          {
+            "id": "d22-3-o3",
+            "text": "The DNA sequence changes to RNA",
+            "correct": false,
+            "feedback": "Transcription uses DNA as a template to synthesize RNA; it does not change the DNA sequence into RNA. Degradation removes RNA transcripts."
+          },
+          {
+            "id": "d22-3-o4",
+            "text": "Every ribosome gains a new gene",
+            "correct": false,
+            "feedback": "Ribosomes translate mRNA; they do not acquire a new gene when an mRNA molecule is degraded."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d22",
+          "title": "IB Biology Guide (first assessment 2025) — D2.2 additional HL",
+          "locator": "Syllabus pp.92–93, D2.2.1–D2.2.11; no SL content",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d22",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+          "locator": "D2.2 Gene expression, printed pp.670–680 (PDF pp.682–692)",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-reg",
+          "title": "Cooper, The Cell — Regulation of Transcription in Eukaryotes, NCBI Bookshelf",
+          "locator": "Promoters, enhancers, transcription factors, DNA methylation",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9904/"
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/populations-communities/lesson.json",
+      "sourceLessonBlobSha": "113ed9ad04a337959a6185ebdf7f214dbd9a62c0",
+      "questionId": "c41-mcq-1",
+      "understandingIds": [
+        "C4.1.1"
+      ],
+      "sectionId": "c41-1",
+      "level": "shared",
+      "originalIssue": "Three incorrect choices received identical feedback that did not address water chemistry, individual number or taxonomy",
+      "originalQuestion": {
+        "id": "c41-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.1.1"
+        ],
+        "level": "shared",
+        "prompt": "Why may the same fish species in two isolated lakes be treated as two populations?",
+        "marks": 1,
+        "sectionId": "c41-1",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "options": [
+          {
+            "id": "c41-q1-o1",
+            "text": "All fish in the lakes belong to unrelated species.",
+            "correct": false,
+            "feedback": "Incorrect. A population covers one species; multiple interacting populations form a community."
+          },
+          {
+            "id": "c41-q1-o2",
+            "text": "The lakes must have identical water chemistry.",
+            "correct": false,
+            "feedback": "Incorrect. A population covers one species; multiple interacting populations form a community."
+          },
+          {
+            "id": "c41-q1-o3",
+            "text": "Each lake can contain only one fish.",
+            "correct": false,
+            "feedback": "Incorrect. A population covers one species; multiple interacting populations form a community."
+          },
+          {
+            "id": "c41-q1-o4",
+            "text": "No regular opportunity for interbreeding connects the groups.",
+            "correct": true,
+            "feedback": "Correct. Geographic separation or another barrier to breeding can distinguish two populations even if individuals have similar appearances."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c41-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.1.1"
+        ],
+        "level": "shared",
+        "prompt": "Why may the same fish species in two isolated lakes be treated as two populations?",
+        "marks": 1,
+        "sectionId": "c41-1",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "options": [
+          {
+            "id": "c41-q1-o1",
+            "text": "All fish in the lakes belong to unrelated species.",
+            "correct": false,
+            "feedback": "A population contains members of one species within a defined area. Separate populations can still belong to the same species; different species would not be two populations of that species."
+          },
+          {
+            "id": "c41-q1-o2",
+            "text": "The lakes must have identical water chemistry.",
+            "correct": false,
+            "feedback": "Water chemistry can differ between lakes without changing the definition of a population. Geographic separation and opportunity for interbreeding are relevant here."
+          },
+          {
+            "id": "c41-q1-o3",
+            "text": "Each lake can contain only one fish.",
+            "correct": false,
+            "feedback": "A population can include many individuals of the same species. The number of fish in a lake is not limited to one."
+          },
+          {
+            "id": "c41-q1-o4",
+            "text": "No regular opportunity for interbreeding connects the groups.",
+            "correct": true,
+            "feedback": "The separated groups belong to the same species but occupy distinct areas with little routine reproductive exchange, so they can be studied as separate populations."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c41",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.1 Populations and communities, printed pp. 80–83; supplied PDF pp. 86–89",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c41",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.1 Populations and communities, printed pp. 548–577; supplied PDF pp. 560–589",
+          "url": null
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/transfers-energy-matter/lesson.json",
+      "sourceLessonBlobSha": "98d7c7082cfae780633aff49c429ccb236e58a07",
+      "questionId": "c42-mcq-1",
+      "understandingIds": [
+        "C4.2.1"
+      ],
+      "sectionId": "c42-1",
+      "level": "shared",
+      "originalIssue": "Generic open-system recall and repeated feedback for three distinct errors",
+      "originalQuestion": {
+        "id": "c42-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.1"
+        ],
+        "level": "shared",
+        "prompt": "What makes a typical forest an open system?",
+        "marks": 1,
+        "sectionId": "c42-1",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q1-o1",
+            "text": "No sunlight reaches producers.",
+            "correct": false,
+            "feedback": "Incorrect. Matter cycles internally but also enters and exits ecosystems; only a closed system prevents matter exchange."
+          },
+          {
+            "id": "c42-q1-o2",
+            "text": "Every atom remains fixed in its original organism.",
+            "correct": false,
+            "feedback": "Incorrect. Matter cycles internally but also enters and exits ecosystems; only a closed system prevents matter exchange."
+          },
+          {
+            "id": "c42-q1-o3",
+            "text": "Both matter and energy cross its boundaries.",
+            "correct": true,
+            "feedback": "Correct. A closed system exchanges energy but not matter with its surroundings, while an isolated system would exchange neither; the latter is only an idealization."
+          },
+          {
+            "id": "c42-q1-o4",
+            "text": "Energy enters, but water and gases cannot leave.",
+            "correct": false,
+            "feedback": "Incorrect. Matter cycles internally but also enters and exits ecosystems; only a closed system prevents matter exchange."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c42-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.1"
+        ],
+        "level": "shared",
+        "prompt": "A forest receives sunlight and rainfall, releases thermal energy and water vapour, and exchanges carbon dioxide with the atmosphere. Which property makes it an open system?",
+        "marks": 1,
+        "sectionId": "c42-1",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q1-o1",
+            "text": "No sunlight reaches producers.",
+            "correct": false,
+            "feedback": "Sunlight is an energy input to photosynthesis, but an open system can also exchange water, gases and other matter with its surroundings."
+          },
+          {
+            "id": "c42-q1-o2",
+            "text": "Every atom remains fixed in its original organism.",
+            "correct": false,
+            "feedback": "Atoms move between organisms, soil, air and water; recycling within the ecosystem is compatible with exchanges across the system boundary."
+          },
+          {
+            "id": "c42-q1-o3",
+            "text": "Both matter and energy cross its boundaries.",
+            "correct": true,
+            "feedback": "Both matter (for example, water and CO₂) and energy (light input and heat output) cross the forest boundary."
+          },
+          {
+            "id": "c42-q1-o4",
+            "text": "Energy enters, but water and gases cannot leave.",
+            "correct": false,
+            "feedback": "Forest ecosystems lose water by evaporation or runoff and exchange gases. Energy-only exchange would describe a closed system, not an open one."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c42",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 83–85; supplied PDF pp. 89–91",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c42",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 578–601; supplied PDF pp. 590–613",
+          "url": null
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/transfers-energy-matter/lesson.json",
+      "sourceLessonBlobSha": "98d7c7082cfae780633aff49c429ccb236e58a07",
+      "questionId": "c42-mcq-2",
+      "understandingIds": [
+        "C4.2.2"
+      ],
+      "sectionId": "c42-2",
+      "level": "shared",
+      "originalIssue": "Three sun-dependent producer ecosystems received identical broad statement rather than tailored feedback",
+      "originalQuestion": {
+        "id": "c42-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.2"
+        ],
+        "level": "shared",
+        "prompt": "Which ecosystem can have an energy base independent of sunlight at its location?",
+        "marks": 1,
+        "sectionId": "c42-2",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q2-o1",
+            "text": "A hydrothermal-vent community supplied by chemoautotrophs.",
+            "correct": true,
+            "feedback": "Correct. Exceptions illustrate the difference between a direct energy source and an imported food source."
+          },
+          {
+            "id": "c42-q2-o2",
+            "text": "A sunlit meadow supported by grasses.",
+            "correct": false,
+            "feedback": "Incorrect. Some webs rely on chemical oxidation or imported organic materials from elsewhere."
+          },
+          {
+            "id": "c42-q2-o3",
+            "text": "An illuminated pond with algae.",
+            "correct": false,
+            "feedback": "Incorrect. Some webs rely on chemical oxidation or imported organic materials from elsewhere."
+          },
+          {
+            "id": "c42-q2-o4",
+            "text": "A greenhouse full of flowering plants.",
+            "correct": false,
+            "feedback": "Incorrect. Some webs rely on chemical oxidation or imported organic materials from elsewhere."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c42-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.2"
+        ],
+        "level": "shared",
+        "prompt": "Which ecosystem can have an energy base independent of sunlight at its location?",
+        "marks": 1,
+        "sectionId": "c42-2",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q2-o1",
+            "text": "A hydrothermal-vent community supplied by chemoautotrophs.",
+            "correct": true,
+            "feedback": "Chemoautotrophic microbes can use energy from chemical oxidation to fix carbon, supporting some vent communities without sunlight at that location."
+          },
+          {
+            "id": "c42-q2-o2",
+            "text": "A sunlit meadow supported by grasses.",
+            "correct": false,
+            "feedback": "Grasses obtain the energy used for primary production from sunlight, so a meadow does not have a sunlight-independent energy base."
+          },
+          {
+            "id": "c42-q2-o3",
+            "text": "An illuminated pond with algae.",
+            "correct": false,
+            "feedback": "Algae in an illuminated pond use light for photosynthesis, not chemical oxidation as their primary energy source."
+          },
+          {
+            "id": "c42-q2-o4",
+            "text": "A greenhouse full of flowering plants.",
+            "correct": false,
+            "feedback": "The flowering plants in a greenhouse depend on light, whether from the Sun or lamps; an enclosure does not make the food web chemoautotrophic."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c42",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 83–85; supplied PDF pp. 89–91",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c42",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 578–601; supplied PDF pp. 590–613",
+          "url": null
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/transfers-energy-matter/lesson.json",
+      "sourceLessonBlobSha": "98d7c7082cfae780633aff49c429ccb236e58a07",
+      "questionId": "c42-mcq-3",
+      "understandingIds": [
+        "C4.2.3"
+      ],
+      "sectionId": "c42-3",
+      "level": "shared",
+      "originalIssue": "Unhelpful common incorrect feedback obscured distinctions between trophic level, photons and carbon transfer",
+      "originalQuestion": {
+        "id": "c42-mcq-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.3"
+        ],
+        "level": "shared",
+        "prompt": "What is transferred when a rabbit eats grass?",
+        "marks": 1,
+        "sectionId": "c42-3",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q3-o1",
+            "text": "A fixed number of trophic levels.",
+            "correct": false,
+            "feedback": "Incorrect. Consumers obtain stored chemical energy from ingested organic matter, except autotrophs deriving energy externally."
+          },
+          {
+            "id": "c42-q3-o2",
+            "text": "Organic matter carrying chemical energy.",
+            "correct": true,
+            "feedback": "Correct. Not all ingested energy is transferred into new biomass."
+          },
+          {
+            "id": "c42-q3-o3",
+            "text": "A complete supply of unconverted sunlight.",
+            "correct": false,
+            "feedback": "Incorrect. Consumers obtain stored chemical energy from ingested organic matter, except autotrophs deriving energy externally."
+          },
+          {
+            "id": "c42-q3-o4",
+            "text": "Only heat, not carbon compounds.",
+            "correct": false,
+            "feedback": "Incorrect. Consumers obtain stored chemical energy from ingested organic matter, except autotrophs deriving energy externally."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c42-mcq-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.3"
+        ],
+        "level": "shared",
+        "prompt": "What is transferred when a rabbit eats grass?",
+        "marks": 1,
+        "sectionId": "c42-3",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q3-o1",
+            "text": "A fixed number of trophic levels.",
+            "correct": false,
+            "feedback": "Trophic levels classify feeding positions; a rabbit receives organic matter and its chemical energy, not a fixed number of levels."
+          },
+          {
+            "id": "c42-q3-o2",
+            "text": "Organic matter carrying chemical energy.",
+            "correct": true,
+            "feedback": "Grass contains organic molecules that transfer carbon and chemical energy when eaten. Some is assimilated, while some is lost in waste and respiration."
+          },
+          {
+            "id": "c42-q3-o3",
+            "text": "A complete supply of unconverted sunlight.",
+            "correct": false,
+            "feedback": "Producers converted light energy into chemical energy during photosynthesis. The rabbit ingests organic matter, not unconverted sunlight."
+          },
+          {
+            "id": "c42-q3-o4",
+            "text": "Only heat, not carbon compounds.",
+            "correct": false,
+            "feedback": "Carbon compounds are ingested and some energy is transferred to the consumer; heat is released during metabolism but is not the only transfer."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c42",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 83–85; supplied PDF pp. 89–91",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c42",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 578–601; supplied PDF pp. 590–613",
+          "url": null
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/inheritance/lesson.json",
+      "sourceLessonBlobSha": "be57bd446cba8acbc0cc34892efc6c35425f138d",
+      "questionId": "d32-mcq-1",
+      "understandingIds": [
+        "D3.2.1"
+      ],
+      "sectionId": "inheritance-1",
+      "level": "shared",
+      "originalIssue": "Distractors about ploidy, parental contribution and cell division were confused by reused feedback",
+      "originalQuestion": {
+        "id": "d32-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D3.2.1"
+        ],
+        "level": "shared",
+        "prompt": "Which statement about gametes and diploid zygotes is correct?",
+        "marks": 1,
+        "sectionId": "inheritance-1",
+        "referenceIds": [
+          "ib-d32",
+          "hodder-d32"
+        ],
+        "options": [
+          {
+            "id": "a",
+            "text": "Gametes remain diploid throughout fertilization.",
+            "correct": false,
+            "feedback": "A diploid offspring normally receives one copy of each autosomal gene from each parent."
+          },
+          {
+            "id": "b",
+            "text": "Gamete fusion restores the diploid complement after meiotic reduction.",
+            "correct": true,
+            "feedback": "Correct. Meiosis in a diploid parent separates homologous chromosomes so that gametes contain one chromosome from each pair."
+          },
+          {
+            "id": "c",
+            "text": "The zygote receives all of its autosomes from one parent.",
+            "correct": false,
+            "feedback": "Not in this case. This alternating halving and restoration is shared by eukaryotes with sexual life cycles, although the relative duration of haploid and diploid stages differs among species."
+          },
+          {
+            "id": "d",
+            "text": "Mitosis is the usual process that halves the chromosome number.",
+            "correct": false,
+            "feedback": "Not in this case. This alternating halving and restoration is shared by eukaryotes with sexual life cycles, although the relative duration of haploid and diploid stages differs among species."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "d32-mcq-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D3.2.1"
+        ],
+        "level": "shared",
+        "prompt": "Which statement about gametes and diploid zygotes is correct?",
+        "marks": 1,
+        "sectionId": "inheritance-1",
+        "referenceIds": [
+          "ib-d32",
+          "hodder-d32"
+        ],
+        "options": [
+          {
+            "id": "a",
+            "text": "Gametes remain diploid throughout fertilization.",
+            "correct": false,
+            "feedback": "Gametes are typically haploid in diploid organisms. Meiosis halves the chromosome number before fertilization; gametes do not remain diploid in this cycle."
+          },
+          {
+            "id": "b",
+            "text": "Gamete fusion restores the diploid complement after meiotic reduction.",
+            "correct": true,
+            "feedback": "Meiosis produces haploid gametes; fusion of their nuclei at fertilization restores a diploid zygote."
+          },
+          {
+            "id": "c",
+            "text": "The zygote receives all of its autosomes from one parent.",
+            "correct": false,
+            "feedback": "For a normal diploid zygote formed by gamete fusion, one haploid chromosome set comes from each parent rather than all autosomes coming from one."
+          },
+          {
+            "id": "d",
+            "text": "Mitosis is the usual process that halves the chromosome number.",
+            "correct": false,
+            "feedback": "Mitosis ordinarily preserves chromosome number in daughter nuclei; meiosis is the division process that reduces a diploid complement to haploid gametes."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d32",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "D3.2, printed pp. 98–100; PDF pp. 104–106",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d32",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, third edition (Hodder, 2023)",
+          "locator": "Chapter D3.2, printed pp. 725–759; PDF pp. 737–771",
+          "url": null
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/inheritance/lesson.json",
+      "sourceLessonBlobSha": "be57bd446cba8acbc0cc34892efc6c35425f138d",
+      "questionId": "d32-mcq-2",
+      "understandingIds": [
+        "D3.2.2"
+      ],
+      "sectionId": "inheritance-2",
+      "level": "shared",
+      "originalIssue": "Wrong choices about F2 identity, Punnett probabilities and pollen contamination were given unrelated or repeated explanations",
+      "originalQuestion": {
+        "id": "d32-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D3.2.2"
+        ],
+        "level": "shared",
+        "prompt": "Which statement about genetic crosses in flowering plants is correct?",
+        "marks": 1,
+        "sectionId": "inheritance-2",
+        "referenceIds": [
+          "ib-d32",
+          "hodder-d32"
+        ],
+        "options": [
+          {
+            "id": "a",
+            "text": "The F2 generation consists of the original parents.",
+            "correct": false,
+            "feedback": "Pollination transfers pollen; fertilization is fusion of nuclei from gametes."
+          },
+          {
+            "id": "b",
+            "text": "Each square in a Punnett grid represents an actual seed produced.",
+            "correct": false,
+            "feedback": "Not in this case. The parents are the P generation."
+          },
+          {
+            "id": "c",
+            "text": "A controlled plant cross requires specified parental pollen and egg sources.",
+            "correct": true,
+            "feedback": "Correct. In a flowering plant such as a pea, pollen contains the male gametes and the embryo sac within an ovule in the ovary contains the egg cell."
+          },
+          {
+            "id": "d",
+            "text": "Transfer of any pollen gives a genetically controlled cross.",
+            "correct": false,
+            "feedback": "Not in this case. The parents are the P generation."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "d32-mcq-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "D3.2.2"
+        ],
+        "level": "shared",
+        "prompt": "Which statement about genetic crosses in flowering plants is correct?",
+        "marks": 1,
+        "sectionId": "inheritance-2",
+        "referenceIds": [
+          "ib-d32",
+          "hodder-d32"
+        ],
+        "options": [
+          {
+            "id": "a",
+            "text": "The F2 generation consists of the original parents.",
+            "correct": false,
+            "feedback": "The original breeding plants are the parental (P) generation. F1 are their offspring, and F2 are produced from F1 crosses or self-fertilization."
+          },
+          {
+            "id": "b",
+            "text": "Each square in a Punnett grid represents an actual seed produced.",
+            "correct": false,
+            "feedback": "Punnett cells represent possible allele combinations and predicted probabilities, not guaranteed individual offspring or specific seeds."
+          },
+          {
+            "id": "c",
+            "text": "A controlled plant cross requires specified parental pollen and egg sources.",
+            "correct": true,
+            "feedback": "A controlled cross requires known male and female gamete sources; excluding unintended pollen helps establish the parentage of the offspring."
+          },
+          {
+            "id": "d",
+            "text": "Transfer of any pollen gives a genetically controlled cross.",
+            "correct": false,
+            "feedback": "Unspecified pollen could originate from another genotype, confounding the intended cross. Controlled pollination deliberately identifies the pollen parent."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d32",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "D3.2, printed pp. 98–100; PDF pp. 104–106",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d32",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, third edition (Hodder, 2023)",
+          "locator": "Chapter D3.2, printed pp. 725–759; PDF pp. 737–771",
+          "url": null
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/inheritance/lesson.json",
+      "sourceLessonBlobSha": "be57bd446cba8acbc0cc34892efc6c35425f138d",
+      "questionId": "d32-written-2",
+      "understandingIds": [
+        "D3.2.2"
+      ],
+      "sectionId": "inheritance-2",
+      "level": "shared",
+      "originalIssue": "Generic three-mark explanation repeated chapter prose; weak numerical application and investigation reasoning",
+      "originalQuestion": {
+        "id": "d32-written-2",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.2.2"
+        ],
+        "level": "shared",
+        "prompt": "Explain genetic crosses in flowering plants using a causal mechanism and a relevant example or calculation.",
+        "marks": 3,
+        "sectionId": "inheritance-2",
+        "referenceIds": [
+          "ib-d32",
+          "hodder-d32"
+        ],
+        "answer": "In a flowering plant such as a pea, pollen contains the male gametes and the embryo sac within an ovule in the ovary contains the egg cell. To make a controlled cross, a breeder prevents self-pollination of the chosen female parent, transfers pollen from the selected male parent, and labels the cross. Some flowers contain both male and female reproductive structures and can self-pollinate unless this is prevented.\nCross TT with tt pea plants: every F1 plant is Tt. Self-fertilize F1 to predict the F2 genotypic ratio 1 TT : 2 Tt : 1 tt.",
+        "markingPoints": [
+          "A controlled plant cross requires specified parental pollen and egg sources.",
+          "In a flowering plant such as a pea, pollen contains the male gametes and the embryo sac within an ovule in the ovary contains the egg cell.",
+          "Cross TT with tt pea plants: every F1 plant is Tt. Self-fertilize F1 to predict the F2 genotypic ratio 1 TT : 2 Tt : 1 tt."
+        ],
+        "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+      },
+      "replacementQuestion": {
+        "id": "d32-written-2",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.2.2"
+        ],
+        "level": "shared",
+        "prompt": "In a hypothetical pea breeding example, TT plants are crossed with tt plants, then the F1 plants are self-pollinated. The table shows an invented count of 100 F2 seedlings. (a) State the F1 genotype. (b) Predict the F2 genotypic ratio. (c) Calculate the expected number of Tt seedlings and compare it with the observed count. (d) Explain why a small discrepancy need not contradict the predicted ratio. (e) State one way to exclude unintended pollen when making the original controlled cross. [5 marks]",
+        "marks": 5,
+        "sectionId": "inheritance-2",
+        "referenceIds": [
+          "ib-d32",
+          "hodder-d32"
+        ],
+        "answer": "The F1 genotype is Tt. Selfing Tt × Tt predicts F2 1 TT : 2 Tt : 1 tt. Out of 100 F2 seedlings, the expected heterozygote count is 50; 47 were recorded, a difference of 3. Random segregation and fertilization produce sampling variation in finite offspring groups. A breeder can remove anthers before pollen release and/or isolate flowers and transfer pollen from the chosen parent.",
+        "markingPoints": [
+          "All F1 offspring are heterozygous Tt (1).",
+          "Expected F2 genotypic ratio 1 TT : 2 Tt : 1 tt (1).",
+          "Expected Tt count 50 of 100; observed 47, three fewer (1).",
+          "Explains sampling variation from random meiosis/fertilization in finite offspring numbers (1).",
+          "Identifies a legitimate controlled-pollination method such as preventing self-pollination and applying pollen from a known parent (1)."
+        ],
+        "review": "scientific-review",
+        "data": {
+          "caption": "Hypothetical example constructed for exam practice; no real breeding observations are claimed.",
+          "headers": [
+            "F2 genotype",
+            "Seedlings counted"
+          ],
+          "rows": [
+            [
+              "TT",
+              26
+            ],
+            [
+              "Tt",
+              47
+            ],
+            [
+              "tt",
+              27
+            ]
+          ]
+        }
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d32",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "D3.2, printed pp. 98–100; PDF pp. 104–106",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d32",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, third edition (Hodder, 2023)",
+          "locator": "Chapter D3.2, printed pp. 725–759; PDF pp. 737–771",
+          "url": null
+        }
+      ],
+      "reviewLimitations": [
+        "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
+        "No visual asset dependency added; any subsequent illustration changes require revalidation",
+        "No claims of official IB past-paper provenance"
+      ]
+    },
+    {
+      "lessonFile": "src/biology/learning/cell-structure/lesson.json",
+      "sourceLessonBlobSha": "f159be89c61b7ad2c3f5ad259648bc03d21dc7d6",
+      "questionId": "a22-paper2-1",
+      "understandingIds": [
+        "A2.2.2"
+      ],
+      "sectionId": "a22-2",
+      "level": "shared",
+      "originalIssue": "Question said a photomicrograph was depicted; accompanying section figure a22-scale is explicitly a conceptual vector and not a real micrograph. The task should not imply that a measured image was provided.",
+      "originalQuestion": {
+        "id": "a22-paper2-1",
+        "paper": "2",
+        "kind": "written",
+        "original": true,
+        "understandingIds": [
+          "A2.2.2"
+        ],
+        "level": "shared",
+        "prompt": "A photomicrograph depicts a cell 84 mm long; its actual size is 28 µm. Calculate the magnification and explain unit conversion.",
+        "marks": 3,
+        "sectionId": "a22-2",
+        "referenceIds": [
+          "ib-a22",
+          "hodder-a22",
+          "ncbi-visualizing"
+        ],
+        "answer": "84 mm = 84,000 µm; M = 84,000 ÷ 28 = ×3000; Magnification has no units",
+        "markingPoints": [
+          "84 mm = 84,000 µm",
+          "M = 84,000 ÷ 28 = ×3000",
+          "Magnification has no units"
+        ],
+        "review": "draft"
+      },
+      "replacementQuestion": {
+        "id": "a22-paper2-1",
+        "paper": "2",
+        "kind": "written",
+        "original": true,
+        "understandingIds": [
+          "A2.2.2"
+        ],
+        "level": "shared",
+        "prompt": "A hypothetical microscope image of a cell measures 84 mm on a page, while the corresponding actual cell length is 28 µm. Calculate the magnification and explain why your final value has no units. [3 marks]",
+        "marks": 3,
+        "sectionId": "a22-2",
+        "referenceIds": [
+          "ib-a22",
+          "hodder-a22",
+          "ncbi-visualizing"
+        ],
+        "answer": "Image length 84 mm = 84,000 µm. Magnification = 84,000 µm ÷ 28 µm = ×3000. Magnification is dimensionless because the length units cancel.",
+        "markingPoints": [
+          "Correct conversion: image size 84 mm = 84,000 µm (1).",
+          "Correct calculation: 84,000 ÷ 28 = 3000× (1).",
+          "States that magnification has no units because both sizes are expressed in the same unit before taking the ratio (1)."
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-a22",
+          "title": "IB Biology Guide — first assessment 2025",
+          "locator": "A2.2 Cell structure, printed pp.39–41 (PDF pp.45–47); microscopy and drawing applications; NOS notes",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-a22",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma, third edition (2023)",
+          "locator": "Chapter A2.2, printed pp.49–82 (PDF pp.61–94), researched as secondary explanation",
+          "url": null
+        },
+        {
+          "referenceId": "ncbi-visualizing",
+          "title": "Molecular Biology of the Cell: Visualizing Cells (NCBI Bookshelf)",
+          "locator": "Microscopy contrasts; diffraction and preparation caveats",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK21048/"
+        }
+      ],
+      "visualDependency": {
+        "sectionAssetId": "a22-scale",
+        "relationship": "illustrative background only; not a measured source image",
+        "requiredLabels": [],
+        "revalidation": "new figure must not be treated as the measurement source"
+      },
+      "reviewLimitations": [
+        "Hypothetical worked numbers; not measurements from a scientific sample",
+        "No figure-editing or assertion that section illustration is a photomicrograph",
+        "Science educator sign-off pending"
+      ]
+    }
+  ]
+}
