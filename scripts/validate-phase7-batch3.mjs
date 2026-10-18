@@ -36,7 +36,8 @@ export function validatePhase7(d,topic){
    fail('Asset review '+a.id);
   if(a.recallSrc===a.src)fail('Distinct recall asset required '+a.id);
  }
- if(d.topicId==='B2.1'&&!d.sections[14].explanation.includes('three Na+'))fail('Pump stoichiometry');
+ // Keep the three-out / two-in ATPase stoichiometry invariant with real superscript ion charges.
+ if(d.topicId==='B2.1'&&!/exports\s+(?:three|3)\s+Na[+⁺]\s+ions?\s+from\s+the\s+cytosol\s+and\s+imports\s+(?:two|2)\s+K[+⁺]\s+ions?\s+for\s+each\s+ATP\s+hydrolysed/i.test(d.sections[14].explanation))fail('Pump stoichiometry');
  if(d.topicId==='B2.2'&&!['cell wall','cytoskeleton','cytoplasm','ribosomes'].every(v=>d.sections[0].explanation.includes(v)))fail('IB organelle definition');
  return errors;
 }

@@ -19,6 +19,17 @@ for(const slug of ['membranes-transport','organelles-compartmentalization']){
   ['missing correction',x=>x.sections[0].misconceptions=[]]
  ])test(d.topicId+' rejects '+name,()=>{const x=JSON.parse(JSON.stringify(d));fn(x);assert.ok(validatePhase7(x,topic).length)});
 }
+test('B2.1 pump science: three Na⁺ exported and two K⁺ imported per ATP',async()=>{
+ const B21=JSON.parse(await readFile(new URL('../src/biology/learning/membranes-transport/lesson.json',import.meta.url),'utf8'));
+ const topic=t.find(x=>x.id==='B2.1');
+ assert.deepEqual(validatePhase7(B21,topic),[]);
+ const wrongNa=structuredClone(B21);
+ wrongNa.sections[14].explanation=wrongNa.sections[14].explanation.replace('exports three Na⁺ ions','exports four Na⁺ ions');
+ assert.ok(validatePhase7(wrongNa,topic).includes('Pump stoichiometry'));
+ const wrongK=structuredClone(B21);
+ wrongK.sections[14].explanation=wrongK.sections[14].explanation.replace('imports two K⁺ ions','imports three K⁺ ions');
+ assert.ok(validatePhase7(wrongK,topic).includes('Pump stoichiometry'));
+});
 test('all 23 retained recall pairs and 4 reviewed single-frame replacements exist',async()=>{
  const r=await checkFiles();
  assert.deepEqual(r.errors,[]);

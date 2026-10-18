@@ -103,7 +103,7 @@ jobs:
             node --test scripts/biology/scientific-visual-redesign.test.mjs
             node --test scripts/biology/independent-visual-qa/audit.test.mjs
             node scripts/biology/theme-c-final/verify-theme-c.mjs
-            node --test scripts/biology/theme-b-depth-review.test.mjs scripts/biology/theme-b-final-editorial.test.mjs
+            node --test tests/biology/theme-b-depth-review.test.mjs tests/biology/theme-b-final-editorial.test.mjs
             node --test scripts/biology/theme-d-final-20261018/depth.test.mjs scripts/biology/theme-d-final-20261018/editorial.test.mjs
             node --experimental-strip-types --test scripts/biology/source-policy/source-policy.test.mjs
             node scripts/biology/source-policy/verify.mjs

@@ -27,7 +27,7 @@ try{
   p.on('pageerror',error=>report.errors.push('Runtime: '+String(error)));
   await check('Full Biology course library',async()=>{
     await p.goto(base+'#biology');
-    await expect(p.locator('.bio-course-header h1')).toHaveText('Biology');
+    await expect(p.locator('#bio-welcome-title')).toHaveText('Biology, made clearer.');
     await p.screenshot({path:folder+'/library-desktop.png',fullPage:true});
     report.screenshots.push('library-desktop.png');
   });
@@ -73,7 +73,7 @@ try{
     const mobile=await context(width,'HL',true);const page=await mobile.newPage();
     await check('Mobile course navigation '+width,async()=>{
       await page.goto(base+'#biology',{waitUntil:'domcontentloaded'});
-      await expect(page.locator('.bio-course-header h1')).toBeVisible();
+      await expect(page.locator('#bio-welcome-title')).toBeVisible();
       const scroll=await page.evaluate(()=>document.documentElement.scrollWidth);
       expect(scroll).toBeLessThanOrEqual(width+2);
       await page.screenshot({path:folder+'/library-'+width+'.png',fullPage:true});
