@@ -172,6 +172,60 @@ try {
   assert.ok(duration.split(',').every(v=>parseFloat(v)===0),'Transition active despite reduced-motion: '+duration);
  });
 
+ await test('Heading structure reflects Theme → Topic hierarchy',async()=>{
+  await visit(page,'#biology/theme/A');
+  assert.equal(await page.locator('.bio-theme-intro h1').count(),1);
+  assert.equal(await page.locator('.bio-discovery-heading h2').count(),1);
+  assert.ok(await page.locator('.bio-result-section-head h3').count()>=1);
+  assert.ok(await page.locator('.bio-discovery-topic h4').count()>=1);
+ });
+ await test('Minimum 44px high-priority tap targets on 320px screen',async()=>{
+  await page.setViewportSize({width:320,height:850});
+  await visit(page,'#biology');
+  const targets=['.bio-welcome-actions .bio-primary','.bio-welcome-actions .bio-secondary','.bio-quick-item','.bio-resource-nav a','.bio-level label>span'];
+  for(const selector of targets){
+   const box=await page.locator(selector).first().boundingBox();
+   assert.ok(box&&box.height>=44&&box.width>=44,selector+' smaller than 44x44: '+JSON.stringify(box));
+  }
+  await page.locator('#bio-topic-search').fill('water');
+  const box=await page.getByRole('button',{name:'Clear topic search'}).boundingBox();
+  assert.ok(box&&box.height>=44&&box.width>=44,'Search clear target: '+JSON.stringify(box));
+ });
+ await test('Real D3.2 data table is labelled and horizontally contained at 320px',async()=>{
+  await page.setViewportSize({width:320,height:850});
+  await visit(page,'#biology/topic/D3.2/learn?understanding=D3.2.9');
+  const table=page.locator('.bio-lesson-content .bio-table-scroll').first();
+  await table.waitFor();
+  const info=await table.evaluate(el=>({width:el.getBoundingClientRect().width,client:el.clientWidth,scroll:el.scrollWidth,role:el.getAttribute('role'),name:el.getAttribute('aria-label'),tab:el.tabIndex}));
+  assert.ok(info.width<=320,'Table wrapper exceeds viewport: '+JSON.stringify(info));
+  assert.equal(info.role,'region');assert.ok(info.name);assert.equal(info.tab,0);
+  if(info.scroll>info.client+1){
+   await table.evaluate(el=>{el.scrollLeft=el.scrollWidth});
+   assert.ok((await table.evaluate(el=>el.scrollLeft))>0,'Scrollable table cannot scroll');
+  }
+  await noDocumentOverflow(page,'D3.2 table at 320');
+ });
+ async function sampledContrast(p){
+  return p.evaluate(()=>{
+   const root=document.querySelector('[data-biology-host]').shadowRoot;
+   const canvas=document.createElement('canvas');canvas.width=1;canvas.height=1;
+   const ctx=canvas.getContext('2d');
+   function components(value){ctx.clearRect(0,0,1,1);ctx.fillStyle=value;ctx.fillRect(0,0,1,1);return [...ctx.getImageData(0,0,1,1).data].slice(0,3)}
+   function luminance(rgb){const a=rgb.map(v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*a[0]+.7152*a[1]+.0722*a[2]}
+   const samples=[['search text','#bio-topic-search','.bio-search-enhanced'],['theme title','.bio-discovery-theme-A h3','.bio-discovery-theme-A']];
+   return samples.map(([name,foreground,background])=>{
+    const fg=components(getComputedStyle(root.querySelector(foreground)).color),bg=components(getComputedStyle(root.querySelector(background)).backgroundColor);
+    const a=luminance(fg),b=luminance(bg);
+    return {name,contrast:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)};
+   });
+  });
+ }
+ await test('Sampled light-mode search and theme-title contrast ≥ 4.5:1',async()=>{
+  await visit(page,'#biology');
+  const samples=await sampledContrast(page);
+  for(const sample of samples)assert.ok(sample.contrast>=4.5,JSON.stringify(sample));
+ });
+
  for(const width of [320,390,768,1440,1920]){
   await test('Mobile/desktop course library and no overflow '+width,async()=>{
    await page.setViewportSize({width,height:950});
