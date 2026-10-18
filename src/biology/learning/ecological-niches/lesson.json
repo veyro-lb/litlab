@@ -350,6 +350,36 @@
             ]
           ]
         }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Organisms compared by tolerance of oxygen",
+          "afterBlock": 3,
+          "headers": [
+            "Group",
+            "Oxygen present",
+            "Oxygen absent"
+          ],
+          "rows": [
+            [
+              "Obligate aerobe",
+              "Growth possible",
+              "Cannot grow normally"
+            ],
+            [
+              "Obligate anaerobe",
+              "Growth prevented by oxygen at intolerable levels",
+              "Growth possible"
+            ],
+            [
+              "Facultative anaerobe",
+              "Growth possible",
+              "Growth possible"
+            ]
+          ],
+          "note": "Broad tolerance categories; not a description of detailed metabolic pathways."
+        }
       ]
     },
     {
@@ -1664,7 +1694,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Different forest plant forms harvest light?",
-      "explanation": "Trees growing to the canopy invest in tall woody stems that support leaves in strong light. Lianas climb using other trees for support, while epiphytes grow on branches and access light without rooting in the soil; most epiphytes obtain water and nutrients from rain, debris and their rooting environment rather than directly parasitizing host vascular tissue.\n\nStrangler figs may germinate high on host trees and extend roots downward, eventually growing around the host. Shade-tolerant understory shrubs and herbs have adaptations suited to low light, such as broad leaves and suitable photosynthetic characteristics. These forms occupy different positions and face different costs of reaching light. An ordinary epiphyte uses another plant as physical support but does not necessarily extract assimilates from that host.\n\nA bromeliad can grow epiphytically on a branch without being a true vascular parasite. Canopy trees, lianas, epiphytes, stranglers and understory plants differ in light-acquisition strategy.",
+      "explanation": "Trees growing to the canopy invest in tall woody stems that support leaves in strong light. Lianas climb using other trees for support, while epiphytes grow on branches and access light without rooting in the soil; most epiphytes obtain water and nutrients from rain, debris and their rooting environment rather than directly parasitizing host vascular tissue.\n\nStrangler figs may germinate high on host trees and extend roots downward, eventually growing around the host. Shade-tolerant understory shrubs and herbs have adaptations suited to low light, such as broad leaves and suitable photosynthetic characteristics. These forms occupy different positions and face different costs of reaching light. An ordinary epiphyte uses another plant as physical support but does not necessarily extract assimilates from that host.\n\nA bromeliad can grow epiphytically on a branch without being a true vascular parasite. Canopy trees, lianas, epiphytes, stranglers and understory plants differ in light-acquisition strategy.\n\nCanopy trees invest in tall supporting trunks and large crowns to intercept sunlight. Lianas climb those trees and use the support of a host while investing less in a self-supporting stem. Epiphytes live on branches where light is more abundant, obtaining their water and nutrients without necessarily parasitizing the host. Strangler epiphytes may develop roots that surround and eventually disadvantage or kill the supporting tree. Shade-tolerant herbs and shrubs persist under the canopy with low-light adaptations rather than climbing into it. Each growth form solves a different problem of light acquisition, so height alone is not the definition of a successful forest plant niche.",
       "revisionSummary": "Canopy trees, lianas, epiphytes, stranglers and understory plants differ in light-acquisition strategy.",
       "terms": [
         "Canopy trees and climbers",
@@ -1703,6 +1733,13 @@
             "ib-guide-b42",
             "hodder-b42"
           ]
+        },
+        {
+          "claim": "Canopy trees invest in tall supporting trunks and large crowns to intercept sunlight. Lianas climb those trees and use the support of a host while investing less in a self-supporting stem. Epiphytes live on branches where light is more abundant, obtaining their water and nutrients without necessarily parasitizing the host. Strangler epiphytes may develop roots that surround and eventually disadvantage or kill the supporting tree. Shade-tolerant herbs and shrubs persist under the canopy with low-light adaptations rather than climbing into it. Each growth form solves a different problem of light acquisition, so height alone is not the definition of a successful forest plant niche.",
+          "referenceIds": [
+            "ib-guide-b42",
+            "hodder-b42"
+          ]
         }
       ],
       "assets": [
@@ -1734,6 +1771,14 @@
         {
           "title": "Distinguish a host from a parasite",
           "explanation": "A bromeliad can grow epiphytically on a branch without being a true vascular parasite. Canopy trees, lianas, epiphytes, stranglers and understory plants differ in light-acquisition strategy.",
+          "referenceIds": [
+            "ib-guide-b42",
+            "hodder-b42"
+          ]
+        },
+        {
+          "title": "Compare five strategies for reaching forest light",
+          "explanation": "Canopy trees invest in tall supporting trunks and large crowns to intercept sunlight. Lianas climb those trees and use the support of a host while investing less in a self-supporting stem. Epiphytes live on branches where light is more abundant, obtaining their water and nutrients without necessarily parasitizing the host. Strangler epiphytes may develop roots that surround and eventually disadvantage or kill the supporting tree. Shade-tolerant herbs and shrubs persist under the canopy with low-light adaptations rather than climbing into it. Each growth form solves a different problem of light acquisition, so height alone is not the definition of a successful forest plant niche.",
           "referenceIds": [
             "ib-guide-b42",
             "hodder-b42"
@@ -1800,7 +1845,47 @@
           388,
           389
         ]
-      }
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Forest plant strategies for obtaining light",
+          "afterBlock": 3,
+          "headers": [
+            "Growth form",
+            "How light is reached",
+            "Dependence on supporting trees"
+          ],
+          "rows": [
+            [
+              "Canopy tree",
+              "Builds tall self-supporting trunk",
+              "Not obligatory"
+            ],
+            [
+              "Liana",
+              "Climbs toward illuminated canopy",
+              "Uses trees as support"
+            ],
+            [
+              "Epiphyte",
+              "Grows on canopy branches",
+              "Uses host as support, not necessarily food"
+            ],
+            [
+              "Strangler epiphyte",
+              "Establishes aloft; may envelop a host",
+              "Can harm or kill supporting host"
+            ],
+            [
+              "Shade-tolerant understory",
+              "Functions under limited available light",
+              "No physical host required"
+            ]
+          ],
+          "note": "Conceptual comparison of different ecological niches."
+        }
+      ]
     },
     {
       "id": "b42-12",
@@ -1809,7 +1894,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Potential and realized ecological niches?",
-      "explanation": "A habitat is the physical place where a species lives. A fundamental niche represents the potential conditions and resources it could use according to its adaptations and tolerance limits in the absence of limiting competition. The realized niche describes conditions and resources actually used while interacting with other organisms. Competition can restrict that use without changing physiological tolerance. A simplified two-axis niche diagram represents only part of a multidimensional niche.\n\nCompetition can restrict the realized niche to a subset of the fundamental one, but predators, mutualists and dispersal barriers may also alter actual distribution. A niche is multidimensional: a simple two-dimensional diagram is an explanatory slice, not the complete biological niche. Realized and fundamental niches are not identical by definition. Realized niche is not always a simple fixed fraction of the fundamental niche; interactions and constraints can change several niche dimensions at once.\n\nA barnacle species may occupy less of the shore when a stronger competitor is present. Competition often reduces actual resource use relative to potential tolerance.",
+      "explanation": "A habitat is the physical place where a species lives. A fundamental niche represents the potential conditions and resources it could use according to its adaptations and tolerance limits in the absence of limiting competition. The realized niche describes conditions and resources actually used while interacting with other organisms. Competition can restrict that use without changing physiological tolerance. A simplified two-axis niche diagram represents only part of a multidimensional niche.\n\nCompetition can restrict the realized niche to a subset of the fundamental one, but predators, mutualists and dispersal barriers may also alter actual distribution. A niche is multidimensional: a simple two-dimensional diagram is an explanatory slice, not the complete biological niche. Realized and fundamental niches are not identical by definition. Realized niche is not always a simple fixed fraction of the fundamental niche; interactions and constraints can change several niche dimensions at once.\n\nA barnacle species may occupy less of the shore when a stronger competitor is present. Competition often reduces actual resource use relative to potential tolerance.\n\nA fundamental niche describes the full range of conditions and resources in which a species could maintain a population given its physiology and adaptations, considered without limiting biotic interactions such as competition. The realized niche is the subset it actually occupies in the presence of competitors and other interacting species. Suppose a plant could grow in both shaded and sunlit patches under controlled conditions, but another species dominates sunlit patches in the wild. Its realized distribution could be mainly shaded, even though its tolerance extends further. A field map alone gives evidence about realized occupancy, not automatically the whole fundamental niche; controlled comparisons help identify what competition changes.",
       "revisionSummary": "Competition often reduces actual resource use relative to potential tolerance.",
       "terms": [
         "Potential tolerance space",
@@ -1848,6 +1933,13 @@
             "ib-guide-b42",
             "hodder-b42"
           ]
+        },
+        {
+          "claim": "A fundamental niche describes the full range of conditions and resources in which a species could maintain a population given its physiology and adaptations, considered without limiting biotic interactions such as competition. The realized niche is the subset it actually occupies in the presence of competitors and other interacting species. Suppose a plant could grow in both shaded and sunlit patches under controlled conditions, but another species dominates sunlit patches in the wild. Its realized distribution could be mainly shaded, even though its tolerance extends further. A field map alone gives evidence about realized occupancy, not automatically the whole fundamental niche; controlled comparisons help identify what competition changes.",
+          "referenceIds": [
+            "ib-guide-b42",
+            "hodder-b42"
+          ]
         }
       ],
       "assets": [
@@ -1879,6 +1971,14 @@
         {
           "title": "Interpret a simplified niche diagram",
           "explanation": "A barnacle species may occupy less of the shore when a stronger competitor is present. Competition often reduces actual resource use relative to potential tolerance.",
+          "referenceIds": [
+            "ib-guide-b42",
+            "hodder-b42"
+          ]
+        },
+        {
+          "title": "Predict how interactions restrict a potential niche",
+          "explanation": "A fundamental niche describes the full range of conditions and resources in which a species could maintain a population given its physiology and adaptations, considered without limiting biotic interactions such as competition. The realized niche is the subset it actually occupies in the presence of competitors and other interacting species. Suppose a plant could grow in both shaded and sunlit patches under controlled conditions, but another species dominates sunlit patches in the wild. Its realized distribution could be mainly shaded, even though its tolerance extends further. A field map alone gives evidence about realized occupancy, not automatically the whole fundamental niche; controlled comparisons help identify what competition changes.",
           "referenceIds": [
             "ib-guide-b42",
             "hodder-b42"
@@ -1974,6 +2074,30 @@
             ]
           ],
           "note": "Conceptual contrast, not field-observed niche widths."
+        },
+        {
+          "kind": "comparison",
+          "title": "Potential versus actual niche",
+          "afterBlock": 3,
+          "headers": [
+            "Fundamental niche",
+            "Realized niche"
+          ],
+          "rows": [
+            [
+              "Conditions potentially tolerated",
+              "Conditions actually occupied"
+            ],
+            [
+              "Identified from adaptations and physiological limits",
+              "Constrained by competition and other interactions"
+            ],
+            [
+              "May be wider than current distribution",
+              "Typically a subset of potential range"
+            ]
+          ],
+          "note": "Conceptual comparison; not measured species-distribution data."
         }
       ]
     },
@@ -1984,7 +2108,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Competition can exclude or partition niches?",
-      "explanation": "When two species rely on the same limiting resources in nearly identical ways, one may be excluded locally by competition. Alternatively, species can persist by using different food, locations or activity times, so their realized niches are restricted to different parts of potential resource space. Sharing a habitat does not automatically mean occupying the same niche. Observations of abundance and resource use, not a slogan about competition, distinguish these outcomes.\n\nCoexistence may instead arise when each species is restricted to a different part of the potential niche, such as distinct feeding levels, seasons or substrates. Competitive outcomes also depend on environmental variation and other ecological interactions. An experiment should measure abundance and resource use under controlled conditions rather than simply assume one competitor will always disappear. Competitive exclusion assumes sufficiently similar limiting-resource use under specified conditions, not that any two species in one habitat cannot coexist.\n\nTwo bird species can share a habitat by feeding on different prey at different depths. Competition may yield exclusion or resource partitioning and narrower realized niches.",
+      "explanation": "When two species rely on the same limiting resources in nearly identical ways, one may be excluded locally by competition. Alternatively, species can persist by using different food, locations or activity times, so their realized niches are restricted to different parts of potential resource space. Sharing a habitat does not automatically mean occupying the same niche. Observations of abundance and resource use, not a slogan about competition, distinguish these outcomes.\n\nCoexistence may instead arise when each species is restricted to a different part of the potential niche, such as distinct feeding levels, seasons or substrates. Competitive outcomes also depend on environmental variation and other ecological interactions. An experiment should measure abundance and resource use under controlled conditions rather than simply assume one competitor will always disappear. Competitive exclusion assumes sufficiently similar limiting-resource use under specified conditions, not that any two species in one habitat cannot coexist.\n\nTwo bird species can share a habitat by feeding on different prey at different depths. Competition may yield exclusion or resource partitioning and narrower realized niches.\n\nWhen two species use the same limiting resource in essentially the same way, competition can reduce growth or reproduction of one or both. If their niches remain sufficiently similar under stable conditions, one species may be excluded locally. Alternatively, both can persist if their resource use shifts or is restricted to different parts of their potential niches, such as feeding at different times or in different microhabitats. Competition does not necessarily lead to immediate extinction of an entire species, and coexistence does not mean competition is absent. Compare where each species succeeds alone with where it succeeds in the presence of the other; this separates a competition effect from simple environmental intolerance.",
       "revisionSummary": "Competition may yield exclusion or resource partitioning and narrower realized niches.",
       "terms": [
         "Conditions for exclusion",
@@ -2023,6 +2147,13 @@
             "ib-guide-b42",
             "hodder-b42"
           ]
+        },
+        {
+          "claim": "When two species use the same limiting resource in essentially the same way, competition can reduce growth or reproduction of one or both. If their niches remain sufficiently similar under stable conditions, one species may be excluded locally. Alternatively, both can persist if their resource use shifts or is restricted to different parts of their potential niches, such as feeding at different times or in different microhabitats. Competition does not necessarily lead to immediate extinction of an entire species, and coexistence does not mean competition is absent. Compare where each species succeeds alone with where it succeeds in the presence of the other; this separates a competition effect from simple environmental intolerance.",
+          "referenceIds": [
+            "ib-guide-b42",
+            "hodder-b42"
+          ]
         }
       ],
       "assets": [],
@@ -2047,6 +2178,14 @@
         {
           "title": "Explain limits of an experiment",
           "explanation": "Two bird species can share a habitat by feeding on different prey at different depths. Competition may yield exclusion or resource partitioning and narrower realized niches.",
+          "referenceIds": [
+            "ib-guide-b42",
+            "hodder-b42"
+          ]
+        },
+        {
+          "title": "Distinguish exclusion from partitioned coexistence",
+          "explanation": "When two species use the same limiting resource in essentially the same way, competition can reduce growth or reproduction of one or both. If their niches remain sufficiently similar under stable conditions, one species may be excluded locally. Alternatively, both can persist if their resource use shifts or is restricted to different parts of their potential niches, such as feeding at different times or in different microhabitats. Competition does not necessarily lead to immediate extinction of an entire species, and coexistence does not mean competition is absent. Compare where each species succeeds alone with where it succeeds in the presence of the other; this separates a competition effect from simple environmental intolerance.",
           "referenceIds": [
             "ib-guide-b42",
             "hodder-b42"
