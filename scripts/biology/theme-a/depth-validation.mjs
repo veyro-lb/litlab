@@ -25,10 +25,10 @@ for (const [topicId,slug,sectionsCount,questionsCount] of files) {
  assert.deepEqual(validateLesson(lesson,{...topic,lessonId:lesson.id}),[],topicId+' contract');
  for (const section of lesson.sections) {
   const id=section.understandingIds[0];
-  const wordCount=section.teachingBlocks.map(b=>b.explanation).join(' ').trim().split(/\\s+/).length;
+  const wordCount=section.teachingBlocks.map(b=>b.explanation).join(' ').trim().split(/\s+/).length;
   assert.ok(wordCount>=150,id+' main reading shorter than 150 words: '+wordCount);
-  assert.equal(section.teachingBlocks.map(b=>b.explanation).join('\\n\\n'),section.explanation,id+' teaching-block drift');
-  assert.equal(section.claimReferences.map(x=>x.claim).join('\\n\\n'),section.explanation,id+' claim drift');
+  assert.equal(section.teachingBlocks.map(b=>b.explanation).join('\n\n'),section.explanation,id+' teaching-block drift');
+  assert.equal(section.claimReferences.map(x=>x.claim).join('\n\n'),section.explanation,id+' claim drift');
   assert.ok(section.teachingBlocks.every(b=>b.title.trim().length>5&&!generic.test(b.title)),id+' generic teaching heading');
   assert.equal(section.level,topic.understandings.find(u=>u.id===id).level,id+' scope');
   reviewed++;
