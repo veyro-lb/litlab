@@ -2160,7 +2160,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What do median, quartiles and whiskers reveal about a height dataset?",
-      "explanation": "A box-and-whisker plot displays a distribution using the median, first quartile Q1 and third quartile Q3, with the box spanning the interquartile range (IQR = Q3 − Q1). Under the 1.5 × IQR convention, values smaller than Q1 − 1.5 IQR or larger than Q3 + 1.5 IQR are plotted individually as outliers. The whiskers extend to the smallest and largest non-outlying values, which may differ from the absolute minimum and maximum.\n\nWhen interpreting the six required features, identify outliers, actual minimum, Q1, median, Q3 and actual maximum; if the plot uses Tukey-style whiskers, the actual extreme values can appear as outlier points. Comparing medians and IQRs helps distinguish typical values from variability, but overlapping plots alone do not demonstrate statistical significance.\n\nFor ordered heights 150, 156, 160, 164, 169, 172 and 178 cm, the exclusive-median convention gives Q1 = 156, median = 164, Q3 = 172. IQR = 16 cm. Fences are Q1 − 24 = 132 and Q3 + 24 = 196 cm, so there are no outliers. Other quartile conventions must be named explicitly.",
+      "explanation": "A box-and-whisker plot displays a distribution using the median, first quartile Q1 and third quartile Q3, with the box spanning the interquartile range (IQR = Q3 − Q1). Under the 1.5 × IQR convention, values smaller than Q1 − 1.5 IQR or larger than Q3 + 1.5 IQR are plotted individually as outliers. The whiskers extend to the smallest and largest non-outlying values, which may differ from the absolute minimum and maximum.\n\nWhen interpreting the six required features, identify outliers, actual minimum, Q1, median, Q3 and actual maximum; if the plot uses Tukey-style whiskers, the actual extreme values can appear as outlier points. Comparing medians and IQRs helps distinguish typical values from variability, but overlapping plots alone do not demonstrate statistical significance.\n\nFor ordered heights 150, 156, 160, 164, 169, 172 and 178 cm, the exclusive-median convention gives Q1 = 156, median = 164, Q3 = 172. IQR = 16 cm. Fences are Q1 − 24 = 132 and Q3 + 24 = 196 cm, so there are no outliers. Other quartile conventions must be named explicitly.\n\nIn a box-and-whisker plot of student heights, the median separates the lower and upper halves of observations and the box spans the interquartile range, Q3 − Q1. Whisker conventions differ; check whether they show minimum and maximum or another rule, and identify separately plotted outliers if present. Two groups can have the same median but different dispersion. Because height is continuous, a box plot summarizes variation without showing exact genotype information. Use properly labelled units and similar scales before comparing groups.",
       "revisionSummary": "A value above Q3 + 1.5 × IQR is classified as an outlier.",
       "terms": [
         "Box plots display spread and unusual values"
@@ -2220,6 +2220,14 @@
         {
           "title": "IQR and box-plot worked example",
           "explanation": "For ordered heights 150, 156, 160, 164, 169, 172 and 178 cm, the exclusive-median convention gives Q1 = 156, median = 164, Q3 = 172. IQR = 16 cm. Fences are Q1 − 24 = 132 and Q3 + 24 = 196 cm, so there are no outliers. Other quartile conventions must be named explicitly.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "Read distribution rather than only its average",
+          "explanation": "In a box-and-whisker plot of student heights, the median separates the lower and upper halves of observations and the box spans the interquartile range, Q3 − Q1. Whisker conventions differ; check whether they show minimum and maximum or another rule, and identify separately plotted outliers if present. Two groups can have the same median but different dispersion. Because height is continuous, a box plot summarizes variation without showing exact genotype information. Use properly labelled units and similar scales before comparing groups.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2337,7 +2345,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How do segregating and unlinked genes generate gamete combinations?",
-      "explanation": "At meiosis I, each pair of homologous chromosomes aligns in a random orientation relative to the poles. Alleles at loci on different chromosome pairs therefore assort independently: for AaBb, with A/a on one homologous pair and B/b on another, meiosis can generate AB, Ab, aB and ab gametes in expected equal proportions. Segregation refers to separation of the two alleles of one locus into different gametes.\n\nGenes far apart on the same chromosome may behave as unlinked when crossover leads to about 50% recombination; tightly linked genes generally do not show independent assortment. This physical qualification is why a dihybrid ratio should not be applied blindly to all gene pairs. Recombination can be considered separately from chromosomal assortment.",
+      "explanation": "At meiosis I, each pair of homologous chromosomes aligns in a random orientation relative to the poles. Alleles at loci on different chromosome pairs therefore assort independently: for AaBb, with A/a on one homologous pair and B/b on another, meiosis can generate AB, Ab, aB and ab gametes in expected equal proportions. Segregation refers to separation of the two alleles of one locus into different gametes.\n\nGenes far apart on the same chromosome may behave as unlinked when crossover leads to about 50% recombination; tightly linked genes generally do not show independent assortment. This physical qualification is why a dihybrid ratio should not be applied blindly to all gene pairs. Recombination can be considered separately from chromosomal assortment.\n\nThe alleles of a heterozygous autosomal gene segregate when homologous chromosomes are allocated to different products of meiosis I. For two genes on different chromosome pairs, the independent orientations of homologous pairs can yield AB, Ab, aB and ab gametes in roughly equal proportions from AaBb. This 1:1:1:1 prediction relies on independent assortment and uncomplicated meiosis. If genes lie close together on one chromosome, their alleles can be linked, and independent assortment is no longer the appropriate default model.",
       "revisionSummary": "An AaBb parent with unlinked loci forms AB, Ab, aB and ab gametes in equal expected proportions.",
       "terms": [
         "Independent assortment follows chromosome orientation"
@@ -2382,6 +2390,14 @@
         {
           "title": "Mechanism, prediction and limits",
           "explanation": "Genes far apart on the same chromosome may behave as unlinked when crossover leads to about 50% recombination; tightly linked genes generally do not show independent assortment. This physical qualification is why a dihybrid ratio should not be applied blindly to all gene pairs. Recombination can be considered separately from chromosomal assortment.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "Relate chromosome alignment to the gamete ratios",
+          "explanation": "The alleles of a heterozygous autosomal gene segregate when homologous chromosomes are allocated to different products of meiosis I. For two genes on different chromosome pairs, the independent orientations of homologous pairs can yield AB, Ab, aB and ab gametes in roughly equal proportions from AaBb. This 1:1:1:1 prediction relies on independent assortment and uncomplicated meiosis. If genes lie close together on one chromosome, their alleles can be linked, and independent assortment is no longer the appropriate default model.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2474,7 +2490,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Why does an AaBb × AaBb cross predict 9:3:3:1 under specified assumptions?",
-      "explanation": "For two independently assorting autosomal genes showing complete dominance, AaBb × AaBb gives four equally likely gametes from each parent. A four-by-four Punnett grid has 16 equally likely genotype combinations. For phenotype at locus A, three quarters show the A-dominant trait; for B, three quarters show the B-dominant trait. Multiply independent probabilities: A_B_ = 9/16; A_bb = 3/16; aaB_ = 3/16; aabb = 1/16.\n\nA test cross AaBb × aabb is different: the double recessive parent produces only ab gametes, so four offspring classes each have expected probability 1/4, yielding 1:1:1:1. Neither ratio is universal: both assume unlinked genes, ordinary segregation, equal viability and appropriate phenotype dominance.\n\nFor unlinked AaBb × AaBb with complete dominance, P(A_B_) = (3/4)(3/4) = 9/16, P(A_bb) = 3/16, P(aaB_) = 3/16 and P(aabb) = 1/16. Expected phenotype counts among 160 offspring are 90, 30, 30 and 10. Observed counts may vary.",
+      "explanation": "For two independently assorting autosomal genes showing complete dominance, AaBb × AaBb gives four equally likely gametes from each parent. A four-by-four Punnett grid has 16 equally likely genotype combinations. For phenotype at locus A, three quarters show the A-dominant trait; for B, three quarters show the B-dominant trait. Multiply independent probabilities: A_B_ = 9/16; A_bb = 3/16; aaB_ = 3/16; aabb = 1/16.\n\nA test cross AaBb × aabb is different: the double recessive parent produces only ab gametes, so four offspring classes each have expected probability 1/4, yielding 1:1:1:1. Neither ratio is universal: both assume unlinked genes, ordinary segregation, equal viability and appropriate phenotype dominance.\n\nFor unlinked AaBb × AaBb with complete dominance, P(A_B_) = (3/4)(3/4) = 9/16, P(A_bb) = 3/16, P(aaB_) = 3/16 and P(aabb) = 1/16. Expected phenotype counts among 160 offspring are 90, 30, 30 and 10. Observed counts may vary.\n\nFor AaBb × AaBb with unlinked loci, each parent can make AB, Ab, aB and ab gametes at 1/4 probability. Combining them gives 16 equally likely Punnett-grid cells. If A and B each show complete dominance, nine cells express both dominant traits, three the first dominant only, three the second dominant only and one neither: 9:3:3:1. This phenotype ratio assumes independent assortment, complete dominance and no viability differences. The grid expresses expected probabilities; sampling variation is normal in a finite offspring count.",
       "revisionSummary": "AaBb × AaBb at unlinked completely dominant loci yields a 9:3:3:1 phenotypic ratio.",
       "terms": [
         "Dihybrid grids encode combinations and ratios"
@@ -2536,6 +2552,14 @@
         {
           "title": "Quantify the 9:3:3:1 prediction",
           "explanation": "For unlinked AaBb × AaBb with complete dominance, P(A_B_) = (3/4)(3/4) = 9/16, P(A_bb) = 3/16, P(aaB_) = 3/16 and P(aabb) = 1/16. Expected phenotype counts among 160 offspring are 90, 30, 30 and 10. Observed counts may vary.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "Connect the four gamete types to a 16-cell grid",
+          "explanation": "For AaBb × AaBb with unlinked loci, each parent can make AB, Ab, aB and ab gametes at 1/4 probability. Combining them gives 16 equally likely Punnett-grid cells. If A and B each show complete dominance, nine cells express both dominant traits, three the first dominant only, three the second dominant only and one neither: 9:3:3:1. This phenotype ratio assumes independent assortment, complete dominance and no viability differences. The grid expresses expected probabilities; sampling variation is normal in a finite offspring count.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2653,7 +2677,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Where are the specified human gene loci and what do their products do?",
-      "explanation": "A gene locus is its position on a chromosome. Human gene databases such as NCBI Gene and Ensembl record chromosomal coordinates and gene products, allowing students to distinguish genes on separate chromosomes from neighbours on the same chromosome. For example, the HBB beta-globin gene lies on chromosome 11 and PAH on chromosome 12; their positions on different chromosome pairs support independent assortment in the simple model.\n\nWhen searching a database, record the assembly version, gene symbol, chromosome, coordinates and annotated polypeptide product. Do not confuse a gene's physical chromosomal distance with its genetic map distance, which reflects recombination. Genes close together tend to be linked, whereas genes on different autosomes segregate independently under ordinary meiosis.",
+      "explanation": "A gene locus is its position on a chromosome. Human gene databases such as NCBI Gene and Ensembl record chromosomal coordinates and gene products, allowing students to distinguish genes on separate chromosomes from neighbours on the same chromosome. For example, the HBB beta-globin gene lies on chromosome 11 and PAH on chromosome 12; their positions on different chromosome pairs support independent assortment in the simple model.\n\nWhen searching a database, record the assembly version, gene symbol, chromosome, coordinates and annotated polypeptide product. Do not confuse a gene's physical chromosomal distance with its genetic map distance, which reflects recombination. Genes close together tend to be linked, whereas genes on different autosomes segregate independently under ordinary meiosis.\n\nThe position of a human gene can be found in a curated database such as NCBI Gene or Ensembl, which provides chromosomal location and information about its polypeptide product. A locus specifies where a gene occurs, not the phenotype itself. Compare database entries using the same reference genome assembly, because reported coordinates can change when assemblies are updated. A gene may have multiple transcript variants, so avoid interpreting every product entry as a completely separate locus. The task is biological database interpretation, not memorizing arbitrary chromosome coordinates.",
       "revisionSummary": "Two loci on different autosomes usually assort independently.",
       "terms": [
         "Gene loci can be checked using curated databases"
@@ -2698,6 +2722,14 @@
         {
           "title": "Mechanism, prediction and limits",
           "explanation": "When searching a database, record the assembly version, gene symbol, chromosome, coordinates and annotated polypeptide product. Do not confuse a gene's physical chromosomal distance with its genetic map distance, which reflects recombination. Genes close together tend to be linked, whereas genes on different autosomes segregate independently under ordinary meiosis.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "Connect each locus to its encoded product",
+          "explanation": "The position of a human gene can be found in a curated database such as NCBI Gene or Ensembl, which provides chromosomal location and information about its polypeptide product. A locus specifies where a gene occurs, not the phenotype itself. Compare database entries using the same reference genome assembly, because reported coordinates can change when assemblies are updated. A gene may have multiple transcript variants, so avoid interpreting every product entry as a completely separate locus. The task is biological database interpretation, not memorizing arbitrary chromosome coordinates.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2790,7 +2822,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How do loci on one autosome deviate from independent assortment?",
-      "explanation": "Two loci on the same autosome can be linked because they are carried on one physical chromosome. Show a double heterozygote's phase explicitly with vertical homologous lines, for example A—B on one homologue and a—b on the other (AB/ab). Without crossing over between the loci, gametes retain parental AB or ab combinations rather than the four equiprobable classes expected for unlinked loci.\n\nCrossing over in prophase I can exchange segments between non-sister chromatids and produce recombinant combinations Ab or aB. Recombination probability increases with the distance between loci in many genomic regions but is not a simple direct linear ruler across long distances. A frequency near 50% is indistinguishable from unlinked segregation on this measure.",
+      "explanation": "Two loci on the same autosome can be linked because they are carried on one physical chromosome. Show a double heterozygote's phase explicitly with vertical homologous lines, for example A—B on one homologue and a—b on the other (AB/ab). Without crossing over between the loci, gametes retain parental AB or ab combinations rather than the four equiprobable classes expected for unlinked loci.\n\nCrossing over in prophase I can exchange segments between non-sister chromatids and produce recombinant combinations Ab or aB. Recombination probability increases with the distance between loci in many genomic regions but is not a simple direct linear ruler across long distances. A frequency near 50% is indistinguishable from unlinked segregation on this measure.\n\nIf two loci are linked on one chromosome pair, show the alleles aligned on homologues, such as AB/ab, rather than writing AaBb alone. Before crossing over, parental gamete arrangements AB and ab are favoured relative to recombinant arrangements Ab and aB. The actual recombinant fraction depends partly on the frequency of crossing over between the two loci. A recombinant gamete contains a new combination of parental alleles, not necessarily a novel allele created by mutation. Close linkage makes the standard unlinked 1:1:1:1 gamete assumption unreliable.",
       "revisionSummary": "Nearby loci on one autosome may co-segregate because they share a chromosome.",
       "terms": [
         "Linked alleles travel together more often"
@@ -2837,6 +2869,14 @@
         {
           "title": "Mechanism, prediction and limits",
           "explanation": "Crossing over in prophase I can exchange segments between non-sister chromatids and produce recombinant combinations Ab or aB. Recombination probability increases with the distance between loci in many genomic regions but is not a simple direct linear ruler across long distances. A frequency near 50% is indistinguishable from unlinked segregation on this measure.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "Show phase to reveal linkage",
+          "explanation": "If two loci are linked on one chromosome pair, show the alleles aligned on homologues, such as AB/ab, rather than writing AaBb alone. Before crossing over, parental gamete arrangements AB and ab are favoured relative to recombinant arrangements Ab and aB. The actual recombinant fraction depends partly on the frequency of crossing over between the two loci. A recombinant gamete contains a new combination of parental alleles, not necessarily a novel allele created by mutation. Close linkage makes the standard unlinked 1:1:1:1 gamete assumption unreliable.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
