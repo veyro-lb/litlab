@@ -898,7 +898,23 @@
       ],
       "claimReferences": [
         {
-          "claim": "Why DNA strands have direction. Each nucleotide's sugar has numbered carbons. A DNA strand has a 5′ end and a 3′ end; the 3′ end exposes a hydroxyl group to which DNA polymerase can add the next deoxyribonucleotide. The incoming nucleotide is joined through its 5′ phosphate, forming a phosphodiester bond in the sugar–phosphate backbone. Consequently, a daughter strand can elongate only in the 5′→3′ direction, even though the parent strand being copied is read 3′→5′.\n\nApply the rule to a real sequence. For a template written 3′–TACG–5′, complementary pairing yields a newly synthesized strand 5′–ATGC–3′. If instead the template is displayed 5′→3′, first reverse its orientation before writing the daughter sequence 5′→3′. Do not confuse a strand's written direction with the replication fork's direction of movement. Both new daughter strands grow 5′→3′; because the two parental strands are antiparallel, one new strand can follow fork opening continuously and the other must be assembled in segments.\n\nWhy a primer is necessary. DNA polymerase extends an existing 3′ end; it does not normally start a DNA chain from isolated free nucleotides. Primase supplies a short RNA primer, and subsequent enzymes replace primer material and seal discontinuities. The separate leading- and lagging-strand machinery is explained in D1.1.7–D1.1.8 (HL).",
+          "claim": "Why DNA strands have direction. Each nucleotide's sugar has numbered carbons. A DNA strand has a 5′ end and a 3′ end; the 3′ end exposes a hydroxyl group to which DNA polymerase can add the next deoxyribonucleotide. The incoming nucleotide is joined through its 5′ phosphate, forming a phosphodiester bond in the sugar–phosphate backbone. Consequently, a daughter strand can elongate only in the 5′→3′ direction, even though the parent strand being copied is read 3′→5′.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "Apply the rule to a real sequence. For a template written 3′–TACG–5′, complementary pairing yields a newly synthesized strand 5′–ATGC–3′. If instead the template is displayed 5′→3′, first reverse its orientation before writing the daughter sequence 5′→3′. Do not confuse a strand's written direction with the replication fork's direction of movement. Both new daughter strands grow 5′→3′; because the two parental strands are antiparallel, one new strand can follow fork opening continuously and the other must be assembled in segments.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11",
+            "ncbi-replication"
+          ]
+        },
+        {
+          "claim": "Why a primer is necessary. DNA polymerase extends an existing 3′ end; it does not normally start a DNA chain from isolated free nucleotides. Primase supplies a short RNA primer, and subsequent enzymes replace primer material and seal discontinuities. The separate leading- and lagging-strand machinery is explained in D1.1.7–D1.1.8 (HL).",
           "referenceIds": [
             "ib-d11",
             "hodder-d11",
@@ -973,8 +989,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "Antiparallel strands create the directional constraint",
-          "explanation": "A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon. The two template strands in a duplex run antiparallel. DNA polymerase attaches an incoming nucleotide's 5′ phosphate to the free 3′ hydroxyl of the growing strand; every new DNA strand therefore elongates 5′→3′.",
+          "title": "The 3′-OH determines extension direction",
+          "explanation": "Why DNA strands have direction. Each nucleotide's sugar has numbered carbons. A DNA strand has a 5′ end and a 3′ end; the 3′ end exposes a hydroxyl group to which DNA polymerase can add the next deoxyribonucleotide. The incoming nucleotide is joined through its 5′ phosphate, forming a phosphodiester bond in the sugar–phosphate backbone. Consequently, a daughter strand can elongate only in the 5′→3′ direction, even though the parent strand being copied is read 3′→5′.",
           "referenceIds": [
             "ib-d11",
             "hodder-d11",
@@ -982,8 +998,8 @@
           ]
         },
         {
-          "title": "Reading direction is not synthesis direction",
-          "explanation": "DNA polymerase bonds the incoming nucleotide's 5′ phosphate to the free 3′-OH of the growing strand. Every daughter DNA strand therefore extends 5′→3′, with its template read antiparallel, 3′→5′. A replication-fork arrow and a strand-synthesis arrow describe different directions.",
+          "title": "Read antiparallel template and daughter strand directions",
+          "explanation": "Apply the rule to a real sequence. For a template written 3′–TACG–5′, complementary pairing yields a newly synthesized strand 5′–ATGC–3′. If instead the template is displayed 5′→3′, first reverse its orientation before writing the daughter sequence 5′→3′. Do not confuse a strand's written direction with the replication fork's direction of movement. Both new daughter strands grow 5′→3′; because the two parental strands are antiparallel, one new strand can follow fork opening continuously and the other must be assembled in segments.",
           "referenceIds": [
             "ib-d11",
             "hodder-d11",
@@ -991,11 +1007,12 @@
           ]
         },
         {
-          "title": "Keep both DNA strand directions explicit",
-          "explanation": "DNA polymerase extends a DNA strand only 5′→3′ by attaching each incoming nucleotide to the available 3′ end. Its template is read in the antiparallel 3′→5′ direction. For a template 3′–TACG–5′, the daughter sequence is 5′–ATGC–3′. The incoming nucleotide contributes its 5′ phosphate to the new phosphodiester linkage; the direction arrow describes strand growth, not fork movement.",
+          "title": "DNA polymerase requires an existing primer",
+          "explanation": "Why a primer is necessary. DNA polymerase extends an existing 3′ end; it does not normally start a DNA chain from isolated free nucleotides. Primase supplies a short RNA primer, and subsequent enzymes replace primer material and seal discontinuities. The separate leading- and lagging-strand machinery is explained in D1.1.7–D1.1.8 (HL).",
           "referenceIds": [
             "ib-d11",
-            "hodder-d11"
+            "hodder-d11",
+            "ncbi-replication"
           ]
         }
       ],

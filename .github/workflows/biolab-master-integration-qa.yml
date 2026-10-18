@@ -3,8 +3,7 @@ name: BioLab Master Integration QA (no deployment)
 on:
   push:
     branches:
-      - feature/biolab-all-sprints-integration-20261018
-      - feature/biolab-ib-final-base-20261018
+      - feature/biolab-ib-final-integration-20261018
 
 permissions:
   contents: read
@@ -25,7 +24,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$GITHUB_REF_NAME" = feature/biolab-ib-final-base-20261018
+          test "$GITHUB_REF_NAME" = feature/biolab-ib-final-integration-20261018
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           test -z "$(git status --porcelain)"
           git log -12 --pretty=format:'%h %s'
@@ -102,6 +101,13 @@ jobs:
             node scripts/biology/assessment-quality/audit.mjs
             node --test scripts/biology/scientific-visual-redesign.test.mjs
             node --test scripts/biology/independent-visual-qa/audit.test.mjs
+            node scripts/biology/theme-c-final/verify-theme-c.mjs
+            node --test scripts/biology/theme-b-depth-review.test.mjs scripts/biology/theme-b-final-editorial.test.mjs
+            node --test scripts/biology/theme-d-final-20261018/depth.test.mjs scripts/biology/theme-d-final-20261018/editorial.test.mjs
+            node --experimental-strip-types --test scripts/biology/source-policy/source-policy.test.mjs
+            node scripts/biology/source-policy/verify.mjs
+            node --test scripts/biology/visual-lab-final/visual-lab.test.mjs
+            node --test scripts/biology/assessment-quality/verify-patches.test.mjs
           } 2>&1 | tee qa-specialists.log
       - name: Build integrated application
         id: build
@@ -140,6 +146,9 @@ jobs:
             node scripts/biology/full-course/full-course-browser.mjs
             node scripts/biology/parallel-student-qa/browser.mjs
             node scripts/biology-premium-interface-smoke.mjs
+            node scripts/biology/theme-b/final-depth-browser.mjs
+            node scripts/biology/theme-d-final-20261018/browser.mjs
+            node scripts/biology/ux-final/browser.mjs
           ' 2>&1 | tee qa-browser.log
       - name: Preserve QA evidence
         if: always()

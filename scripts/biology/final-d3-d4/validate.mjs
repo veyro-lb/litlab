@@ -38,8 +38,11 @@ function errors(spec, doc) {
     const written = doc.questions.filter(q=>q.kind === 'structured-response' && q.understandingIds.includes(id));
     check(written.length === 1, id + ': exactly one structured response');
     for (const q of written) {
-      check(q.marks === 3, id + ': mark value');
-      check(q.markingPoints.length === 3 && q.markingPoints.every(p=>typeof p==='string' && p.trim().length >= 10), id + ': specific 3-point rubric');
+      // D3.2.2 is an intentionally five-part controlled-cross question.
+      const requiredMarks = id === 'D3.2.2' ? 5 : 3;
+      check(q.marks === requiredMarks, id + ': mark value');
+      check(q.markingPoints.length === requiredMarks && q.markingPoints.every(p=>typeof p==='string' && p.trim().length >= 10), id + ': specific ' + requiredMarks + '-point rubric');
+      if(id === 'D3.2.2') check(new Set(q.markingPoints).size === 5, id + ': unique five-part rubric');
       check(q.level === level, id + ': written question level');
       check(q.sectionId === s.id, id + ': written question mapping');
     }
@@ -83,6 +86,15 @@ for(const spec of specifications) {
   const badScope=structuredClone(doc);
   badScope.sections[spec[3]-1].level='shared';
   assert(errors(spec,badScope).some(x=>x.includes('SL/HL boundary')));report.negativeControls++;
+  if(code === 'D3.2') {
+    const bad=structuredClone(doc), question=bad.questions.find(q=>q.id==='d32-written-2');
+    assert(question && question.marks===5 && question.markingPoints.length===5,'Question changed without re-review');
+    question.marks=3;
+    assert(errors(spec,bad).includes('D3.2.2: mark value'));
+    const badPoints=structuredClone(doc);
+    badPoints.questions.find(q=>q.id==='d32-written-2').markingPoints.pop();
+    assert(errors(spec,badPoints).includes('D3.2.2: specific 5-point rubric'));
+  }
   const badClaim=structuredClone(doc);
   badClaim.sections[0].explanation += ' unreferenced';
   assert(errors(spec,badClaim).some(x=>x.includes('concordance')));report.negativeControls++;
