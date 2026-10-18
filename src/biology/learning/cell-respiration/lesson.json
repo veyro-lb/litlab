@@ -2071,23 +2071,24 @@
         "C1.2.13"
       ],
       "level": "HL",
-      "guidingQuestion": "When NADH gives electrons to the mitochondrial chain, it:",
-      "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.\n\nElectron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.\n\nGlycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
-      "revisionSummary": "Electron carriers pass electrons through a sequence of redox reactions.",
+      "guidingQuestion": "How does reduced NAD transfer energy to the mitochondrial electron transport chain?",
+      "explanation": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.\n\nAt the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.\n\nAs electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
+      "revisionSummary": "Reduced NAD supplies a pair of electrons to the mitochondrial electron transport chain and regenerates NAD. Energy released as electrons pass along the chain supports proton pumping, with ATP synthesis occurring later by chemiosmosis.",
       "terms": [
-        "Electron transport chain: inner-membrane electron carriers",
-        "NADH oxidation: donation of electrons while NAD⁺ is regenerated"
+        "Reduced NAD (NADH): electron-carrying reduced form of NAD",
+        "Oxidation: loss of electrons; NADH is oxidized to NAD⁺",
+        "Electron transport chain: a series of carriers in the inner mitochondrial membrane"
       ],
-      "workedExample": "NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺.",
+      "workedExample": "After the link reaction, NADH transfers its pair of electrons to the electron transport chain and becomes NAD⁺ again. The electron transfer helps drive proton pumping, not direct ATP formation.",
       "misconceptions": [
         {
-          "misconception": "Reduced NAD is a permanent end product of aerobic respiration",
-          "correction": "NADH is oxidized when it donates electrons and its NAD⁺ form is recycled."
+          "misconception": "NADH changes directly into ATP when it reaches the mitochondrion.",
+          "correction": "NADH donates electrons and regenerates NAD⁺. Electron-transfer energy is used to pump protons, and the proton gradient subsequently drives ATP synthase."
         }
       ],
       "claimReferences": [
         {
-          "claim": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.",
+          "claim": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2096,7 +2097,7 @@
           ]
         },
         {
-          "claim": "Electron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.",
+          "claim": "At the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2105,10 +2106,12 @@
           ]
         },
         {
-          "claim": "Glycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
+          "claim": "As electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
           "referenceIds": [
             "ib-c12",
-            "hodder-c12"
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
           ]
         }
       ],
@@ -2118,7 +2121,9 @@
         "openstax-c12",
         "ncbi-c12"
       ],
-      "assets": [],
+      "assets": [
+        "nadh-electron-energy-transfer"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2159,9 +2164,9 @@
         {
           "kind": "recall",
           "id": "c12-recall-13",
-          "prompt": "Without looking, explain reduced nad passes electrons to the chain.",
-          "answer": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.\n\nElectron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.\n\nGlycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
-          "explanation": "Explain the mechanism and why it matters, then compare with the visible explanation.",
+          "prompt": "Explain where reduced NAD is formed and how its electron donation ultimately supports ATP synthesis.",
+          "answer": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.\n\nAt the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.\n\nAs electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
+          "explanation": "Include the two-electron donation, NAD regeneration, stepwise energy release, proton pumping and later ATP synthase action.",
           "understandingIds": [
             "C1.2.13"
           ]
@@ -2180,8 +2185,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "Electron donation in mitochondria",
-          "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation.",
+          "title": "Where reduced NAD comes from",
+          "explanation": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2190,8 +2195,8 @@
           ]
         },
         {
-          "title": "Reduced carriers donate electrons",
-          "explanation": "Electron carriers pass electrons through a sequence of redox reactions. Free energy released by favourable transfers is coupled to proton pumping across the inner mitochondrial membrane. NADH made in the cytosol cannot simply cross the inner membrane unchanged in most animal cells; electron equivalents reach the chain via shuttle systems. The prescribed emphasis is the transfer of electrons and energy, not memorization of all carrier names.",
+          "title": "Electron donation and NAD regeneration",
+          "explanation": "At the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions.",
           "referenceIds": [
             "ib-c12",
             "hodder-c12",
@@ -2200,26 +2205,28 @@
           ]
         },
         {
-          "title": "Why electron carriers connect stages",
-          "explanation": "Glycolysis, the link reaction and the Krebs cycle remove reducing equivalents from organic substrates and accumulate reduced NAD. In a mitochondrion, reduced NAD delivers a pair of electrons to the first carrier of the electron transport chain in the inner mitochondrial membrane and is oxidized back to NAD⁺. As electrons move to carriers with a greater electron affinity, free energy becomes available for proton transport. The regenerated NAD⁺ can participate again in metabolic oxidations. The important energy transfer is in the electron pair, not in reduced NAD being converted directly into ATP in a single step. Identify the matrix-facing donor and the membrane-associated transport chain in a diagram.",
+          "title": "How electron transfer supports ATP synthesis",
+          "explanation": "As electrons travel along the chain, energy is released in controlled steps. That energy powers proton pumping from the mitochondrial matrix into the intermembrane space, establishing a proton gradient. In a subsequent stage, protons flow back into the matrix through ATP synthase, driving ATP production. Reduced NAD is therefore not converted directly into ATP. NADH produced in the cytosol contributes reducing equivalents through shuttle systems, rather than itself freely crossing the inner mitochondrial membrane.",
           "referenceIds": [
             "ib-c12",
-            "hodder-c12"
+            "hodder-c12",
+            "openstax-c12",
+            "ncbi-c12"
           ]
         }
       ],
       "support": {
-        "simple": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle.",
-        "example": "NADH from the link reaction can donate reducing equivalents to the chain, enabling the reformation of NAD⁺.",
-        "different": "NADH is oxidized when it donates electrons and its NAD⁺ form is recycled.",
+        "simple": "During glycolysis, the link reaction and the Krebs cycle, oxidation reactions transfer electrons to NAD, forming reduced NAD (NADH). Reduced NAD carries this energy to the mitochondrial electron transport chain. It is an electron carrier, not an ATP molecule.",
+        "example": "After the link reaction, NADH transfers its pair of electrons to the electron transport chain and becomes NAD⁺ again. The electron transfer helps drive proton pumping, not direct ATP formation.",
+        "different": "NADH donates electrons and regenerates NAD⁺. Electron-transfer energy is used to pump protons, and the proton gradient subsequently drives ATP synthase.",
         "concepts": [
           {
-            "title": "Electron donation in mitochondria",
+            "title": "Electron donation and NAD regeneration",
             "keywords": [
-              "Reduced",
-              "Electron"
+              "NADH",
+              "electron transport"
             ],
-            "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation."
+            "explanation": "At the inner mitochondrial membrane, reduced NAD donates a pair of electrons to the first electron carrier in the chain and is oxidized back to NAD⁺. The regenerated NAD can accept electrons again during respiration. Electrons pass from one membrane-associated carrier to the next through a sequence of redox reactions."
           }
         ]
       }
@@ -4325,6 +4332,24 @@
       ],
       "level": "HL",
       "review": "internal-editorial-review; external expert review not performed"
+    },
+    {
+      "id": "nadh-electron-energy-transfer",
+      "kind": "diagram",
+      "src": "/biology/cell-respiration/nadh-electron-energy-transfer.svg",
+      "alt": "Diagram showing reduced NAD from glycolysis, link reaction and Krebs cycle donating two electrons to the inner-membrane electron transport chain and regenerating NAD, with stepwise electron transfer powering proton pumping from matrix to intermembrane space; proton return through ATP synthase happens later.",
+      "captionTitle": "Electron donation by reduced NAD and proton pumping",
+      "attribution": "Original BioLab vector diagram created for the full-course depth audit (2026)",
+      "license": "Original BioLab project artwork",
+      "permissionEvidence": "Independently authored schematic; no third-party diagram imported, traced or reproduced",
+      "referenceIds": [
+        "ib-c12",
+        "hodder-c12",
+        "openstax-c12",
+        "ncbi-c12"
+      ],
+      "level": "HL",
+      "review": "scientific-review-pending"
     }
   ],
   "summary": "ATP is regenerated by coupling exergonic respiratory reactions to phosphorylation. Glycolysis begins in cytosol; HL pathways explain redox, electron transfer, chemiosmosis and the distinct roles of oxygen and fuel type.",
