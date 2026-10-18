@@ -70,3 +70,46 @@ assert.equal(understandings, 164);
 console.log('Coverage: 164/164. Question records: ' + questions +
   '. Graph data tables: ' + graphTables + '.');
 console.log('Structural checks passed; independent scientific approval and build/browser tests remain separate.');
+
+// Content-specific regression guard for the former depth gaps.
+// These are required concepts, not a mechanical minimum-word quota.
+const mustTeach = [
+  ['chemical-signalling','C2.1.2',/Vibrio fischeri/i,/autoinducer/i],
+  ['chemical-signalling','C2.1.6',/hydrophilic/i,/intracellular/i],
+  ['chemical-signalling','C2.1.10',/adenylyl cyclase/i,/cAMP|cyclic AMP/i],
+  ['chemical-signalling','C2.1.11',/tyrosine/i,/vesicles/i],
+  ['chemical-signalling','C2.1.12',/DNA/i,/transcription/i],
+  ['neural-signalling','C2.2.4',/correlation/i,/R²|R\\^2|coefficient of determination/i],
+  ['neural-signalling','C2.2.8',/voltage-gated/i,/repolarization/i],
+  ['neural-signalling','C2.2.10',/oscilloscope/i,/frequency|impulses s|Hz/i],
+  ['neural-signalling','C2.2.11',/Ranvier/i,/myelin/i],
+  ['neural-signalling','C2.2.14',/spatial summation/i,/temporal summation/i],
+  ['cell-respiration','C1.2.15',/ATP synthase/i,/intermembrane space/i],
+  ['photosynthesis','C1.3.4',/Rf/i,/solvent front/i],
+  ['photosynthesis','C1.3.6',/action spectrum/i,/oxygen|carbon dioxide/i],
+  ['photosynthesis','C1.3.8',/FACE/i,/greenhouse/i],
+  ['photosynthesis','C1.3.17',/five-sixths/i,/RuBP/i],
+  ['populations-communities','C4.1.15',/chi.squared/i,/expected/i],
+  ['defence-against-disease','C3.2.18',/percentage change/i,/percentage difference/i],
+  ['transfers-energy-matter','C4.2.11',/Silver Springs/i,/20,810/i],
+];
+for (const [slug, uid, ...checks] of mustTeach) {
+  const lesson = JSON.parse(readFileSync('src/biology/learning/' + slug + '/lesson.json', 'utf8'));
+  const section = lesson.sections.find(s => s.understandingIds.includes(uid));
+  assert(section, uid + ' missing in concept guard');
+  for (const re of checks) assert(re.test(section.explanation), uid + ' does not teach ' + re);
+}
+let shorter100 = 0, shorter150 = 0, lowest = null;
+for (const [, slug] of entries) {
+  const lesson = JSON.parse(readFileSync('src/biology/learning/' + slug + '/lesson.json', 'utf8'));
+  for (const section of lesson.sections) {
+    const words = section.explanation.trim().split(/\\s+/).length;
+    if (words < 100) shorter100++;
+    if (words < 150) shorter150++;
+    if (!lowest || words < lowest.words) lowest = { id: section.understandingIds[0], words };
+  }
+}
+console.log('Concept guards passed (' + mustTeach.length + ' ID-specific checks).');
+console.log('Informational depth review: <100 = ' + shorter100 +
+  '; <150 = ' + shorter150 + '; shortest = ' + lowest.id + ' (' + lowest.words +
+  ' words). Do not treat length as a substitute for source-specific explanation review.');
