@@ -9,7 +9,7 @@ if len(doc)!=868: raise SystemExit(f"Unexpected PDF page count: {len(doc)}")
 records={}
 for index,page in enumerate(doc):
     text=page.get_text()
-    for match in re.finditer(r'■\s*Figure\s+([A-D][1-4]\\.[1-4]\\.\\d+)\s*([^\n]*)',text):
+    for match in re.finditer(r'■\s*Figure\s+([A-D][1-4]\.[1-4]\.\d+)\s*([^\n]*)',text):
         figure=match.group(1)
         records.setdefault(figure,{"sourceFigureId":figure,"pdfPage":index+1,"printedPage":index+1-12,"captionLeadAutoExtracted":match.group(2).strip(),"captionVerified":False})
 if len(records)!=767: raise SystemExit(f"Unexpected number of numbered figures: {len(records)}")
