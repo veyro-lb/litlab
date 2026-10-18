@@ -214,6 +214,8 @@
 
 ## Verification and integration handoff
 
+**Completed using the current GitHub HEAD and the unchanged repository validator:** ran the exported `validateLesson` function from `scripts/validate-lesson.mjs` against all nine live branch lesson JSON documents and their unchanged registry topics inside an isolated JavaScript runtime: **9/9 lessons passed with 0 validation errors**. This is execution of the validation function, not the Node CLI or browser build.
+
 **Completed using GitHub repository reads and in-process consistency checks:** 164 distinct understanding-to-section maps with exact scope matches, two required source families for each section, agreement between displayed explanatory text, teaching blocks and claim provenance, presence of section recall and selection tasks, structural correctness of 14 attached graph-data tables, and preservation of 317 existing topic assessment records and 40 topic asset references. The nine edited JSON files are intentionally limited to Theme C; the registry, renderer, global sources UI, other themes and shared art have not been edited.
 
 **Not executable with the available repository interface:** `node scripts/validate-lessons.mjs`; existing `scripts/biology/theme-c1/*.test.mjs`, `scripts/biology/theme-c2/*.test.mjs`, or future editorial checks; `npm run build` (TypeScript/Vite); representative mobile/tablet/desktop Playwright browser tests. GitHub file access is available, but the container cannot reach GitHub to obtain a local checkout. Passing results are **not** claimed. Use the committed Theme C-specific check and run these commands in an authorized integration checkout before merging.
