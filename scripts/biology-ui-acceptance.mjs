@@ -108,7 +108,7 @@ try {
    await navigate(p,'#biology/topic/A1.1/sources','.bio-sources');
    await expect(p.locator('.bio-sources')).toContainText('IB Biology Guide');
    await expect(p.locator('.bio-sources')).toContainText('Hodder');
-   await expect(p.locator('.bio-sources')).toContainText('not yet assigned');
+   await expect(p.locator('.bio-sources')).toContainText('not been certified by the IB or a qualified scientific reviewer');
  });
  await check('Study mode preserved from landing page through theme and topic tile',async()=>{
    await navigate(p,'#biology?resource=practice');
