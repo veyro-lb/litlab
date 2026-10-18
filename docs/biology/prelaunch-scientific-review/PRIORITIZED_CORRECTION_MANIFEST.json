@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "baselineSha": "3e07486876700cd35d0931f91a7c11ae82946084",
+  "reviewBranch": "feature/biolab-prelaunch-scientific-review-20261018",
+  "decision": "NO-GO for public student launch; source-grounded correction proposals require integration owner and qualified independent review",
+  "rules": {
+    "allowedWritesOnReviewBranch": [
+      "docs/biology/prelaunch-scientific-review/"
+    ],
+    "protectedPrefixes": [
+      "src/biology/learning/",
+      "src/biology/curriculum/",
+      "public/biology/",
+      ".github/workflows/"
+    ],
+    "neverMergeOrDeploy": true,
+    "proposedPatchMode": "exact lessonBlobSha and original question equality, per-ID guarded patch, re-review on conflict"
+  },
+  "tasks": [
+    {
+      "id": "GATE-001",
+      "priority": "P0",
+      "severity": "high",
+      "category": "scientific-assessment-quality",
+      "owner": "integration engineer with biology assessment reviewer",
+      "understandingIds": [
+        "C1.2.9",
+        "C1.2.11",
+        "C1.2.12",
+        "C1.2.14",
+        "C1.2.15",
+        "D3.3.3"
+      ],
+      "questionIds": [
+        "c12-written-9",
+        "c12-written-11",
+        "c12-written-12",
+        "c12-written-14",
+        "c12-written-15",
+        "d33-written-3"
+      ],
+      "proposedPatchFile": "docs/biology/prelaunch-scientific-review/PROPOSED_HIGH_PRIORITY_QUESTION_CORRECTIONS.json",
+      "issueIds": [
+        "SCIREV-Q-002",
+        "SCIREV-Q-003",
+        "SCIREV-Q-004",
+        "SCIREV-Q-005",
+        "SCIREV-Q-006",
+        "SCIREV-Q-009"
+      ],
+      "action": "Examine proposed replacement question objects for six high-impact missing mechanisms and model-answer/marking omissions; require subject-specialist sign-off before guarded, per-question integration.",
+      "acceptance": "Each corrected model answer covers exactly the named mechanism and required components; marking points independently credit valid alternative wording; untouched questions remain identical.",
+      "releaseBlocking": true
+    },
+    {
+      "id": "GATE-002",
+      "priority": "P0",
+      "severity": "high",
+      "category": "independent-signoff",
+      "owner": "qualified IB Biology teacher / independent specialist reviewer",
+      "understandingIds": [],
+      "questionIds": [],
+      "action": "Complete line-by-line scientific source review of all 553 understandings plus all 1007 question answer keys and embedded activities; focus on named high-risk areas and practical/data skills. Automation and citation counts cannot substitute for this.",
+      "acceptance": "Each numbered understanding receives explicit source-verified pass or traceable issue with source pages; all question keys reviewed including acceptable alternatives; all high issues closed.",
+      "releaseBlocking": true
+    },
+    {
+      "id": "GATE-003",
+      "priority": "P0",
+      "severity": "high",
+      "category": "scientific-visual-acceptance",
+      "owner": "visual integration team + independent biology reviewer",
+      "understandingIds": [
+        "B3.2.15",
+        "B3.2.9",
+        "B3.2.10",
+        "B3.1.7",
+        "B3.1.8",
+        "D3.1.9"
+      ],
+      "questionIds": [],
+      "assetPaths": [
+        "public/biology/transport/heart-frontal.svg",
+        "public/biology/transport/dicot-stem-root.svg",
+        "public/biology/gas-exchange/dicot-leaf.svg",
+        "public/biology/reproduction/d31-flower-structures.svg"
+      ],
+      "action": "Close remaining biological-label association uncertainties; render and inspect revised circulation, cardiac anatomy, tissue sections, and reproductive figures at real responsive widths. Do not overwrite PDF figure team's work.",
+      "acceptance": "Correct directions/labels and accessible at phone-to-desktop widths; retain evidence screenshots and issue dispositions.",
+      "releaseBlocking": true
+    },
+    {
+      "id": "GATE-004",
+      "priority": "P1",
+      "severity": "medium",
+      "category": "assessment-revision",
+      "owner": "assessment engineer and biology teacher",
+      "understandingIds": [
+        "C1.2.1",
+        "C1.3.1",
+        "C1.3.2",
+        "D3.1.1",
+        "D3.1.2"
+      ],
+      "questionIds": [
+        "c12-written-1",
+        "c13-structured-1",
+        "c13-structured-2",
+        "d31-q-1",
+        "d31-q-2"
+      ],
+      "issueIds": [
+        "SCIREV-Q-001",
+        "SCIREV-Q-007",
+        "SCIREV-Q-008",
+        "SCIREV-Q-010",
+        "SCIREV-Q-011"
+      ],
+      "action": "Review five medium-priority replacement questions and examine the remaining generic C1.2 written stems for misalignment between command terms, model answers and marks.",
+      "acceptance": "Prompts demand specific mechanisms, marks correspond to biological understanding and students see complete exemplar answers.",
+      "releaseBlocking": false
+    },
+    {
+      "id": "GATE-005",
+      "priority": "P1",
+      "severity": "medium",
+      "category": "page-provenance",
+      "owner": "scientific content integration engineer",
+      "understandingIds": [
+        "B3.2.3",
+        "C2.2.8"
+      ],
+      "questionIds": [],
+      "jsonPatchPointers": [
+        {
+          "lessonFile": "src/biology/learning/transport/lesson.json",
+          "jsonPointer": "/sections/2/guidePage",
+          "expected": 59,
+          "corrected": 58
+        },
+        {
+          "lessonFile": "src/biology/learning/neural-signalling/lesson.json",
+          "jsonPointer": "/sections/7/guidePage",
+          "expected": 75,
+          "corrected": 74
+        }
+      ],
+      "action": "Repair the two verified guidePage values only after ownership lock; no bulk lesson replacement.",
+      "acceptance": "Guide printed-page and pdf-page metadata agree with the source text and official registry.",
+      "releaseBlocking": false
+    },
+    {
+      "id": "GATE-006",
+      "priority": "P1",
+      "severity": "medium",
+      "category": "textbook-provenance",
+      "owner": "source-verification reviewer",
+      "understandingIds": [
+        "C3.2.1",
+        "C3.2.2",
+        "C3.2.3",
+        "C3.2.4",
+        "C3.2.5",
+        "C3.2.6",
+        "C3.2.7",
+        "C3.2.8",
+        "C3.2.9",
+        "C3.2.10",
+        "C3.2.11",
+        "C3.2.12",
+        "C3.2.13",
+        "C3.2.14",
+        "C3.2.15",
+        "C3.2.16",
+        "C3.2.17",
+        "C3.2.18",
+        "C4.1.1",
+        "C4.1.2",
+        "C4.1.3",
+        "C4.1.4",
+        "C4.1.5",
+        "C4.1.6",
+        "C4.1.7",
+        "C4.1.8",
+        "C4.1.9",
+        "C4.1.10",
+        "C4.1.11",
+        "C4.1.12",
+        "C4.1.13",
+        "C4.1.14",
+        "C4.1.15",
+        "C4.1.16",
+        "C4.1.17",
+        "C4.1.18",
+        "C4.2.1",
+        "C4.2.2",
+        "C4.2.3",
+        "C4.2.4",
+        "C4.2.5",
+        "C4.2.6",
+        "C4.2.7",
+        "C4.2.8",
+        "C4.2.9",
+        "C4.2.10",
+        "C4.2.11",
+        "C4.2.12",
+        "C4.2.13",
+        "C4.2.14",
+        "C4.2.15",
+        "C4.2.16",
+        "C4.2.17",
+        "C4.2.18",
+        "C4.2.19",
+        "C4.2.20",
+        "C4.2.21",
+        "C4.2.22"
+      ],
+      "questionIds": [],
+      "action": "Read the actual Hodder pages for C3.2, C4.1 and C4.2 and record precise per-understanding printed and PDF locators; do not invent page numbers based on chapter span.",
+      "acceptance": "Each of 58 understanding records contains an exact validated Hodder printed-page anchor.",
+      "releaseBlocking": false
+    },
+    {
+      "id": "GATE-007",
+      "priority": "P1",
+      "severity": "medium",
+      "category": "unreviewed-new-questions",
+      "owner": "assessment reviewer",
+      "questionIds": [
+        "theme-b-20261018-carbohydrates-lipids-mechanism",
+        "theme-b-20261018-proteins-mechanism",
+        "theme-b-20261018-membranes-transport-mechanism",
+        "theme-b-20261018-organelles-compartmentalization-mechanism",
+        "theme-b-20261018-cell-specialization-mechanism",
+        "theme-b-20261018-gas-exchange-mechanism",
+        "theme-b-20261018-transport-mechanism",
+        "theme-b-20261018-muscle-motility-mechanism",
+        "theme-b-20261018-adaptation-environment-mechanism",
+        "theme-b-20261018-ecological-niches-mechanism"
+      ],
+      "understandingIds": [
+        "B1.1.9",
+        "B1.2.9",
+        "B2.1.16",
+        "B2.2.9",
+        "B2.3.8",
+        "B3.1.13",
+        "B3.2.14",
+        "B3.3.2",
+        "B4.1.4",
+        "B4.2.12"
+      ],
+      "action": "Perform question-specific biology and marking-review pass on the 10 Theme B questions added after the old 997-question inventory.",
+      "acceptance": "All 10 independently checked for command terms, correct content, alternate answers, mark allocation and SL/HL scope.",
+      "releaseBlocking": false
+    },
+    {
+      "id": "GATE-008",
+      "priority": "P1",
+      "severity": "medium",
+      "category": "data-analysis-inquiry",
+      "owner": "curriculum/assessment reviewer",
+      "understandingIds": [],
+      "questionIds": [],
+      "action": "Map experimental and mathematical inquiry skills in IB Guide pp. 28–33 across worked problems, embedded interactions, graph activities and full question bank; 13 topics have zero Paper-1B-labelled questions, which is a warning, not itself proof of an omission.",
+      "acceptance": "Demonstrate explicit practice and feedback for measurement, uncertainty, graph interpretation, sampling, microscopy/drawing, relevant statistical tests and causal inference.",
+      "releaseBlocking": false
+    },
+    {
+      "id": "GATE-009",
+      "priority": "P1",
+      "severity": "medium",
+      "category": "runtime-evidence",
+      "owner": "QA engineer",
+      "understandingIds": [],
+      "questionIds": [],
+      "action": "Execute current-baseline/approved-integration Node validators, TypeScript build, original-question checking, SL vs HL visual checks and browser screenshot runs after fixes.",
+      "acceptance": "Version-pinned CI and browser artifacts link to actual updated lesson and graphic bytes; errors reviewed.",
+      "releaseBlocking": true
+    },
+    {
+      "id": "GATE-010",
+      "priority": "P2",
+      "severity": "low",
+      "category": "documented-exceptions",
+      "owner": "editorial team",
+      "understandingIds": [
+        "A1.1.7",
+        "A3.1.9",
+        "A3.1.13"
+      ],
+      "questionIds": [],
+      "action": "Do not pad the three accurate short readings solely to meet an arbitrary word quota; improve only if a specific concept or learning gap is shown.",
+      "acceptance": "Retain short-explanation exception evidence.",
+      "releaseBlocking": false
+    }
+  ]
+}
