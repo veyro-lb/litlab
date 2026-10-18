@@ -14,7 +14,7 @@ const expected=[
 
 export function referenceIdentity(reference){
  const text=(reference?.title||'').toLowerCase();
- if(/biology guide/.test(text)&&/(?:\\bib\\b|international baccalaureate)/.test(text))return 'ib-biology-guide-fa2025';
+ if(/biology guide/.test(text)&&/(?:\bib\b|international baccalaureate)/.test(text))return 'ib-biology-guide-fa2025';
  if((/clegg/.test(text)&&/(?:talbot|davis)/.test(text))||(/hodder/.test(text)&&/biology/.test(text))||/9781398364240/.test(text))return 'hodder-biology-third-2023-9781398364240';
  return null;
 }
@@ -70,7 +70,7 @@ export async function auditCourse(){
  if(!view.includes("approvedSources.map(source=>")||view.includes("lesson.references.filter(r=>inScope(r,level)).map(r=>"))errors.push('Sources UI does not use the verified student-facing whitelist');
  const map=new Map();
  for(const {topicId,path} of Object.values(catalog)){
-  if(!/^\\.\\/[a-z0-9-]+\\/lesson\\.json$/.test(path))throw Error('Unexpected catalog lesson path: '+path);
+  if(!/^\.\x2f[a-z0-9-]+\/lesson\.json$/.test(path))throw Error('Unexpected catalog lesson path: '+path);
   map.set(topicId,JSON.parse(await readFile(new URL(path,learning),'utf8')));
  }
  const matrix=buildUnderstandingMatrix(registry,map);
@@ -94,6 +94,6 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const {errors,report,matrix}=await auditCourse();
  console.log(JSON.stringify(report,null,2));
  if(process.argv.includes('--matrix'))console.log(JSON.stringify(matrix,null,2));
- if(errors.length){console.error(errors.join('\\n'));process.exitCode=1;}
+ if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}
  else console.log('Student source whitelist, 40 lesson source inventories and 553 curriculum mappings passed structural source-policy checks. Scientific verification remains open.');
 }
