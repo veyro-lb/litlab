@@ -108,6 +108,8 @@ jobs:
             node scripts/biology/source-policy/verify.mjs
             node --test scripts/biology/visual-lab-final/visual-lab.test.mjs
             node --test scripts/biology/assessment-quality/verify-patches.test.mjs
+            node scripts/biology/assessment-quality/integration-verified.mjs
+            node --test scripts/biology/assessment-quality/integration-verified.test.mjs
           } 2>&1 | tee qa-specialists.log
       - name: Build integrated application
         id: build
