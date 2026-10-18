@@ -1,0 +1,33 @@
+name: BioLab independent teaching completeness audit
+on:
+  push:
+    branches:
+      - feature/biolab-independent-teaching-completeness-audit-20261018
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  teaching-completeness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Check independent 553-understanding ledger
+        run: |
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const parts=[1,2,3,4].map(i=>JSON.parse(fs.readFileSync('docs/biology/teaching-completeness/LEDGER_PART_'+i+'.json')));
+          const rows=parts.flatMap(p=>p.entries);
+          if(rows.length!==553||new Set(rows.map(r=>r.syllabusId)).size!==553)throw Error('Incomplete or duplicate teaching audit');
+          if(rows.some(r=>r.scientificApproval!==false||!r.assignedRepairTeam))throw Error('Improper approval or owner assignment');
+          console.log('553 mapped; all remain pending independent science review');
+          NODE
+      - run: node scripts/biology/teaching-completeness/validate.mjs
+      - run: node --test scripts/biology/teaching-completeness/validate.test.mjs
+      - run: npm run quality
+      - run: npm run build
