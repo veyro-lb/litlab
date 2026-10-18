@@ -5,7 +5,7 @@
   "sourceSha": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
   "integrationMode": "Require exact canonical original-question SHA-256 and originalQuestion deep equality; refuse changed targets; no lesson JSON is edited",
   "officialPastPapersCopied": false,
-  "patchCount": 26,
+  "patchCount": 25,
   "patches": [
     {
       "lessonFile": "src/biology/learning/dna-replication/lesson.json",
@@ -3373,7 +3373,17 @@
         ]
       },
       "practiceProvenance": "original-BioLab-IB-inspired-not-official"
-    },
+    }
+  ],
+  "baseBranch": "feature/biolab-ib-final-base-20261018",
+  "workingBranch": "feature/biolab-ib-assessment-final-20261018",
+  "reviewPolicy": "25 candidate patches pass exact pinned-source preflight; 1 proposal blocked after concurrent base moved; qualified examiner review required",
+  "patchCategories": {
+    "priorAudit": 14,
+    "thisAssessmentPass": 11,
+    "blockedConcurrentConflict": 1
+  },
+  "blockedProposals": [
     {
       "lessonFile": "src/biology/learning/climate-change/lesson.json",
       "sourceLessonBlobSha": "1fc59add39a2857a0610a31013c65ea5f767b287",
@@ -3495,7 +3505,7 @@
         "greenhouse-mechanism"
       ],
       "changeRationale": "Makes interpretation of a rate and bounds of plausible uncertainty explicit instead of giving the model answer in the data table.",
-      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewStatus": "blocked-stale-source-question",
       "reviewLimitations": [
         "Original practice item, independently edited; not an official IB examination question",
         "Scientific content and accepted alternative responses require qualified teacher/examiner review",
@@ -3517,14 +3527,9 @@
           "Explains the infrared-absorption/re-emission mechanism by which increased CO₂ enhances the greenhouse effect."
         ]
       },
-      "practiceProvenance": "original-BioLab-IB-inspired-not-official"
+      "practiceProvenance": "original-BioLab-IB-inspired-not-official",
+      "blockedReason": "The baseline used to author this proposal was the concurrently advanced base branch, but this isolated branch is pinned to source SHA 73f6278c...; source question differs. Do not integrate this candidate without re-review and a new fingerprint.",
+      "canApply": false
     }
-  ],
-  "baseBranch": "feature/biolab-ib-final-base-20261018",
-  "workingBranch": "feature/biolab-ib-assessment-final-20261018",
-  "reviewPolicy": "proposed-only; qualified Biology examiner review required; not IB-endorsed",
-  "patchCategories": {
-    "priorAudit": 14,
-    "thisAssessmentPass": 12
-  }
+  ]
 }

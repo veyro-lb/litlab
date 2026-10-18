@@ -16,10 +16,11 @@
     "visualCandidates": 3,
     "markMismatch": 0,
     "crossSectionReview": 16,
-    "patchesProposed": 26,
+    "patchesProposed": 25,
     "questionsScientificallyConfirmedAcrossAll40Topics": null,
     "figureLanguageWithoutAsset": 2,
-    "patchesAcceptedOrApplied": 0
+    "patchesAcceptedOrApplied": 0,
+    "patchesBlocked": 1
   },
   "topicStats": [
     {
@@ -5215,9 +5216,9 @@
       "figureAssetIds": [],
       "structuralFlags": [],
       "editorialReviewFlags": [],
-      "scientificStatus": "targeted-editorial-replacement-proposed-not-integrated",
+      "scientificStatus": "blocked-new-proposal-source-mismatch",
       "reviewPriority": "high",
-      "proposedPatchStatus": "pending-qualified-examiner-review",
+      "proposedPatchStatus": "blocked-do-not-apply",
       "previousContentFingerprint": {
         "algorithm": "sha256",
         "encoding": "utf8",
@@ -25702,11 +25703,11 @@
       "proposedPatchStatus": null
     }
   ],
-  "statusNote": "All 997 inventoried structurally; no comprehensive individual scientific sign-off. 26 original practice questions proposed as fingerprinted, guarded replacements, none applied to lesson JSON.",
+  "statusNote": "997 questions mechanically inventoried; 25 fingerprint-guarded proposals (0 integrated), 1 additional blocked because its original source differs from pinned branch. No comprehensive examiner certification.",
   "reviewCoverage": {
     "mechanicallyInventoried": 997,
     "scientificSignOffComplete": 0,
-    "proposedQuestionReplacements": 26,
+    "proposedQuestionReplacements": 25,
     "integratedReplacements": 0,
     "unreviewedOrPendingExaminer": 997,
     "scoringDisclaimer": "Self-review, not examiner-assigned grades",
