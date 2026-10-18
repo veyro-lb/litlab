@@ -1,0 +1,83 @@
+name: BioLab Prelaunch Student Acceptance (isolated; no deployment)
+on:
+  push:
+    branches:
+      - feature/biolab-prelaunch-student-qa-20261018
+    paths:
+      - 'scripts/biology/prelaunch-student-qa/**'
+      - '.github/workflows/biolab-prelaunch-student-qa.yml'
+permissions:
+  contents: read
+jobs:
+  student-acceptance:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 65
+    env:
+      CI: 'true'
+    steps:
+      - name: Checkout exact QA snapshot
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify source ownership and content baseline
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          test -z "$(git diff --name-only 3e07486876700cd35d0931f91a7c11ae82946084 HEAD -- src public package.json package-lock.json vite.config.ts wrangler.jsonc)"
+          printf 'integration_baseline=%s\nqa_execution_commit=%s\n' 3e07486876700cd35d0931f91a7c11ae82946084 "$GITHUB_SHA" > acceptance-commit.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install and build actual React/Vite app
+        run: |
+          set -eo pipefail
+          npm ci 2>&1 | tee acceptance-install.log
+          npm run build 2>&1 | tee acceptance-build.log
+      - name: Execute in offline Chromium and capture screenshots
+        id: browser
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/prelaunch-student-qa node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges --read-only \
+            --user "$(id -u):$(id -g)" --env HOME=/tmp --env CI=true --env GITHUB_SHA="$GITHUB_SHA" \
+            --tmpfs /tmp:rw,nosuid,size=1024m --shm-size=1g \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
+            --workdir /work mcr.microsoft.com/playwright:v1.56.1-noble bash -euo pipefail -c '
+              test "$(ls -1 /sys/class/net | tr "\n" " ")" = "lo "
+              export CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              test -x "$CHROME_BIN"
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/prelaunch-student-qa/preview.log 2>&1 &
+              server_pid=$!
+              trap "kill $server_pid 2>/dev/null || true" EXIT
+              ready=0
+              for n in $(seq 1 45); do
+                if node -e "fetch(\"http://127.0.0.1:4173/\").then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"; then ready=1; break; fi
+                sleep 1
+              done
+              test "$ready" = 1 || { cat qa-artifacts/prelaunch-student-qa/preview.log; exit 1; }
+              node scripts/biology/prelaunch-student-qa/browser.mjs
+            ' 2>&1 | tee acceptance-browser.log
+      - name: Upload browser results and real screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-prelaunch-student-qa
+          path: |
+            acceptance-commit.txt
+            acceptance-*.log
+            qa-artifacts/prelaunch-student-qa/
+          retention-days: 21
+          if-no-files-found: warn
+      - name: Fail if student checks failed
+        if: always()
+        env:
+          BROWSER: ${{ steps.browser.outcome }}
+        run: test "$BROWSER" = success
