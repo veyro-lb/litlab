@@ -1259,7 +1259,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What polypeptide is coded by mRNA 5′-AUG GCU UAA-3′?",
-      "explanation": "A codon table uses the RNA alphabet A, U, C and G and reads an mRNA triplet from its first base to its third base. If given the DNA template first, form the antiparallel complementary RNA sequence before consulting the table; using coding DNA requires replacing T with U.\n\nFor coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′. The standard genetic code gives methionine, alanine, stop. A stop triplet signals termination rather than adding a third amino acid; always establish the translation reading frame.\n\nDetermine the reading frame before using the mRNA codon table. 5′-AUG GCU UAA-3′ codes for methionine–alanine followed by a stop signal; UAA is not an amino acid. Reading the opposite strand or shifting one base changes the interpretation.",
+      "explanation": "A codon table uses the RNA alphabet A, U, C and G and reads an mRNA triplet from its first base to its third base. If given the DNA template first, form the antiparallel complementary RNA sequence before consulting the table; using coding DNA requires replacing T with U.\n\nFor coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′. The standard genetic code gives methionine, alanine, stop. A stop triplet signals termination rather than adding a third amino acid; always establish the translation reading frame.\n\nDetermine the reading frame before using the mRNA codon table. 5′-AUG GCU UAA-3′ codes for methionine–alanine followed by a stop signal; UAA is not an amino acid. Reading the opposite strand or shifting one base changes the interpretation.\n\nRead codons from mRNA 5′→3′, not from DNA template triplets. For coding DNA 5′–ATG TTT TGA–3′ and template DNA 3′–TAC AAA ACT–5′, the mRNA is 5′–AUG UUU UGA–3′. The standard code gives methionine–phenylalanine–stop. A stop codon signals termination; it does not encode an amino acid.",
       "revisionSummary": "A codon table uses the RNA alphabet A, U, C and G and reads an mRNA triplet from its first base to its third base. For coding DNA 5′-ATG GCT TAA-3′, mRNA is 5′-AUG GCU UAA-3′.",
       "terms": [
         "Read the genetic code using mRNA: underlying concept",
@@ -1289,6 +1289,13 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "claim": "Read codons from mRNA 5′→3′, not from DNA template triplets. For coding DNA 5′–ATG TTT TGA–3′ and template DNA 3′–TAC AAA ACT–5′, the mRNA is 5′–AUG UUU UGA–3′. The standard code gives methionine–phenylalanine–stop. A stop codon signals termination; it does not encode an amino acid.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
@@ -1378,6 +1385,14 @@
             "ncbi-rna",
             "ncbi-translation"
           ]
+        },
+        {
+          "title": "Translate the correct strand",
+          "explanation": "Read codons from mRNA 5′→3′, not from DNA template triplets. For coding DNA 5′–ATG TTT TGA–3′ and template DNA 3′–TAC AAA ACT–5′, the mRNA is 5′–AUG UUU UGA–3′. The standard code gives methionine–phenylalanine–stop. A stop codon signals termination; it does not encode an amino acid.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
+          ]
         }
       ],
       "support": {
@@ -1426,7 +1441,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How far does a ribosome normally advance along mRNA after adding one amino acid?",
-      "explanation": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat.\n\nThe chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.\n\nDuring elongation, an aminoacyl-tRNA matches the next codon, a peptide bond forms, and the ribosome advances by three bases along 5′→3′ mRNA. The chain grows through successive peptide transfers; the ribosome does not add RNA nucleotides during this step.",
+      "explanation": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The growing chain, attached to the tRNA in the P site, is transferred by peptide-bond formation to the amino acid in the A site. The ribosome then translocates three bases along the mRNA, enabling the process to repeat.\n\nThe chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids. Translocation preserves the codon reading frame; a shift by a single base would change all later codon groupings.\n\nDuring elongation, an aminoacyl-tRNA matches the next codon, a peptide bond forms, and the ribosome advances by three bases along 5′→3′ mRNA. The chain grows through successive peptide transfers; the ribosome does not add RNA nucleotides during this step.\n\nThe next matching aminoacyl-tRNA binds the ribosomal A site; a peptide bond forms so the growing chain is transferred to that tRNA. Translocation moves the ribosome one codon in the 5′→3′ direction, shifting tRNAs through the P site towards exit. This is a conceptual step sequence, not a time-resolved observation.",
       "revisionSummary": "In elongation, an aminoacyl-tRNA enters the A site in response to the next codon. The chain is elongated at its carboxyl end, with peptide bonds joining successive amino acids.",
       "terms": [
         "The ribosome advances one codon at a time: underlying concept",
@@ -1456,6 +1471,13 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "claim": "The next matching aminoacyl-tRNA binds the ribosomal A site; a peptide bond forms so the growing chain is transferred to that tRNA. Translocation moves the ribosome one codon in the 5′→3′ direction, shifting tRNAs through the P site towards exit. This is a conceptual step sequence, not a time-resolved observation.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
@@ -1544,6 +1566,14 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "title": "Elongation as a repeatable cycle",
+          "explanation": "The next matching aminoacyl-tRNA binds the ribosomal A site; a peptide bond forms so the growing chain is transferred to that tRNA. Translocation moves the ribosome one codon in the 5′→3′ direction, shifting tRNAs through the P site towards exit. This is a conceptual step sequence, not a time-resolved observation.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
@@ -2179,7 +2209,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which process removes introns from eukaryotic pre-mRNA?",
-      "explanation": "A typical eukaryotic protein-coding transcript is initially pre-mRNA containing introns and exons. Splicing removes introns and joins exons. A 5′ cap and 3′ poly-A tail help stabilize and process the RNA and contribute to efficient translation after export.\n\nThe order of retained exons establishes the final coding information. A poly-A tail is added enzymatically after RNA cleavage and is not simply a long DNA-encoded thymine tract copied verbatim. Pre-mRNA processing generally occurs in the nucleus.\n\nEukaryotic pre-mRNA maturation includes addition of a 5′ cap, a 3′ poly(A) tail, and removal of introns while exons are spliced together. The tail consists of RNA adenosine residues; it is not a poly-alanine protein. Processing supports RNA stability and proper use.",
+      "explanation": "A typical eukaryotic protein-coding transcript is initially pre-mRNA containing introns and exons. Splicing removes introns and joins exons. A 5′ cap and 3′ poly-A tail help stabilize and process the RNA and contribute to efficient translation after export.\n\nThe order of retained exons establishes the final coding information. A poly-A tail is added enzymatically after RNA cleavage and is not simply a long DNA-encoded thymine tract copied verbatim. Pre-mRNA processing generally occurs in the nucleus.\n\nEukaryotic pre-mRNA maturation includes addition of a 5′ cap, a 3′ poly(A) tail, and removal of introns while exons are spliced together. The tail consists of RNA adenosine residues; it is not a poly-alanine protein. Processing supports RNA stability and proper use.\n\nEukaryotic protein-coding pre-mRNA undergoes intron removal, exon splicing, 5′ capping and 3′ polyadenylation before mature mRNA is typically exported for translation. Processing modifies the RNA transcript, not the DNA base sequence. Alternative exon combinations are discussed separately under D1.2.16.",
       "revisionSummary": "A typical eukaryotic protein-coding transcript is initially pre-mRNA containing introns and exons. The order of retained exons establishes the final coding information.",
       "terms": [
         "Eukaryotic transcripts are processed: underlying concept",
@@ -2209,6 +2239,13 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "claim": "Eukaryotic protein-coding pre-mRNA undergoes intron removal, exon splicing, 5′ capping and 3′ polyadenylation before mature mRNA is typically exported for translation. Processing modifies the RNA transcript, not the DNA base sequence. Alternative exon combinations are discussed separately under D1.2.16.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
@@ -2297,6 +2334,14 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "title": "Do not confuse RNA processing with DNA editing",
+          "explanation": "Eukaryotic protein-coding pre-mRNA undergoes intron removal, exon splicing, 5′ capping and 3′ polyadenylation before mature mRNA is typically exported for translation. Processing modifies the RNA transcript, not the DNA base sequence. Alternative exon combinations are discussed separately under D1.2.16.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
