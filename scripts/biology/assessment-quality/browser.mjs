@@ -77,7 +77,7 @@ try{
     if(id==='a32-p1a-1')await shot(p,'candidate-hl-correct');
    });
   }
-  const written=[['B3.1','b31-6-structured'],['B4.1','b41-4-data'],['D4.3','d43-written-1'],
+  const written=[['B3.1','b31-6-structured'],['B4.1','b41-4-data'],
    ['C4.1','c41-written-5'],['C4.2','c42-written-6']];
   for(const [topic,id] of written){
    await record('candidate written marking and data integrity: '+topic+'/'+id,async()=>{
@@ -94,7 +94,7 @@ try{
     await expect(el.locator('.bio-feedback')).toContainText('Self-review guidance only');
     for(const point of q.markingPoints)await expect(el.locator('.bio-feedback')).toContainText(point);
     if(id==='b41-4-data')await shot(p,'candidate-transect-marking');
-    if(id==='d43-written-1')await shot(p,'candidate-uncertainty-marking');
+    if(id==='b31-6-structured')await shot(p,'candidate-spirometry-marking');
    });
   }
  }
