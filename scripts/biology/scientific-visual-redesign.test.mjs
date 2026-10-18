@@ -1,6 +1,7 @@
 // BioLab scientific-visual source and syllabus regression gate.
 // Does NOT substitute for human scientific or rendered-browser inspection.
 import test from 'node:test';
+import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
@@ -23,8 +24,8 @@ function validateSources(x) {
  const anatomy=x.sections.find(s=>s.understandingIds.includes('D3.1.4'));
  if(!anatomy)errors.push('anatomy section');
  else {
-  if(anatomy.assets.join('|')!=='d31-male-anatomy|d31-female-frontal|d31-female-sagittal')errors.push('anatomy assets');
-  if(anatomy.figurePlacements?.length!==3||anatomy.figurePlacements?.some(p=>p.afterBlock!==0))errors.push('anatomy placements');
+  if(anatomy.assets.join('|')!=='d31-male-anatomy|d31-female-frontal|d31-female-sagittal|d31-hodder-male|d31-hodder-female')errors.push('anatomy assets');
+  if(anatomy.figurePlacements?.length!==5||anatomy.figurePlacements?.some(p=>p.afterBlock!==0))errors.push('anatomy placements');
  }
  const flower=x.sections.find(s=>s.understandingIds.includes('D3.1.9'));
  if(!flower?.assets.includes('d31-flower-structures'))errors.push('flower placement');
@@ -88,4 +89,39 @@ test('A2.2.8 plant palisade cell is present, localized and paired with exact mob
   assert.doesNotMatch(s,/<script\b|<foreignObject\b|<image\b/i);
   if(!suffix.includes('recall'))for(const label of key)assert.ok(visibleText(s).includes(label),name+' missing '+label);
  }
+});
+
+// Original-source images are checked pixel-for-pixel against the extraction manifest.
+const originalFigures=json('docs/biology/source-figure-credits.json').figures;
+function sourceImageErrors(record){
+ const errors=[];
+ if(!/^\/biology\/source-pdf-figures\/[a-z0-9-]+\.png$/.test(record.src))return ['unsafe image path'];
+ const file=join(root,'public',record.src.slice(1));
+ if(!existsSync(file))return ['missing image'];
+ const bytes=readFileSync(file);
+ if(!bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])))errors.push('invalid PNG');
+ if(createHash('sha256').update(bytes).digest('hex')!==record.sha256)errors.push('changed original pixels');
+ const lessons=readdirSync(join(root,'src/biology/learning'),{withFileTypes:true})
+  .filter(d=>d.isDirectory()&&existsSync(join(root,'src/biology/learning',d.name,'lesson.json')))
+  .map(d=>json('src/biology/learning/'+d.name+'/lesson.json'));
+ const lesson=lessons.find(l=>l.topicId===record.topicId);
+ const asset=lesson?.assets.find(a=>a.id===record.assetId);
+ const section=lesson?.sections.find(s=>s.understandingIds.includes(record.understandingId));
+ if(!asset||asset.src!==record.src||!section?.assets.includes(record.assetId))errors.push('missing syllabus placement');
+ if(!asset?.attribution.includes(record.source)||!asset?.license.includes('Third-party licensed illustration'))errors.push('missing original source credit');
+ for(const key of ['recallSrc','mobileSrc','recallMobileSrc'])
+  if(asset?.[key]!==record.src)errors.push('redrawn variant '+key);
+ return errors;
+}
+test('18 exact PDF figure crops have unchanged SHA-256, correct syllabus placement and visible Sources attribution',()=>{
+ assert.equal(originalFigures.length,18);
+ const ids=new Set(originalFigures.map(f=>f.figureId));
+ assert.equal(ids.size,18);
+ for(const record of originalFigures)assert.deepEqual(sourceImageErrors(record),[],record.figureId);
+});
+test('negative: substituted or uncredited PDF screenshot is rejected',()=>{
+ const changed={...originalFigures[0],sha256:'0'.repeat(64)};
+ assert.ok(sourceImageErrors(changed).includes('changed original pixels'));
+ const unlinked={...originalFigures[0],assetId:'not-a-real-asset'};
+ assert.ok(sourceImageErrors(unlinked).includes('missing syllabus placement'));
 });

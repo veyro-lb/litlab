@@ -32,9 +32,17 @@ export function validatePhase7(d,topic){
  };
  for(const a of d.assets){
   const intentionallySingle=d.topicId==='B2.1'&&authoredSingleFigures[a.id]===a.src;
-  if(!a.src||!a.permissionEvidence||a.review==='approved'||(!a.recallSrc&&!intentionallySingle))
+  const originalScreenshot=/^\/biology\/source-pdf-figures\/[a-z0-9-]+\.png$/.test(a.src);
+  if(!a.src||!a.permissionEvidence||a.review==='approved'||(!a.recallSrc&&!intentionallySingle&&!originalScreenshot))
    fail('Asset review '+a.id);
-  if(a.recallSrc===a.src)fail('Distinct recall asset required '+a.id);
+  // Exact publisher/handout screenshots must not reveal a redrawn recall image.
+  if(a.recallSrc===a.src&&!originalScreenshot)fail('Distinct recall asset required '+a.id);
+  if(originalScreenshot){
+   if(a.recallSrc!==a.src||a.mobileSrc!==a.src||a.recallMobileSrc!==a.src)
+    fail('Original screenshot variants must use the exact same source '+a.id);
+   if(!/IB Biology Drawings|Hodder Education/.test(a.attribution)||!/third-party licen[cs]/i.test(a.license))
+    fail('Original screenshot source credit '+a.id);
+  }
  }
  // Keep the three-out / two-in ATPase stoichiometry invariant with real superscript ion charges.
  if(d.topicId==='B2.1'&&!/exports\s+(?:three|3)\s+Na[+⁺]\s+ions?\s+from\s+the\s+cytosol\s+and\s+imports\s+(?:two|2)\s+K[+⁺]\s+ions?\s+for\s+each\s+ATP\s+hydrolysed/i.test(d.sections[14].explanation))fail('Pump stoichiometry');
@@ -51,12 +59,18 @@ export async function checkFiles(){
   const t=topics.find(x=>x.id===d.topicId);
   errors.push(...validatePhase7(d,t).map(x=>d.topicId+': '+x));
   for(const a of d.assets)for(const src of [a.src,...(a.recallSrc?[a.recallSrc]:[])]){
-   if(!/^[/]biology[/][a-z0-9-]+[/][a-z0-9-]+[.]svg$/.test(src)){errors.push('Unsafe artwork '+src);continue}
+   const originalScreenshot=/^[/]biology[/]source-pdf-figures[/][a-z0-9-]+[.]png$/.test(src);
+   if(!originalScreenshot&&!/^[/]biology[/][a-z0-9-]+[/][a-z0-9-]+[.]svg$/.test(src)){errors.push('Unsafe artwork '+src);continue}
    try{
     const f=path.join(root,'public',src.slice(1));await access(f);
-    const svg=await readFile(f,'utf8');
-    if(!svg.includes('<svg')||!svg.includes('viewBox=')||!svg.includes('<title')||svg.includes('<image '))errors.push('Bad SVG '+src);
-   }catch{errors.push('Missing SVG '+src)}
+    if(originalScreenshot){
+     const png=await readFile(f);
+     if(!png.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])))errors.push('Invalid original PNG '+src);
+    }else{
+     const svg=await readFile(f,'utf8');
+     if(!svg.includes('<svg')||!svg.includes('viewBox=')||!svg.includes('<title')||svg.includes('<image '))errors.push('Bad SVG '+src);
+    }
+   }catch{errors.push('Missing image '+src)}
   }
   summary.push({topic:d.topicId,sections:d.sections.length,mcqs:d.questions.filter(q=>q.paper==='1A').length,structured:d.questions.filter(q=>q.paper!=='1A').length,figures:d.assets.length});
  }
