@@ -3,6 +3,7 @@
 **Date:** 2026-10-18  
 **Base ref:** \`feature/biolab-ib-final-base-20261018\`  
 **Verified base commit:** \`73f6278c6f8d941f2eeb68b836459efe78572a0b\`  
+**Upstream base advanced to:** `ab5bc2b8ae83f7e3bfedd3e52097ea3daa7a1d3f` (five commits incorporated into isolated Theme D branch after initial editorial start; no merge into main).
 **Isolated branch:** \`feature/biolab-ib-theme-d-final-20261018\`  
 **Scope:** Theme D lesson JSON; Theme D editorial tests and reports only. No merge or deployment.
 
@@ -53,9 +54,9 @@ Total **43 numbered sections** received explicit scientific editorial supplement
 
 ## Evidence, models and figures
 
-The original source-supported content remains. New numbers are either explicit arithmetic exercises with assumptions (2n=4, Hardy–Weinberg, chi-squared, recombinant frequency, water potential, biomass budget) or clearly labelled illustrative models. Published climatic observational indicators already present in the source lessons have not been silently turned into projections. Newly authored tables use ordinary strings, captions and units; they do not reproduce Hodder figures.
+The original source-supported content remains, including scientific content revisions and Figure assets incorporated from the concurrently advanced base. New numbers are either explicit arithmetic exercises with assumptions (2n=4, Hardy–Weinberg, chi-squared, recombinant frequency, water potential, biomass budget) or clearly labelled illustrative models. Published climatic observational indicators already present in the source lessons have not been silently turned into projections. Newly authored tables use ordinary strings, captions and units; they do not reproduce Hodder figures.
 
-Existing visual assets cover DNA replication, gene expression, cell division, fertilization, flowering plants, glucose / temperature feedback, genetics and ecosystems. All **27** pre-existing Theme D asset paths resolve. Additional original visual requests that cannot be fulfilled under exclusive ownership are recorded in [EXTERNAL_ASSET_REQUESTS.md](./EXTERNAL_ASSET_REQUESTS.md).
+Existing visual assets cover DNA replication, gene expression, cell division, fertilization, flowering plants, glucose / temperature feedback, genetics and ecosystems. All **29** integrated Theme D asset paths resolve. Remaining original visual requests that cannot be fulfilled under exclusive ownership are recorded in [EXTERNAL_ASSET_REQUESTS.md](./EXTERNAL_ASSET_REQUESTS.md).
 
 ## Validation and reproducibility
 
@@ -70,8 +71,8 @@ Remote GitHub lesson reads were programmatically checked for the 171 unique code
 ## Remaining issues / limits
 
 - Independent subject-matter expert/examiner signoff against every syllabus nuance remains outstanding. Presence of a source locator is not proof that external peer review occurred.
-- Do not add or adapt proprietary Hodder diagrams or examination questions. The extra original illustration requests are not implemented in this branch because visual assets are outside exclusive ownership.
-- A full end-to-end browser rendering / responsive regression and local \`npm\` verification have not been executed from a checkout in this session. Run the scoped test, project validations and visual QA in a suitable CI environment before integrating any content.
+- Do not add or adapt proprietary Hodder diagrams or examination questions. The newer base now includes original male and female human reproductive-anatomy figures (inherited without editing the visual-asset files). The remaining optional asset requests are not implemented here because visual assets are outside exclusive ownership.
+- After integrating the updated base, a full end-to-end browser rendering / responsive regression and local \`npm\` verification have not been executed from a checkout in this session. Run the scoped test, project validations and visual QA in a suitable CI environment before integrating any content.
 - No global assessment, curriculum registry, Sources UI, other theme or production deployment file was intentionally changed.
 
 **Status:** Isolated editorial implementation and remote structural validation complete; runtime CI, visual acceptance and independent scientific signoff pending.
