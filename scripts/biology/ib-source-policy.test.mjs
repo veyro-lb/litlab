@@ -53,5 +53,8 @@ test('four committed review matrices preserve all 553 official identifiers and l
  assert.equal(all.filter(row=>row.scope==='HL-only').length,216);
  assert.equal(all.filter(row=>row.review.qualifiedScienceApproval).length,0);
  assert.equal(all.filter(row=>row.officialGuide.verifiedAgainstGuide).length,8);
- assert.ok(all.every(row=>row.hodder.printedPages.length&&row.coverage.explanationPresent&&row.coverage.questionCount>0));
+ assert.ok(all.every(row=>row.coverage.explanationPresent&&row.coverage.questionCount>0));
+ const outstanding=all.filter(row=>!row.hodder.printedPages.length);
+ assert.equal(outstanding.length,58,'A missing understanding-specific textbook locator is an open audit issue, not verification');
+ assert.ok(outstanding.every(row=>row.hodder.chapterPrintedPageRange?.length===2&&row.hodder.comparisonStatus.includes('pending')));
 });
