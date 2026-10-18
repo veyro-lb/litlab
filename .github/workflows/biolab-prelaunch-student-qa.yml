@@ -25,8 +25,8 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           test -z "$(git status --porcelain)"
-          test -z "$(git diff --name-only 3e07486876700cd35d0931f91a7c11ae82946084 HEAD -- src public package.json package-lock.json vite.config.ts wrangler.jsonc)"
-          printf 'integration_baseline=%s\nqa_execution_commit=%s\n' 3e07486876700cd35d0931f91a7c11ae82946084 "$GITHUB_SHA" > acceptance-commit.txt
+          test -z "$(git diff --name-only 8a3e690f65f09932b05f46cec33581b2930a3db1 HEAD -- src public package.json package-lock.json vite.config.ts wrangler.jsonc)"
+          printf 'integration_baseline=%s\nqa_execution_commit=%s\n' 8a3e690f65f09932b05f46cec33581b2930a3db1 "$GITHUB_SHA" > acceptance-commit.txt
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
