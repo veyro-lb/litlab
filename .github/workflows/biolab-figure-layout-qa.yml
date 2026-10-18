@@ -31,6 +31,7 @@ jobs:
       - name: Build exact pre-change integration revision
         run: |
           mkdir -p .figure-baseline
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git archive a03f8f86af7009a529b6aaf8fd7e581a3928de52 | tar -x -C .figure-baseline
           ln -s ../node_modules .figure-baseline/node_modules
           npm run build --prefix .figure-baseline
