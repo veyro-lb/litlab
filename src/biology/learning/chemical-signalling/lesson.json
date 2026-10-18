@@ -31,7 +31,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What enables a cell to recognize a particular extracellular ligand?",
-      "explanation": "A receptor is a protein whose ligand-binding site has a three-dimensional shape and chemical environment that favour particular signalling molecules. Complementary non-covalent interactions determine binding; receptor specificity prevents most unrelated molecules from triggering that cell's response.\n\nBinding is not automatically a response: ligand attachment usually changes receptor conformation or association with other proteins. A target cell responds only if it expresses the appropriate receptor and downstream machinery.",
+      "explanation": "A receptor is a protein whose ligand-binding site has a three-dimensional shape and chemical environment that favour particular signalling molecules. Complementary non-covalent interactions determine binding; receptor specificity prevents most unrelated molecules from triggering that cell's response.\n\nBinding is not automatically a response: ligand attachment usually changes receptor conformation or association with other proteins. A target cell responds only if it expresses the appropriate receptor and downstream machinery.\n\nA signal works only where an appropriate receptor is present. First, a ligand encounters a receptor binding site with matching shape and charge distribution. Binding stabilizes a different receptor conformation, so the receptor can alter a channel or recruit signalling proteins. Those intracellular events, rather than the ligand itself entering every cell, produce a response. Two cells exposed to the same hormone can therefore respond differently if they express different receptors or signalling machinery. Concentration affects the proportion of occupied receptors, but a high concentration does not remove molecular specificity. Distinguish recognition, receptor activation and the eventual response when tracing a pathway.",
       "revisionSummary": "Binding is not automatically a response: ligand attachment usually changes receptor conformation or association with other proteins. A target cell responds only if it expresses the appropriate receptor and downstream machinery.",
       "terms": [
         "Ligand recognition and receptor specificity"
@@ -53,6 +53,13 @@
         },
         {
           "claim": "Binding is not automatically a response: ligand attachment usually changes receptor conformation or association with other proteins. A target cell responds only if it expresses the appropriate receptor and downstream machinery.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "A signal works only where an appropriate receptor is present. First, a ligand encounters a receptor binding site with matching shape and charge distribution. Binding stabilizes a different receptor conformation, so the receptor can alter a channel or recruit signalling proteins. Those intracellular events, rather than the ligand itself entering every cell, produce a response. Two cells exposed to the same hormone can therefore respond differently if they express different receptors or signalling machinery. Concentration affects the proportion of occupied receptors, but a high concentration does not remove molecular specificity. Distinguish recognition, receptor activation and the eventual response when tracing a pathway.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -105,7 +112,7 @@
           "kind": "recall",
           "id": "c21-recall-1",
           "prompt": "Explain ligand recognition and receptor specificity, including what happens and why it matters.",
-          "answer": "A receptor is a protein whose ligand-binding site has a three-dimensional shape and chemical environment that favour particular signalling molecules. Complementary non-covalent interactions determine binding; receptor specificity prevents most unrelated molecules from triggering that cell's response. Binding is not automatically a response: ligand attachment usually changes receptor conformation or association with other proteins. A target cell responds only if it expresses the appropriate receptor and downstream machinery.",
+          "answer": "A receptor is a protein whose ligand-binding site has a three-dimensional shape and chemical environment that favour particular signalling molecules. Complementary non-covalent interactions determine binding; receptor specificity prevents most unrelated molecules from triggering that cell's response.\n\nBinding is not automatically a response: ligand attachment usually changes receptor conformation or association with other proteins. A target cell responds only if it expresses the appropriate receptor and downstream machinery.\n\nA signal works only where an appropriate receptor is present. First, a ligand encounters a receptor binding site with matching shape and charge distribution. Binding stabilizes a different receptor conformation, so the receptor can alter a channel or recruit signalling proteins. Those intracellular events, rather than the ligand itself entering every cell, produce a response. Two cells exposed to the same hormone can therefore respond differently if they express different receptors or signalling machinery. Concentration affects the proportion of occupied receptors, but a high concentration does not remove molecular specificity. Distinguish recognition, receptor activation and the eventual response when tracing a pathway.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.1"
@@ -139,6 +146,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "From recognition to a cellular response",
+          "explanation": "A signal works only where an appropriate receptor is present. First, a ligand encounters a receptor binding site with matching shape and charge distribution. Binding stabilizes a different receptor conformation, so the receptor can alter a channel or recruit signalling proteins. Those intracellular events, rather than the ligand itself entering every cell, produce a response. Two cells exposed to the same hormone can therefore respond differently if they express different receptors or signalling machinery. Concentration affects the proportion of occupied receptors, but a high concentration does not remove molecular specificity. Distinguish recognition, receptor activation and the eventual response when tracing a pathway.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -163,7 +178,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Why does Vibrio fischeri produce more light in a dense population?",
-      "explanation": "Some bacteria release small signalling molecules called autoinducers. At low cell density molecules diffuse away, so local concentrations remain below the level needed to activate coordinated gene expression. As the population becomes denser, accumulated autoinducer binds regulatory proteins and changes transcription.\n\nThe marine bacterium Vibrio fischeri uses a LuxI/LuxR signalling system to coordinate expression of luciferase genes. Many bacteria in a squid's light organ collectively generate visible light; this is a population-dependent response, not a single cell counting neighbouring cells.",
+      "explanation": "Some bacteria release small signalling molecules called autoinducers. At low cell density molecules diffuse away, so local concentrations remain below the level needed to activate coordinated gene expression. As the population becomes denser, accumulated autoinducer binds regulatory proteins and changes transcription.\n\nThe marine bacterium Vibrio fischeri uses a LuxI/LuxR signalling system to coordinate expression of luciferase genes. Many bacteria in a squid's light organ collectively generate visible light; this is a population-dependent response, not a single cell counting neighbouring cells.\n\nIndividual Vibrio fischeri cells release small autoinducer molecules that diffuse into and out of cells. In dilute seawater the molecules disperse and their concentration remains too low to trigger a coordinated response. When the bacterial population becomes dense, for example in a host light organ, autoinducer accumulates. Once enough ligand binds its regulatory receptor, gene expression changes and the enzymes involved in bioluminescence are produced. The light appears as a group response because the chemical concentration reports local cell density. Quorum sensing is not bacteria counting one another directly: a freely diffusible signal couples population density to a threshold-dependent change in transcription.",
       "revisionSummary": "The marine bacterium Vibrio fischeri uses a LuxI/LuxR signalling system to coordinate expression of luciferase genes. Many bacteria in a squid's light organ collectively generate visible light; this is a population-dependent response, not a single cell counting neighbouring cells.",
       "terms": [
         "Quorum sensing in Vibrio fischeri"
@@ -185,6 +200,13 @@
         },
         {
           "claim": "The marine bacterium Vibrio fischeri uses a LuxI/LuxR signalling system to coordinate expression of luciferase genes. Many bacteria in a squid's light organ collectively generate visible light; this is a population-dependent response, not a single cell counting neighbouring cells.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Individual Vibrio fischeri cells release small autoinducer molecules that diffuse into and out of cells. In dilute seawater the molecules disperse and their concentration remains too low to trigger a coordinated response. When the bacterial population becomes dense, for example in a host light organ, autoinducer accumulates. Once enough ligand binds its regulatory receptor, gene expression changes and the enzymes involved in bioluminescence are produced. The light appears as a group response because the chemical concentration reports local cell density. Quorum sensing is not bacteria counting one another directly: a freely diffusible signal couples population density to a threshold-dependent change in transcription.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -237,7 +259,7 @@
           "kind": "recall",
           "id": "c21-recall-2",
           "prompt": "Explain quorum sensing in vibrio fischeri, including what happens and why it matters.",
-          "answer": "Some bacteria release small signalling molecules called autoinducers. At low cell density molecules diffuse away, so local concentrations remain below the level needed to activate coordinated gene expression. As the population becomes denser, accumulated autoinducer binds regulatory proteins and changes transcription. The marine bacterium Vibrio fischeri uses a LuxI/LuxR signalling system to coordinate expression of luciferase genes. Many bacteria in a squid's light organ collectively generate visible light; this is a population-dependent response, not a single cell counting neighbouring cells.",
+          "answer": "Some bacteria release small signalling molecules called autoinducers. At low cell density molecules diffuse away, so local concentrations remain below the level needed to activate coordinated gene expression. As the population becomes denser, accumulated autoinducer binds regulatory proteins and changes transcription.\n\nThe marine bacterium Vibrio fischeri uses a LuxI/LuxR signalling system to coordinate expression of luciferase genes. Many bacteria in a squid's light organ collectively generate visible light; this is a population-dependent response, not a single cell counting neighbouring cells.\n\nIndividual Vibrio fischeri cells release small autoinducer molecules that diffuse into and out of cells. In dilute seawater the molecules disperse and their concentration remains too low to trigger a coordinated response. When the bacterial population becomes dense, for example in a host light organ, autoinducer accumulates. Once enough ligand binds its regulatory receptor, gene expression changes and the enzymes involved in bioluminescence are produced. The light appears as a group response because the chemical concentration reports local cell density. Quorum sensing is not bacteria counting one another directly: a freely diffusible signal couples population density to a threshold-dependent change in transcription.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.2"
@@ -271,6 +293,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "From bacterial density to light emission",
+          "explanation": "Individual Vibrio fischeri cells release small autoinducer molecules that diffuse into and out of cells. In dilute seawater the molecules disperse and their concentration remains too low to trigger a coordinated response. When the bacterial population becomes dense, for example in a host light organ, autoinducer accumulates. Once enough ligand binds its regulatory receptor, gene expression changes and the enzymes involved in bioluminescence are produced. The light appears as a group response because the chemical concentration reports local cell density. Quorum sensing is not bacteria counting one another directly: a freely diffusible signal couples population density to a threshold-dependent change in transcription.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -295,7 +325,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which example is commonly an intracellular second messenger?",
-      "explanation": "Hormones are commonly secreted by endocrine cells and can travel in blood to distant targets. Neurotransmitters are released at synapses and diffuse over a short cleft to receptors on a neighbouring cell. Cytokines are proteins secreted by cells, notably immune cells, to influence inflammation, differentiation and other responses.\n\nCalcium ions, unlike those extracellular molecules, often serve as intracellular second messengers: a short rise in cytosolic Ca²⁺ can activate proteins involved in secretion or muscle contraction. These functional categories distinguish signalling roles, not mutually exclusive molecular identities.",
+      "explanation": "Hormones are commonly secreted by endocrine cells and can travel in blood to distant targets. Neurotransmitters are released at synapses and diffuse over a short cleft to receptors on a neighbouring cell. Cytokines are proteins secreted by cells, notably immune cells, to influence inflammation, differentiation and other responses.\n\nCalcium ions, unlike those extracellular molecules, often serve as intracellular second messengers: a short rise in cytosolic Ca²⁺ can activate proteins involved in secretion or muscle contraction. These functional categories distinguish signalling roles, not mutually exclusive molecular identities.\n\nClassify a signal by how it acts, not simply by its chemical formula. Endocrine hormones are secreted into blood and can affect distant receptor-bearing tissues; a neurotransmitter is released from a neuron into a narrow synaptic cleft and acts rapidly on nearby postsynaptic receptors. Cytokines are often secreted proteins used by immune and other cells to coordinate inflammation or cell behaviour, commonly through local signalling. Calcium ions are especially important as intracellular messengers: stimulation can briefly raise cytosolic Ca²⁺, which binds signalling proteins and changes secretion or contraction. The categories can overlap in chemical identity, but their physiological routes and timescales differ.",
       "revisionSummary": "Calcium ions, unlike those extracellular molecules, often serve as intracellular second messengers: a short rise in cytosolic Ca²⁺ can activate proteins involved in secretion or muscle contraction. These functional categories distinguish signalling roles, not mutually exclusive molecular identities.",
       "terms": [
         "Hormones, neurotransmitters, cytokines and calcium ions"
@@ -317,6 +347,13 @@
         },
         {
           "claim": "Calcium ions, unlike those extracellular molecules, often serve as intracellular second messengers: a short rise in cytosolic Ca²⁺ can activate proteins involved in secretion or muscle contraction. These functional categories distinguish signalling roles, not mutually exclusive molecular identities.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Classify a signal by how it acts, not simply by its chemical formula. Endocrine hormones are secreted into blood and can affect distant receptor-bearing tissues; a neurotransmitter is released from a neuron into a narrow synaptic cleft and acts rapidly on nearby postsynaptic receptors. Cytokines are often secreted proteins used by immune and other cells to coordinate inflammation or cell behaviour, commonly through local signalling. Calcium ions are especially important as intracellular messengers: stimulation can briefly raise cytosolic Ca²⁺, which binds signalling proteins and changes secretion or contraction. The categories can overlap in chemical identity, but their physiological routes and timescales differ.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -369,7 +406,7 @@
           "kind": "recall",
           "id": "c21-recall-3",
           "prompt": "Explain hormones, neurotransmitters, cytokines and calcium ions, including what happens and why it matters.",
-          "answer": "Hormones are commonly secreted by endocrine cells and can travel in blood to distant targets. Neurotransmitters are released at synapses and diffuse over a short cleft to receptors on a neighbouring cell. Cytokines are proteins secreted by cells, notably immune cells, to influence inflammation, differentiation and other responses. Calcium ions, unlike those extracellular molecules, often serve as intracellular second messengers: a short rise in cytosolic Ca²⁺ can activate proteins involved in secretion or muscle contraction. These functional categories distinguish signalling roles, not mutually exclusive molecular identities.",
+          "answer": "Hormones are commonly secreted by endocrine cells and can travel in blood to distant targets. Neurotransmitters are released at synapses and diffuse over a short cleft to receptors on a neighbouring cell. Cytokines are proteins secreted by cells, notably immune cells, to influence inflammation, differentiation and other responses.\n\nCalcium ions, unlike those extracellular molecules, often serve as intracellular second messengers: a short rise in cytosolic Ca²⁺ can activate proteins involved in secretion or muscle contraction. These functional categories distinguish signalling roles, not mutually exclusive molecular identities.\n\nClassify a signal by how it acts, not simply by its chemical formula. Endocrine hormones are secreted into blood and can affect distant receptor-bearing tissues; a neurotransmitter is released from a neuron into a narrow synaptic cleft and acts rapidly on nearby postsynaptic receptors. Cytokines are often secreted proteins used by immune and other cells to coordinate inflammation or cell behaviour, commonly through local signalling. Calcium ions are especially important as intracellular messengers: stimulation can briefly raise cytosolic Ca²⁺, which binds signalling proteins and changes secretion or contraction. The categories can overlap in chemical identity, but their physiological routes and timescales differ.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.3"
@@ -399,6 +436,14 @@
         {
           "title": "Mechanism and biological significance",
           "explanation": "Calcium ions, unlike those extracellular molecules, often serve as intracellular second messengers: a short rise in cytosolic Ca²⁺ can activate proteins involved in secretion or muscle contraction. These functional categories distinguish signalling roles, not mutually exclusive molecular identities.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "title": "Different routes and scales of signalling",
+          "explanation": "Classify a signal by how it acts, not simply by its chemical formula. Endocrine hormones are secreted into blood and can affect distant receptor-bearing tissues; a neurotransmitter is released from a neuron into a narrow synaptic cleft and acts rapidly on nearby postsynaptic receptors. Cytokines are often secreted proteins used by immune and other cells to coordinate inflammation or cell behaviour, commonly through local signalling. Calcium ions are especially important as intracellular messengers: stimulation can briefly raise cytosolic Ca²⁺, which binds signalling proteins and changes secretion or contraction. The categories can overlap in chemical identity, but their physiological routes and timescales differ.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -462,7 +507,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which pairing correctly classifies hormones?",
-      "explanation": "Hormones include peptide/protein hormones such as insulin, amines derived from amino acids such as epinephrine, and steroid hormones such as oestradiol and progesterone. Neurotransmitters likewise include amino acids (glutamate), amines (dopamine), peptides and the gaseous transmitter nitric oxide (NO). Nitric oxide (NO) is the gaseous signalling messenger; it is chemically different from nitrous oxide (N₂O), whose name appears inconsistently in the official syllabus wording.\n\nDifferent chemical properties matter. Hydrophilic ligands commonly bind cell-surface receptors; lipid-soluble steroids usually cross the lipid bilayer and bind intracellular receptors. Chemical diversity gives cells signals with different diffusion ranges, lifetimes, transport mechanisms and receptor interactions.",
+      "explanation": "Hormones include peptide/protein hormones such as insulin, amines derived from amino acids such as epinephrine, and steroid hormones such as oestradiol and progesterone. Neurotransmitters likewise include amino acids (glutamate), amines (dopamine), peptides and the gaseous transmitter nitric oxide (NO). Nitric oxide (NO) is the gaseous signalling messenger; it is chemically different from nitrous oxide (N₂O), whose name appears inconsistently in the official syllabus wording.\n\nDifferent chemical properties matter. Hydrophilic ligands commonly bind cell-surface receptors; lipid-soluble steroids usually cross the lipid bilayer and bind intracellular receptors. Chemical diversity gives cells signals with different diffusion ranges, lifetimes, transport mechanisms and receptor interactions.\n\nAmines, polypeptides and steroids are chemically unlike one another, so there is no universal path from signal to receptor. Water-soluble protein hormones such as insulin generally cannot diffuse through the hydrophobic plasma-membrane core and use membrane receptors. Lipid-soluble steroids can cross the membrane and activate receptors inside a cell. Amines vary: adrenaline is water-soluble, whereas thyroid hormones act through intracellular receptors. Neurotransmitters include small amino acids, amines and peptides, and they act through specific receptors at targets. Using diverse chemical classes allows signals with different solubility, persistence, transport and response speeds; chemical class alone does not tell you the precise cellular effect.",
       "revisionSummary": "Different chemical properties matter. Hydrophilic ligands commonly bind cell-surface receptors; lipid-soluble steroids usually cross the lipid bilayer and bind intracellular receptors. Chemical diversity gives cells signals with different diffusion ranges, lifetimes, transport mechanisms and receptor interactions.",
       "terms": [
         "Chemical diversity of signalling molecules"
@@ -484,6 +529,13 @@
         },
         {
           "claim": "Different chemical properties matter. Hydrophilic ligands commonly bind cell-surface receptors; lipid-soluble steroids usually cross the lipid bilayer and bind intracellular receptors. Chemical diversity gives cells signals with different diffusion ranges, lifetimes, transport mechanisms and receptor interactions.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Amines, polypeptides and steroids are chemically unlike one another, so there is no universal path from signal to receptor. Water-soluble protein hormones such as insulin generally cannot diffuse through the hydrophobic plasma-membrane core and use membrane receptors. Lipid-soluble steroids can cross the membrane and activate receptors inside a cell. Amines vary: adrenaline is water-soluble, whereas thyroid hormones act through intracellular receptors. Neurotransmitters include small amino acids, amines and peptides, and they act through specific receptors at targets. Using diverse chemical classes allows signals with different solubility, persistence, transport and response speeds; chemical class alone does not tell you the precise cellular effect.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -536,7 +588,7 @@
           "kind": "recall",
           "id": "c21-recall-4",
           "prompt": "Explain chemical diversity of signalling molecules, including what happens and why it matters.",
-          "answer": "Hormones include peptide/protein hormones such as insulin, amines derived from amino acids such as epinephrine, and steroid hormones such as oestradiol and progesterone. Neurotransmitters likewise include amino acids (glutamate), amines (dopamine), peptides and the gaseous transmitter nitric oxide (NO). Different chemical properties matter. Hydrophilic ligands commonly bind cell-surface receptors; lipid-soluble steroids usually cross the lipid bilayer and bind intracellular receptors. Chemical diversity gives cells signals with different diffusion ranges, lifetimes, transport mechanisms and receptor interactions.",
+          "answer": "Hormones include peptide/protein hormones such as insulin, amines derived from amino acids such as epinephrine, and steroid hormones such as oestradiol and progesterone. Neurotransmitters likewise include amino acids (glutamate), amines (dopamine), peptides and the gaseous transmitter nitric oxide (NO). Nitric oxide (NO) is the gaseous signalling messenger; it is chemically different from nitrous oxide (N₂O), whose name appears inconsistently in the official syllabus wording.\n\nDifferent chemical properties matter. Hydrophilic ligands commonly bind cell-surface receptors; lipid-soluble steroids usually cross the lipid bilayer and bind intracellular receptors. Chemical diversity gives cells signals with different diffusion ranges, lifetimes, transport mechanisms and receptor interactions.\n\nAmines, polypeptides and steroids are chemically unlike one another, so there is no universal path from signal to receptor. Water-soluble protein hormones such as insulin generally cannot diffuse through the hydrophobic plasma-membrane core and use membrane receptors. Lipid-soluble steroids can cross the membrane and activate receptors inside a cell. Amines vary: adrenaline is water-soluble, whereas thyroid hormones act through intracellular receptors. Neurotransmitters include small amino acids, amines and peptides, and they act through specific receptors at targets. Using diverse chemical classes allows signals with different solubility, persistence, transport and response speeds; chemical class alone does not tell you the precise cellular effect.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.4"
@@ -570,6 +622,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "How chemical properties shape signalling",
+          "explanation": "Amines, polypeptides and steroids are chemically unlike one another, so there is no universal path from signal to receptor. Water-soluble protein hormones such as insulin generally cannot diffuse through the hydrophobic plasma-membrane core and use membrane receptors. Lipid-soluble steroids can cross the membrane and activate receptors inside a cell. Amines vary: adrenaline is water-soluble, whereas thyroid hormones act through intracellular receptors. Neurotransmitters include small amino acids, amines and peptides, and they act through specific receptors at targets. Using diverse chemical classes allows signals with different solubility, persistence, transport and response speeds; chemical class alone does not tell you the precise cellular effect.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -594,7 +654,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Why can a circulating hormone affect some tissues but not others?",
-      "explanation": "A neurotransmitter released from a presynaptic terminal usually diffuses across a synaptic cleft and reaches receptors on a neighbouring cell in a localized microenvironment. A hormone released into the blood may be carried throughout the body; only receptor-bearing target cells respond.\n\nDistance alone does not define a signal's function: concentration, breakdown, receptor distribution and transport determine where effects occur. A signalling chemical reaching a cell without its appropriate receptor normally does not trigger that pathway.",
+      "explanation": "A neurotransmitter released from a presynaptic terminal usually diffuses across a synaptic cleft and reaches receptors on a neighbouring cell in a localized microenvironment. A hormone released into the blood may be carried throughout the body; only receptor-bearing target cells respond.\n\nDistance alone does not define a signal's function: concentration, breakdown, receptor distribution and transport determine where effects occur. A signalling chemical reaching a cell without its appropriate receptor normally does not trigger that pathway.\n\nConsider an endocrine cell releasing a hormone into extracellular fluid. The blood distributes it throughout the body, but only tissues expressing suitable receptors respond. By contrast a presynaptic neuron releases neurotransmitter within micrometres of a postsynaptic membrane; diffusion across the synaptic cleft makes transmission local and spatially specific. The signal's lifetime also matters: enzymes, transporters and uptake may terminate signalling before it spreads. A locally secreted cytokine can influence nearby cells without entering systemic circulation. When comparing pathways, identify the source, transport medium, receptor location, responding cell and how the signal is removed.",
       "revisionSummary": "Distance alone does not define a signal's function: concentration, breakdown, receptor distribution and transport determine where effects occur. A signalling chemical reaching a cell without its appropriate receptor normally does not trigger that pathway.",
       "terms": [
         "Local versus distant signalling"
@@ -616,6 +676,13 @@
         },
         {
           "claim": "Distance alone does not define a signal's function: concentration, breakdown, receptor distribution and transport determine where effects occur. A signalling chemical reaching a cell without its appropriate receptor normally does not trigger that pathway.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Consider an endocrine cell releasing a hormone into extracellular fluid. The blood distributes it throughout the body, but only tissues expressing suitable receptors respond. By contrast a presynaptic neuron releases neurotransmitter within micrometres of a postsynaptic membrane; diffusion across the synaptic cleft makes transmission local and spatially specific. The signal's lifetime also matters: enzymes, transporters and uptake may terminate signalling before it spreads. A locally secreted cytokine can influence nearby cells without entering systemic circulation. When comparing pathways, identify the source, transport medium, receptor location, responding cell and how the signal is removed.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -668,7 +735,7 @@
           "kind": "recall",
           "id": "c21-recall-5",
           "prompt": "Explain local versus distant signalling, including what happens and why it matters.",
-          "answer": "A neurotransmitter released from a presynaptic terminal usually diffuses across a synaptic cleft and reaches receptors on a neighbouring cell in a localized microenvironment. A hormone released into the blood may be carried throughout the body; only receptor-bearing target cells respond. Distance alone does not define a signal's function: concentration, breakdown, receptor distribution and transport determine where effects occur. A signalling chemical reaching a cell without its appropriate receptor normally does not trigger that pathway.",
+          "answer": "A neurotransmitter released from a presynaptic terminal usually diffuses across a synaptic cleft and reaches receptors on a neighbouring cell in a localized microenvironment. A hormone released into the blood may be carried throughout the body; only receptor-bearing target cells respond.\n\nDistance alone does not define a signal's function: concentration, breakdown, receptor distribution and transport determine where effects occur. A signalling chemical reaching a cell without its appropriate receptor normally does not trigger that pathway.\n\nConsider an endocrine cell releasing a hormone into extracellular fluid. The blood distributes it throughout the body, but only tissues expressing suitable receptors respond. By contrast a presynaptic neuron releases neurotransmitter within micrometres of a postsynaptic membrane; diffusion across the synaptic cleft makes transmission local and spatially specific. The signal's lifetime also matters: enzymes, transporters and uptake may terminate signalling before it spreads. A locally secreted cytokine can influence nearby cells without entering systemic circulation. When comparing pathways, identify the source, transport medium, receptor location, responding cell and how the signal is removed.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.5"
@@ -702,6 +769,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "Why signalling range depends on transport",
+          "explanation": "Consider an endocrine cell releasing a hormone into extracellular fluid. The blood distributes it throughout the body, but only tissues expressing suitable receptors respond. By contrast a presynaptic neuron releases neurotransmitter within micrometres of a postsynaptic membrane; diffusion across the synaptic cleft makes transmission local and spatially specific. The signal's lifetime also matters: enzymes, transporters and uptake may terminate signalling before it spreads. A locally secreted cytokine can influence nearby cells without entering systemic circulation. When comparing pathways, identify the source, transport medium, receptor location, responding cell and how the signal is removed.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -726,7 +801,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Where does insulin first bind its receptor?",
-      "explanation": "Transmembrane receptors span the plasma membrane; hydrophobic amino-acid regions contact the membrane's lipid core, while hydrophilic regions face aqueous fluids. Water-soluble ligands such as insulin generally stay outside and transmit information by changing a membrane receptor's conformation.\n\nIntracellular receptors are located in cytoplasm or nucleus. Lipid-soluble ligands such as steroid hormones can cross the membrane and bind these receptors; their hydrophobic character helps passage through the lipid region, although carriers and binding proteins can also affect transport.",
+      "explanation": "Transmembrane receptors span the plasma membrane; hydrophobic amino-acid regions contact the membrane's lipid core, while hydrophilic regions face aqueous fluids. Water-soluble ligands such as insulin generally stay outside and transmit information by changing a membrane receptor's conformation.\n\nIntracellular receptors are located in cytoplasm or nucleus. Lipid-soluble ligands such as steroid hormones can cross the membrane and bind these receptors; their hydrophobic character helps passage through the lipid region, although carriers and binding proteins can also affect transport.\n\nThe lipid bilayer separates the outside solution from cytoplasm and controls which ligands reach receptors. A transmembrane receptor normally displays hydrophilic amino-acid residues in extracellular and cytosolic regions, with hydrophobic membrane-spanning segments interacting with fatty-acid tails. Water-soluble ligands bind outside and change intracellular receptor activity without crossing the bilayer. A sufficiently lipid-soluble steroid can pass through the membrane and bind a receptor in cytoplasm or nucleus, where the receptor may regulate transcription. Receptor location therefore reflects both ligand permeability and the kind of response required. Do not infer that every ligand must first enter the nucleus.",
       "revisionSummary": "Intracellular receptors are located in cytoplasm or nucleus. Lipid-soluble ligands such as steroid hormones can cross the membrane and bind these receptors; their hydrophobic character helps passage through the lipid region, although carriers and binding proteins can also affect transport.",
       "terms": [
         "Surface versus intracellular receptors"
@@ -748,6 +823,13 @@
         },
         {
           "claim": "Intracellular receptors are located in cytoplasm or nucleus. Lipid-soluble ligands such as steroid hormones can cross the membrane and bind these receptors; their hydrophobic character helps passage through the lipid region, although carriers and binding proteins can also affect transport.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "The lipid bilayer separates the outside solution from cytoplasm and controls which ligands reach receptors. A transmembrane receptor normally displays hydrophilic amino-acid residues in extracellular and cytosolic regions, with hydrophobic membrane-spanning segments interacting with fatty-acid tails. Water-soluble ligands bind outside and change intracellular receptor activity without crossing the bilayer. A sufficiently lipid-soluble steroid can pass through the membrane and bind a receptor in cytoplasm or nucleus, where the receptor may regulate transcription. Receptor location therefore reflects both ligand permeability and the kind of response required. Do not infer that every ligand must first enter the nucleus.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -800,7 +882,7 @@
           "kind": "recall",
           "id": "c21-recall-6",
           "prompt": "Explain surface versus intracellular receptors, including what happens and why it matters.",
-          "answer": "Transmembrane receptors span the plasma membrane; hydrophobic amino-acid regions contact the membrane's lipid core, while hydrophilic regions face aqueous fluids. Water-soluble ligands such as insulin generally stay outside and transmit information by changing a membrane receptor's conformation. Intracellular receptors are located in cytoplasm or nucleus. Lipid-soluble ligands such as steroid hormones can cross the membrane and bind these receptors; their hydrophobic character helps passage through the lipid region, although carriers and binding proteins can also affect transport.",
+          "answer": "Transmembrane receptors span the plasma membrane; hydrophobic amino-acid regions contact the membrane's lipid core, while hydrophilic regions face aqueous fluids. Water-soluble ligands such as insulin generally stay outside and transmit information by changing a membrane receptor's conformation.\n\nIntracellular receptors are located in cytoplasm or nucleus. Lipid-soluble ligands such as steroid hormones can cross the membrane and bind these receptors; their hydrophobic character helps passage through the lipid region, although carriers and binding proteins can also affect transport.\n\nThe lipid bilayer separates the outside solution from cytoplasm and controls which ligands reach receptors. A transmembrane receptor normally displays hydrophilic amino-acid residues in extracellular and cytosolic regions, with hydrophobic membrane-spanning segments interacting with fatty-acid tails. Water-soluble ligands bind outside and change intracellular receptor activity without crossing the bilayer. A sufficiently lipid-soluble steroid can pass through the membrane and bind a receptor in cytoplasm or nucleus, where the receptor may regulate transcription. Receptor location therefore reflects both ligand permeability and the kind of response required. Do not infer that every ligand must first enter the nucleus.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.6"
@@ -830,6 +912,14 @@
         {
           "title": "Mechanism and biological significance",
           "explanation": "Intracellular receptors are located in cytoplasm or nucleus. Lipid-soluble ligands such as steroid hormones can cross the membrane and bind these receptors; their hydrophobic character helps passage through the lipid region, although carriers and binding proteins can also affect transport.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "title": "The membrane as a chemical-selectivity boundary",
+          "explanation": "The lipid bilayer separates the outside solution from cytoplasm and controls which ligands reach receptors. A transmembrane receptor normally displays hydrophilic amino-acid residues in extracellular and cytosolic regions, with hydrophobic membrane-spanning segments interacting with fatty-acid tails. Water-soluble ligands bind outside and change intracellular receptor activity without crossing the bilayer. A sufficiently lipid-soluble steroid can pass through the membrane and bind a receptor in cytoplasm or nucleus, where the receptor may regulate transcription. Receptor location therefore reflects both ligand permeability and the kind of response required. Do not infer that every ligand must first enter the nucleus.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -887,7 +977,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What immediately initiates a receptor-mediated signalling pathway?",
-      "explanation": "The binding of a ligand can change the receptor's shape, activate its enzymatic activity, or permit another signalling protein to associate. These molecular changes initiate a signal-transduction pathway that relays information within a cell rather than transporting the ligand itself across every step.\n\nTransduction often involves phosphorylation of proteins, GTP-binding proteins, second messengers or changes in ion permeability. Several downstream steps can amplify a weak external signal and produce a specific response, such as altered enzyme activity or gene expression.",
+      "explanation": "The binding of a ligand can change the receptor's shape, activate its enzymatic activity, or permit another signalling protein to associate. These molecular changes initiate a signal-transduction pathway that relays information within a cell rather than transporting the ligand itself across every step.\n\nTransduction often involves phosphorylation of proteins, GTP-binding proteins, second messengers or changes in ion permeability. Several downstream steps can amplify a weak external signal and produce a specific response, such as altered enzyme activity or gene expression.\n\nMap a signalling pathway as cause and consequence: ligand binds a receptor; the receptor becomes active; an intracellular relay protein or second messenger changes; an effector protein alters cell activity. A kinase cascade may amplify the signal because one activated enzyme acts on many substrate proteins. Other pathways use ion channels and change membrane potential immediately. The cell eventually must switch the relay off—through ligand removal, GTP hydrolysis, second-messenger breakdown or dephosphorylation—so it can respond to new information. Signal transduction is not synonymous with hormone transport: it begins when a receptor converts recognition into intracellular events.",
       "revisionSummary": "Transduction often involves phosphorylation of proteins, GTP-binding proteins, second messengers or changes in ion permeability. Several downstream steps can amplify a weak external signal and produce a specific response, such as altered enzyme activity or gene expression.",
       "terms": [
         "Receptors initiate signal transduction"
@@ -909,6 +999,13 @@
         },
         {
           "claim": "Transduction often involves phosphorylation of proteins, GTP-binding proteins, second messengers or changes in ion permeability. Several downstream steps can amplify a weak external signal and produce a specific response, such as altered enzyme activity or gene expression.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Map a signalling pathway as cause and consequence: ligand binds a receptor; the receptor becomes active; an intracellular relay protein or second messenger changes; an effector protein alters cell activity. A kinase cascade may amplify the signal because one activated enzyme acts on many substrate proteins. Other pathways use ion channels and change membrane potential immediately. The cell eventually must switch the relay off—through ligand removal, GTP hydrolysis, second-messenger breakdown or dephosphorylation—so it can respond to new information. Signal transduction is not synonymous with hormone transport: it begins when a receptor converts recognition into intracellular events.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -963,7 +1060,7 @@
           "kind": "recall",
           "id": "c21-recall-7",
           "prompt": "Explain receptors initiate signal transduction, including what happens and why it matters.",
-          "answer": "The binding of a ligand can change the receptor's shape, activate its enzymatic activity, or permit another signalling protein to associate. These molecular changes initiate a signal-transduction pathway that relays information within a cell rather than transporting the ligand itself across every step. Transduction often involves phosphorylation of proteins, GTP-binding proteins, second messengers or changes in ion permeability. Several downstream steps can amplify a weak external signal and produce a specific response, such as altered enzyme activity or gene expression.",
+          "answer": "The binding of a ligand can change the receptor's shape, activate its enzymatic activity, or permit another signalling protein to associate. These molecular changes initiate a signal-transduction pathway that relays information within a cell rather than transporting the ligand itself across every step.\n\nTransduction often involves phosphorylation of proteins, GTP-binding proteins, second messengers or changes in ion permeability. Several downstream steps can amplify a weak external signal and produce a specific response, such as altered enzyme activity or gene expression.\n\nMap a signalling pathway as cause and consequence: ligand binds a receptor; the receptor becomes active; an intracellular relay protein or second messenger changes; an effector protein alters cell activity. A kinase cascade may amplify the signal because one activated enzyme acts on many substrate proteins. Other pathways use ion channels and change membrane potential immediately. The cell eventually must switch the relay off—through ligand removal, GTP hydrolysis, second-messenger breakdown or dephosphorylation—so it can respond to new information. Signal transduction is not synonymous with hormone transport: it begins when a receptor converts recognition into intracellular events.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.7"
@@ -997,6 +1094,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "Signal transduction is a connected sequence",
+          "explanation": "Map a signalling pathway as cause and consequence: ligand binds a receptor; the receptor becomes active; an intracellular relay protein or second messenger changes; an effector protein alters cell activity. A kinase cascade may amplify the signal because one activated enzyme acts on many substrate proteins. Other pathways use ion channels and change membrane potential immediately. The cell eventually must switch the relay off—through ligand removal, GTP hydrolysis, second-messenger breakdown or dephosphorylation—so it can respond to new information. Signal transduction is not synonymous with hormone transport: it begins when a receptor converts recognition into intracellular events.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -1021,7 +1126,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What directly causes an end-plate membrane to depolarize?",
-      "explanation": "At the neuromuscular junction acetylcholine released into the synaptic cleft binds nicotinic acetylcholine receptors on the muscle membrane. Each receptor is a ligand-gated cation channel; binding increases permeability to positive ions, with net Na⁺ entry at the resting potential.\n\nThe entry of positive charge makes the inside less negative (depolarization). If depolarization is sufficient, voltage-gated channels can trigger an action potential, ultimately leading to muscle activation. An acetylcholine receptor is not itself an ATP-driven pump.",
+      "explanation": "At the neuromuscular junction acetylcholine released into the synaptic cleft binds nicotinic acetylcholine receptors on the muscle membrane. Each receptor is a ligand-gated cation channel; binding increases permeability to positive ions, with net Na⁺ entry at the resting potential.\n\nThe entry of positive charge makes the inside less negative (depolarization). If depolarization is sufficient, voltage-gated channels can trigger an action potential, ultimately leading to muscle activation. An acetylcholine receptor is not itself an ATP-driven pump.\n\nAt a nicotinic acetylcholine receptor, acetylcholine binds the extracellular sites of a channel-forming transmembrane protein. Binding favours an open channel conformation; cations move according to their electrochemical gradients, with inward sodium current commonly dominating at the resting potential. This makes the cell interior less negative (depolarization) and can bring an excitable membrane closer to its threshold for an action potential. When acetylcholine is removed, the channel closes and the conductance falls. The receptor is both detector and ion channel; no separate intracellular transcription pathway is required to produce the initial electrical change. Describe a change in voltage, not a hormone directly 'creating electricity'.",
       "revisionSummary": "The entry of positive charge makes the inside less negative (depolarization). If depolarization is sufficient, voltage-gated channels can trigger an action potential, ultimately leading to muscle activation. An acetylcholine receptor is not itself an ATP-driven pump.",
       "terms": [
         "Acetylcholine receptors change membrane potential"
@@ -1043,6 +1148,13 @@
         },
         {
           "claim": "The entry of positive charge makes the inside less negative (depolarization). If depolarization is sufficient, voltage-gated channels can trigger an action potential, ultimately leading to muscle activation. An acetylcholine receptor is not itself an ATP-driven pump.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "At a nicotinic acetylcholine receptor, acetylcholine binds the extracellular sites of a channel-forming transmembrane protein. Binding favours an open channel conformation; cations move according to their electrochemical gradients, with inward sodium current commonly dominating at the resting potential. This makes the cell interior less negative (depolarization) and can bring an excitable membrane closer to its threshold for an action potential. When acetylcholine is removed, the channel closes and the conductance falls. The receptor is both detector and ion channel; no separate intracellular transcription pathway is required to produce the initial electrical change. Describe a change in voltage, not a hormone directly 'creating electricity'.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1095,7 +1207,7 @@
           "kind": "recall",
           "id": "c21-recall-8",
           "prompt": "Explain acetylcholine receptors change membrane potential, including what happens and why it matters.",
-          "answer": "At the neuromuscular junction acetylcholine released into the synaptic cleft binds nicotinic acetylcholine receptors on the muscle membrane. Each receptor is a ligand-gated cation channel; binding increases permeability to positive ions, with net Na⁺ entry at the resting potential. The entry of positive charge makes the inside less negative (depolarization). If depolarization is sufficient, voltage-gated channels can trigger an action potential, ultimately leading to muscle activation. An acetylcholine receptor is not itself an ATP-driven pump.",
+          "answer": "At the neuromuscular junction acetylcholine released into the synaptic cleft binds nicotinic acetylcholine receptors on the muscle membrane. Each receptor is a ligand-gated cation channel; binding increases permeability to positive ions, with net Na⁺ entry at the resting potential.\n\nThe entry of positive charge makes the inside less negative (depolarization). If depolarization is sufficient, voltage-gated channels can trigger an action potential, ultimately leading to muscle activation. An acetylcholine receptor is not itself an ATP-driven pump.\n\nAt a nicotinic acetylcholine receptor, acetylcholine binds the extracellular sites of a channel-forming transmembrane protein. Binding favours an open channel conformation; cations move according to their electrochemical gradients, with inward sodium current commonly dominating at the resting potential. This makes the cell interior less negative (depolarization) and can bring an excitable membrane closer to its threshold for an action potential. When acetylcholine is removed, the channel closes and the conductance falls. The receptor is both detector and ion channel; no separate intracellular transcription pathway is required to produce the initial electrical change. Describe a change in voltage, not a hormone directly 'creating electricity'.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.8"
@@ -1129,6 +1241,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "A ligand-gated channel connects chemistry to voltage",
+          "explanation": "At a nicotinic acetylcholine receptor, acetylcholine binds the extracellular sites of a channel-forming transmembrane protein. Binding favours an open channel conformation; cations move according to their electrochemical gradients, with inward sodium current commonly dominating at the resting potential. This makes the cell interior less negative (depolarization) and can bring an excitable membrane closer to its threshold for an action potential. When acetylcholine is removed, the channel closes and the conductance falls. The receptor is both detector and ion channel; no separate intracellular transcription pathway is required to produce the initial electrical change. Describe a change in voltage, not a hormone directly 'creating electricity'.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -1153,7 +1273,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What nucleotide exchange is central to G-protein activation?",
-      "explanation": "A G protein-coupled receptor (GPCR) crosses the membrane seven times. Ligand binding alters its conformation so that it activates a nearby heterotrimeric G protein by promoting GDP release and GTP binding on the alpha subunit.\n\nThe activated G protein influences a membrane effector such as adenylyl cyclase or a channel. GTP hydrolysis and receptor desensitization help turn the pathway off. Humans have many GPCR genes with diverse ligands and physiological functions.",
+      "explanation": "A G protein-coupled receptor (GPCR) crosses the membrane seven times. Ligand binding alters its conformation so that it activates a nearby heterotrimeric G protein by promoting GDP release and GTP binding on the alpha subunit.\n\nThe activated G protein influences a membrane effector such as adenylyl cyclase or a channel. GTP hydrolysis and receptor desensitization help turn the pathway off. Humans have many GPCR genes with diverse ligands and physiological functions.\n\nA G protein-coupled receptor spans the plasma membrane and interacts with a G protein on the cytoplasmic side. When a ligand stabilizes the active receptor shape, the receptor promotes replacement of GDP with GTP on the G protein's alpha subunit. The activated components can then regulate an effector such as an enzyme or channel. GTP hydrolysis eventually returns the alpha subunit to an inactive state, helping terminate the response. This receptor class is widespread because different GPCRs can detect many extracellular ligands but still use a common principle for transmitting information across a membrane. A G protein is a molecular switch, not the extracellular ligand.",
       "revisionSummary": "The activated G protein influences a membrane effector such as adenylyl cyclase or a channel. GTP hydrolysis and receptor desensitization help turn the pathway off. Humans have many GPCR genes with diverse ligands and physiological functions.",
       "terms": [
         "G protein-coupled receptors"
@@ -1175,6 +1295,13 @@
         },
         {
           "claim": "The activated G protein influences a membrane effector such as adenylyl cyclase or a channel. GTP hydrolysis and receptor desensitization help turn the pathway off. Humans have many GPCR genes with diverse ligands and physiological functions.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "A G protein-coupled receptor spans the plasma membrane and interacts with a G protein on the cytoplasmic side. When a ligand stabilizes the active receptor shape, the receptor promotes replacement of GDP with GTP on the G protein's alpha subunit. The activated components can then regulate an effector such as an enzyme or channel. GTP hydrolysis eventually returns the alpha subunit to an inactive state, helping terminate the response. This receptor class is widespread because different GPCRs can detect many extracellular ligands but still use a common principle for transmitting information across a membrane. A G protein is a molecular switch, not the extracellular ligand.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1227,7 +1354,7 @@
           "kind": "recall",
           "id": "c21-recall-9",
           "prompt": "Explain g protein-coupled receptors, including what happens and why it matters.",
-          "answer": "A G protein-coupled receptor (GPCR) crosses the membrane seven times. Ligand binding alters its conformation so that it activates a nearby heterotrimeric G protein by promoting GDP release and GTP binding on the alpha subunit. The activated G protein influences a membrane effector such as adenylyl cyclase or a channel. GTP hydrolysis and receptor desensitization help turn the pathway off. Humans have many GPCR genes with diverse ligands and physiological functions.",
+          "answer": "A G protein-coupled receptor (GPCR) crosses the membrane seven times. Ligand binding alters its conformation so that it activates a nearby heterotrimeric G protein by promoting GDP release and GTP binding on the alpha subunit.\n\nThe activated G protein influences a membrane effector such as adenylyl cyclase or a channel. GTP hydrolysis and receptor desensitization help turn the pathway off. Humans have many GPCR genes with diverse ligands and physiological functions.\n\nA G protein-coupled receptor spans the plasma membrane and interacts with a G protein on the cytoplasmic side. When a ligand stabilizes the active receptor shape, the receptor promotes replacement of GDP with GTP on the G protein's alpha subunit. The activated components can then regulate an effector such as an enzyme or channel. GTP hydrolysis eventually returns the alpha subunit to an inactive state, helping terminate the response. This receptor class is widespread because different GPCRs can detect many extracellular ligands but still use a common principle for transmitting information across a membrane. A G protein is a molecular switch, not the extracellular ligand.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.9"
@@ -1261,6 +1388,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "From an extracellular receptor to a G protein",
+          "explanation": "A G protein-coupled receptor spans the plasma membrane and interacts with a G protein on the cytoplasmic side. When a ligand stabilizes the active receptor shape, the receptor promotes replacement of GDP with GTP on the G protein's alpha subunit. The activated components can then regulate an effector such as an enzyme or channel. GTP hydrolysis eventually returns the alpha subunit to an inactive state, helping terminate the response. This receptor class is widespread because different GPCRs can detect many extracellular ligands but still use a common principle for transmitting information across a membrane. A G protein is a molecular switch, not the extracellular ligand.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -1285,7 +1420,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What produces the second messenger cAMP in this pathway?",
-      "explanation": "Epinephrine (adrenaline) binds a beta-adrenergic GPCR on the cell surface. Ligand binding activates the Gs protein, whose GTP-bound alpha subunit stimulates adenylyl cyclase. This enzyme converts ATP into cyclic AMP (cAMP), an intracellular second messenger.\n\ncAMP activates protein kinase A, which phosphorylates target proteins and changes cellular activity; depending on tissue, this can mobilize stored fuel. Phosphodiesterases degrade cAMP and G proteins hydrolyse GTP, limiting the response. Adrenaline and epinephrine are alternative international names for the same hormone.",
+      "explanation": "Epinephrine (adrenaline) binds a beta-adrenergic GPCR on the cell surface. Ligand binding activates the Gs protein, whose GTP-bound alpha subunit stimulates adenylyl cyclase. This enzyme converts ATP into cyclic AMP (cAMP), an intracellular second messenger.\n\ncAMP activates protein kinase A, which phosphorylates target proteins and changes cellular activity; depending on tissue, this can mobilize stored fuel. Phosphodiesterases degrade cAMP and G proteins hydrolyse GTP, limiting the response. Adrenaline and epinephrine are alternative international names for the same hormone.\n\nAdrenaline (epinephrine) binds a suitable cell-surface adrenergic GPCR. The activated receptor stimulates a G protein, which in the classic stimulatory pathway activates adenylyl cyclase on the inner membrane surface. Adenylyl cyclase converts ATP to cyclic AMP, a second messenger that activates protein kinase A. The kinase phosphorylates target proteins; in an energy-demanding context this can promote rapid mobilization of stored fuels. A single ligand-bound receptor can activate downstream molecules repeatedly, producing amplification. Phosphodiesterases break down cAMP and protein phosphatases reverse phosphorylation, limiting the response. The first messenger remains adrenaline; cAMP is the intracellular messenger. Different adrenergic receptors can produce different responses, so avoid treating all tissues identically.",
       "revisionSummary": "cAMP activates protein kinase A, which phosphorylates target proteins and changes cellular activity; depending on tissue, this can mobilize stored fuel. Phosphodiesterases degrade cAMP and G proteins hydrolyse GTP, limiting the response. Adrenaline and epinephrine are alternative international names for the same hormone.",
       "terms": [
         "Epinephrine and cAMP second messenger"
@@ -1307,6 +1442,13 @@
         },
         {
           "claim": "cAMP activates protein kinase A, which phosphorylates target proteins and changes cellular activity; depending on tissue, this can mobilize stored fuel. Phosphodiesterases degrade cAMP and G proteins hydrolyse GTP, limiting the response. Adrenaline and epinephrine are alternative international names for the same hormone.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Adrenaline (epinephrine) binds a suitable cell-surface adrenergic GPCR. The activated receptor stimulates a G protein, which in the classic stimulatory pathway activates adenylyl cyclase on the inner membrane surface. Adenylyl cyclase converts ATP to cyclic AMP, a second messenger that activates protein kinase A. The kinase phosphorylates target proteins; in an energy-demanding context this can promote rapid mobilization of stored fuels. A single ligand-bound receptor can activate downstream molecules repeatedly, producing amplification. Phosphodiesterases break down cAMP and protein phosphatases reverse phosphorylation, limiting the response. The first messenger remains adrenaline; cAMP is the intracellular messenger. Different adrenergic receptors can produce different responses, so avoid treating all tissues identically.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1361,7 +1503,7 @@
           "kind": "recall",
           "id": "c21-recall-10",
           "prompt": "Explain epinephrine and camp second messenger, including what happens and why it matters.",
-          "answer": "Epinephrine (adrenaline) binds a beta-adrenergic GPCR on the cell surface. Ligand binding activates the Gs protein, whose GTP-bound alpha subunit stimulates adenylyl cyclase. This enzyme converts ATP into cyclic AMP (cAMP), an intracellular second messenger. cAMP activates protein kinase A, which phosphorylates target proteins and changes cellular activity; depending on tissue, this can mobilize stored fuel. Phosphodiesterases degrade cAMP and G proteins hydrolyse GTP, limiting the response. Adrenaline and epinephrine are alternative international names for the same hormone.",
+          "answer": "Epinephrine (adrenaline) binds a beta-adrenergic GPCR on the cell surface. Ligand binding activates the Gs protein, whose GTP-bound alpha subunit stimulates adenylyl cyclase. This enzyme converts ATP into cyclic AMP (cAMP), an intracellular second messenger.\n\ncAMP activates protein kinase A, which phosphorylates target proteins and changes cellular activity; depending on tissue, this can mobilize stored fuel. Phosphodiesterases degrade cAMP and G proteins hydrolyse GTP, limiting the response. Adrenaline and epinephrine are alternative international names for the same hormone.\n\nAdrenaline (epinephrine) binds a suitable cell-surface adrenergic GPCR. The activated receptor stimulates a G protein, which in the classic stimulatory pathway activates adenylyl cyclase on the inner membrane surface. Adenylyl cyclase converts ATP to cyclic AMP, a second messenger that activates protein kinase A. The kinase phosphorylates target proteins; in an energy-demanding context this can promote rapid mobilization of stored fuels. A single ligand-bound receptor can activate downstream molecules repeatedly, producing amplification. Phosphodiesterases break down cAMP and protein phosphatases reverse phosphorylation, limiting the response. The first messenger remains adrenaline; cAMP is the intracellular messenger. Different adrenergic receptors can produce different responses, so avoid treating all tissues identically.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.10"
@@ -1391,6 +1533,14 @@
         {
           "title": "Mechanism and biological significance",
           "explanation": "cAMP activates protein kinase A, which phosphorylates target proteins and changes cellular activity; depending on tissue, this can mobilize stored fuel. Phosphodiesterases degrade cAMP and G proteins hydrolyse GTP, limiting the response. Adrenaline and epinephrine are alternative international names for the same hormone.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "title": "Trace the adrenaline–cAMP pathway",
+          "explanation": "Adrenaline (epinephrine) binds a suitable cell-surface adrenergic GPCR. The activated receptor stimulates a G protein, which in the classic stimulatory pathway activates adenylyl cyclase on the inner membrane surface. Adenylyl cyclase converts ATP to cyclic AMP, a second messenger that activates protein kinase A. The kinase phosphorylates target proteins; in an energy-demanding context this can promote rapid mobilization of stored fuels. A single ligand-bound receptor can activate downstream molecules repeatedly, producing amplification. Phosphodiesterases break down cAMP and protein phosphatases reverse phosphorylation, limiting the response. The first messenger remains adrenaline; cAMP is the intracellular messenger. Different adrenergic receptors can produce different responses, so avoid treating all tissues identically.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1425,7 +1575,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What is an early intracellular event after insulin binds its receptor?",
-      "explanation": "Insulin is a protein hormone that binds to the extracellular part of its receptor, a transmembrane protein with intrinsic tyrosine kinase activity. Binding promotes receptor activation and phosphorylation of tyrosine residues on intracellular receptor domains.\n\nPhosphorylated proteins recruit further signalling proteins, activating a cascade that causes vesicles containing GLUT4 glucose transporters to move to and fuse with the plasma membrane in muscle and adipose cells. Inserting more GLUT4 increases facilitated diffusion of glucose into these cells; insulin itself does not transport glucose.",
+      "explanation": "Insulin is a protein hormone that binds to the extracellular part of its receptor, a transmembrane protein with intrinsic tyrosine kinase activity. Binding promotes receptor activation and phosphorylation of tyrosine residues on intracellular receptor domains.\n\nPhosphorylated proteins recruit further signalling proteins, activating a cascade that causes vesicles containing GLUT4 glucose transporters to move to and fuse with the plasma membrane in muscle and adipose cells. Inserting more GLUT4 increases facilitated diffusion of glucose into these cells; insulin itself does not transport glucose.\n\nInsulin is a protein hormone, so it binds the extracellular part of a receptor embedded in the plasma membrane rather than diffusing into cytoplasm. Receptor activation stimulates tyrosine-kinase activity on the intracellular side, leading to phosphorylation of tyrosine residues. This starts a series of intracellular reactions that causes vesicles containing glucose transport proteins to move to and fuse with the plasma membrane. More transporters on the surface increase glucose uptake in responsive cells such as muscle or adipose tissue. For this syllabus understanding, the chain from insulin binding to receptor phosphorylation and vesicle movement is sufficient; memorizing individual intermediates in the kinase cascade is not required.",
       "revisionSummary": "Phosphorylated proteins recruit further signalling proteins, activating a cascade that causes vesicles containing GLUT4 glucose transporters to move to and fuse with the plasma membrane in muscle and adipose cells. Inserting more GLUT4 increases facilitated diffusion of glucose into these cells; insulin itself does not transport glucose.",
       "terms": [
         "Insulin receptor tyrosine kinase"
@@ -1447,6 +1597,13 @@
         },
         {
           "claim": "Phosphorylated proteins recruit further signalling proteins, activating a cascade that causes vesicles containing GLUT4 glucose transporters to move to and fuse with the plasma membrane in muscle and adipose cells. Inserting more GLUT4 increases facilitated diffusion of glucose into these cells; insulin itself does not transport glucose.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Insulin is a protein hormone, so it binds the extracellular part of a receptor embedded in the plasma membrane rather than diffusing into cytoplasm. Receptor activation stimulates tyrosine-kinase activity on the intracellular side, leading to phosphorylation of tyrosine residues. This starts a series of intracellular reactions that causes vesicles containing glucose transport proteins to move to and fuse with the plasma membrane. More transporters on the surface increase glucose uptake in responsive cells such as muscle or adipose tissue. For this syllabus understanding, the chain from insulin binding to receptor phosphorylation and vesicle movement is sufficient; memorizing individual intermediates in the kinase cascade is not required.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1501,7 +1658,7 @@
           "kind": "recall",
           "id": "c21-recall-11",
           "prompt": "Explain insulin receptor tyrosine kinase, including what happens and why it matters.",
-          "answer": "Insulin is a protein hormone that binds to the extracellular part of its receptor, a transmembrane protein with intrinsic tyrosine kinase activity. Binding promotes receptor activation and phosphorylation of tyrosine residues on intracellular receptor domains. Phosphorylated proteins recruit further signalling proteins, activating a cascade that causes vesicles containing GLUT4 glucose transporters to move to and fuse with the plasma membrane in muscle and adipose cells. Inserting more GLUT4 increases facilitated diffusion of glucose into these cells; insulin itself does not transport glucose.",
+          "answer": "Insulin is a protein hormone that binds to the extracellular part of its receptor, a transmembrane protein with intrinsic tyrosine kinase activity. Binding promotes receptor activation and phosphorylation of tyrosine residues on intracellular receptor domains.\n\nPhosphorylated proteins recruit further signalling proteins, activating a cascade that causes vesicles containing GLUT4 glucose transporters to move to and fuse with the plasma membrane in muscle and adipose cells. Inserting more GLUT4 increases facilitated diffusion of glucose into these cells; insulin itself does not transport glucose.\n\nInsulin is a protein hormone, so it binds the extracellular part of a receptor embedded in the plasma membrane rather than diffusing into cytoplasm. Receptor activation stimulates tyrosine-kinase activity on the intracellular side, leading to phosphorylation of tyrosine residues. This starts a series of intracellular reactions that causes vesicles containing glucose transport proteins to move to and fuse with the plasma membrane. More transporters on the surface increase glucose uptake in responsive cells such as muscle or adipose tissue. For this syllabus understanding, the chain from insulin binding to receptor phosphorylation and vesicle movement is sufficient; memorizing individual intermediates in the kinase cascade is not required.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.11"
@@ -1531,6 +1688,14 @@
         {
           "title": "Mechanism and biological significance",
           "explanation": "Phosphorylated proteins recruit further signalling proteins, activating a cascade that causes vesicles containing GLUT4 glucose transporters to move to and fuse with the plasma membrane in muscle and adipose cells. Inserting more GLUT4 increases facilitated diffusion of glucose into these cells; insulin itself does not transport glucose.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "title": "Insulin receptor: phosphorylation to glucose transport",
+          "explanation": "Insulin is a protein hormone, so it binds the extracellular part of a receptor embedded in the plasma membrane rather than diffusing into cytoplasm. Receptor activation stimulates tyrosine-kinase activity on the intracellular side, leading to phosphorylation of tyrosine residues. This starts a series of intracellular reactions that causes vesicles containing glucose transport proteins to move to and fuse with the plasma membrane. More transporters on the surface increase glucose uptake in responsive cells such as muscle or adipose tissue. For this syllabus understanding, the chain from insulin binding to receptor phosphorylation and vesicle movement is sufficient; memorizing individual intermediates in the kinase cascade is not required.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1565,7 +1730,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which action is characteristic of an activated steroid hormone receptor?",
-      "explanation": "Steroid hormones such as oestradiol, progesterone and testosterone are sufficiently lipid-soluble to enter target cells and bind specific intracellular receptors. Ligand binding alters receptor shape and activity; activated receptor complexes recognize regulatory DNA sequences called hormone response elements.\n\nReceptor-DNA binding can promote transcription of particular genes, leading to changes in mRNA and protein synthesis. Responses therefore often develop more slowly than direct opening of a ligand-gated ion channel, but can persist through altered protein abundance.",
+      "explanation": "Steroid hormones such as oestradiol, progesterone and testosterone are sufficiently lipid-soluble to enter target cells and bind specific intracellular receptors. Ligand binding alters receptor shape and activity; activated receptor complexes recognize regulatory DNA sequences called hormone response elements.\n\nReceptor-DNA binding can promote transcription of particular genes, leading to changes in mRNA and protein synthesis. Responses therefore often develop more slowly than direct opening of a ligand-gated ion channel, but can persist through altered protein abundance.\n\nSteroid hormones are lipid-soluble and can diffuse across a phospholipid bilayer. Oestradiol, progesterone and testosterone bind their corresponding intracellular receptor proteins, activating the receptor, often by changing its conformation and interactions with other proteins. The activated receptor associates with particular DNA regulatory sequences and promotes transcription of selected genes. Newly transcribed messenger RNA can then be translated into proteins that produce a longer-lasting cellular change. Not all genes are activated because the response depends on receptor specificity and the cell's existing gene-regulatory machinery. This differs from opening a ligand-gated ion channel: the principal outcome here is altered gene expression, so responses often develop more slowly.",
       "revisionSummary": "Receptor-DNA binding can promote transcription of particular genes, leading to changes in mRNA and protein synthesis. Responses therefore often develop more slowly than direct opening of a ligand-gated ion channel, but can persist through altered protein abundance.",
       "terms": [
         "Steroid receptors regulate gene transcription"
@@ -1587,6 +1752,13 @@
         },
         {
           "claim": "Receptor-DNA binding can promote transcription of particular genes, leading to changes in mRNA and protein synthesis. Responses therefore often develop more slowly than direct opening of a ligand-gated ion channel, but can persist through altered protein abundance.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "Steroid hormones are lipid-soluble and can diffuse across a phospholipid bilayer. Oestradiol, progesterone and testosterone bind their corresponding intracellular receptor proteins, activating the receptor, often by changing its conformation and interactions with other proteins. The activated receptor associates with particular DNA regulatory sequences and promotes transcription of selected genes. Newly transcribed messenger RNA can then be translated into proteins that produce a longer-lasting cellular change. Not all genes are activated because the response depends on receptor specificity and the cell's existing gene-regulatory machinery. This differs from opening a ligand-gated ion channel: the principal outcome here is altered gene expression, so responses often develop more slowly.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1639,7 +1811,7 @@
           "kind": "recall",
           "id": "c21-recall-12",
           "prompt": "Explain steroid receptors regulate gene transcription, including what happens and why it matters.",
-          "answer": "Steroid hormones such as oestradiol, progesterone and testosterone are sufficiently lipid-soluble to enter target cells and bind specific intracellular receptors. Ligand binding alters receptor shape and activity; activated receptor complexes recognize regulatory DNA sequences called hormone response elements. Receptor-DNA binding can promote transcription of particular genes, leading to changes in mRNA and protein synthesis. Responses therefore often develop more slowly than direct opening of a ligand-gated ion channel, but can persist through altered protein abundance.",
+          "answer": "Steroid hormones such as oestradiol, progesterone and testosterone are sufficiently lipid-soluble to enter target cells and bind specific intracellular receptors. Ligand binding alters receptor shape and activity; activated receptor complexes recognize regulatory DNA sequences called hormone response elements.\n\nReceptor-DNA binding can promote transcription of particular genes, leading to changes in mRNA and protein synthesis. Responses therefore often develop more slowly than direct opening of a ligand-gated ion channel, but can persist through altered protein abundance.\n\nSteroid hormones are lipid-soluble and can diffuse across a phospholipid bilayer. Oestradiol, progesterone and testosterone bind their corresponding intracellular receptor proteins, activating the receptor, often by changing its conformation and interactions with other proteins. The activated receptor associates with particular DNA regulatory sequences and promotes transcription of selected genes. Newly transcribed messenger RNA can then be translated into proteins that produce a longer-lasting cellular change. Not all genes are activated because the response depends on receptor specificity and the cell's existing gene-regulatory machinery. This differs from opening a ligand-gated ion channel: the principal outcome here is altered gene expression, so responses often develop more slowly.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.12"
@@ -1673,6 +1845,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "A receptor can act at the DNA level",
+          "explanation": "Steroid hormones are lipid-soluble and can diffuse across a phospholipid bilayer. Oestradiol, progesterone and testosterone bind their corresponding intracellular receptor proteins, activating the receptor, often by changing its conformation and interactions with other proteins. The activated receptor associates with particular DNA regulatory sequences and promotes transcription of selected genes. Newly transcribed messenger RNA can then be translated into proteins that produce a longer-lasting cellular change. Not all genes are activated because the response depends on receptor specificity and the cell's existing gene-regulatory machinery. This differs from opening a ligand-gated ion channel: the principal outcome here is altered gene expression, so responses often develop more slowly.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -1697,7 +1877,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which target tissue is specified for progesterone signalling?",
-      "explanation": "Oestradiol acts on selected hypothalamic neurons that control gonadotropin-releasing hormone (GnRH) secretion. Its feedback effect depends on physiological context: much of the cycle it helps restrain GnRH/gonadotropin output, while sustained high oestradiol before ovulation contributes to a positive-feedback surge.\n\nProgesterone acts on cells of the endometrium, where receptor-mediated gene regulation supports the secretory changes and maintenance of a uterine lining suitable for implantation. Loss of progesterone support contributes to endometrial breakdown during menstruation in a non-pregnant cycle.",
+      "explanation": "Oestradiol acts on selected hypothalamic neurons that control gonadotropin-releasing hormone (GnRH) secretion. Its feedback effect depends on physiological context: much of the cycle it helps restrain GnRH/gonadotropin output, while sustained high oestradiol before ovulation contributes to a positive-feedback surge.\n\nProgesterone acts on cells of the endometrium, where receptor-mediated gene regulation supports the secretory changes and maintenance of a uterine lining suitable for implantation. Loss of progesterone support contributes to endometrial breakdown during menstruation in a non-pregnant cycle.\n\nThe effects of a steroid hormone must be described in relation to its receptor-bearing target cell. In the syllabus example, oestradiol acts on cells in the hypothalamus involved in secretion of gonadotropin-releasing hormone (GnRH); the resulting change contributes to endocrine regulation of reproduction. Progesterone acts on cells of the uterine endometrium, supporting the tissue conditions needed during the reproductive cycle. Both signals are steroid hormones and can influence transcription through intracellular receptors, yet their outcomes are different because the responding tissues and regulated genes differ. Do not replace these specified target cells with a lengthy account of unrelated ovarian or placental pathways.",
       "revisionSummary": "Progesterone acts on cells of the endometrium, where receptor-mediated gene regulation supports the secretory changes and maintenance of a uterine lining suitable for implantation. Loss of progesterone support contributes to endometrial breakdown during menstruation in a non-pregnant cycle.",
       "terms": [
         "Oestradiol and progesterone target responses"
@@ -1719,6 +1899,13 @@
         },
         {
           "claim": "Progesterone acts on cells of the endometrium, where receptor-mediated gene regulation supports the secretory changes and maintenance of a uterine lining suitable for implantation. Loss of progesterone support contributes to endometrial breakdown during menstruation in a non-pregnant cycle.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "The effects of a steroid hormone must be described in relation to its receptor-bearing target cell. In the syllabus example, oestradiol acts on cells in the hypothalamus involved in secretion of gonadotropin-releasing hormone (GnRH); the resulting change contributes to endocrine regulation of reproduction. Progesterone acts on cells of the uterine endometrium, supporting the tissue conditions needed during the reproductive cycle. Both signals are steroid hormones and can influence transcription through intracellular receptors, yet their outcomes are different because the responding tissues and regulated genes differ. Do not replace these specified target cells with a lengthy account of unrelated ovarian or placental pathways.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1771,7 +1958,7 @@
           "kind": "recall",
           "id": "c21-recall-13",
           "prompt": "Explain oestradiol and progesterone target responses, including what happens and why it matters.",
-          "answer": "Oestradiol acts on selected hypothalamic neurons that control gonadotropin-releasing hormone (GnRH) secretion. Its feedback effect depends on physiological context: much of the cycle it helps restrain GnRH/gonadotropin output, while sustained high oestradiol before ovulation contributes to a positive-feedback surge. Progesterone acts on cells of the endometrium, where receptor-mediated gene regulation supports the secretory changes and maintenance of a uterine lining suitable for implantation. Loss of progesterone support contributes to endometrial breakdown during menstruation in a non-pregnant cycle.",
+          "answer": "Oestradiol acts on selected hypothalamic neurons that control gonadotropin-releasing hormone (GnRH) secretion. Its feedback effect depends on physiological context: much of the cycle it helps restrain GnRH/gonadotropin output, while sustained high oestradiol before ovulation contributes to a positive-feedback surge.\n\nProgesterone acts on cells of the endometrium, where receptor-mediated gene regulation supports the secretory changes and maintenance of a uterine lining suitable for implantation. Loss of progesterone support contributes to endometrial breakdown during menstruation in a non-pregnant cycle.\n\nThe effects of a steroid hormone must be described in relation to its receptor-bearing target cell. In the syllabus example, oestradiol acts on cells in the hypothalamus involved in secretion of gonadotropin-releasing hormone (GnRH); the resulting change contributes to endocrine regulation of reproduction. Progesterone acts on cells of the uterine endometrium, supporting the tissue conditions needed during the reproductive cycle. Both signals are steroid hormones and can influence transcription through intracellular receptors, yet their outcomes are different because the responding tissues and regulated genes differ. Do not replace these specified target cells with a lengthy account of unrelated ovarian or placental pathways.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.13"
@@ -1805,6 +1992,14 @@
             "ib-c21",
             "hodder-c21"
           ]
+        },
+        {
+          "title": "Different target cells, different biological outcomes",
+          "explanation": "The effects of a steroid hormone must be described in relation to its receptor-bearing target cell. In the syllabus example, oestradiol acts on cells in the hypothalamus involved in secretion of gonadotropin-releasing hormone (GnRH); the resulting change contributes to endocrine regulation of reproduction. Progesterone acts on cells of the uterine endometrium, supporting the tissue conditions needed during the reproductive cycle. Both signals are steroid hormones and can influence transcription through intracellular receptors, yet their outcomes are different because the responding tissues and regulated genes differ. Do not replace these specified target cells with a lengthy account of unrelated ovarian or placental pathways.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
         }
       ],
       "support": {
@@ -1829,7 +2024,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which is an example of positive feedback?",
-      "explanation": "Negative feedback counteracts a change in a regulated variable, so increasing output reduces the upstream stimulus. For example, elevated blood glucose stimulates insulin secretion; as glucose falls towards its set range, the stimulus for insulin release decreases.\n\nPositive feedback reinforces a process temporarily. A sustained rise in oestradiol late in the follicular phase can stimulate the hypothalamic–pituitary system, resulting in the pre-ovulatory LH surge. Positive feedback requires a stopping event; it is not the usual stabilizing condition.",
+      "explanation": "Negative feedback counteracts a change in a regulated variable, so increasing output reduces the upstream stimulus. For example, elevated blood glucose stimulates insulin secretion; as glucose falls towards its set range, the stimulus for insulin release decreases.\n\nPositive feedback reinforces a process temporarily. A sustained rise in oestradiol late in the follicular phase can stimulate the hypothalamic–pituitary system, resulting in the pre-ovulatory LH surge. Positive feedback requires a stopping event; it is not the usual stabilizing condition.\n\nIn negative feedback, the response reduces the original stimulus, stabilizing the regulated variable. For example, a rise in blood glucose stimulates insulin release; increased uptake and storage of glucose help lower blood glucose, reducing the stimulus for further insulin release. In positive feedback, the response reinforces the initiating change, temporarily amplifying the process. During childbirth, cervical stretch promotes oxytocin release, which strengthens uterine contractions and increases stretch until delivery interrupts the loop. In both cases distinguish sensor or stimulus, signal, target response and effect on the original stimulus. Positive feedback does not mean 'good' and negative feedback does not mean 'harmful'; the labels describe direction of regulation.",
       "revisionSummary": "Positive feedback reinforces a process temporarily. A sustained rise in oestradiol late in the follicular phase can stimulate the hypothalamic–pituitary system, resulting in the pre-ovulatory LH surge. Positive feedback requires a stopping event; it is not the usual stabilizing condition.",
       "terms": [
         "Positive and negative feedback in signalling"
@@ -1851,6 +2046,13 @@
         },
         {
           "claim": "Positive feedback reinforces a process temporarily. A sustained rise in oestradiol late in the follicular phase can stimulate the hypothalamic–pituitary system, resulting in the pre-ovulatory LH surge. Positive feedback requires a stopping event; it is not the usual stabilizing condition.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "claim": "In negative feedback, the response reduces the original stimulus, stabilizing the regulated variable. For example, a rise in blood glucose stimulates insulin release; increased uptake and storage of glucose help lower blood glucose, reducing the stimulus for further insulin release. In positive feedback, the response reinforces the initiating change, temporarily amplifying the process. During childbirth, cervical stretch promotes oxytocin release, which strengthens uterine contractions and increases stretch until delivery interrupts the loop. In both cases distinguish sensor or stimulus, signal, target response and effect on the original stimulus. Positive feedback does not mean 'good' and negative feedback does not mean 'harmful'; the labels describe direction of regulation.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
@@ -1903,7 +2105,7 @@
           "kind": "recall",
           "id": "c21-recall-14",
           "prompt": "Explain positive and negative feedback in signalling, including what happens and why it matters.",
-          "answer": "Negative feedback counteracts a change in a regulated variable, so increasing output reduces the upstream stimulus. For example, elevated blood glucose stimulates insulin secretion; as glucose falls towards its set range, the stimulus for insulin release decreases. Positive feedback reinforces a process temporarily. A sustained rise in oestradiol late in the follicular phase can stimulate the hypothalamic–pituitary system, resulting in the pre-ovulatory LH surge. Positive feedback requires a stopping event; it is not the usual stabilizing condition.",
+          "answer": "Negative feedback counteracts a change in a regulated variable, so increasing output reduces the upstream stimulus. For example, elevated blood glucose stimulates insulin secretion; as glucose falls towards its set range, the stimulus for insulin release decreases.\n\nPositive feedback reinforces a process temporarily. A sustained rise in oestradiol late in the follicular phase can stimulate the hypothalamic–pituitary system, resulting in the pre-ovulatory LH surge. Positive feedback requires a stopping event; it is not the usual stabilizing condition.\n\nIn negative feedback, the response reduces the original stimulus, stabilizing the regulated variable. For example, a rise in blood glucose stimulates insulin release; increased uptake and storage of glucose help lower blood glucose, reducing the stimulus for further insulin release. In positive feedback, the response reinforces the initiating change, temporarily amplifying the process. During childbirth, cervical stretch promotes oxytocin release, which strengthens uterine contractions and increases stretch until delivery interrupts the loop. In both cases distinguish sensor or stimulus, signal, target response and effect on the original stimulus. Positive feedback does not mean 'good' and negative feedback does not mean 'harmful'; the labels describe direction of regulation.",
           "explanation": "Compare your mechanism, site of action and biological outcome with the full explanation.",
           "understandingIds": [
             "C2.1.14"
@@ -1933,6 +2135,14 @@
         {
           "title": "Mechanism and biological significance",
           "explanation": "Positive feedback reinforces a process temporarily. A sustained rise in oestradiol late in the follicular phase can stimulate the hypothalamic–pituitary system, resulting in the pre-ovulatory LH surge. Positive feedback requires a stopping event; it is not the usual stabilizing condition.",
+          "referenceIds": [
+            "ib-c21",
+            "hodder-c21"
+          ]
+        },
+        {
+          "title": "Feedback changes the strength of a signal",
+          "explanation": "In negative feedback, the response reduces the original stimulus, stabilizing the regulated variable. For example, a rise in blood glucose stimulates insulin release; increased uptake and storage of glucose help lower blood glucose, reducing the stimulus for further insulin release. In positive feedback, the response reinforces the initiating change, temporarily amplifying the process. During childbirth, cervical stretch promotes oxytocin release, which strengthens uterine contractions and increases stretch until delivery interrupts the loop. In both cases distinguish sensor or stimulus, signal, target response and effect on the original stimulus. Positive feedback does not mean 'good' and negative feedback does not mean 'harmful'; the labels describe direction of regulation.",
           "referenceIds": [
             "ib-c21",
             "hodder-c21"
