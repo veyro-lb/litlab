@@ -1,0 +1,65 @@
+{
+  "status": "source-and-structure validation passed; build and browser verification outstanding",
+  "date": "2026-10-18",
+  "branch": "feature/biolab-ib-theme-c-final-20261018",
+  "baselineHead": "92804c77414c08f129da8b2d2c9f49ff52f02589",
+  "primarySources": [
+    "IB Biology Guide, first assessment 2025, Theme C, printed pages 64–85",
+    "Clegg, Davis and Talbot, Biology for the IB Diploma, third edition, Hodder 2023, printed pages 380–601"
+  ],
+  "contentComparison": {
+    "understandingCount": 164,
+    "expandedOrCorrected": 127,
+    "retained": 37,
+    "baselineUnder100": 52,
+    "baselineUnder150": 126,
+    "afterUnder100": 0,
+    "afterUnder150": 1,
+    "intentionallyShorterId": "C4.2.11",
+    "explanationWordsBefore": 20663,
+    "explanationWordsAfter": 33689
+  },
+  "checksPerformed": [
+    {
+      "method": "GitHub connector live file retrieval + JS validation mirroring Theme C structural test",
+      "result": "pass",
+      "scope": "All 9 Theme C lessons; 164 IDs, exact levels, section uniqueness, source references, teaching-block/source-claim parity, figures/tables unchanged from baseline"
+    },
+    {
+      "method": "18 source-specific concept assertions against actual lesson explanations",
+      "result": "pass",
+      "scope": "Quorum sensing, receptor routes, cAMP, insulin, steroids, nerve conduction, R², saltatory conduction, oscilloscopic traces, ATP synthase, chromatography Rf, FACE, Calvin-cycle carbon accounting, chi-squared, COVID percentages and energy transfer"
+    },
+    {
+      "method": "Question and graph-table integrity check on current lessons",
+      "result": "pass",
+      "questionRecords": 317,
+      "tableRecords": 14
+    },
+    {
+      "method": "Guard for SL C1.2.5 (no HL NAD or pyruvate leak)",
+      "result": "pass"
+    }
+  ],
+  "checksNotRun": [
+    {
+      "command": "node scripts/biology/theme-c-final/verify-theme-c.mjs",
+      "reason": "No local checkout of GitHub repository available; equivalent data assertions were independently evaluated against fetched content, not executed in Node."
+    },
+    {
+      "command": "npm run build",
+      "reason": "Full repository checkout and npm dependencies not available through this connected GitHub file-editing environment."
+    },
+    {
+      "command": "npm run quality",
+      "reason": "Requires full repository checkout and Node execution."
+    },
+    {
+      "command": "browser/visual validation",
+      "reason": "No preview or browser test environment launched for this branch."
+    }
+  ],
+  "sourceApproval": "Internal editorial comparison only. No independent certified subject review or IB endorsement.",
+  "deployment": "Not merged and not publicly deployed.",
+  "report": "docs/biology/theme-c-final/DEPTH_REPAIR_REVIEW_20261018.md"
+}
