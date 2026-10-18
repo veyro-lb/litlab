@@ -72,7 +72,7 @@
 .bio-discovery-topic-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .bio-topic-code{color:var(--bio-green);font-size:12px;font-weight:850;letter-spacing:.02em}
 .bio-hl-mark{font-size:9px;font-weight:800;padding:3px 6px;border-radius:5px;background:color-mix(in srgb,var(--bio-green) 10%,var(--surface));color:var(--bio-green)}
-.bio-discovery-topic h3{margin:10px 0 6px;font-size:16px;line-height:1.4;font-weight:750}
+.bio-discovery-topic h4{margin:10px 0 6px;font-size:16px;line-height:1.4;font-weight:750}
 .bio-discovery-topic p{font-size:11px;line-height:1.5;color:var(--muted);margin:0 0 13px}
 .bio-discovery-topic-link{display:inline-flex;align-items:center;gap:7px;margin-top:auto;font-size:12px;font-weight:780;color:var(--bio-green)}
 .bio-search-empty{border:1px dashed var(--bio-card-border);background:var(--surface);border-radius:14px;padding:27px;text-align:center}
@@ -112,3 +112,11 @@
 @media(max-width:520px){.bio-app .bio-toolbar{align-items:start;flex-wrap:nowrap}.bio-app .bio-toolbar nav{min-width:0;flex:1;gap:5px}.bio-app .bio-toolbar nav>span:last-child{white-space:normal;font-size:11px}.bio-app .bio-level{flex-shrink:0}.bio-app .bio-level label>span{padding:7px 12px}.bio-welcome{padding:15px 0 22px}.bio-welcome h1{font-size:clamp(37px,10vw,49px);margin:10px 0 13px}.bio-welcome-copy>p{font-size:14px;margin-bottom:18px}.bio-welcome-actions{gap:8px}.bio-welcome-actions>*{flex:1 1 150px}.bio-quick-panel{grid-template-columns:1fr;gap:8px;margin-bottom:28px}.bio-app .bio-quick-item{min-height:66px;padding:10px 12px}.bio-quick-icon{flex-basis:36px;width:36px;height:36px}.bio-discovery-heading h2{font-size:25px}.bio-discovery-themes,.bio-discovery-grid{grid-template-columns:1fr;gap:10px}.bio-discovery-theme{min-height:0;padding:16px}.bio-discovery-theme h3{margin:12px 0 7px}.bio-discovery-theme p{margin-bottom:15px}.bio-discovery-topic{min-height:132px;padding:15px}.bio-search-enhanced kbd{display:none}.bio-app .bio-search-enhanced{padding:4px 12px}.bio-app .bio-search-enhanced input{font-size:14px}.bio-discovery-heading p{font-size:12px}.bio-theme-intro{padding:19px}.bio-topic-premium-head{padding-top:9px}}
 @media(max-width:345px){.bio-app .bio-resource-nav>a{font-size:10px}.bio-app .bio-resource-nav>a svg{width:14px}.bio-app .bio-toolbar nav a:not(:first-child){display:none}}
 @media(prefers-reduced-motion:reduce){.bio-discovery-theme,.bio-discovery-topic,.bio-quick-item,.bio-secondary,.bio-resource-nav>a{transition:none!important}.bio-discovery-theme:hover,.bio-discovery-topic:hover,.bio-quick-item:hover{transform:none!important}}
+
+/* Final UX acceptance: predictable focus and thumb-sized search clearing. */
+.bio-app .bio-search-enhanced button{min-width:44px;min-height:44px;flex:0 0 44px}
+.bio-app .bio-search-enhanced:focus-within{box-shadow:0 0 0 3px color-mix(in srgb,var(--bio-green) 24%,transparent)}
+.bio-app .bio-discovery-topic h4{overflow-wrap:anywhere}
+.bio-app .bio-table-scroll{max-width:100%;overscroll-behavior-inline:contain}
+.bio-app .bio-table-scroll:focus-visible{outline:3px solid var(--bio-focus);outline-offset:2px}
+@media(max-width:380px){.bio-search-enhanced kbd{display:none}.bio-app .bio-search-enhanced{padding-inline:10px;gap:7px}}
