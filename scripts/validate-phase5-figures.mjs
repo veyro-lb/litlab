@@ -13,6 +13,14 @@ export function validatePhase5Figures(files,lessons){
  for(const lesson of Object.values(lessons)){
   for(const asset of lesson.assets){
    if(asset.kind!=='diagram')continue;
+   // Exact source-PDF PNGs are validated by the source fingerprint suite, not as authored SVGs.
+   if(asset.src?.startsWith('/biology/source-pdf-figures/')){
+    if(!/^\/biology\/source-pdf-figures\/[a-z0-9-]+\.png$/.test(asset.src)||
+       !asset.attribution||!asset.permissionEvidence?.includes('source-figure-credits.json')||
+       asset.recallSrc!==asset.src||asset.mobileSrc!==asset.src||asset.recallMobileSrc!==asset.src)
+       fail('Invalid original PDF figure metadata '+asset.id);
+    continue;
+   }
    const newNucleosome=lesson.topicId==='A1.2'&&asset.id==='a12-nucleosome'&&
        asset.src==='/biology/nucleic-acids/nucleosome-topology-20261017.svg';
    if(!/^\/biology\/(?:nucleic-acids|enzymes-metabolism)\/[a-z0-9-]+\.svg$/.test(asset.src)||
@@ -66,6 +74,8 @@ export async function readPhase5FigureFiles(lessons){
   if(typeof path!=='string'||!/^\/biology\/(?:nucleic-acids|enzymes-metabolism)\/[a-z0-9-]+\.svg$/.test(path))continue;
   files[path]=await readFile(new URL('../public'+path,import.meta.url),'utf8');
  }
+ // Preserve regression verification of the inactive archival SVG without showing it instead of the PDF.
+ files['/biology/nucleic-acids/paired.svg']=await readFile(new URL('../public/biology/nucleic-acids/paired.svg',import.meta.url),'utf8');
  return files;
 }
 export async function readPhase5Lessons(){
