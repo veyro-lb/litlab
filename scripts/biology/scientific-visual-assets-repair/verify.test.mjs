@@ -8,6 +8,7 @@ function rightsErrors(r){return r.filter(a=>!a.publicRedistribution||!a.modifica
 test('six authentic source files have individual reuse grants and modification records',()=>{assert.equal(rights.length,6);assert.deepEqual(rightsErrors(rights),[]);for(const r of rights){const d=lessons.find(d=>d.topicId===r.topicId);assert.ok(d.sections.find(s=>s.id===r.sectionId).assets.includes(r.assetId));const a=d.assets.find(a=>a.id===r.assetId);assert.equal(a.kind,'photograph');assert.ok(existsSync('public'+a.src));assert.equal(a.sourceUrl,r.sourceUrl)}});
 test('negative: an unknown grant or absent creator is rejected',()=>{const copy=structuredClone(rights);copy[0].publicRedistribution=false;copy[1].creator='';assert.equal(rightsErrors(copy).length,2)});
 const expected={
+ 'D3.2.13':['autosomal-recessive-pedigree'],'D3.3.8':['filtration-reabsorption'],
  'A1.2.5':['rna-polymer'],'D1.1.3':['helicase-opening'],
  'D1.1.8':['bacterial-replication-enzymes'],'D1.2.6':['translation-elongation'],'D1.2.10':['translation-elongation'],'D1.2.16':['alternative-splicing'],'D2.1.9':['meiosis-separation'],'D2.1.11':['crossing-over','meiosis-separation'],'C2.2.1':['neuron-structure'],'C2.2.11':['saltatory-conduction'],'B3.2.17':['root-pressure'],'B3.2.18':['phloem-pressure-flow'],'D3.3.9':['loop-henle-gradient'],'C1.2.13':['mitochondrial-chemiosmosis']
 };
