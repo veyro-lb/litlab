@@ -52,7 +52,7 @@ for(const [id,slug,total,shared,hl] of specifications){
  visuals+=lesson.sections.reduce((n,s)=>n+(s.visuals?.length||0),0);
 }
 assert.equal(sections,62);
-assert.equal(questions,72);
+assert.equal(questions,77);
 assert.ok(visuals>=9,'at least the nine original in-lesson visuals remain');
 assert.ok(assets>=12);
 const sarcomere=fs.readFileSync('public/biology/muscle-motility/sarcomere.svg','utf8');
