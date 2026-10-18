@@ -3,12 +3,12 @@
 ## Audit results
 - Inspected the uploaded Hodder Third Edition **programmatically on PDF pages 1–868 inclusive** for extracted text, figure-caption anchors, raster and vector graphics. The 40 Biology topics contain **767 distinct numbered figures**, represented by **768 caption anchors** (A2.2.27 a/b repeated).
 - The accompanying 10-page IB Biology Drawings handout contains approximately **17 conceptual drawing types**. It is not a substitute for detailed HL respiration, photosynthesis, meiosis or molecular signalling visuals.
-- **20 high-interest sources** have an exact page and section placement record: 7 ESSENTIAL, 9 HIGH VALUE, 4 OPTIONAL. **16 private draft source crops** and a side-by-side source page/crop gallery are in the owner-review ZIP, not committed to the public repository.
+- **20 high-interest sources** have an exact page and section placement record: 6 ESSENTIAL, 9 HIGH VALUE, 4 OPTIONAL, 1 REJECT. **16 private draft source crops** and a side-by-side source page/crop gallery are in the owner-review ZIP, not committed to the public repository.
 - Full automated caption leads for all 767 figures and the owner-review ZIP are provided as a separate private conversation download. The public manifest omits raw artwork and marks 747 unselected captions untranscribed.
 
 ## Prioritized placements
-- **HIGH VALUE** Figure **C1.2.9**, Hodder printed p. 419 / PDF p. 431. IB **C1.2.11** (HL), `src/biology/learning/cell-respiration/lesson.json` → section `c12-11`. Reactants, carbon loss, reduced carriers and cycle regeneration. Existing comparison: /biology/cell-respiration/respiration-connected-pathways.svg and krebs-cycle.svg already exist.
-- **ESSENTIAL** Figure **C1.2.10**, Hodder printed p. 420 / PDF p. 432. IB **C1.2.13** (HL), `src/biology/learning/cell-respiration/lesson.json` → section `c12-13`. Energy transfer from reduced NAD into the respiratory electron transport chain. Existing comparison: No asset attached to c12-13; neighboring chemiosmosis artwork must be checked.
+- **HIGH VALUE** Figure **C1.2.9**, Hodder printed p. 419 / PDF p. 431. IB **C1.2.12** (HL), `src/biology/learning/cell-respiration/lesson.json` → section `c12-12`. Reactants, carbon loss, reduced carriers and cycle regeneration. Existing comparison: /biology/cell-respiration/respiration-connected-pathways.svg and krebs-cycle.svg already exist.
+- **REJECT** Figure **C1.2.10**, Hodder printed p. 420 / PDF p. 432. IB **C1.2.13** (HL), `src/biology/learning/cell-respiration/lesson.json` → section `c12-13`. Energy transfer from reduced NAD into the respiratory electron transport chain. Existing comparison: No asset attached to c12-13; neighboring chemiosmosis artwork must be checked.
 - **HIGH VALUE** Figure **C1.2.11**, Hodder printed p. 422 / PDF p. 434. IB **C1.2.15** (HL), `src/biology/learning/cell-respiration/lesson.json` → section `c12-15`. Proton-gradient-powered ATP synthase; compare existing artwork for completeness. Existing comparison: /biology/cell-respiration/mitochondrial-chemiosmosis.svg already assigned.
 - **HIGH VALUE** Figure **C1.3.21**, Hodder printed p. 444 / PDF p. 456. IB **C1.3.14** (HL), `src/biology/learning/photosynthesis/lesson.json` → section `c13-14`. Spatial connections among PSII, PSI, electron transfer and ATP synthase. Existing comparison: /biology/photosynthesis/thylakoid-chemiosmosis.svg already assigned.
 - **HIGH VALUE** Figure **C1.3.22**, Hodder printed p. 446 / PDF p. 458. IB **C1.3.17** (HL), `src/biology/learning/photosynthesis/lesson.json` → section `c13-17`. Carbon fixation, reduction and RuBP regeneration. Existing comparison: /biology/photosynthesis/calvin-carbon.svg already assigned.
@@ -38,3 +38,8 @@
 
 ## Limitations
 The entire book was **scanned programmatically**, but this is **not** a manual figure-by-figure scientific approval of all 767 items. Public figure-specific copyright permissions remain **unverified**. The supplemental ZIP has the richer private source/rights ledger and original source-page references.
+
+## Scientific rejection and corrected placement
+
+- **Do not integrate Figure C1.2.10.** It depicts 3 ATP produced per reduced NAD, whereas the textbook's own Table C1.2.3 uses 2.5. An independently authored and checked electron-transport diagram is needed for C1.2.13 rather than copying the misleading yield schematic.
+- The combined link reaction/Krebs source Figure C1.2.9 belongs primarily in **C1.2.12 / c12-12** beside the Krebs-cycle explanation, with a cross-reference to C1.2.11.
