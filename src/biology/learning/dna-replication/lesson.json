@@ -174,7 +174,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "After semi-conservative replication, each daughter DNA duplex contains which strands?",
-      "explanation": "The two parental DNA strands separate. Each becomes a template for synthesis of a complementary new strand, producing two double helices that each contain one original strand and one newly made strand. This arrangement is called semi-conservative, not conservative or dispersive.\n\nA pairs with T and G with C. Each exposed parental base therefore helps select the corresponding nucleotide for the new strand. DNA polymerase also contributes to accuracy through nucleotide selection and, where present, proofreading; complementary base pairing by itself does not make replication infallible.",
+      "explanation": "The two parental DNA strands separate. Each becomes a template for synthesis of a complementary new strand, producing two double helices that each contain one original strand and one newly made strand. This arrangement is called semi-conservative, not conservative or dispersive.\n\nA pairs with T and G with C. Each exposed parental base therefore helps select the corresponding nucleotide for the new strand. DNA polymerase also contributes to accuracy through nucleotide selection and, where present, proofreading; complementary base pairing by itself does not make replication infallible.\n\nImagine a parental DNA duplex with one strand 5′-ATGC-3′ and the complementary strand 3′-TACG-5′. Once the strands separate, complementary nucleotides are added opposite each template base, so each new partner has the same sequence as the partner displaced from the original duplex. The outcome is not one wholly old double helix and one wholly new helix: both daughter molecules contain one conserved parental strand. Complementarity explains sequence fidelity, while proofreading makes copying more accurate still.",
       "revisionSummary": "Each parental DNA strand templates a new complementary strand. Both daughter double helices therefore contain one old and one new strand; complementary base pairing helps preserve sequence accuracy.",
       "terms": [
         "Semi-conservative replication: each daughter DNA double helix contains one parental strand and one newly made strand",
@@ -288,6 +288,14 @@
             "hodder-d11",
             "ncbi-replication"
           ]
+        },
+        {
+          "title": "How the template determines the copy",
+          "explanation": "Imagine a parental DNA duplex with one strand 5′-ATGC-3′ and the complementary strand 3′-TACG-5′. Once the strands separate, complementary nucleotides are added opposite each template base, so each new partner has the same sequence as the partner displaced from the original duplex. The outcome is not one wholly old double helix and one wholly new helix: both daughter molecules contain one conserved parental strand. Complementarity explains sequence fidelity, while proofreading makes copying more accurate still.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11"
+          ]
         }
       ],
       "support": {
@@ -341,7 +349,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What is the immediate action of helicase at a replication fork?",
-      "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. The sugar–phosphate backbones remain intact at the fork; helicase does not cut the strands into nucleotides.\n\nDNA polymerase reads an exposed template and joins complementary deoxyribonucleotides by forming phosphodiester bonds in the growing daughter strand. In cellular replication it extends a pre-existing 3′ end rather than starting synthesis from nothing. Helicase separates the strands; polymerase builds their complementary copies.",
+      "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands. The sugar–phosphate backbones remain intact at the fork; helicase does not cut the strands into nucleotides.\n\nDNA polymerase reads an exposed template and joins complementary deoxyribonucleotides by forming phosphodiester bonds in the growing daughter strand. In cellular replication it extends a pre-existing 3′ end rather than starting synthesis from nothing. Helicase separates the strands; polymerase builds their complementary copies.\n\nThe double helix cannot serve as two separate templates while its bases remain paired internally. Helicase disrupts the hydrogen bonds between paired bases at the fork, making the two parent strands available. DNA polymerase then uses exposed bases to select complementary incoming DNA nucleotides and joins them into the growing strand; it does not unzip the parental helix by itself. The weak interstrand hydrogen bonds are disrupted during unwinding, but the strong covalent sugar–phosphate backbone of each parental strand remains intact.",
       "revisionSummary": "Helicase exposes the two parental templates by disrupting hydrogen bonds. DNA polymerase selects complementary DNA nucleotides and links them into new strands by phosphodiester bonds.",
       "terms": [
         "Helicase: enzyme that unwinds DNA and separates paired strands by disrupting hydrogen bonds",
@@ -455,6 +463,14 @@
             "hodder-d11",
             "ncbi-replication"
           ]
+        },
+        {
+          "title": "What the replication fork exposes",
+          "explanation": "The double helix cannot serve as two separate templates while its bases remain paired internally. Helicase disrupts the hydrogen bonds between paired bases at the fork, making the two parent strands available. DNA polymerase then uses exposed bases to select complementary incoming DNA nucleotides and joins them into the growing strand; it does not unzip the parental helix by itself. The weak interstrand hydrogen bonds are disrupted during unwinding, but the strong covalent sugar–phosphate backbone of each parental strand remains intact.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11"
+          ]
         }
       ],
       "support": {
@@ -486,7 +502,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which sequence of conditions describes one ordinary PCR cycle?",
-      "explanation": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. The chosen primers define the target; repeated cycles can produce many copies of the region. PCR is not the same as replication of an entire chromosome.\n\nDNA has a negatively charged sugar–phosphate backbone, so an electric field draws fragments toward the positive electrode. In an appropriate gel, shorter DNA fragments generally travel farther than longer ones. Compare bands against a DNA ladder to estimate length; a matching band position does not reveal the fragment's complete base sequence.",
+      "explanation": "A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers. The chosen primers define the target; repeated cycles can produce many copies of the region. PCR is not the same as replication of an entire chromosome.\n\nDNA has a negatively charged sugar–phosphate backbone, so an electric field draws fragments toward the positive electrode. In an appropriate gel, shorter DNA fragments generally travel farther than longer ones. Compare bands against a DNA ladder to estimate length; a matching band position does not reveal the fragment's complete base sequence.\n\nPCR does not sort DNA fragments: it repeatedly copies a chosen region between two primers. After many cycles the target sequence can be abundant enough to analyse, provided the primers bind as intended and controls exclude contamination. Gel electrophoresis is the distinct separation step. Because DNA carries negatively charged phosphate groups, fragments migrate toward the positive electrode through a porous gel. Under comparable gel conditions, shorter fragments generally travel farther. A band position indicates approximate fragment length, not by itself the identity of a person or disease.",
       "revisionSummary": "PCR amplifies a chosen DNA segment using strand separation, primer annealing and Taq-polymerase extension. Gel electrophoresis separates the negatively charged fragments, with smaller pieces generally travelling farther.",
       "terms": [
         "PCR (polymerase chain reaction): repeated temperature cycles that amplify a selected DNA region",
@@ -600,6 +616,14 @@
             "ib-d11",
             "hodder-d11",
             "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Link amplification to length-based separation",
+          "explanation": "PCR does not sort DNA fragments: it repeatedly copies a chosen region between two primers. After many cycles the target sequence can be abundant enough to analyse, provided the primers bind as intended and controls exclude contamination. Gel electrophoresis is the distinct separation step. Because DNA carries negatively charged phosphate groups, fragments migrate toward the positive electrode through a porous gel. Under comparable gel conditions, shorter fragments generally travel farther. A band position indicates approximate fragment length, not by itself the identity of a person or disease.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11"
           ]
         }
       ],
@@ -983,7 +1007,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What distinguishes the newly synthesized lagging strand from the leading strand?",
-      "explanation": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. Because the polymerase can only extend a 3′ end, the leading template is read 3′→5′ toward the fork.\n\nThe opposite template polarity requires repeated RNA primers on the lagging strand. Each Okazaki fragment still grows 5′→3′, but away from the advancing fork; the RNA primers are later replaced and ligase joins the fragments. The leading strand instead grows continuously toward the fork after its initial primer.",
+      "explanation": "On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens. Because the polymerase can only extend a 3′ end, the leading template is read 3′→5′ toward the fork.\n\nThe opposite template polarity requires repeated RNA primers on the lagging strand. Each Okazaki fragment still grows 5′→3′, but away from the advancing fork; the RNA primers are later replaced and ligase joins the fragments. The leading strand instead grows continuously toward the fork after its initial primer.\n\nA replication fork exposes antiparallel parental strands, but a DNA polymerase can only extend a daughter strand at its 3′ end. One new strand can therefore grow continuously toward the advancing fork. On the other template, synthesis repeatedly restarts farther along the opened DNA and proceeds away from the fork, forming Okazaki fragments. A new primer is required for each fragment; removal and replacement of primer RNA followed by DNA ligase joining adjacent fragments produces a continuous daughter backbone. Both daughter strands are synthesized 5′→3′.",
       "revisionSummary": "Because polymerase can extend DNA only 5′→3′, the leading strand is made continuously toward the fork, while the lagging strand is made as Okazaki fragments that are later joined.",
       "terms": [
         "Leading strand: daughter strand synthesized continuously toward the advancing replication fork",
@@ -1105,6 +1129,14 @@
             "ib-d11",
             "hodder-d11",
             "ncbi-replication"
+          ]
+        },
+        {
+          "title": "Why the lagging strand forms separate fragments",
+          "explanation": "A replication fork exposes antiparallel parental strands, but a DNA polymerase can only extend a daughter strand at its 3′ end. One new strand can therefore grow continuously toward the advancing fork. On the other template, synthesis repeatedly restarts farther along the opened DNA and proceeds away from the fork, forming Okazaki fragments. A new primer is required for each fragment; removal and replacement of primer RNA followed by DNA ligase joining adjacent fragments produces a continuous daughter backbone. Both daughter strands are synthesized 5′→3′.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11"
           ]
         }
       ],
@@ -1385,7 +1417,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Which activity directly removes a mismatched terminal nucleotide during bacterial polymerase III proofreading?",
-      "explanation": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. If the 3′ end carries an incorrectly matched nucleotide, its 3′→5′ exonuclease activity removes that terminal nucleotide and the polymerase incorporates the properly matched replacement.\n\nA mismatch at the newly added 3′ end can cause bacterial DNA polymerase III to pause. Its 3′→5′ exonuclease activity removes the incorrect terminal nucleotide, allowing a correctly paired nucleotide to be added. Other DNA-repair systems act separately; proofreading greatly reduces, but does not eliminate, replication errors.",
+      "explanation": "Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended. If the 3′ end carries an incorrectly matched nucleotide, its 3′→5′ exonuclease activity removes that terminal nucleotide and the polymerase incorporates the properly matched replacement.\n\nA mismatch at the newly added 3′ end can cause bacterial DNA polymerase III to pause. Its 3′→5′ exonuclease activity removes the incorrect terminal nucleotide, allowing a correctly paired nucleotide to be added. Other DNA-repair systems act separately; proofreading greatly reduces, but does not eliminate, replication errors.\n\nProofreading acts during synthesis, before a mismatched nucleotide is buried beneath further additions. When the newly added terminal base pairs incorrectly, bacterial DNA polymerase III can remove that nucleotide through its 3′→5′ exonuclease activity, then resume adding the correct nucleotide in the usual 5′→3′ synthesis direction. Removal is therefore opposite to extension. This does not mean that all DNA errors are eliminated: some mismatches escape and may become mutations. Distinguish polymerase proofreading from later DNA-repair pathways, which need not be described in molecular detail here.",
       "revisionSummary": "Bacterial DNA polymerase III can proofread a mismatched 3′ terminal nucleotide: its exonuclease activity removes the error, then DNA synthesis resumes with the correctly paired nucleotide.",
       "terms": [
         "Proofreading: checking newly added DNA bases and correcting mismatches during replication",
@@ -1498,6 +1530,14 @@
             "ib-d11",
             "hodder-d11",
             "ncbi-replication"
+          ]
+        },
+        {
+          "title": "How a mismatch is corrected at the growing end",
+          "explanation": "Proofreading acts during synthesis, before a mismatched nucleotide is buried beneath further additions. When the newly added terminal base pairs incorrectly, bacterial DNA polymerase III can remove that nucleotide through its 3′→5′ exonuclease activity, then resume adding the correct nucleotide in the usual 5′→3′ synthesis direction. Removal is therefore opposite to extension. This does not mean that all DNA errors are eliminated: some mismatches escape and may become mutations. Distinguish polymerase proofreading from later DNA-repair pathways, which need not be described in molecular detail here.",
+          "referenceIds": [
+            "ib-d11",
+            "hodder-d11"
           ]
         }
       ],
