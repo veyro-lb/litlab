@@ -1,0 +1,70 @@
+name: BioLab IB Biology Source and Science Audit QA
+on:
+  push:
+    branches:
+      - feature/biolab-ib-source-scientific-audit-20261018
+permissions:
+  contents: read
+jobs:
+  audit:
+    name: IB source policy, curriculum, build and isolated browser
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify isolated source and exact commit
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          test "$GITHUB_REF_NAME" = "feature/biolab-ib-source-scientific-audit-20261018"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check 553 requirements, lesson structure and IB source boundaries
+        run: |
+          set -euo pipefail
+          node scripts/validate-biology.mjs
+          node scripts/validate-lessons.mjs
+          node scripts/biology/full-course/readiness-audit.mjs
+          node scripts/biology/ib-source-policy.mjs | tee ib-source-audit-report.txt
+          node --test scripts/biology/ib-source-policy.test.mjs
+          node --test scripts/validate-biology.test.mjs scripts/validate-lesson.test.mjs
+      - name: Verify LitLab English quality and TypeScript production build
+        run: |
+          set -euo pipefail
+          npm run quality
+          npm run build
+      - name: Chromium visual QA of 40 student Sources pages at mobile and desktop sizes
+        run: |
+          set -euo pipefail
+          npx playwright install --with-deps chromium
+          mkdir -p qa-artifacts/ib-source-policy
+          npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/ib-source-policy/preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 60); do
+            if node -e 'fetch("http://127.0.0.1:4173/").then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))'; then ready=1; break; fi
+            sleep 1
+          done
+          test "$ready" = 1 || { cat qa-artifacts/ib-source-policy/preview.log; exit 1; }
+          node scripts/biology/ib-source-browser.mjs
+      - name: Preserve browser screenshots and audit output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-ib-source-audit-evidence
+          path: |
+            qa-artifacts/ib-source-policy/
+            ib-source-audit-report.txt
+          if-no-files-found: warn
+          retention-days: 14
