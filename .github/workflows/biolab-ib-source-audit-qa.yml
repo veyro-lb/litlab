@@ -1,0 +1,65 @@
+name: BioLab IB Source and Editorial Isolated QA
+
+on:
+  push:
+    branches:
+      - feature/biolab-ib-source-content-audit-20261018
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ib-source-audit:
+    name: Verify 40 topics, 553 understandings, builds and source pages
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    steps:
+      - name: Checkout this isolated branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install packages
+        run: npm ci
+      - name: Source policy and per-understanding matrix
+        run: node scripts/audit-ib-source-policy.mjs --write
+      - name: All registered lessons and scientific asset paths
+        run: node scripts/validate-lessons.mjs
+      - name: Existing lesson negative tests
+        run: node --test scripts/validate-lesson.test.mjs
+      - name: Existing curriculum checks
+        run: |
+          node scripts/validate-biology.mjs
+          node --test scripts/validate-biology.test.mjs
+      - name: Existing LitLab quality checks
+        run: npm run quality
+      - name: TypeScript and Vite production build (no deployment)
+        run: npm run build
+      - name: Install test browser
+        run: npx playwright install --with-deps chromium
+      - name: Start isolated local preview
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/biolab-ib-preview.log 2>&1 &
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/biolab-ib-preview.log
+          exit 1
+      - name: Check 40 real source pages and representative teaching layouts
+        run: node scripts/biolab-ib-sources-browser.mjs
+      - name: Upload private CI audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-ib-source-audit-evidence
+          path: |
+            docs/biology/ib-source-audit/
+            qa-artifacts/ib-source-audit/
+          if-no-files-found: warn
+          retention-days: 14
