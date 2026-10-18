@@ -106,7 +106,7 @@ try {
  });
  await check('Sources mode shows syllabus and coursebook provenance and review caveat',async()=>{
    await navigate(p,'#biology/topic/A1.1/sources','.bio-sources');
-   await expect(p.locator('.bio-sources')).toContainText('IB Biology Guide');
+   await expect(p.locator('.bio-sources')).toContainText('IB Diploma Programme Biology guide');
    await expect(p.locator('.bio-sources')).toContainText('Hodder');
    await expect(p.locator('.bio-sources')).toContainText('not been certified by the IB or a qualified scientific reviewer');
  });
