@@ -29,7 +29,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which molecule directly uses a DNA template to synthesize a transcript?",
-      "explanation": "RNA polymerase binds a DNA region and uses one DNA strand as the template to synthesize an RNA strand. As it advances, a local part of the duplex unwinds, incoming ribonucleotides pair with exposed DNA bases and the RNA nucleotides are joined by phosphodiester bonds. The DNA strands re-form the duplex behind the enzyme; unlike replication, the product is RNA rather than double-stranded DNA.\n\nFor a given gene, promoter orientation determines which DNA strand is transcribed. Do not call one physical chromosome strand the template for every gene: the two strands can each serve as the template for different genes, with orientation set by promoters.\n\nTranscription copies a selected DNA region into one RNA transcript. RNA polymerase reads a DNA template and creates phosphodiester links in the nascent RNA; after it passes, the local DNA duplex reforms. This is not a second round of DNA replication.",
+      "explanation": "RNA polymerase binds a DNA region and uses one DNA strand as the template to synthesize an RNA strand. As it advances, a local part of the duplex unwinds, incoming ribonucleotides pair with exposed DNA bases and the RNA nucleotides are joined by phosphodiester bonds. The DNA strands re-form the duplex behind the enzyme; unlike replication, the product is RNA rather than double-stranded DNA.\n\nFor a given gene, promoter orientation determines which DNA strand is transcribed. Do not call one physical chromosome strand the template for every gene: the two strands can each serve as the template for different genes, with orientation set by promoters.\n\nTranscription copies a selected DNA region into one RNA transcript. RNA polymerase reads a DNA template and creates phosphodiester links in the nascent RNA; after it passes, the local DNA duplex reforms. This is not a second round of DNA replication.\n\nRNA polymerase locally exposes a template strand and links ribonucleotides into a transcript using complementary base pairing. As the enzyme moves, the parental DNA strands rejoin; the DNA sequence is not consumed or permanently changed by routine transcription. RNA transcription copies a selected region rather than producing a second chromosome, so a cell can transcribe a gene repeatedly between divisions. The amount of transcript produced depends on initiation frequency, while the amount of protein subsequently made also depends on translation and RNA and protein turnover.",
       "revisionSummary": "RNA polymerase binds a DNA region and uses one DNA strand as the template to synthesize an RNA strand. For a given gene, promoter orientation determines which DNA strand is transcribed.",
       "terms": [
         "Transcription creates an RNA copy: underlying concept",
@@ -148,6 +148,14 @@
             "ncbi-rna",
             "ncbi-translation"
           ]
+        },
+        {
+          "title": "Why transcription leaves the gene intact",
+          "explanation": "RNA polymerase locally exposes a template strand and links ribonucleotides into a transcript using complementary base pairing. As the enzyme moves, the parental DNA strands rejoin; the DNA sequence is not consumed or permanently changed by routine transcription. RNA transcription copies a selected region rather than producing a second chromosome, so a cell can transcribe a gene repeatedly between divisions. The amount of transcript produced depends on initiation frequency, while the amount of protein subsequently made also depends on translation and RNA and protein turnover.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
+          ]
         }
       ],
       "support": {
@@ -173,7 +181,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which 5′→3′ RNA sequence is transcribed from template 3′-TAC-5′?",
-      "explanation": "During RNA synthesis, DNA A pairs with RNA U, DNA T pairs with RNA A, and DNA C and G pair with RNA G and C respectively. Hydrogen bonding supports the matching of a ribonucleotide to its template base while RNA polymerase creates the covalent sugar–phosphate backbone of the new RNA.\n\nThe RNA sequence is complementary and antiparallel to the template DNA strand. It matches the coding DNA strand apart from U in RNA in place of T in DNA, provided both sequences are written 5′ to 3′. Confusing these two DNA strands reverses expected RNA and codon answers.\n\nCheck the polarity of all three aligned molecules: coding DNA 5′-ATG GCT TAA-3′, template DNA 3′-TAC CGA ATT-5′, and mRNA 5′-AUG GCU UAA-3′. RNA is complementary to the template and matches the coding sequence apart from U replacing T.",
+      "explanation": "During RNA synthesis, DNA A pairs with RNA U, DNA T pairs with RNA A, and DNA C and G pair with RNA G and C respectively. Hydrogen bonding supports the matching of a ribonucleotide to its template base while RNA polymerase creates the covalent sugar–phosphate backbone of the new RNA.\n\nThe RNA sequence is complementary and antiparallel to the template DNA strand. It matches the coding DNA strand apart from U in RNA in place of T in DNA, provided both sequences are written 5′ to 3′. Confusing these two DNA strands reverses expected RNA and codon answers.\n\nCheck the polarity of all three aligned molecules: coding DNA 5′-ATG GCT TAA-3′, template DNA 3′-TAC CGA ATT-5′, and mRNA 5′-AUG GCU UAA-3′. RNA is complementary to the template and matches the coding sequence apart from U replacing T.\n\nIf the DNA template reads 3′-TAC CGA ATT-5′, the RNA transcript reads 5′-AUG GCU UAA-3′. The corresponding coding DNA strand is 5′-ATG GCT TAA-3′, which matches the RNA apart from thymine being replaced by uracil. Hydrogen bonding selects each matching ribonucleotide, but covalent phosphodiester bonds join the RNA strand. A question that merely gives a DNA sequence without indicating template versus coding strand and direction cannot have one uniquely specified RNA answer.",
       "revisionSummary": "During RNA synthesis, DNA A pairs with RNA U, DNA T pairs with RNA A, and DNA C and G pair with RNA G and C respectively. The RNA sequence is complementary and antiparallel to the template DNA strand.",
       "terms": [
         "RNA uses different complementary bases: underlying concept",
@@ -299,6 +307,14 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "title": "Orient all three nucleic-acid sequences",
+          "explanation": "If the DNA template reads 3′-TAC CGA ATT-5′, the RNA transcript reads 5′-AUG GCU UAA-3′. The corresponding coding DNA strand is 5′-ATG GCT TAA-3′, which matches the RNA apart from thymine being replaced by uracil. Hydrogen bonding selects each matching ribonucleotide, but covalent phosphodiester bonds join the RNA strand. A question that merely gives a DNA sequence without indicating template versus coding strand and direction cannot have one uniquely specified RNA answer.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
@@ -510,7 +526,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which is a major stage at which a cell regulates whether a gene is expressed?",
-      "explanation": "Most cells share a large collection of genes, but they do not transcribe every gene at the same time. Transcription is an early control point for gene expression: if a gene is not transcribed, little or no new mRNA from it becomes available for translation.\n\nA liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript. Regulatory proteins and DNA regions are further explored in HL gene expression, but the essential idea is selective transcription rather than a change to DNA sequence.\n\nNot every gene is transcribed continuously. Regulatory choices at transcription help cells with essentially the same genome maintain different patterns of protein synthesis and different specialized functions. Gene expression describes molecular activity, not a change in the DNA genotype.",
+      "explanation": "Most cells share a large collection of genes, but they do not transcribe every gene at the same time. Transcription is an early control point for gene expression: if a gene is not transcribed, little or no new mRNA from it becomes available for translation.\n\nA liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript. Regulatory proteins and DNA regions are further explored in HL gene expression, but the essential idea is selective transcription rather than a change to DNA sequence.\n\nNot every gene is transcribed continuously. Regulatory choices at transcription help cells with essentially the same genome maintain different patterns of protein synthesis and different specialized functions. Gene expression describes molecular activity, not a change in the DNA genotype.\n\nA cell may contain a gene in its genome while producing little or none of that gene's RNA. Regulatory signals can change transcription initiation at its promoter, changing the number of transcripts available for translation. Different amounts of a polypeptide can change metabolic activity or cellular structure and thus alter phenotype. This helps explain why cells derived from one zygote develop different functions despite inheriting very similar DNA sequences. Presence of a gene therefore does not imply that it is continuously expressed in every cell type.",
       "revisionSummary": "Most cells share a large collection of genes, but they do not transcribe every gene at the same time. A liver cell and a pancreatic beta cell can carry the same insulin gene while producing different quantities of its transcript.",
       "terms": [
         "A gene can be switched on or off: underlying concept",
@@ -629,6 +645,14 @@
             "ncbi-rna",
             "ncbi-translation"
           ]
+        },
+        {
+          "title": "From transcription control to cell specialization",
+          "explanation": "A cell may contain a gene in its genome while producing little or none of that gene's RNA. Regulatory signals can change transcription initiation at its promoter, changing the number of transcripts available for translation. Different amounts of a polypeptide can change metabolic activity or cellular structure and thus alter phenotype. This helps explain why cells derived from one zygote develop different functions despite inheriting very similar DNA sequences. Presence of a gene therefore does not imply that it is continuously expressed in every cell type.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
+          ]
         }
       ],
       "support": {
@@ -653,7 +677,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "What is the direct product of translating an mRNA coding region?",
-      "explanation": "Translation converts the sequence of mRNA codons into an amino-acid sequence, rather than copying a nucleic acid strand. Ribosomes assemble amino acids through peptide bonds in the order specified by the mRNA. A resulting polypeptide may fold and undergo additional processing before functioning as a protein.\n\nThe codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation. Stop codons terminate the coded chain instead of specifying an extra amino acid. The final polypeptide is read from the amino terminus toward the carboxyl terminus.\n\nTranslation links the information in mRNA codons to the order of amino acids in a polypeptide. A ribosome does not translate genomic DNA, nor does it manufacture amino acids from codons: charged tRNA molecules deliver the amino acids that the ribosome joins by peptide bonds.",
+      "explanation": "Translation converts the sequence of mRNA codons into an amino-acid sequence, rather than copying a nucleic acid strand. Ribosomes assemble amino acids through peptide bonds in the order specified by the mRNA. A resulting polypeptide may fold and undergo additional processing before functioning as a protein.\n\nThe codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation. Stop codons terminate the coded chain instead of specifying an extra amino acid. The final polypeptide is read from the amino terminus toward the carboxyl terminus.\n\nTranslation links the information in mRNA codons to the order of amino acids in a polypeptide. A ribosome does not translate genomic DNA, nor does it manufacture amino acids from codons: charged tRNA molecules deliver the amino acids that the ribosome joins by peptide bonds.\n\nRibosomes read a messenger RNA in successive three-base codons. Suitable amino-acid-bearing tRNAs pair their anticodons with the exposed codons, and the ribosome joins the delivered amino acids with peptide bonds. The direct product is a polypeptide chain, which may require folding or further modification to become a functional protein. Translation neither makes another RNA strand nor alters the parental DNA sequence. A start codon establishes a reading frame, whereas a stop codon signals termination and does not add another amino acid.",
       "revisionSummary": "Translation converts the sequence of mRNA codons into an amino-acid sequence, rather than copying a nucleic acid strand. The codon AUG at the beginning of a coding sequence specifies methionine and usually signals translation initiation.",
       "terms": [
         "Translation builds a polypeptide: underlying concept",
@@ -771,6 +795,14 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "title": "Follow codons into a polypeptide",
+          "explanation": "Ribosomes read a messenger RNA in successive three-base codons. Suitable amino-acid-bearing tRNAs pair their anticodons with the exposed codons, and the ribosome joins the delivered amino acids with peptide bonds. The direct product is a polypeptide chain, which may require folding or further modification to become a functional protein. Translation neither makes another RNA strand nor alters the parental DNA sequence. A start codon establishes a reading frame, whereas a stop codon signals termination and does not add another amino acid.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
@@ -1658,7 +1690,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which change can produce a different amino acid in a polypeptide?",
-      "explanation": "A DNA point mutation may change an mRNA codon and thus replace an amino acid. The biochemical properties of the replacement can affect folding, stability or activity, but not every substitution produces a change in the encoded polypeptide.\n\nIn sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties. The example shows that a molecular sequence difference can have consequences at cell and organism levels, not that all variants cause disease.\n\nA point substitution can alter one codon and thereby change one amino acid. Altered side-chain chemistry may affect folding, binding or an active site; the effect depends on protein context. The sickle-cell HBB substitution is one example, but a substitution is not always harmful.",
+      "explanation": "A DNA point mutation may change an mRNA codon and thus replace an amino acid. The biochemical properties of the replacement can affect folding, stability or activity, but not every substitution produces a change in the encoded polypeptide.\n\nIn sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties. The example shows that a molecular sequence difference can have consequences at cell and organism levels, not that all variants cause disease.\n\nA point substitution can alter one codon and thereby change one amino acid. Altered side-chain chemistry may affect folding, binding or an active site; the effect depends on protein context. The sickle-cell HBB substitution is one example, but a substitution is not always harmful.\n\nA DNA base substitution can result in a changed mRNA codon and a different amino acid in the translated chain. Depending on its location and properties, that replacement may alter protein folding or function, but some substitutions are synonymous and do not change the amino-acid sequence. A premature stop signal can shorten the product and often has more severe effects. Work through the DNA-to-mRNA-to-polypeptide sequence before predicting phenotype. Not every DNA mutation affects a protein, and even a changed amino acid is not necessarily biologically damaging.",
       "revisionSummary": "A DNA point mutation may change an mRNA codon and thus replace an amino acid. In sickle-cell disease, a substitution in the beta-globin gene can replace glutamate with valine in beta-globin, affecting hemoglobin properties.",
       "terms": [
         "Sequence changes can alter a protein: underlying concept",
@@ -1777,6 +1809,14 @@
             "ncbi-rna",
             "ncbi-translation"
           ]
+        },
+        {
+          "title": "When a changed codon alters protein function",
+          "explanation": "A DNA base substitution can result in a changed mRNA codon and a different amino acid in the translated chain. Depending on its location and properties, that replacement may alter protein folding or function, but some substitutions are synonymous and do not change the amino-acid sequence. A premature stop signal can shorten the product and often has more severe effects. Work through the DNA-to-mRNA-to-polypeptide sequence before predicting phenotype. Not every DNA mutation affects a protein, and even a changed amino acid is not necessarily biologically damaging.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
+          ]
         }
       ],
       "support": {
@@ -1804,7 +1844,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "In which direction is a newly synthesized RNA chain extended?",
-      "explanation": "RNA polymerase synthesizes RNA by extending a 3′ end, so the RNA grows 5′→3′ while the template DNA is read 3′→5′. Translation reads mRNA from its 5′ end toward its 3′ end. These are two distinct kinds of directional processes.\n\nA gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand. The ribosome does not move 3′→5′ merely because its tRNAs have complementary antiparallel anticodons.\n\nDistinguish the directions of two different processes: RNA synthesis extends 5′→3′ while DNA template reading is 3′→5′; the ribosome moves along mRNA 5′→3′ while the polypeptide grows from N-terminus to C-terminus. 5′ and 3′ labels belong to nucleic acids, not peptides.",
+      "explanation": "RNA polymerase synthesizes RNA by extending a 3′ end, so the RNA grows 5′→3′ while the template DNA is read 3′→5′. Translation reads mRNA from its 5′ end toward its 3′ end. These are two distinct kinds of directional processes.\n\nA gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand. The ribosome does not move 3′→5′ merely because its tRNAs have complementary antiparallel anticodons.\n\nDistinguish the directions of two different processes: RNA synthesis extends 5′→3′ while DNA template reading is 3′→5′; the ribosome moves along mRNA 5′→3′ while the polypeptide grows from N-terminus to C-terminus. 5′ and 3′ labels belong to nucleic acids, not peptides.\n\nRNA polymerase moves along its DNA template 3′→5′ while constructing a new RNA strand 5′→3′, by extending the RNA's 3′ end. The ribosome then reads the mature mRNA 5′→3′ and adds amino acids to the carboxyl end of a growing polypeptide. These orientations are different aspects of a directional mechanism, not optional arrow placements on a diagram. Check the template, transcript and codons independently when converting a nucleotide sequence into an amino-acid sequence.",
       "revisionSummary": "RNA polymerase synthesizes RNA by extending a 3′ end, so the RNA grows 5′→3′ while the template DNA is read 3′→5′. A gene's coding strand has the mRNA-like sequence 5′→3′, but polymerase reads the opposite template strand.",
       "terms": [
         "Directions in transcription and translation: underlying concept",
@@ -1922,6 +1962,14 @@
             "hodder-d12",
             "ncbi-rna",
             "ncbi-translation"
+          ]
+        },
+        {
+          "title": "Keep reading and synthesis directions separate",
+          "explanation": "RNA polymerase moves along its DNA template 3′→5′ while constructing a new RNA strand 5′→3′, by extending the RNA's 3′ end. The ribosome then reads the mature mRNA 5′→3′ and adds amino acids to the carboxyl end of a growing polypeptide. These orientations are different aspects of a directional mechanism, not optional arrow placements on a diagram. Check the template, transcript and codons independently when converting a nucleotide sequence into an amino-acid sequence.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
@@ -2810,7 +2858,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What is removed when proinsulin is converted to mature insulin?",
-      "explanation": "A new polypeptide is not always the final functional molecule. Folding, cleavage, covalent modification, subunit association or export can be essential to activity. The resulting product should not be described as necessarily functional the instant translation ends.\n\nHuman preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin. Proinsulin folds and forms disulfide bonds; in secretory granules proteolytic removal of its connecting C-peptide generates mature insulin A and B chains linked by disulfide bonds.\n\nPreproinsulin enters the secretory pathway and loses its signal peptide, becoming proinsulin. Removal of connecting C-peptide produces mature insulin, with A and B chains stabilized by disulfide bonds. Translation alone does not immediately generate the functional secreted hormone.",
+      "explanation": "A new polypeptide is not always the final functional molecule. Folding, cleavage, covalent modification, subunit association or export can be essential to activity. The resulting product should not be described as necessarily functional the instant translation ends.\n\nHuman preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin. Proinsulin folds and forms disulfide bonds; in secretory granules proteolytic removal of its connecting C-peptide generates mature insulin A and B chains linked by disulfide bonds.\n\nPreproinsulin enters the secretory pathway and loses its signal peptide, becoming proinsulin. Removal of connecting C-peptide produces mature insulin, with A and B chains stabilized by disulfide bonds. Translation alone does not immediately generate the functional secreted hormone.\n\nTranslation creates an amino-acid chain but does not guarantee that the new product already has its final shape and function. A polypeptide may fold, associate with other chains or undergo specific cleavage. In the insulin example, proinsulin is processed by removing a connecting peptide, producing mature insulin with appropriately linked chains. Such events are post-translational changes; they differ from removing introns from pre-mRNA before translation. The Guide does not require memorizing every possible protein modification to understand this distinction.",
       "revisionSummary": "A new polypeptide is not always the final functional molecule. Human preproinsulin is targeted into the endoplasmic reticulum where a signal peptide is removed, yielding proinsulin.",
       "terms": [
         "Functional proteins may require processing: underlying concept",
@@ -2933,6 +2981,14 @@
             "ncbi-rna",
             "ncbi-translation",
             "ncbi-insulin"
+          ]
+        },
+        {
+          "title": "Processing a polypeptide into an active molecule",
+          "explanation": "Translation creates an amino-acid chain but does not guarantee that the new product already has its final shape and function. A polypeptide may fold, associate with other chains or undergo specific cleavage. In the insulin example, proinsulin is processed by removing a connecting peptide, producing mature insulin with appropriately linked chains. Such events are post-translational changes; they differ from removing introns from pre-mRNA before translation. The Guide does not require memorizing every possible protein modification to understand this distinction.",
+          "referenceIds": [
+            "ib-d12",
+            "hodder-d12"
           ]
         }
       ],
