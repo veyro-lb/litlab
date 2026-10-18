@@ -6,6 +6,7 @@ import type {Asset} from './content';
  */
 export default function ScientificFigure({asset,hideLabels=false}: {asset:Asset;hideLabels?:boolean}) {
   const [failed,setFailed]=useState(false);
+  const [zoom,setZoom]=useState(1);
   const dialog=useRef<HTMLDialogElement>(null);
   const opener=useRef<HTMLButtonElement>(null);
   if(asset.withheldReason)return <figure className="bio-figure bio-withheld-figure" data-asset-id={asset.id}><figcaption><strong>{asset.captionTitle}</strong><p>{asset.alt}</p><small>Figure withheld for revision: {asset.withheldReason}</small></figcaption></figure>;
@@ -13,7 +14,7 @@ export default function ScientificFigure({asset,hideLabels=false}: {asset:Asset;
   const alt=hideLabels?'Unlabelled scientific schematic for recall. Reconstruct the labels and connections, then reveal to compare.':asset.alt;
   return <figure className="bio-figure bio-figure-clean" data-asset-id={asset.id}>
     {failed?<div className="bio-image-fallback" role="status">Figure unavailable. {asset.alt}</div>:
-      <button className="bio-figure-image" type="button" ref={opener} aria-label={`Enlarge diagram: ${asset.captionTitle}`} onClick={()=>{dialog.current?.showModal();if(dialog.current)dialog.current.scrollTop=0}}>
+      <button className="bio-figure-image" type="button" ref={opener} aria-label={`Enlarge diagram: ${asset.captionTitle}`} onClick={()=>{setZoom(1);dialog.current?.showModal();if(dialog.current)dialog.current.scrollTop=0}}>
         <picture>{asset.mobileSrc&&<source media="(max-width: 560px)" srcSet={hideLabels&&asset.recallMobileSrc?asset.recallMobileSrc:asset.mobileSrc}/>}<img src={src} alt={alt} loading="lazy" decoding="async" onError={()=>setFailed(true)}/></picture>
       </button>}
     <figcaption className="bio-sr-only">{asset.captionTitle}. {asset.alt}{asset.interpretation?' '+asset.interpretation:''}</figcaption>
@@ -27,8 +28,8 @@ export default function ScientificFigure({asset,hideLabels=false}: {asset:Asset;
       else if(!event.shiftKey&&active===last){event.preventDefault();first?.focus()}
     }}>
       <div className="bio-figure-dialog-head"><strong>{asset.captionTitle}</strong><button type="button" autoFocus onClick={()=>dialog.current?.close()}>Close figure</button></div>
-      <p>Scroll to inspect the figure. Press Escape to close.</p>
-      <div className="bio-figure-zoom" tabIndex={0} role="region" aria-label="Enlarged scientific illustration"><img src={src} alt={alt}/></div>
+      <div className="bio-figure-zoom-controls" role="group" aria-label="Figure zoom controls"><button type="button" aria-label="Zoom out" disabled={zoom<=1} onClick={()=>setZoom(value=>Math.max(1,+(value-0.5).toFixed(1)))}>−</button><output aria-live="polite">{Math.round(zoom*100)}%</output><button type="button" aria-label="Zoom in" disabled={zoom>=3} onClick={()=>setZoom(value=>Math.min(3,+(value+0.5).toFixed(1)))}>+</button><span>Pan to inspect labels · Escape to close</span></div>
+      <div className="bio-figure-zoom" tabIndex={0} role="region" aria-label="Enlarged scientific illustration"><img src={src} alt={alt} style={{minWidth:`${zoom*100}%`}}/></div>
       <p>{asset.alt}</p>
     </dialog>
   </figure>;

@@ -361,3 +361,15 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
 .bio-microscopy-case textarea:focus-visible,.bio-microscopy-case button:focus-visible,.bio-microscopy-case a:focus-visible{outline:3px solid var(--bio-green);outline-offset:3px}
 .bio-microscopy-case details{font-size:13px;line-height:1.8;margin:18px 0}
 .bio-microscopy-case summary{cursor:pointer;font-weight:700;color:var(--bio-green)}
+
+/* Scientific figures: preserve the full authored canvas rather than clipping labels.
+   A responsive SVG variant supplies a portrait composition where the lesson column is narrow. */
+.bio-figure-clean,.bio-figure-clean>.bio-figure-image,.bio-figure-clean>.bio-figure-image picture{min-width:0;max-width:100%;height:auto;overflow:visible}
+.bio-figure-clean>.bio-figure-image img,.bio-reading .bio-figure-clean img{display:block;width:100%;height:auto;max-height:none;max-width:100%;object-fit:contain;object-position:center}
+.bio-figure-clean>.bio-figure-image{cursor:zoom-in}
+.bio-figure-zoom{max-height:min(70dvh,950px);overscroll-behavior:contain;touch-action:pan-x pan-y}
+.bio-figure-zoom img{width:auto;height:auto;max-width:none;max-height:none;min-width:100%;object-fit:contain}
+.bio-figure-zoom-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0}
+.bio-figure-zoom-controls button{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font:inherit;font-size:13px}
+.bio-figure-zoom-controls output{min-width:65px;text-align:center;font-size:13px}
+@media(max-width:560px){.bio-figure-clean>.bio-figure-image{border-radius:0}.bio-figure-dialog{width:calc(100vw - 12px);max-width:calc(100vw - 12px);padding:10px}.bio-figure-zoom{max-height:65dvh}}
