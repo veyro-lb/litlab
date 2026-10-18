@@ -45,9 +45,10 @@ def normalized(s):return re.sub("[^a-z0-9]","",s.lower())
 def screenshot(doc,fig):
     name,expected,y1,y2,term=fig
     matching=[i for i,page in enumerate(doc) if normalized(term) in normalized(page.get_text())]
-    idx=expected-1 if expected-1 in matching else matching[0] if len(matching)==1 else None
+    idx=expected-1 if expected-1 in matching else min(matching,key=lambda n:abs(n-(expected-1))) if matching else None
     if idx is None:raise RuntimeError("Missing or ambiguous PDF source drawing: "+name)
     page=doc[idx]
+    print(f"Verified source match: {name} on page {idx+1}; all matches {[n+1 for n in matching]}")
     pix=page.get_pixmap(matrix=fitz.Matrix(2.3,2.3),clip=fitz.Rect(0,page.rect.height*y1,page.rect.width,page.rect.height*y2),alpha=False)
     if pix.width<800 or pix.height<150:raise RuntimeError("Bad crop for "+name)
     return pix.tobytes("png"),idx+1
