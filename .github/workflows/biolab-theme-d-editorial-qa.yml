@@ -1,0 +1,57 @@
+name: BioLab Theme D Editorial Isolated QA
+on:
+  push:
+    branches:
+      - feature/biolab-ib-theme-d-final-20261018
+permissions:
+  contents: read
+jobs:
+  qa:
+    name: Validate syllabus, depth, build and difficult Learn pages
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Run Theme D regression and numbered-understanding checks
+        run: |
+          node --test scripts/biology/theme-d-final-20261018/editorial.test.mjs scripts/biology/theme-d-final-20261018/depth.test.mjs
+          node scripts/biology/final-d1-d2/verify.mjs
+          node scripts/biology/final-d3-d4/validate.mjs
+          node --test src/biology/learning/{dna-replication,protein-synthesis,mutation-gene-editing,cell-nuclear-division,gene-expression,water-potential,reproduction,inheritance,homeostasis,natural-selection,stability-change,climate-change}/*.test.mjs
+      - name: Check complete Biology course and source contracts
+        run: |
+          node scripts/validate-biology.mjs
+          node scripts/validate-lessons.mjs
+          npm run quality
+      - name: Build unmodified Vite application
+        run: npm run build
+      - name: Install Chromium only for isolated browser checks
+        run: npx playwright install --with-deps chromium
+      - name: Render difficult understanding pages at mobile and desktop widths
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/biolab-d-preview.log 2>&1 &
+          preview_pid=$!
+          trap "kill $preview_pid 2>/dev/null || true" EXIT
+          for attempt in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4173/ > /dev/null
+          node scripts/biology/theme-d-final-20261018/browser.mjs
+      - name: Preserve only isolated QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: theme-d-learn-qa
+          path: qa-artifacts/theme-d
+          if-no-files-found: ignore
+          retention-days: 7
