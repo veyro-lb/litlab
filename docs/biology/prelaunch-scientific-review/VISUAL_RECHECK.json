@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "baselineSha": "3e07486876700cd35d0931f91a7c11ae82946084",
+  "priorSourceLedger": "docs/biology/independent-visual-qa/ISSUES.json",
+  "method": "Re-read each of 11 originally flagged asset paths at this final-integration baseline; SVG text/geometry inspection only, not independent qualified scientific sign-off nor mobile browser screenshots",
+  "counts": {
+    "source-remediated-not-render-verified": 5,
+    "partially-remediated-render-required": 1,
+    "open": 2,
+    "open-low": 2,
+    "unverified-browser": 1
+  },
+  "issues": [
+    {
+      "issueId": "IVQA-001",
+      "topicId": "B3.2",
+      "understandingIds": [
+        "B3.2.14"
+      ],
+      "assetPath": "public/biology/transport/heart-circuits.svg",
+      "baselineAssetBlobSha": "bc241b4e90786fdf7007901d8fc0a242eacab7c4",
+      "priorSeverity": "high",
+      "currentSourceDisposition": "source-remediated-not-render-verified",
+      "sourceEvidence": "The new SVG explicitly draws heart → gill capillaries → systemic capillaries → heart, including a systemic capillary node and marker-end arrowheads. Prior topology defect no longer appears in the baseline source.",
+      "remainingCheck": "Retest arrow legibility/rendered diagram, including mobile and low-vision accessibility.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-002",
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "assetPath": "public/biology/reproduction/d31-flower-structures.svg",
+      "baselineAssetBlobSha": "43d10dd2e78aa2e16ef771b8b7467398ae813ea8",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "source-remediated-not-render-verified",
+      "sourceEvidence": "Updated flower art anchors a Style label leader to the central style and includes a continuous flower schematic; old hard-coded leader coordinate no longer matches.",
+      "remainingCheck": "Render at real viewport sizes to confirm leader terminates on shaft.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-003",
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "assetPath": "public/biology/reproduction/d31-flower-structures.svg",
+      "baselineAssetBlobSha": "43d10dd2e78aa2e16ef771b8b7467398ae813ea8",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "source-remediated-not-render-verified",
+      "sourceEvidence": "Current SVG explicitly labels Petal, Sepal, Stamen, Carpel, Anther, Filament, Stigma, Style, Ovary, and Ovule.",
+      "remainingCheck": "Confirm text/leader association and legibility in browser.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-004",
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.4",
+        "D3.1.13"
+      ],
+      "assetPath": "src/biology/learning/reproduction/lesson.json",
+      "baselineAssetBlobSha": "7c9e77c3afb9847b3b9db54c004f49780aa1e786",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "source-remediated-not-render-verified",
+      "sourceEvidence": "Current reproduction lesson registers male sagittal anatomy, female frontal and female sagittal anatomy assets.",
+      "remainingCheck": "Inspect exact labelled geometry, not merely file registration.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-005",
+      "topicId": "B3.2",
+      "understandingIds": [
+        "B3.2.15"
+      ],
+      "assetPath": "public/biology/transport/heart-frontal.svg",
+      "baselineAssetBlobSha": "3ae475d08de309664513d10f36bda7518db63204",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "partially-remediated-render-required",
+      "sourceEvidence": "Current frontal SVG now names pulmonary and aortic valves and uses arrowheads; cartoon chambers remain rectangles.",
+      "remainingCheck": "Anatomical validity and valve-label geometry require direct image inspection.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-006",
+      "topicId": "B3.2",
+      "understandingIds": [
+        "B3.2.9",
+        "B3.2.10"
+      ],
+      "assetPath": "public/biology/transport/dicot-stem-root.svg",
+      "baselineAssetBlobSha": "49990159b7145d7bb7c59460625db403c70fae14",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "open",
+      "sourceEvidence": "Dicot stem/root SVG continues to use bundle colors plus general captions with no explicit xylem/phloem, epidermis/cortex/pith leader labels.",
+      "remainingCheck": "Create/verify labelled tissue plan diagram and authentic cross-section comparison; don't import copyrighted handout.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-007",
+      "topicId": "B3.1",
+      "understandingIds": [
+        "B3.1.7",
+        "B3.1.8"
+      ],
+      "assetPath": "public/biology/gas-exchange/dicot-leaf.svg",
+      "baselineAssetBlobSha": "643b212b3dd19c8877b51c98f2b34bdcd8309554",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "open",
+      "sourceEvidence": "Dicot leaf schematic still has tissue labels as detached x=650 list entries rather than leader lines to tissue.",
+      "remainingCheck": "Review correspondence of each label, introduce clear leaders/annotation or an accessible alternate table.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-008",
+      "topicId": "A1.2",
+      "understandingIds": [
+        "A1.2.6",
+        "A1.2.8"
+      ],
+      "assetPath": "public/biology/nucleic-acids/paired.svg",
+      "baselineAssetBlobSha": "447db2df9ca2e3ea71b5d45986398f4d6e57e6f1",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "source-remediated-not-render-verified",
+      "sourceEvidence": "Complementary-pair SVG contains data-bond-count=2 for AT and =3 for GC with separate dashed lines.",
+      "remainingCheck": "Check that model is not being interpreted as an atomically exact structure; compare display.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-009",
+      "topicId": "B1.2",
+      "understandingIds": [
+        "B1.2.2"
+      ],
+      "assetPath": "public/biology/proteins/peptide.svg",
+      "baselineAssetBlobSha": "a390e78d0e6128dd5a3a084a12c320ae526c5df4",
+      "priorSeverity": "low",
+      "currentSourceDisposition": "open-low",
+      "sourceEvidence": "Peptide diagram shows generic dipeptide plus water but not complete drawn reactant functional groups including lost OH and H.",
+      "remainingCheck": "Offer explicit condensation mechanism as optional labelled reactant/product drawing.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-010",
+      "topicId": "A1.2",
+      "understandingIds": [
+        "A1.2.2",
+        "A1.2.6"
+      ],
+      "assetPath": "public/biology/nucleic-acids/paired.svg",
+      "baselineAssetBlobSha": "447db2df9ca2e3ea71b5d45986398f4d6e57e6f1",
+      "priorSeverity": "low",
+      "currentSourceDisposition": "open-low",
+      "sourceEvidence": "DNA pairing artwork still prints 'scientific review pending' as a student-facing footer.",
+      "remainingCheck": "Remove editorial status from student-facing figure only once approval is actually secured; preserve provenance in metadata.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    },
+    {
+      "issueId": "IVQA-011",
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "assetPath": "public/biology/reproduction/d31-flower-structures.svg",
+      "baselineAssetBlobSha": "43d10dd2e78aa2e16ef771b8b7467398ae813ea8",
+      "priorSeverity": "medium",
+      "currentSourceDisposition": "unverified-browser",
+      "sourceEvidence": "SVG fonts changed to larger source units; no 320-pixel browser screenshot obtained.",
+      "remainingCheck": "Check real scaled labels and responsive image treatment, not only SVG nominal font-size.",
+      "sourceReviewOnly": true,
+      "realBrowserEvidence": false
+    }
+  ]
+}
