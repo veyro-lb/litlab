@@ -1,4 +1,4 @@
-import {chromium} from '@playwright/test';
+import {chromium,expect} from '@playwright/test';
 import {readFileSync,readdirSync,mkdirSync,writeFileSync} from 'node:fs';
 const registry=JSON.parse(readFileSync('src/biology/curriculum/registry.json','utf8'));
 const lessons=readdirSync('src/biology/learning',{withFileTypes:true}).filter(e=>e.isDirectory()).flatMap(e=>{try{return [JSON.parse(readFileSync('src/biology/learning/'+e.name+'/lesson.json','utf8'))]}catch{return []}});
@@ -69,6 +69,7 @@ try{
     }
     if(['A1.2','C1.2','C1.3','D2.1'].includes(topic.id)){
      const shot=topic.id.replace('.','-')+'-'+width+'.png';
+     await page.evaluate(()=>window.scrollTo(0,0));
      await page.screenshot({path:folder+'/'+shot,fullPage:false});report.screenshots.push(shot);
     }
    }catch(e){fail(name,e)}
@@ -88,12 +89,12 @@ try{
   try{
    await sp.goto(base+'#biology/topic/'+topic.id+'/learn',{waitUntil:'domcontentloaded'});
    if(l.sections.some(s=>s.level==='shared')){
-    await sp.locator('.bio-reading').waitFor({timeout:12000});
-    const count=await sp.locator('.bio-toc li').count(),expected=l.sections.filter(s=>s.level==='shared').length;
-    if(count!==expected)throw Error('SL leaks HL: '+count+' versus '+expected);
+    await expect(sp.locator('.bio-lesson h1')).toHaveText(topic.title,{timeout:12000});
+    await expect(sp.locator('.bio-reading')).toBeVisible({timeout:12000});
+    const expected=l.sections.filter(s=>s.level==='shared').length;
+    await expect(sp.locator('.bio-toc li')).toHaveCount(expected,{timeout:12000});
    }else{
-    await sp.locator('.bio-empty').waitFor({timeout:12000});
-    if(!(await sp.locator('.bio-empty').innerText()).includes('HL only'))throw Error('HL-only route not gated');
+    await expect(sp.locator('.bio-empty')).toContainText('HL only',{timeout:12000});
    }
    pass(topic.id+' SL/HL scope');
   }catch(e){fail(topic.id+' SL scope',e)}
