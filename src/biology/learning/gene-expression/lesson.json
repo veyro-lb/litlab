@@ -1864,7 +1864,7 @@
         "D2.2.1"
       ],
       "level": "HL",
-      "prompt": "What links a protein-coding gene to a cellular trait?",
+      "prompt": "Two tissues carry the same protein-coding gene but produce different amounts of its product. Which chain most directly links gene expression to a tissue-specific trait?",
       "marks": 1,
       "sectionId": "d22-1",
       "referenceIds": [
@@ -1875,30 +1875,30 @@
       "options": [
         {
           "id": "d22-1-o1",
-          "text": "Transcription, translation and protein function",
+          "text": "Regulated transcription, translation and action of the resulting protein",
           "correct": true,
-          "feedback": "Correct. A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide."
+          "feedback": "Different transcription rates can change mRNA abundance, protein production and consequently a trait, without a change in the DNA sequence."
         },
         {
           "id": "d22-1-o2",
           "text": "Conversion of DNA directly into amino acids",
           "correct": false,
-          "feedback": "Consider why “Conversion of DNA directly into amino acids” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+          "feedback": "DNA is transcribed to RNA, then ribosomes translate mRNA codons into a polypeptide; the DNA template does not convert directly into amino acids."
         },
         {
           "id": "d22-1-o3",
           "text": "Universal expression of every gene",
           "correct": false,
-          "feedback": "Consider why “Universal expression of every gene” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+          "feedback": "Cell types selectively express genes. If every gene were expressed equally, differential gene expression could not explain tissue-specific protein abundance."
         },
         {
           "id": "d22-1-o4",
           "text": "Division of every organelle",
           "correct": false,
-          "feedback": "Consider why “Division of every organelle” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+          "feedback": "Organelle division is not the informational pathway from a protein-coding DNA sequence to a polypeptide and its cellular effect."
         }
       ],
-      "review": "draft"
+      "review": "scientific-review"
     },
     {
       "id": "d22-response-1",
@@ -1947,28 +1947,28 @@
           "id": "d22-2-o1",
           "text": "Promoter DNA and sequence-binding transcription factors",
           "correct": true,
-          "feedback": "Correct. Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription."
+          "feedback": "Transcription factors recognize DNA regulatory sequences such as promoters or enhancers and influence RNA polymerase recruitment and initiation."
         },
         {
           "id": "d22-2-o2",
           "text": "Anticodon and tRNA exit site",
           "correct": false,
-          "feedback": "Consider why “Anticodon and tRNA exit site” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+          "feedback": "An anticodon on tRNA pairs with an mRNA codon at a ribosome during translation, after transcription has already made the mRNA."
         },
         {
           "id": "d22-2-o3",
           "text": "Histone amino acid and newly formed peptide bond",
           "correct": false,
-          "feedback": "Consider why “Histone amino acid and newly formed peptide bond” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+          "feedback": "Histones influence DNA accessibility, but peptide-bond formation is a translation event; this pair does not describe promoter-bound transcription initiation machinery."
         },
         {
           "id": "d22-2-o4",
           "text": "Mitochondrial ATP and osmotic pressure",
           "correct": false,
-          "feedback": "Consider why “Mitochondrial ATP and osmotic pressure” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+          "feedback": "ATP availability can influence cellular activity, but osmotic pressure and mitochondrial ATP are not the DNA-binding regulatory pair specified for initiation."
         }
       ],
-      "review": "draft"
+      "review": "scientific-review"
     },
     {
       "id": "d22-response-2",
@@ -2017,28 +2017,28 @@
           "id": "d22-3-o1",
           "text": "It falls",
           "correct": true,
-          "feedback": "Correct. A newly made mRNA can be translated repeatedly while it persists."
+          "feedback": "If transcripts are produced at the same rate but degraded more rapidly, their steady-state abundance normally falls and less mRNA is available for translation."
         },
         {
           "id": "d22-3-o2",
           "text": "It must rise",
           "correct": false,
-          "feedback": "Consider why “It must rise” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+          "feedback": "Increased degradation removes transcripts faster; with transcription unchanged, it does not force the mRNA pool to grow."
         },
         {
           "id": "d22-3-o3",
           "text": "The DNA sequence changes to RNA",
           "correct": false,
-          "feedback": "Consider why “The DNA sequence changes to RNA” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+          "feedback": "Transcription uses DNA as a template to synthesize RNA; it does not change the DNA sequence into RNA. Degradation removes RNA transcripts."
         },
         {
           "id": "d22-3-o4",
           "text": "Every ribosome gains a new gene",
           "correct": false,
-          "feedback": "Consider why “Every ribosome gains a new gene” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+          "feedback": "Ribosomes translate mRNA; they do not acquire a new gene when an mRNA molecule is degraded."
         }
       ],
-      "review": "draft"
+      "review": "scientific-review"
     },
     {
       "id": "d22-response-3",

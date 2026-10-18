@@ -1636,9 +1636,11 @@
       "level": "HL",
       "guidingQuestion": "How do directional, stabilizing and disruptive selection differ?",
       "explanation": "Directional selection favours one end of a heritable trait range and can shift its mean. Stabilizing selection favours intermediate traits and tends to reduce variation. Disruptive selection favours both extremes relative to intermediate values, potentially widening or dividing the trait distribution.\n\nThese labels describe fitness patterns, not automatic production of new species. All may affect underlying allele frequencies; a stable trait mean does not imply no selection. When analysing curves, label axes and distinguish conceptual predictions from measurements. A claim about selection requires evidence on inherited traits and successful reproduction.\n\nDirectional selection favours one end of a trait distribution, stabilizing selection favours intermediate phenotypes, and disruptive selection favours both ends over the middle. A distribution drawn to teach these outcomes is a theoretical illustration; evidence for a particular population requires measured trait distributions and fitness comparisons.",
-      "revisionSummary": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
+      "revisionSummary": "Directional selection favours one extreme, stabilizing selection favours intermediate values and disruptive selection favours both extremes. Each can change allele frequencies when the trait is heritable.",
       "terms": [
-        "Directional, disruptive and stabilizing selection"
+        "Directional selection: one extreme of a heritable trait has the highest reproductive success",
+        "Stabilizing selection: intermediate trait values have the highest reproductive success",
+        "Disruptive selection: individuals at both extremes reproduce more successfully than intermediate forms"
       ],
       "workedExample": "If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested.",
       "misconceptions": [
@@ -1691,7 +1693,7 @@
           ]
         },
         {
-          "title": "Mechanism, evidence and limitations",
+          "title": "What a change in the trait distribution can show",
           "explanation": "These labels describe fitness patterns, not automatic production of new species. All may affect underlying allele frequencies; a stable trait mean does not imply no selection. When analysing curves, label axes and distinguish conceptual predictions from measurements. A claim about selection requires evidence on inherited traits and successful reproduction.",
           "referenceIds": [
             "ib-d41",
@@ -1711,7 +1713,7 @@
       "support": {
         "simple": "Directional, stabilizing and disruptive selection favour one extreme, middle or two extremes.",
         "example": "If very small and very large beaks gather food most efficiently while intermediate beaks do poorly, disruptive selection is suggested.",
-        "different": "Evidence of differential heritable reproductive success is needed.",
+        "different": "The three patterns describe which phenotypes reproduce most successfully, not three kinds of mutations. A curve shows a possible distribution; evidence of heritability and reproductive success is needed to conclude selection occurred.",
         "concepts": [
           {
             "title": "Selection principle",
@@ -1842,10 +1844,12 @@
       ],
       "level": "HL",
       "guidingQuestion": "How can p² + 2pq + q² be used under stated assumptions?",
-      "explanation": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.\n\nIf an appropriate fully penetrant recessive phenotype occurs with frequency 0.09, then q²=0.09, q=0.30, p=0.70 and expected heterozygotes are 2pq=0.42 (42%). The square root is nonnegative. This model predicts population proportions only when assumptions are defensible; it does not specify exact outcomes in each family.\n\nIf recessive phenotype frequency q² = 0.09, assuming Hardy–Weinberg equilibrium, q = 0.30 and p = 0.70. Expected heterozygote frequency 2pq = 2 × 0.70 × 0.30 = 0.42 or 42%. q² is a genotype frequency, whereas q is an allele frequency; the two cannot be interchanged.\n\nFor a locus with two alleles, p+q=1 and expected genotype frequencies are p², 2pq and q² when the Hardy–Weinberg assumptions apply. For example, if the affected recessive genotype frequency q² is 0.09, then q=0.30, p=0.70 and the heterozygote frequency 2pq=0.42. These are model expectations, not a direct observation of actual genotypes. The square-root step assumes the recessive trait correctly identifies homozygotes and Hardy–Weinberg conditions are reasonable.",
-      "revisionSummary": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
+      "explanation": "For two alleles A and a, define p as frequency of A and q as frequency of a: p+q=1. Under the Hardy–Weinberg random-mating model, genotype frequencies are p² (AA), 2pq (Aa) and q² (aa), summing to 1.\n\nA recessive phenotype can estimate q² only if the trait is caused by the relevant fully penetrant recessive genotype and the Hardy–Weinberg model is appropriate. First estimate q² from the phenotype frequency, then take its nonnegative square root to obtain q; p = 1 − q. Dominant phenotype counts cannot, on their own, separate AA from Aa.\n\nSuppose 9% of a suitable population shows the recessive aa phenotype. Under Hardy–Weinberg equilibrium, q² = 0.09, so q = √0.09 = 0.30 and p = 1 − 0.30 = 0.70. The predicted heterozygote frequency is 2pq = 2 × 0.70 × 0.30 = 0.42 (42%). q is an allele frequency, not the fraction of individuals with aa.\n\nFor a locus with two alleles, p+q=1 and expected genotype frequencies are p², 2pq and q² when the Hardy–Weinberg assumptions apply. For example, if the affected recessive genotype frequency q² is 0.09, then q=0.30, p=0.70 and the heterozygote frequency 2pq=0.42. These are model expectations, not a direct observation of actual genotypes. The square-root step assumes the recessive trait correctly identifies homozygotes and Hardy–Weinberg conditions are reasonable.",
+      "revisionSummary": "For two alleles, p + q = 1 and expected genotype frequencies are p², 2pq and q² under Hardy–Weinberg conditions. A recessive phenotype frequency can estimate q² only with suitable genotype–phenotype assumptions.",
       "terms": [
-        "Hardy–Weinberg calculations"
+        "Allele frequency: fraction of allele copies of a specified type in a population",
+        "Hardy–Weinberg equilibrium: model predicting genotype frequencies from allele frequencies under specified conditions",
+        "p and q: frequencies of two alleles at one locus; p + q = 1"
       ],
       "workedExample": "If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
       "misconceptions": [
@@ -1863,14 +1867,14 @@
           ]
         },
         {
-          "claim": "If an appropriate fully penetrant recessive phenotype occurs with frequency 0.09, then q²=0.09, q=0.30, p=0.70 and expected heterozygotes are 2pq=0.42 (42%). The square root is nonnegative. This model predicts population proportions only when assumptions are defensible; it does not specify exact outcomes in each family.",
+          "claim": "A recessive phenotype can estimate q² only if the trait is caused by the relevant fully penetrant recessive genotype and the Hardy–Weinberg model is appropriate. First estimate q² from the phenotype frequency, then take its nonnegative square root to obtain q; p = 1 − q. Dominant phenotype counts cannot, on their own, separate AA from Aa.",
           "referenceIds": [
             "ib-d41",
             "hodder-d41"
           ]
         },
         {
-          "claim": "If recessive phenotype frequency q² = 0.09, assuming Hardy–Weinberg equilibrium, q = 0.30 and p = 0.70. Expected heterozygote frequency 2pq = 2 × 0.70 × 0.30 = 0.42 or 42%. q² is a genotype frequency, whereas q is an allele frequency; the two cannot be interchanged.",
+          "claim": "Suppose 9% of a suitable population shows the recessive aa phenotype. Under Hardy–Weinberg equilibrium, q² = 0.09, so q = √0.09 = 0.30 and p = 1 − 0.30 = 0.70. The predicted heterozygote frequency is 2pq = 2 × 0.70 × 0.30 = 0.42 (42%). q is an allele frequency, not the fraction of individuals with aa.",
           "referenceIds": [
             "ib-d41",
             "hodder-d41"
@@ -1899,8 +1903,8 @@
           ]
         },
         {
-          "title": "Mechanism, evidence and limitations",
-          "explanation": "If an appropriate fully penetrant recessive phenotype occurs with frequency 0.09, then q²=0.09, q=0.30, p=0.70 and expected heterozygotes are 2pq=0.42 (42%). The square root is nonnegative. This model predicts population proportions only when assumptions are defensible; it does not specify exact outcomes in each family.",
+          "title": "When a recessive phenotype estimates q²",
+          "explanation": "A recessive phenotype can estimate q² only if the trait is caused by the relevant fully penetrant recessive genotype and the Hardy–Weinberg model is appropriate. First estimate q² from the phenotype frequency, then take its nonnegative square root to obtain q; p = 1 − q. Dominant phenotype counts cannot, on their own, separate AA from Aa.",
           "referenceIds": [
             "ib-d41",
             "hodder-d41"
@@ -1908,7 +1912,7 @@
         },
         {
           "title": "Hardy–Weinberg from phenotype frequency",
-          "explanation": "If recessive phenotype frequency q² = 0.09, assuming Hardy–Weinberg equilibrium, q = 0.30 and p = 0.70. Expected heterozygote frequency 2pq = 2 × 0.70 × 0.30 = 0.42 or 42%. q² is a genotype frequency, whereas q is an allele frequency; the two cannot be interchanged.",
+          "explanation": "Suppose 9% of a suitable population shows the recessive aa phenotype. Under Hardy–Weinberg equilibrium, q² = 0.09, so q = √0.09 = 0.30 and p = 1 − 0.30 = 0.70. The predicted heterozygote frequency is 2pq = 2 × 0.70 × 0.30 = 0.42 (42%). q is an allele frequency, not the fraction of individuals with aa.",
           "referenceIds": [
             "ib-d41",
             "hodder-d41"
@@ -1926,7 +1930,7 @@
       "support": {
         "simple": "Hardy–Weinberg predicts p², 2pq and q² when p+q=1 and assumptions hold.",
         "example": "If q²=9%, expected heterozygotes = 2(0.7)(0.3)=42%.",
-        "different": "They define a conditional equilibrium model for comparison with observations.",
+        "different": "Work in this order: recessive phenotype → q², square root → q, subtract from one → p, then calculate p², 2pq and q². The formula predicts population proportions under assumptions, not outcomes for each individual family.",
         "concepts": [
           {
             "title": "Selection principle",

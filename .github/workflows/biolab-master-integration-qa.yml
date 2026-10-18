@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feature/biolab-all-sprints-integration-20261018
+      - feature/biolab-ib-final-base-20261018
 
 permissions:
   contents: read
@@ -24,7 +25,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$GITHUB_REF_NAME" = feature/biolab-all-sprints-integration-20261018
+          test "$GITHUB_REF_NAME" = feature/biolab-ib-final-base-20261018
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           test -z "$(git status --porcelain)"
           git log -12 --pretty=format:'%h %s'
@@ -97,6 +98,10 @@ jobs:
             node scripts/biology/final-d3-d4/validate.mjs
             node --test scripts/biology/parallel-student-qa/audit.test.mjs
             node scripts/biology/parallel-student-qa/audit.mjs
+            node --test scripts/biology/assessment-quality/audit.test.mjs
+            node scripts/biology/assessment-quality/audit.mjs
+            node --test scripts/biology/scientific-visual-redesign.test.mjs
+            node --test scripts/biology/independent-visual-qa/audit.test.mjs
           } 2>&1 | tee qa-specialists.log
       - name: Build integrated application
         id: build

@@ -1,0 +1,81 @@
+name: BioLab Drawing Practice QA (no deployment)
+on:
+  push:
+    branches:
+      - feature/biolab-interactive-drawing-practice-20261018
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  drawing-practice:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout isolated source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Confirm commit
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          echo "$GITHUB_SHA" > qa-drawing-commit.txt
+      - name: Install dependencies
+        run: npm ci
+      - name: Negative and answer-mapping tests
+        run: |
+          set -euo pipefail
+          node --test src/biology/learning/drawing-practice/data.test.mjs 2>&1 | tee qa-drawing-unit.log
+      - name: Existing site quality gate
+        run: |
+          set -euo pipefail
+          npm run quality 2>&1 | tee qa-drawing-quality.log
+      - name: Existing Biology validation (report unrelated baseline failures)
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          node scripts/validate-biology.mjs
+          node --test scripts/validate-biology.test.mjs scripts/validate-lesson.test.mjs | tee qa-drawing-existing.log
+      - name: Production build
+        run: |
+          set -euo pipefail
+          npm run build 2>&1 | tee qa-drawing-build.log
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Integrated browser journeys on local preview
+        shell: bash
+        env:
+          HTTP_PROXY: ''
+          HTTPS_PROXY: ''
+          ALL_PROXY: ''
+          NO_PROXY: '127.0.0.1,localhost'
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4173 > qa-drawing-preview.log 2>&1 &
+          ready=0
+          for attempt in $(seq 1 30); do
+            if node -e 'fetch("http://127.0.0.1:4173/").then(r=>{console.log("Preview HTTP "+r.status);process.exit(r.ok?0:1)}).catch(e=>{console.error(String(e));process.exit(1)})'; then ready=1; break; fi
+            sleep 1
+          done
+          if [ "$ready" != 1 ]; then
+            echo "Preview failed: diagnostic curl output"
+            curl --noproxy '*' -v --max-time 8 http://127.0.0.1:4173/ || true
+            cat qa-drawing-preview.log
+            exit 1
+          fi
+          node scripts/biology-drawing-browser.mjs | tee qa-drawing-browser.log
+      - name: Preserve screenshots, cases and exact SHA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-drawing-practice-evidence
+          path: |
+            qa-drawing-*.log
+            qa-drawing-commit.txt
+            qa-artifacts/drawing-practice/
+          if-no-files-found: warn
+          retention-days: 21
