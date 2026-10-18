@@ -32,7 +32,7 @@ Other editorial repairs: eleven sentence-length teaching headings in C2.2 were c
 
 | Understanding | Official Guide, PDF page | Hodder Third Edition, supplied PDF pages |
 |---|---:|---|
-| C1.2.13 | 74 | 431–433 |
+| C1.2.13 | 74 | 432 (printed p. 420) |
 | A1.2.7 | 43 | 33–34 |
 | B3.2.17 | 66 | 333–335 |
 | C1.3.12 | 77 | approximately 450 (chapter C1.3) |
@@ -47,7 +47,7 @@ The supplied A1.2 SL PowerPoint was also available as supplementary structure/di
 
 - **COMPLETE AND VERIFIED AGAINST SOURCES:** **0**. No independent qualified biological examiner has approved a section in this audit.
 - **IMPROVED — QUALIFIED REVIEW PENDING:** **8**. The actual lesson content was revised with individual Guide/Hodder context checked, but independent science and real-browser QA remain outstanding.
-- **NEEDS FURTHER WORK:** **545**. These are mapped in the audit but have not undergone this round's individual source-depth examination. This label is a review-status warning, **not** a claim that all 546 explanations are deficient.
+- **NEEDS FURTHER WORK:** **545**. These are mapped in the audit but have not undergone this round's individual source-depth examination. This label is a review-status warning, **not** a claim that all 545 explanations are deficient.
 
 The status covers all **553** official understandings without pretending that presence of a section is proof of adequate teaching depth.
 
