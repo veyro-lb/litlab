@@ -1659,7 +1659,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Potential and realized ecological niches?",
-      "explanation": "A fundamental niche includes the range of abiotic conditions and resources a species could potentially exploit given its physiological tolerances and adaptations when freed from limiting interspecific interactions. A realized niche describes the set actually occupied under ecological interactions such as competition.\n\nCompetition can restrict the realized niche to a subset of the fundamental one, but predators, mutualists and dispersal barriers may also alter actual distribution. A niche is multidimensional: a simple two-dimensional diagram is an explanatory slice, not the complete biological niche. Realized and fundamental niches are not identical by definition. Realized niche is not always a simple fixed fraction of the fundamental niche; interactions and constraints can change several niche dimensions at once.\n\nA barnacle species may occupy less of the shore when a stronger competitor is present. Competition often reduces actual resource use relative to potential tolerance.",
+      "explanation": "A habitat is the physical place where a species lives. A fundamental niche represents the potential conditions and resources it could use according to its adaptations and tolerance limits in the absence of limiting competition. The realized niche describes conditions and resources actually used while interacting with other organisms. Competition can restrict that use without changing physiological tolerance. A simplified two-axis niche diagram represents only part of a multidimensional niche.\n\nCompetition can restrict the realized niche to a subset of the fundamental one, but predators, mutualists and dispersal barriers may also alter actual distribution. A niche is multidimensional: a simple two-dimensional diagram is an explanatory slice, not the complete biological niche. Realized and fundamental niches are not identical by definition. Realized niche is not always a simple fixed fraction of the fundamental niche; interactions and constraints can change several niche dimensions at once.\n\nA barnacle species may occupy less of the shore when a stronger competitor is present. Competition often reduces actual resource use relative to potential tolerance.",
       "revisionSummary": "Competition often reduces actual resource use relative to potential tolerance.",
       "terms": [
         "Potential tolerance space",
@@ -1679,7 +1679,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "A fundamental niche includes the range of abiotic conditions and resources a species could potentially exploit given its physiological tolerances and adaptations when freed from limiting interspecific interactions. A realized niche describes the set actually occupied under ecological interactions such as competition.",
+          "claim": "A habitat is the physical place where a species lives. A fundamental niche represents the potential conditions and resources it could use according to its adaptations and tolerance limits in the absence of limiting competition. The realized niche describes conditions and resources actually used while interacting with other organisms. Competition can restrict that use without changing physiological tolerance. A simplified two-axis niche diagram represents only part of a multidimensional niche.",
           "referenceIds": [
             "ib-guide-b42",
             "hodder-b42"
@@ -1711,8 +1711,8 @@
       ],
       "teachingBlocks": [
         {
-          "title": "Potential tolerance space",
-          "explanation": "A fundamental niche includes the range of abiotic conditions and resources a species could potentially exploit given its physiological tolerances and adaptations when freed from limiting interspecific interactions. A realized niche describes the set actually occupied under ecological interactions such as competition.",
+          "title": "Potential versus actual niches, not addresses",
+          "explanation": "A habitat is the physical place where a species lives. A fundamental niche represents the potential conditions and resources it could use according to its adaptations and tolerance limits in the absence of limiting competition. The realized niche describes conditions and resources actually used while interacting with other organisms. Competition can restrict that use without changing physiological tolerance. A simplified two-axis niche diagram represents only part of a multidimensional niche.",
           "referenceIds": [
             "ib-guide-b42",
             "hodder-b42"
@@ -1834,7 +1834,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Competition can exclude or partition niches?",
-      "explanation": "When two species rely on the same limiting resources in nearly identical ways, sustained competition may make long-term coexistence unstable under unchanging conditions. The competitive-exclusion principle predicts that one may be excluded locally when it has a persistent advantage.\n\nCoexistence may instead arise when each species is restricted to a different part of the potential niche, such as distinct feeding levels, seasons or substrates. Competitive outcomes also depend on environmental variation and other ecological interactions. An experiment should measure abundance and resource use under controlled conditions rather than simply assume one competitor will always disappear. Competitive exclusion assumes sufficiently similar limiting-resource use under specified conditions, not that any two species in one habitat cannot coexist.\n\nTwo bird species can share a habitat by feeding on different prey at different depths. Competition may yield exclusion or resource partitioning and narrower realized niches.",
+      "explanation": "When two species rely on the same limiting resources in nearly identical ways, one may be excluded locally by competition. Alternatively, species can persist by using different food, locations or activity times, so their realized niches are restricted to different parts of potential resource space. Sharing a habitat does not automatically mean occupying the same niche. Observations of abundance and resource use, not a slogan about competition, distinguish these outcomes.\n\nCoexistence may instead arise when each species is restricted to a different part of the potential niche, such as distinct feeding levels, seasons or substrates. Competitive outcomes also depend on environmental variation and other ecological interactions. An experiment should measure abundance and resource use under controlled conditions rather than simply assume one competitor will always disappear. Competitive exclusion assumes sufficiently similar limiting-resource use under specified conditions, not that any two species in one habitat cannot coexist.\n\nTwo bird species can share a habitat by feeding on different prey at different depths. Competition may yield exclusion or resource partitioning and narrower realized niches.",
       "revisionSummary": "Competition may yield exclusion or resource partitioning and narrower realized niches.",
       "terms": [
         "Conditions for exclusion",
@@ -1854,7 +1854,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "When two species rely on the same limiting resources in nearly identical ways, sustained competition may make long-term coexistence unstable under unchanging conditions. The competitive-exclusion principle predicts that one may be excluded locally when it has a persistent advantage.",
+          "claim": "When two species rely on the same limiting resources in nearly identical ways, one may be excluded locally by competition. Alternatively, species can persist by using different food, locations or activity times, so their realized niches are restricted to different parts of potential resource space. Sharing a habitat does not automatically mean occupying the same niche. Observations of abundance and resource use, not a slogan about competition, distinguish these outcomes.",
           "referenceIds": [
             "ib-guide-b42",
             "hodder-b42"
@@ -1879,8 +1879,8 @@
       "figurePlacements": [],
       "teachingBlocks": [
         {
-          "title": "Conditions for exclusion",
-          "explanation": "When two species rely on the same limiting resources in nearly identical ways, sustained competition may make long-term coexistence unstable under unchanging conditions. The competitive-exclusion principle predicts that one may be excluded locally when it has a persistent advantage.",
+          "title": "Competing species may exclude or partition niches",
+          "explanation": "When two species rely on the same limiting resources in nearly identical ways, one may be excluded locally by competition. Alternatively, species can persist by using different food, locations or activity times, so their realized niches are restricted to different parts of potential resource space. Sharing a habitat does not automatically mean occupying the same niche. Observations of abundance and resource use, not a slogan about competition, distinguish these outcomes.",
           "referenceIds": [
             "ib-guide-b42",
             "hodder-b42"
@@ -2574,6 +2574,31 @@
         "Competition can contract realized width",
         "The figure is illustrative, not empirical observations"
       ]
+    },
+    {
+      "id": "theme-b-20261018-ecological-niches-mechanism",
+      "paper": "2",
+      "kind": "written",
+      "original": true,
+      "understandingIds": [
+        "B4.2.12"
+      ],
+      "level": "shared",
+      "sectionId": "b42-12",
+      "prompt": "Differentiate habitat, fundamental niche and realized niche using two competing barnacle species.",
+      "marks": 4,
+      "markingPoints": [
+        "Habitat identifies where a species lives.",
+        "Fundamental niche is potential condition and resource use.",
+        "Realized niche is actual use under interactions.",
+        "Competition can reduce the realized niche."
+      ],
+      "answer": "Habitat identifies where a species lives. Fundamental niche is potential condition and resource use. Realized niche is actual use under interactions. Competition can reduce the realized niche.",
+      "referenceIds": [
+        "ib-guide-b42",
+        "hodder-b42"
+      ],
+      "review": "examiner-validation-pending"
     }
   ],
   "references": [
@@ -2637,7 +2662,8 @@
       "Original forest schematic needs species-specific botanical verification.",
       "Authentic licensed hominin skull collections or models are needed for the direct observation skill of B4.2.8.",
       "Qualified science, imagery rights and assessment approval are not supplied; catalog and registry untouched.",
-      "Editorial note: textbook page ranges were refined from the read-only Theme B research mapping. These are source-navigation candidates, not a qualified claim-by-claim sign-off."
+      "Editorial note: textbook page ranges were refined from the read-only Theme B research mapping. These are source-navigation candidates, not a qualified claim-by-claim sign-off.",
+      "2026-10-18: Two focused mechanism corrections, original applied question; qualified examiner, visual and browser review pending."
     ]
   }
 }
