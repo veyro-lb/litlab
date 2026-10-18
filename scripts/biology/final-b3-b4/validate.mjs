@@ -28,13 +28,15 @@ for(const [id,slug,total,shared,hl] of specifications){
  assert.equal(lesson.sections.length,total,id+' total understanding count');
  assert.equal(lesson.sections.filter(s=>s.level==='shared').length,shared,id+' SL scope count');
  assert.equal(lesson.sections.filter(s=>s.level==='HL').length,hl,id+' HL scope count');
- assert.equal(lesson.sections.filter(s=>s.visuals?.length).flatMap(s=>s.visuals||[]).every(v=>v.afterBlock>=0&&v.afterBlock<3),true);
+ assert.equal(lesson.sections.every(s=>(s.visuals||[]).every(v=>Number.isInteger(v.afterBlock)&&v.afterBlock>=0&&v.afterBlock<s.teachingBlocks.length)),true,'all scientific visuals anchored to visible teaching blocks');
  for(let i=0;i<total;i++){
   const item=lesson.sections[i],number=id+'.'+(i+1);
   assert.deepEqual(item.understandingIds,[number],number+' ordered one-to-one');
-  assert.equal(item.teachingBlocks.length,3,number+' teaching structure');
-  assert.equal(new Set(item.teachingBlocks.map(b=>b.title)).size,3,number+' distinctive titled blocks');
+  assert.ok(item.teachingBlocks.length>=4,number+' extended teaching structure');
+  assert.equal(new Set(item.teachingBlocks.map(b=>b.title)).size,item.teachingBlocks.length,number+' distinctive titled blocks');
   assert.ok(item.teachingBlocks.every(b=>b.explanation.length>100),number+' substantial explanatory paragraphs');
+  assert.ok(item.explanation.trim().split(/\s+/).length>=200,number+' complete explanation');
+  assert.equal(item.claimReferences.length,item.teachingBlocks.length,number+' source-mapped paragraphs');
   assert.ok(item.interactions.every(q=>q.options.filter(o=>o.correct).length===1&&q.options.every(o=>o.feedback?.length>25)));
   assert.ok(lesson.questions.some(q=>q.understandingIds.includes(number)),number+' assessment');
   assert.ok(item.claimReferences.every(c=>c.referenceIds.every(rid=>lesson.references.some(r=>r.id===rid))),number+' claim provenance');
@@ -51,7 +53,7 @@ for(const [id,slug,total,shared,hl] of specifications){
 }
 assert.equal(sections,62);
 assert.equal(questions,72);
-assert.equal(visuals,9);
+assert.ok(visuals>=9,'at least the nine original in-lesson visuals remain');
 assert.ok(assets>=12);
 const sarcomere=fs.readFileSync('public/biology/muscle-motility/sarcomere.svg','utf8');
 const lines=[...sarcomere.matchAll(/M(\d+) (\d+)H(\d+)/g)].map(m=>Math.abs(Number(m[1])-Number(m[3])));
