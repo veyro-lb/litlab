@@ -43,3 +43,15 @@ test('whole registered BioLab course has no unapproved student Sources entries',
  assert.equal(report.approvedStudentFacingReferenceEntries,80);
  assert.ok(report.externalTeachingReferencesRemovedFromStudents>0);
 });
+
+test('four committed review matrices preserve all 553 official identifiers and level boundaries',async()=>{
+ const files=['A','B','C','D'];
+ const all=(await Promise.all(files.map(async theme=>JSON.parse(await readFile(new URL('../../docs/biology/IB_SOURCE_MATRIX_THEME_'+theme+'.json',import.meta.url),'utf8'))))).flat();
+ assert.equal(all.length,553);
+ assert.equal(new Set(all.map(row=>row.understandingId)).size,553);
+ assert.equal(all.filter(row=>row.scope==='SL+HL').length,337);
+ assert.equal(all.filter(row=>row.scope==='HL-only').length,216);
+ assert.equal(all.filter(row=>row.review.qualifiedScienceApproval).length,0);
+ assert.equal(all.filter(row=>row.officialGuide.verifiedAgainstGuide).length,8);
+ assert.ok(all.every(row=>row.hodder.printedPages.length&&row.coverage.explanationPresent&&row.coverage.questionCount>0));
+});
