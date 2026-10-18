@@ -1,0 +1,66 @@
+name: BioLab Theme B Depth Review (Isolated)
+on:
+  push:
+    branches:
+      - feature/biolab-ib-theme-b-final-20261018
+permissions:
+  contents: read
+jobs:
+  teaching-validation-and-browser:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Independent structured teaching gates
+        run: |
+          node scripts/biology/final-b1-b2/verify.mjs
+          node scripts/biology/final-b3-b4/validate.mjs
+          node --test scripts/biology/final-b3-b4/negative.test.mjs
+          node scripts/biology/theme-b/validate-all.mjs
+          node --test tests/biology/theme-b-final-editorial.test.mjs tests/biology/theme-b-depth-review.test.mjs
+          node scripts/validate-lessons.mjs
+      - name: Quality and production build (no deployment)
+        run: |
+          npm run quality
+          npm run build
+      - name: Responsive private preview in network-isolated Chromium
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/theme-b-depth node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm --network none --cap-drop ALL --user "$(id -u):$(id -g)" --env HOME=/tmp --security-opt no-new-privileges --read-only --tmpfs /tmp:rw,nosuid,size=768m --shm-size=1g \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
+            --workdir /work mcr.microsoft.com/playwright:v1.56.1-noble bash -euo pipefail -c '
+              CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              test -n "$CHROME_BIN"
+              export CHROME_BIN
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/theme-b-depth/preview.log 2>&1 &
+              pid=$!
+              trap "kill $pid 2>/dev/null || true" EXIT
+              ready=0
+              for attempt in $(seq 1 45); do
+                if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4173/; then ready=1; break; fi
+                sleep 1
+              done
+              test "$ready" = 1 || { cat qa-artifacts/theme-b-depth/preview.log; exit 1; }
+              node scripts/biology/theme-b/final-depth-browser.mjs
+            '
+      - name: Preserve QA screenshots and browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-theme-b-depth-review
+          path: qa-artifacts/theme-b-depth/
+          if-no-files-found: warn
+          retention-days: 14
