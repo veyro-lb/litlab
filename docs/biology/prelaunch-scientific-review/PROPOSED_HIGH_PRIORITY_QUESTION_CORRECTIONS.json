@@ -1,0 +1,991 @@
+{
+  "schemaVersion": 1,
+  "reviewBaseSha": "3e07486876700cd35d0931f91a7c11ae82946084",
+  "reviewBranch": "feature/biolab-prelaunch-scientific-review-20261018",
+  "authoritativeSources": [
+    "IB Biology Guide, first assessment 2025",
+    "Clegg, Davis & Talbot (2023), Biology for the IB Diploma Programme, third edition"
+  ],
+  "count": 11,
+  "allProposalsOriginalQuestions": true,
+  "approvalStatus": "NOT_APPROVED",
+  "patches": [
+    {
+      "issueId": "SCIREV-Q-001",
+      "questionId": "c12-written-1",
+      "topicId": "C1.2",
+      "understandingIds": [
+        "C1.2.1"
+      ],
+      "sectionId": "c12-1",
+      "lessonFile": "src/biology/learning/cell-respiration/lesson.json",
+      "sourceLessonBlobSha": "4b54e9f8440123b19f953ba45e8632c3bc9f3b6a",
+      "severity": "medium",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 67,
+          "guidePdfPage": 73,
+          "understandingIds": [
+            "C1.2.1"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            405,
+            408
+          ],
+          "hodderPdfPages": [
+            417,
+            420
+          ]
+        }
+      ],
+      "finding": "The existing key awards a structural definition and a muscle example without stating how ATP hydrolysis is coupled to endergonic work.",
+      "originalQuestion": {
+        "id": "c12-written-1",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.1"
+        ],
+        "level": "shared",
+        "prompt": "Explain the mechanism behind atp: the cell's transferable energy currency and use one biological example to show its significance. [2]",
+        "marks": 2,
+        "sectionId": "c12-1",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups. In a muscle fibre, ATP is regenerated while myosin uses ATP during contraction.",
+        "markingPoints": [
+          "ATP (adenosine triphosphate) is a nucleotide consisting of adenine, ribose and three phosphate groups.",
+          "In a muscle fibre, ATP is regenerated while myosin uses ATP during contraction."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c12-written-1",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.1"
+        ],
+        "level": "shared",
+        "prompt": "Explain how ATP can couple energy-releasing and energy-requiring reactions, using a membrane pump as an example. [2]",
+        "marks": 2,
+        "sectionId": "c12-1",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "An ATP-hydrolysing enzyme couples the favourable conversion of ATP to ADP and inorganic phosphate to an otherwise energetically unfavourable process, often through protein phosphorylation or conformational change. For example, ATP-driven changes in a membrane pump move ions against their electrochemical gradient.",
+        "markingPoints": [
+          "An ATP-hydrolysing enzyme couples the favourable conversion of ATP to ADP and inorganic phosphate to an otherwise energetically unfavourable process, often through protein phosphorylation or conformational change.",
+          "For example, ATP-driven changes in a membrane pump move ions against their electrochemical gradient."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-002",
+      "questionId": "c12-written-9",
+      "topicId": "C1.2",
+      "understandingIds": [
+        "C1.2.9"
+      ],
+      "sectionId": "c12-9",
+      "lessonFile": "src/biology/learning/cell-respiration/lesson.json",
+      "sourceLessonBlobSha": "4b54e9f8440123b19f953ba45e8632c3bc9f3b6a",
+      "severity": "high",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 68,
+          "guidePdfPage": 74,
+          "understandingIds": [
+            "C1.2.9"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            411,
+            414
+          ],
+          "hodderPdfPages": [
+            423,
+            426
+          ]
+        }
+      ],
+      "finding": "Key omits the required product lactate and does not explicitly say NAD+ is regenerated, although this is the named understanding.",
+      "originalQuestion": {
+        "id": "c12-written-9",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.9"
+        ],
+        "level": "HL",
+        "prompt": "Explain the mechanism behind lactate fermentation regenerates nad and use one biological example to show its significance. [2]",
+        "marks": 2,
+        "sectionId": "c12-9",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH. During intense muscular demand, pyruvate can accept electrons from NADH so glycolysis can continue.",
+        "markingPoints": [
+          "Under low oxygen availability, the electron transport chain cannot maintain sufficient reoxidation of NADH.",
+          "During intense muscular demand, pyruvate can accept electrons from NADH so glycolysis can continue."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c12-written-9",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.9"
+        ],
+        "level": "HL",
+        "prompt": "Explain how pyruvate conversion to lactate allows ATP production by glycolysis to continue when oxygen availability limits aerobic respiration. [2]",
+        "marks": 2,
+        "sectionId": "c12-9",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "Pyruvate is reduced to lactate by accepting electrons from reduced NAD (NADH), regenerating oxidized NAD+. Regenerated NAD+ is required by glycolysis; glycolysis can therefore continue producing a net two ATP per glucose by substrate-level phosphorylation.",
+        "markingPoints": [
+          "Pyruvate is reduced to lactate by accepting electrons from reduced NAD (NADH), regenerating oxidized NAD+.",
+          "Regenerated NAD+ is required by glycolysis; glycolysis can therefore continue producing a net two ATP per glucose by substrate-level phosphorylation."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-003",
+      "questionId": "c12-written-11",
+      "topicId": "C1.2",
+      "understandingIds": [
+        "C1.2.11"
+      ],
+      "sectionId": "c12-11",
+      "lessonFile": "src/biology/learning/cell-respiration/lesson.json",
+      "sourceLessonBlobSha": "4b54e9f8440123b19f953ba45e8632c3bc9f3b6a",
+      "severity": "high",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 68,
+          "guidePdfPage": 74,
+          "understandingIds": [
+            "C1.2.11"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            415,
+            420
+          ],
+          "hodderPdfPages": [
+            427,
+            432
+          ]
+        }
+      ],
+      "finding": "Current answer/marking points discuss mitochondrial entry and an experimental tracer but omit link-reaction oxidation, decarboxylation, reduced NAD and acetyl-CoA formation.",
+      "originalQuestion": {
+        "id": "c12-written-11",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.11"
+        ],
+        "level": "HL",
+        "prompt": "Explain the mechanism behind the link reaction produces acetyl-coa and use one biological example to show its significance. [2]",
+        "marks": 2,
+        "sectionId": "c12-11",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix. Tracing one labelled carbon atom through the link reaction distinguishes decarboxylation from electron transfer.",
+        "markingPoints": [
+          "In eukaryotic aerobic glucose respiration, pyruvate formed in the cytosol is transported into the mitochondrial matrix.",
+          "Tracing one labelled carbon atom through the link reaction distinguishes decarboxylation from electron transfer."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c12-written-11",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.11"
+        ],
+        "level": "HL",
+        "prompt": "Explain the oxidative decarboxylation of pyruvate in the link reaction and name the carbon-containing product delivered to the Krebs cycle. [2]",
+        "marks": 2,
+        "sectionId": "c12-11",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "Each three-carbon pyruvate loses one carbon as CO₂ and is oxidized, with NAD+ reduced to NADH. The remaining two-carbon acetyl group combines with coenzyme A to form acetyl-CoA, which delivers the acetyl group to the Krebs cycle.",
+        "markingPoints": [
+          "Each three-carbon pyruvate loses one carbon as CO₂ and is oxidized, with NAD+ reduced to NADH.",
+          "The remaining two-carbon acetyl group combines with coenzyme A to form acetyl-CoA, which delivers the acetyl group to the Krebs cycle."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-004",
+      "questionId": "c12-written-12",
+      "topicId": "C1.2",
+      "understandingIds": [
+        "C1.2.12"
+      ],
+      "sectionId": "c12-12",
+      "lessonFile": "src/biology/learning/cell-respiration/lesson.json",
+      "sourceLessonBlobSha": "4b54e9f8440123b19f953ba45e8632c3bc9f3b6a",
+      "severity": "high",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 68,
+          "guidePdfPage": 74,
+          "understandingIds": [
+            "C1.2.12"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            419,
+            421
+          ],
+          "hodderPdfPages": [
+            431,
+            433
+          ]
+        }
+      ],
+      "finding": "Current key awards two marks for the formation and carbon count of citrate, but does not test oxidative decarboxylation, reduced carriers or ATP yield named in the syllabus statement.",
+      "originalQuestion": {
+        "id": "c12-written-12",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.12"
+        ],
+        "level": "HL",
+        "prompt": "Explain the mechanism behind the krebs cycle oxidizes acetyl groups and use one biological example to show its significance. [2]",
+        "marks": 2,
+        "sectionId": "c12-12",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C). Tracking 2C acetyl + 4C oxaloacetate → 6C citrate makes the cycle's carbon balance easier to explain.",
+        "markingPoints": [
+          "In the mitochondrial matrix, the two-carbon acetyl group of acetyl-CoA joins oxaloacetate (4C) to form citrate (6C).",
+          "Tracking 2C acetyl + 4C oxaloacetate → 6C citrate makes the cycle's carbon balance easier to explain."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c12-written-12",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.12"
+        ],
+        "level": "HL",
+        "prompt": "Describe how the Krebs cycle processes an acetyl group to release carbon dioxide and transfer energy to electron carriers. [2]",
+        "marks": 2,
+        "sectionId": "c12-12",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "The two-carbon acetyl group joins four-carbon oxaloacetate to form citrate; reactions in the cycle regenerate oxaloacetate and release two CO₂ per turn. Oxidation in the cycle reduces NAD+ and FAD, and one ATP equivalent is formed per turn by substrate-level phosphorylation.",
+        "markingPoints": [
+          "The two-carbon acetyl group joins four-carbon oxaloacetate to form citrate; reactions in the cycle regenerate oxaloacetate and release two CO₂ per turn.",
+          "Oxidation in the cycle reduces NAD+ and FAD, and one ATP equivalent is formed per turn by substrate-level phosphorylation."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-005",
+      "questionId": "c12-written-14",
+      "topicId": "C1.2",
+      "understandingIds": [
+        "C1.2.14"
+      ],
+      "sectionId": "c12-14",
+      "lessonFile": "src/biology/learning/cell-respiration/lesson.json",
+      "sourceLessonBlobSha": "4b54e9f8440123b19f953ba45e8632c3bc9f3b6a",
+      "severity": "high",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 68,
+          "guidePdfPage": 74,
+          "understandingIds": [
+            "C1.2.14"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            421,
+            423
+          ],
+          "hodderPdfPages": [
+            433,
+            435
+          ]
+        }
+      ],
+      "finding": "Current key tests chain location and effects of blocking pumping, but fails to explain that electron-transfer energy actively pumps protons and establishes an electrochemical gradient.",
+      "originalQuestion": {
+        "id": "c12-written-14",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.14"
+        ],
+        "level": "HL",
+        "prompt": "Explain the mechanism behind electron transfer establishes a proton gradient and use one biological example to show its significance. [2]",
+        "marks": 2,
+        "sectionId": "c12-14",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "The mitochondrial electron transport chain is in the inner membrane. Blocking proton pumping weakens the gradient even if ADP and phosphate remain present.",
+        "markingPoints": [
+          "The mitochondrial electron transport chain is in the inner membrane.",
+          "Blocking proton pumping weakens the gradient even if ADP and phosphate remain present."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c12-written-14",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.14"
+        ],
+        "level": "HL",
+        "prompt": "Explain how electron transport generates a proton gradient across the inner mitochondrial membrane. [2]",
+        "marks": 2,
+        "sectionId": "c12-14",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "Electrons from reduced carriers pass along inner-membrane electron transport components, releasing energy used to pump H+ from the matrix into the intermembrane space. The inner membrane restricts free proton movement, so a proton electrochemical gradient accumulates across it.",
+        "markingPoints": [
+          "Electrons from reduced carriers pass along inner-membrane electron transport components, releasing energy used to pump H+ from the matrix into the intermembrane space.",
+          "The inner membrane restricts free proton movement, so a proton electrochemical gradient accumulates across it."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-006",
+      "questionId": "c12-written-15",
+      "topicId": "C1.2",
+      "understandingIds": [
+        "C1.2.15"
+      ],
+      "sectionId": "c12-15",
+      "lessonFile": "src/biology/learning/cell-respiration/lesson.json",
+      "sourceLessonBlobSha": "4b54e9f8440123b19f953ba45e8632c3bc9f3b6a",
+      "severity": "high",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 69,
+          "guidePdfPage": 75,
+          "understandingIds": [
+            "C1.2.15"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            421,
+            423
+          ],
+          "hodderPdfPages": [
+            433,
+            435
+          ]
+        }
+      ],
+      "finding": "Current marking points identify the enzyme and direction of proton flow but award no point for ATP formation from ADP plus phosphate, explicitly required by IB guidance.",
+      "originalQuestion": {
+        "id": "c12-written-15",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.15"
+        ],
+        "level": "HL",
+        "prompt": "Explain the mechanism behind chemiosmosis drives mitochondrial atp synthesis and use one biological example to show its significance. [2]",
+        "marks": 2,
+        "sectionId": "c12-15",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "ATP synthase spans the inner mitochondrial membrane. In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase.",
+        "markingPoints": [
+          "ATP synthase spans the inner mitochondrial membrane.",
+          "In active mitochondria, protons return from the intermembrane space to the matrix through ATP synthase."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c12-written-15",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.2.15"
+        ],
+        "level": "HL",
+        "prompt": "Explain how mitochondrial chemiosmosis drives the phosphorylation of ADP to ATP. [2]",
+        "marks": 2,
+        "sectionId": "c12-15",
+        "referenceIds": [
+          "ib-c12",
+          "hodder-c12",
+          "openstax-c12",
+          "ncbi-c12"
+        ],
+        "answer": "H+ flows down its electrochemical gradient from the intermembrane space into the matrix through ATP synthase in the inner mitochondrial membrane. ATP synthase couples the released gradient energy to joining ADP with inorganic phosphate (Pi), forming ATP.",
+        "markingPoints": [
+          "H+ flows down its electrochemical gradient from the intermembrane space into the matrix through ATP synthase in the inner mitochondrial membrane.",
+          "ATP synthase couples the released gradient energy to joining ADP with inorganic phosphate (Pi), forming ATP."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-007",
+      "questionId": "c13-structured-1",
+      "topicId": "C1.3",
+      "understandingIds": [
+        "C1.3.1"
+      ],
+      "sectionId": "c13-1",
+      "lessonFile": "src/biology/learning/photosynthesis/lesson.json",
+      "sourceLessonBlobSha": "28349ddee9a8b88909859adbd090376567147556",
+      "severity": "medium",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 69,
+          "guidePdfPage": 75,
+          "understandingIds": [
+            "C1.3.1"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            425,
+            429
+          ],
+          "hodderPdfPages": [
+            437,
+            441
+          ]
+        }
+      ],
+      "finding": "Key summarizes carbon fixation and food webs while omitting the light-reaction/chemical-energy causal bridge sought by the question.",
+      "originalQuestion": {
+        "id": "c13-structured-1",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.3.1"
+        ],
+        "level": "shared",
+        "prompt": "Explain photosynthesis converts light energy to chemical energy, including the underlying mechanism and one consequence. [2]",
+        "marks": 2,
+        "sectionId": "c13-1",
+        "referenceIds": [
+          "ib-c13",
+          "hodder-c13",
+          "openstax-c13",
+          "openstax-calvin"
+        ],
+        "answer": "Photosynthetic cells use absorbed light to build carbon-containing organic compounds from inorganic carbon. This is a major entry point of energy into food webs.",
+        "markingPoints": [
+          "Photosynthetic cells use absorbed light to build carbon-containing organic compounds from inorganic carbon.",
+          "This is a major entry point of energy into food webs."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c13-structured-1",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.3.1"
+        ],
+        "level": "shared",
+        "prompt": "Explain how light energy is converted into chemical energy that supports carbon fixation in oxygenic photosynthesis. [2]",
+        "marks": 2,
+        "sectionId": "c13-1",
+        "referenceIds": [
+          "ib-c13",
+          "hodder-c13",
+          "openstax-c13",
+          "openstax-calvin"
+        ],
+        "answer": "Chlorophyll and associated pigments absorb light, exciting electrons; electron flow supports ATP synthesis and reduction of NADP+ to NADPH. ATP and NADPH provide energy and reducing power for the Calvin cycle, which converts carbon from CO₂ into organic compounds.",
+        "markingPoints": [
+          "Chlorophyll and associated pigments absorb light, exciting electrons; electron flow supports ATP synthesis and reduction of NADP+ to NADPH.",
+          "ATP and NADPH provide energy and reducing power for the Calvin cycle, which converts carbon from CO₂ into organic compounds."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-008",
+      "questionId": "c13-structured-2",
+      "topicId": "C1.3",
+      "understandingIds": [
+        "C1.3.2"
+      ],
+      "sectionId": "c13-2",
+      "lessonFile": "src/biology/learning/photosynthesis/lesson.json",
+      "sourceLessonBlobSha": "28349ddee9a8b88909859adbd090376567147556",
+      "severity": "medium",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 69,
+          "guidePdfPage": 75,
+          "understandingIds": [
+            "C1.3.2"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            425,
+            433
+          ],
+          "hodderPdfPages": [
+            437,
+            445
+          ]
+        }
+      ],
+      "finding": "Key gives an overall word equation and water splitting but no causal link from water-derived electrons/protons to reducing carbon compounds.",
+      "originalQuestion": {
+        "id": "c13-structured-2",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.3.2"
+        ],
+        "level": "shared",
+        "prompt": "Explain water supplies hydrogen for carbohydrate synthesis, including the underlying mechanism and one consequence. [2]",
+        "marks": 2,
+        "sectionId": "c13-2",
+        "referenceIds": [
+          "ib-c13",
+          "hodder-c13",
+          "openstax-c13",
+          "openstax-calvin"
+        ],
+        "answer": "A useful overall word equation is carbon dioxide + water → glucose + oxygen, with light energy and pigments enabling the process. Light-dependent processes split water, supplying electrons and protons.",
+        "markingPoints": [
+          "A useful overall word equation is carbon dioxide + water → glucose + oxygen, with light energy and pigments enabling the process.",
+          "Light-dependent processes split water, supplying electrons and protons."
+        ],
+        "review": "scientific-review"
+      },
+      "replacementQuestion": {
+        "id": "c13-structured-2",
+        "paper": "2",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "C1.3.2"
+        ],
+        "level": "shared",
+        "prompt": "Explain how water provides reducing power for photosynthetic carbon fixation. [2]",
+        "marks": 2,
+        "sectionId": "c13-2",
+        "referenceIds": [
+          "ib-c13",
+          "hodder-c13",
+          "openstax-c13",
+          "openstax-calvin"
+        ],
+        "answer": "Photolysis at photosystem II oxidizes water, releasing electrons and H+; the O₂ released is derived from water. Water-derived electrons are transferred through the non-cyclic pathway to reduce NADP+ to NADPH, which supplies reducing power for carbon fixation.",
+        "markingPoints": [
+          "Photolysis at photosystem II oxidizes water, releasing electrons and H+; the O₂ released is derived from water.",
+          "Water-derived electrons are transferred through the non-cyclic pathway to reduce NADP+ to NADPH, which supplies reducing power for carbon fixation."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-009",
+      "questionId": "d33-written-3",
+      "topicId": "D3.3",
+      "understandingIds": [
+        "D3.3.3"
+      ],
+      "sectionId": "homeostasis-3",
+      "lessonFile": "src/biology/learning/homeostasis/lesson.json",
+      "sourceLessonBlobSha": "2deff5ec530e57a04b065399f50160e074dc1d68",
+      "severity": "high",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 101,
+          "guidePdfPage": 107,
+          "understandingIds": [
+            "D3.3.3"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            762,
+            764
+          ],
+          "hodderPdfPages": [
+            774,
+            776
+          ]
+        }
+      ],
+      "finding": "The existing prompt and third marking point explicitly require glucagon/alpha cells, but the supplied model answer covers only beta cells and insulin.",
+      "originalQuestion": {
+        "id": "d33-written-3",
+        "paper": "1B",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.3.3"
+        ],
+        "level": "shared",
+        "prompt": "Explain how pancreatic beta and alpha cells, their hormones and target organs oppose glucose changes after meals and during fasting.",
+        "marks": 3,
+        "sectionId": "homeostasis-3",
+        "referenceIds": [
+          "ib-d33",
+          "hodder-d33"
+        ],
+        "answer": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.\nPost-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
+        "markingPoints": [
+          "Beta cells release insulin with glucose elevation.",
+          "Insulin promotes uptake/storage and lowers blood glucose.",
+          "Alpha cells release glucagon with glucose decline, increasing hepatic glucose output."
+        ],
+        "data": {
+          "caption": "Conceptual stimulus-response pair",
+          "headers": [
+            "Stimulus or condition",
+            "Observed or predicted action"
+          ],
+          "rows": [
+            [
+              "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
+              "Deduce direction of correction"
+            ]
+          ]
+        },
+        "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+      },
+      "replacementQuestion": {
+        "id": "d33-written-3",
+        "paper": "1B",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.3.3"
+        ],
+        "level": "shared",
+        "prompt": "Explain how pancreatic beta and alpha cells, their hormones and target organs oppose glucose changes after meals and during fasting.",
+        "marks": 3,
+        "sectionId": "homeostasis-3",
+        "referenceIds": [
+          "ib-d33",
+          "hodder-d33"
+        ],
+        "answer": "When blood glucose rises, pancreatic beta cells secrete insulin; insulin promotes uptake by insulin-responsive tissues, promotes storage and inhibits hepatic glucose production. When blood glucose falls, pancreatic alpha cells secrete glucagon; glucagon acts particularly on liver cells to increase glucose release through glycogen breakdown and gluconeogenesis. Hormonal secretion adjusts as glucose returns toward the regulated range, completing the negative-feedback response.",
+        "markingPoints": [
+          "When blood glucose rises, pancreatic beta cells secrete insulin; insulin promotes uptake by insulin-responsive tissues, promotes storage and inhibits hepatic glucose production.",
+          "When blood glucose falls, pancreatic alpha cells secrete glucagon; glucagon acts particularly on liver cells to increase glucose release through glycogen breakdown and gluconeogenesis.",
+          "Hormonal secretion adjusts as glucose returns toward the regulated range, completing the negative-feedback response."
+        ],
+        "data": {
+          "caption": "Conceptual stimulus-response pair",
+          "headers": [
+            "Stimulus or condition",
+            "Observed or predicted action"
+          ],
+          "rows": [
+            [
+              "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
+              "Deduce direction of correction"
+            ]
+          ]
+        },
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-010",
+      "questionId": "d31-q-1",
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.1"
+      ],
+      "sectionId": "reproduction-1",
+      "lessonFile": "src/biology/learning/reproduction/lesson.json",
+      "sourceLessonBlobSha": "7c9e77c3afb9847b3b9db54c004f49780aa1e786",
+      "severity": "medium",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 95,
+          "guidePdfPage": 101,
+          "understandingIds": [
+            "D3.1.1"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            693,
+            697
+          ],
+          "hodderPdfPages": [
+            705,
+            709
+          ]
+        }
+      ],
+      "finding": "Model answer covers only one of three existing awardable ideas, despite three marks and explicit process/example requirements.",
+      "originalQuestion": {
+        "id": "d31-q-1",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.1.1"
+        ],
+        "level": "shared",
+        "prompt": "Why is variation, rather than a guaranteed improvement, a key outcome of sexual reproduction? Explain the process and give a specific scientific example.",
+        "marks": 3,
+        "sectionId": "reproduction-1",
+        "referenceIds": [
+          "ib-d31",
+          "hodder-d31"
+        ],
+        "answer": "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+        "markingPoints": [
+          "New allele combinations mean some offspring may suit changed conditions better, but other combinations may be less suited.",
+          "Asexual reproduction can produce offspring from one parent without gamete fusion, generally preserving the parent's genotype except for new mutations.",
+          "If a pathogen attacks a clonal crop, many plants may share susceptibility, whereas a genetically diverse population may contain resistant individuals."
+        ],
+        "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+      },
+      "replacementQuestion": {
+        "id": "d31-q-1",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.1.1"
+        ],
+        "level": "shared",
+        "prompt": "Why is variation, rather than a guaranteed improvement, a key outcome of sexual reproduction? Explain the process and give a specific scientific example.",
+        "marks": 3,
+        "sectionId": "reproduction-1",
+        "referenceIds": [
+          "ib-d31",
+          "hodder-d31"
+        ],
+        "answer": "Meiosis and random fertilization generate varied allele combinations among sexually produced offspring; variation does not ensure improvement. Asexual reproduction generally produces offspring genetically identical to the parent apart from mutation, which can be advantageous under stable conditions. In a genetically variable crop, some plants may resist a new pathogen while susceptible clones may all be affected; resistance is not guaranteed for each offspring.",
+        "markingPoints": [
+          "Meiosis and random fertilization generate varied allele combinations among sexually produced offspring; variation does not ensure improvement.",
+          "Asexual reproduction generally produces offspring genetically identical to the parent apart from mutation, which can be advantageous under stable conditions.",
+          "In a genetically variable crop, some plants may resist a new pathogen while susceptible clones may all be affected; resistance is not guaranteed for each offspring."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    },
+    {
+      "issueId": "SCIREV-Q-011",
+      "questionId": "d31-q-2",
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.2"
+      ],
+      "sectionId": "reproduction-2",
+      "lessonFile": "src/biology/learning/reproduction/lesson.json",
+      "sourceLessonBlobSha": "7c9e77c3afb9847b3b9db54c004f49780aa1e786",
+      "severity": "medium",
+      "category": "assessment-key-or-command-term-incompleteness",
+      "sourceRefs": [
+        {
+          "authority": "IB Biology Guide, first assessment 2025",
+          "guidePrintedPage": 95,
+          "guidePdfPage": 101,
+          "understandingIds": [
+            "D3.1.2"
+          ]
+        },
+        {
+          "authority": "Clegg, Davis and Talbot, Hodder third edition 2023",
+          "hodderPrintedPages": [
+            693,
+            700
+          ],
+          "hodderPdfPages": [
+            705,
+            712
+          ]
+        }
+      ],
+      "finding": "One-clause answer does not include meiosis and the human chromosome-number example requested by the current three-mark scheme.",
+      "originalQuestion": {
+        "id": "d31-q-2",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.1.2"
+        ],
+        "level": "shared",
+        "prompt": "What restores the diploid chromosome complement? Explain the process and give a specific scientific example.",
+        "marks": 3,
+        "sectionId": "reproduction-2",
+        "referenceIds": [
+          "ib-d31",
+          "hodder-d31"
+        ],
+        "answer": "Fusion of two haploid gametes during fertilization.",
+        "markingPoints": [
+          "Fusion of two haploid gametes during fertilization.",
+          "Meiosis reduces chromosome number from diploid to haploid while separating homologous chromosomes, so gametes receive one allele of each gene.",
+          "In humans, meiosis produces gametes with 23 chromosomes; fusion gives a diploid zygote with 46."
+        ],
+        "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+      },
+      "replacementQuestion": {
+        "id": "d31-q-2",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D3.1.2"
+        ],
+        "level": "shared",
+        "prompt": "What restores the diploid chromosome complement? Explain the process and give a specific scientific example.",
+        "marks": 3,
+        "sectionId": "reproduction-2",
+        "referenceIds": [
+          "ib-d31",
+          "hodder-d31"
+        ],
+        "answer": "Meiosis reduces diploid chromosome number to haploid as homologous chromosomes separate into gametes. Fusion of two haploid gametes at fertilization restores the diploid chromosome complement in the zygote. In humans, gametes normally contain 23 chromosomes and fertilization forms a zygote with 46 chromosomes.",
+        "markingPoints": [
+          "Meiosis reduces diploid chromosome number to haploid as homologous chromosomes separate into gametes.",
+          "Fusion of two haploid gametes at fertilization restores the diploid chromosome complement in the zygote.",
+          "In humans, gametes normally contain 23 chromosomes and fertilization forms a zygote with 46 chromosomes."
+        ],
+        "review": "prelaunch-independent-proposal-not-approved"
+      },
+      "applyPolicy": "integration-owner-only; compare exact originalQuestion at target questionId; fail closed if changed; no auto-approval",
+      "uncertainty": "Wording and scoring remain subject to qualified biology teacher/examiner review"
+    }
+  ]
+}
