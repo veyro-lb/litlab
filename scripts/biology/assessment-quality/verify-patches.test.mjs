@@ -11,7 +11,7 @@ const choice=()=>({id:'original-1',paper:'1A',kind:'selection',original:true,lev
 const environment=()=>{
  const q=choice(),next={...structuredClone(q),prompt:'Interpret a new hypothetical observation.',review:'scientific-review'};
  const patch={lessonFile:path,sourceLessonBlobSha:'a'.repeat(40),questionId:q.id,
-  originalQuestion:q,replacementQuestion:next,previousContentFingerprint:{algorithm:'sha256',encoding:'utf8',canonicalization:'JSON.stringify(parsed-question-object)',value:questionSha256(q)},
+  originalQuestion:structuredClone(q),replacementQuestion:next,previousContentFingerprint:{algorithm:'sha256',encoding:'utf8',canonicalization:'JSON.stringify(parsed-question-object)',value:questionSha256(q)},
   sourceEvidence:[{referenceId:'guide',locator:'Guide p. 22'}],
   reviewLimitations:['Human biology examiner must review'],
   changeRationale:'Replaces cue recognition with mechanistic inference.',
