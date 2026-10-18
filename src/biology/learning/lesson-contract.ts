@@ -3,7 +3,7 @@ export type Scope = 'shared'|'HL';
 export interface Reference {id:string;title:string;url?:string;locator:string;accessedAt:string;level:Scope}
 export interface Choice {kind:'selection';id:string;prompt:string;understandingIds:string[];options:{id:string;text:string;correct:boolean;feedback:string}[]}
 export interface Recall {enrichment?:boolean;kind:'recall';id:string;prompt:string;answer:string;explanation:string;understandingIds:string[]}
-export interface Asset {id:string;kind:string;src:string;recallSrc?:string;mobileSrc?:string;recallMobileSrc?:string;alt:string;captionTitle:string;withheldReason?:string;interpretation?:string;attribution:string;license:string;permissionEvidence:string;referenceIds:string[];level:Scope;review:ReviewStatus;sourceUrl?:string;originalUrl?:string;termsUrl?:string}
+export interface Asset {displaySize?:'compact'|'standard'|'detailed'|'wide';publicReproductionRights?:'cleared'|'unverified';id:string;kind:string;src:string;recallSrc?:string;mobileSrc?:string;recallMobileSrc?:string;alt:string;captionTitle:string;withheldReason?:string;interpretation?:string;attribution:string;license:string;permissionEvidence:string;referenceIds:string[];level:Scope;review:ReviewStatus;sourceUrl?:string;originalUrl?:string;termsUrl?:string}
 /** Contextual visuals are editorially authored for a specific understanding.
  * Numeric values must be real source values or explicitly declared calculations/models.
  */
