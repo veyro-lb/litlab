@@ -125,6 +125,57 @@ try{
  await test('Drawing Practice (when eligible)',async()=>{await visit(page,'biology/topic/A1.1/drawing');const eligible=page.locator('.bio-drawing[data-exercise]');if(!await eligible.count())return {status:'not-available-A1.1',notCountedAsInteractivePass:true};await page.getByRole('button',{name:'Reveal labels'}).first().click();await page.locator('.bio-drawing-reference').waitFor();await page.getByRole('button',{name:'Check labels'}).click();await page.locator('.bio-drawing-field p[role=status]').first().waitFor();await page.getByRole('button',{name:'Draw it yourself'}).click();await page.getByRole('button',{name:/Hide reference & draw/}).click();await shot(page,'drawing-A1.1-1440');});
  await test('Understandings previous/next and browser history',async()=>{await visit(page,'biology/topic/A1.1/learn?understanding=A1.1.1');await page.getByRole('button',{name:/Next:/}).click();await page.waitForURL(/understanding=A1\.1\.2/);await page.goBack();await page.waitForURL(/understanding=A1\.1\.1/);await page.locator('.bio-back').first().click();await page.waitForURL(/#biology\/topic\/A1\.1$/);});
  await test('Semantic heading and focusable table',async()=>{await visit(page,'biology/topic/D3.2/learn?understanding=D3.2.9');const tbl=page.locator('.bio-table-scroll').first();await tbl.waitFor();ok(await tbl.getAttribute('role')==='region','No labelled table region');ok(await tbl.getAttribute('aria-label'),'No table region label');ok(await tbl.getAttribute('tabindex')==='0','Table not keyboard focusable');});
+
+ await test('Keyboard focus visibility on course search',async()=>{
+  await visit(page,'biology','.bio-app');
+  await page.keyboard.press('Control+k');
+  const search=page.locator('#bio-topic-search');
+  const visual=await search.evaluate(el=>{const css=getComputedStyle(el);return {active:el===el.getRootNode().activeElement,focusVisible:el.matches(':focus-visible'),outlineWidth:css.outlineWidth,outlineStyle:css.outlineStyle,boxShadow:css.boxShadow};});
+  ok(visual.active,'Keyboard shortcut did not move focus to search');
+  ok(visual.focusVisible,'Search focus does not match :focus-visible after keyboard action');
+  ok((parseFloat(visual.outlineWidth)>0&&visual.outlineStyle!=='none')||visual.boxShadow!=='none','No visible search focus indicator: '+JSON.stringify(visual));
+  return visual;
+ });
+ await test('Image modal keyboard activation and focus restoration',async()=>{
+  await visit(page,'biology/topic/A1.1/learn?understanding=A1.1.1');
+  const opener=page.locator('button.bio-figure-image').first();
+  await opener.focus();
+  await page.keyboard.press('Enter');
+  const dialog=page.locator('dialog.bio-figure-dialog[open]');
+  await dialog.waitFor();
+  ok(await dialog.evaluate(el=>el.contains(el.getRootNode().activeElement)),'Dialog focus did not move into modal');
+  await page.keyboard.press('Escape');
+  ok(await dialog.count()===0,'Modal did not close on Escape');
+  ok(await opener.evaluate(el=>el===el.getRootNode().activeElement),'Focus not returned to figure opener');
+ });
+ await test('Heading structure and meaningful image alternatives audit',async()=>{
+  const inspected=[];
+  for(const id of ['A1.1','B2.1','C3.1','D3.2']){
+   await visit(page,'biology/topic/'+id+'/learn');
+   const h1=await page.locator('.bio-lesson h1').count();
+   ok(h1===1,id+' must have exactly one topic h1, got '+h1);
+   const headings=await page.locator('.bio-lesson h1,.bio-lesson h2,.bio-lesson h3,.bio-lesson h4').evaluateAll(els=>els.map(el=>({level:Number(el.tagName.slice(1)),text:el.textContent?.trim().slice(0,80)})));
+   const skipped=headings.slice(1).filter((h,i)=>h.level>headings[i].level+1);
+   const figures=await page.locator('.bio-figure img').evaluateAll(els=>els.map(el=>({alt:el.alt,complete:el.complete,naturalWidth:el.naturalWidth})));
+   for(const img of figures)ok(img.alt.trim().length>18,id+' image missing meaningful alt attribute: '+JSON.stringify(img));
+   inspected.push({id,h1,headingCount:headings.length,skippedHeadingLevels:skipped,figureCount:figures.length});
+  }
+  report.headingAltAudit=inspected;
+  return inspected;
+ });
+ await test('Mobile interactive-target size inventory (informational, not WCAG certification)',async()=>{
+  const {ctx,p}=await makePage(320,'light');
+  try{
+   await visit(p,'biology','.bio-app');
+   const targets=await p.locator('.bio-app button,.bio-app a[href],.bio-app input').evaluateAll(els=>els.filter(el=>{
+    const box=el.getBoundingClientRect(),s=getComputedStyle(el);
+    return box.width>0&&box.height>0&&s.visibility!=='hidden'&&s.display!=='none'&&!el.hasAttribute('disabled');
+   }).map(el=>{const r=el.getBoundingClientRect();return {label:(el.getAttribute('aria-label')||el.textContent||el.getAttribute('value')||'').trim().slice(0,54),width:Math.round(r.width),height:Math.round(r.height)};}));
+   const small=targets.filter(t=>t.width<44||t.height<44);
+   report.mobileTargetInventory={viewport:320,total:targets.length,under44Recommendation:small.length,examples:small.slice(0,30),standard:'44px touch-target heuristic; exceptions and spacing not evaluated'};
+   return report.mobileTargetInventory;
+  }finally{await ctx.close();}
+ });
  await context.close();
  for(const theme of ['light','dark']){
   for(const width of [320,390,768,1024,1440,1920]){
