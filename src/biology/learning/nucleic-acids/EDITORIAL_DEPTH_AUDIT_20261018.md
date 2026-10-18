@@ -42,7 +42,7 @@ The editorial pass described above requires **each of these items** to be addres
 10. Independently written prose with source-traceable `claimReferences`; no source passages/figures copied.
 11. At least one existing aligned selection, recall or formal question, testing the concept rather than mere heading recognition.
 
-The current machine-readable schema reconstructs `explanation` from `teachingBlocks` and `claimReferences`. It can check mapping and presence but **cannot certify completeness, accuracy, licences, comprehension, teaching quality or correctness of rendered visuals**. The eight fixed teaching paragraphs added to the previous baseline in the six changed understandings are not a substitute for live learner evaluation.
+The current machine-readable schema reconstructs `explanation` from `teachingBlocks` and `claimReferences`. It can check mapping and presence but **cannot certify completeness, accuracy, licences, comprehension, teaching quality or correctness of rendered visuals**. The 26 new teaching subsections across the six changed understandings are not a substitute for live learner evaluation.
 
 ## Important source discrepancy and editorial decisions
 
