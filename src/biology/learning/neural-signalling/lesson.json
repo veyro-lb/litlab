@@ -426,7 +426,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which change typically increases conduction speed?",
-      "explanation": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly.\n\nMyelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+      "explanation": "Greater axon diameter reduces internal electrical resistance and tends to increase conduction speed. The squid giant axon provides a classic example of increased speed by large diameter despite lacking vertebrate-style myelin; thinner unmyelinated fibres usually conduct more slowly.\n\nMyelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets. In a clearly hypothetical simple linear regression with an intercept, r = +0.80 indicates a positive linear relationship and R² = 0.64 means the fitted model explains 64% of the observed variation in conduction speed. Neither statistic by itself demonstrates causation; report speed in m s⁻¹.",
       "revisionSummary": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
       "terms": [
         "Axon diameter, myelin and transmission speed"
@@ -447,7 +447,7 @@
           ]
         },
         {
-          "claim": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+          "claim": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets. In a clearly hypothetical simple linear regression with an intercept, r = +0.80 indicates a positive linear relationship and R² = 0.64 means the fitted model explains 64% of the observed variation in conduction speed. Neither statistic by itself demonstrates causation; report speed in m s⁻¹.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
@@ -529,7 +529,7 @@
         },
         {
           "title": "Physiological significance",
-          "explanation": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets.",
+          "explanation": "Myelin electrically insulates internodes and allows impulses to regenerate at nodes, producing much faster conduction than similarly sized unmyelinated fibres. When interpreting data, distinguish a positive diameter–velocity correlation from a causal mechanism, and use r or R² only for appropriately documented datasets. In a clearly hypothetical simple linear regression with an intercept, r = +0.80 indicates a positive linear relationship and R² = 0.64 means the fitted model explains 64% of the observed variation in conduction speed. Neither statistic by itself demonstrates causation; report speed in m s⁻¹.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
@@ -3405,13 +3405,14 @@
   "summary": "Ion gradients enable signals in nerve fibres, calcium mediates neurotransmitter release, and graded postsynaptic changes determine threshold crossing. HL adds voltage-channel phases, myelination, inhibitory summation and network emergence.",
   "review": {
     "status": "scientific-review",
-    "sourceCheckedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-18",
     "reviewer": null,
     "notes": [
       "SL/HL boundaries from IB Guide C2.2 pp. 73–75: IDs 1–7 shared; IDs 8–16 HL.",
       "Illustrative resting potential and spike voltage are typical schematic values, not experimental data.",
       "Neonicotinoids often activate nicotinic receptors persistently, leading to signalling disruption; avoid unqualified claim of simple receptor blockade.",
-      "Textbook C2.2 printed 467–489 / PDF 479–501; qualified review and assessment calibration pending."
+      "Textbook C2.2 printed 467–489 / PDF 479–501; qualified review and assessment calibration pending.",
+      "2026-10-18 final Theme C editorial: Strengthened syllabus-required correlation coefficient and determination coefficient interpretation, with assumed regression conditions and units. Independent review and build/browser testing pending."
     ]
   }
 }
