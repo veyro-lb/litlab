@@ -50,7 +50,9 @@ jobs:
       - name: Entire course assessment validator
         run: node scripts/biology/assessment-quality/audit.mjs > qa-artifacts/assessment-quality/audit-output.json
       - name: Patch package preflight without changing lessons
-        run: node scripts/biology/assessment-quality/verify-patches.mjs | tee qa-artifacts/assessment-quality/patch-preflight.json
+        run: |
+          set -euo pipefail
+          node scripts/biology/assessment-quality/verify-patches.mjs | tee qa-artifacts/assessment-quality/patch-preflight.json
       - name: Production application build (not deployment)
         run: npm run build
       - name: Build candidate-only preview in a disposable /tmp checkout
