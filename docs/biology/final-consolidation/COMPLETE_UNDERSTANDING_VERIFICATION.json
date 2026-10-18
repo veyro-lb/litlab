@@ -10788,37 +10788,44 @@
         "path": "src/biology/learning/cell-respiration/lesson.json",
         "id": "c12-7"
       },
-      "officialSyllabusRequirement": null,
+      "officialSyllabusRequirement": "HL: NAD transports hydrogen during respiration; dehydrogenation oxidizes substrates by electron loss; electron acceptance reduces NAD; redox reactions couple oxidation and reduction.",
       "officialGuide": {
         "pdfPageCandidates": [
           73
         ],
-        "requirementTextIndividuallyCompared": false
+        "requirementTextIndividuallyCompared": true
       },
       "textbookSource": {
         "printedPages": [
-          411
+          412,
+          413
         ],
         "pdfPages": [
-          423
+          424,
+          425
         ],
-        "locatorVerification": "inherited structural locator; not independently source-checked"
+        "locatorVerification": "directly checked against supplied Hodder Third Edition pages; section begins on printed p.412 and continues on p.413"
       },
-      "contentCompleteness": null,
-      "clarityDepthAssessment": null,
+      "contentCompleteness": "adequate against the C1.2.7 required understanding",
+      "clarityDepthAssessment": "Adequate: defines oxidation/reduction, explains dehydrogenation and NAD+/NADH electron transfer, and connects to respiration. Existing prose repeats the core electron-accounting concept; tightening may improve readability but is not a coverage blocker.",
       "scientificCorrectionPerformed": false,
       "visualSupportDecision": {
         "registeredAssetIds": [],
         "nativeKinds": [],
-        "decision": "individual adequacy decision pending"
+        "decision": "No additional figure required for this limited conceptual redox/carrier explanation; existing explanation, equation and example are sufficient."
       },
-      "assessmentConsistency": null,
-      "reviewEvidence": [],
-      "status": "AWAITING_INDIVIDUAL_SOURCE_DEPTH_REVIEW",
+      "assessmentConsistency": "Existing interactive selection asks which redox change occurs upon NAD+ becoming NADH; correct option matches the required electron-gain concept. Recall prompt covers electron loss/gain and carrier.",
+      "reviewEvidence": [
+        "Official Biology Guide 2025: PDF p.73 / printed p.67, C1.2.7 HL requirement directly read",
+        "Hodder Biology Third Edition: PDF pp.424–425 / printed pp.412–413, NAD carrier and redox sections directly read",
+        "BioLab src/biology/learning/cell-respiration/lesson.json section c12-7, explanation, summary, misconceptions, interaction and recall inspected",
+        "Lesson's inherited Hodder locator printed p.411/PDF p.423 was incorrect for C1.2.7; corrected to relevant source pages"
+      ],
+      "status": "SOURCE_CHECKED_ADEQUATE_NO_TEACHING_REWRITE",
       "independentScientificSignoff": false,
       "remainingLimitations": [
-        "exact official requirement and Hodder passage need individual checking",
-        "content depth, assessment and visual adequacy not signed off"
+        "No independent qualified scientific sign-off",
+        "Runtime exam-question renderer and browser interactions not personally executed in this review"
       ]
     },
     {
