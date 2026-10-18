@@ -1,0 +1,49 @@
+name: BioLab Genuine Lesson Screenshot Preview
+on:
+  push:
+    branches:
+      - feature/biolab-ib-visual-lab-final-20261018
+    paths:
+      - .github/workflows/biolab-real-page-preview.yml
+      - scripts/biology/website-preview/capture.mjs
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  screenshot:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 22
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
+    steps:
+      - name: Checkout exact development revision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Compile the real BioLab website
+        run: npm run build
+      - name: Capture actual desktop and mobile lesson pages without deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/site-preview
+          npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/site-preview/local-vite.log 2>&1 &
+          preview_pid=$!
+          trap "kill $preview_pid 2>/dev/null || true" EXIT
+          ready=0
+          for n in $(seq 1 45); do
+            if node -e 'fetch("http://127.0.0.1:4173/").then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))'; then ready=1; break; fi
+            sleep 1
+          done
+          test "$ready" = 1 || { cat qa-artifacts/site-preview/local-vite.log; exit 1; }
+          node scripts/biology/website-preview/capture.mjs
+      - name: Store unaltered real Chromium screenshots and audit
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: biolab-real-website-preview-screenshots
+          path: qa-artifacts/site-preview/
+          if-no-files-found: warn
+          retention-days: 14
