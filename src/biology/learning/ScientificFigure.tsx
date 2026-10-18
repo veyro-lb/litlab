@@ -19,7 +19,7 @@ export default function ScientificFigure({asset,hideLabels=false}:{asset:Asset;h
  if(reason)return <figure className="bio-figure bio-withheld-figure" data-asset-id={asset.id}><figcaption><strong>{asset.captionTitle}</strong><p>{asset.alt}</p><small>Figure withheld pending review: {reason}</small></figcaption></figure>;
  return <figure className="bio-figure bio-figure-clean" data-asset-id={asset.id} data-image-kind={asset.kind} data-size={presentation.size} data-raster={presentation.raster}>
   {failed?<div className="bio-image-fallback" role="status">Figure unavailable. {asset.alt}</div>:
-  <button className="bio-figure-image" type="button" ref={opener} aria-label={`Enlarge ${asset.kind==='photograph'?'image':'diagram'}: ${asset.captionTitle}`} aria-haspopup="dialog" onClick={()=>{setZoom(1);dialog.current?.showModal();setRasterBase(Math.min(viewport.current?.querySelector('img')?.naturalWidth||600,viewport.current?.clientWidth||600))}}>
+  <button className="bio-figure-image" type="button" ref={opener} aria-label={`Enlarge ${asset.kind==='photograph'?'image':'diagram'}: ${asset.captionTitle}`} aria-haspopup="dialog" onClick={()=>{setZoom(1);dialog.current?.showModal();setRasterBase(Math.min(viewport.current?.querySelector('img')?.naturalWidth||600,Math.max((viewport.current?.clientWidth||600)*2,650)))}}>
    <picture>{asset.mobileSrc&&<source media="(max-width: 560px)" srcSet={recalling&&asset.recallMobileSrc?asset.recallMobileSrc:asset.mobileSrc}/>}<img src={src} alt={alt} loading="lazy" decoding="async" onError={()=>setFailed(true)}/></picture>
   </button>}
   {asset.kind==='photograph'&&asset.interpretation&&<p className="bio-photo-context">{asset.interpretation}</p>}
