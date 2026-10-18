@@ -44,6 +44,10 @@ try{
        const enlarged=dialog.locator('.bio-figure-zoom img');await enlarged.evaluate(img=>img.decode());
        const zoom=await enlarged.evaluate(img=>({w:img.getBoundingClientRect().width,h:img.getBoundingClientRect().height,nw:img.naturalWidth,nh:img.naturalHeight,viewport:img.parentElement.clientWidth,scroll:img.parentElement.scrollWidth}));
        if(Math.abs(zoom.w/zoom.h-zoom.nw/zoom.nh)>.02)issues.push(`${id} ${width}: distorted enlarged ${aid}`);
+       await dialog.getByRole('button',{name:'Zoom in',exact:true}).click();
+       const grown=await enlarged.evaluate(img=>img.getBoundingClientRect().width);if(grown<zoom.w*1.45)issues.push(`${id}: zoom did not enlarge ${aid}`);
+       await dialog.getByRole('button',{name:'Reset',exact:true}).click();
+       await expect(enlarged).toHaveJSProperty('complete',true);
        if(width===390&&aid==='krebs-cycle')await dialog.screenshot({path:`${out}/zoom-krebs-390.png`});
        await page.keyboard.press('Escape');if(await dialog.count())issues.push(`${id}: Escape did not close ${aid}`);
        try{await expect(f.locator('.bio-figure-image')).toBeFocused()}catch{issues.push(`${id}: focus not restored ${aid}`)}

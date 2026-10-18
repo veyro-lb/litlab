@@ -26,6 +26,7 @@ jobs:
         run: |
           node scripts/validate-lessons.mjs
           node scripts/validate-biology.mjs
+          node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs
           node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs
       - run: npm run quality
       - run: npm run build
