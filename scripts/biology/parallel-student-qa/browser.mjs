@@ -192,7 +192,7 @@ try{
   await check('Browser back/forward and invalid route','1440px',async()=>{
     await page.goto(new URL('#biology',base).toString());
     await page.goto(new URL('#biology/topic/A1.1/learn',base).toString());
-    await page.goBack();await expect(page.locator('#bio-welcome-title')).toHaveText('Biology');
+    await page.goBack();await expect(page.locator('#bio-welcome-title')).toHaveText('Biology, made clearer.');
     await page.goForward();await expect(page.locator('.bio-lesson')).toBeVisible();
     await page.goto(new URL('#biology/topic/X9.9',base).toString());
     await expect(page.locator('.bio-empty')).toBeVisible();
