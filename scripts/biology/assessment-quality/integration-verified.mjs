@@ -41,9 +41,9 @@ export function verifyIntegrationPlan(plan,lessons){
       assert.equal(patch.originalQuestion.marks,3,key+': original allocated marks must be 3');
       assert.equal(question.marks,5,key+': revised allocated marks must be 5');
       assert.equal(patch.answerKey.marks,5,key+': answer key allocation must be 5');
-      assert.match(question.prompt,/\\[5 marks\\]$/,key+': five parts must explicitly display five marks');
+      assert.ok(question.prompt.trim().endsWith('[5 marks]'),key+': five parts must explicitly display five marks');
       assert.equal(question.markingPoints?.length,5,key+': five independently keyed marking points required');
-      assert.match(question.prompt,/\\(a\\).*\\(b\\).*\\(c\\).*\\(d\\).*\\(e\\)/s,key+': five subparts must be present');
+      assert.ok(['(a)','(b)','(c)','(d)','(e)'].every(part=>question.prompt.includes(part)),key+': five subparts must be present');
     } else {
       assert.equal(question.marks,patch.originalQuestion.marks,key+': mark allocation altered');
     }
