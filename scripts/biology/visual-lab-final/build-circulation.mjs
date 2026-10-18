@@ -41,8 +41,8 @@ function renderCirculation({recall=false,mobile=false}={}){
  .canvas{fill:#f8fbfd}.panel{fill:#fff;stroke:#c9d8e4;stroke-width:2}.node{fill:#edf5f9;stroke:#44748e;stroke-width:2}.heading,.panel-title,.node-text,.sub,.caption,.note,.blank{font-family:Arial,Helvetica,sans-serif;fill:#15364a}.heading{font-weight:700;font-size:29px}.panel-title{font-weight:700;font-size:22px}.sub{font-size:16px}.node-text{font-size:18px;font-weight:600}.blank{font-size:32px;font-weight:700}.caption{font-size:18px;font-weight:700}.note{font-size:16px}.flow-low,.flow-high{stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}.flow-low{stroke:#2269a5}.flow-high{stroke:#b43e50}
 </style>
 <rect class="canvas" width="${W}" height="${H}" rx="18"/>
-<text x="${mobile?20:25}" y="${mobile?42:38}" class="heading">${recall?"Recall: trace and name each blood-flow stage":"Compare circulation: fish and mammal"}</text>
-<text x="${mobile?20:25}" y="${mobile?75:69}" class="sub">Arrowheads show direction · <tspan fill="#2269a5">blue = lower O₂</tspan> · <tspan fill="#b43e50">red = higher O₂</tspan></text>
+<text x="${mobile?20:25}" y="${mobile?42:38}" class="heading">${mobile?(recall?"Circulation recall":"Fish and mammal circulation"):(recall?"Recall: trace and name each blood-flow stage":"Compare circulation: fish and mammal")}</text>
+<text x="${mobile?20:25}" y="${mobile?75:69}" class="sub">${mobile?"Arrows show flow · blue = lower O₂ · red = higher O₂":"Arrowheads show direction · <tspan fill=\"#2269a5\">blue = lower O₂</tspan> · <tspan fill=\"#b43e50\">red = higher O₂</tspan>"}</text>
 ${panel("fish",fishX,fishY)}
 ${panel("mammal",mammalX,mammalY)}
 <text x="${mobile?20:25}" y="${H-18}" class="note">Conceptual flow model; not an anatomical drawing or a scaled measurement.</text>
