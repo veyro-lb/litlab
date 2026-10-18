@@ -48,7 +48,7 @@ export function verifyPatchDocument(doc,lessons,registry){
     !Array.isArray(q.options)||!Array.isArray(next.options)||
     JSON.stringify(q.options.map(o=>o.id))!==JSON.stringify(next.options.map(o=>o.id))
   )){problems.push(key+': existing option IDs/order must remain stable');continue;}
-  if(JSON.stringify(q.referenceIds)!==JSON.stringify(next.referenceIds)) {problems.push(key+': source reference IDs unexpectedly changed');continue;}
+  if(JSON.stringify(q.referenceIds)!==JSON.stringify(next.referenceIds)) problems.push(key+': source reference IDs unexpectedly changed');
   if(next.original!==q.original||next.marks!==q.marks)problems.push(key+': question provenance or mark allocation changed');
   if(next.kind==='selection'){
    const actual=next.options?.filter(o=>o.correct===true)||[];
