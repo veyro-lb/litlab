@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "format": "entire-replacement-question-record",
+  "format": "fingerprinted-entire-replacement-question-record",
   "sourceBranch": "feature/biolab-all-sprints-integration-20261018",
   "sourceSha": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
-  "integrationMode": "replace by questionId only after verifying current source question equals originalQuestion; reject on mismatch and do not overwrite illustration-team edits",
+  "integrationMode": "Require exact canonical original-question SHA-256 and originalQuestion deep equality; refuse changed targets; no lesson JSON is edited",
   "officialPastPapersCopied": false,
-  "patchCount": 14,
+  "patchCount": 26,
   "patches": [
     {
       "lessonFile": "src/biology/learning/dna-replication/lesson.json",
@@ -131,6 +131,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "8df540e4faa6df4ec6210d5ef1f7dbe4f1b51b4b97765fb999fe0370f14c517e"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Stem tested bare recall; three mechanistically different wrong answers had repetitive nondiagnostic feedback",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -257,6 +268,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "6a7a003a2d78c99e6ff6e157db500c2a130c365b7cdeea57bf9a647265cda8f2"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Distractors mixed conservative, unrelated and all-new models but feedback repeated a correct definition",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -383,6 +405,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "668ab7535719a05e04a136e21ee7f52f2d7b81006122ad46c5eec9450d08d341"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Helicase distractors represent ligase, translation and primer-processing roles, previously collapsed into one explanation",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -509,6 +542,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "09cfb7b7777c0ca6219913f2540e6eae8bcf028e9ae04fc6bb4b71d138ecdc3e"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Three biologically unrelated wrong choices received the same generic gene-to-protein description",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -635,6 +679,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "1b2d131c8494aadc1983d47cacca7bb11a232b8220d228a47d309cae95dce5e2"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Initiation-control misconceptions about translation, chromatin and metabolic state received the same enhancer explanation",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -761,6 +816,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "e2f743dbe5b1ca57ccddd120fb1bfcf9d84a50a9a0fe44954d3e681d61a6c54e"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "mRNA decay distractors mixed abundance, DNA-to-RNA confusion and ribosome biology",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -879,6 +945,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "85d54c5afc8c21a6d929eb91d4e27f2ec4405b6c16acfd4a4a673d26c5eacbd2"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Three incorrect choices received identical feedback that did not address water chemistry, individual number or taxonomy",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -997,6 +1074,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "b8db75de298a61013d35400e772d50e3ee375db0a93c34fdaba03a121daeac17"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Generic open-system recall and repeated feedback for three distinct errors",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -1115,6 +1203,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "3c996a0e64bf4225955161c8f6b658cb18beb018ced00f4d4b6a5f611efd7477"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Three sun-dependent producer ecosystems received identical broad statement rather than tailored feedback",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -1233,6 +1332,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "b316409e6f7d69ded4b55014f0a791050508d841876564bc6093257c9f8d784d"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Unhelpful common incorrect feedback obscured distinctions between trophic level, photons and carbon transfer",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -1351,6 +1461,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "f6d4a90d1f519621ed53edf2db5eca76ac29bf282140f0d61364ae6c2a82ba50"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Distractors about ploidy, parental contribution and cell division were confused by reused feedback",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -1469,6 +1590,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "7023aef47f0b9e8e555e38ae3c370c0a0a2c3b48b86f5607559a21494a45a760"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Wrong choices about F2 identity, Punnett probabilities and pollen contamination were given unrelated or repeated explanations",
+      "assessmentSkills": [
+        "Paper 1A"
       ]
     },
     {
@@ -1570,6 +1702,17 @@
         "Questions independently edited for scientific coherence against the 2025 IB syllabus and supplied Hodder chapter; qualified examiner sign-off still required",
         "No visual asset dependency added; any subsequent illustration changes require revalidation",
         "No claims of official IB past-paper provenance"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "bda3f3b2367bc980bc17df0236fc989cbb50d302e67c2a220a932eb05ab4e6c7"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Generic three-mark explanation repeated chapter prose; weak numerical application and investigation reasoning",
+      "assessmentSkills": [
+        "Paper 2"
       ]
     },
     {
@@ -1662,7 +1805,1533 @@
         "Hypothetical worked numbers; not measurements from a scientific sample",
         "No figure-editing or assertion that section illustration is a photomicrograph",
         "Science educator sign-off pending"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "ac5d51493c11f31c90669b8f10c647871fc28d6a7dd35f86834dd95b37d10d33"
+      },
+      "reviewStatus": "pending-qualified-examiner-review",
+      "changeRationale": "Question said a photomicrograph was depicted; accompanying section figure a22-scale is explicitly a conceptual vector and not a real micrograph. The task should not imply that a measured image was provided.",
+      "assessmentSkills": [
+        "Paper 2"
       ]
+    },
+    {
+      "lessonFile": "src/biology/learning/classification-cladistics/lesson.json",
+      "sourceLessonBlobSha": "0322b68ac3455bfd366f1683502a7d6237c264b2",
+      "questionId": "a32-p1a-1",
+      "understandingIds": [
+        "A3.2.1"
+      ],
+      "sectionId": "a32-1",
+      "level": "HL",
+      "originalIssue": "Previously obvious answer and three weak distractors with identical feedback.",
+      "originalQuestion": {
+        "id": "a32-p1a-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "A3.2.1"
+        ],
+        "level": "HL",
+        "sectionId": "a32-1",
+        "referenceIds": [
+          "guide-a32",
+          "hodder-a32"
+        ],
+        "prompt": "What practical problems does biological classification solve?",
+        "marks": 1,
+        "options": [
+          {
+            "id": "a",
+            "text": "It allows organisms to be grouped and compared using shared evidence.",
+            "correct": true,
+            "feedback": "Organize immense diversity and enable consistent identification, communication and prediction."
+          },
+          {
+            "id": "2",
+            "text": "It proves every group has the same number of species.",
+            "correct": false,
+            "feedback": "Taxa and their relationships can be revised when molecular or morphological evidence changes."
+          },
+          {
+            "id": "3",
+            "text": "It replaces the need to identify characters.",
+            "correct": false,
+            "feedback": "Taxa and their relationships can be revised when molecular or morphological evidence changes."
+          },
+          {
+            "id": "4",
+            "text": "It fixes all evolutionary relationships permanently.",
+            "correct": false,
+            "feedback": "Taxa and their relationships can be revised when molecular or morphological evidence changes."
+          }
+        ]
+      },
+      "replacementQuestion": {
+        "id": "a32-p1a-1",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "A3.2.1"
+        ],
+        "level": "HL",
+        "sectionId": "a32-1",
+        "referenceIds": [
+          "guide-a32",
+          "hodder-a32"
+        ],
+        "prompt": "Researchers disagree whether two visually similar insects belong in one group. Their DNA sequences differ strongly. What is the strongest reason to revise their classification?",
+        "marks": 1,
+        "options": [
+          {
+            "id": "a",
+            "text": "New evidence may reveal distinct evolutionary lineages that morphology alone obscured.",
+            "correct": true,
+            "feedback": "Classification is revisable because independent molecular evidence can reveal descent not evident from external resemblance."
+          },
+          {
+            "id": "2",
+            "text": "DNA sequence differences prove neither organism is an insect.",
+            "correct": false,
+            "feedback": "Molecular differences do not negate independently supported insect features such as body plan; they can refine classification within insects."
+          },
+          {
+            "id": "3",
+            "text": "Similar appearance always establishes a common most-recent ancestor.",
+            "correct": false,
+            "feedback": "Similar traits can arise independently by convergent evolution; appearance alone does not settle lineage relationships."
+          },
+          {
+            "id": "4",
+            "text": "Classification requires identical DNA sequences within a named species.",
+            "correct": false,
+            "feedback": "Variation exists within species, and the degree and pattern of molecular divergence must be evaluated in context."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "hodder-a32",
+          "title": "Clegg, Davis & Talbot (2023), Biology for the IB Diploma Programme, 3rd ed.",
+          "locator": "A3.2 printed pp. 125–137; supplied PDF pp. 137–149",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "HL",
+        "phylogeny",
+        "evidence"
+      ],
+      "changeRationale": "Requires integrating two evidence types and distinguishing taxonomic revision from categorical overclaim.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "d977f9733c38dfd6575a74f4208bcb6c0e02e8dd6444382fe76fcded17db0a86"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/classification-cladistics/lesson.json",
+      "sourceLessonBlobSha": "0322b68ac3455bfd366f1683502a7d6237c264b2",
+      "questionId": "a32-p1a-2",
+      "understandingIds": [
+        "A3.2.2"
+      ],
+      "sectionId": "a32-2",
+      "level": "HL",
+      "originalIssue": "Previously pure definition of rank divergence with nondiagnostic feedback.",
+      "originalQuestion": {
+        "id": "a32-p1a-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "A3.2.2"
+        ],
+        "level": "HL",
+        "sectionId": "a32-2",
+        "referenceIds": [
+          "guide-a32",
+          "hodder-a32"
+        ],
+        "prompt": "Why can kingdom-to-species ranks misrepresent divergence?",
+        "marks": 1,
+        "options": [
+          {
+            "id": "a",
+            "text": "Fixed ranks need not reflect comparable evolutionary divergences.",
+            "correct": true,
+            "feedback": "For example: kingdom, phylum, class, order (then family, genus, species)."
+          },
+          {
+            "id": "2",
+            "text": "All taxa have identical genetic distance.",
+            "correct": false,
+            "feedback": "Taxonomic rank is conventional; evolutionary ages and diversity differ across named ranks."
+          },
+          {
+            "id": "3",
+            "text": "Traditional groups always include every descendant.",
+            "correct": false,
+            "feedback": "Taxonomic rank is conventional; evolutionary ages and diversity differ across named ranks."
+          },
+          {
+            "id": "4",
+            "text": "Phylogenies never alter ranked classifications.",
+            "correct": false,
+            "feedback": "Taxonomic rank is conventional; evolutionary ages and diversity differ across named ranks."
+          }
+        ]
+      },
+      "replacementQuestion": {
+        "id": "a32-p1a-2",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "A3.2.2"
+        ],
+        "level": "HL",
+        "sectionId": "a32-2",
+        "referenceIds": [
+          "guide-a32",
+          "hodder-a32"
+        ],
+        "prompt": "A family in one lineage diverged from its closest relatives 8 million years ago, whereas a family in another lineage diverged 35 million years ago. What follows?",
+        "marks": 1,
+        "options": [
+          {
+            "id": "a",
+            "text": "The rank 'family' need not represent the same evolutionary age in different lineages.",
+            "correct": true,
+            "feedback": "Taxonomic ranks are conventions; clade divergence times depend on lineage history rather than a fixed rank-specific age."
+          },
+          {
+            "id": "2",
+            "text": "Families must share the same time of origin by definition.",
+            "correct": false,
+            "feedback": "No fixed age is assigned to a taxonomic rank, and the provided divergence times already differ."
+          },
+          {
+            "id": "3",
+            "text": "The younger family cannot contain a valid monophyletic group.",
+            "correct": false,
+            "feedback": "A newly diverged clade can include an ancestor and all descendants and therefore can be monophyletic."
+          },
+          {
+            "id": "4",
+            "text": "Molecular phylogenies cannot be used to revise family boundaries.",
+            "correct": false,
+            "feedback": "DNA sequence comparisons can inform inferred ancestry and lead to revisions of conventional rankings."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "hodder-a32",
+          "title": "Clegg, Davis & Talbot (2023), Biology for the IB Diploma Programme, 3rd ed.",
+          "locator": "A3.2 printed pp. 125–137; supplied PDF pp. 137–149",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "HL",
+        "phylogeny",
+        "data-interpretation"
+      ],
+      "changeRationale": "Interprets stated divergence times rather than reciting a taxonomic ranking.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "999cb7e31ae8455cf3a60b8a56494df646b3ad3bed31564ca61ea9cc044f7280"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/classification-cladistics/lesson.json",
+      "sourceLessonBlobSha": "0322b68ac3455bfd366f1683502a7d6237c264b2",
+      "questionId": "a32-p1a-3",
+      "understandingIds": [
+        "A3.2.3"
+      ],
+      "sectionId": "a32-3",
+      "level": "HL",
+      "originalIssue": "Clade question used implausible alternatives and identical feedback.",
+      "originalQuestion": {
+        "id": "a32-p1a-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "A3.2.3"
+        ],
+        "level": "HL",
+        "sectionId": "a32-3",
+        "referenceIds": [
+          "guide-a32",
+          "hodder-a32"
+        ],
+        "prompt": "Why is a clade more informative than a superficial resemblance?",
+        "marks": 1,
+        "options": [
+          {
+            "id": "a",
+            "text": "A clade includes a common ancestor and all its descendants.",
+            "correct": true,
+            "feedback": "Inherited homologous characteristics may be shared among members of the clade."
+          },
+          {
+            "id": "2",
+            "text": "A clade groups only species that look alike.",
+            "correct": false,
+            "feedback": "Analogous traits can originate independently; inferred descent matters."
+          },
+          {
+            "id": "3",
+            "text": "It excludes some descendants by definition.",
+            "correct": false,
+            "feedback": "Analogous traits can originate independently; inferred descent matters."
+          },
+          {
+            "id": "4",
+            "text": "It requires identical genome sequences.",
+            "correct": false,
+            "feedback": "Analogous traits can originate independently; inferred descent matters."
+          }
+        ]
+      },
+      "replacementQuestion": {
+        "id": "a32-p1a-3",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "A3.2.3"
+        ],
+        "level": "HL",
+        "sectionId": "a32-3",
+        "referenceIds": [
+          "guide-a32",
+          "hodder-a32"
+        ],
+        "prompt": "A shark and a dolphin both have streamlined bodies, but sequence data place the dolphin with other mammals. Which inference is best supported?",
+        "marks": 1,
+        "options": [
+          {
+            "id": "a",
+            "text": "Streamlining is not sufficient evidence that shark and dolphin form a clade; ancestry is better tested with inherited homologous characters.",
+            "correct": true,
+            "feedback": "Convergent selection in water can yield similar body shapes despite distant ancestry; a clade is inferred from shared descent."
+          },
+          {
+            "id": "2",
+            "text": "Streamlined body shape alone proves they share a more recent ancestor than dolphins and mammals.",
+            "correct": false,
+            "feedback": "A useful swimming shape can evolve independently; convergent similarity does not override evidence of mammalian descent."
+          },
+          {
+            "id": "3",
+            "text": "The shark and dolphin must each have identical DNA to belong to any clade.",
+            "correct": false,
+            "feedback": "Members of a clade need not have identical sequences; shared-derived characters and phylogenetic evidence are relevant."
+          },
+          {
+            "id": "4",
+            "text": "A clade may exclude descendants to retain only organisms with the ancestral body shape.",
+            "correct": false,
+            "feedback": "Monophyletic groups include the common ancestor and all descendants, even if descendants acquire different shapes."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "hodder-a32",
+          "title": "Clegg, Davis & Talbot (2023), Biology for the IB Diploma Programme, 3rd ed.",
+          "locator": "A3.2 printed pp. 125–137; supplied PDF pp. 137–149",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "HL",
+        "convergence",
+        "homology"
+      ],
+      "changeRationale": "Forces discrimination of analogous streamlining from descent-based grouping.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "6c41fb6da23a16ce086b8028542fe58cde05582330b378cb969bf4dabbac9ca8"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/populations-communities/lesson.json",
+      "sourceLessonBlobSha": "842f31780f8a00ced2df9d155b568d3018e16036",
+      "questionId": "c41-mcq-5",
+      "understandingIds": [
+        "C4.1.5"
+      ],
+      "sectionId": "c41-5",
+      "level": "shared",
+      "originalIssue": "Implausible distractors and identical wrong-choice feedback.",
+      "originalQuestion": {
+        "id": "c41-mcq-5",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.1.5"
+        ],
+        "level": "shared",
+        "prompt": "What most directly explains slowed growth near carrying capacity?",
+        "marks": 1,
+        "sectionId": "c41-5",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "options": [
+          {
+            "id": "c41-q5-o1",
+            "text": "Every individual ceases metabolism.",
+            "correct": false,
+            "feedback": "Incorrect. It depends on environmental conditions and resource availability."
+          },
+          {
+            "id": "c41-q5-o2",
+            "text": "All new organisms become predators.",
+            "correct": false,
+            "feedback": "Incorrect. It depends on environmental conditions and resource availability."
+          },
+          {
+            "id": "c41-q5-o3",
+            "text": "The habitat automatically doubles in area.",
+            "correct": false,
+            "feedback": "Incorrect. It depends on environmental conditions and resource availability."
+          },
+          {
+            "id": "c41-q5-o4",
+            "text": "Limited resources reduce net population increase.",
+            "correct": true,
+            "feedback": "Correct. When individuals compete for scarce resources, per-capita survival or reproductive success may decline."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c41-mcq-5",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.1.5"
+        ],
+        "level": "shared",
+        "prompt": "A fenced deer population approaches a stable size over several years, although adults still reproduce. Which mechanism best explains this pattern?",
+        "marks": 1,
+        "sectionId": "c41-5",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "options": [
+          {
+            "id": "c41-q5-o1",
+            "text": "A new gene immediately prevents all surviving deer from reproducing.",
+            "correct": false,
+            "feedback": "Population regulation usually reflects demographic changes in birth and death rates, not a sudden universal genetic switch."
+          },
+          {
+            "id": "c41-q5-o2",
+            "text": "Density-independent immigration must increase indefinitely.",
+            "correct": false,
+            "feedback": "In a fenced population immigration is constrained; unlimited immigration would not independently explain slowing net growth."
+          },
+          {
+            "id": "c41-q5-o3",
+            "text": "The habitat automatically doubles its vegetation production at high density.",
+            "correct": false,
+            "feedback": "Resource supply can vary but does not automatically increase in proportion to population density."
+          },
+          {
+            "id": "c41-q5-o4",
+            "text": "Competition for limited food reduces survival or reproduction enough to offset births.",
+            "correct": true,
+            "feedback": "Near carrying capacity, density-dependent limitations can lower per-capita growth even while reproduction continues."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c41",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.1 Populations and communities, printed pp. 80–83; supplied PDF pp. 86–89",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c41",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.1 Populations and communities, printed pp. 548–577; supplied PDF pp. 560–589",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "population-regulation",
+        "density-dependence"
+      ],
+      "changeRationale": "Presents a population trajectory and asks students to infer the limiting mechanism.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "377887845bb8bef4e5dc2e026d0188cf72535826a9daf3d431f1ad21a5f59975"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/populations-communities/lesson.json",
+      "sourceLessonBlobSha": "842f31780f8a00ced2df9d155b568d3018e16036",
+      "questionId": "c41-mcq-6",
+      "understandingIds": [
+        "C4.1.6"
+      ],
+      "sectionId": "c41-6",
+      "level": "shared",
+      "originalIssue": "Three density-independent causes were treated as interchangeable.",
+      "originalQuestion": {
+        "id": "c41-mcq-6",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.1.6"
+        ],
+        "level": "shared",
+        "prompt": "Which change best illustrates density-dependent population regulation?",
+        "marks": 1,
+        "sectionId": "c41-6",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "options": [
+          {
+            "id": "c41-q6-o1",
+            "text": "Disease spreads more readily as a colony becomes crowded.",
+            "correct": true,
+            "feedback": "Correct. Negative feedback occurs when increasing density creates effects that oppose further increase, while falling density can lessen those effects."
+          },
+          {
+            "id": "c41-q6-o2",
+            "text": "A storm damages habitat regardless of animal density.",
+            "correct": false,
+            "feedback": "Incorrect. Weather extremes may alter numbers regardless of crowding."
+          },
+          {
+            "id": "c41-q6-o3",
+            "text": "A volcanic eruption covers an area with ash.",
+            "correct": false,
+            "feedback": "Incorrect. Weather extremes may alter numbers regardless of crowding."
+          },
+          {
+            "id": "c41-q6-o4",
+            "text": "A seasonal frost occurs at the same date.",
+            "correct": false,
+            "feedback": "Incorrect. Weather extremes may alter numbers regardless of crowding."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c41-mcq-6",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.1.6"
+        ],
+        "level": "shared",
+        "prompt": "A biologist compares two otherwise similar rodent colonies and finds that infection spreads much faster in the denser colony. Which explanation fits density-dependent regulation?",
+        "marks": 1,
+        "sectionId": "c41-6",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "options": [
+          {
+            "id": "c41-q6-o1",
+            "text": "Crowding increases contact rates, raising disease transmission and lowering survival.",
+            "correct": true,
+            "feedback": "If transmission intensifies with host density, the effect on population growth depends partly on density."
+          },
+          {
+            "id": "c41-q6-o2",
+            "text": "A hurricane reduces shelter in both colonies regardless of initial density.",
+            "correct": false,
+            "feedback": "A severe weather disturbance can reduce numbers independently of the colonies' initial crowding."
+          },
+          {
+            "id": "c41-q6-o3",
+            "text": "Both colonies experience the same seasonal temperature decrease.",
+            "correct": false,
+            "feedback": "Common seasonal cooling alone does not provide a density-dependent mechanism."
+          },
+          {
+            "id": "c41-q6-o4",
+            "text": "A predator moves through the study area only once, regardless of host density.",
+            "correct": false,
+            "feedback": "A single density-independent encounter is insufficient to attribute differing infection rates to density-dependent disease spread."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c41",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.1 Populations and communities, printed pp. 80–83; supplied PDF pp. 86–89",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c41",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.1 Populations and communities, printed pp. 548–577; supplied PDF pp. 560–589",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "population-regulation",
+        "experimental-inference"
+      ],
+      "changeRationale": "Separates mechanistic evidence of crowding from simultaneous abiotic and chance events.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "df20344edac2b037a3797144663383806d10390de90498296316565cf5d0159d"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/populations-communities/lesson.json",
+      "sourceLessonBlobSha": "842f31780f8a00ced2df9d155b568d3018e16036",
+      "questionId": "c41-written-5",
+      "understandingIds": [
+        "C4.1.5"
+      ],
+      "sectionId": "c41-5",
+      "level": "shared",
+      "originalIssue": "Generic prose-style response with weak mark-specific evidence and no calculation.",
+      "originalQuestion": {
+        "id": "c41-written-5",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "C4.1.5"
+        ],
+        "level": "shared",
+        "prompt": "Using an ecological example, explain: Why can population growth slow even when individuals still reproduce?",
+        "marks": 2,
+        "sectionId": "c41-5",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "answer": "Carrying capacity, commonly denoted K, is the approximate number of individuals an environment can sustain over time under its current resource constraints. Food, water, breeding sites and suitable territory may become limiting as population size increases. Because conditions change seasonally or with disturbance, carrying capacity is not a permanent fixed species property. When individuals compete for scarce resources, per-capita survival or reproductive success may decline. That can reduce net growth before all resources are exhausted. Carrying capacity is therefore an ecosystem-dependent estimate and not a claim that the same number of individuals must be present at every moment.",
+        "markingPoints": [
+          "Explain the scientific principle: Carrying capacity, commonly denoted K, is the approximate number of individuals an environment can sustain over time under its current resource constraints.",
+          "Support the explanation with relevant ecological reasoning or a valid example: On a small island, a grazing herbivore population may approach a limit set by seasonal vegetation productivity."
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c41-written-5",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "C4.1.5"
+        ],
+        "level": "shared",
+        "prompt": "An isolated island population records 18 births and 16 deaths in one year, with no migration. Calculate the net change in population size and explain one reason growth can slow near carrying capacity even while births continue.",
+        "marks": 2,
+        "sectionId": "c41-5",
+        "referenceIds": [
+          "ib-c41",
+          "hodder-c41"
+        ],
+        "answer": "Net change = births − deaths = 18 − 16 = +2 individuals. Competition for limited food, space or nesting sites can reduce birth rates or increase mortality as density increases; growth can therefore be slow even though some offspring are born.",
+        "markingPoints": [
+          "Calculates a net gain of 2 individuals from 18 − 16, with the correct positive sign.",
+          "Explains a density-dependent mechanism (for example resource competition reducing survival or reproduction) that lowers net growth despite ongoing births."
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c41",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.1 Populations and communities, printed pp. 80–83; supplied PDF pp. 86–89",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c41",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.1 Populations and communities, printed pp. 548–577; supplied PDF pp. 560–589",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "Paper 2",
+        "population-arithmetic",
+        "mechanistic-explanation"
+      ],
+      "changeRationale": "Allocates one mark to numerical application and one to a named causal mechanism, rather than quoting chapter prose.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "4ceda147e66278d397b919711bb6964dbf7cc4c88224f35989893ae9333e1e0d"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/transfers-energy-matter/lesson.json",
+      "sourceLessonBlobSha": "84b377c29421312f7f1e886e25216852d771c1b3",
+      "questionId": "c42-mcq-5",
+      "understandingIds": [
+        "C4.2.5"
+      ],
+      "sectionId": "c42-5",
+      "level": "shared",
+      "originalIssue": "Identical feedback across distinct errors; recall-centric alternatives.",
+      "originalQuestion": {
+        "id": "c42-mcq-5",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.5"
+        ],
+        "level": "shared",
+        "prompt": "Which material directly supplies decomposers with organic carbon?",
+        "marks": 1,
+        "sectionId": "c42-5",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q5-o1",
+            "text": "Atmospheric nitrogen with no organic matter.",
+            "correct": false,
+            "feedback": "Incorrect. They recycle elements; much of the chemical energy they use is lost as heat."
+          },
+          {
+            "id": "c42-q5-o2",
+            "text": "Only live prey killed by predators.",
+            "correct": false,
+            "feedback": "Incorrect. They recycle elements; much of the chemical energy they use is lost as heat."
+          },
+          {
+            "id": "c42-q5-o3",
+            "text": "Dead tissue, shed parts and faeces.",
+            "correct": true,
+            "feedback": "Correct. Decomposers connect feeding chains to matter recycling by transforming complex substances and releasing mineral nutrients and carbon dioxide back into ecosystems."
+          },
+          {
+            "id": "c42-q5-o4",
+            "text": "Only sunlight arriving on bare rock.",
+            "correct": false,
+            "feedback": "Incorrect. They recycle elements; much of the chemical energy they use is lost as heat."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c42-mcq-5",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.5"
+        ],
+        "level": "shared",
+        "prompt": "After autumn leaf fall, a fungus secretes enzymes onto decaying litter and absorbs the soluble products. Which substrate directly supplies most of its organic carbon?",
+        "marks": 1,
+        "sectionId": "c42-5",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q5-o1",
+            "text": "Nitrate ions dissolved in soil water.",
+            "correct": false,
+            "feedback": "Nitrate is a source of inorganic nitrogen, not a direct supply of organic carbon."
+          },
+          {
+            "id": "c42-q5-o2",
+            "text": "Carbon dioxide absorbed during photosynthesis by the fungus.",
+            "correct": false,
+            "feedback": "Most decomposer fungi are heterotrophs; they absorb organic molecules rather than obtaining their carbon by photosynthetic fixation."
+          },
+          {
+            "id": "c42-q5-o3",
+            "text": "Carbon compounds in dead leaves and other detritus.",
+            "correct": true,
+            "feedback": "Extracellular digestion converts complex organic detritus into soluble carbon compounds that fungi can absorb."
+          },
+          {
+            "id": "c42-q5-o4",
+            "text": "Sunlight reaching the litter surface.",
+            "correct": false,
+            "feedback": "Light is energy, not an organic carbon substrate, and decomposer fungi do not obtain their organic carbon from sunlight."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c42",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 83–85; supplied PDF pp. 89–91",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c42",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 578–601; supplied PDF pp. 590–613",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "decomposition",
+        "carbon-cycle",
+        "enzyme-mechanism"
+      ],
+      "changeRationale": "Tests the distinction between carbon substrate, mineral nutrition and energy source.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "2fdcd07b24a97149b286650dabeda8b3084e3c52528152d879a0fd8f001f7589"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/transfers-energy-matter/lesson.json",
+      "sourceLessonBlobSha": "84b377c29421312f7f1e886e25216852d771c1b3",
+      "questionId": "c42-mcq-6",
+      "understandingIds": [
+        "C4.2.6"
+      ],
+      "sectionId": "c42-6",
+      "level": "shared",
+      "originalIssue": "Identical distractor explanations and implausible responses.",
+      "originalQuestion": {
+        "id": "c42-mcq-6",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.6"
+        ],
+        "level": "shared",
+        "prompt": "Which process is essential to an autotroph's carbon nutrition?",
+        "marks": 1,
+        "sectionId": "c42-6",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q6-o1",
+            "text": "Synthesis of organic carbon from inorganic carbon.",
+            "correct": true,
+            "feedback": "Correct. New carbon compounds are the basis of biomass production in most ecosystems."
+          },
+          {
+            "id": "c42-q6-o2",
+            "text": "Obtaining every organic molecule by eating plants.",
+            "correct": false,
+            "feedback": "Incorrect. Autotrophs need cellular respiration to supply usable energy just as many heterotrophs do."
+          },
+          {
+            "id": "c42-q6-o3",
+            "text": "Secretion of animal digestive enzymes only.",
+            "correct": false,
+            "feedback": "Incorrect. Autotrophs need cellular respiration to supply usable energy just as many heterotrophs do."
+          },
+          {
+            "id": "c42-q6-o4",
+            "text": "Conversion of heat directly into DNA.",
+            "correct": false,
+            "feedback": "Incorrect. Autotrophs need cellular respiration to supply usable energy just as many heterotrophs do."
+          }
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c42-mcq-6",
+        "paper": "1A",
+        "kind": "selection",
+        "original": true,
+        "understandingIds": [
+          "C4.2.6"
+        ],
+        "level": "shared",
+        "prompt": "At a dark hydrothermal vent, microbes oxidize hydrogen sulfide and synthesize organic molecules from dissolved CO₂. Why are they autotrophs?",
+        "marks": 1,
+        "sectionId": "c42-6",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "options": [
+          {
+            "id": "c42-q6-o1",
+            "text": "They use inorganic carbon to build organic compounds, with chemical oxidation supplying energy.",
+            "correct": true,
+            "feedback": "Autotrophy describes the inorganic carbon source; chemolithotrophic oxidation provides the energy for fixation without sunlight."
+          },
+          {
+            "id": "c42-q6-o2",
+            "text": "They obtain most of their organic carbon by eating nearby animals.",
+            "correct": false,
+            "feedback": "Obtaining preformed organic carbon from animals is heterotrophy, not autotrophic carbon fixation."
+          },
+          {
+            "id": "c42-q6-o3",
+            "text": "They must use sunlight because every autotroph photosynthesizes.",
+            "correct": false,
+            "feedback": "Some autotrophs use chemical energy rather than light to drive carbon fixation."
+          },
+          {
+            "id": "c42-q6-o4",
+            "text": "They produce energy by converting carbon dioxide directly into heat.",
+            "correct": false,
+            "feedback": "Carbon fixation is endergonic and requires an energy input; converting CO₂ to heat does not explain biosynthesis."
+          }
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c42",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 83–85; supplied PDF pp. 89–91",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c42",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 578–601; supplied PDF pp. 590–613",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "chemosynthesis",
+        "carbon-fixation",
+        "HL-transfer"
+      ],
+      "changeRationale": "Uses an unfamiliar vent example to distinguish autotrophy, carbon source and energy input.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "6253c369e3f6173be4d32cc93430590808ef01b5a1357a4bb9bd2628f032ba85"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/transfers-energy-matter/lesson.json",
+      "sourceLessonBlobSha": "84b377c29421312f7f1e886e25216852d771c1b3",
+      "questionId": "c42-written-6",
+      "understandingIds": [
+        "C4.2.6"
+      ],
+      "sectionId": "c42-6",
+      "level": "shared",
+      "originalIssue": "Two generic explanation points with little comparative reasoning.",
+      "originalQuestion": {
+        "id": "c42-written-6",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "C4.2.6"
+        ],
+        "level": "shared",
+        "prompt": "Explain with a mechanism and a specific example: Why do autotrophs need an external energy source?",
+        "marks": 2,
+        "sectionId": "c42-6",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "answer": "Autotrophs build organic carbon compounds from simple inorganic sources, especially carbon dioxide. Carbon fixation and the subsequent synthesis of carbohydrates, lipids, proteins and other molecules require energy. Autotrophs therefore must capture energy from an external source rather than obtaining all carbon compounds by eating other organisms. New carbon compounds are the basis of biomass production in most ecosystems. Autotrophy is defined by where an organism obtains the carbon for biosynthesis; photosynthesis and chemosynthesis describe possible energy sources. Autotrophs also respire to provide ATP for cellular work, so they are not exempt from energy losses.",
+        "markingPoints": [
+          "Identify the key process or principle: Autotrophs build organic carbon compounds from simple inorganic sources, especially carbon dioxide.",
+          "Explain its consequence or evidence, using an appropriate example: A green leaf fixes atmospheric carbon dioxide and builds sugars used later to make cellulose in growing cell walls."
+        ],
+        "review": "source-mapped"
+      },
+      "replacementQuestion": {
+        "id": "c42-written-6",
+        "paper": "2",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "C4.2.6"
+        ],
+        "level": "shared",
+        "prompt": "Two microorganisms each build biomass from dissolved CO₂. Organism A uses light as its energy source; organism B gains energy by oxidizing hydrogen sulfide. Explain why both qualify as autotrophs and distinguish their energy sources.",
+        "marks": 2,
+        "sectionId": "c42-6",
+        "referenceIds": [
+          "ib-c42",
+          "hodder-c42"
+        ],
+        "answer": "Both are autotrophs because they use inorganic CO₂ as their carbon source to synthesize organic molecules. A uses light energy (photoautotrophy), whereas B uses energy from oxidation of inorganic chemical substances (chemoautotrophy); carbon source and energy source are distinct classifications.",
+        "markingPoints": [
+          "States that both organisms fix inorganic CO₂ into organic compounds, which defines autotrophic carbon nutrition.",
+          "Correctly contrasts light-powered fixation in A with energy from hydrogen sulfide oxidation in B."
+        ],
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-c42",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 83–85; supplied PDF pp. 89–91",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-c42",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
+          "locator": "C4.2 Transfers of energy and matter, printed pp. 578–601; supplied PDF pp. 590–613",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "Paper 2",
+        "chemoautotrophy",
+        "compare-contrast"
+      ],
+      "changeRationale": "Replaces open-ended recall with a discriminating transfer comparison scored with two non-duplicated criteria.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "9830de67b9db69fe86275951fe9f4848802fb14720a97c0e82ca57a01ed00ee9"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/adaptation-environment/lesson.json",
+      "sourceLessonBlobSha": "9317f5ea322f57d36a92bd8aa504b06c41444eb5",
+      "questionId": "b41-4-data",
+      "understandingIds": [
+        "B4.1.4"
+      ],
+      "sectionId": "b41-4",
+      "level": "shared",
+      "originalIssue": "Five vague statements, no quantitative gradient or axes requirement.",
+      "originalQuestion": {
+        "id": "b41-4-data",
+        "paper": "1B",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "B4.1.4"
+        ],
+        "level": "shared",
+        "sectionId": "b41-4",
+        "referenceIds": [
+          "ib-guide-b41",
+          "hodder-b41"
+        ],
+        "marks": 5,
+        "prompt": "Evaluate the synthetic transect data and describe a controlled field follow-up for the association of shade-herb abundance with light intensity.",
+        "answer": "Counts increase along the position gradient; Light intensity decreases as counts rise in this synthetic example; Correlation does not establish direct causation; Use replicated quadrats and field-measured light data; Record relevant confounders such as soil moisture or grazing",
+        "markingPoints": [
+          "Counts increase along the position gradient",
+          "Light intensity decreases as counts rise in this synthetic example",
+          "Correlation does not establish direct causation",
+          "Use replicated quadrats and field-measured light data",
+          "Record relevant confounders such as soil moisture or grazing"
+        ],
+        "data": {
+          "caption": "Simulated quadrat transect for calculation practice only (NOT field observations)",
+          "headers": [
+            "Quadrat position (m)",
+            "Light intensity (lux)",
+            "Shade herb count"
+          ],
+          "rows": [
+            [
+              0,
+              1600,
+              2
+            ],
+            [
+              5,
+              1250,
+              4
+            ],
+            [
+              10,
+              890,
+              7
+            ],
+            [
+              15,
+              500,
+              9
+            ],
+            [
+              20,
+              200,
+              11
+            ]
+          ]
+        }
+      },
+      "replacementQuestion": {
+        "id": "b41-4-data",
+        "paper": "1B",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "B4.1.4"
+        ],
+        "level": "shared",
+        "sectionId": "b41-4",
+        "referenceIds": [
+          "ib-guide-b41",
+          "hodder-b41"
+        ],
+        "marks": 5,
+        "prompt": "A hypothetical 20 m transect records light intensity and shade-herb counts. Calculate the change in light intensity from 0 to 20 m, describe the association with herb count, give appropriate x- and y-axes for an association scatter graph, name one possible confounder, and propose a replication improvement.",
+        "answer": "Light falls from 1600 to 200 lux, a decrease of 1400 lux. Shade-herb counts increase from 2 to 11 as light decreases (negative association). Plot light intensity (lux) on the x-axis against herb count per quadrat on the y-axis; the relationship is correlational. Soil moisture could covary with distance. Use many independent quadrats distributed across the light gradient, measuring moisture as a possible confounder.",
+        "markingPoints": [
+          "Calculates a 1400 lux decrease in light intensity from 1600 − 200 lux.",
+          "States that shade-herb abundance increases as measured light intensity decreases (a negative association).",
+          "Correctly names light intensity (lux) as x-axis and shade-herb count per quadrat as y-axis.",
+          "Identifies a plausible confounding variable such as soil moisture or grazing intensity.",
+          "Proposes additional independently sampled quadrats over the light gradient while measuring or controlling confounders."
+        ],
+        "data": {
+          "caption": "Invented quadrat transect to practise analysis; not field-observed data",
+          "headers": [
+            "Position (m)",
+            "Light intensity (lux)",
+            "Shade-herb count per quadrat"
+          ],
+          "rows": [
+            [
+              0,
+              1600,
+              2
+            ],
+            [
+              5,
+              1250,
+              4
+            ],
+            [
+              10,
+              890,
+              7
+            ],
+            [
+              15,
+              500,
+              9
+            ],
+            [
+              20,
+              200,
+              11
+            ]
+          ]
+        },
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-guide-b41",
+          "title": "IB Biology Guide, first assessment 2025",
+          "locator": "B4.1 Adaptation to environment, printed p.62, PDF p.68",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-b41",
+          "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Hodder third edition (2023)",
+          "locator": "B4.1 printed pp.341–362, PDF pp.353–374",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "Paper 1B",
+        "gradient",
+        "graph-axes",
+        "confounders",
+        "replication"
+      ],
+      "changeRationale": "Introduces numeric gradient, appropriate graph axes and experimental inference without claiming causality.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "baa9b522f1b32468528aa6562e4975d0bb914e42ab19fd660977cc982aea18aa"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/gas-exchange/lesson.json",
+      "sourceLessonBlobSha": "ff92ba24a3f0c8e93212ae3b7a486521c0c57d74",
+      "questionId": "b31-6-structured",
+      "understandingIds": [
+        "B3.1.6"
+      ],
+      "sectionId": "b31-6",
+      "level": "shared",
+      "originalIssue": "Given table included the computed answer and marking points lacked unit specificity.",
+      "originalQuestion": {
+        "id": "b31-6-structured",
+        "paper": "1B",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "B3.1.6"
+        ],
+        "level": "shared",
+        "prompt": "Calculate modelled vital capacity from the table and distinguish residual volume.",
+        "marks": 3,
+        "sectionId": "b31-6",
+        "referenceIds": [
+          "ib-b31-guide",
+          "hodder-b31"
+        ],
+        "answer": "TV + IRV + ERV; 0.5 + 2.5 + 1.0 = 4.0 L; Residual volume cannot be measured by direct basic spirometry",
+        "markingPoints": [
+          "TV + IRV + ERV",
+          "0.5 + 2.5 + 1.0 = 4.0 L",
+          "Residual volume cannot be measured by direct basic spirometry"
+        ],
+        "data": {
+          "caption": "Hypothetical spirometry volumes; not measured human data",
+          "headers": [
+            "Volume type",
+            "L"
+          ],
+          "rows": [
+            [
+              "Tidal",
+              0.5
+            ],
+            [
+              "Inspiratory reserve",
+              2.5
+            ],
+            [
+              "Expiratory reserve",
+              1
+            ],
+            [
+              "Vital capacity (calculated)",
+              4
+            ]
+          ]
+        }
+      },
+      "replacementQuestion": {
+        "id": "b31-6-structured",
+        "paper": "1B",
+        "kind": "structured",
+        "original": true,
+        "understandingIds": [
+          "B3.1.6"
+        ],
+        "level": "shared",
+        "prompt": "From these hypothetical spirometry measurements, calculate vital capacity in litres. State whether residual volume is included and explain why standard simple spirometry cannot directly measure it.",
+        "marks": 3,
+        "sectionId": "b31-6",
+        "referenceIds": [
+          "ib-b31-guide",
+          "hodder-b31"
+        ],
+        "answer": "Vital capacity = tidal volume + inspiratory reserve volume + expiratory reserve volume = 0.5 + 2.5 + 1.0 = 4.0 L. Residual volume is excluded from vital capacity because air remains in the lungs even after maximal expiration, so simple spirometry does not directly measure that remaining gas.",
+        "markingPoints": [
+          "Uses the relation vital capacity = tidal volume + inspiratory reserve volume + expiratory reserve volume.",
+          "Calculates 4.0 L using 0.5 + 2.5 + 1.0 with the correct unit.",
+          "States that residual volume remains after maximal expiration and therefore is not directly measured by ordinary simple spirometry."
+        ],
+        "data": {
+          "caption": "Hypothetical respiratory volumes; invented for calculation practice, not recorded patient values",
+          "headers": [
+            "Volume type",
+            "Volume (L)"
+          ],
+          "rows": [
+            [
+              "Tidal volume",
+              0.5
+            ],
+            [
+              "Inspiratory reserve volume",
+              2.5
+            ],
+            [
+              "Expiratory reserve volume",
+              1
+            ]
+          ]
+        },
+        "review": "scientific-review"
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-b31-guide",
+          "title": "IB Biology Guide, first assessment 2025",
+          "locator": "B3.1, printed pp.57–58; PDF pages 63–64",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-b31",
+          "title": "Clegg, Davis & Talbot (2023), Biology for the IB Diploma Programme, third edition, Hodder",
+          "locator": "B3.1 Gas exchange, printed pp.273–294; PDF pages 285–306",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "Paper 1B",
+        "biological-calculations",
+        "data-interpretation"
+      ],
+      "changeRationale": "Removes answer leakage from the data table and provides separately creditable equation, result and interpretation.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "fec31e7b5591f20d9bb58725d7fdbe8845d8bbcc7bfc13006b506e6f40c397c8"
+      }
+    },
+    {
+      "lessonFile": "src/biology/learning/climate-change/lesson.json",
+      "sourceLessonBlobSha": "1fc59add39a2857a0610a31013c65ea5f767b287",
+      "questionId": "d43-written-1",
+      "understandingIds": [
+        "D4.3.1"
+      ],
+      "sectionId": "climate-change-1",
+      "level": "shared",
+      "originalIssue": "Self-answering evidence-type table and duplicate mechanism statements; no rate or uncertainty evaluation.",
+      "originalQuestion": {
+        "id": "d43-written-1",
+        "paper": "1B",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D4.3.1"
+        ],
+        "level": "shared",
+        "prompt": "Explain how human activities increase greenhouse warming and why a positive CO₂–temperature correlation alone cannot prove causation. [3]",
+        "marks": 3,
+        "sectionId": "climate-change-1",
+        "referenceIds": [
+          "ib-d43",
+          "hodder-d43"
+        ],
+        "answer": "Burning fossil fuels and land-use change increase atmospheric CO₂, while agriculture and fossil-fuel systems contribute CH₄. Both gases absorb and re-emit outgoing infrared radiation, limiting energy loss to space. Ice-core CO₂ and temperature values may be positively correlated, but establishing causation also requires evidence of the infrared greenhouse mechanism.",
+        "markingPoints": [
+          "Identify an anthropogenic CO₂ or CH₄ source (1).",
+          "Explain that CO₂ and CH₄ absorb and re-emit outgoing infrared radiation, strengthening warming (1).",
+          "Explain that correlation alone does not prove causation and refer to independent physical evidence (1)."
+        ],
+        "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
+        "data": {
+          "caption": "Qualitative evidence and mechanism classification (no invented measurements)",
+          "headers": [
+            "Claim or evidence",
+            "How to use it"
+          ],
+          "rows": [
+            [
+              "Ice-core CO₂ and temperature often vary together over long periods",
+              "Positive correlation; this association by itself does not prove causation"
+            ],
+            [
+              "CO₂ and CH₄ absorb and re-emit outgoing infrared radiation",
+              "Independent physical mechanism linking greenhouse-gas concentrations to warming"
+            ]
+          ]
+        }
+      },
+      "replacementQuestion": {
+        "id": "d43-written-1",
+        "paper": "1B",
+        "kind": "structured-response",
+        "original": true,
+        "understandingIds": [
+          "D4.3.1"
+        ],
+        "level": "shared",
+        "prompt": "A hypothetical monitoring model records atmospheric CO₂ at years 0, 10 and 20, with measurement uncertainty ±3 ppm at each date. Calculate the average rate of change over 20 years (ppm year⁻¹), explain whether the uncertainties could make this a zero increase, and give a mechanism linking increased CO₂ to warming.",
+        "marks": 3,
+        "sectionId": "climate-change-1",
+        "referenceIds": [
+          "ib-d43",
+          "hodder-d43"
+        ],
+        "answer": "(430 − 370) / 20 = 3.0 ppm year⁻¹ average increase. Even under worst-case independent endpoints, the rise is at least (430 − 3) − (370 + 3) = 54 ppm, so ±3 ppm readings cannot explain away the rise. CO₂ absorbs and re-emits outgoing infrared radiation, reducing heat loss at a given temperature and leading to warming until a new energy balance is reached. The dataset is invented and must not be presented as historical observations.",
+        "markingPoints": [
+          "Calculates mean increase as 60/20 = 3.0 ppm year⁻¹ with correct units.",
+          "Correctly interprets ±3 ppm endpoint uncertainties: minimum possible rise is 54 ppm, still above zero, or gives an equivalent valid uncertainty-based argument.",
+          "Explains the infrared-absorption/re-emission mechanism by which increased CO₂ enhances the greenhouse effect."
+        ],
+        "review": "scientific-review",
+        "data": {
+          "caption": "Hypothetical CO₂ model and illustrative measurement uncertainty; NOT an observed atmospheric record",
+          "headers": [
+            "Model year",
+            "Simulated CO₂ (ppm)",
+            "Uncertainty (± ppm)"
+          ],
+          "rows": [
+            [
+              0,
+              370,
+              3
+            ],
+            [
+              10,
+              399,
+              3
+            ],
+            [
+              20,
+              430,
+              3
+            ]
+          ]
+        }
+      },
+      "sourceEvidence": [
+        {
+          "referenceId": "ib-d43",
+          "title": "International Baccalaureate, Biology guide, first assessment 2025",
+          "locator": "D4.3 printed pp. 106–107, PDF pp. 112–113; SL/HL scope and prescribed species examples",
+          "url": null
+        },
+        {
+          "referenceId": "hodder-d43",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, Third edition (Hodder, 2023)",
+          "locator": "D4.3 Climate change, printed pp. 820–837; PDF pp. 832–849",
+          "url": null
+        }
+      ],
+      "assessmentSkills": [
+        "Paper 1B",
+        "rates",
+        "measurement-uncertainty",
+        "greenhouse-mechanism"
+      ],
+      "changeRationale": "Makes interpretation of a rate and bounds of plausible uncertainty explicit instead of giving the model answer in the data table.",
+      "reviewStatus": "pending-qualified-examiner-review",
+      "reviewLimitations": [
+        "Original practice item, independently edited; not an official IB examination question",
+        "Scientific content and accepted alternative responses require qualified teacher/examiner review",
+        "The integration engineer must recheck the fingerprint and any final figures before accepting"
+      ],
+      "previousContentFingerprint": {
+        "algorithm": "sha256",
+        "encoding": "utf8",
+        "canonicalization": "JSON.stringify(parsed-question-object)",
+        "value": "e545042889bf780851c515650f6358cf35aa557d8afd20a3cc2e8476790af563"
+      }
     }
-  ]
+  ],
+  "baseBranch": "feature/biolab-ib-final-base-20261018",
+  "workingBranch": "feature/biolab-ib-assessment-final-20261018",
+  "reviewPolicy": "proposed-only; qualified Biology examiner review required; not IB-endorsed",
+  "patchCategories": {
+    "priorAudit": 14,
+    "thisAssessmentPass": 12
+  }
 }
