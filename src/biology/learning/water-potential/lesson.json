@@ -1628,7 +1628,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "For Ψs = −800 kPa and Ψp = +600 kPa, what is Ψw?",
-      "explanation": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings.\n\nIf Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa. Negative pressure can occur in xylem under tension, so pressure potential is not always positive. Units on both terms must match before addition.\n\nFor an IB cell-level model, Ψw = Ψs + Ψp. The solute term Ψs is zero or negative; positive turgor usually contributes positive pressure potential Ψp. For example Ψs = −800 kPa with Ψp = +600 kPa yields Ψw = −200 kPa. In tension-bearing xylem, Ψp can be negative. Do not remove the signs or mix units.\n\nFor the cell model, Ψw = Ψs + Ψp. Solute potential Ψs is usually zero or negative; positive turgor pressure raises Ψw, whereas tension can make pressure potential negative. Example: Ψs = −800 kPa and Ψp = +600 kPa give Ψw = −200 kPa. Across a water-permeable membrane, net water moves from higher to lower Ψw, provided relevant boundaries and permeability assumptions apply.",
+      "explanation": "Add solute and pressure potential with their signs. In the IB cell-level model, water potential is Ψw = Ψs + Ψp. Dissolved solutes lower water potential, so solute potential Ψs is generally negative relative to pure water. Positive turgor pressure in a plant cell raises water potential; pressure potential Ψp can instead be negative in water held under tension, such as in xylem. These terms must be expressed in the same pressure units, for example kPa, before they are added.\n\nWorked calculation. A plant cell has Ψs = −800 kPa and Ψp = +600 kPa. Therefore Ψw = −800 + 600 = −200 kPa. Suppose the adjacent solution has Ψw = −350 kPa and its membrane is permeable to water. Water tends to move out of the cell, from −200 kPa (higher) toward −350 kPa (lower). The minus signs are essential: −200 is higher than −350. As water leaves, cell volume and turgor can decrease; the potentials may change until there is no net water movement.\n\nInterpret the model carefully. A numerical water-potential difference predicts the direction of net movement across an appropriate selectively permeable boundary, not a fixed rate of movement. Membrane permeability, area, distance and changes during osmosis affect the rate and eventual condition. The equation is a useful simplified cell model; gravitational and matrix contributions may matter in other physical settings.",
       "revisionSummary": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. If Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa.",
       "terms": [
         "The IB two-component cell equation: core concept",
@@ -1643,28 +1643,12 @@
       ],
       "claimReferences": [
         {
-          "claim": "For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell. This simplified equation omits gravitational and matrix terms relevant in some other settings.",
+          "claim": "Add solute and pressure potential with their signs. In the IB cell-level model, water potential is Ψw = Ψs + Ψp. Dissolved solutes lower water potential, so solute potential Ψs is generally negative relative to pure water. Positive turgor pressure in a plant cell raises water potential; pressure potential Ψp can instead be negative in water held under tension, such as in xylem. These terms must be expressed in the same pressure units, for example kPa, before they are added.\n\nWorked calculation. A plant cell has Ψs = −800 kPa and Ψp = +600 kPa. Therefore Ψw = −800 + 600 = −200 kPa. Suppose the adjacent solution has Ψw = −350 kPa and its membrane is permeable to water. Water tends to move out of the cell, from −200 kPa (higher) toward −350 kPa (lower). The minus signs are essential: −200 is higher than −350. As water leaves, cell volume and turgor can decrease; the potentials may change until there is no net water movement.\n\nInterpret the model carefully. A numerical water-potential difference predicts the direction of net movement across an appropriate selectively permeable boundary, not a fixed rate of movement. Membrane permeability, area, distance and changes during osmosis affect the rate and eventual condition. The equation is a useful simplified cell model; gravitational and matrix contributions may matter in other physical settings.",
           "referenceIds": [
             "ib-d23",
             "hodder-d23",
             "openstax-osmosis",
             "openstax-potential"
-          ]
-        },
-        {
-          "claim": "If Ψs = −800 kPa and Ψp = +600 kPa, then Ψw = −200 kPa. Negative pressure can occur in xylem under tension, so pressure potential is not always positive. Units on both terms must match before addition.\n\nFor an IB cell-level model, Ψw = Ψs + Ψp. The solute term Ψs is zero or negative; positive turgor usually contributes positive pressure potential Ψp. For example Ψs = −800 kPa with Ψp = +600 kPa yields Ψw = −200 kPa. In tension-bearing xylem, Ψp can be negative. Do not remove the signs or mix units.",
-          "referenceIds": [
-            "ib-d23",
-            "hodder-d23",
-            "openstax-osmosis",
-            "openstax-potential"
-          ]
-        },
-        {
-          "claim": "For the cell model, Ψw = Ψs + Ψp. Solute potential Ψs is usually zero or negative; positive turgor pressure raises Ψw, whereas tension can make pressure potential negative. Example: Ψs = −800 kPa and Ψp = +600 kPa give Ψw = −200 kPa. Across a water-permeable membrane, net water moves from higher to lower Ψw, provided relevant boundaries and permeability assumptions apply.",
-          "referenceIds": [
-            "ib-d23",
-            "hodder-d23"
           ]
         }
       ],
