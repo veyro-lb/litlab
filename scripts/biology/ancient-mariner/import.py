@@ -10,13 +10,13 @@ PREFIX="/biology/ancient-mariner/"
 CREDIT="Source: Ancient Mariner"
 # (image filename, original 1-indexed PDF page, top, bottom, unique source text)
 FIGS=[
-("00_drawing_conventions",1,.055,.740,"drawing in ib biology"),
+("00_drawing_conventions",1,.012,.770,"drawing in ib biology"),
 ("01_water_molecule_hydrogen_bonding",2,.050,.318,"water molecules with"),
 ("02_DNA_nucleotide",2,.325,.480,"dna nucleotide"),
 ("03_RNA_nucleotide",2,.490,.648,"rna nucleotide"),
 ("04_DNA_antiparallel_pairing",2,.654,.933,"dna structure"),
 ("05_RNA_polymer",3,.052,.407,"rna structure"),
-("06_prokaryotic_cell",3,.048,.410,"prokaryotic cell"),
+("06_prokaryotic_cell",3,.018,.410,"prokaryotic cell"),
 ("07_eukaryotic_animal_cell",4,.048,.687,"animal cell"),
 ("08_leaf_palisade_plant_cell",5,.048,.723,"leaf palisade plant cell"),
 ("09_generalized_amino_acid",6,.050,.262,"generalized amino acid"),
@@ -38,7 +38,7 @@ SWAP={
 "reproduction":{"d31-flower-structures":"17_insect_pollinated_flower"}}
 EXTRA={
 "nucleic-acids":[("a12-rna-pdf","03_RNA_nucleotide","a12-2","A1.2.2"),("a12-rna-polymer-pdf","05_RNA_polymer","a12-5","A1.2.5")],
-"cell-structure":[("a22-palisade-pdf","08_leaf_palisade_plant_cell","a22-8","A2.2.8")],
+"cell-structure":[("a22-palisade-pdf","08_leaf_palisade_plant_cell","a22-8","A2.2.8"),("a22-drawing-conventions-pdf","00_drawing_conventions","a22-11","A2.2.11")],
 "transport":[("b32-stem-pdf","13_dicot_stem_transverse_plan","b32-9","B3.2.9"),("b32-root-pdf","14_dicot_root_transverse_plan","b32-10","B3.2.10")],
 "reproduction":[("d31-male-pdf","15_male_reproductive_system","reproduction-4","D3.1.4"),("d31-female-pdf","16_female_reproductive_system","reproduction-4","D3.1.4")]}
 def normalized(s):return re.sub("[^a-z0-9]","",s.lower())
