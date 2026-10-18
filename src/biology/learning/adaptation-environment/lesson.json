@@ -1761,21 +1761,21 @@
         "hodder-b41"
       ],
       "marks": 5,
-      "prompt": "Evaluate the synthetic transect data and describe a controlled field follow-up for the association of shade-herb abundance with light intensity.",
-      "answer": "Counts increase along the position gradient; Light intensity decreases as counts rise in this synthetic example; Correlation does not establish direct causation; Use replicated quadrats and field-measured light data; Record relevant confounders such as soil moisture or grazing",
+      "prompt": "A hypothetical 20 m transect records light intensity and shade-herb counts. Calculate the change in light intensity from 0 to 20 m, describe the association with herb count, give appropriate x- and y-axes for an association scatter graph, name one possible confounder, and propose a replication improvement.",
+      "answer": "Light falls from 1600 to 200 lux, a decrease of 1400 lux. Shade-herb counts increase from 2 to 11 as light decreases (negative association). Plot light intensity (lux) on the x-axis against herb count per quadrat on the y-axis; the relationship is correlational. Soil moisture could covary with distance. Use many independent quadrats distributed across the light gradient, measuring moisture as a possible confounder.",
       "markingPoints": [
-        "Counts increase along the position gradient",
-        "Light intensity decreases as counts rise in this synthetic example",
-        "Correlation does not establish direct causation",
-        "Use replicated quadrats and field-measured light data",
-        "Record relevant confounders such as soil moisture or grazing"
+        "Calculates a 1400 lux decrease in light intensity from 1600 − 200 lux.",
+        "States that shade-herb abundance increases as measured light intensity decreases (a negative association).",
+        "Correctly names light intensity (lux) as x-axis and shade-herb count per quadrat as y-axis.",
+        "Identifies a plausible confounding variable such as soil moisture or grazing intensity.",
+        "Proposes additional independently sampled quadrats over the light gradient while measuring or controlling confounders."
       ],
       "data": {
-        "caption": "Simulated quadrat transect for calculation practice only (NOT field observations)",
+        "caption": "Invented quadrat transect to practise analysis; not field-observed data",
         "headers": [
-          "Quadrat position (m)",
+          "Position (m)",
           "Light intensity (lux)",
-          "Shade herb count"
+          "Shade-herb count per quadrat"
         ],
         "rows": [
           [
@@ -1804,7 +1804,8 @@
             11
           ]
         ]
-      }
+      },
+      "review": "scientific-review"
     },
     {
       "id": "theme-b-20261018-adaptation-environment-mechanism",

@@ -2926,44 +2926,41 @@
         "B3.1.6"
       ],
       "level": "shared",
-      "prompt": "Calculate modelled vital capacity from the table and distinguish residual volume.",
+      "prompt": "From these hypothetical spirometry measurements, calculate vital capacity in litres. State whether residual volume is included and explain why standard simple spirometry cannot directly measure it.",
       "marks": 3,
       "sectionId": "b31-6",
       "referenceIds": [
         "ib-b31-guide",
         "hodder-b31"
       ],
-      "answer": "TV + IRV + ERV; 0.5 + 2.5 + 1.0 = 4.0 L; Residual volume cannot be measured by direct basic spirometry",
+      "answer": "Vital capacity = tidal volume + inspiratory reserve volume + expiratory reserve volume = 0.5 + 2.5 + 1.0 = 4.0 L. Residual volume is excluded from vital capacity because air remains in the lungs even after maximal expiration, so simple spirometry does not directly measure that remaining gas.",
       "markingPoints": [
-        "TV + IRV + ERV",
-        "0.5 + 2.5 + 1.0 = 4.0 L",
-        "Residual volume cannot be measured by direct basic spirometry"
+        "Uses the relation vital capacity = tidal volume + inspiratory reserve volume + expiratory reserve volume.",
+        "Calculates 4.0 L using 0.5 + 2.5 + 1.0 with the correct unit.",
+        "States that residual volume remains after maximal expiration and therefore is not directly measured by ordinary simple spirometry."
       ],
       "data": {
-        "caption": "Hypothetical spirometry volumes; not measured human data",
+        "caption": "Hypothetical respiratory volumes; invented for calculation practice, not recorded patient values",
         "headers": [
           "Volume type",
-          "L"
+          "Volume (L)"
         ],
         "rows": [
           [
-            "Tidal",
+            "Tidal volume",
             0.5
           ],
           [
-            "Inspiratory reserve",
+            "Inspiratory reserve volume",
             2.5
           ],
           [
-            "Expiratory reserve",
+            "Expiratory reserve volume",
             1
-          ],
-          [
-            "Vital capacity (calculated)",
-            4
           ]
         ]
-      }
+      },
+      "review": "scientific-review"
     },
     {
       "id": "b31-10-structured",

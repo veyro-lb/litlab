@@ -1382,34 +1382,35 @@
         "guide-a32",
         "hodder-a32"
       ],
-      "prompt": "What practical problems does biological classification solve?",
+      "prompt": "Researchers disagree whether two visually similar insects belong in one group. Their DNA sequences differ strongly. What is the strongest reason to revise their classification?",
       "marks": 1,
       "options": [
         {
           "id": "a",
-          "text": "It allows organisms to be grouped and compared using shared evidence.",
+          "text": "New evidence may reveal distinct evolutionary lineages that morphology alone obscured.",
           "correct": true,
-          "feedback": "Organize immense diversity and enable consistent identification, communication and prediction."
+          "feedback": "Classification is revisable because independent molecular evidence can reveal descent not evident from external resemblance."
         },
         {
           "id": "2",
-          "text": "It proves every group has the same number of species.",
+          "text": "DNA sequence differences prove neither organism is an insect.",
           "correct": false,
-          "feedback": "Taxa and their relationships can be revised when molecular or morphological evidence changes."
+          "feedback": "Molecular differences do not negate independently supported insect features such as body plan; they can refine classification within insects."
         },
         {
           "id": "3",
-          "text": "It replaces the need to identify characters.",
+          "text": "Similar appearance always establishes a common most-recent ancestor.",
           "correct": false,
-          "feedback": "Taxa and their relationships can be revised when molecular or morphological evidence changes."
+          "feedback": "Similar traits can arise independently by convergent evolution; appearance alone does not settle lineage relationships."
         },
         {
           "id": "4",
-          "text": "It fixes all evolutionary relationships permanently.",
+          "text": "Classification requires identical DNA sequences within a named species.",
           "correct": false,
-          "feedback": "Taxa and their relationships can be revised when molecular or morphological evidence changes."
+          "feedback": "Variation exists within species, and the degree and pattern of molecular divergence must be evaluated in context."
         }
-      ]
+      ],
+      "review": "scientific-review"
     },
     {
       "id": "a32-p2-1",
@@ -1447,34 +1448,35 @@
         "guide-a32",
         "hodder-a32"
       ],
-      "prompt": "Why can kingdom-to-species ranks misrepresent divergence?",
+      "prompt": "A family in one lineage diverged from its closest relatives 8 million years ago, whereas a family in another lineage diverged 35 million years ago. What follows?",
       "marks": 1,
       "options": [
         {
           "id": "a",
-          "text": "Fixed ranks need not reflect comparable evolutionary divergences.",
+          "text": "The rank 'family' need not represent the same evolutionary age in different lineages.",
           "correct": true,
-          "feedback": "For example: kingdom, phylum, class, order (then family, genus, species)."
+          "feedback": "Taxonomic ranks are conventions; clade divergence times depend on lineage history rather than a fixed rank-specific age."
         },
         {
           "id": "2",
-          "text": "All taxa have identical genetic distance.",
+          "text": "Families must share the same time of origin by definition.",
           "correct": false,
-          "feedback": "Taxonomic rank is conventional; evolutionary ages and diversity differ across named ranks."
+          "feedback": "No fixed age is assigned to a taxonomic rank, and the provided divergence times already differ."
         },
         {
           "id": "3",
-          "text": "Traditional groups always include every descendant.",
+          "text": "The younger family cannot contain a valid monophyletic group.",
           "correct": false,
-          "feedback": "Taxonomic rank is conventional; evolutionary ages and diversity differ across named ranks."
+          "feedback": "A newly diverged clade can include an ancestor and all descendants and therefore can be monophyletic."
         },
         {
           "id": "4",
-          "text": "Phylogenies never alter ranked classifications.",
+          "text": "Molecular phylogenies cannot be used to revise family boundaries.",
           "correct": false,
-          "feedback": "Taxonomic rank is conventional; evolutionary ages and diversity differ across named ranks."
+          "feedback": "DNA sequence comparisons can inform inferred ancestry and lead to revisions of conventional rankings."
         }
-      ]
+      ],
+      "review": "scientific-review"
     },
     {
       "id": "a32-p2-2",
@@ -1512,34 +1514,35 @@
         "guide-a32",
         "hodder-a32"
       ],
-      "prompt": "Why is a clade more informative than a superficial resemblance?",
+      "prompt": "A shark and a dolphin both have streamlined bodies, but sequence data place the dolphin with other mammals. Which inference is best supported?",
       "marks": 1,
       "options": [
         {
           "id": "a",
-          "text": "A clade includes a common ancestor and all its descendants.",
+          "text": "Streamlining is not sufficient evidence that shark and dolphin form a clade; ancestry is better tested with inherited homologous characters.",
           "correct": true,
-          "feedback": "Inherited homologous characteristics may be shared among members of the clade."
+          "feedback": "Convergent selection in water can yield similar body shapes despite distant ancestry; a clade is inferred from shared descent."
         },
         {
           "id": "2",
-          "text": "A clade groups only species that look alike.",
+          "text": "Streamlined body shape alone proves they share a more recent ancestor than dolphins and mammals.",
           "correct": false,
-          "feedback": "Analogous traits can originate independently; inferred descent matters."
+          "feedback": "A useful swimming shape can evolve independently; convergent similarity does not override evidence of mammalian descent."
         },
         {
           "id": "3",
-          "text": "It excludes some descendants by definition.",
+          "text": "The shark and dolphin must each have identical DNA to belong to any clade.",
           "correct": false,
-          "feedback": "Analogous traits can originate independently; inferred descent matters."
+          "feedback": "Members of a clade need not have identical sequences; shared-derived characters and phylogenetic evidence are relevant."
         },
         {
           "id": "4",
-          "text": "It requires identical genome sequences.",
+          "text": "A clade may exclude descendants to retain only organisms with the ancestral body shape.",
           "correct": false,
-          "feedback": "Analogous traits can originate independently; inferred descent matters."
+          "feedback": "Monophyletic groups include the common ancestor and all descendants, even if descendants acquire different shapes."
         }
-      ]
+      ],
+      "review": "scientific-review"
     },
     {
       "id": "a32-p2-3",
