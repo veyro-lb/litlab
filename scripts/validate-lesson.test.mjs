@@ -14,7 +14,7 @@ for(const [name,change] of [
  ['wrong recall mapping',d=>d.sections[0].recall[0].understandingIds=['A1.1.8']],
  ['wrong explanation return',d=>d.questions[0].sectionId='water-8'],
  ['blocks differ from claims',d=>d.sections[5].teachingBlocks[0].explanation='Different'],
- ['unknown enrichment evidence',d=>d.sections[5].enrichment.referenceIds=['missing']],
+ ['unknown enrichment evidence',d=>{d.sections[5].enrichment={title:'Synthetic extension (test only)',text:'Synthetic extension',referenceIds:['missing']}}],
  ['blank explorer prediction',d=>d.sections[3].explorer.prompt=''],
  ['unqualified approval',d=>d.review={...d.review,status:'approved'}],
  ['HL figure leakage',d=>d.assets[0].level='HL'],
