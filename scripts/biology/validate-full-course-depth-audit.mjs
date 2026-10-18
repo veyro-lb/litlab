@@ -80,6 +80,7 @@ assert(seenTopics.size===40 && results.understandings===553,
 // New original figures introduced by this audit must exist as first-party SVGs.
 const newFigures=[
   'public/biology/nucleic-acids/dna-rna-comparison.svg',
+  'public/biology/cell-respiration/nadh-electron-energy-transfer.svg',
   'public/biology/transport/root-pressure-cause-sequence.svg',
   'public/biology/neural-signalling/saltatory-conduction-nodes.svg',
   'public/biology/dna-replication/replication-enzyme-sequence.svg',
