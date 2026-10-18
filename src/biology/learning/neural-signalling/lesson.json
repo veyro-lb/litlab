@@ -1594,35 +1594,35 @@
       ],
       "level": "HL",
       "guidingQuestion": "Where are action potentials regenerated along a myelinated axon?",
-      "explanation": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node.\n\nThe insulating myelin reduces current leakage between nodes. Depolarizing current travels through the axoplasm to the next node of Ranvier, where clustered channels regenerate a full action potential. This is faster than regenerating the action potential across every short stretch of membrane, although the signal does not literally jump through empty space.\n\nIn a myelinated axon, multiple membrane wraps reduce ion leakage and change electrical properties of the internodal membrane. Voltage-gated channels and ion pumps are concentrated at nodes of Ranvier, the short exposed gaps between myelin segments. During an impulse, charge spreads rapidly beneath a myelinated internode, while a fresh action potential is generated at the next node when its membrane reaches threshold. This gives saltatory conduction: regeneration occurs node-to-node rather than continuously across the full axonal surface. Compare this with unmyelinated fibres, where adjacent segments must depolarize repeatedly. Myelin does not make the impulse leap through empty space; the local current still flows along the axon between nodes.",
-      "revisionSummary": "Saltatory conduction: regeneration of action potentials at successive nodes",
+      "explanation": "Schwann cells in the peripheral nervous system and oligodendrocytes in the central nervous system wrap parts of axons in myelin. The insulated segments are called internodes; gaps between them are the nodes of Ranvier. Myelin greatly reduces leakage of electrical current through covered membrane, whereas voltage-gated ion channels and ion pumps are concentrated at the exposed nodes.\n\nAn action potential at one node allows inward Na⁺ current. The resulting local depolarizing current spreads through the axoplasm along the myelinated internode and raises the voltage of the next node toward threshold. At threshold, clustered voltage-gated Na⁺ channels open and regenerate an action potential at that node. The current crosses the internode electrically; the action potential is actively renewed at successive nodes, not teleported through air.\n\nIn an unmyelinated axon, nearby sections of membrane must repeatedly depolarize as the impulse advances. In a myelinated axon, active regeneration is concentrated at the nodes while local current spreads rapidly through insulated regions. This typically increases conduction speed and reduces the amount of membrane undergoing large ion movements. Pumps maintain ion gradients over time, but they do not create the rapid rising phase of each action potential.",
+      "revisionSummary": "Myelin limits current leakage along internodes; local current depolarizes successive nodes of Ranvier, where clustered voltage-gated channels regenerate the action potential.",
       "terms": [
         "Node of Ranvier: gap in myelin rich in ion channels"
       ],
-      "workedExample": "The electrical signal appears to jump from one node to the next, although local currents flow through the internode.",
+      "workedExample": "If the myelin between two nodes is damaged, more local current can leak away, making it harder for the next node to reach threshold and reducing reliable impulse conduction.",
       "misconceptions": [
         {
-          "misconception": "Action potentials are regenerated uniformly throughout compact myelin",
-          "correction": "Nodes are the sites where channel-rich membrane regenerates spikes."
+          "misconception": "Myelin makes a nerve impulse leap across empty gaps, while ATP-powered pumps cause each new action potential.",
+          "correction": "Depolarizing current spreads inside the axon beneath myelin; action potentials are regenerated at exposed nodes by voltage-gated ion channels. Pumps maintain gradients over time."
         }
       ],
       "claimReferences": [
         {
-          "claim": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node.",
+          "claim": "Schwann cells in the peripheral nervous system and oligodendrocytes in the central nervous system wrap parts of axons in myelin. The insulated segments are called internodes; gaps between them are the nodes of Ranvier. Myelin greatly reduces leakage of electrical current through covered membrane, whereas voltage-gated ion channels and ion pumps are concentrated at the exposed nodes.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
           ]
         },
         {
-          "claim": "The insulating myelin reduces current leakage between nodes. Depolarizing current travels through the axoplasm to the next node of Ranvier, where clustered channels regenerate a full action potential. This is faster than regenerating the action potential across every short stretch of membrane, although the signal does not literally jump through empty space.",
+          "claim": "An action potential at one node allows inward Na⁺ current. The resulting local depolarizing current spreads through the axoplasm along the myelinated internode and raises the voltage of the next node toward threshold. At threshold, clustered voltage-gated Na⁺ channels open and regenerate an action potential at that node. The current crosses the internode electrically; the action potential is actively renewed at successive nodes, not teleported through air.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
           ]
         },
         {
-          "claim": "In a myelinated axon, multiple membrane wraps reduce ion leakage and change electrical properties of the internodal membrane. Voltage-gated channels and ion pumps are concentrated at nodes of Ranvier, the short exposed gaps between myelin segments. During an impulse, charge spreads rapidly beneath a myelinated internode, while a fresh action potential is generated at the next node when its membrane reaches threshold. This gives saltatory conduction: regeneration occurs node-to-node rather than continuously across the full axonal surface. Compare this with unmyelinated fibres, where adjacent segments must depolarize repeatedly. Myelin does not make the impulse leap through empty space; the local current still flows along the axon between nodes.",
+          "claim": "In an unmyelinated axon, nearby sections of membrane must repeatedly depolarize as the impulse advances. In a myelinated axon, active regeneration is concentrated at the nodes while local current spreads rapidly through insulated regions. This typically increases conduction speed and reduces the amount of membrane undergoing large ion movements. Pumps maintain ion gradients over time, but they do not create the rapid rising phase of each action potential.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
@@ -1633,7 +1633,9 @@
         "ib-c22",
         "hodder-c22"
       ],
-      "assets": [],
+      "assets": [
+        "c22-saltatory-nodes"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1695,24 +1697,24 @@
       },
       "teachingBlocks": [
         {
-          "title": "Saltatory conduction at nodes of Ranvier",
-          "explanation": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node.",
+          "title": "What myelin changes along the axon",
+          "explanation": "Schwann cells in the peripheral nervous system and oligodendrocytes in the central nervous system wrap parts of axons in myelin. The insulated segments are called internodes; gaps between them are the nodes of Ranvier. Myelin greatly reduces leakage of electrical current through covered membrane, whereas voltage-gated ion channels and ion pumps are concentrated at the exposed nodes.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
           ]
         },
         {
-          "title": "Myelin reduces current loss along covered regions. Charge reaches the next node, where clustered voltage-gated channels regenerate the action potential, making transmission faster.",
-          "explanation": "The insulating myelin reduces current leakage between nodes. Depolarizing current travels through the axoplasm to the next node of Ranvier, where clustered channels regenerate a full action potential. This is faster than regenerating the action potential across every short stretch of membrane, although the signal does not literally jump through empty space.",
+          "title": "How the next node produces a new impulse",
+          "explanation": "An action potential at one node allows inward Na⁺ current. The resulting local depolarizing current spreads through the axoplasm along the myelinated internode and raises the voltage of the next node toward threshold. At threshold, clustered voltage-gated Na⁺ channels open and regenerate an action potential at that node. The current crosses the internode electrically; the action potential is actively renewed at successive nodes, not teleported through air.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
           ]
         },
         {
-          "title": "Why myelin and nodes permit faster conduction",
-          "explanation": "In a myelinated axon, multiple membrane wraps reduce ion leakage and change electrical properties of the internodal membrane. Voltage-gated channels and ion pumps are concentrated at nodes of Ranvier, the short exposed gaps between myelin segments. During an impulse, charge spreads rapidly beneath a myelinated internode, while a fresh action potential is generated at the next node when its membrane reaches threshold. This gives saltatory conduction: regeneration occurs node-to-node rather than continuously across the full axonal surface. Compare this with unmyelinated fibres, where adjacent segments must depolarize repeatedly. Myelin does not make the impulse leap through empty space; the local current still flows along the axon between nodes.",
+          "title": "Why saltatory conduction is faster",
+          "explanation": "In an unmyelinated axon, nearby sections of membrane must repeatedly depolarize as the impulse advances. In a myelinated axon, active regeneration is concentrated at the nodes while local current spreads rapidly through insulated regions. This typically increases conduction speed and reduces the amount of membrane undergoing large ion movements. Pumps maintain ion gradients over time, but they do not create the rapid rising phase of each action potential.",
           "referenceIds": [
             "ib-c22",
             "hodder-c22"
@@ -3634,6 +3636,23 @@
       "attribution": "Original BioLab scientific vector schematic (2026); independent scientific review pending",
       "license": "Original BioLab artwork; project copyright retained",
       "permissionEvidence": "Text and shapes independently drawn for this topic; no third-party figure reproduced",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "c22-saltatory-nodes",
+      "kind": "schematic",
+      "src": "/biology/neural-signalling/saltatory-conduction-nodes.svg",
+      "alt": "A myelinated axon with three insulated internodes and four exposed nodes of Ranvier. Voltage-gated sodium channels and ion pumps are concentrated at nodes; local depolarizing current spreads through the axoplasm below myelin, regenerating an action potential at successive nodes.",
+      "captionTitle": "Nodes regenerate action potentials; myelin carries local current between them",
+      "interpretation": "Original conceptual figure, not to scale. Read the arrows with the adjacent mechanism explanation.",
+      "attribution": "Original BioLab SVG created for this syllabus-understanding depth audit (2026)",
+      "license": "Original first-party BioLab illustration",
+      "permissionEvidence": "Authored independently using general biological mechanisms; no textbook artwork reproduced or traced",
       "referenceIds": [
         "ib-c22",
         "hodder-c22"
