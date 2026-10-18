@@ -1326,7 +1326,9 @@
         "hodder-d11",
         "ncbi-replication"
       ],
-      "assets": [],
+      "assets": [
+        "bacterial-replication-enzymes"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1467,6 +1469,12 @@
             }
           ],
           "note": "This named polymerase pathway is the prokaryotic model specified for HL."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "bacterial-replication-enzymes",
+          "afterBlock": 0
         }
       ]
     },
@@ -2358,6 +2366,22 @@
       ],
       "level": "HL",
       "review": "source-mapped"
+    },
+    {
+      "id": "bacterial-replication-enzymes",
+      "kind": "diagram",
+      "src": "/biology/dna-replication/bacterial-replication-enzymes.svg",
+      "alt": "Primase lays RNA primer; bacterial DNA polymerase III extends DNA 5′ to 3′, polymerase I replaces primer with DNA and ligase seals the remaining backbone nick. Four successive states of one fragment, not four strands.",
+      "captionTitle": "Replication enzymes divide the work",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
     }
   ],
   "summary": "Replication copies the DNA sequence by complementary base pairing and enzyme-guided synthesis; both new daughter strands always elongate 5′→3′, but leading and lagging synthesis differ.",

@@ -1633,7 +1633,9 @@
         "ib-c22",
         "hodder-c22"
       ],
-      "assets": [],
+      "assets": [
+        "saltatory-conduction"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1732,7 +1734,13 @@
             "explanation": "Schwann cells or oligodendrocytes form myelin around axon segments, leaving exposed nodes of Ranvier. Nodes contain high densities of voltage-gated Na⁺ channels; the current spreads rapidly under the insulating myelin to depolarize the next node."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "saltatory-conduction",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c22-12",
@@ -3634,6 +3642,22 @@
       "attribution": "Original BioLab scientific vector schematic (2026); independent scientific review pending",
       "license": "Original BioLab artwork; project copyright retained",
       "permissionEvidence": "Text and shapes independently drawn for this topic; no third-party figure reproduced",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "saltatory-conduction",
+      "kind": "diagram",
+      "src": "/biology/neural-signalling/saltatory-conduction.svg",
+      "alt": "Na⁺ influx at an active node generates local current under insulating myelin. The next node reaches threshold and regenerates the action potential. Refractoriness limits backward re-excitation; no electrical spark physically leaps the internode.",
+      "captionTitle": "Saltatory conduction at nodes",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-c22",
         "hodder-c22"

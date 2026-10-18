@@ -1404,16 +1404,11 @@
         }
       ],
       "assets": [
-        "b32-dicot-stem-root",
-        "b32-root-original"
+        "b32-dicot-stem-root"
       ],
       "figurePlacements": [
         {
           "assetId": "b32-dicot-stem-root",
-          "afterBlock": 1
-        },
-        {
-          "assetId": "b32-root-original",
           "afterBlock": 1
         }
       ],
@@ -1586,16 +1581,11 @@
         }
       ],
       "assets": [
-        "b32-dicot-stem-root",
-        "b32-root-original"
+        "b32-dicot-stem-root"
       ],
       "figurePlacements": [
         {
           "assetId": "b32-dicot-stem-root",
-          "afterBlock": 1
-        },
-        {
-          "assetId": "b32-root-original",
           "afterBlock": 1
         }
       ],
@@ -2821,8 +2811,15 @@
           ]
         }
       ],
-      "assets": [],
-      "figurePlacements": [],
+      "assets": [
+        "root-pressure"
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "root-pressure",
+          "afterBlock": 0
+        }
+      ],
       "teachingBlocks": [
         {
           "title": "Mineral-ion loading into xylem",
@@ -2977,8 +2974,15 @@
           ]
         }
       ],
-      "assets": [],
-      "figurePlacements": [],
+      "assets": [
+        "phloem-pressure-flow"
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "phloem-pressure-flow",
+          "afterBlock": 1
+        }
+      ],
       "teachingBlocks": [
         {
           "title": "Phloem mass flow follows sources and sinks, not gravity",
@@ -4113,21 +4117,18 @@
     {
       "id": "b32-dicot-stem-root",
       "kind": "original-schematic",
-      "src": "/biology/source-pdf-figures/b32-stem-plan.png",
-      "alt": "Original PDF illustration: Plan diagram of dicotyledonous stem tissues. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 7.",
-      "captionTitle": "Plan diagram of dicotyledonous stem tissues",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 7.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
+      "src": "/biology/transport/dicot-stem-root.svg",
+      "alt": "Cross sections of a typical young dicot stem with vascular bundles in a peripheral ring and dicot root with central star-shaped xylem, flanking phloem.",
+      "captionTitle": "b32 dicot stem root",
+      "attribution": "Original BioLab scientific diagram 2026; no copied source artwork",
+      "license": "Original vector authorship; qualified rights/science review pending",
+      "permissionEvidence": "Newly drawn SVG geometric primitives; no third-party assets or copyrighted diagrams reproduced",
       "referenceIds": [
         "ib-guide-b32",
         "hodder-b32"
       ],
       "level": "shared",
-      "review": "scientific-review",
-      "recallSrc": "/biology/source-pdf-figures/b32-stem-plan.png",
-      "mobileSrc": "/biology/source-pdf-figures/b32-stem-plan.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/b32-stem-plan.png"
+      "review": "scientific-review"
     },
     {
       "id": "b32-heart-circuits",
@@ -4166,24 +4167,36 @@
       "mobileSrc": "/biology/transport/heart-frontal-mobile.svg"
     },
     {
-      "id": "b32-root-original",
+      "id": "root-pressure",
       "kind": "diagram",
+      "src": "/biology/transport/root-pressure.svg",
+      "alt": "Active ion loading lowers xylem water potential. Water enters by osmosis and raises positive root pressure, distinct from transpiration pull. Endodermal barrier omitted for clarity; not a complete root section.",
+      "captionTitle": "Root pressure: ion loading draws water",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-guide-b32",
-        "hodder-b32",
-        "commons-dicot-stem-wen-2019"
+        "hodder-b32"
       ],
-      "level": "shared",
-      "review": "source-mapped",
-      "src": "/biology/source-pdf-figures/b32-root-plan.png",
-      "recallSrc": "/biology/source-pdf-figures/b32-root-plan.png",
-      "mobileSrc": "/biology/source-pdf-figures/b32-root-plan.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/b32-root-plan.png",
-      "alt": "Original PDF illustration: Plan diagram of dicotyledonous root tissues. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 7.",
-      "captionTitle": "Plan diagram of dicotyledonous root tissues",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 7.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json."
+      "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "phloem-pressure-flow",
+      "kind": "diagram",
+      "src": "/biology/transport/phloem-pressure-flow.svg",
+      "alt": "Sucrose loading at a source lowers phloem water potential, drawing water from xylem and increasing pressure. Sap flows toward the lower pressure at an unloading sink; water can return to xylem. Single source–sink model, not a universal downward direction.",
+      "captionTitle": "Phloem: pressure drives bulk flow",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-guide-b32",
+        "hodder-b32"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
     }
   ],
   "summary": "Mass flow depends on pressure differences and structures that withstand, control or exchange that flow. Capillaries, arteries, veins and cardiac valves serve distinct roles; xylem is tension-driven and phloem uses source–sink pressure flow.",

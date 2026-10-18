@@ -696,7 +696,9 @@
         "ib-c32",
         "hodder-c32"
       ],
-      "assets": [],
+      "assets": [
+        "neutrophil-mrsa-sem"
+      ],
       "interactions": [
         {
           "id": "c32-check-5",
@@ -815,6 +817,12 @@
               "description": "Lysosomal enzymes act on the internalized microbe and its components."
             }
           ]
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "neutrophil-mrsa-sem",
+          "afterBlock": 0
         }
       ]
     },
@@ -4170,7 +4178,27 @@
       "level": "shared"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "neutrophil-mrsa-sem",
+      "kind": "photograph",
+      "src": "/biology/authentic/neutrophil-mrsa-sem.webp",
+      "alt": "Scanning electron micrograph, colourized, of a human neutrophil with MRSA bacteria, as identified by NIH/NIAID. Surface contact and cell shape are visible; intracellular lysosomal digestion cannot be seen in this surface image. Colours are added, not natural.",
+      "captionTitle": "A phagocyte at a bacterial target",
+      "attribution": "National Institutes of Health / NIAID. A phagocyte at a bacterial target. Public domain — U.S. federal government work. Display resized and re-encoded without cropping; original preserved.",
+      "license": "Public domain — U.S. federal government work",
+      "permissionEvidence": "Individual file licence checked 2026-10-18 at https://commons.wikimedia.org/wiki/File:Human_neutrophil_ingesting_MRSA.jpg#Licensing. Record with author, source terms and derivative details in docs/biology/scientific-visual-assets-repair/EXTERNAL_RIGHTS_LEDGER.json.",
+      "referenceIds": [
+        "ib-c32",
+        "hodder-c32"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Human_neutrophil_ingesting_MRSA.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Human_neutrophil_ingesting_MRSA.jpg",
+      "termsUrl": "https://commons.wikimedia.org/wiki/File:Human_neutrophil_ingesting_MRSA.jpg"
+    }
+  ],
   "summary": "Infection defence combines barriers and clotting with phagocytosis, antigen-specific lymphocytes and long-term memory. Public-health decisions use the same understanding alongside careful interpretation of population evidence.",
   "review": {
     "status": "source-mapped",

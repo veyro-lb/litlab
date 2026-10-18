@@ -1423,7 +1423,9 @@
         "ib-d33",
         "hodder-d33"
       ],
-      "assets": [],
+      "assets": [
+        "loop-henle-gradient"
+      ],
       "teachingBlocks": [
         {
           "title": "Loop of Henle maintains a medullary gradient",
@@ -1527,7 +1529,13 @@
         ]
       },
       "exampleTitle": "Mechanism in context",
-      "activityTitle": "Check the feedback direction"
+      "activityTitle": "Check the feedback direction",
+      "figurePlacements": [
+        {
+          "assetId": "loop-henle-gradient",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "homeostasis-10",
@@ -2767,6 +2775,22 @@
       ],
       "level": "shared",
       "review": "sprint9-source-mapped"
+    },
+    {
+      "id": "loop-henle-gradient",
+      "kind": "diagram",
+      "src": "/biology/homeostasis/loop-henle-gradient.svg",
+      "alt": "Descending filtrate loses water; ascending limb exports sodium but is impermeable to water. Shading models increasing medullary osmotic concentration, enabling collecting duct water reabsorption under ADH control. No invented numerical concentration values.",
+      "captionTitle": "Loop of Henle builds a gradient",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
     }
   ],
   "summary": "Homeostasis uses sensors and negative feedback to keep variables within defended ranges. Pancreatic hormones, neural and thyroid thermoregulation, renal tubular transport and ADH illustrate distinct but coordinated control mechanisms.",

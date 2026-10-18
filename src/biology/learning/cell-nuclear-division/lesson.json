@@ -1454,7 +1454,9 @@
         "hodder-d21",
         "ncbi-meiosis"
       ],
-      "assets": [],
+      "assets": [
+        "meiosis-separation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1622,6 +1624,12 @@
             ]
           ],
           "note": "Counts are theoretical and assume normal segregation; each product of meiosis I has duplicated chromosomes."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "meiosis-separation",
+          "afterBlock": 1
         }
       ]
     },
@@ -1830,7 +1838,10 @@
         "hodder-d21",
         "ncbi-meiosis"
       ],
-      "assets": [],
+      "assets": [
+        "crossing-over",
+        "meiosis-separation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1933,7 +1944,17 @@
             "explanation": "In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids. Random orientation of homologous pairs at metaphase I independently changes which parental homologs enter each daughter nucleus."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "crossing-over",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "meiosis-separation",
+          "afterBlock": 1
+        }
+      ]
     },
     {
       "id": "d21-12",
@@ -4329,6 +4350,38 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "crossing-over",
+      "kind": "diagram",
+      "src": "/biology/cell-nuclear-division/crossing-over.svg",
+      "alt": "Two replicated homologues exchange equivalent distal segments between non-sister chromatids during prophase I, leaving two recombinant and two unchanged chromatids. Centromeres remain; chromosome number does not change.",
+      "captionTitle": "Crossing over exchanges DNA",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "meiosis-separation",
+      "kind": "diagram",
+      "src": "/biology/cell-nuclear-division/meiosis-separation.svg",
+      "alt": "A 2n=4 cell separates homologues in meiosis I and sister chromatids in meiosis II, forming four n=2 products. One of the possible independent orientations shown; crossing over omitted to isolate chromosome accounting.",
+      "captionTitle": "Meiosis: one replication, two divisions",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
     }
   ],
   "summary": "Eukaryotic division requires accurate chromosome segregation and cytoplasmic allocation. Mitosis maintains genome content in daughter nuclei, meiosis produces haploid diversity, and regulated cell cycles coordinate growth and repair.",

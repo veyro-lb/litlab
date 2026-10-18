@@ -2118,7 +2118,9 @@
         "openstax-c12",
         "ncbi-c12"
       ],
-      "assets": [],
+      "assets": [
+        "mitochondrial-chemiosmosis"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2222,7 +2224,13 @@
             "explanation": "Reduced NAD (NADH) carries electrons collected during glycolysis, the link reaction and the Krebs cycle. At the mitochondrial inner-membrane electron transport chain, NADH donates a pair of electrons to an early carrier and is oxidized back to NAD⁺. NAD⁺ can then take part in further substrate oxidation."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "mitochondrial-chemiosmosis",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c12-14",
@@ -4260,11 +4268,11 @@
       "id": "krebs-cycle",
       "kind": "diagram",
       "src": "/biology/cell-respiration/krebs-cycle.svg",
-      "alt": "Acetyl group two carbons joins oxaloacetate four carbons forming citrate six carbons; decarboxylations release carbon dioxide and oxaloacetate reforms.",
-      "captionTitle": "Krebs Cycle",
-      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "alt": "Acetyl 2C joins oxaloacetate 4C to form citrate 6C. Two decarboxylations release CO₂; oxaloacetate is regenerated. Per turn: 3 NADH, 1 FADH₂ and 1 ATP equivalent from four oxidations. Intermediate steps grouped.",
+      "captionTitle": "Krebs cycle: carbon returns to 4C",
+      "attribution": "Original BioLab scientific schematic, revised 18 October 2026; independent design, no copied artwork.",
       "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
-      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "permissionEvidence": "Original project vector geometry. Review and before/after evidence: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-c12",
         "hodder-c12",
@@ -4278,11 +4286,11 @@
       "id": "mitochondrial-chemiosmosis",
       "kind": "diagram",
       "src": "/biology/cell-respiration/mitochondrial-chemiosmosis.svg",
-      "alt": "Inner mitochondrial membrane separates proton-rich intermembrane space from matrix; protons pumped outward by electron transport chain and return inward through ATP synthase.",
-      "captionTitle": "Mitochondrial Chemiosmosis",
-      "attribution": "Original BioLab diagram drafted for Theme C1.2 (2026); independently qualified scientific review pending",
+      "alt": "Electron transport pumps H⁺ from matrix into intermembrane space; H⁺ returns through ATP synthase to matrix. NADH donates electrons to chain carriers and oxygen is the final acceptor forming water. Proton movement and electron flow shown separately; no fixed ATP yield per NADH.",
+      "captionTitle": "Chemiosmosis in mitochondria",
+      "attribution": "Original BioLab scientific schematic, revised 18 October 2026; independent design, no copied artwork.",
       "license": "Original project artwork; rights retained by BioLab, no third-party artwork reused",
-      "permissionEvidence": "Original text-only SVG authored specifically for this branch; no diagrams copied from Hodder, IB or OpenStax",
+      "permissionEvidence": "Original project vector geometry. Review and before/after evidence: docs/biology/scientific-visual-assets-repair/.",
       "referenceIds": [
         "ib-c12",
         "hodder-c12",

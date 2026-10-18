@@ -777,8 +777,7 @@
         "ncbi-dna"
       ],
       "assets": [
-        "a12-backbone",
-        "a12-rna-original"
+        "a12-backbone"
       ],
       "interactions": [
         {
@@ -914,10 +913,6 @@
         }
       ],
       "figurePlacements": [
-        {
-          "assetId": "a12-rna-original",
-          "afterBlock": 0
-        },
         {
           "assetId": "a12-backbone",
           "afterBlock": 1
@@ -3950,21 +3945,19 @@
     {
       "id": "a12-paired",
       "kind": "diagram",
-      "src": "/biology/source-pdf-figures/a12-paired.png",
-      "recallSrc": "/biology/source-pdf-figures/a12-paired.png",
-      "captionTitle": "DNA complementary base pairing and structural representation",
-      "alt": "Original PDF illustration: DNA complementary base pairing and structural representation. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 2.",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 2.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json.",
+      "src": "/biology/nucleic-acids/paired.svg",
+      "recallSrc": "/biology/nucleic-acids/paired-recall.svg",
+      "captionTitle": "Complementary DNA strands",
+      "alt": "Original conceptual diagram. 5′  A  T  G  C  3′; 3′  T  A  C  G  5′; A–T / G–C. Drawn symbolically, not as an atom-resolved molecular structure.",
+      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
+      "license": "Original work; owner clearance for publication still pending",
+      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
       "referenceIds": [
         "ib-a12",
         "hodder-a12"
       ],
       "level": "shared",
-      "review": "scientific-review",
-      "mobileSrc": "/biology/source-pdf-figures/a12-paired.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/a12-paired.png"
+      "review": "scientific-review"
     },
     {
       "id": "a12-sugars",
@@ -4053,26 +4046,6 @@
       ],
       "level": "HL",
       "review": "scientific-review"
-    },
-    {
-      "id": "a12-rna-original",
-      "kind": "diagram",
-      "referenceIds": [
-        "ib-a12",
-        "hodder-a12",
-        "ncbi-dna"
-      ],
-      "level": "shared",
-      "review": "scientific-review",
-      "src": "/biology/source-pdf-figures/a12-rna-polymer.png",
-      "recallSrc": "/biology/source-pdf-figures/a12-rna-polymer.png",
-      "mobileSrc": "/biology/source-pdf-figures/a12-rna-polymer.png",
-      "recallMobileSrc": "/biology/source-pdf-figures/a12-rna-polymer.png",
-      "alt": "Original PDF illustration: RNA structure. IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 3.",
-      "captionTitle": "RNA structure",
-      "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 3.",
-      "license": "Third-party licensed illustration; original copyright retained by credited source.",
-      "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json."
     }
   ],
   "summary": "Nucleotide chemistry produces strong directional sugar–phosphate backbones and complementary strands. DNA's enormous sequence space allows genetic storage; a conserved translation code supports ancestry. HL studies nucleosomes, tracers and falsification.",

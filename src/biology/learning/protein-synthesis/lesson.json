@@ -911,7 +911,9 @@
         "ncbi-rna",
         "ncbi-translation"
       ],
-      "assets": [],
+      "assets": [
+        "translation-elongation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1017,7 +1019,13 @@
             "explanation": "mRNA supplies the readable codon sequence; the small ribosomal subunit binds the mRNA; tRNAs carry particular amino acids into the assembled ribosome. Two tRNAs can occupy the ribosome simultaneously while one amino acid is transferred to the growing polypeptide chain."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "translation-elongation",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d12-7",
@@ -1607,7 +1615,9 @@
         "ncbi-rna",
         "ncbi-translation"
       ],
-      "assets": [],
+      "assets": [
+        "translation-elongation"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1736,6 +1746,12 @@
               "description": "Empty tRNA exits and another aminoacyl-tRNA can enter."
             }
           ]
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "translation-elongation",
+          "afterBlock": 0
         }
       ]
     },
@@ -2621,7 +2637,9 @@
         "ncbi-rna",
         "ncbi-translation"
       ],
-      "assets": [],
+      "assets": [
+        "alternative-splicing"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -2727,7 +2745,13 @@
             "explanation": "One eukaryotic gene can produce several mature mRNA versions if different combinations of exons are joined during processing. These transcripts may then be translated into related but distinct polypeptide isoforms with differing domains or functions."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "alternative-splicing",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d12-17",
@@ -4776,6 +4800,38 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "translation-elongation",
+      "kind": "diagram",
+      "src": "/biology/protein-synthesis/translation-elongation.svg",
+      "alt": "Original ribosome model: charged tRNA pairs with mRNA in A site; peptide bond transfers growing chain from P to A; ribosome translocates toward mRNA 3′. Illustrative AUG–CCG sequence, anticodons antiparallel. Initiation factors and E site omitted.",
+      "captionTitle": "Translation: pair, join, move",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d12",
+        "hodder-d12"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
+    },
+    {
+      "id": "alternative-splicing",
+      "kind": "diagram",
+      "src": "/biology/protein-synthesis/alternative-splicing.svg",
+      "alt": "A conceptual three-exon pre-mRNA gives two mature mRNAs: exons 1–2–3 or 1–3. All introns are removed. No named gene or empirical transcript is implied.",
+      "captionTitle": "Alternative splicing selects exons",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "referenceIds": [
+        "ib-d12",
+        "hodder-d12"
+      ],
+      "level": "HL",
+      "review": "scientific-review"
     }
   ],
   "summary": "DNA is selectively transcribed into RNA, mRNA codons are translated into polypeptide sequence, and cellular processing and turnover contribute to functional protein diversity.",
