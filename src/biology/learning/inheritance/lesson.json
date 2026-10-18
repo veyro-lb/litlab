@@ -3167,28 +3167,28 @@
           "id": "a",
           "text": "Gametes remain diploid throughout fertilization.",
           "correct": false,
-          "feedback": "A diploid offspring normally receives one copy of each autosomal gene from each parent."
+          "feedback": "Gametes are typically haploid in diploid organisms. Meiosis halves the chromosome number before fertilization; gametes do not remain diploid in this cycle."
         },
         {
           "id": "b",
           "text": "Gamete fusion restores the diploid complement after meiotic reduction.",
           "correct": true,
-          "feedback": "Correct. Meiosis in a diploid parent separates homologous chromosomes so that gametes contain one chromosome from each pair."
+          "feedback": "Meiosis produces haploid gametes; fusion of their nuclei at fertilization restores a diploid zygote."
         },
         {
           "id": "c",
           "text": "The zygote receives all of its autosomes from one parent.",
           "correct": false,
-          "feedback": "Not in this case. This alternating halving and restoration is shared by eukaryotes with sexual life cycles, although the relative duration of haploid and diploid stages differs among species."
+          "feedback": "For a normal diploid zygote formed by gamete fusion, one haploid chromosome set comes from each parent rather than all autosomes coming from one."
         },
         {
           "id": "d",
           "text": "Mitosis is the usual process that halves the chromosome number.",
           "correct": false,
-          "feedback": "Not in this case. This alternating halving and restoration is shared by eukaryotes with sexual life cycles, although the relative duration of haploid and diploid stages differs among species."
+          "feedback": "Mitosis ordinarily preserves chromosome number in daughter nuclei; meiosis is the division process that reduces a diploid complement to haploid gametes."
         }
       ],
-      "review": "source-mapped"
+      "review": "scientific-review"
     },
     {
       "id": "d32-written-1",
@@ -3235,28 +3235,28 @@
           "id": "a",
           "text": "The F2 generation consists of the original parents.",
           "correct": false,
-          "feedback": "Pollination transfers pollen; fertilization is fusion of nuclei from gametes."
+          "feedback": "The original breeding plants are the parental (P) generation. F1 are their offspring, and F2 are produced from F1 crosses or self-fertilization."
         },
         {
           "id": "b",
           "text": "Each square in a Punnett grid represents an actual seed produced.",
           "correct": false,
-          "feedback": "Not in this case. The parents are the P generation."
+          "feedback": "Punnett cells represent possible allele combinations and predicted probabilities, not guaranteed individual offspring or specific seeds."
         },
         {
           "id": "c",
           "text": "A controlled plant cross requires specified parental pollen and egg sources.",
           "correct": true,
-          "feedback": "Correct. In a flowering plant such as a pea, pollen contains the male gametes and the embryo sac within an ovule in the ovary contains the egg cell."
+          "feedback": "A controlled cross requires known male and female gamete sources; excluding unintended pollen helps establish the parentage of the offspring."
         },
         {
           "id": "d",
           "text": "Transfer of any pollen gives a genetically controlled cross.",
           "correct": false,
-          "feedback": "Not in this case. The parents are the P generation."
+          "feedback": "Unspecified pollen could originate from another genotype, confounding the intended cross. Controlled pollination deliberately identifies the pollen parent."
         }
       ],
-      "review": "source-mapped"
+      "review": "scientific-review"
     },
     {
       "id": "d32-written-2",
@@ -3267,20 +3267,43 @@
         "D3.2.2"
       ],
       "level": "shared",
-      "prompt": "Explain genetic crosses in flowering plants using a causal mechanism and a relevant example or calculation.",
-      "marks": 3,
+      "prompt": "In a hypothetical pea breeding example, TT plants are crossed with tt plants, then the F1 plants are self-pollinated. The table shows an invented count of 100 F2 seedlings. (a) State the F1 genotype. (b) Predict the F2 genotypic ratio. (c) Calculate the expected number of Tt seedlings and compare it with the observed count. (d) Explain why a small discrepancy need not contradict the predicted ratio. (e) State one way to exclude unintended pollen when making the original controlled cross. [5 marks]",
+      "marks": 5,
       "sectionId": "inheritance-2",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "In a flowering plant such as a pea, pollen contains the male gametes and the embryo sac within an ovule in the ovary contains the egg cell. To make a controlled cross, a breeder prevents self-pollination of the chosen female parent, transfers pollen from the selected male parent, and labels the cross. Some flowers contain both male and female reproductive structures and can self-pollinate unless this is prevented.\nCross TT with tt pea plants: every F1 plant is Tt. Self-fertilize F1 to predict the F2 genotypic ratio 1 TT : 2 Tt : 1 tt.",
+      "answer": "The F1 genotype is Tt. Selfing Tt × Tt predicts F2 1 TT : 2 Tt : 1 tt. Out of 100 F2 seedlings, the expected heterozygote count is 50; 47 were recorded, a difference of 3. Random segregation and fertilization produce sampling variation in finite offspring groups. A breeder can remove anthers before pollen release and/or isolate flowers and transfer pollen from the chosen parent.",
       "markingPoints": [
-        "A controlled plant cross requires specified parental pollen and egg sources.",
-        "In a flowering plant such as a pea, pollen contains the male gametes and the embryo sac within an ovule in the ovary contains the egg cell.",
-        "Cross TT with tt pea plants: every F1 plant is Tt. Self-fertilize F1 to predict the F2 genotypic ratio 1 TT : 2 Tt : 1 tt."
+        "All F1 offspring are heterozygous Tt (1).",
+        "Expected F2 genotypic ratio 1 TT : 2 Tt : 1 tt (1).",
+        "Expected Tt count 50 of 100; observed 47, three fewer (1).",
+        "Explains sampling variation from random meiosis/fertilization in finite offspring numbers (1).",
+        "Identifies a legitimate controlled-pollination method such as preventing self-pollination and applying pollen from a known parent (1)."
       ],
-      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+      "review": "scientific-review",
+      "data": {
+        "caption": "Hypothetical example constructed for exam practice; no real breeding observations are claimed.",
+        "headers": [
+          "F2 genotype",
+          "Seedlings counted"
+        ],
+        "rows": [
+          [
+            "TT",
+            26
+          ],
+          [
+            "Tt",
+            47
+          ],
+          [
+            "tt",
+            27
+          ]
+        ]
+      }
     },
     {
       "id": "d32-mcq-3",
