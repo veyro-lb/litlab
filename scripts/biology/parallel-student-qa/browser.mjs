@@ -59,14 +59,15 @@ try{
   const desktop=await createContext();const page=tracked(await desktop.newPage());page.setDefaultTimeout(14000);
   await check('HL course library and four themes','1440px, #biology',async()=>{
     await page.goto(new URL('#biology',base).toString());
-    await expect(page.locator('.bio-course-header h1')).toHaveText('Biology');
-    for(const id of ['A','B','C','D'])await expect(page.locator('.bio-library-theme-'+id)).toHaveCount(1);
-    await expect(page.locator('.bio-library-topic')).toHaveCount(40);
+    await expect(page.locator('#bio-welcome-title')).toHaveText('Biology, made clearer.');
+    for(const id of ['A','B','C','D'])await expect(page.locator('.bio-discovery-theme-'+id)).toHaveCount(1);
+    await expect(page.locator('#bio-library-results-count')).toContainText('Showing 40 topics in HL scope');
+    await expect(page.locator('#bio-topic-browser')).toBeVisible();
     await shot(page,'hl-library-1440.png');
   });
   await check('Course search reaches topics across themes','1440px, #biology',async()=>{
     const search=page.locator('input[type=search]');await search.fill('D3.2');
-    await expect(page.locator('.bio-library-topic')).toHaveCount(1);
+    await expect(page.locator('.bio-discovery-topic')).toHaveCount(1);
     await expect(page.locator('[data-topic-id="D3.2"]')).toBeVisible();
     await search.fill('');
   });
@@ -152,27 +153,31 @@ try{
       await expect(page.locator(selector+' textarea')).toHaveValue('');
     });
   }
-  await check('Reproduce PQA-001 A2.1.2 keyed-content contradiction in actual browser','1440px, HL practice',async()=>{
+  await check('PQA-001 corrected A2.1.2 keyed science survives in browser','1440px, HL practice',async()=>{
     const item=lessons.get('A2.1').questions.find(q=>q.id==='a21-p1a-2');
     if(!item)throw new Error('Missing target question a21-p1a-2');
     const keyed=item.options?.find(o=>o.correct===true);
-    if(!keyed)throw new Error('Missing keyed response');
+    if(!keyed)throw new Error('Missing uniquely keyed response');
+    expect(item.prompt).toMatch(/bacteriophage lambda.*not a self-sustaining living cell/i);
+    expect(keyed.text).toMatch(/requires a host bacterium/i);
+    expect(keyed.feedback).toMatch(/lacks cytoplasm, ribosomes and independent metabolism/i);
     await visit(page,'biology/topic/A2.1/practice');
     const card=page.locator('[data-question-id="a21-p1a-2"]');
-    await expect(card.locator('legend')).toContainText('cells are independently living units');
-    await expect(card.locator('input[value="'+keyed.id+'"]').locator('..')).toContainText('host');
+    await expect(card.locator('legend')).toContainText('bacteriophage lambda');
+    await expect(card.locator('input[value="'+keyed.id+'"]').locator('..')).toContainText('host bacterium');
     await card.locator('input[value="'+keyed.id+'"]').check();
     await card.getByRole('button',{name:'Check my answer'}).click();
     await expect(card.locator('.bio-feedback[data-outcome="correct"]')).toBeVisible();
-    report.reproductions??=[];
-    report.reproductions.push({finding:'PQA-001',topic:'A2.1',questionId:item.id,stem:item.prompt,keyedAnswer:keyed.text,keyedFeedback:keyed.feedback,browserMarkedCorrect:true,specialistScienceReviewRequired:true});
-    await shot(page,'pqa-001-a2-1-2-keyed-contradiction-1440.png');
+    report.resolutions??=[];
+    report.resolutions.push({finding:'PQA-001',topic:'A2.1',questionId:item.id,stem:item.prompt,keyedAnswer:keyed.text,keyedFeedback:keyed.feedback,browserMarkedCorrect:true,status:'historical stem/key contradiction no longer present',specialistScienceReviewRequired:true});
+    await shot(page,'pqa-001-a2-1-2-corrected-key-1440.png');
   });
-  await check('Reproduce PQA-002 two distinct wrong selections with identical feedback','1440px, HL practice',async()=>{
+  await check('PQA-002 distinct feedback for different A2.1 distractors','1440px, HL practice',async()=>{
     const item=lessons.get('A2.1').questions.find(q=>q.id==='a21-p1a-1');
     if(!item)throw new Error('Missing target question a21-p1a-1');
     const wrong=item.options.filter(o=>o.correct===false);
     if(wrong.length<2)throw new Error('Not enough distractors to compare');
+    if(wrong[0].feedback===wrong[1].feedback)throw new Error('PQA-002 identical distractor feedback regressed');
     await visit(page,'biology/topic/A2.1/practice');
     const card=page.locator('[data-question-id="a21-p1a-1"]');
     for(const [index,option] of wrong.slice(0,2).entries()){
@@ -181,14 +186,13 @@ try{
       await card.getByRole('button',{name:'Check my answer'}).click();
       await expect(card.locator('.bio-feedback[data-outcome="retry"]')).toContainText(option.feedback);
     }
-    if(wrong[0].feedback!==wrong[1].feedback)throw new Error('PQA-002 source reproduction no longer present; update finding');
-    report.reproductions??=[];
-    report.reproductions.push({finding:'PQA-002',topic:'A2.1',questionId:item.id,distractorOptionIds:wrong.slice(0,2).map(o=>o.id),identicalFeedback:wrong[0].feedback,bothSelectedInBrowser:true});
+    report.resolutions??=[];
+    report.resolutions.push({finding:'PQA-002',topic:'A2.1',questionId:item.id,distractorOptionIds:wrong.slice(0,2).map(o=>o.id),distinctFeedback:wrong.slice(0,2).map(o=>o.feedback),bothSelectedInBrowser:true,status:'representative identical feedback issue corrected; coursewide audit is separate'});
   });
   await check('Browser back/forward and invalid route','1440px',async()=>{
     await page.goto(new URL('#biology',base).toString());
     await page.goto(new URL('#biology/topic/A1.1/learn',base).toString());
-    await page.goBack();await expect(page.locator('.bio-course-header h1')).toHaveText('Biology');
+    await page.goBack();await expect(page.locator('#bio-welcome-title')).toHaveText('Biology');
     await page.goForward();await expect(page.locator('.bio-lesson')).toBeVisible();
     await page.goto(new URL('#biology/topic/X9.9',base).toString());
     await expect(page.locator('.bio-empty')).toBeVisible();
@@ -209,7 +213,7 @@ try{
     const c=await createContext(width,'HL',width<=768);const p=tracked(await c.newPage());
     await check('Responsive library '+width+'px','actual Chromium viewport',async()=>{
       await p.goto(new URL('#biology',base).toString());
-      await expect(p.locator('.bio-course-header h1')).toBeVisible();
+      await expect(p.locator('#bio-welcome-title')).toBeVisible();
       await assertNoOverflow(p,width);
       await shot(p,'library-'+width+'.png');
     });
