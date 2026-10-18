@@ -34,7 +34,19 @@ export function verifyIntegrationPlan(plan,lessons){
     assert.equal(question.sectionId,patch.sectionId,key+': section mapping');
     assert.equal(canonical(question.understandingIds),canonical(patch.understandingIds),key+': understanding ID mapping');
     assert.equal(canonical(question.referenceIds),canonical(patch.originalQuestion.referenceIds),key+': preserved source references');
-    assert.equal(question.marks,patch.originalQuestion.marks,key+': mark allocation altered');
+    // The one explicitly fingerprinted exception expands a 3-mark generic question
+    // into five independently keyed subparts. All other allocations remain immutable.
+    if (question.marks !== patch.originalQuestion.marks) {
+      assert.equal(key,'src/biology/learning/inheritance/lesson.json#d32-written-2',key+': unauthorized mark-allocation change');
+      assert.equal(patch.originalQuestion.marks,3,key+': original allocated marks must be 3');
+      assert.equal(question.marks,5,key+': revised allocated marks must be 5');
+      assert.equal(patch.answerKey.marks,5,key+': answer key allocation must be 5');
+      assert.match(question.prompt,/\\[5 marks\\]$/,key+': five parts must explicitly display five marks');
+      assert.equal(question.markingPoints?.length,5,key+': five independently keyed marking points required');
+      assert.match(question.prompt,/\\(a\\).*\\(b\\).*\\(c\\).*\\(d\\).*\\(e\\)/s,key+': five subparts must be present');
+    } else {
+      assert.equal(question.marks,patch.originalQuestion.marks,key+': mark allocation altered');
+    }
     if(question.kind==='selection'){
       assert.equal(question.options.filter(x=>x.correct).length,1,key+': exactly one keyed response');
       assert.equal(question.options.find(x=>x.correct).id,patch.answerKey.correctOptionId,key+': answer key mismatch');
