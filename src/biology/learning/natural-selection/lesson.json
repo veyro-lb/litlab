@@ -685,7 +685,8 @@
         "hodder-d41"
       ],
       "assets": [
-        "d41-selection-mechanism"
+        "d41-selection-mechanism",
+        "galapagos-finch"
       ],
       "teachingBlocks": [
         {
@@ -798,7 +799,17 @@
         ]
       },
       "exampleTitle": "Apply the evidence",
-      "activityTitle": "Check selection logic"
+      "activityTitle": "Check selection logic",
+      "figurePlacements": [
+        {
+          "assetId": "d41-selection-mechanism",
+          "afterBlock": 1
+        },
+        {
+          "assetId": "galapagos-finch",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "natural-selection-6",
@@ -3642,7 +3653,7 @@
       "id": "d41-selection",
       "kind": "diagram",
       "src": "/biology/natural-selection/d41-selection-patterns.svg",
-      "alt": "Three original schematic trait distributions: directional peaks at a higher trait value, stabilizing narrower at the middle, disruptive with peaks at both extremes; all curves are illustrative not data.",
+      "alt": "Constructed equal-area before/after phenotypic frequency distributions: directional shifts the mean, stabilizing narrows around the mean, disruptive favours extremes. Dashed grey is before; solid teal after. Axes: trait value and frequency density. No observed dataset.",
       "captionTitle": "Selection shapes distributions of inherited traits",
       "interpretation": "Illustrative distributions, not measured population data",
       "attribution": "Original BioLab vector diagram 2026-10-17",
@@ -3654,7 +3665,8 @@
         "selection-modes"
       ],
       "level": "HL",
-      "review": "source-mapped"
+      "review": "source-mapped",
+      "mobileSrc": "/biology/natural-selection/d41-selection-patterns-mobile.svg"
     },
     {
       "id": "d41-alleles",
@@ -3689,6 +3701,26 @@
       ],
       "level": "shared",
       "review": "sprint9-source-mapped"
+    },
+    {
+      "id": "galapagos-finch",
+      "kind": "photograph",
+      "src": "/biology/authentic/galapagos-finch.webp",
+      "alt": "Photograph of a Galápagos finch, identified by the source as an unspecified Geospiza. A stout beak is visible. A single photograph does not establish diet, heredity, selection pressure or a historical change in mean beak size; those require population evidence.",
+      "captionTitle": "A Galápagos finch: observing a beak",
+      "interpretation": "Species unspecified by source. Beak structure is visible; evolution requires evidence from populations.",
+      "attribution": "Pedro Szekely. A Galápagos finch: observing a beak. CC BY-SA 2.0. Complete frame resized and WebP-encoded without cropping.",
+      "license": "CC BY-SA 2.0",
+      "permissionEvidence": "Individual file licence verified 2026-10-18: https://commons.wikimedia.org/wiki/File:Darwin_Finch_(49503956861).jpg#Licensing. Public redistribution and modification permitted with attribution and ShareAlike.",
+      "referenceIds": [
+        "ib-d41",
+        "hodder-d41"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Darwin_Finch_(49503956861).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Darwin_Finch_%2849503956861%29.jpg",
+      "termsUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
     }
   ],
   "summary": "Natural selection sorts heritable variation by differences in reproductive success; allele frequencies may change in populations. Experimental controls help identify causal selection. Hardy–Weinberg is a conditional baseline rather than an exact description of all populations.",

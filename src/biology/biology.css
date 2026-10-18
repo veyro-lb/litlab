@@ -390,3 +390,12 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
   .bio-app .bio-educational-sources h4{font-size:16px}
   .bio-app .bio-sources .bio-sources-intro{font-size:14px}
 }
+
+/* Scientific asset repair: keep detailed figures inspectable at natural proportions. */
+.bio-app .bio-reading .bio-figure .bio-figure-zoom img{max-width:none;max-height:none}
+.bio-app .bio-figure[data-image-kind="photograph"] .bio-figure-zoom img{width:auto;min-width:0;max-width:none;height:auto}
+.bio-app .bio-figure[data-image-kind="photograph"]>.bio-figure-image{max-width:760px;margin-inline:auto}
+.bio-app .bio-figure[data-image-kind="photograph"]>.bio-figure-image img{max-height:440px;object-fit:contain}
+.bio-app .bio-photo-context{font-size:12px;line-height:1.6;color:var(--muted);margin:8px 0 0}
+.bio-figure-credit{font-size:12px;line-height:1.7;margin-top:12px}
+.bio-figure-credit summary{cursor:pointer}

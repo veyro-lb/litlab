@@ -1299,7 +1299,9 @@
         "hodder-d21",
         "ncbi-meiosis"
       ],
-      "assets": [],
+      "assets": [
+        "onion-root-mitosis"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1402,7 +1404,13 @@
             "explanation": "Microscopy can reveal the position, condensation and arrangement of chromosomes in fixed dividing cells. Metaphase has chromosomes aligned near the spindle equator; anaphase shows two groups of separating chromatids; telophase shows two reforming nuclear regions, often with cytokinesis beginning."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "onion-root-mitosis",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d21-9",
@@ -4382,6 +4390,27 @@
       ],
       "level": "shared",
       "review": "scientific-review"
+    },
+    {
+      "id": "onion-root-mitosis",
+      "kind": "photograph",
+      "src": "/biology/authentic/onion-root-mitosis.webp",
+      "alt": "Light micrograph of stained onion root cells with interphase nuclei, condensed chromosomes and cells at different mitotic stages. Compare chromosome arrangements rather than cell colour to infer a stage. The large circular clear object at lower right is an optical/preparation artefact, not a cell structure. No calibrated scale bar is supplied.",
+      "captionTitle": "Mitosis in onion root cells",
+      "interpretation": "Stained light micrograph: identify stages from chromosome arrangement. No calibrated scale is supplied.",
+      "attribution": "Roval312. Mitosis in onion root cells. CC BY-SA 4.0. Complete frame resized and WebP-encoded without cropping.",
+      "license": "CC BY-SA 4.0",
+      "permissionEvidence": "Individual file licence verified 2026-10-18: https://commons.wikimedia.org/wiki/File:Mitosis_in_onion_cells.jpg#Licensing. Public redistribution and modification permitted with attribution and ShareAlike.",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21",
+        "ncbi-meiosis"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitosis_in_onion_cells.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Mitosis_in_onion_cells.jpg",
+      "termsUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
     }
   ],
   "summary": "Eukaryotic division requires accurate chromosome segregation and cytoplasmic allocation. Mitosis maintains genome content in daughter nuclei, meiosis produces haploid diversity, and regulated cell cycles coordinate growth and repair.",

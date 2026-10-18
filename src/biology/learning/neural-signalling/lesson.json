@@ -69,7 +69,9 @@
         "ib-c22",
         "hodder-c22"
       ],
-      "assets": [],
+      "assets": [
+        "neuron-structure"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -168,7 +170,13 @@
             "explanation": "Neurons have a cell body containing the nucleus and cytoplasm. Multiple branched dendrites commonly receive inputs, whereas a single long axon conducts action potentials toward terminal branches. Neurons vary greatly in shape and axon length according to their roles."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "neuron-structure",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "c22-2",
@@ -3663,6 +3671,22 @@
         "hodder-c22"
       ],
       "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "neuron-structure",
+      "kind": "diagram",
+      "src": "/biology/neural-signalling/neuron-structure.svg",
+      "alt": "Original model of a myelinated multipolar neuron: branching dendrites, cell body with nucleus, axon, segmented myelin sheath, nodes of Ranvier and axon terminals. Arrow shows typical signal propagation along the axon. Neuron forms vary.",
+      "captionTitle": "Neuron: receive, conduct, transmit",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Independent vector geometry authored for this repository; no copied or traced scientific artwork.",
+      "referenceIds": [
+        "ib-c22",
+        "hodder-c22"
+      ],
+      "level": "shared",
       "review": "scientific-review"
     }
   ],

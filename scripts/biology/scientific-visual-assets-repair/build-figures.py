@@ -38,8 +38,8 @@ b+=text(517,177,'H⁺',22,GOLD)+path('M416 349V397',GOLD,3,True)+text(453,427,'A
 b+=text(35,452,'Electron flow (not proton movement):',22,weight=600)
 b+=box(30,473,156,70,'NADH → NAD⁺')+path('M191 508H223',arrow=True)+box(232,473,145,70,'Carriers')+path('M382 508H414',arrow=True)+box(424,473,146,70,'O₂ → H₂O')
 b+=lines(30,584,'Electron transfer releases energy for proton pumping from matrix to intermembrane space.',42)
-b+=lines(30,654,'Proton return through ATP synthase drives phosphorylation. No fixed ATP-per-NADH yield.',42)
-save('cell-respiration','mitochondrial-chemiosmosis.svg','Chemiosmosis in mitochondria','Original model: electron transport pumps protons from matrix to intermembrane space; protons return to matrix through ATP synthase. Electrons supplied by NADH pass to oxygen, which forms water. Proton and electron pathways shown separately; membrane complexes grouped.',b,730)
+b+=lines(30,680,'Proton return through ATP synthase drives phosphorylation. No fixed ATP-per-NADH yield.',42)
+save('cell-respiration','mitochondrial-chemiosmosis.svg','Chemiosmosis in mitochondria','Original model: electron transport pumps protons from matrix to intermembrane space; protons return to matrix through ATP synthase. Electrons supplied by NADH pass to oxygen, which forms water. Proton and electron pathways shown separately; membrane complexes grouped.',b,780)
 # Light reactions, explicitly connected electron chain, H pumping separate.
 b=text(28,77,'STROMA · ATP and NADPH made on this side',20)
 b+=text(48,118,'Light',21,GOLD)+path('M91 128L126 177',GOLD,3,True)+text(310,118,'Light',21,GOLD)+path('M350 128L383 177',GOLD,3,True)
@@ -71,9 +71,9 @@ save('photosynthesis','calvin-carbon.svg','Calvin cycle: fixation to regeneratio
 b=text(28,77,'Bacterial lagging strand · one fragment at a time',20)
 for i,(title,sub) in enumerate([('1 · Primase','makes an RNA primer'),('2 · DNA polymerase III','adds DNA to the primer’s 3′ end'),('3 · DNA polymerase I','replaces RNA primer with DNA'),('4 · DNA ligase','seals the remaining backbone nick')]):
  y=103+i*137;b+=text(30,y+21,title,23,weight=600)+text(30,y+51,sub,20)
- if i<2:b+=path(f'M80 {y+88}H180',RED,9)+path(f'M184 {y+88}H{290 if i==0 else 502}',TEAL,9)
+ if i<2:b+=path(f'M80 {y+88}H180',RED,9)+(path(f'M184 {y+88}H502',TEAL,9) if i==1 else '')
  else:b+=path(f'M80 {y+88}H{285 if i==2 else 502}',TEAL,9)+(path(f'M299 {y+88}H502',TEAL,9) if i==2 else '')
- b+=text(44,y+96,'5′',20)+text(529,y+96,'3′',20)
+ b+=text(44,y+96,'5′',20)+text(200 if i==0 else 529,y+96,'3′',20)
  if i<3:b+=path(f'M300 {y+105}V{y+125}',arrow=True)
 b+=text(30,682,'RNA primer',21,RED)+text(220,682,'New DNA',21,TEAL)+text(30,716,'All DNA extension is 5′ → 3′. Stages are simplified.',20)
 save('dna-replication','bacterial-replication-enzymes.svg','Replication enzymes divide the work','Prokaryotic model: primase lays RNA primer; DNA polymerase III extends DNA 5 prime to 3 prime; DNA polymerase I replaces primer with DNA; ligase seals phosphodiester backbone nicks. Each horizontal strip is a successive state of one fragment, not a replication fork.',b,740)
@@ -87,10 +87,10 @@ for x in [134,160,186,212]:b+=circle(x,263,10,RED)
 b+=circle(385,263,11,GOLD)+path('M238 262H363',BLUE,3,True)+text(298,294,'Transfer',19,BLUE,anchor='middle')
 b+=text(40,140,'Growing chain on tRNA',20,RED)+text(348,140,'Next amino acid',20,GOLD)
 b+=lines(30,451,'1. A charged tRNA pairs its anticodon with the next mRNA codon in the A site.',44)
-b+=lines(30,532,'2. A peptide bond transfers the growing chain from the P-site tRNA to the A-site amino acid.',44)
-b+=lines(30,613,'3. Ribosome moves one codon toward 3′. Empty tRNA exits; loaded tRNA moves to P.',44)
-b+=text(30,709,'Codon example AUG–CCG is illustrative. Not to scale.',19)
-save('protein-synthesis','translation-elongation.svg','Translation: pair, join, move','An illustrative ribosome with P and A sites on mRNA reading 5 prime AUG CCG 3 prime. tRNA anticodons are displayed antiparallel. The polypeptide transfers from P to A, then translocation moves the ribosome one codon toward mRNA 3 prime. E site and initiation factors omitted.',b,740)
+b+=lines(30,549,'2. A peptide bond transfers the growing chain from the P-site tRNA to the A-site amino acid.',44)
+b+=lines(30,651,'3. Ribosome moves one codon toward 3′. Empty tRNA exits; loaded tRNA moves to P.',44)
+b+=text(30,758,'Codon example AUG–CCG is illustrative. Not to scale.',19)
+save('protein-synthesis','translation-elongation.svg','Translation: pair, join, move','An illustrative ribosome with P and A sites on mRNA reading 5 prime AUG CCG 3 prime. tRNA anticodons are displayed antiparallel. The polypeptide transfers from P to A, then translocation moves the ribosome one codon toward mRNA 3 prime. E site and initiation factors omitted.',b,790)
 # alternative splicing blocks
 b=text(28,77,'One gene · different mature mRNA products',21)
 colors=[BLUE,TEAL,RED]
@@ -108,7 +108,7 @@ save('protein-synthesis','alternative-splicing.svg','Alternative splicing select
 b=text(28,77,'Prophase I · paired homologous chromosomes',21)
 b+=text(115,113,'Homologue A',21,BLUE,anchor='middle')+text(438,113,'Homologue B',21,RED,anchor='middle')
 for x,c in [(85,BLUE),(145,BLUE),(410,RED),(470,RED)]:b+=path(f'M{x} 145V293',c,12)+circle(x,215,9,INK)
-b+=path('M157 263C240 320 314 320 398 263',GOLD,3,True)+text(290,345,'Non-sister chromatids exchange',21,anchor='middle')+text(290,375,'equivalent DNA segments',21,anchor='middle')
+b+=path('M157 263C240 320 314 320 398 263',GOLD,3,True)+path('M398 240C314 183 240 183 157 240',GOLD,3,True)+text(290,345,'Non-sister chromatids exchange',21,anchor='middle')+text(290,375,'equivalent DNA segments',21,anchor='middle')
 b+=path('M300 395V444',arrow=True)
 for x,c,tail in [(85,BLUE,BLUE),(145,BLUE,RED),(410,RED,BLUE),(470,RED,RED)]:b+=path(f'M{x} 467V573',c,12)+path(f'M{x} 581V632',tail,12)+circle(x,530,9,INK)
 b+=text(28,680,'Two chromatids are recombinant; two unchanged.',21)+text(28,715,'Chromosome number is unchanged by crossing over.',20)
@@ -177,3 +177,79 @@ b+=text(30,677,'Ascending limb: Na⁺ pumped out; not water.',20,GOLD)
 b+=text(30,710,'Gradient permits collecting-duct water reabsorption.',19)
 b+=text(30,740,'ADH regulates collecting-duct water permeability.',19,GREEN)
 save('homeostasis','loop-henle-gradient.svg','Loop of Henle builds a gradient','Countercurrent schematic with descending filtrate on left, ascending limb on right and collecting duct further right. Water exits descending limb; ascending limb pumps sodium into medulla and is water-impermeable. Increasing medullary osmotic concentration enables collecting duct water reabsorption when ADH increases permeability. No fabricated numerical gradient.',b,773)
+# Full bacterial cell replaces three disconnected summary icons.
+b=text(28,77,'Generalized bacterium · structures vary by species',20)
+b+=rect(75,205,450,259,'#e4ead3',GREEN,120)+rect(90,222,420,225,'#eef5ed',TEAL,105)
+b+=path('M525 327Q573 279 567 391Q566 447 585 466',TEAL,5)
+b+=path('M195 321C178 256 297 270 326 312S437 347 404 397S289 394 260 361S164 373 195 321Z',RED,5)
+for x,y in [(144,313),(170,391),(230,254),(286,409),(377,256),(463,356),(423,416),(335,246),(126,353)]:b+=circle(x,y,4,BLUE)
+b+=f'<ellipse cx="388" cy="304" rx="24" ry="13" fill="none" stroke="{GOLD}" stroke-width="3"/>'
+for x1,y1,x2,y2,label,tx,ty in [(144,313,45,150,'70S ribosomes',30,136),(81,271,43,192,'Cell wall',30,180),(100,405,49,508,'Plasma membrane',30,538),(273,342,280,500,'Nucleoid: DNA',223,538),(388,293,431,156,'Plasmid',411,137),(566,417,500,562,'Flagellum',411,592)]:
+ b+=path(f'M{x1} {y1}L{x2} {y2}',width=1.6)+text(tx,ty,label,20)
+b+=text(420,487,'Cytoplasm',20)+path('M437 467L440 425',width=1.6)
+b+=lines(30,649,'No membrane-enclosed nucleus or other membrane-bound organelles. Plasmids and flagella are not universal.',43)
+save('cell-structure','a22-prokaryote.svg','Prokaryotic cell: connected structures','Generalized bacterial model with peptidoglycan cell wall outside plasma membrane, cytoplasm with 70S ribosomes, DNA nucleoid not enclosed by a membrane, optional plasmid and flagellum. Not a universal set of bacterial surface structures; no Gram-negative outer membrane shown.',b,760)
+# Animal-cell section with organelles placed inside one shared cell boundary.
+b=text(28,77,'Animal cell section · not a photograph or a fixed layout',19)
+b+=f'<ellipse cx="300" cy="340" rx="244" ry="211" fill="#eef6f3" stroke="{TEAL}" stroke-width="4"/>'
+b+=f'<ellipse cx="257" cy="326" rx="76" ry="65" fill="#e4dcef" stroke="#8566a5" stroke-width="6"/>'+circle(249,330,21,'#8566a5')
+for y in [223,244,265]:
+ b+=path(f'M330 {y}Q390 {y-21} 449 {y+9}',TEAL,5)
+ for x in [345,370,396,421]:b+=circle(x,y-4,3,BLUE)
+for y in [390,412,434]:b+=path(f'M349 {y}Q390 {y+12} 432 {y-3}',GOLD,5)
+for x,y in [(132,304),(183,461)]:
+ b+=f'<ellipse cx="{x}" cy="{y}" rx="40" ry="24" fill="#f5e4cc" stroke="{GOLD}" stroke-width="2"/>'+path(f'M{x-22} {y}q10 -17 20 0t20 0',GOLD,2)
+for x,y in [(127,373),(361,480),(419,343),(190,218),(300,467)]:b+=circle(x,y,4,BLUE)
+b+=circle(453,370,16,RED)
+for x1,y1,x2,y2,label,tx,ty in [(65,291,41,161,'Plasma membrane',30,136),(233,302,105,213,'Nucleus',30,193),(358,235,432,149,'Rough ER',414,128),(405,412,520,465,'Golgi apparatus',385,504),(180,460,115,551,'Mitochondrion',30,583),(300,467,298,552,'Free ribosomes',244,583),(453,370,550,358,'Lysosome',440,335)]:
+ b+=path(f'M{x1} {y1}L{x2} {y2}',width=1.6)+text(tx,ty,label,20)
+b+=lines(30,647,'Ribosomes on the rough ER face the cytosol. No cell wall or chloroplasts. Organelle sizes are simplified.',43)
+save('cell-structure','a22-eukaryote.svg','Eukaryotic animal cell','Independent animal-cell section with plasma membrane enclosing cytoplasm, nucleus with nucleolus and nuclear envelope, rough ER with cytosolic ribosomes, Golgi stack, mitochondria with internal folds, lysosome and free ribosomes. No cell wall or chloroplast. Simplified subset; organelles not to scale.',b,753)
+# Labelled neuron structure, preserving optional interactions elsewhere.
+b=text(28,77,'A myelinated neuron · one simplified form',21)
+b+=f'<ellipse cx="151" cy="265" rx="62" ry="65" fill="#e7deef" stroke="#8566a5" stroke-width="3"/>'+circle(151,265,20,'#8566a5')
+for d in ['M105 221L70 153L40 127','M74 163L105 128','M90 249L43 215L28 172','M91 284L37 308L28 351','M114 315L78 387L40 409','M81 381L112 406']:b+=path(d,'#8566a5',4)
+b+=path('M209 265H524V468',TEAL,7)
+for x in [247,355,463]:b+=rect(x,240,77,50,'#f0d5b4',GOLD,18)
+for d in ['M524 449L479 504','M524 468L566 509','M524 468V525']:b+=path(d,TEAL,4)
+for x,y in [(479,504),(566,509),(524,525)]:b+=circle(x,y,9,TEAL)
+b+=text(30,113,'Dendrites',21)+text(33,449,'Cell body',21)+path('M113 428L130 323',width=1.5)
+b+=text(249,204,'Axon + myelin sheath',21)+path('M344 216V239',width=1.5)
+b+=text(275,347,'Node of Ranvier',21)+path('M338 325V270',width=1.5)
+b+=path('M245 382H476',BLUE,4,True)+text(246,420,'Typical signal direction',20,BLUE)
+b+=text(325,570,'Axon terminals',21)+path('M467 550L483 514',width=1.5)
+b+=lines(30,639,'Dendrites and cell body receive inputs. Action potentials propagate along the axon; terminals signal to target cells.',43)
+save('neural-signalling','neuron-structure.svg','Neuron: receive, conduct, transmit','Simplified myelinated multipolar neuron. Branched dendrites and nucleated cell body receive signals. Axon is wrapped in separated myelin segments with nodes of Ranvier and ends in branching terminals. Arrow denotes typical information flow along axon; many neuron forms differ.',b,740)
+# Preserve accurate existing bilayer drawings; improve vesicle topology only.
+b=text(28,77,'Membrane bending changes which space contains cargo',18)
+for y,title in [(117,'ENDOCYTOSIS: outside → vesicle'),(408,'EXOCYTOSIS: vesicle → outside')]:b+=text(30,y,title,23,weight=600)
+b+=text(35,156,'Outside cell',19)+text(35,369,'Cytosol',19)
+b+=path('M30 208H190Q228 208 228 245Q228 296 271 296Q315 296 315 245Q315 208 353 208H570',TEAL,5)+circle(270,254,12,GOLD)
+b+=path('M357 256H401',arrow=True)+circle(461,292,39,'#dceef1')+circle(461,292,12,GOLD)
+b+=text(382,358,'Internal vesicle',19)
+b+=text(35,450,'Outside cell',19)+text(35,660,'Cytosol',19)
+b+=circle(131,565,38,'#dceef1')+circle(131,565,12,GOLD)+path('M188 552H228',arrow=True)
+b+=path('M30 493H321Q351 493 351 530Q351 570 397 570Q443 570 443 530Q443 493 478 493H570',TEAL,5)
+b+=circle(397,520,12,GOLD)+path('M397 505V463',GOLD,3,True)+circle(397,447,10,GOLD)
+b+=lines(30,704,'Vesicle membrane joins the plasma membrane during fusion. Cargo need not pass through a channel.',45,20)
+save('membranes-transport','mechanism-13.svg','Endocytosis and exocytosis','Original membrane-topology model. Endocytosis: plasma membrane invaginates around extracellular cargo and closes to form an internal vesicle. Exocytosis: cytosolic vesicle fuses with the plasma membrane and exposes cargo to the exterior. Different successive states separated by arrows; not a channel.',b,777)
+# Qualitative selection graphs with explicit axes and the same pre-selection distribution.
+import math
+for mobile in [False,True]:
+ w=600 if mobile else 1050;h=1130 if mobile else 465
+ b=text(28,78,'Dashed: before selection · solid: after selection',19)
+ for i,title in enumerate(['Directional','Stabilizing','Disruptive']):
+  ox=95 if mobile else 58+i*338;oy=150+i*310 if mobile else 146;gw=410 if mobile else 274;gh=184
+  b+=text(ox,oy-24,title,23,weight=600)+path(f'M{ox} {oy}V{oy+gh}H{ox+gw}',INK,2)
+  def gauss(x,mu,sd):return math.exp(-0.5*((x-mu)/sd)**2)/sd
+  for baseline in [True,False]:
+   pts=[]
+   for n in range(101):
+    u=n/100
+    v=gauss(u,.5,.16) if baseline else (gauss(u,.72,.16) if i==0 else gauss(u,.5,.10) if i==1 else .5*gauss(u,.26,.10)+.5*gauss(u,.74,.10))
+    pts.append(f'{ox+u*gw:.2f},{oy+gh-v*38:.2f}')
+   b+=f'<polyline points="{" ".join(pts)}" fill="none" stroke="{("#7c8794" if baseline else TEAL)}" stroke-width="3"'+(' stroke-dasharray="7 5"' if baseline else '')+'/>'
+  b+=text(ox+gw/2,oy+gh+30,'Trait value',19,anchor='middle')
+  b+=f'<text transform="translate({ox-32} {oy+gh/2}) rotate(-90)" font-size="18" fill="{INK}" text-anchor="middle">Frequency density</text>'
+ b+=text(28,h-23,'Conceptual distributions; no observed data or fixed trait units.',18)
+ save('natural-selection','d41-selection-patterns'+('-mobile' if mobile else '')+'.svg','Selection changes a trait distribution','Constructed equal-area distributions compare before and after selection: directional shifts the mean; stabilizing narrows around the same mean; disruptive favours extremes. Axes show trait value and frequency density. No observational dataset, fitness curve or numerical trait scale is implied.',b,h,w)

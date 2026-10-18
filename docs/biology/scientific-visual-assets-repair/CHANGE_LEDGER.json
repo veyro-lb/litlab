@@ -113,7 +113,8 @@
     "action": "REPLACE",
     "reason": "No redistribution grant in PDF provenance; use independent pre-existing BioLab schematic",
     "old": "/biology/source-pdf-figures/a22-prokaryote.png",
-    "new": "/biology/cell-structure/a22-prokaryote.svg"
+    "new": "/biology/cell-structure/a22-prokaryote.svg",
+    "additionalRepair": "Three disconnected summary icons replaced by a labelled bacterial cell with structures inside the same membrane"
   },
   {
     "topic": "A2.2",
@@ -121,7 +122,8 @@
     "action": "REPLACE",
     "reason": "No redistribution grant in PDF provenance; use independent pre-existing BioLab schematic",
     "old": "/biology/source-pdf-figures/a22-eukaryote.png",
-    "new": "/biology/cell-structure/a22-eukaryote.svg"
+    "new": "/biology/cell-structure/a22-eukaryote.svg",
+    "additionalRepair": "Three summary icons replaced by a labelled animal-cell section, including spatial relations and cytosolic rough-ER ribosomes"
   },
   {
     "topic": "A2.2",
@@ -283,5 +285,126 @@
     "id": "calvin-carbon",
     "action": "IMPROVE",
     "reason": "Missing RuBP return arrow, TP export arrow and ATP stoichiometry"
+  },
+  {
+    "topic": "B2.1",
+    "id": "b21-figure-13",
+    "action": "IMPROVE",
+    "reason": "Exocytosis lacked a membrane-fusion state; now shows open connection to extracellular space and release"
+  },
+  {
+    "topic": "D4.1",
+    "id": "d41-selection",
+    "action": "IMPROVE",
+    "reason": "Missing axes, pre-selection baseline and mobile layout; original equal-area conceptual distributions with explicit legend"
+  },
+  {
+    "topic": "A1.2",
+    "id": "a12-hershey",
+    "action": "IMPROVE",
+    "reason": "Isotope label overlapped header in actual Chromium render; relocated both isotope labels"
+  },
+  {
+    "topic": "A3.2",
+    "id": "a32-vertebrate-tree",
+    "action": "IMPROVE",
+    "reason": "Actual Chromium screenshot clips the outgroup label; expanded viewBox and background without changing topology"
+  },
+  {
+    "topic": "B1.1",
+    "id": "b11-polysaccharides",
+    "action": "IMPROVE",
+    "reason": "Changed blanket starch branching label to amylopectin/glycogen; amylose is unbranched"
+  },
+  {
+    "topic": "C2.2",
+    "id": "neuron-structure",
+    "action": "ADD",
+    "understandings": [
+      "C2.2.1"
+    ],
+    "sections": [
+      "c22-1"
+    ],
+    "afterBlock": 0,
+    "reason": "Missing spatial neuron anatomy before the conduction mechanism"
+  },
+  {
+    "topic": "B2.2",
+    "id": "mitochondrion-tem",
+    "action": "ADD",
+    "understandings": [
+      "B2.2.4"
+    ],
+    "sections": [
+      "organelle-4"
+    ],
+    "afterBlock": 0,
+    "reason": "Authentic source-verified biology image; individual rights and observational limitations documented"
+  },
+  {
+    "topic": "B2.2",
+    "id": "pancreas-secretory-cell-tem",
+    "action": "ADD",
+    "understandings": [
+      "B2.2.7"
+    ],
+    "sections": [
+      "organelle-7"
+    ],
+    "afterBlock": 0,
+    "reason": "Authentic source-verified biology image; individual rights and observational limitations documented"
+  },
+  {
+    "topic": "C3.2",
+    "id": "neutrophil-mrsa-sem",
+    "action": "ADD",
+    "understandings": [
+      "C3.2.5"
+    ],
+    "sections": [
+      "c32-5"
+    ],
+    "afterBlock": 0,
+    "reason": "Authentic source-verified biology image; individual rights and observational limitations documented"
+  },
+  {
+    "topic": "B3.1",
+    "id": "dicot-leaf-light",
+    "action": "ADD",
+    "understandings": [
+      "B3.1.8"
+    ],
+    "sections": [
+      "b31-8"
+    ],
+    "afterBlock": 0,
+    "reason": "Authentic source-verified biology image; individual rights and observational limitations documented"
+  },
+  {
+    "topic": "D2.1",
+    "id": "onion-root-mitosis",
+    "action": "ADD",
+    "understandings": [
+      "D2.1.8"
+    ],
+    "sections": [
+      "d21-8"
+    ],
+    "afterBlock": 0,
+    "reason": "Authentic source-verified biology image; individual rights and observational limitations documented"
+  },
+  {
+    "topic": "D4.1",
+    "id": "galapagos-finch",
+    "action": "ADD",
+    "understandings": [
+      "D4.1.5"
+    ],
+    "sections": [
+      "natural-selection-5"
+    ],
+    "afterBlock": 0,
+    "reason": "Authentic source-verified biology image; individual rights and observational limitations documented"
   }
 ]
