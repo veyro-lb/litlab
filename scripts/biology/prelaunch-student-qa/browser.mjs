@@ -128,16 +128,21 @@ try{
 
  await test('Keyboard focus visibility on course search',async()=>{
   await visit(page,'biology','.bio-app');
+  const wrapper=page.locator('.bio-search-enhanced');
+  const before=await wrapper.evaluate(el=>getComputedStyle(el).boxShadow);
   await page.keyboard.press('Control+k');
   const search=page.locator('#bio-topic-search');
-  const visual=await search.evaluate(el=>{const css=getComputedStyle(el);return {active:el===el.getRootNode().activeElement,focusVisible:el.matches(':focus-visible'),outlineWidth:css.outlineWidth,outlineStyle:css.outlineStyle,boxShadow:css.boxShadow};});
+  const visual=await search.evaluate(el=>{const css=getComputedStyle(el),container=getComputedStyle(el.closest('.bio-search-enhanced'));return {active:el===el.getRootNode().activeElement,focusVisible:el.matches(':focus-visible'),inputOutline:css.outlineWidth,containerBorderColor:container.borderColor,containerBoxShadow:container.boxShadow};});
   ok(visual.active,'Keyboard shortcut did not move focus to search');
   ok(visual.focusVisible,'Search focus does not match :focus-visible after keyboard action');
-  ok((parseFloat(visual.outlineWidth)>0&&visual.outlineStyle!=='none')||visual.boxShadow!=='none','No visible search focus indicator: '+JSON.stringify(visual));
+  ok(visual.containerBoxShadow!==before&&visual.containerBoxShadow!=='none','No visible search-container focus treatment: '+JSON.stringify(visual));
   return visual;
  });
  await test('Image modal keyboard activation and focus restoration',async()=>{
-  await visit(page,'biology/topic/A1.1/learn?understanding=A1.1.1');
+  const water=lessonFor(reg.find(t=>t.id==='A1.1'));
+  const illustrated=water.sections.find(section=>section.assets?.some(id=>!water.assets.find(asset=>asset.id===id)?.withheldReason));
+  ok(!!illustrated,'No available figure for keyboard modal test');
+  await visit(page,'biology/topic/A1.1/learn?understanding='+illustrated.understandingIds[0]);
   const opener=page.locator('button.bio-figure-image').first();
   await opener.focus();
   await page.keyboard.press('Enter');
