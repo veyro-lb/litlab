@@ -152,6 +152,7 @@ jobs:
             node scripts/biology/theme-b/final-depth-browser.mjs
             node scripts/biology/theme-d-final-20261018/browser.mjs
             node scripts/biology/ux-final/browser.mjs
+            node scripts/biology/prelaunch-student-qa/browser.mjs
           ' 2>&1 | tee qa-browser.log
       - name: Preserve QA evidence
         if: always()
