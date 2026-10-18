@@ -6,7 +6,7 @@ mkdirSync(out,{recursive:true});
 const lessons=readdirSync('src/biology/learning',{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>`src/biology/learning/${x.name}/lesson.json`).filter(x=>{try{readFileSync(x);return true}catch{return false}}).map(x=>JSON.parse(readFileSync(x)));
 const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_BIN||undefined,args:['--no-sandbox','--disable-dev-shm-usage']});
 const results=[],issues=[],zoomChecks=[],svgChecks=[];
-const beforeIds=['krebs-cycle','mitochondrial-chemiosmosis','thylakoid-chemiosmosis','calvin-carbon','a22-prokaryote','a22-eukaryote','b21-figure-13','a12-hershey','a32-vertebrate-tree','d41-selection'];
+const beforeIds=['krebs-cycle','mitochondrial-chemiosmosis','thylakoid-chemiosmosis','calvin-carbon','a22-prokaryote','a22-eukaryote','b21-figure-13','a12-hershey','vertebrate-tree','d41-selection'];
 const beforePaths=new Set(lessons.flatMap(d=>d.assets.filter(a=>beforeIds.includes(a.id)).flatMap(a=>[a.src,a.mobileSrc].filter(Boolean))));
 try{
  const context=await browser.newContext({reducedMotion:'reduce'});
