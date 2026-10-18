@@ -1183,22 +1183,22 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which sugar position and base distinguish DNA from RNA?",
-      "explanation": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. RNA is commonly single-stranded, contains ribose and uses uracil. Single-stranded RNA can fold into hydrogen-bonded regions, so 'commonly single-stranded' is more precise than 'cannot form paired regions'.\n\nRibose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position. A sugar sketch must mark the correct 2′ position while preserving the 3′ hydroxyl relevant to backbone formation. Examples of RNA include mRNA, tRNA and rRNA.\n\nThe sugar in RNA has an –OH on its 2′ carbon, whereas the sugar in DNA has H at the corresponding position. This seemingly small difference changes the chemical susceptibility and typical structural behavior of the polymers. RNA is often single-stranded but can fold into paired stems and loops, and some RNA molecules function catalytically. DNA is usually found as a paired helix in cells, providing a chemically durable store of sequence information. RNA contains U where DNA generally uses T. Avoid writing that RNA never forms double-stranded regions or that each nucleic acid must exist in only one physical shape.",
-      "revisionSummary": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. Ribose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position.",
+      "explanation": "Cellular DNA is usually double-stranded, with two antiparallel nucleotide chains. RNA is usually single-stranded, although it can fold back on itself and form hydrogen-bonded regions. Both are built from nucleotides joined by a sugar–phosphate backbone. DNA contains the bases adenine, thymine, guanine and cytosine; RNA contains adenine, uracil, guanine and cytosine, so uracil normally replaces thymine.\n\nBoth pentose sugars have five numbered carbons and a 3′ hydroxyl used to link nucleotides. Ribose in RNA has an –OH group at the 2′ carbon; 2′-deoxyribose in DNA has –H there instead. When sketching the rings, label the 2′ carbon correctly and compare the group attached to it. Do not place the difference at carbon 3′, because that would misrepresent nucleotide polymerization.\n\nChromosomal DNA and bacterial plasmid DNA are examples of DNA. Messenger RNA (mRNA), transfer RNA (tRNA) and ribosomal RNA (rRNA) are examples of RNA with different roles in gene expression. Their functions vary, but the guide's comparison is primarily about strand number, pentose sugar, base alphabet and identifying examples.",
+      "revisionSummary": "DNA: usually two strands, deoxyribose (2′–H), A/T/G/C. RNA: usually one strand, ribose (2′–OH), A/U/G/C; examples include mRNA, tRNA and rRNA.",
       "terms": [
         "Deoxyribose: sugar with 2′ H",
         "Ribose: sugar with 2′ OH"
       ],
-      "workedExample": "Circle the sugar's 2′ group in DNA and RNA: DNA has 2′–H; RNA has 2′–OH.",
+      "workedExample": "A molecule contains uracil and a sugar with a 2′–OH group: it is RNA. A cellular nucleic acid with paired antiparallel strands and thymine is DNA; RNA can nonetheless form short paired regions.",
       "misconceptions": [
         {
-          "misconception": "The DNA sugar is missing the 3′ hydroxyl group.",
-          "correction": "The distinguishing loss is the 2′ hydroxyl, not 3′."
+          "misconception": "DNA and RNA differ by the group at sugar carbon 3′.",
+          "correction": "The key sugar difference is at carbon 2′: RNA has 2′–OH while DNA has 2′–H; both retain the 3′ hydroxyl used in backbone formation."
         }
       ],
       "claimReferences": [
         {
-          "claim": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. RNA is commonly single-stranded, contains ribose and uses uracil. Single-stranded RNA can fold into hydrogen-bonded regions, so 'commonly single-stranded' is more precise than 'cannot form paired regions'.",
+          "claim": "Cellular DNA is usually double-stranded, with two antiparallel nucleotide chains. RNA is usually single-stranded, although it can fold back on itself and form hydrogen-bonded regions. Both are built from nucleotides joined by a sugar–phosphate backbone. DNA contains the bases adenine, thymine, guanine and cytosine; RNA contains adenine, uracil, guanine and cytosine, so uracil normally replaces thymine.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -1206,7 +1206,7 @@
           ]
         },
         {
-          "claim": "Ribose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position. A sugar sketch must mark the correct 2′ position while preserving the 3′ hydroxyl relevant to backbone formation. Examples of RNA include mRNA, tRNA and rRNA.",
+          "claim": "Both pentose sugars have five numbered carbons and a 3′ hydroxyl used to link nucleotides. Ribose in RNA has an –OH group at the 2′ carbon; 2′-deoxyribose in DNA has –H there instead. When sketching the rings, label the 2′ carbon correctly and compare the group attached to it. Do not place the difference at carbon 3′, because that would misrepresent nucleotide polymerization.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -1214,7 +1214,7 @@
           ]
         },
         {
-          "claim": "The sugar in RNA has an –OH on its 2′ carbon, whereas the sugar in DNA has H at the corresponding position. This seemingly small difference changes the chemical susceptibility and typical structural behavior of the polymers. RNA is often single-stranded but can fold into paired stems and loops, and some RNA molecules function catalytically. DNA is usually found as a paired helix in cells, providing a chemically durable store of sequence information. RNA contains U where DNA generally uses T. Avoid writing that RNA never forms double-stranded regions or that each nucleic acid must exist in only one physical shape.",
+          "claim": "Chromosomal DNA and bacterial plasmid DNA are examples of DNA. Messenger RNA (mRNA), transfer RNA (tRNA) and ribosomal RNA (rRNA) are examples of RNA with different roles in gene expression. Their functions vary, but the guide's comparison is primarily about strand number, pentose sugar, base alphabet and identifying examples.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -1228,7 +1228,8 @@
         "ncbi-dna"
       ],
       "assets": [
-        "a12-sugars"
+        "a12-sugars",
+        "a12-dna-rna-comparison"
       ],
       "interactions": [
         {
@@ -1293,8 +1294,8 @@
       },
       "teachingBlocks": [
         {
-          "title": "Compare DNA with RNA",
-          "explanation": "DNA usually consists of two antiparallel strands, contains deoxyribose, and uses thymine. RNA is commonly single-stranded, contains ribose and uses uracil. Single-stranded RNA can fold into hydrogen-bonded regions, so 'commonly single-stranded' is more precise than 'cannot form paired regions'.",
+          "title": "The three main distinctions",
+          "explanation": "Cellular DNA is usually double-stranded, with two antiparallel nucleotide chains. RNA is usually single-stranded, although it can fold back on itself and form hydrogen-bonded regions. Both are built from nucleotides joined by a sugar–phosphate backbone. DNA contains the bases adenine, thymine, guanine and cytosine; RNA contains adenine, uracil, guanine and cytosine, so uracil normally replaces thymine.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -1302,8 +1303,8 @@
           ]
         },
         {
-          "title": "Locate the difference at the sugar’s 2′ carbon",
-          "explanation": "Ribose bears an –OH group on its 2′ carbon; 2′-deoxyribose has H at that position. A sugar sketch must mark the correct 2′ position while preserving the 3′ hydroxyl relevant to backbone formation. Examples of RNA include mRNA, tRNA and rRNA.",
+          "title": "Sketch the sugar difference at carbon 2′",
+          "explanation": "Both pentose sugars have five numbered carbons and a 3′ hydroxyl used to link nucleotides. Ribose in RNA has an –OH group at the 2′ carbon; 2′-deoxyribose in DNA has –H there instead. When sketching the rings, label the 2′ carbon correctly and compare the group attached to it. Do not place the difference at carbon 3′, because that would misrepresent nucleotide polymerization.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -1311,8 +1312,8 @@
           ]
         },
         {
-          "title": "Compare the nucleotides at atomic resolution",
-          "explanation": "The sugar in RNA has an –OH on its 2′ carbon, whereas the sugar in DNA has H at the corresponding position. This seemingly small difference changes the chemical susceptibility and typical structural behavior of the polymers. RNA is often single-stranded but can fold into paired stems and loops, and some RNA molecules function catalytically. DNA is usually found as a paired helix in cells, providing a chemically durable store of sequence information. RNA contains U where DNA generally uses T. Avoid writing that RNA never forms double-stranded regions or that each nucleic acid must exist in only one physical shape.",
+          "title": "Recognize examples, not only abbreviations",
+          "explanation": "Chromosomal DNA and bacterial plasmid DNA are examples of DNA. Messenger RNA (mRNA), transfer RNA (tRNA) and ribosomal RNA (rRNA) are examples of RNA with different roles in gene expression. Their functions vary, but the guide's comparison is primarily about strand number, pentose sugar, base alphabet and identifying examples.",
           "referenceIds": [
             "ib-a12",
             "hodder-a12",
@@ -4073,6 +4074,24 @@
       "attribution": "IB Biology Drawings (Noteworthy Science / Marier), supplied PDF, page 3.",
       "license": "Third-party licensed illustration; original copyright retained by credited source.",
       "permissionEvidence": "Unmodified source-PDF figure; file hash and exact page in docs/biology/source-figure-credits.json."
+    },
+    {
+      "id": "a12-dna-rna-comparison",
+      "kind": "schematic",
+      "src": "/biology/nucleic-acids/dna-rna-comparison.svg",
+      "alt": "Original comparison table showing strand count, sugar, nitrogenous bases and examples of DNA and RNA, emphasizing 2-prime deoxyribose versus ribose and thymine versus uracil.",
+      "captionTitle": "DNA versus RNA: strands, sugars, bases and examples",
+      "interpretation": "Original conceptual comparison/process visual; review with the adjacent explanation, not as a scale drawing.",
+      "attribution": "Original BioLab diagram for source-informed course-depth audit (2026)",
+      "license": "Original first-party BioLab illustration",
+      "permissionEvidence": "Drawn independently from underlying scientific mechanisms; publisher diagrams were not copied or traced",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "level": "shared",
+      "review": "scientific-review"
     }
   ],
   "summary": "Nucleotide chemistry produces strong directional sugar–phosphate backbones and complementary strands. DNA's enormous sequence space allows genetic storage; a conserved translation code supports ancestry. HL studies nucleosomes, tracers and falsification.",
