@@ -73,6 +73,46 @@ try{
   await test('Revision and flashcards '+theme,async()=>{await visit(page,'biology/topic/'+id+'/revision');await page.locator('.bio-takeaway').first().waitFor();await visit(page,'biology/topic/'+id+'/flashcards');await page.getByRole('button',{name:'Reveal answer'}).first().click();await page.locator('.bio-flashcard-answer[role=status]').waitFor();await page.getByRole('button',{name:/Next card/}).click();});
  }
  await test('Sources and credits are student accessible',async()=>{await visit(page,'biology/topic/A1.1/sources');await page.locator('#bio-sources-heading').waitFor();const n=await page.locator('.bio-educational-sources li').count();ok(n===2,'Expected official IB and Hodder listings, got '+n);const links=await page.locator('.bio-educational-sources a[href^="https://"]').count();ok(links===2,'Expected two https source links, got '+links);await shot(page,'sources-A1.1-1440');});
+ await test('Licensed scientific image has exact reusable source and terms',async()=>{
+  const lesson=lessonFor(reg.find(t=>t.id==='A2.2'));
+  const asset=lesson.assets.find(a=>a.id==='a22-cucumber-tem');
+  ok(asset&&asset.sourceUrl&&asset.termsUrl,'Missing authoritative asset citation metadata');
+  await visit(page,'biology/topic/A2.2/sources');
+  const details=page.locator('details.bio-media-credits');
+  await details.waitFor();
+  await details.locator('summary').click();
+  const item=page.locator('.bio-media-credits li').filter({hasText:asset.captionTitle});
+  await item.waitFor();
+  const source=await item.getByRole('link',{name:/Original source/}).getAttribute('href');
+  const terms=await item.getByRole('link',{name:/Licence or terms/}).getAttribute('href');
+  ok(source===asset.sourceUrl,'Exact image source URL mismatch: '+source);
+  ok(terms===asset.termsUrl,'Exact license URL mismatch: '+terms);
+  ok((await item.innerText()).includes(asset.attribution.slice(0,30)),'Authorship or attribution is hidden');
+  await shot(page,'licensed-image-source-A2.2-1440');
+  return {source,terms,assetId:asset.id};
+ });
+ await test('Real licensed multi-panel micrograph fits 320px and enlarges',async()=>{
+  const lesson=lessonFor(reg.find(t=>t.id==='A2.2'));
+  const section=lesson.sections.find(s=>s.assets.includes('a22-cucumber-tem'));
+  ok(!!section,'Licensed TEM has no lesson placement');
+  const {ctx,p}=await makePage(320,'light');
+  try{
+   await visit(p,'biology/topic/A2.2/learn?understanding='+section.understandingIds[0]);
+   const figure=p.locator('.bio-figure[data-asset-id="a22-cucumber-tem"]');
+   await figure.waitFor();
+   const image=figure.locator('img').first();
+   const measures=await image.evaluate(el=>({width:el.getBoundingClientRect().width,naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,complete:el.complete}));
+   ok(measures.complete&&measures.naturalWidth>0,'Licensed TEM failed to load');
+   ok(measures.width<=320,'TEM overflows 320px viewport');
+   await noOverflow(p,'licensed TEM at 320px');
+   await shot(p,'licensed-image-mobile-320');
+   await figure.locator('button.bio-figure-image').click();
+   await p.locator('dialog.bio-figure-dialog[open]').waitFor();
+   await shot(p,'licensed-image-enlarged-320');
+   await p.keyboard.press('Escape');
+   return measures;
+  }finally{await ctx.close();}
+ });
  await test('Drawing Practice (when eligible)',async()=>{await visit(page,'biology/topic/A1.1/drawing');const eligible=page.locator('.bio-drawing[data-exercise]');if(!await eligible.count())return {status:'not-available-A1.1',notCountedAsInteractivePass:true};await page.getByRole('button',{name:'Reveal labels'}).first().click();await page.locator('.bio-drawing-reference').waitFor();await page.getByRole('button',{name:'Check labels'}).click();await page.locator('.bio-drawing-field p[role=status]').first().waitFor();await page.getByRole('button',{name:'Draw it yourself'}).click();await page.getByRole('button',{name:/Hide reference & draw/}).click();await shot(page,'drawing-A1.1-1440');});
  await test('Understandings previous/next and browser history',async()=>{await visit(page,'biology/topic/A1.1/learn?understanding=A1.1.1');await page.getByRole('button',{name:/Next:/}).click();await page.waitForURL(/understanding=A1\.1\.2/);await page.goBack();await page.waitForURL(/understanding=A1\.1\.1/);await page.locator('.bio-back').first().click();await page.waitForURL(/#biology\/topic\/A1\.1$/);});
  await test('Semantic heading and focusable table',async()=>{await visit(page,'biology/topic/D3.2/learn?understanding=D3.2.9');const tbl=page.locator('.bio-table-scroll').first();await tbl.waitFor();ok(await tbl.getAttribute('role')==='region','No labelled table region');ok(await tbl.getAttribute('aria-label'),'No table region label');ok(await tbl.getAttribute('tabindex')==='0','Table not keyboard focusable');});
