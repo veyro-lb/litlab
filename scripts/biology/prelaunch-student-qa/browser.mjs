@@ -109,11 +109,15 @@ try{
    await figure.locator('button.bio-figure-image').click();
    await p.locator('dialog.bio-figure-dialog[open]').waitFor();
    const zoom=p.locator('dialog.bio-figure-dialog[open] .bio-figure-zoom');
-   const scroll=await zoom.evaluate(el=>({client:el.clientWidth,scroll:el.scrollWidth}));
+   await shot(p,'licensed-image-enlarged-320');
+   const scroll=await zoom.evaluate(el=>{
+    const img=el.querySelector('img');
+    const cs=img?getComputedStyle(img):null;
+    return {client:el.clientWidth,scroll:el.scrollWidth,imgClientWidth:img?.getBoundingClientRect().width,imgNaturalWidth:img?.naturalWidth,imgNaturalHeight:img?.naturalHeight,imgComputedWidth:cs?.width,imgWidthRule:cs?.width,imgMinWidth:cs?.minWidth};
+   });
    ok(scroll.scroll>scroll.client+200,'Large TEM not genuinely enlarged for mobile inspection: '+JSON.stringify(scroll));
    await zoom.evaluate(el=>{el.scrollLeft=el.scrollWidth;});
    ok(await zoom.evaluate(el=>el.scrollLeft)>200,'Cannot horizontally inspect full-resolution micrograph');
-   await shot(p,'licensed-image-enlarged-320');
    await p.keyboard.press('Escape');
    return measures;
   }finally{await ctx.close();}
