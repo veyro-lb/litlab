@@ -148,8 +148,14 @@ try {
   await page.locator('.bio-sources').waitFor();
   assert.equal(await page.locator('#bio-sources-heading').innerText(),'Sources for this topic');
   await page.getByRole('heading',{name:'Principal educational sources'}).waitFor();
-  assert.ok((await page.locator('.bio-educational-sources li')).count()>=2,'Official guide and coursebook sources must be visible');
-  assert.equal(await page.locator('.bio-educational-sources a[href^="https://"]').count(),await page.locator('.bio-educational-sources li').count(),'Each educational source needs a live provider link');
+  const guide=page.locator('.bio-educational-sources [data-source-id="ib-biology-guide-2025"]');
+  const coursebook=page.locator('.bio-educational-sources [data-source-id="hodder-biology-third-edition-2023"]');
+  await guide.waitFor({state:'visible'});
+  await coursebook.waitFor({state:'visible'});
+  assert.equal(await page.locator('.bio-educational-sources li').count(),2,'Sources policy must show exactly the two curated educational authorities');
+  for(const source of [guide,coursebook]){
+    assert.equal(await source.locator('a[href^="https://"]').count(),1,'Each official source must provide exactly one live provider link');
+  }
  });
  await test('Figure enlargement: focus, Escape, return to opener',async()=>{
   await visit(page,'#biology/topic/A1.1/learn?understanding=A1.1.2');
