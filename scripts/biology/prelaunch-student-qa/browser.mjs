@@ -58,7 +58,7 @@ try{
     for(let index=0;index<sourceBlocks.length;index++){
      const expected=sourceBlocks[index].explanation.replace(/\s+/g,' ').trim();
      const text=(await rendered.nth(index).innerText()).replace(/\s+/g,' ').trim();
-     ok(text.includes(expected.slice(0,Math.min(100,expected.length))),'Teaching block '+index+' not faithfully rendered');
+     ok(text.includes(expected),'Teaching block '+index+' not fully rendered');
     }
     const h=await page.locator('.bio-lesson-content h2').first().innerText();
     ok(h.trim().length>10,'Missing substantive title');
@@ -108,6 +108,11 @@ try{
    await shot(p,'licensed-image-mobile-320');
    await figure.locator('button.bio-figure-image').click();
    await p.locator('dialog.bio-figure-dialog[open]').waitFor();
+   const zoom=p.locator('dialog.bio-figure-dialog[open] .bio-figure-zoom');
+   const scroll=await zoom.evaluate(el=>({client:el.clientWidth,scroll:el.scrollWidth}));
+   ok(scroll.scroll>scroll.client+200,'Large TEM not genuinely enlarged for mobile inspection: '+JSON.stringify(scroll));
+   await zoom.evaluate(el=>{el.scrollLeft=el.scrollWidth;});
+   ok(await zoom.evaluate(el=>el.scrollLeft)>200,'Cannot horizontally inspect full-resolution micrograph');
    await shot(p,'licensed-image-enlarged-320');
    await p.keyboard.press('Escape');
    return measures;
