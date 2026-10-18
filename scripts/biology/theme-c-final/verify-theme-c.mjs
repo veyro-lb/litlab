@@ -79,7 +79,7 @@ const mustTeach = [
   ['chemical-signalling','C2.1.10',/adenylyl cyclase/i,/cAMP|cyclic AMP/i],
   ['chemical-signalling','C2.1.11',/tyrosine/i,/vesicles/i],
   ['chemical-signalling','C2.1.12',/DNA/i,/transcription/i],
-  ['neural-signalling','C2.2.4',/correlation/i,/R²|R\\^2|coefficient of determination/i],
+  ['neural-signalling','C2.2.4',/correlation/i,/R²|R\^2|coefficient of determination/i],
   ['neural-signalling','C2.2.8',/voltage-gated/i,/repolarization/i],
   ['neural-signalling','C2.2.10',/oscilloscope/i,/frequency|impulses s|Hz/i],
   ['neural-signalling','C2.2.11',/Ranvier/i,/myelin/i],
@@ -103,7 +103,7 @@ let shorter100 = 0, shorter150 = 0, lowest = null;
 for (const [, slug] of entries) {
   const lesson = JSON.parse(readFileSync('src/biology/learning/' + slug + '/lesson.json', 'utf8'));
   for (const section of lesson.sections) {
-    const words = section.explanation.trim().split(/\\s+/).length;
+    const words = section.explanation.trim().split(/\s+/).length;
     if (words < 100) shorter100++;
     if (words < 150) shorter150++;
     if (!lowest || words < lowest.words) lowest = { id: section.understandingIds[0], words };
