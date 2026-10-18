@@ -347,7 +347,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which coding change is most likely to produce a downstream frameshift?",
-      "explanation": "The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift.\n\nAn addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid. A large in-frame deletion can still destroy essential domains or folding, so being in-frame does not guarantee normal protein function.\n\nAn insertion or deletion of one or two bases inside a coding region generally shifts the downstream reading frame. An insertion/deletion of three bases may preserve the frame but still alter important amino acids. A premature stop can result from a frameshift, though outcomes depend on location and transcript processing.",
+      "explanation": "The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift.\n\nAn addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid. A large in-frame deletion can still destroy essential domains or folding, so being in-frame does not guarantee normal protein function.\n\nAn insertion or deletion of one or two bases inside a coding region generally shifts the downstream reading frame. An insertion/deletion of three bases may preserve the frame but still alter important amino acids. A premature stop can result from a frameshift, though outcomes depend on location and transcript processing.\n\nAdding or removing one nucleotide in a coding region usually shifts the downstream codon reading frame, potentially changing many amino acids or introducing a premature stop. Adding or removing three coding nucleotides preserves the downstream reading frame but still changes protein length and potentially its function. Non-coding changes require a different analysis.",
       "revisionSummary": "The ribosome groups bases into successive non-overlapping triplets after the start codon. An addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid.",
       "terms": [
         "Insertions and deletions can shift the frame: the focal mechanism",
@@ -375,6 +375,13 @@
             "ib-d13",
             "hodder-d13",
             "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Adding or removing one nucleotide in a coding region usually shifts the downstream codon reading frame, potentially changing many amino acids or introducing a premature stop. Adding or removing three coding nucleotides preserves the downstream reading frame but still changes protein length and potentially its function. Non-coding changes require a different analysis.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
           ]
         }
       ],
@@ -460,6 +467,14 @@
             "ib-d13",
             "hodder-d13",
             "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Frame shifts and three-base changes are different",
+          "explanation": "Adding or removing one nucleotide in a coding region usually shifts the downstream codon reading frame, potentially changing many amino acids or introducing a premature stop. Adding or removing three coding nucleotides preserves the downstream reading frame but still changes protein length and potentially its function. Non-coding changes require a different analysis.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
           ]
         }
       ],
@@ -1274,7 +1289,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What role does guide RNA serve in a typical CRISPR–Cas9 editing system?",
-      "explanation": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment.\n\nCasgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A. Reduced BCL11A in erythroid cells increases fetal hemoglobin, benefiting some people with sickle cell disease or transfusion-dependent beta-thalassemia. This is a regulated ex vivo intervention, not evidence that arbitrary disease-causing variants can be safely repaired throughout the body.\n\nA common CRISPR–Cas9 editing design uses guide RNA for target recognition and Cas9 to cleave DNA near a target adjacent to a suitable recognition motif. Cellular repair can disrupt the gene or enable a designed edit, but outcomes can include unexpected insertions/deletions and off-target changes. A successful therapy for one condition does not establish universal safety or germ-line acceptability.",
+      "explanation": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment.\n\nCasgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A. Reduced BCL11A in erythroid cells increases fetal hemoglobin, benefiting some people with sickle cell disease or transfusion-dependent beta-thalassemia. This is a regulated ex vivo intervention, not evidence that arbitrary disease-causing variants can be safely repaired throughout the body.\n\nA common CRISPR–Cas9 editing design uses guide RNA for target recognition and Cas9 to cleave DNA near a target adjacent to a suitable recognition motif. Cellular repair can disrupt the gene or enable a designed edit, but outcomes can include unexpected insertions/deletions and off-target changes. A successful therapy for one condition does not establish universal safety or germ-line acceptability.\n\nGuide RNA specifies a complementary DNA target near a suitable adjacent recognition motif; Cas9 cuts it. Cellular repair then determines the sequence outcome. Error-prone repair may disrupt the gene, while precisely specified changes generally require additional strategies. Confirm edited sequence, possible off-target changes and measured phenotype separately rather than inferring successful editing from cleavage alone.",
       "revisionSummary": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Casgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A.",
       "terms": [
         "CRISPR–Cas9 can target DNA but outcomes need checking: the focal mechanism",
@@ -1304,6 +1319,13 @@
             "hodder-d13",
             "ncbi-evolution",
             "fda-casgevy"
+          ]
+        },
+        {
+          "claim": "Guide RNA specifies a complementary DNA target near a suitable adjacent recognition motif; Cas9 cuts it. Cellular repair then determines the sequence outcome. Error-prone repair may disrupt the gene, while precisely specified changes generally require additional strategies. Confirm edited sequence, possible off-target changes and measured phenotype separately rather than inferring successful editing from cleavage alone.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
           ]
         }
       ],
@@ -1393,6 +1415,14 @@
             "ncbi-evolution",
             "fda-casgevy"
           ]
+        },
+        {
+          "title": "A Cas9 cut is not a guaranteed precise edit",
+          "explanation": "Guide RNA specifies a complementary DNA target near a suitable adjacent recognition motif; Cas9 cuts it. Cellular repair then determines the sequence outcome. Error-prone repair may disrupt the gene, while precisely specified changes generally require additional strategies. Confirm edited sequence, possible off-target changes and measured phenotype separately rather than inferring successful editing from cleavage alone.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
         }
       ],
       "support": {
@@ -1464,7 +1494,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What can help explain a highly conserved sequence?",
-      "explanation": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations.\n\nSome regions may also accumulate fewer changes because their local mutation rate is lower. Shared ancestry, selection and regional mutational processes all affect observed conservation. Comparing aligned sequences is evidence, but a conserved sequence does not by itself prove what precise molecular function it performs.\n\nConservation means that related sequences remain alike over evolutionary time. Functional constraint and purifying selection can explain similarity because damaging variants are removed; locally lower mutation rates are an alternative hypothesis. Sequence similarity alone cannot distinguish these explanations without more evidence.",
+      "explanation": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations.\n\nSome regions may also accumulate fewer changes because their local mutation rate is lower. Shared ancestry, selection and regional mutational processes all affect observed conservation. Comparing aligned sequences is evidence, but a conserved sequence does not by itself prove what precise molecular function it performs.\n\nConservation means that related sequences remain alike over evolutionary time. Functional constraint and purifying selection can explain similarity because damaging variants are removed; locally lower mutation rates are an alternative hypothesis. Sequence similarity alone cannot distinguish these explanations without more evidence.\n\nComparative sequence observations can show that sites are conserved across taxa. Functional constraint is a plausible, testable hypothesis, while shared ancestry and local mutation rates also shape conservation. Establishing the specific function of a conserved sequence requires further experimental or comparative evidence.",
       "revisionSummary": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. Some regions may also accumulate fewer changes because their local mutation rate is lower.",
       "terms": [
         "Conservation suggests constraints, not a single explanation: the focal mechanism",
@@ -1492,6 +1522,13 @@
             "ib-d13",
             "hodder-d13",
             "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Comparative sequence observations can show that sites are conserved across taxa. Functional constraint is a plausible, testable hypothesis, while shared ancestry and local mutation rates also shape conservation. Establishing the specific function of a conserved sequence requires further experimental or comparative evidence.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
           ]
         }
       ],
@@ -1577,6 +1614,14 @@
             "ib-d13",
             "hodder-d13",
             "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Sequence conservation is evidence, not direct proof of function",
+          "explanation": "Comparative sequence observations can show that sites are conserved across taxa. Functional constraint is a plausible, testable hypothesis, while shared ancestry and local mutation rates also shape conservation. Establishing the specific function of a conserved sequence requires further experimental or comparative evidence.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
           ]
         }
       ],
