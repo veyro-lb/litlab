@@ -2012,7 +2012,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "How do quadrat presence–absence counts test an association?",
-      "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells.\n\nWith 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 × 20) ÷ 40 = 10. The four chi-squared contributions each equal (4 − 10)² ÷ 10 = 3.6 or (16 − 10)² ÷ 10 = 3.6, giving χ² = 14.4 with df = (2 − 1)(2 − 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
+      "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.\n\nWith 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 × 20) ÷ 40 = 10. The four chi-squared contributions each equal (4 − 10)² ÷ 10 = 3.6 or (16 − 10)² ÷ 10 = 3.6, giving χ² = 14.4 with df = (2 − 1)(2 − 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
       "revisionSummary": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions.",
       "terms": [
         "contingency table — counts classified by two categories",
@@ -2028,7 +2028,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells.",
+          "claim": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2100,7 +2100,7 @@
       "teachingBlocks": [
         {
           "title": "Set up observed and expected counts",
-          "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells.",
+          "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -3923,7 +3923,7 @@
   "summary": "Population size is estimated by samples and shaped by resources, feedback and interactions. Communities contain competing and cooperating populations; observations and experiments provide different strengths of evidence.",
   "review": {
     "status": "source-mapped",
-    "sourceCheckedAt": "2026-10-17",
+    "sourceCheckedAt": "2026-10-18",
     "reviewer": null,
     "notes": [
       "Original educational draft aligned to IB Guide C4.1 printed pp. 80–83 and Hodder chapter printed pp. 548–577; wording, questions and visuals are newly authored.",
@@ -3932,7 +3932,8 @@
       "Statistical association is not treated as proof of interspecific competition.",
       "No independent Biology, assessment, accessibility or rights approval.",
       "Sprint 8: source-led clarifications for C4.1.2, .3, .4, .7, .15 and .18; constructed numerical calculations and hypothesis limits added, no field records represented as observed.",
-      "Sprint 8: 18 misconception-specific distractor explanations replace repeated generic feedback in six ecological MCQs, including sampling, Lincoln index, graphical axes and chi-squared inference."
+      "Sprint 8: 18 misconception-specific distractor explanations replace repeated generic feedback in six ecological MCQs, including sampling, Lincoln index, graphical axes and chi-squared inference.",
+      "2026-10-18 Theme C editorial: Clarified chi-squared sample units and conditions; retained caution that association does not prove competition. Qualified science/educational review and live build tests remain pending."
     ]
   }
 }
