@@ -47,6 +47,7 @@ jobs:
           set -euo pipefail
           {
             node scripts/biology/full-course/readiness-audit.mjs
+            node --test scripts/biology/full-course/glossary-schema.test.mjs
             node scripts/validate-phase9.mjs
             node --test scripts/validate-phase9.test.mjs
             node scripts/validate-phase7-batch3.mjs
