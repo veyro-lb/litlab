@@ -76,6 +76,13 @@ s+=arrow(470,433,560,433)+circle(635,433,55,'#e6f1f8')+circle(635,433,14,'#ce757
 fig.append(('A coat on the cytosolic face',s,'The plasma membrane invaginates inward around external cargo bound to a receptor. Clathrin is shown along the cytosolic convex surface of the pit, outside the future lumen; adaptors connect coat to cargo receptors but are not individually resolved. Scission produces a coated vesicle, then the coat is removed before downstream fusion. The final circle shows an uncoated vesicle with lumenal cargo. Other scission and targeting machinery is omitted.'))
 lesson=json.loads(Path('src/biology/learning/organelles-compartmentalization/lesson.json').read_text())
 for i,(title,body,alt) in enumerate(fig,1):
+ # B2.2.3–5 and B2.2.8 were manually redrawn and visually reviewed in
+ # October 2026. Never overwrite their SVG or mobile/recall variants with
+ # the older draft generator; update the original editable assets directly.
+ if i in (3,4,5,8):
+  assert (out/f'organelle-{i}.svg').exists(), f'Missing curated SVG: {i}'
+  assert (out/f'organelle-{i}-mobile.svg').exists(), f'Missing curated mobile SVG: {i}'
+  continue
  svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc"><title id="title">B2.2.{i}: {escape(title)}</title><desc id="desc">{escape(alt)}</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="{ink}"/></marker></defs><rect width="800" height="560" rx="18" fill="#f7faf6"/><g font-family="Arial, sans-serif">{text(30,45,title,28)}{text(30,75,'Original conceptual schematic · not to scale',16)}{body}</g></svg>'''
  (out/f'organelle-{i}.svg').write_text(svg)
  import re
