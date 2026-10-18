@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-18",
+  "baseBranch": "feature/biolab-ib-final-integration-20261018",
+  "baseSha": "3e07486876700cd35d0931f91a7c11ae82946084",
+  "reviewBranch": "feature/biolab-prelaunch-scientific-review-20261018",
+  "runType": "connector-executed baseline source inspection, not local Node/Browser CI",
+  "results": [
+    {
+      "check": "remote baseline SHA inspected before creating review branch",
+      "status": "PASS",
+      "evidence": "3e07486876700cd35d0931f91a7c11ae82946084"
+    },
+    {
+      "check": "separate review branch created at exact verified source commit",
+      "status": "PASS",
+      "evidence": "feature/biolab-prelaunch-scientific-review-20261018"
+    },
+    {
+      "check": "registry and 40 real lesson JSONs fetched/JSON parsed",
+      "status": "PASS",
+      "observed": 40
+    },
+    {
+      "check": "553 registered understanding IDs resolve to lesson sections",
+      "status": "PASS",
+      "observed": 553,
+      "missing": 0
+    },
+    {
+      "check": "section-vs-registry SL/HL correspondence",
+      "status": "PASS",
+      "tested": 553,
+      "failures": 0
+    },
+    {
+      "check": "question inventory from current source objects",
+      "status": "PASS",
+      "observed": 1007,
+      "distribution": {
+        "paper1A": 535,
+        "paper1B": 52,
+        "paper2": 420
+      }
+    },
+    {
+      "check": "multiple-choice exactly one correct option",
+      "status": "PASS",
+      "tested": 535,
+      "observedExceptions": 0
+    },
+    {
+      "check": "written question markingPoints counts equal indicated marks",
+      "status": "PASS",
+      "observedExceptions": 0,
+      "scope": "structural, not substantive mark quality"
+    },
+    {
+      "check": "questions reference present understanding IDs",
+      "status": "PASS",
+      "observedExceptions": 0
+    },
+    {
+      "check": "old 25 assessment patches exact replacement equality to current source",
+      "status": "PASS",
+      "matched": 25,
+      "unresolved": 0
+    },
+    {
+      "check": "selected current scientific/assessment content manually compared to local Guide and Hodder PDFs",
+      "status": "PARTIAL",
+      "verifiedItems": "priority scientific mechanisms and 11 correction proposals",
+      "caveat": "does not cover every statement in 553 understandings or every question"
+    },
+    {
+      "check": "historical visual-issue source reinspection",
+      "status": "PARTIAL",
+      "testedIssueRecords": 11,
+      "sourceRemediated": 5,
+      "partial": 1,
+      "open": 4,
+      "browserUnverified": 1
+    },
+    {
+      "check": "current baseline section guide pages match registry",
+      "status": "FAIL",
+      "mismatches": 2,
+      "understandings": [
+        "B3.2.3",
+        "C2.2.8"
+      ],
+      "interpretation": "source metadata defect, not missing syllabus understanding"
+    },
+    {
+      "check": "per-understanding exact Hodder printed-page locator field present",
+      "status": "FAIL",
+      "missing": 58,
+      "topics": [
+        "C3.2",
+        "C4.1",
+        "C4.2"
+      ],
+      "interpretation": "chapter-level references exist; needs precise locators"
+    },
+    {
+      "check": "all 1007 answer keys and all 553 scientific prose individually independently verified",
+      "status": "NOT_RUN",
+      "reason": "requires extensive independent specialist reading"
+    },
+    {
+      "check": "Node validators/npm quality/Vite build on review commit",
+      "status": "NOT_RUN",
+      "reason": "GitHub connector has no local execution and this environment cannot network-clone the repository; never inherit old CI results"
+    },
+    {
+      "check": "Chromium/mobile/dark-mode/accessibility visual checking",
+      "status": "NOT_RUN",
+      "reason": "no browser session or screenshot evidence for this review branch"
+    },
+    {
+      "check": "GitHub Actions/combined status at reviewed report stage",
+      "status": "NOT_RUN",
+      "reason": "No workflow runs existed on review branch when queried and commit status array was empty; no green checks claimed"
+    }
+  ],
+  "releaseRecommendation": "NO-GO",
+  "examinerApproved": false,
+  "professionalScientificApproval": false,
+  "wasMerged": false,
+  "wasDeployed": false,
+  "protectedFileChangesAllowed": false,
+  "methods": "Full machine inventory plus targeted genuine manual source inspection; no fictitious expert certification"
+}
