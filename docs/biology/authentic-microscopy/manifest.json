@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "1.0",
+  "createdOn": "2026-10-18",
+  "status": "licensed-evidence-pack-unwired",
+  "baseBranch": "feature/biolab-all-sprints-integration-20261018",
+  "baseHead": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
+  "branch": "feature/biolab-authentic-microscopy-20261018",
+  "disclaimer": "These are teaching assets, not completed lessons or independent scientific certification. HT29 images are three channels of the SAME field, not three independent cell specimens.",
+  "assets": [
+    {
+      "id": "a22-ht29-dapi",
+      "kind": "fluorescence-channel",
+      "specimen": {
+        "species": "Homo sapiens",
+        "cellLine": "HT29",
+        "specimenDescription": "Cultured human HT29 cells; one microscope field, DAPI nuclear-DNA channel",
+        "exactSampleCode": "AS_09125_050116030001_D03f00d0"
+      },
+      "modality": "Fluorescence light microscopy, single-channel grayscale image; DAPI-labelled nuclear DNA",
+      "imagePath": "public/biology/authentic-microscopy/cellprofiler-ht29-dapi-dna.png",
+      "originalPath": "public/biology/authentic-microscopy/cellprofiler-ht29-dapi-dna.tif",
+      "originalSourcePath": "ExampleHuman/images/AS_09125_050116030001_D03f00d0.tif",
+      "pngGitBlobSha": "cb49ef8273857aea6fd3e0019ab3c9c9f4206384",
+      "originalGitBlobSha": "ecb4cfabfcc0023cc9a74eec7168b8882ce4ebea",
+      "imageBytes": 262744,
+      "originalBytes": 233336,
+      "verification": {
+        "widthPx": 512,
+        "heightPx": 512,
+        "channels": 1,
+        "bitsPerChannel": 8,
+        "sourceCompression": "TIFF PackBits",
+        "pixelMinimum": 7,
+        "pixelMaximum": 255,
+        "losslessPixelIdentity": true
+      },
+      "observable": [
+        "fluorescent DAPI-positive nuclear-DNA regions",
+        "number and distribution of the signal-bearing regions"
+      ],
+      "notObservable": [
+        "cell wall",
+        "cristae",
+        "Golgi",
+        "plasma membrane ultrastructure",
+        "accurate absolute nuclear diameter"
+      ],
+      "source": {
+        "repository": "CellProfiler/examples",
+        "home": "https://github.com/CellProfiler/examples/tree/master/ExampleHuman",
+        "readme": "https://github.com/CellProfiler/examples/blob/master/ExampleHuman/README.md",
+        "pipeline": "https://github.com/CellProfiler/examples/blob/master/ExampleHuman/ExampleHuman.cppipe",
+        "licenseEvidence": "https://github.com/CellProfiler/examples/commit/ab40cbdb6068b04a7e02a0a3e08042b37433a97c",
+        "rightsReview": "https://github.com/CellProfiler/examples/issues/41",
+        "copyrightHolder": "David Root",
+        "provider": "Jason Moffat",
+        "usageLicense": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit": "Human HT29 cell image data provided by Jason Moffat; copyright holder David Root; CC0 dedication documented by CellProfiler. Source: Moffat et al., Cell (2006), DOI 10.1016/j.cell.2006.01.040."
+      },
+      "scale": {
+        "status": "unavailable",
+        "reason": "CellProfiler pipeline relative pixel spacing of 1 is not calibrated in micrometres; no image scale bar",
+        "allowAbsoluteMeasurement": false
+      },
+      "placement": [
+        "A2.2.2",
+        "A2.2.10"
+      ],
+      "exerciseId": "EX-HT29-CHANNELS"
+    },
+    {
+      "id": "a22-ht29-ph3",
+      "kind": "fluorescence-channel",
+      "specimen": {
+        "species": "Homo sapiens",
+        "cellLine": "HT29",
+        "specimenDescription": "Same cultured human HT29 cells and field; phospho-histone H3 immunofluorescence channel",
+        "exactSampleCode": "AS_09125_050116030001_D03f00d1"
+      },
+      "modality": "Fluorescence light microscopy; antibody against phosphorylated histone H3 (PH3), grayscale",
+      "imagePath": "public/biology/authentic-microscopy/cellprofiler-ht29-phospho-h3.png",
+      "originalPath": "public/biology/authentic-microscopy/cellprofiler-ht29-phospho-h3.tif",
+      "originalSourcePath": "ExampleHuman/images/AS_09125_050116030001_D03f00d1.tif",
+      "pngGitBlobSha": "6eb1a1c8f7756034e77616a77a90bed2e04145a2",
+      "originalGitBlobSha": "771d30f72fbc62967411551d6d85b10c04b58400",
+      "imageBytes": 262744,
+      "originalBytes": 240924,
+      "verification": {
+        "widthPx": 512,
+        "heightPx": 512,
+        "channels": 1,
+        "bitsPerChannel": 8,
+        "sourceCompression": "TIFF PackBits",
+        "pixelMinimum": 7,
+        "pixelMaximum": 245,
+        "losslessPixelIdentity": true
+      },
+      "observable": [
+        "relative signal distribution of a labelled histone-associated mitotic marker"
+      ],
+      "notObservable": [
+        "sarcomeres",
+        "mitochondria",
+        "individual histone proteins",
+        "proof of division stage from PH3 signal alone"
+      ],
+      "source": {
+        "repository": "CellProfiler/examples",
+        "home": "https://github.com/CellProfiler/examples/tree/master/ExampleHuman",
+        "readme": "https://github.com/CellProfiler/examples/blob/master/ExampleHuman/README.md",
+        "pipeline": "https://github.com/CellProfiler/examples/blob/master/ExampleHuman/ExampleHuman.cppipe",
+        "licenseEvidence": "https://github.com/CellProfiler/examples/commit/ab40cbdb6068b04a7e02a0a3e08042b37433a97c",
+        "rightsReview": "https://github.com/CellProfiler/examples/issues/41",
+        "copyrightHolder": "David Root",
+        "provider": "Jason Moffat",
+        "usageLicense": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit": "Human HT29 cell image data provided by Jason Moffat; copyright holder David Root; CC0 dedication documented by CellProfiler. Source: Moffat et al., Cell (2006), DOI 10.1016/j.cell.2006.01.040."
+      },
+      "scale": {
+        "status": "unavailable",
+        "allowAbsoluteMeasurement": false
+      },
+      "placement": [
+        "A2.2.2",
+        "A2.2.10"
+      ],
+      "exerciseId": "EX-HT29-CHANNELS"
+    },
+    {
+      "id": "a22-ht29-cellbody",
+      "kind": "fluorescence-channel",
+      "specimen": {
+        "species": "Homo sapiens",
+        "cellLine": "HT29",
+        "specimenDescription": "Same cultured human HT29 cells and field; CellProfiler cell-body channel, target dye not specified",
+        "exactSampleCode": "AS_09125_050116030001_D03f00d2"
+      },
+      "modality": "Light-microscopy multichannel screening acquisition, grayscale cell-body channel; fluorophore not identified in the supplied pipeline",
+      "imagePath": "public/biology/authentic-microscopy/cellprofiler-ht29-cellbody.png",
+      "originalPath": "public/biology/authentic-microscopy/cellprofiler-ht29-cellbody.tif",
+      "originalSourcePath": "ExampleHuman/images/AS_09125_050116030001_D03f00d2.tif",
+      "pngGitBlobSha": "829e63f87035c0d98399c7b7dfe77532876b796b",
+      "originalGitBlobSha": "9d644735ee667745962104b6c9b92a9a7f6047b0",
+      "imageBytes": 262744,
+      "originalBytes": 293652,
+      "verification": {
+        "widthPx": 512,
+        "heightPx": 512,
+        "channels": 1,
+        "bitsPerChannel": 8,
+        "sourceCompression": "TIFF uncompressed",
+        "pixelMinimum": 2,
+        "pixelMaximum": 255,
+        "losslessPixelIdentity": true
+      },
+      "observable": [
+        "broad cell-associated signal outlines and distribution",
+        "relative locations of broad signal against DAPI channel"
+      ],
+      "notObservable": [
+        "unambiguous plasma membrane localization",
+        "a specifically identified dye target",
+        "unseen organelles"
+      ],
+      "source": {
+        "repository": "CellProfiler/examples",
+        "home": "https://github.com/CellProfiler/examples/tree/master/ExampleHuman",
+        "readme": "https://github.com/CellProfiler/examples/blob/master/ExampleHuman/README.md",
+        "pipeline": "https://github.com/CellProfiler/examples/blob/master/ExampleHuman/ExampleHuman.cppipe",
+        "licenseEvidence": "https://github.com/CellProfiler/examples/commit/ab40cbdb6068b04a7e02a0a3e08042b37433a97c",
+        "rightsReview": "https://github.com/CellProfiler/examples/issues/41",
+        "copyrightHolder": "David Root",
+        "provider": "Jason Moffat",
+        "usageLicense": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit": "Human HT29 cell image data provided by Jason Moffat; copyright holder David Root; CC0 dedication documented by CellProfiler. Source: Moffat et al., Cell (2006), DOI 10.1016/j.cell.2006.01.040."
+      },
+      "scale": {
+        "status": "unavailable",
+        "allowAbsoluteMeasurement": false
+      },
+      "placement": [
+        "A2.2.2",
+        "A2.2.10"
+      ],
+      "exerciseId": "EX-HT29-CHANNELS"
+    },
+    {
+      "id": "a22-cucumber-tem",
+      "kind": "multiplate-tem",
+      "specimen": {
+        "species": "Cucumis sativus",
+        "cultivar": "Marketer",
+        "specimenDescription": "Cucumber leaf mesophyll thin sections: control versus iron-deficient plants",
+        "exactSampleCode": "Vigani et al. 2015, Figure 3 (panels A–F)"
+      },
+      "modality": "Transmission electron micrograph, ultrathin fixed/stained sections; six-panel scientific figure",
+      "imagePath": "public/biology/authentic-microscopy/cucumber-leaf-tem-existing-validated.webp",
+      "originalPath": null,
+      "originalSourcePath": "https://journals.plos.org/plosone/article/figure/image?size=original&id=10.1371/journal.pone.0129141.g003",
+      "pngGitBlobSha": "707b75d220dc150d533436686e5425cb768bca8a",
+      "imageBytes": 431314,
+      "verification": {
+        "format": "WebP lossless",
+        "pixelIdentity": "Established by original BioLab Phase 9 provenance; same exact Git blob copied without transcoding",
+        "originalPngSha256": "df088bf85aca0269567dfe5a38df44c2717c7819313dc6035512177c56f72bb0",
+        "localWebpSha256": "85f12d5916bce05c382f6389e27d6b361abb21c0f1a7390fd8f5262dbdd02d8c"
+      },
+      "observable": [
+        "chloroplast profiles and thylakoid stacks",
+        "mitochondrial profiles with cristae",
+        "some wall and vacuolar regions where actually visible"
+      ],
+      "notObservable": [
+        "prokaryotic nucleoid",
+        "all organelles in every panel",
+        "live cell physiological processes"
+      ],
+      "source": {
+        "article": "https://doi.org/10.1371/journal.pone.0129141",
+        "figure": "https://journals.plos.org/plosone/article/figure?id=10.1371/journal.pone.0129141.g003",
+        "origin": "Vigani et al. 2015, PLOS ONE Figure 3",
+        "copyrightHolder": "Vigani et al.",
+        "usageLicense": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "credit": "© 2015 Vigani et al. Figure 3, PLOS ONE 10(6): e0129141, CC BY 4.0. Local copy is identical to prior Phase 9 BioLab licensed figure (no additional edits)."
+      },
+      "scale": {
+        "status": "known-by-panel",
+        "barValue": 500,
+        "barUnit": "nm",
+        "note": "The original caption identifies 500 nm scale bars in each of six panels; each panel has its own bar. Measure within one panel only.",
+        "allowAbsoluteMeasurement": true
+      },
+      "placement": [
+        "A2.2.10",
+        "A2.2.11",
+        "B2.2"
+      ],
+      "exerciseId": "EX-CUCUMBER-TEM"
+    }
+  ],
+  "acceptedViews": 4,
+  "distinctSpecimens": 2,
+  "assetPaths": [
+    "public/biology/authentic-microscopy/cellprofiler-ht29-dapi-dna.png",
+    "public/biology/authentic-microscopy/cellprofiler-ht29-dapi-dna.tif",
+    "public/biology/authentic-microscopy/cellprofiler-ht29-phospho-h3.png",
+    "public/biology/authentic-microscopy/cellprofiler-ht29-phospho-h3.tif",
+    "public/biology/authentic-microscopy/cellprofiler-ht29-cellbody.png",
+    "public/biology/authentic-microscopy/cellprofiler-ht29-cellbody.tif",
+    "public/biology/authentic-microscopy/cucumber-leaf-tem-existing-validated.webp"
+  ],
+  "rightsPolicy": "No excerpt from the supplied Hodder textbook, IB Guide, or IB Biology Drawings PDF is republished. Only source-granted independent imagery is included."
+}

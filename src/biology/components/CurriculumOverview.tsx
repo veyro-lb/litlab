@@ -9,7 +9,7 @@ const ids: ThemeId[] = ['A','B','C','D'];
 
 function TopicTile({topic,resource,level}:{topic:Topic;resource:ResourceMode;level:Level}) {
   const destination=topic.lessonId&&resource!=='learn' ? '#biology/topic/'+topic.id+'/'+resource : '#biology/topic/'+topic.id;
-  const action=!topic.lessonId?'View topic scope':resource==='learn'?'Open topic':resource==='practice'?'Open practice':resource==='revision'?'Open revision':resource==='flashcards'?'Open flashcards':'View sources';
+  const action=!topic.lessonId?'View topic scope':resource==='learn'?'Open topic':resource==='practice'?'Open practice':resource==='revision'?'Open revision':resource==='flashcards'?'Open flashcards':resource==='drawing'?'Practise diagrams':'View sources';
   return <a className="bio-discovery-topic" href={destination} data-topic-id={topic.id}>
     <div className="bio-discovery-topic-top"><span className="bio-topic-code">{topic.id}</span>{topic.level==='HL'&&<span className="bio-hl-mark">HL ONLY</span>}</div>
     <h3>{topic.title}</h3>
