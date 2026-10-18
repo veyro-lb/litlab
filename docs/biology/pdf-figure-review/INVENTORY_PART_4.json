@@ -1,0 +1,888 @@
+{
+  "branch": "feature/biolab-ib-final-integration-20261018",
+  "baselineSha": "3e07486876700cd35d0931f91a7c11ae82946084",
+  "part": 4,
+  "lessonFiles": [
+    "src/biology/learning/populations-communities/lesson.json",
+    "src/biology/learning/protein-synthesis/lesson.json",
+    "src/biology/learning/proteins/lesson.json",
+    "src/biology/learning/reproduction/lesson.json",
+    "src/biology/learning/stability-change/lesson.json",
+    "src/biology/learning/transfers-energy-matter/lesson.json",
+    "src/biology/learning/transport/lesson.json",
+    "src/biology/learning/viruses/lesson.json",
+    "src/biology/learning/water-potential/lesson.json",
+    "src/biology/learning/water/lesson.json"
+  ],
+  "lessonCount": 10,
+  "assetCount": 32,
+  "warning": "Public repository; never commit or serve unlicensed PDF crops. No claim that unmatched PDF figures are unavailable.",
+  "records": [
+    {
+      "topicId": "C4.1",
+      "understandingIds": [
+        "C4.1.8"
+      ],
+      "assetId": "sigmoid-model",
+      "sourceFile": "/biology/populations-communities/sigmoid-model.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab SVG diagram; illustrative model values, not field or laboratory data",
+      "existingLicense": "Original BioLab artwork; no third-party figure reused",
+      "existingReuseEvidence": "Original source SVG authored for this branch; all displayed numerical values explicitly constructed",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Constructed sigmoid model graph: population counts rise from 10 to 55 individuals over six time points and approach model carrying capacity 60; horizontal axis time in arbitrary units, vertical axis number of individuals.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "C4.1",
+      "understandingIds": [
+        "C4.1.7"
+      ],
+      "assetId": "exponential-semilog",
+      "sourceFile": "/biology/populations-communities/exponential-semilog.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab teaching SVG; mathematical illustration, not observed field or culture records",
+      "existingLicense": "Original BioLab artwork; no third-party figure reused",
+      "existingReuseEvidence": "New vector illustration with manually verified coordinates and transparent constructed data provenance",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Semi-logarithmic graph of constructed exponentially doubling population counts: 10, 20, 40 and 80 individuals at times 0, 1, 2, and 3; time has a linear scale and the population axis has equal increments per doubling.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D1.2",
+      "understandingIds": [
+        "D1.2.2"
+      ],
+      "assetId": "d12-sequence",
+      "sourceFile": "/biology/protein-synthesis/coding-template-transcription.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab molecular-sequence schematic",
+      "existingLicense": "Original first-party authored SVG",
+      "existingReuseEvidence": "Newly authored diagram; no third-party artwork reproduced",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "The 5′-ATG GCT TAA-3′ coding strand aligns antiparallel with 3′-TAC CGA ATT-5′ template DNA. RNA polymerase reads template 3′→5′ and creates mRNA 5′-AUG GCU UAA-3′; the ribosome reads 5′→3′ to make methionine and alanine, then stops.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D1.2",
+      "understandingIds": [
+        "D1.2.17"
+      ],
+      "assetId": "d12-ribosome-orientation",
+      "sourceFile": "/biology/protein-synthesis/translation-codon-anticodon.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab vector schematic created for Final Sprint D",
+      "existingLicense": "Original first-party BioLab illustration",
+      "existingReuseEvidence": "Entire diagram newly authored; no publisher illustration reproduced",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Schematic ribosome showing mRNA 5′-AUG GCU UAA-3′ from left to right. P-site tRNA anticodon 3′-UAC-5′ pairs with AUG and carries methionine; A-site anticodon 3′-CGA-5′ pairs with GCU and carries alanine. Ribosome moves along mRNA 5′ to 3′ during translation. UAA is a stop codon, not an amino acid.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B1.2",
+      "understandingIds": [
+        "B1.2.1"
+      ],
+      "assetId": "b12-amino",
+      "sourceFile": "/biology/proteins/amino.svg",
+      "otherFiles": [
+        "/biology/proteins/amino-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "existingLicense": "Original LitLab artwork; publication review pending",
+      "existingReuseEvidence": "Original vector construction; generalized formula independently checked against IB Guide and chemistry textbook",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Generalized alpha amino acid: alpha carbon bonds to H, variable R side chain, amine NH2, and carboxyl COOH. Ionization state can differ with pH.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B1.2",
+      "understandingIds": [
+        "B1.2.2"
+      ],
+      "assetId": "b12-peptide",
+      "sourceFile": "/biology/proteins/peptide.svg",
+      "otherFiles": [
+        "/biology/proteins/peptide-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "existingLicense": "Original LitLab artwork; publication review pending",
+      "existingReuseEvidence": "Original text schematic, not reproduction of textbook chemical art; product formula reviewed at draft level",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Amino acid plus amino acid yields a generalized dipeptide and water. Product: H2N–CH(R1)–C(=O)–NH–CH(R2)–COOH; newly formed peptide bond is covalent C(=O)–NH.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B1.2",
+      "understandingIds": [
+        "B1.2.8",
+        "B1.2.9"
+      ],
+      "assetId": "b12-levels",
+      "sourceFile": "/biology/proteins/levels.svg",
+      "otherFiles": [
+        "/biology/proteins/levels-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "existingLicense": "Original LitLab artwork; publication review pending",
+      "existingReuseEvidence": "Original line-based symbolic visualization; qualified protein-structure diagram review pending",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Primary structure is amino-acid sequence; secondary is regular helices/sheets; tertiary is fold of a chain; quaternary is association of two or more polypeptide subunits. Abstract topology, not to scale.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B1.2",
+      "understandingIds": [
+        "B1.2.11",
+        "B1.2.12"
+      ],
+      "assetId": "b12-forms",
+      "sourceFile": "/biology/proteins/forms.svg",
+      "otherFiles": [
+        "/biology/proteins/forms-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab instructional SVG schematic",
+      "existingLicense": "Original LitLab artwork; publication review pending",
+      "existingReuseEvidence": "Original symbolic outlines without third-party images or textbook diagrams; scientific visual review pending",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Compact insulin hormone drawn as globular, with two mature chains held in part by disulfide links; collagen represented by three extended polypeptide strands twisted into a triple helix for structural strength. Not to scale.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.5"
+      ],
+      "assetId": "d31-cycle-feedback",
+      "sourceFile": "/biology/reproduction/d31-cycle-feedback.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab diagram, produced for this draft (2026-10-17)",
+      "existingLicense": "Original project work; no imported images",
+      "existingReuseEvidence": "Constructed as new SVG from biological relationships described in the guide and referenced teaching material; awaiting scientific review.",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Causal flowchart: pituitary FSH and LH act on the ovarian follicle; oestradiol supports the pre-ovulatory LH surge; the corpus luteum supplies progesterone, and when it regresses hormone levels fall and menstruation follows.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.6"
+      ],
+      "assetId": "d31-fertilization-sequence",
+      "sourceFile": "/biology/reproduction/d31-fertilization-sequence.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab scientific SVG, 2026-10-17",
+      "existingLicense": "Original project work; no textbook figure reused",
+      "existingReuseEvidence": "Created from original geometric shapes and explanatory labels; independent visual/scientific review pending",
+      "scientificReview": "sprint9-source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "A sequential explanatory diagram of acrosome reaction, sperm–egg plasma membrane fusion, paternal nuclear entry, breakdown of nuclear envelopes and first shared mitosis.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.9"
+      ],
+      "assetId": "d31-flower-structures",
+      "sourceFile": "/biology/reproduction/d31-flower-structures.svg",
+      "otherFiles": [
+        "/biology/reproduction/d31-flower-structures-mobile.svg",
+        "/biology/reproduction/d31-flower-structures-recall.svg",
+        "/biology/reproduction/d31-flower-structures-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab vector illustration (redesigned 2026-10-18)",
+      "existingLicense": "Original project work; no textbook figure reused",
+      "existingReuseEvidence": "Replaced the prior SVG with independently authored geometric paths, added scientifically distinct complete labels and associated recall/mobile variants; scientific specialist approval pending.",
+      "scientificReview": "sprint9-source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Original insect-pollinated flower schematic showing stigma, style, ovary and ovules (female carpel); anthers and filaments (stamens); petals and sepals, with lines terminating at the corresponding anatomical structures.",
+      "suppliedPdfFigure": {
+        "file": "IB Biology Drawings.pdf",
+        "pdfPage": 10,
+        "description": "insect-pollinated flower",
+        "privateCrop": "d31-flower-handout.png"
+      },
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": "owner-restricted/private-assets/d31-flower-handout.png",
+      "publicReproductionRights": "BLOCKED - not verified",
+      "privateReviewRights": "restricted owner comparison only; confirm permitted legal basis",
+      "scientificProblems": null,
+      "sourceFigureValidation": "source pages verified; human equivalence pending"
+    },
+    {
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.4"
+      ],
+      "assetId": "d31-male-anatomy",
+      "sourceFile": "/biology/reproduction/d31-male-anatomy.svg",
+      "otherFiles": [
+        "/biology/reproduction/d31-male-anatomy-mobile.svg",
+        "/biology/reproduction/d31-male-anatomy-recall.svg",
+        "/biology/reproduction/d31-male-anatomy-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab vector illustration, authored specifically for this project, 2026-10-18",
+      "existingLicense": "Original project artwork; rights and commercial reuse subject to project legal review",
+      "existingReuseEvidence": "New independent SVG paths and label placement; no pixels, tracings, crops or watermarks copied from the supplied handout.",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Original labelled side-view teaching diagram showing testis inside scrotum, epididymis, sperm duct curving around the bladder toward the prostate, seminal vesicle, prostate, urethra extending through the penis, and erectile tissue.",
+      "suppliedPdfFigure": {
+        "file": "IB Biology Drawings.pdf",
+        "pdfPage": 8,
+        "description": "male-typical reproductive system",
+        "privateCrop": "d31-male-sagittal-handout.png",
+        "alternative": {
+          "file": "Hodder Third Edition 2023",
+          "pdfPage": 708,
+          "printedPage": 696,
+          "figure": "D3.1.4",
+          "privateCrop": "d31-male-hodder.png"
+        }
+      },
+      "exactTextbookFigure": "D3.1.4",
+      "proposedReplacementAsset": "owner-restricted/private-assets/d31-male-sagittal-handout.png",
+      "publicReproductionRights": "BLOCKED - not verified",
+      "privateReviewRights": "restricted owner comparison only; confirm permitted legal basis",
+      "scientificProblems": null,
+      "sourceFigureValidation": "source pages verified; human equivalence pending"
+    },
+    {
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.4"
+      ],
+      "assetId": "d31-female-frontal",
+      "sourceFile": "/biology/reproduction/d31-female-frontal.svg",
+      "otherFiles": [
+        "/biology/reproduction/d31-female-frontal-mobile.svg",
+        "/biology/reproduction/d31-female-frontal-recall.svg",
+        "/biology/reproduction/d31-female-frontal-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab vector illustration, authored specifically for this project, 2026-10-18",
+      "existingLicense": "Original project artwork; rights and commercial reuse subject to project legal review",
+      "existingReuseEvidence": "New independent SVG paths and label placement; no pixels, tracings, crops or watermarks copied from the supplied handout.",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Original labelled frontal teaching diagram with two ovaries, oviducts and their fimbriae, uterus, inner endometrium, cervix and vagina. Oviducts approach ovaries without directly attaching to them.",
+      "suppliedPdfFigure": {
+        "file": "IB Biology Drawings.pdf",
+        "pdfPage": 9,
+        "description": "female-typical reproductive system",
+        "privateCrop": "d31-female-frontal-handout.png",
+        "alternative": {
+          "file": "Hodder Third Edition 2023",
+          "pdfPage": 709,
+          "printedPage": 697,
+          "figure": "D3.1.5",
+          "privateCrop": "d31-female-hodder.png"
+        }
+      },
+      "exactTextbookFigure": "D3.1.5",
+      "proposedReplacementAsset": "owner-restricted/private-assets/d31-female-frontal-handout.png",
+      "publicReproductionRights": "BLOCKED - not verified",
+      "privateReviewRights": "restricted owner comparison only; confirm permitted legal basis",
+      "scientificProblems": null,
+      "sourceFigureValidation": "source pages verified; human equivalence pending"
+    },
+    {
+      "topicId": "D3.1",
+      "understandingIds": [
+        "D3.1.4"
+      ],
+      "assetId": "d31-female-sagittal",
+      "sourceFile": "/biology/reproduction/d31-female-sagittal.svg",
+      "otherFiles": [
+        "/biology/reproduction/d31-female-sagittal-mobile.svg",
+        "/biology/reproduction/d31-female-sagittal-recall.svg",
+        "/biology/reproduction/d31-female-sagittal-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab vector illustration, authored specifically for this project, 2026-10-18",
+      "existingLicense": "Original project artwork; rights and commercial reuse subject to project legal review",
+      "existingReuseEvidence": "New independent SVG paths and label placement; no pixels, tracings, crops or watermarks copied from the supplied handout.",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Original simplified sagittal cutaway of the female reproductive tract identifying uterus, endometrium, cervix, vagina and external vulva; a pale bladder is anterior and a muted rectum posterior for orientation.",
+      "suppliedPdfFigure": {
+        "file": "IB Biology Drawings.pdf",
+        "pdfPage": 9,
+        "description": "female-typical reproductive system",
+        "privateCrop": "d31-female-sagittal-handout.png",
+        "alternative": {
+          "file": "Hodder Third Edition 2023",
+          "pdfPage": 709,
+          "printedPage": 697,
+          "figure": "D3.1.5",
+          "privateCrop": "d31-female-hodder.png"
+        }
+      },
+      "exactTextbookFigure": "D3.1.5",
+      "proposedReplacementAsset": "owner-restricted/private-assets/d31-female-sagittal-handout.png",
+      "publicReproductionRights": "BLOCKED - not verified",
+      "privateReviewRights": "restricted owner comparison only; confirm permitted legal basis",
+      "scientificProblems": null,
+      "sourceFigureValidation": "source pages verified; human equivalence pending"
+    },
+    {
+      "topicId": "D4.2",
+      "understandingIds": [
+        "D4.2.8"
+      ],
+      "assetId": "d42-bod",
+      "sourceFile": "/biology/stability-change/d42-eutrophication.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab SVG 2026-10-17",
+      "existingLicense": "Original work; no imported artwork",
+      "existingReuseEvidence": "New vector design illustrating verified mechanism",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Causal original flowchart from fertilizer nutrient leaching, via algal growth and decomposition, to higher biochemical oxygen demand and declining dissolved oxygen; marine organisms stressed by hypoxia.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D4.2",
+      "understandingIds": [
+        "D4.2.13"
+      ],
+      "assetId": "d42-succession",
+      "sourceFile": "/biology/stability-change/d42-succession.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab SVG 2026-10-17",
+      "existingLicense": "Original work; no imported artwork",
+      "existingReuseEvidence": "Created from original geometric shapes and labels",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Original simplified conceptual progression: bare mineral substrate, pioneer colonizers, soil development, grass and shrubs, then larger plants and a more complex food web, with context-dependent trajectory.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D4.2",
+      "understandingIds": [
+        "D4.2.6"
+      ],
+      "assetId": "d42-harvest-rates",
+      "sourceFile": "/biology/stability-change/d42-harvest-rates.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab scientific SVG, 2026-10-17",
+      "existingLicense": "Original project work; no textbook figure reused",
+      "existingReuseEvidence": "Created from original geometric shapes and explanatory labels; independent visual/scientific review pending",
+      "scientificReview": "sprint9-source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Two original worked arithmetic examples contrasting recruitment with removals; values explicitly hypothetical.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "C4.2",
+      "understandingIds": [
+        "C4.2.4"
+      ],
+      "assetId": "meadow-food-web",
+      "sourceFile": "/biology/transfers-energy-matter/meadow-food-web.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab SVG conceptual diagram; feeding links are educational examples, not field observations",
+      "existingLicense": "Original BioLab artwork; no third-party figure reused",
+      "existingReuseEvidence": "Original SVG constructed for this branch with no publisher drawings or photographs",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "A constructed meadow food web. Arrows point from grass to grasshopper and rabbit, from grasshopper to insect-eating songbird, and from rabbit and songbird to fox, representing biomass and energy transferred to consumers.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B3.2",
+      "understandingIds": [
+        "B3.2.2"
+      ],
+      "assetId": "b32-vessel-comparison",
+      "sourceFile": "/biology/transport/vessel-comparison.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab scientific diagram 2026; no copied source artwork",
+      "existingLicense": "Original vector authorship; qualified rights/science review pending",
+      "existingReuseEvidence": "Newly drawn SVG geometric primitives; no third-party assets or copyrighted diagrams reproduced",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Schematic artery with thick media and round lumen, vein with thin wall and valve, and capillary with single thin endothelial ring.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B3.2",
+      "understandingIds": [
+        "B3.2.9",
+        "B3.2.10"
+      ],
+      "assetId": "b32-dicot-stem-root",
+      "sourceFile": "/biology/transport/dicot-stem-root.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab scientific diagram 2026; no copied source artwork",
+      "existingLicense": "Original vector authorship; qualified rights/science review pending",
+      "existingReuseEvidence": "Newly drawn SVG geometric primitives; no third-party assets or copyrighted diagrams reproduced",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Cross sections of a typical young dicot stem with vascular bundles in a peripheral ring and dicot root with central star-shaped xylem, flanking phloem.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B3.2",
+      "understandingIds": [
+        "B3.2.14"
+      ],
+      "assetId": "b32-heart-circuits",
+      "sourceFile": "/biology/transport/heart-circuits.svg",
+      "otherFiles": [
+        "/biology/transport/heart-circuits-mobile.svg",
+        "/biology/transport/heart-circuits-recall.svg",
+        "/biology/transport/heart-circuits-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab scientific diagram 2026; no copied source artwork",
+      "existingLicense": "Original vector authorship; qualified rights/science review pending",
+      "existingReuseEvidence": "Newly drawn SVG geometric primitives; no third-party assets or copyrighted diagrams reproduced",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Schematic sequence of single circulation fish through heart, gills and body, compared to mammal's pulmonary and systemic circuits.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "B3.2",
+      "understandingIds": [
+        "B3.2.15"
+      ],
+      "assetId": "b32-heart-frontal",
+      "sourceFile": "/biology/transport/heart-frontal.svg",
+      "otherFiles": [
+        "/biology/transport/heart-frontal-mobile.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab schematic authored 2026-10-17",
+      "existingLicense": "Original educational vector; specialist anatomy, accessibility and rights review pending",
+      "existingReuseEvidence": "Composed with newly authored SVG primitives; no source-image copying or external datasets",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Simplified frontal-plane mammalian heart: anatomical right on viewer left; venae cavae to right atrium and tricuspid valve then right ventricle, pulmonary valve and artery to lungs; pulmonary veins to left atrium then mitral valve, left ventricle, aortic valve and aorta. Blue shows relatively deoxygenated blood and red oxygenated blood. Arrows indicate flow; model not to scale.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A2.3",
+      "understandingIds": [
+        "A2.3.2"
+      ],
+      "assetId": "virion-architectures",
+      "sourceFile": "/biology/viruses/virion-architectures.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab schematic, 2026",
+      "existingLicense": "Original project-authored SVG",
+      "existingReuseEvidence": "Drawn as original simplified geometry; no published figure traced; awaiting virology reviewer.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Three independent labeled drawings, not to scale: lambda bacteriophage with DNA inside geometric protein head and a tail; a spherical coronavirus with lipid envelope and protruding spike proteins surrounding RNA nucleocapsid; HIV with a lipid envelope and inner conical capsid enclosing RNA.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "D2.3",
+      "understandingIds": [
+        "D2.3.4"
+      ],
+      "assetId": "d23-potato-model",
+      "sourceFile": "/biology/water-potential/potato-model-graph.svg",
+      "otherFiles": [],
+      "assetType": "project-svg",
+      "attribution": "Original BioLab modelled graph; invented teaching data clearly labelled",
+      "existingLicense": "Original first-party authored SVG",
+      "existingReuseEvidence": "New quantitative graph authored for this topic; no third-party copyrighted figure used",
+      "scientificReview": "source-mapped",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Original hypothetical graph: potato-tissue percentage mass change of +4% at 0.20 mol dm⁻³ sucrose, +1% at 0.30 mol dm⁻³ and −2% at 0.40 mol dm⁻³. The interpolated isotonic concentration is approximately 0.333 mol dm⁻³; data are illustrative model values, not measurements.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.2"
+      ],
+      "assetId": "bonding",
+      "sourceFile": "/biology/water/bonding.svg",
+      "otherFiles": [
+        "/biology/water/bonding-mobile.svg",
+        "/biology/water/bonding-recall.svg",
+        "/biology/water/bonding-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab scientific schematic; source-based draft.",
+      "existingLicense": "Original project artwork; use under the repository’s terms. No third-party artwork copied.",
+      "existingReuseEvidence": "Authored in source for this milestone; geometry and labels checked against the listed references. Qualified review pending.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Two bent water molecules. Solid O–H lines are polar covalent bonds. A dashed line connects δ+ hydrogen of the left molecule to δ− oxygen of the right molecule, showing a hydrogen bond. Angle about 104.5 degrees; schematic, not to scale.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.3"
+      ],
+      "assetId": "cohesion",
+      "sourceFile": "/biology/water/cohesion.svg",
+      "otherFiles": [
+        "/biology/water/cohesion-mobile.svg",
+        "/biology/water/cohesion-recall.svg",
+        "/biology/water/cohesion-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab scientific schematic; source-based draft.",
+      "existingLicense": "Original project artwork; use under the repository’s terms. No third-party artwork copied.",
+      "existingReuseEvidence": "Authored in source for this milestone; geometry and labels checked against the listed references. Qualified review pending.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "In the left panel, evaporation from a leaf generates tension transmitted down a continuous liquid xylem column. The arrow shows water flow upward from roots toward leaves; cohesion helps maintain continuity. In the right panel, water-repellent insect legs depress the water–air interface, where surface tension can support a small insect. The surface is not a solid skin. Original schematic, not to scale; no fixed molecular lattice or measured forces are depicted.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.4"
+      ],
+      "assetId": "capillary",
+      "sourceFile": "/biology/water/capillary.svg",
+      "otherFiles": [
+        "/biology/water/capillary-mobile.svg",
+        "/biology/water/capillary-recall.svg",
+        "/biology/water/capillary-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab scientific schematic; source-based draft.",
+      "existingLicense": "Original project artwork; use under the repository’s terms. No third-party artwork copied.",
+      "existingReuseEvidence": "Authored in source for this milestone; geometry and labels checked against the listed references. Qualified review pending.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Two wettable tubes in a reservoir. The narrower tube has a higher curved meniscus. Adhesion is water-to-wall attraction; cohesion is water-to-water attraction. Rise is finite as gravity opposes it.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.5"
+      ],
+      "assetId": "hydration",
+      "sourceFile": "/biology/water/hydration.svg",
+      "otherFiles": [
+        "/biology/water/hydration-mobile.svg",
+        "/biology/water/hydration-recall.svg",
+        "/biology/water/hydration-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab scientific schematic; source-based draft.",
+      "existingLicense": "Original project artwork; use under the repository’s terms. No third-party artwork copied.",
+      "existingReuseEvidence": "Authored in source for this milestone; geometry and labels checked against the listed references. Qualified review pending.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Hydration schematics: water oxygen ends point toward a sodium ion; hydrogen ends point toward a chloride ion. These are ion–dipole attractions. The diagram shows selected orientations, not fixed coordination numbers.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.6"
+      ],
+      "assetId": "habitat",
+      "sourceFile": "/biology/water/habitat.svg",
+      "otherFiles": [
+        "/biology/water/habitat-mobile.svg",
+        "/biology/water/habitat-recall.svg",
+        "/biology/water/habitat-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab scientific schematic; source-based draft.",
+      "existingLicense": "Original project artwork; use under the repository’s terms. No third-party artwork copied.",
+      "existingReuseEvidence": "Authored in source for this milestone; geometry and labels checked against the listed references. Qualified review pending.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Qualitative comparison of water with air: greater buoyant support for the same displaced volume, higher dynamic viscosity, higher conductivity and higher specific heat capacity. No measured bar lengths are implied.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.7"
+      ],
+      "assetId": "delivery",
+      "sourceFile": "/biology/water/delivery.svg",
+      "otherFiles": [
+        "/biology/water/delivery-mobile.svg",
+        "/biology/water/delivery-recall.svg",
+        "/biology/water/delivery-mobile-recall.svg"
+      ],
+      "assetType": "project-svg",
+      "attribution": "Original LitLab scientific schematic; source-based draft.",
+      "existingLicense": "Original project artwork; use under the repository’s terms. No third-party artwork copied.",
+      "existingReuseEvidence": "Authored in source for this milestone; geometry and labels checked against the listed references. Qualified review pending.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Conceptual pathway: water-bearing asteroidal material can contribute water; gravity helps retention and cooling permits condensation. This does not establish a unique source or the amount delivered.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.6"
+      ],
+      "assetId": "seal",
+      "sourceFile": "/biology/water/ringed-seal.jpg",
+      "otherFiles": [],
+      "assetType": "external-raster-media",
+      "attribution": "NOAA Alaska Fisheries Science Center / John Jansen. Courtesy: National Oceanic and Atmospheric Administration.",
+      "existingLicense": "NOAA-created photograph: not subject to US copyright; educational reuse with credit under NOAA policy.",
+      "existingReuseEvidence": "NOAA species page credits NOAA AFSC/John Jansen. Photo policy permits NOAA-created images, with NOAA credit; no third-party copyright notice identified.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Ringed seal resting on ice in Kotzebue Sound, Alaska; dark fur with pale ring markings.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    },
+    {
+      "topicId": "A1.1",
+      "understandingIds": [
+        "A1.1.8"
+      ],
+      "assetId": "europa",
+      "sourceFile": "/biology/water/europa.jpg",
+      "otherFiles": [],
+      "assetType": "external-raster-media",
+      "attribution": "NASA / JPL-Caltech / SETI Institute, PIA19048. Galileo image mosaic, reprocessed color.",
+      "existingLicense": "Educational/informational reuse under NASA Images and Media Usage Guidelines, with acknowledgement; no endorsement.",
+      "existingReuseEvidence": "PIA19048 source page gives the institutional credit and no separate copyright notice. NASA guidelines permit factual educational web use of NASA media subject to third-party exceptions.",
+      "scientificReview": "scientific-review",
+      "missingAlt": false,
+      "missingSyllabusMapping": false,
+      "displayedAlt": "Galileo spacecraft color mosaic of Europa’s cracked icy surface. It shows surface ice, not the proposed subsurface ocean or life.",
+      "suppliedPdfFigure": null,
+      "exactTextbookFigure": null,
+      "proposedReplacementAsset": null,
+      "publicReproductionRights": "N/A - no verified source crop",
+      "privateReviewRights": "not applicable",
+      "scientificProblems": null,
+      "sourceFigureValidation": "no individual textbook figure matched; availability unverified"
+    }
+  ]
+}
