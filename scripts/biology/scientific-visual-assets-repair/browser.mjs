@@ -78,9 +78,9 @@ try{
   await expect(page.locator('.bio-heat-output')).toContainText('0.48 K');
   await page.locator('#water-heat-mass').fill('2');await expect(page.locator('.bio-heat-output')).toContainText('0.24 K');
   await page.goto('http://127.0.0.1:4173/#biology/topic/B2.2/learn?understanding=B2.2.4');
-  await page.locator('#b22-volume').focus();await page.keyboard.press('Home');
+  await page.locator('#b22-volume').press('Home');
   await expect(page.locator('.bio-concentration-model output')).toContainText('24.0');
-  await page.keyboard.press('ArrowRight');await expect(page.locator('.bio-concentration-model output')).toContainText('12.0');
+  await page.locator('#b22-volume').press('ArrowRight');await expect(page.locator('.bio-concentration-model output')).toContainText('12.0');
   // Report pre-existing and new clipping separately; all findings require review.
   writeFileSync(`${out}/svg-label-bounds.json`,JSON.stringify(svgChecks,null,2));
   await page.evaluate(()=>localStorage.setItem('litlab:biology:preferences:v1','SL'));
