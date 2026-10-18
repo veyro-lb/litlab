@@ -73,7 +73,7 @@ for(const [topic,slug,count,sharedCount] of specs){
   stat.topics++;
 }
 assert.deepEqual([stat.topics,stat.understandings,stat.shared,stat.HL,stat.questions,stat.selection,stat.written,stat.figures,stat.applications],
- [5,61,37,24,102,61,41,48,61],"B1–B2 overall counts");
+ [5,61,37,24,107,61,46,48,61],"B1–B2 overall counts");
 const lipid=readFileSync(path.join(root,"public/biology/carbohydrates-lipids/lipids.svg"),"utf8");
 assert(lipid.includes("C(=O)")&&lipid.includes("P(=O)"),"fatty-acyl ester and phosphoester bond drawing");
 const table=readFileSync(path.join(root,"public/biology/membranes-transport/transport-pathways-20261017.svg"),"utf8");
