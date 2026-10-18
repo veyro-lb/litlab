@@ -53,8 +53,9 @@ test('every understanding has original teaching and core source crosswalk', () =
 test('all cited original Theme D assets exist, without adding global visual assets', () => {
   lessons.forEach(lesson => (lesson.assets || []).forEach(asset => {
     assert.ok(asset.license && /original|project|source|public/i.test(asset.license));
-    assert.ok(asset.url?.startsWith('/biology/'));
-    assert.ok(existsSync(resolve(root, 'public' + asset.url)), asset.id);
+    const target = asset.url || asset.src;
+    assert.ok(target?.startsWith('/biology/'));
+    assert.ok(existsSync(resolve(root, 'public' + target)), asset.id);
   }));
 });
 
