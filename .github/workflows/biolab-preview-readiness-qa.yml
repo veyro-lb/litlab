@@ -40,6 +40,8 @@ jobs:
         run: npm run quality
       - name: Build development application without deployment
         run: npm run build
+      - name: Verify public build contains no protected reference files
+        run: node scripts/biology/preview-readiness/verify-public-build.mjs
       - name: Start actual built website and run Chromium QA
         shell: bash
         run: |
