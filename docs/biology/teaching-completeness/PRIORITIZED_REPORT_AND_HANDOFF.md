@@ -4,13 +4,13 @@
 
 **Audit branch:** `feature/biolab-independent-teaching-completeness-audit-20261018`.
 
-**Nature of work:** 553-row evidence-led teaching-completeness **triage**, 15 targeted Guide/Hodder qualitative comparisons, structural regression tests. **This is not a 553-item independent scientific sign-off.** No Theme A–D `lesson.json` files were changed, no branch was merged, and nothing was deployed.
+**Nature of work:** 553-row evidence-led teaching-completeness **triage**, 15 targeted Guide-to-visible-Learn checks, with selected Hodder chapter context, structural regression tests. **This is not a 553-item independent scientific sign-off.** No Theme A–D `lesson.json` files were changed, no branch was merged, and nothing was deployed.
 
 ## Exact contents of the handoff
 
 - `UNDERSTANDING_AUDIT_553.json` — machine-readable indexed review record for **every** syllabus ID, ordered by official ID, with current primary Learn coverage, SL/HL scope, lesson and section locators, candidate concept terms, visuals/calculations, claimed references, assessment mappings, architectural observations, possible gaps, priority, assigned repair team and unequivocally false `scientificApproval` on every row.
 - `GUIDE_SCOPE_INDEX.json` — 553 official title/level/page locators and candidate source-concept keywords. **Limitation:** the keywords combine title and previously drafted curriculum summaries; they do **not** constitute a verified, exhaustive clause-by-clause transcription or paraphrase of every IB guidance note. An editor must read the attached original Guide for every statement, including diagrams, application of skills, prescribed examples, and NOS notes.
-- `QUALITATIVE_SPOT_CHECKS.json` — 15 original-prose evaluations of selected Guide obligations against actual on-screen teaching and corresponding Hodder chapters, differentiating already-present teaching from genuine editorial deficiencies.
+- `QUALITATIVE_SPOT_CHECKS.json` — 15 original-prose evaluations of selected Guide obligations against actual on-screen teaching; Hodder chapter pages were sampled for selected topics, but complete independent textbook-depth verification is pending, differentiating already-present teaching from genuine editorial deficiencies.
 - Four `LEDGER_PART_*.json` shards — independently inspectable 10-topic batches that generated the combined inventory.
 - `scripts/biology/teaching-completeness/validate.mjs` and `validate.test.mjs` — non-destructive contract, scope, figure-placement, citation reference, duplicate paragraph and rendering checks with negative fixtures.
 - `.github/workflows/biolab-independent-teaching-completeness.yml` — independent check of 553 unique records, validator/tests, npm quality and production build. Running the build is not a deployment.
@@ -60,7 +60,7 @@ The historical 373-below-150 signal is not carried forward unchanged: this is a 
 ## Mandatory source-based repair protocol for *each* of the 553 records
 
 1. Read the entire official IB Guide numbered statement **plus guidance**, applicable diagrams, mandatory examples, skills references and SL/HL qualifications. Translate each independent obligation into an original-prose, explicit `requiredConcepts` checklist. The current keyword index is not sufficient for acceptance.
-2. Read the corresponding explanation in the IB-reviewed Hodder Third Edition, noting expected mechanism stages and important explanatory distinctions. Do not copy protected passages or visuals into BioLab.
+2. Read and independently verify the corresponding explanation in the IB-reviewed Hodder Third Edition, noting expected mechanism stages and important explanatory distinctions. Do not copy protected passages or visuals into BioLab.
 3. Inspect **the actual student-visible main Learn blocks** (not only citation labels, helper panels, end summaries, worked examples or MCQ feedback). For each obligation record `present`, `partially_present`, `missing` or `not_applicable`, with a quoted *repository-owned* excerpt or section locator.
 4. Explain specific missing causal or structural stages, terminology, examples, calculation/data interpretation, labelled diagrams, limitations or misuse of SL/HL scope. Do not add optional enrichment as if compulsory. Validate any modelled plot's inputs, units, provenance and scientific interpretation.
 5. Check `explanation` fallback parity with updated `teachingBlocks`, references, visuals, `revisionSummary`, support, worked example and assessment feedback. A future source update can create drift; the validator warns on legacy divergence.
