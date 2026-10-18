@@ -1,0 +1,65 @@
+name: BioLab Shareable Preview Readiness QA (No Deployment)
+on:
+  push:
+    branches:
+      - feature/biolab-preview-qa-fixes-20261018
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-build-and-browser:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 80
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Capture dependency audit without masking findings
+        run: |
+          mkdir -p qa-artifacts/preview-readiness
+          npm audit --json > qa-artifacts/preview-readiness/npm-audit.json || true
+          npm audit --omit=dev --json > qa-artifacts/preview-readiness/npm-production-audit.json || true
+      - name: Validate lessons, syllabus, depth and consolidation
+        run: |
+          node scripts/validate-lessons.mjs
+          node scripts/validate-biology.mjs
+          node scripts/biology/validate-full-course-depth-audit.mjs
+          node scripts/biology/validate-final-consolidation.mjs
+      - name: Figure and scientific-visual regression tests
+        run: |
+          node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs
+          node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs
+      - name: Site quality
+        run: npm run quality
+      - name: Build development application without deployment
+        run: npm run build
+      - name: Start actual built website and run Chromium QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/preview-readiness/preview.log 2>&1 &
+          ready=0
+          for attempt in $(seq 1 45); do
+            if node -e 'fetch("http://127.0.0.1:4173/").then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))'; then ready=1; break; fi
+            sleep 1
+          done
+          test "$ready" = 1 || { cat qa-artifacts/preview-readiness/preview.log; exit 1; }
+          node scripts/biology/full-course/full-course-browser.mjs
+          node scripts/biology/preview-readiness/browser.mjs
+      - name: Store Chromium screenshots and audits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-preview-readiness-qa-evidence
+          path: |
+            qa-artifacts/preview-readiness/
+            qa-artifacts/full-course/
+          if-no-files-found: warn
+          retention-days: 21
