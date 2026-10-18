@@ -23,7 +23,7 @@ export function inspectSection(section,lesson,requiredLevel){
  const p=paragraphs(renderedTeaching(section)).map(x=>x.toLowerCase());
  if(new Set(p).size!==p.length)fail('duplicate paragraphs within main teaching');
  const seen=new Set();
- for(const b of blocks??[]){const key=tidy(b.title).toLowerCase();if(key&&seen.has(key))warn('duplicate heading '+key);seen.add(key)}
+ for(const b of blocks??[]){const key=tidy(b.title).toLowerCase();if(key&&seen.has(key))warn('duplicate heading '+key);if(key.split(/\s+/).length>16)warn('overlong explanation-like heading; review reading hierarchy');seen.add(key)}
  if(blocks?.length&&tidy(section.explanation)!==tidy(renderedTeaching(section)))warn('legacy explanation differs from rendered blocks; ensure editorial parity');
  if(!tidy(section.revisionSummary))warn('missing revision summary');
  if(!tidy(section.workedExample))warn('missing worked example');
