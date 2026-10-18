@@ -28,7 +28,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What practical problems does biological classification solve?",
-      "explanation": "Millions of organism types require a systematic way to name, describe, retrieve and compare them. Classification organizes evidence so that an unfamiliar organism can be related to known groups and studied efficiently. Shared names and definitions allow researchers in different places to communicate about biodiversity.\n\nA biologically useful classification is a hypothesis about relationships, not a permanent catalogue arranged purely for convenience. When new evidence shows a previous grouping to be misleading, the group can be revised. Any taxonomic inference must state the characters or sequences supporting it.\n\nResearchers identifying a new insect can compare its diagnostic characters with relatives rather than re-describing every known insect.",
+      "explanation": "Millions of organism types require a systematic way to name, describe, retrieve and compare them. Classification organizes evidence so that an unfamiliar organism can be related to known groups and studied efficiently. Shared names and definitions allow researchers in different places to communicate about biodiversity.\n\nA biologically useful classification is a hypothesis about relationships, not a permanent catalogue arranged purely for convenience. When new evidence shows a previous grouping to be misleading, the group can be revised. Any taxonomic inference must state the characters or sequences supporting it.\n\nResearchers identifying a new insect can compare its diagnostic characters with relatives rather than re-describing every known insect.\n\nWithout organized grouping, the enormous number of named and unnamed species would make identification and comparison inefficient. A good classification groups organisms in a way that allows scientists to predict shared features and communicate observations consistently. Organisms assigned to a close group may share inherited anatomy or molecular traits, but resemblance alone can be misleading if independent adaptation produces a similar structure. A classification is a scientific model that can change when new evidence becomes available. Use it to infer likely relationships and guide further tests, rather than treating taxonomic ranks as fixed boundaries found in nature.",
       "revisionSummary": "Organize immense diversity and enable consistent identification, communication and prediction.",
       "terms": [
         "Clade: ancestor and every descendant",
@@ -60,6 +60,12 @@
           "claim": "Researchers identifying a new insect can compare its diagnostic characters with relatives rather than re-describing every known insect.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "Without organized grouping, the enormous number of named and unnamed species would make identification and comparison inefficient. A good classification groups organisms in a way that allows scientists to predict shared features and communicate observations consistently. Organisms assigned to a close group may share inherited anatomy or molecular traits, but resemblance alone can be misleading if independent adaptation produces a similar structure. A classification is a scientific model that can change when new evidence becomes available. Use it to infer likely relationships and guide further tests, rather than treating taxonomic ranks as fixed boundaries found in nature.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -146,6 +152,13 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Classification makes biological predictions testable",
+          "explanation": "Without organized grouping, the enormous number of named and unnamed species would make identification and comparison inefficient. A good classification groups organisms in a way that allows scientists to predict shared features and communicate observations consistently. Organisms assigned to a close group may share inherited anatomy or molecular traits, but resemblance alone can be misleading if independent adaptation produces a similar structure. A classification is a scientific model that can change when new evidence becomes available. Use it to infer likely relationships and guide further tests, rather than treating taxonomic ranks as fixed boundaries found in nature.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
       "figurePlacements": []
@@ -157,7 +170,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Why can kingdom-to-species ranks misrepresent divergence?",
-      "explanation": "Traditional taxonomy places organisms in a nested hierarchy of kingdom, phylum, class, order, family, genus and species. These ranks are human-assigned labels, and a family in one lineage need not correspond to the same elapsed time or genetic divergence as a family elsewhere.\n\nEvolutionary history is a continuously branching pattern, not a sequence of fixed depth intervals. Some traditional groups exclude descendants of their common ancestor. Cladistics instead identifies unranked clades by shared ancestry and can lead to a major conceptual shift in classification.\n\nIf a traditionally named reptile group excludes birds, it excludes descendants of an ancestor it otherwise includes and is not a complete clade.",
+      "explanation": "Traditional taxonomy places organisms in a nested hierarchy of kingdom, phylum, class, order, family, genus and species. These ranks are human-assigned labels, and a family in one lineage need not correspond to the same elapsed time or genetic divergence as a family elsewhere.\n\nEvolutionary history is a continuously branching pattern, not a sequence of fixed depth intervals. Some traditional groups exclude descendants of their common ancestor. Cladistics instead identifies unranked clades by shared ancestry and can lead to a major conceptual shift in classification.\n\nIf a traditionally named reptile group excludes birds, it excludes descendants of an ancestor it otherwise includes and is not a complete clade.\n\nTraditional classifications nest species within genera, families, orders, classes, phyla and kingdoms. These ranks are useful labels, but assigning a particular branching lineage the rank 'family' instead of 'order' is partly a human convention; branches of very different ages can have the same rank. A tree of evolutionary descent need not fit evenly into fixed numbered levels. Taxa based mainly on obvious appearance may exclude some descendants of a common ancestor, making the grouping misleading. Compare a named ranked group with a clade, which includes an ancestor and all its descendants, and explain why genomic data sometimes require reclassification.",
       "revisionSummary": "For example: kingdom, phylum, class, order (then family, genus, species).",
       "terms": [
         "Clade: ancestor and every descendant",
@@ -189,6 +202,12 @@
           "claim": "If a traditionally named reptile group excludes birds, it excludes descendants of an ancestor it otherwise includes and is not a complete clade.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "Traditional classifications nest species within genera, families, orders, classes, phyla and kingdoms. These ranks are useful labels, but assigning a particular branching lineage the rank 'family' instead of 'order' is partly a human convention; branches of very different ages can have the same rank. A tree of evolutionary descent need not fit evenly into fixed numbered levels. Taxa based mainly on obvious appearance may exclude some descendants of a common ancestor, making the grouping misleading. Compare a named ranked group with a clade, which includes an ancestor and all its descendants, and explain why genomic data sometimes require reclassification.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -275,9 +294,43 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Why fixed taxonomic ranks cannot express all branching history",
+          "explanation": "Traditional classifications nest species within genera, families, orders, classes, phyla and kingdoms. These ranks are useful labels, but assigning a particular branching lineage the rank 'family' instead of 'order' is partly a human convention; branches of very different ages can have the same rank. A tree of evolutionary descent need not fit evenly into fixed numbered levels. Taxa based mainly on obvious appearance may exclude some descendants of a common ancestor, making the grouping misleading. Compare a named ranked group with a clade, which includes an ancestor and all its descendants, and explain why genomic data sometimes require reclassification.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
-      "figurePlacements": []
+      "figurePlacements": [],
+      "graphTables": [
+        {
+          "caption": "Ranked taxonomy versus evolutionary cladistics",
+          "headers": [
+            "Feature",
+            "Traditional hierarchy",
+            "Cladistic grouping"
+          ],
+          "rows": [
+            [
+              "Grouping principle",
+              "Nested named ranks, often morphology-based",
+              "Inferred common ancestor plus all descendants"
+            ],
+            [
+              "Rank labels",
+              "Species, genus, family, order, etc.",
+              "Clades need not have equal ranks"
+            ],
+            [
+              "Revision trigger",
+              "Changed diagnostic traits or conventions",
+              "New evidence about branching history"
+            ]
+          ]
+        }
+      ]
     },
     {
       "id": "a32-3",
@@ -286,7 +339,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Why is a clade more informative than a superficial resemblance?",
-      "explanation": "Evolutionary classifications group an ancestor and all its descendants. Members inherit many homologous features from their common ancestor, so clade membership supports predictions about additional shared traits. Phylogenetic reconstruction draws on DNA or protein sequences as well as morphology.\n\nA character shared through convergence can mislead classification because it did not originate in the common ancestor of the organisms displaying it. Classifications should therefore prioritize independent characters, especially complex molecular evidence, and evaluate alternative evolutionary trees.\n\nBirds and bats fly using wings, but their wings evolved independently as flight structures; flight alone does not define a bird–bat clade.",
+      "explanation": "Evolutionary classifications group an ancestor and all its descendants. Members inherit many homologous features from their common ancestor, so clade membership supports predictions about additional shared traits. Phylogenetic reconstruction draws on DNA or protein sequences as well as morphology.\n\nA character shared through convergence can mislead classification because it did not originate in the common ancestor of the organisms displaying it. Classifications should therefore prioritize independent characters, especially complex molecular evidence, and evaluate alternative evolutionary trees.\n\nBirds and bats fly using wings, but their wings evolved independently as flight structures; flight alone does not define a bird–bat clade.\n\nAn ancestry-based classification seeks monophyletic groups—an ancestor together with every descendant in the group. Related organisms can be expected to share inherited characteristics, even when their current habitats or appearances differ. Such groupings help predict the distribution of anatomical structures and homologous DNA sequences. By contrast, whales and fish both swim efficiently, yet their superficially similar outlines do not make them closest relatives. Compare multiple homologous characters to distinguish common inheritance from convergent adaptation. A useful classification is therefore an evidence-based hypothesis about shared history, not just a convenient directory of look-alikes.",
       "revisionSummary": "Inherited homologous characteristics may be shared among members of the clade.",
       "terms": [
         "Clade: ancestor and every descendant",
@@ -318,6 +371,12 @@
           "claim": "Birds and bats fly using wings, but their wings evolved independently as flight structures; flight alone does not define a bird–bat clade.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "An ancestry-based classification seeks monophyletic groups—an ancestor together with every descendant in the group. Related organisms can be expected to share inherited characteristics, even when their current habitats or appearances differ. Such groupings help predict the distribution of anatomical structures and homologous DNA sequences. By contrast, whales and fish both swim efficiently, yet their superficially similar outlines do not make them closest relatives. Compare multiple homologous characters to distinguish common inheritance from convergent adaptation. A useful classification is therefore an evidence-based hypothesis about shared history, not just a convenient directory of look-alikes.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -404,6 +463,13 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Grouping by descent reveals shared inherited traits",
+          "explanation": "An ancestry-based classification seeks monophyletic groups—an ancestor together with every descendant in the group. Related organisms can be expected to share inherited characteristics, even when their current habitats or appearances differ. Such groupings help predict the distribution of anatomical structures and homologous DNA sequences. By contrast, whales and fish both swim efficiently, yet their superficially similar outlines do not make them closest relatives. Compare multiple homologous characters to distinguish common inheritance from convergent adaptation. A useful classification is therefore an evidence-based hypothesis about shared history, not just a convenient directory of look-alikes.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
       "figurePlacements": []
@@ -415,7 +481,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What makes a set of taxa a monophyletic clade?",
-      "explanation": "A rooted cladogram depicts hypotheses of branching ancestry. The root represents the older ancestral side of the tree; nodes represent hypothesized common ancestors; terminal branches represent sampled descendant lineages. A clade contains a node and every descendant branch from it.\n\nA clade can be recognized by imagining cutting one branch without severing internal connections to other selected members. Rotating branches around a node does not change relationships. Left-to-right tip order is not evolutionary rank, and one modern tip should not be drawn as the ancestor of another.\n\nIn the supplied vertebrate cladogram, frog and mouse form a clade. Adding the ray-finned fish requires including that shared ancestor and both tetrapod descendants.",
+      "explanation": "A rooted cladogram depicts hypotheses of branching ancestry. The root represents the older ancestral side of the tree; nodes represent hypothesized common ancestors; terminal branches represent sampled descendant lineages. A clade contains a node and every descendant branch from it.\n\nA clade can be recognized by imagining cutting one branch without severing internal connections to other selected members. Rotating branches around a node does not change relationships. Left-to-right tip order is not evolutionary rank, and one modern tip should not be drawn as the ancestor of another.\n\nIn the supplied vertebrate cladogram, frog and mouse form a clade. Adding the ray-finned fish requires including that shared ancestor and both tetrapod descendants.\n\nA clade includes one ancestral branch point and every descendant lineage arising from that point. To test whether a highlighted grouping is a clade, choose the most recent common ancestor of its members and check whether the group includes all the descendants shown. If even one branch from the selected node is excluded, the proposed set is not a complete clade. Shared derived characteristics can support a clade hypothesis, but a similarity also shared with unrelated organisms may be ancestral or convergent. Draw a circle around the full set of branches from one node to practise identifying nested clades.",
       "revisionSummary": "Root: older ancestral origin of the shown tree; node: inferred common ancestor; terminal: sampled lineage tip.",
       "terms": [
         "Clade: ancestor and every descendant",
@@ -447,6 +513,12 @@
           "claim": "In the supplied vertebrate cladogram, frog and mouse form a clade. Adding the ray-finned fish requires including that shared ancestor and both tetrapod descendants.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "A clade includes one ancestral branch point and every descendant lineage arising from that point. To test whether a highlighted grouping is a clade, choose the most recent common ancestor of its members and check whether the group includes all the descendants shown. If even one branch from the selected node is excluded, the proposed set is not a complete clade. Shared derived characteristics can support a clade hypothesis, but a similarity also shared with unrelated organisms may be ancestral or convergent. Draw a circle around the full set of branches from one node to practise identifying nested clades.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -535,6 +607,13 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Identify a complete clade on a branching diagram",
+          "explanation": "A clade includes one ancestral branch point and every descendant lineage arising from that point. To test whether a highlighted grouping is a clade, choose the most recent common ancestor of its members and check whether the group includes all the descendants shown. If even one branch from the selected node is excluded, the proposed set is not a complete clade. Shared derived characteristics can support a clade hypothesis, but a similarity also shared with unrelated organisms may be ancestral or convergent. Draw a circle around the full set of branches from one node to practise identifying nested clades.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
       "figurePlacements": [
@@ -551,7 +630,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How can sequence differences be used to estimate the timing of divergence?",
-      "explanation": "DNA or amino-acid substitutions accumulate in lineages over long evolutionary times. A molecular clock uses aligned homologous sequences and an estimated evolutionary rate to infer approximate divergence times. Independent fossil or geological evidence can be used to calibrate a clock.\n\nRates are not constant across all genes or lineages: generation time, mutation processes, population size and selection affect them. Multiple substitutions at one site can obscure older differences. Estimated times should therefore include uncertainty and should not be presented as directly observed historical dates.\n\nIf two lineages differ at a calibrated neutral region, their inferred separation is approximate and depends on the assumed substitution rate.",
+      "explanation": "DNA or amino-acid substitutions accumulate in lineages over long evolutionary times. A molecular clock uses aligned homologous sequences and an estimated evolutionary rate to infer approximate divergence times. Independent fossil or geological evidence can be used to calibrate a clock.\n\nRates are not constant across all genes or lineages: generation time, mutation processes, population size and selection affect them. Multiple substitutions at one site can obscure older differences. Estimated times should therefore include uncertainty and should not be presented as directly observed historical dates.\n\nIf two lineages differ at a calibrated neutral region, their inferred separation is approximate and depends on the assumed substitution rate.\n\nOver many generations, substitutions can accumulate in homologous DNA or protein sequences. Under an approximately consistent rate, more differences can indicate a longer interval since divergence, but rates vary with generation time, selection, population characteristics and genomic region. A molecular clock requires comparison of appropriate homologous sites and calibration with independently dated events such as fossils. A clock estimate is therefore a range dependent on model assumptions, not a date read directly from a count of mismatches. Distinguish the branching order inferred from sequences from the estimated ages of those branches, and beware multiple changes at the same site over long periods.",
       "revisionSummary": "Variable substitution rates, imperfect calibration, multiple hits or selection effects.",
       "terms": [
         "Molecular clock: model of sequence substitution across time",
@@ -583,6 +662,12 @@
           "claim": "If two lineages differ at a calibrated neutral region, their inferred separation is approximate and depends on the assumed substitution rate.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "Over many generations, substitutions can accumulate in homologous DNA or protein sequences. Under an approximately consistent rate, more differences can indicate a longer interval since divergence, but rates vary with generation time, selection, population characteristics and genomic region. A molecular clock requires comparison of appropriate homologous sites and calibration with independently dated events such as fossils. A clock estimate is therefore a range dependent on model assumptions, not a date read directly from a count of mismatches. Distinguish the branching order inferred from sequences from the estimated ages of those branches, and beware multiple changes at the same site over long periods.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -669,6 +754,13 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Use sequence divergence with explicit clock assumptions",
+          "explanation": "Over many generations, substitutions can accumulate in homologous DNA or protein sequences. Under an approximately consistent rate, more differences can indicate a longer interval since divergence, but rates vary with generation time, selection, population characteristics and genomic region. A molecular clock requires comparison of appropriate homologous sites and calibration with independently dated events such as fossils. A clock estimate is therefore a range dependent on model assumptions, not a date read directly from a count of mismatches. Distinguish the branching order inferred from sequences from the estimated ages of those branches, and beware multiple changes at the same site over long periods.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
       "figurePlacements": []
@@ -680,7 +772,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How does aligned sequence variation support a branching hypothesis?",
-      "explanation": "Homologous gene or protein sequences can be aligned so corresponding positions are compared. Shared derived changes provide evidence that two or more lineages inherited a sequence state from an ancestor. Phylogenetic methods evaluate alternative topologies; parsimony prefers fewer independent evolutionary changes for the observed characters.\n\nA short alignment may support several equally plausible trees or be misleading through convergent substitutions. Different genes can produce different trees owing to their histories. An inferred cladogram is a testable explanatory model, not a literal film of evolutionary events.\n\nIn the model alignment, a derived G at position 3 shared by frog and mouse supports their grouping relative to a ray-finned fish with C there; the character states are invented solely as a transparent teaching example.",
+      "explanation": "Homologous gene or protein sequences can be aligned so corresponding positions are compared. Shared derived changes provide evidence that two or more lineages inherited a sequence state from an ancestor. Phylogenetic methods evaluate alternative topologies; parsimony prefers fewer independent evolutionary changes for the observed characters.\n\nA short alignment may support several equally plausible trees or be misleading through convergent substitutions. Different genes can produce different trees owing to their histories. An inferred cladogram is a testable explanatory model, not a literal film of evolutionary events.\n\nIn the model alignment, a derived G at position 3 shared by frog and mouse supports their grouping relative to a ray-finned fish with C there; the character states are invented solely as a transparent teaching example.\n\nChoose homologous genes or proteins from the taxa being compared and align their nucleotide or amino-acid sequences so corresponding positions are compared. Record shared and differing characters, then select or infer a branching hypothesis that best accounts for those patterns under an appropriate method. More matching positions often provide evidence of close relationship, but unequal rates, convergent changes and incomplete sampling can make simple similarity misleading. A cladogram expresses relationships among sampled lineages; one dataset may support several possible trees. When the evidence is ambiguous, state the competing topologies rather than presenting an inferred tree as directly observed ancestry.",
       "revisionSummary": "Prefer, among candidate trees, one explaining the observed character differences with fewer inferred changes.",
       "terms": [
         "Clade: ancestor and every descendant",
@@ -712,6 +804,12 @@
           "claim": "In the model alignment, a derived G at position 3 shared by frog and mouse supports their grouping relative to a ray-finned fish with C there; the character states are invented solely as a transparent teaching example.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "Choose homologous genes or proteins from the taxa being compared and align their nucleotide or amino-acid sequences so corresponding positions are compared. Record shared and differing characters, then select or infer a branching hypothesis that best accounts for those patterns under an appropriate method. More matching positions often provide evidence of close relationship, but unequal rates, convergent changes and incomplete sampling can make simple similarity misleading. A cladogram expresses relationships among sampled lineages; one dataset may support several possible trees. When the evidence is ambiguous, state the competing topologies rather than presenting an inferred tree as directly observed ancestry.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -798,6 +896,13 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Construct and evaluate trees from aligned molecular characters",
+          "explanation": "Choose homologous genes or proteins from the taxa being compared and align their nucleotide or amino-acid sequences so corresponding positions are compared. Record shared and differing characters, then select or infer a branching hypothesis that best accounts for those patterns under an appropriate method. More matching positions often provide evidence of close relationship, but unequal rates, convergent changes and incomplete sampling can make simple similarity misleading. A cladogram expresses relationships among sampled lineages; one dataset may support several possible trees. When the evidence is ambiguous, state the competing topologies rather than presenting an inferred tree as directly observed ancestry.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
       "figurePlacements": [],
@@ -844,7 +949,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "What does the vertebrate tree actually tell us?",
-      "explanation": "Read relationships through nodes, not the horizontal placement of tips. On the rooted example, frog and mouse share a more recent common ancestor with each other than either shares with a ray-finned fish. Shark diverges before the sampled bony-vertebrate clade.\n\nA shared derived character is mapped to the branch where its evolutionary origin is inferred, not to one living species as the ancestor of all others. A root is essential to statements about earlier branching order. Branch length in this schematic does not encode elapsed time or sequence divergence.\n\nThe smallest clade containing frog and mouse does not contain shark; the smallest clade containing ray-finned fish and mouse also includes frog.",
+      "explanation": "Read relationships through nodes, not the horizontal placement of tips. On the rooted example, frog and mouse share a more recent common ancestor with each other than either shares with a ray-finned fish. Shark diverges before the sampled bony-vertebrate clade.\n\nA shared derived character is mapped to the branch where its evolutionary origin is inferred, not to one living species as the ancestor of all others. A root is essential to statements about earlier branching order. Branch length in this schematic does not encode elapsed time or sequence divergence.\n\nThe smallest clade containing frog and mouse does not contain shark; the smallest clade containing ray-finned fish and mouse also includes frog.\n\nThe root represents the ancestral direction of the tree, nodes represent inferred splits and terminal branches represent the sampled lineages. Two taxa are closest relatives on a rooted cladogram when they share a more recent common node with each other than with the other sampled taxa. Rotating branches around a node changes the visual order at the tips, not the relationships. The leftmost species is not automatically the oldest or most primitive; all living sampled species are contemporary descendants. Unless branch length is explicitly scaled, longer drawn lines do not necessarily indicate more elapsed time or more genetic change. Practice identifying the most recent common ancestor of any pair.",
       "revisionSummary": "Frog and mouse are sister sampled lineages in the simplified tree.",
       "terms": [
         "Node: hypothesized common ancestor",
@@ -876,6 +981,12 @@
           "claim": "The smallest clade containing frog and mouse does not contain shark; the smallest clade containing ray-finned fish and mouse also includes frog.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "The root represents the ancestral direction of the tree, nodes represent inferred splits and terminal branches represent the sampled lineages. Two taxa are closest relatives on a rooted cladogram when they share a more recent common node with each other than with the other sampled taxa. Rotating branches around a node changes the visual order at the tips, not the relationships. The leftmost species is not automatically the oldest or most primitive; all living sampled species are contemporary descendants. Unless branch length is explicitly scaled, longer drawn lines do not necessarily indicate more elapsed time or more genetic change. Practice identifying the most recent common ancestor of any pair.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -964,6 +1075,13 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Read nodes and rotate branches without changing relationships",
+          "explanation": "The root represents the ancestral direction of the tree, nodes represent inferred splits and terminal branches represent the sampled lineages. Two taxa are closest relatives on a rooted cladogram when they share a more recent common node with each other than with the other sampled taxa. Rotating branches around a node changes the visual order at the tips, not the relationships. The leftmost species is not automatically the oldest or most primitive; all living sampled species are contemporary descendants. Unless branch length is explicitly scaled, longer drawn lines do not necessarily indicate more elapsed time or more genetic change. Practice identifying the most recent common ancestor of any pair.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
       "figurePlacements": [
@@ -980,7 +1098,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "How can cladistics test whether a traditionally named family is one evolutionary group?",
-      "explanation": "Traditional groups often relied on flowers, leaves and other visible traits. Comparative DNA sequences can reveal that apparent similarities arose independently or were retained from ancestors shared by a broader set of lineages. A named family is monophyletic only if it includes all descendants of its inferred ancestor.\n\nMolecular phylogenies led to substantial revision of the formerly broad figwort family Scrophulariaceae. Plants previously grouped by morphological similarity were reassigned to different families when DNA evidence revealed multiple distinct clades. The important inference is why the old grouping failed, not memorizing each transferred genus.\n\nIf a floral trait arose in unrelated lines, a morphology-based group can be split after independent gene alignments consistently recover separate clades.",
+      "explanation": "Traditional groups often relied on flowers, leaves and other visible traits. Comparative DNA sequences can reveal that apparent similarities arose independently or were retained from ancestors shared by a broader set of lineages. A named family is monophyletic only if it includes all descendants of its inferred ancestor.\n\nMolecular phylogenies led to substantial revision of the formerly broad figwort family Scrophulariaceae. Plants previously grouped by morphological similarity were reassigned to different families when DNA evidence revealed multiple distinct clades. The important inference is why the old grouping failed, not memorizing each transferred genus.\n\nIf a floral trait arose in unrelated lines, a morphology-based group can be split after independent gene alignments consistently recover separate clades.\n\nTraditional groups may have been established using a limited set of morphological features. When multi-gene sequence comparisons consistently place members of a named taxon in different lineages, taxonomists may revise the membership or move species into new families. Historical plant-family revisions provide examples, but students need not memorize one prescribed family transfer. Evaluate whether the new tree uses enough taxa, relevant homologous genes and suitable analytical methods before declaring the older grouping wrong. This illustrates an evidence-responsive classification, not arbitrary relabelling. Distinguish a change in scientists' best grouping from a change in the organisms' actual evolutionary ancestry.",
       "revisionSummary": "Sequence-based phylogenetic evidence showed the broad old grouping did not reflect monophyletic ancestry.",
       "terms": [
         "Clade: ancestor and every descendant",
@@ -1012,6 +1130,12 @@
           "claim": "If a floral trait arose in unrelated lines, a morphology-based group can be split after independent gene alignments consistently recover separate clades.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "Traditional groups may have been established using a limited set of morphological features. When multi-gene sequence comparisons consistently place members of a named taxon in different lineages, taxonomists may revise the membership or move species into new families. Historical plant-family revisions provide examples, but students need not memorize one prescribed family transfer. Evaluate whether the new tree uses enough taxa, relevant homologous genes and suitable analytical methods before declaring the older grouping wrong. This illustrates an evidence-responsive classification, not arbitrary relabelling. Distinguish a change in scientists' best grouping from a change in the organisms' actual evolutionary ancestry.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -1098,6 +1222,13 @@
             "guide-a32",
             "hodder-a32"
           ]
+        },
+        {
+          "title": "Use molecular evidence to challenge inherited taxonomic names",
+          "explanation": "Traditional groups may have been established using a limited set of morphological features. When multi-gene sequence comparisons consistently place members of a named taxon in different lineages, taxonomists may revise the membership or move species into new families. Historical plant-family revisions provide examples, but students need not memorize one prescribed family transfer. Evaluate whether the new tree uses enough taxa, relevant homologous genes and suitable analytical methods before declaring the older grouping wrong. This illustrates an evidence-responsive classification, not arbitrary relabelling. Distinguish a change in scientists' best grouping from a change in the organisms' actual evolutionary ancestry.",
+          "referenceIds": [
+            "hodder-a32"
+          ]
         }
       ],
       "figurePlacements": []
@@ -1109,7 +1240,7 @@
       ],
       "level": "HL",
       "guidingQuestion": "Why did rRNA data transform high-level classification?",
-      "explanation": "Ribosomal RNA sequences are widespread and sufficiently conserved to align across cellular life, yet contain differences revealing deep evolutionary relationships. Comparisons led to recognition of major lineages now called Bacteria, Archaea and Eukarya. This separated archaea from bacteria despite their shared lack of nuclei.\n\nThe 1977 rRNA evidence associated with Carl Woese and colleagues challenged the older prokaryote-versus-eukaryote grouping; formal three-domain terminology was developed later. A domain is a taxonomic category above kingdoms. Analyses continue to refine branching among lineages, so a simplified three-domain diagram should not conceal active phylogenomic debates.\n\nAn archaeon and a bacterium may both lack a nucleus, but their rRNA sequences and molecular machinery indicate major evolutionary differences.",
+      "explanation": "Ribosomal RNA sequences are widespread and sufficiently conserved to align across cellular life, yet contain differences revealing deep evolutionary relationships. Comparisons led to recognition of major lineages now called Bacteria, Archaea and Eukarya. This separated archaea from bacteria despite their shared lack of nuclei.\n\nThe 1977 rRNA evidence associated with Carl Woese and colleagues challenged the older prokaryote-versus-eukaryote grouping; formal three-domain terminology was developed later. A domain is a taxonomic category above kingdoms. Analyses continue to refine branching among lineages, so a simplified three-domain diagram should not conceal active phylogenomic debates.\n\nAn archaeon and a bacterium may both lack a nucleus, but their rRNA sequences and molecular machinery indicate major evolutionary differences.\n\nComparisons of ribosomal RNA gene sequences revealed deep evolutionary separation among Bacteria, Archaea and Eukarya. Ribosomal RNA is present across cellular life and carries conserved regions that allow comparison of distant lineages, alongside variable regions that supply distinguishing evidence. Archaea may resemble bacteria in cell size and absence of a nucleus, yet their ribosomal sequences and other molecular features indicate a distinct major lineage. The three-domain framework summarizes shared ancestry, not a ladder of progress or a claim that eukaryotes descended from modern archaeal species. Sequence evidence is interpreted phylogenetically and supplemented by other cellular characteristics.",
       "revisionSummary": "Bacteria, Archaea and Eukarya; comparisons of ribosomal RNA base sequences.",
       "terms": [
         "Clade: ancestor and every descendant",
@@ -1141,6 +1272,12 @@
           "claim": "An archaeon and a bacterium may both lack a nucleus, but their rRNA sequences and molecular machinery indicate major evolutionary differences.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "claim": "Comparisons of ribosomal RNA gene sequences revealed deep evolutionary separation among Bacteria, Archaea and Eukarya. Ribosomal RNA is present across cellular life and carries conserved regions that allow comparison of distant lineages, alongside variable regions that supply distinguishing evidence. Archaea may resemble bacteria in cell size and absence of a nucleus, yet their ribosomal sequences and other molecular features indicate a distinct major lineage. The three-domain framework summarizes shared ancestry, not a ladder of progress or a claim that eukaryotes descended from modern archaeal species. Sequence evidence is interpreted phylogenetically and supplemented by other cellular characteristics.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
@@ -1225,6 +1362,13 @@
           "explanation": "An archaeon and a bacterium may both lack a nucleus, but their rRNA sequences and molecular machinery indicate major evolutionary differences.",
           "referenceIds": [
             "guide-a32",
+            "hodder-a32"
+          ]
+        },
+        {
+          "title": "rRNA evidence underpins the three-domain framework",
+          "explanation": "Comparisons of ribosomal RNA gene sequences revealed deep evolutionary separation among Bacteria, Archaea and Eukarya. Ribosomal RNA is present across cellular life and carries conserved regions that allow comparison of distant lineages, alongside variable regions that supply distinguishing evidence. Archaea may resemble bacteria in cell size and absence of a nucleus, yet their ribosomal sequences and other molecular features indicate a distinct major lineage. The three-domain framework summarizes shared ancestry, not a ladder of progress or a claim that eukaryotes descended from modern archaeal species. Sequence evidence is interpreted phylogenetically and supplemented by other cellular characteristics.",
+          "referenceIds": [
             "hodder-a32"
           ]
         }
