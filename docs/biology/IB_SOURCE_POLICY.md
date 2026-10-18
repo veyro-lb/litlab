@@ -75,3 +75,13 @@ Run `node scripts/biology/source-policy/verify.mjs` to inspect all 40 lesson sou
 Run existing `node scripts/validate-lessons.mjs`, `node scripts/validate-biology.mjs`, `npm run quality`, and `npm run build` in a clean checked-out repository before accepting a release. Complete real mobile (e.g. 390px) and desktop (e.g. 1440px) browser checks separately; static CSS checks are not substitutes for visual screenshots.
 
 **Publication and IP note:** cite and link the IB guide and independent Hodder coursebook, but do not reproduce their protected text or diagrams wholesale, and do not claim formal endorsement, licensing or certification of BioLab.
+
+## Verification evidence and release gate (2026-10-18)
+
+- **Completed:** inspected all 40 topic `lesson.json` packages without changing them; classified external instructional citations and recorded 253 affected understanding IDs. The full topic-by-topic handoff is in the JSON ledger.
+- **Completed:** 16 static architecture and policy assertions against actual files fetched from the isolated GitHub branch passed, including removal of the raw references loop, canonical whitelist links, duplicate IDs, restricted external links, licence separation and mobile CSS selectors.
+- **Completed:** two standalone Node 22 source-policy behavior checks on a locally mirrored policy module passed. These cover the fixed two-source educational catalog and SL/HL media-credit behavior. They do **not** replace running the committed repository test suite.
+- **Completed (isolated visual previews only):** Chromium tested a faithful standalone HTML preview at 390px and 1440px, with two visible educational cards and no horizontal page overflow. The resulting PNG screenshots are preview artifacts, **not screenshots of the integrated BioLab application**.
+- **Not completed:** `npm ci`, the committed source-policy test suite in an actual repository checkout, existing lesson validators, `npm run quality`, `npm run build`, or a 40-route integrated Playwright sweep. The execution environment has no network access for Git checkout; existing GitHub Actions workflows do not trigger on the new isolated branch. **This branch is not production-qualified until these checks pass.**
+
+Do not merge or deploy on the basis of this verification alone.
