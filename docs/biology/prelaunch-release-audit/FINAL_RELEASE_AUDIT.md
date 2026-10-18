@@ -1,0 +1,96 @@
+# BioLab — Independent prelaunch security, publication-rights and deployment acceptance audit
+
+**Audited on:** 2026-10-18
+**Repository:** https://github.com/veyro-lb/litlab
+**Immutable source baseline:** `feature/biolab-ib-final-integration-20261018` @ **`3e07486876700cd35d0931f91a7c11ae82946084`**
+**Isolated reporting branch:** `feature/biolab-prelaunch-release-audit-20261018`
+**Release disposition:** **NO-GO — PUBLICATION BLOCKED.** No merge, public deployment, server-side mutation or configuration edit is authorized by this report.
+
+## 1. Audit methodology, evidence and limits
+
+This was an independent read-only review of the exact GitHub source branch, recursive Git tree, historical specialist handoffs, rendered-source implementations, GitHub Actions **actual logs**, the connected Vercel project and immutable deployment metadata, and the connected **Litlab** Supabase project's catalog, RLS policies, grants, advisor warnings and sampled function definitions. No real user accounts, database rows or personal information were queried. The project uploaded guide, textbook and drawing handout were compared at their respective copyright pages. No screenshot extraction, crop, image processing, duplicate scientific illustration work, production deployment, repository merge, branch reset, environment change or SQL DDL/DML occurred.
+
+The source snapshot has **40 authored lesson JSONs** and **291 local `public/biology/` file objects** (281 SVG, 3 PNG, 3 TIFF, 2 WebP, 2 JPG). The audit recorded **170 declared lesson media/observation occurrences**, **274 locally accounted-for paths** and **17 remaining standalone/unlinked public files**. Occurrences can reference the same underlying micrograph twice; counts are not distinct licensed samples, human approvals or independent author attestations. See five theme-by-theme JSON manifests and `public-asset-reconciliation.json`.
+
+**Limits:** No complete pixel-level reverse-image/PDF crop comparison, copyright clearance from rights holders, qualified scientific certification, extensive dynamic penetration testing, dependency vulnerability scan at target SHA, exhaustive keyboard/screen-reader WCAG test, signed owner GO, or complete student account regression test was obtained. Unseen/effective branch ruleset alternatives were not affirmatively ruled out by the `protected:false` branch API alone. Every uncertainty remains open, never silently passed.
+
+## 2. Five separate release acceptance gates
+
+| Gate | Status | Reason and acceptance prerequisite |
+|---|---|---|
+| **Technical readiness** | **FAIL** | [Master Integration QA 39122815517](https://github.com/veyro-lb/litlab/actions/runs/39122815517) is a **completed failure** on exact baseline SHA. Existing course checks and app build were green; specialist/negative suite and browser suites failed. Fix inheritance `d32-written-2` mark-allocation drift and the Sources-view browser assertion. Rerun **every mandatory** build, source, scientific, compatibility and browser suite on exact release SHA. |
+| **Content readiness** | **NOT APPROVED** | Historical handoffs document progress but no complete independent qualified biological/editorial approval. Project source register flags 253 understanding/source-evidence links, **not** 253 incorrect biological claims. Author and qualified reviewer must certify 40 planned published topics, SL/HL scope, quantitative charts, molecular/anatomical visual correctness, assessment items and remaining withheld diagrams. |
+| **Publication rights** | **NOT APPROVED** | No complete verified image-by-image redistribution authorization for all static and remote assets. The supplied Hodder PDF, official IB guide and separately watermarked drawing handout **do not convey free rights to reprint figures**. Asserted original BioLab artwork and third-party CC/agency image metadata require owner/reuse validation and correct presentation. Any copied publisher or IB document figure is **blocked** until written, applicable permission. |
+| **Security/privacy readiness** | **NOT APPROVED** | Positive: RLS enabled across inspected public tables and ordinary progress/profile policies constrain to current user. Outstanding: review elevated table grants and publicly executable privileged RPCs; locally held refresh tokens, privacy/retention disclosures, data deletion/backup and English account compatibility; independently exercise safe test-user-only boundaries. No unauthorized access or exploit was demonstrated. |
+| **Owner approval** | **MISSING** | No explicit sign-off naming exact intended commit SHA, release environment, publication assets, security/content gate evidence and rollback candidate. Owner must personally accept all prerequisites; neither this document nor Vercel READY status is authorization. |
+
+## 3. Actual CI evidence and English compatibility
+
+Latest integration SHA `3e07486876700cd35d0931f91a7c11ae82946084` produced workflow 39122815517, job `integrated-validation`, completed **failure**. Full run logs explicitly report:
+
+```
+existing=success specialists=failure build=success baseline=success browser=failure
+src/biology/learning/inheritance/lesson.json#d32-written-2: mark allocation altered
+FAIL Sources mode renders without changing its implementation
+AssertionError: Official guide and coursebook sources must be visible
+{"passed":36,"failed":1,"pageErrors":0,"screenshots":19}
+```
+
+The Sources component source **does** construct official IB and Hodder educational-source entries. Therefore the browser failure has not been classified as a definitively absent content element: reproduce actual state/navigation/selection before correcting code or tests. An earlier English source is built and some browser comparisons run, but those do not replace signed regression evidence for accounts, contributor flows, backups, local and cloud persistence, private teacher/admin data and saved English progress.
+
+**Dependency posture:** Lockfile install completed in master CI; separate `.github/workflows/quality.yml` prescribes `npm audit --omit=dev --audit-level=high` for PRs to main, but a completed npm audit at this exact baseline was not observed. Full dependency/security findings therefore remain **UNVERIFIED**. Vite `6.0.7` is recorded as a build/dev dependency; context and remediation of any advisory must distinguish transient development server from shipped static assets.
+
+## 4. Image-level copyright and permission disposition
+
+- **Publisher (Hodder):** Supplied *Biology for the IB Diploma Programme*, Third Edition, PDF page **4**, © C. J. Clegg and Andrew Davis 2023, Hodder Education / Hachette UK. Its copyright statement restricts reproduction and transmission absent publisher permission/licence (apart from legal exceptions). Credits identify illustration vendors and separate stock-cover art; figure-specific ownership may differ. No written BioLab grant was found. **Direct PDF screenshot, figure crop, near-trace or adapted reproduction remains publication-blocked** until ownership and permission are verified.
+- **IB syllabus guide:** Supplied official *DP Biology guide*, first assessment 2025, PDF page **3**, © International Baccalaureate Organization 2023. Its notice forbids unpermitted reproduction except the IB rules for intellectual property. The guide is the curricular authority, **not** permission to copy copyrighted pages or diagrams or claim IB endorsement. A platform-wide licensing request should be addressed to IB as specified in that notice if reproductions are intended; editorially original explanations are a different legal question.
+- **Separate drawing handout:** Uploaded *IB Biology Drawings.pdf*, **10 pages**, contains distinctive `NOTEWORTHY SCIENCE MARIER` watermark and annotated line drawings. No reuse licence is evident in the handout. Treat as a *separate third-party source*; no site image should be lifted/traced from it absent direct authorization. It must not be conflated with an IB-owned publication.
+- **Original BioLab SVGs:** Numerous `/biology/*.svg` lesson metadata rows assert original project-created art, and specialist handoffs record 20 variant images of five subjects plus custom circulatory and DNA schemes. Authorship and project distribution/assignment are asserted but **not independently established for every individual file**. These remain `PENDING_ORIGINAL_CREATOR_AUTHORIZATION`, not blanket CC0 or approved commercial-use art.
+- **Licensed authentic scientific media:** `public/biology/cell-structure/cucumber-leaf-tem.webp`: Vigani et al. 2015 PLOS ONE Fig.3, claimed **CC BY 4.0**, six TEM panels of **one experimental plate**, separate **500 nm bars**. `public/biology/authentic-microscopy/cellprofiler-ht29-*.png/.tif`: three fluorescence channels of **one HT29 field**, claimed **CC0**, provider Jason Moffat/holder attribution to David Root per specialist handoff; no calibrated μm-per-pixel. Remote authentic microscopy entries include independently declared CC BY-SA and public-domain statuses. These licenses/provenance are substantiated in preexisting project handoffs, but this audit did not independently inspect each hosting rights notice and the displayed attribution of every route. Do not call three HT29 channels three independent biological observations.
+- **Agency photos:** `public/biology/water/ringed-seal.jpg` claims NOAA-created photography and credit John Jansen; `public/biology/water/europa.jpg` claims NASA/JPL/SETI Galileo mosaic and NASA media rules; source, third-party exceptions, use restrictions and no-endorsement attribution must be checked per item.
+- **Direct PDF images:** No explicit extracted PDF crop/scan was established by inspected lesson source manifests. Specialist handoffs assert no copying. This is **insufficient to certify that none exist** without the pending PDF figure team's image-diff/copyright handoff.
+- **17 independent/static files:** Full exact names/hashes in reconciliation manifest. Of particular significance, **8 previously withheld/review-pending membrane/nucleosome diagrams** still reside in `public/biology/` even though current lessons do not link them. They may be directly exposed by a static build; verify and block/exclude until independent science and rights clearance.
+
+Each theme JSON lists **asset identifier, owning source package, source/public path(s), named or claimed owner, image category, source URL/rights/terms, attribution, claimed permission evidence, level/review state and a conservative pending publication status**. Source claims are *not* upgraded to verified legal determinations by presence in Git.
+
+## 5. Authentication, student data and security
+
+The code under `src/google-auth.ts` contains the **public**, intentionally publishable Supabase key and project URL. This is **not a service-role secret leak**. OAuth callback parses access/refresh tokens from URL hash, saves session including refresh token under `localStorage['litlabSupabaseSession']`, and removes callback hash with `history.replaceState`. XSS/session theft, storage retention and disclosure therefore require a security/privacy review, but no attack was performed or demonstrated. Google and account page escape user display strings before injecting the reviewed account HTML; this mitigates that particular DOM injection concern, not a complete sitewide XSS certification.
+
+`src/account-center.ts` opts in **six legacy English progress localStorage keys** for manual Supabase backup/restore; BioLab `litlab:biology:preferences:v1` and `litlab:biology:progress:v1` are **not in that allowlist**. Explicit student explanation and tested data retention/preservation are required before claiming BioLab work backs up with signed-in LitLab accounts.
+
+Live Supabase public catalog: **31 ordinary public tables**, all with RLS enabled; profile/progress SELECT/INSERT/UPDATE policies require `auth.uid()=user_id` and authenticated role, supporting access isolation on those paths. Some 21 public tables have no standard RLS policies and therefore deny ordinary direct data operations; their absence of policies is **not** a leak by itself. A profile role-protection trigger prevents direct `contributor_role` and specialization edits for ordinary database roles.
+
+Important residual security review:
+1. `litlab_progress` and `litlab_profiles` table privileges include broadly granted SQL operations including **TRUNCATE** and **TRIGGER**. RLS does **not** apply to PostgreSQL TRUNCATE, although no public REST route or exploit was demonstrated. Least-privilege grant review required.
+2. Supabase Security Advisor returned **9 anon-executable** and **80 authenticated-executable** SECURITY DEFINER function warnings. Examined promotion evidence helper functions check `auth.uid()` and application ownership; some page/session telemetry RPCs intentionally accept anon. These need per-function authorization/abuse/retention review, not a blanket claim of unsafe functions.
+3. No policy or recorded evidence verifies configured deletion/retention rights, rate limits, audit-log visibility or how analytics session identifiers are expired. No personal student data were accessed in this audit.
+
+## 6. GitHub Pages, Vercel and deployment safety
+
+**GitHub:** repository `main` branch HEAD at audit discovery `0fb96e0c8cef0da263157e1c000d88b92cf73159`. GitHub branch read responses marked both `main` and source integration branch **`protected:false`** and disabled required branch status checks. This does not automatically exclude separately configured rulesets; verify effective controls before release. `.github/workflows/deploy.yml` deploys GitHub Pages automatically for a `main` push and on manual dispatch. Build and basic preview check exist, but no hard link to the BioLab master suite, publication-rights approval or owner SHA signoff. **Do not merge into main to "test" this condition.**
+
+**Vercel:** Connected accessible project `litlab-biology-phase6-preview-20261016`, ID `prj_DZO4QeHRXru9z9zjqYR3UGot28eQ`, framework Vite, project Node version **24.x**. Project flags `ssoProtection.enabled=true`, effective requested scope `all_except_custom_domains`; `passwordProtection.enabled=false`. The latest build, deployment `dpl_CoCSmBFH7264kb7cZeP1WXFp5rWA`, is **READY**, target `null` (preview), metadata branch `feature/biolab-ib-final-integration-20261018`, SHA **`3e07486876700cd35d0931f91a7c11ae82946084`**; it has an autogenerated Vercel branch alias, not a custom production domain. The listed project-domain endpoint contained only a `.vercel.app` domain. A **different, older deployment** for this same project has `target=production`; therefore the project name does not prove complete production isolation. Deployment readiness is not scientific/CI/rights approval. Project env-var listing reported no variables; no secret values were requested. CI uses Node 22, so parity between CI, GitHub Pages and Vercel is not yet established.
+
+**Rollback proposal — not executed:** Preserve `main` current exact commit and last verified English-only artifact; document/rehearse a narrow GitHub Pages rollback to known-good SHA through authorized release controls; keep original Vercel deployment URL, release aliases and named environment snapshots for selecting a known-good target; never roll back student rows or change production DNS as part of this audit. Test the procedure in staging, then require owner approval before any production recovery action.
+
+## 7. Accessibility, privacy and independent review
+
+Passing browser screenshots, keyboard figure modal checks, table reflow and tested search shortcuts are real partial QA evidence; they **do not** establish WCAG 2.2 AA compliance, assistive-tech accessible molecular notation, reader support for data charts, valid scale bars or licensed microscopy display. Review source/alt labels, focus trap/return, dark/light contrast, reduced motion, keyboard content order and mobile/table access with a qualified reviewer. Students must know which progress is local and cloud-backed, what personal/analytics data is retained, whether/how it can be deleted, and how to request privacy help before public signup/launch.
+
+## 8. Mandatory release sequence
+
+1. Resolve RA-001/RA-002 in an independent authorized **engineering/content branch**. Never edit active CI or app from this audit branch. Re-run complete master integration, quality, dependency, release-grade English & BioLab smoke against an immutable candidate SHA.
+2. Figure copyright owner/rights/attribution sign-off per source, original-art assignment, outstanding PDF reproduction scan, and explicit blocked-image exclusion. Qualified science/editorial and accessibility reviewers sign same candidate SHA.
+3. Supabase security owner reviews least-privilege grants and publicly callable privileged RPCs, discloses privacy/retention policy and tests account data isolation with authorized staging users only. Confirm existing English accounts, cloud backups and historical progress remain stable.
+4. GitHub/Vercel release engineering enforces owner-gated protection, preview/production separation, tested rollback, verified immutable build SHA, correct Node/build env. Do not retarget domains or promote before sign-off.
+5. Product owner explicitly signs **exact SHA + channel + release asset manifest** and independently authorizes any subsequent merge/deploy.
+
+**Final decision: NO-GO** until *all five* gates are independently evidenced. This document is not itself an owner approval, security penetration-test certificate, license grant, IB endorsement or deploy instruction.
+
+## 9. Audit artifacts
+
+- `RELEASE_BLOCKERS.md` — P1/P2 register by exact file/route, workstream and acceptance.
+- `figure-register-theme-{A,B,C,D1-D2,D3-D4}.json` — per-item owner/attribution/source/right status.
+- `public-asset-reconciliation.json` — public-tree inventory + unmapped and broken-source references.
+- `scripts/biology/prelaunch-release-audit/verify.mjs` and `verify.test.mjs` — read-only, fail-closed local manifest QA; script execution evidence, if any, is tracked separately from source review.
