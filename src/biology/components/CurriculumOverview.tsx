@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {ArrowRight, Atom, Dna, Network, RefreshCw, Search, X} from 'lucide-react';
 import {findTopics, organizations, themes, visibleTopics} from '../curriculum/manifest';
 import type {Level, ThemeId, Topic} from '../curriculum/schema';
@@ -12,7 +12,7 @@ function TopicTile({topic,resource,level}:{topic:Topic;resource:ResourceMode;lev
   const action=!topic.lessonId?'View topic scope':resource==='learn'?'Open topic':resource==='practice'?'Open practice':resource==='revision'?'Open revision':resource==='flashcards'?'Open flashcards':resource==='drawing'?'Practise diagrams':'View sources';
   return <a className="bio-discovery-topic" href={destination} data-topic-id={topic.id}>
     <div className="bio-discovery-topic-top"><span className="bio-topic-code">{topic.id}</span>{topic.level==='HL'&&<span className="bio-hl-mark">HL ONLY</span>}</div>
-    <h3>{topic.title}</h3>
+    <h4>{topic.title}</h4>
     <p>{organizations[topic.organization-1]} <span aria-hidden="true">·</span> {topic.lessonId?'Lesson available':'Lesson planned'}</p>
     <span className="bio-discovery-topic-link">{action}<ArrowRight size={15} aria-hidden="true"/></span>
   </a>;
@@ -20,13 +20,15 @@ function TopicTile({topic,resource,level}:{topic:Topic;resource:ResourceMode;lev
 
 export default function CurriculumOverview({level,theme,resource='learn'}:{level:Level;theme?:ThemeId;resource?:ResourceMode}) {
   const [query,setQuery]=useState('');
+  const searchInput=useRef<HTMLInputElement>(null);
   const list=findTopics(query,level,theme);
   const all=visibleTopics(level);
   const hasQuery=query.trim().length>0;
   return <section className="bio-course-library bio-discovery" id="bio-topic-browser" aria-labelledby="bio-discovery-heading">
     <div className="bio-discovery-heading"><div><span className="bio-eyebrow">{theme?'THEME '+theme:'YOUR COURSE LIBRARY'}</span><h2 id="bio-discovery-heading">{theme?'Explore the topics':'Find your next topic'}</h2><p>{theme?'Select a topic to explore its understandings and learning resources.':'Choose a theme, or search the full curriculum by name or official code.'}</p></div></div>
-    <label className="bio-library-search bio-search-enhanced"><Search size={20} aria-hidden="true"/><span className="bio-sr-only">Search topics by syllabus code, name, theme or level of biological organization</span><input id="bio-topic-search" type="search" value={query} onChange={event=>setQuery(event.target.value)} placeholder={theme?'Search topics in this theme':'Search topics, e.g. A1.1 or photosynthesis'} autoComplete="off"/>{query?<button type="button" onClick={()=>setQuery('')} aria-label="Clear topic search"><X size={17} aria-hidden="true"/></button>:<kbd aria-hidden="true">⌘ K</kbd>}</label>
-    <p className="bio-library-meta" role="status">{hasQuery?list.length+' matching '+(list.length===1?'topic':'topics')+' in '+level:theme?list.length+' topics in '+level+' scope':'Showing '+all.length+' topics in '+level+' scope across four themes'}</p>
+    <label className="bio-sr-only" htmlFor="bio-topic-search">Search topics by syllabus code, name, theme or level of biological organization</label>
+    <div className="bio-library-search bio-search-enhanced"><Search size={20} aria-hidden="true"/><input ref={searchInput} id="bio-topic-search" type="search" value={query} onChange={event=>setQuery(event.target.value)} aria-describedby="bio-library-results-count" placeholder={theme?'Search topics in this theme':'Search topics, e.g. A1.1 or photosynthesis'} autoComplete="off"/>{query?<button type="button" onClick={()=>{setQuery('');searchInput.current?.focus()}} aria-label="Clear topic search"><X size={17} aria-hidden="true"/></button>:<kbd aria-hidden="true" title="Control or Command plus K">Ctrl/⌘ K</kbd>}</div>
+    <p id="bio-library-results-count" className="bio-library-meta" role="status">{hasQuery?list.length+' matching '+(list.length===1?'topic':'topics')+' in '+level:theme?list.length+' topics in '+level+' scope':'Showing '+all.length+' topics in '+level+' scope across four themes'}</p>
     {!theme&&!hasQuery&&<div className="bio-discovery-themes" aria-label="Choose a biology theme">{ids.map(id=>{
       const Icon=icons[id];const count=all.filter(topic=>topic.theme===id).length;
       return <a key={id} className={'bio-discovery-theme bio-discovery-theme-'+id} href={'#biology/theme/'+id+(resource==='learn'?'':'?resource='+resource)}>
