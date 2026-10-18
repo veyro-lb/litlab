@@ -1,5 +1,5 @@
 import type {Level} from '../curriculum/schema';
-import type {Asset, Lesson} from './lesson-contract';
+import type {Lesson} from './lesson-contract';
 
 /** Curated authorities, never derived from mutable lesson.references records. */
 export const APPROVED_EDUCATIONAL_SOURCE_IDS = ['ib-biology-guide-2025', 'hodder-biology-third-edition-2023'] as const;
