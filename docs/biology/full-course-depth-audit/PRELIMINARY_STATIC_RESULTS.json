@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-18",
+  "status": "IN PROGRESS — STRUCTURAL INVENTORY AND SEVEN SOURCE-INFORMED TEACHING REVISIONS",
+  "baseCommit": "a03f8f86af7009a529b6aaf8fd7e581a3928de52",
+  "branch": "feature/biolab-full-course-content-depth-audit-20261018",
+  "files": [
+    "docs/biology/full-course-depth-audit/matrix-A.json",
+    "docs/biology/full-course-depth-audit/matrix-B-molecules-cells.json",
+    "docs/biology/full-course-depth-audit/matrix-B-organisms-ecosystems.json",
+    "docs/biology/full-course-depth-audit/matrix-C.json",
+    "docs/biology/full-course-depth-audit/matrix-D-molecules-cells.json",
+    "docs/biology/full-course-depth-audit/matrix-D-organisms-ecosystems.json"
+  ],
+  "source": "IB Biology Guide first assessment 2025 with Hodder Biology Third Edition 2023",
+  "inventoryChecks": {
+    "numberedRows": 553,
+    "uniqueIds": 553,
+    "topicCount": 40,
+    "byTheme": {
+      "A": {
+        "topics": 9,
+        "understandings": 95
+      },
+      "B": {
+        "topics": 10,
+        "understandings": 123
+      },
+      "C": {
+        "topics": 9,
+        "understandings": 164
+      },
+      "D": {
+        "topics": 12,
+        "understandings": 171
+      }
+    },
+    "duplicateRows": 0,
+    "sourceScopedReviewRows": 7,
+    "sourceScopedReviewIds": [
+      "A1.2.7",
+      "B3.2.17",
+      "C1.3.12",
+      "C2.2.11",
+      "D1.1.8",
+      "D1.2.10",
+      "D2.1.11"
+    ],
+    "qualifiedApprovalCount": 0,
+    "stillRequireSourceDepthReview": 546,
+    "topicDataParsedWithGitHubConnector": 40,
+    "missingPreciseHodderPdfLocators": 58,
+    "missingLocatorTopics": [
+      "C3.2",
+      "C4.1",
+      "C4.2"
+    ],
+    "directSectionAssetTriageCount": 363,
+    "remainingOverlongTeachingHeadingFlags": 0,
+    "remainingFragmentaryMisconceptionFlags": 0
+  },
+  "improvements": {
+    "understandingsRevised": 7,
+    "newOriginalFigures": 6,
+    "otherEditorialHeadingCorrections": 11,
+    "otherMisconceptionPromptCorrections": 2
+  },
+  "testExecution": {
+    "githubFileApiJsonRoundTrips": "passed on modified JSONs",
+    "matrixInventoryConsistency": "passed in orchestration",
+    "nodeValidator": "added, runtime result not yet observed",
+    "existingSiteSchemaValidator": "configured in isolated Actions, not yet observed",
+    "npmBuild": "configured, not yet observed",
+    "renderedBrowser": "not run",
+    "qualifiedHumanScienceReview": "not obtained",
+    "rightsReviewExistingFigures": "pending"
+  },
+  "caveats": [
+    "No figure required for every teaching understanding; 363 no-asset signals are candidates for judgement, not confirmed gaps.",
+    "Forty lesson files were structurally parsed, but only seven understandings received this audit's substantive source-context editing.",
+    "Missing section-specific Hodder page pointers are provenance gaps, not automatic inaccuracies.",
+    "This document does not certify scientific correctness or completeness."
+  ]
+}
