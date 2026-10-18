@@ -399,7 +399,9 @@
         "hodder-d11",
         "ncbi-replication"
       ],
-      "assets": [],
+      "assets": [
+        "helicase-opening"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -507,7 +509,13 @@
             "explanation": "Helicase uses energy to unwind the parental double helix and disrupt the hydrogen bonds between complementary bases, exposing the two template strands."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "helicase-opening",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d11-4",
@@ -2381,6 +2389,23 @@
         "hodder-d11"
       ],
       "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "helicase-opening",
+      "kind": "diagram",
+      "src": "/biology/dna-replication/helicase-opening.svg",
+      "alt": "Helicase advances along a paired DNA duplex and disrupts hydrogen bonds between complementary bases. Two blue covalent backbones separate behind it and remain intact. ATP supplies energy; the symbolic enzyme does not cut the sugar–phosphate rails.",
+      "captionTitle": "Helicase separates the DNA strands",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Independent layout and geometry authored for this repository; no publisher image crop, tracing or source pixels.",
+      "referenceIds": [
+        "ib-d11",
+        "hodder-d11",
+        "ncbi-replication"
+      ],
+      "level": "shared",
       "review": "scientific-review"
     }
   ],

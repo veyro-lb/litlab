@@ -777,7 +777,7 @@
         "ncbi-dna"
       ],
       "assets": [
-        "a12-backbone"
+        "rna-polymer"
       ],
       "interactions": [
         {
@@ -914,8 +914,8 @@
       ],
       "figurePlacements": [
         {
-          "assetId": "a12-backbone",
-          "afterBlock": 1
+          "assetId": "rna-polymer",
+          "afterBlock": 0
         }
       ]
     },
@@ -4045,6 +4045,23 @@
         "rcsb-nucleosome"
       ],
       "level": "HL",
+      "review": "scientific-review"
+    },
+    {
+      "id": "rna-polymer",
+      "kind": "diagram",
+      "src": "/biology/nucleic-acids/rna-polymer.svg",
+      "alt": "Illustrative single RNA strand 5′–AUG–3′. Phosphate circles and ribose pentagons form the covalent backbone; bases attach to sugars. U is uracil, ribose has 2′–OH, and a free 3′–OH terminates the strand. Symbols show topology, not atomic detail.",
+      "captionTitle": "RNA: sugars, phosphates and bases",
+      "attribution": "Original BioLab scientific schematic, 18 October 2026",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Independent layout and geometry authored for this repository; no publisher image crop, tracing or source pixels.",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-dna"
+      ],
+      "level": "shared",
       "review": "scientific-review"
     }
   ],

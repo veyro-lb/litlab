@@ -30,7 +30,7 @@ save('cell-respiration','krebs-cycle.svg','Krebs cycle: carbon returns to 4C','A
 # Membrane diagram: electron pathway separate from proton arrows.
 b=text(28,77,'Intermembrane space · higher H⁺ concentration',20)
 b+=rect(28,92,544,122,'#e2edf8')+text(48,128,'H⁺   H⁺   H⁺   H⁺   H⁺   H⁺',25,BLUE)
-b+=rect(28,214,544,90,'#c9ddd6')+text(36,332,'Matrix · lower H⁺ concentration',21)
+b+=rect(28,214,544,90,'#c9ddd6')+text(235,350,'MATRIX · lower H⁺',20)
 b+=rect(90,192,120,133,'#bedfe3')+text(150,244,'Chain',21,anchor='middle')+text(150,273,'carriers',21,anchor='middle')
 b+=path('M112 371V151',BLUE,4,True)+text(42,174,'H⁺',22,BLUE)
 b+=rect(378,192,150,133,'#f0d5b4')+text(453,244,'ATP',22,anchor='middle')+text(453,273,'synthase',21,anchor='middle')+path('M500 150V374',GOLD,4,True)
@@ -83,6 +83,7 @@ b+=rect(107,166,397,227,'#e2edf8',BLUE,65)+text(300,198,'Ribosome',22,BLUE,ancho
 b+=text(212,235,'P site',21,anchor='middle')+text(383,235,'A site',21,anchor='middle')
 b+=path('M214 266V315',RED,6)+path('M385 266V315',GOLD,6)+text(214,340,'UAC',22,RED,anchor='middle')+text(385,340,'GGC',22,GOLD,anchor='middle')
 b+=path('M31 365H562',TEAL,4,True)+text(32,401,'5′',22)+text(558,401,'3′',22)+text(214,373,'AUG',23,anchor='middle',weight=700)+text(385,373,'CCG',23,anchor='middle',weight=700)
+b+=path('M134 263H212',RED,3)
 for x in [134,160,186,212]:b+=circle(x,263,10,RED)
 b+=circle(385,263,11,GOLD)+path('M238 262H363',BLUE,3,True)+text(298,294,'Transfer',19,BLUE,anchor='middle')
 b+=text(40,140,'Growing chain on tRNA',20,RED)+text(348,140,'Next amino acid',20,GOLD)
@@ -241,15 +242,43 @@ for mobile in [False,True]:
  for i,title in enumerate(['Directional','Stabilizing','Disruptive']):
   ox=95 if mobile else 58+i*338;oy=150+i*310 if mobile else 146;gw=410 if mobile else 274;gh=184
   b+=text(ox,oy-24,title,23,weight=600)+path(f'M{ox} {oy}V{oy+gh}H{ox+gw}',INK,2)
-  def gauss(x,mu,sd):return math.exp(-0.5*((x-mu)/sd)**2)/sd
+  def gauss(x,mu,sd):
+   area=.5*(math.erf((1-mu)/(sd*math.sqrt(2)))-math.erf(-mu/(sd*math.sqrt(2))))
+   return math.exp(-.5*((x-mu)/sd)**2)/(sd*math.sqrt(2*math.pi)*area)
   for baseline in [True,False]:
    pts=[]
    for n in range(101):
     u=n/100
     v=gauss(u,.5,.16) if baseline else (gauss(u,.72,.16) if i==0 else gauss(u,.5,.10) if i==1 else .5*gauss(u,.26,.10)+.5*gauss(u,.74,.10))
-    pts.append(f'{ox+u*gw:.2f},{oy+gh-v*38:.2f}')
+    pts.append(f'{ox+u*gw:.2f},{oy+gh-v*35:.2f}')
    b+=f'<polyline points="{" ".join(pts)}" fill="none" stroke="{("#7c8794" if baseline else TEAL)}" stroke-width="3"'+(' stroke-dasharray="7 5"' if baseline else '')+'/>'
   b+=text(ox+gw/2,oy+gh+30,'Trait value',19,anchor='middle')
   b+=f'<text transform="translate({ox-32} {oy+gh/2}) rotate(-90)" font-size="18" fill="{INK}" text-anchor="middle">Frequency density</text>'
  b+=text(28,h-23,'Conceptual distributions; no observed data or fixed trait units.',18)
  save('natural-selection','d41-selection-patterns'+('-mobile' if mobile else '')+'.svg','Selection changes a trait distribution','Constructed equal-area distributions compare before and after selection: directional shifts the mean; stabilizing narrows around the same mean; disruptive favours extremes. Axes show trait value and frequency density. No observational dataset, fitness curve or numerical trait scale is implied.',b,h,w)
+# RNA polymer: one sugar-phosphate backbone with bases attached to sugars.
+b=text(28,77,'Illustrative sequence · a single nucleotide strand',20)
+b+=text(104,113,'5′ end',21,BLUE)
+for i,base in enumerate(['A','U','G']):
+ y=153+i*145
+ b+=path(f'M180 {y-6}V{y+51}',TEAL,3)+circle(180,y,19,'#cfe4ee')+text(180,y+7,'P',20,BLUE,anchor='middle')
+ pts=f'150,{y+63} 180,{y+43} 210,{y+63} 199,{y+98} 161,{y+98}'
+ b+=f'<polygon points="{pts}" fill="#f3dca7" stroke="{GOLD}" stroke-width="2"/>'+text(180,y+77,'Ribose',15,anchor='middle')
+ b+=path(f'M211 {y+68}H357',TEAL,3)+box(363,y+38,153,66,base,color='#e8e0f0')
+ if i<2:b+=path(f'M180 {y+99}V{y+125}',TEAL,3)
+b+=text(102,587,'3′ end: free –OH',22,BLUE)+path('M180 543V560',TEAL,3)
+b+=text(30,652,'P = phosphate. U = uracil. Each ribose has 2′–OH.',20)
+b+=text(30,686,'Sugar–phosphate bonds form the covalent backbone.',20)
+save('nucleic-acids','rna-polymer.svg','RNA: sugars, phosphates and bases','Single-stranded illustrative RNA 5 prime A U G 3 prime. Phosphate circles and ribose pentagons form a continuous covalent sugar-phosphate backbone; bases attach to sugars and point sideways. Ribose bears 2 prime OH. Free 3 prime OH at bottom. Conventional symbols, not atom-resolved bonds or a transcript for a named gene.',b,723)
+# Helicase opens the duplex without cutting the covalent sugar-phosphate rails.
+b=text(28,77,'Unwound DNA behind · paired DNA ahead',21)
+b+=path('M50 150Q200 145 350 228H570',BLUE,6)+path('M50 410Q200 415 350 332H570',BLUE,6)
+for x in [410,450,490,530,565]:
+ b+=path(f'M{x} 232V270',TEAL,6)+path(f'M{x} 294V328',GOLD,6)+f'<path d="M{x} 272V292" fill="none" stroke="{RED}" stroke-width="2" stroke-dasharray="3 3"/>'
+b+=circle(339,280,46,'#f0d5b4')+text(339,286,'Helicase',20,anchor='middle')
+b+=path('M355 141H540',TEAL,4,True)+text(432,122,'Movement',20,anchor='middle')
+b+=text(28,234,'Separated strands',21,BLUE)+text(28,335,'Covalent backbones',20,BLUE)+text(28,363,'remain intact',20,BLUE)
+b+=text(391,388,'Paired bases',20)+path('M474 373L488 293',width=1.5)
+b+=lines(30,478,'Helicase uses energy from ATP to separate the two strands, disrupting hydrogen bonds between complementary bases.',44)
+b+=text(30,591,'Schematic opening fork; enzyme shape is symbolic.',20)
+save('dna-replication','helicase-opening.svg','Helicase separates the DNA strands','DNA duplex to the right of helicase opens into two strands to its left as the enzyme advances right. Solid blue rails are intact covalent sugar-phosphate backbones. Short vertical coloured bars denote bases, with dashed hydrogen-bond contacts between paired bases. Helicase uses ATP; no cutting of the backbone is shown. Simplified model, not to scale.',b,624)

@@ -1,5 +1,5 @@
 import {execFileSync} from 'node:child_process';
-import {chromium} from '@playwright/test';
+import {chromium,expect} from '@playwright/test';
 import {readdirSync,readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 const phase=process.argv[2]||'before',out=`qa-artifacts/scientific-visual-assets-repair/${phase}`;
 mkdirSync(out,{recursive:true});
@@ -46,7 +46,7 @@ try{
        if(Math.abs(zoom.w/zoom.h-zoom.nw/zoom.nh)>.02)issues.push(`${id} ${width}: distorted enlarged ${aid}`);
        if(width===390&&aid==='krebs-cycle')await dialog.screenshot({path:`${out}/zoom-krebs-390.png`});
        await page.keyboard.press('Escape');if(await dialog.count())issues.push(`${id}: Escape did not close ${aid}`);
-       if(!await f.locator('.bio-figure-image').evaluate(el=>el===document.activeElement))issues.push(`${id}: focus not restored ${aid}`);
+       try{await expect(f.locator('.bio-figure-image')).toBeFocused()}catch{issues.push(`${id}: focus not restored ${aid}`)}
        zoomChecks.push({id,aid,width,...zoom});
       }
      }
@@ -69,6 +69,14 @@ try{
    const clipped=await page.evaluate(()=>{const svg=document.querySelector('svg');if(!svg)return ['missing SVG'];const outer=svg.getBoundingClientRect();return [...svg.querySelectorAll('text')].filter(t=>{const r=t.getBoundingClientRect();return r.width>0&&(r.left<outer.left-2||r.top<outer.top-2||r.right>outer.right+2||r.bottom>outer.bottom+2)}).map(t=>t.textContent)});
    svgChecks.push({path,clipped});
   }
+  await page.goto('http://127.0.0.1:4173/#biology/topic/A1.1/learn?understanding=A1.1.6');
+  await page.locator('#water-heat-energy').fill('2000');await page.locator('#water-heat-mass').fill('1');
+  await expect(page.locator('.bio-heat-output')).toContainText('0.48 K');
+  await page.locator('#water-heat-mass').fill('2');await expect(page.locator('.bio-heat-output')).toContainText('0.24 K');
+  await page.goto('http://127.0.0.1:4173/#biology/topic/B2.2/learn?understanding=B2.2.4');
+  await page.locator('#b22-volume').focus();await page.keyboard.press('Home');
+  await expect(page.locator('.bio-concentration-model output')).toContainText('24.0');
+  await page.keyboard.press('ArrowRight');await expect(page.locator('.bio-concentration-model output')).toContainText('12.0');
   // Report pre-existing and new clipping separately; all findings require review.
   writeFileSync(`${out}/svg-label-bounds.json`,JSON.stringify(svgChecks,null,2));
   await page.evaluate(()=>localStorage.setItem('litlab:biology:preferences:v1','SL'));
