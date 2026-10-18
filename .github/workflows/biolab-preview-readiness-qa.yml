@@ -53,6 +53,8 @@ jobs:
           test "$ready" = 1 || { cat qa-artifacts/preview-readiness/preview.log; exit 1; }
           node scripts/biology/full-course/full-course-browser.mjs
           node scripts/biology/preview-readiness/browser.mjs
+          node scripts/biology-ui-acceptance.mjs
+          node scripts/biology/prelaunch-student-qa/browser.mjs
       - name: Store Chromium screenshots and audits
         if: always()
         uses: actions/upload-artifact@v4
@@ -61,5 +63,7 @@ jobs:
           path: |
             qa-artifacts/preview-readiness/
             qa-artifacts/full-course/
+            qa-artifacts/ui-acceptance/
+            qa-artifacts/prelaunch-student-qa/
           if-no-files-found: warn
           retention-days: 21
