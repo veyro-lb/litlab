@@ -25,3 +25,7 @@ A branch-specific GitHub Actions workflow runs these checks without deploying; s
 - Four HL respiration understandings checked against their supplied Guide and Hodder source pages; individual code-path/browser evidence remains pending.
 
 **Qualified scientific approval, independent copyright review and completed browser QA are NOT established by these structural checks.**
+
+## Performed direct GitHub-branch static verification (post-commit)
+
+Three disjoint batches fetched and parsed every committed lesson JSON from this isolated branch. **40/40 topic files and 553/553 numbered understandings inspected; zero errors detected** in: section-to-official-ID mapping, SL/HL level fields, lesson reference-ID registration, section figure IDs, `figurePlacements` range/asset relationships, section counts and active lesson references to the 18 deleted PDF-crop paths. Batch totals were 14 topics/177 understandings, 14/199 and 12/177. This is a source-file static check performed through the connected GitHub file API, **not** a local `npm run quality`, build, CI workflow or browser run. The Rights/HTML/actual image-load and scientific assertions remain pending as described above.
