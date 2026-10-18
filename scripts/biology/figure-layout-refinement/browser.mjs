@@ -57,8 +57,10 @@ try{
       const big=dialog.locator('.bio-figure-zoom img');
       const size1=await big.evaluate(e=>e.getBoundingClientRect().width);
       await zoom.click();
+      await dialog.locator('output').getByText('150%',{exact:true}).waitFor({state:'visible'});
+      await big.evaluate(el=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
       const size2=await big.evaluate(e=>e.getBoundingClientRect().width);
-      if(size2<=size1)throw Error('Zoom did not enlarge image');
+      if(size2<=size1)throw Error('Zoom did not enlarge image (at 100% '+size1+'px; at 150% '+size2+'px)');
       await dialog.getByRole('button',{name:'Reset'}).click();
       await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});
       if(!(await trigger.evaluate(e=>e===e.getRootNode().activeElement)))throw Error('Focus did not return');
