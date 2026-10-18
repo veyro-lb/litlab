@@ -120,3 +120,6 @@
 .bio-app .bio-table-scroll{max-width:100%;overscroll-behavior-inline:contain}
 .bio-app .bio-table-scroll:focus-visible{outline:3px solid var(--bio-focus);outline-offset:2px}
 @media(max-width:380px){.bio-search-enhanced kbd{display:none}.bio-app .bio-search-enhanced{padding-inline:10px;gap:7px}}
+
+/* The course-level radios must remain thumb-sized even on a 320px phone. */
+.bio-app .bio-level label>span{min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center}
