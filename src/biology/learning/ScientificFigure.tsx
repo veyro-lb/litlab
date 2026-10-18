@@ -28,7 +28,7 @@ export default function ScientificFigure({asset,hideLabels=false}: {asset:Asset;
       else if(!event.shiftKey&&active===last){event.preventDefault();first?.focus()}
     }}>
       <div className="bio-figure-dialog-head"><strong>{asset.captionTitle}</strong><button type="button" autoFocus onClick={()=>dialog.current?.close()}>Close figure</button></div>
-      <div className="bio-figure-zoom-controls" role="group" aria-label="Figure zoom controls"><button type="button" aria-label="Zoom out" disabled={zoom<=1} onClick={()=>setZoom(value=>Math.max(1,+(value-0.5).toFixed(1)))}>−</button><output aria-live="polite">{Math.round(zoom*100)}%</output><button type="button" aria-label="Zoom in" disabled={zoom>=3} onClick={()=>setZoom(value=>Math.min(3,+(value+0.5).toFixed(1)))}>+</button><span>Pan to inspect labels · Escape to close</span></div>
+      <div className="bio-figure-zoom-controls" role="group" aria-label="Figure zoom controls"><button type="button" aria-label="Zoom out" disabled={zoom<=1} onClick={()=>setZoom(value=>Math.max(1,+(value-0.5).toFixed(1)))}>−</button><span className="bio-figure-zoom-value" aria-live="polite">{Math.round(zoom*100)}%</span><button type="button" aria-label="Zoom in" disabled={zoom>=3} onClick={()=>setZoom(value=>Math.min(3,+(value+0.5).toFixed(1)))}>+</button><span>Pan to inspect labels · Escape to close</span></div>
       <div className="bio-figure-zoom" tabIndex={0} role="region" aria-label="Enlarged scientific illustration"><img src={src} alt={alt} style={{minWidth:`${zoom*100}%`}}/></div>
       <p>{asset.alt}</p>
     </dialog>

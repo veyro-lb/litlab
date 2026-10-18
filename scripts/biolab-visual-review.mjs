@@ -43,7 +43,7 @@ try{
   await p.goto('http://127.0.0.1:4173'+src);
   const clipped=await p.evaluate(()=>{const svg=document.querySelector('svg');if(!svg)return ['not svg'];const v=svg.viewBox.baseVal;return [...svg.querySelectorAll('text')].filter(t=>{const b=t.getBBox();return b.x<0||b.y<0||b.x+b.width>v.width+1||b.y+b.height>v.height+1}).map(t=>t.textContent)});
   if(clipped.length)report.svgTextOverflow.push({src,clipped});
-  await p.setViewportSize({width:375,height:1000});await p.screenshot({path:`${out}/figure-${n}-${size}-375.png`,fullPage:true});
+  await p.setViewportSize({width:375,height:1000});await p.screenshot({path:`${out}/figure-${n}-${size}-375.png`,fullPage:false,timeout:30000});
  }
  await context.close();
 }finally{await writeFile(out+'/visual-report.json',JSON.stringify(report,null,2));await browser.close()}
