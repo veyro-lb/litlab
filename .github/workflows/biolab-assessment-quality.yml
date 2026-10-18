@@ -46,13 +46,26 @@ jobs:
           node scripts/validate-biology.mjs
           node scripts/biology/full-course/readiness-audit.mjs
       - name: Assessment validator negative fixtures
-        run: node --test scripts/biology/assessment-quality/audit.test.mjs
+        run: node --test scripts/biology/assessment-quality/audit.test.mjs scripts/biology/assessment-quality/verify-patches.test.mjs
       - name: Entire course assessment validator
         run: node scripts/biology/assessment-quality/audit.mjs > qa-artifacts/assessment-quality/audit-output.json
       - name: Patch package preflight without changing lessons
         run: node scripts/biology/assessment-quality/verify-patches.mjs | tee qa-artifacts/assessment-quality/patch-preflight.json
       - name: Production application build (not deployment)
         run: npm run build
+      - name: Build candidate-only preview in a disposable /tmp checkout
+        run: |
+          set -euo pipefail
+          preview="$(mktemp -d /tmp/biolab-assessment-preview.XXXXXX)"
+          trap 'rm -rf "$preview"' EXIT
+          cp -a src public package.json package-lock.json index.html tsconfig.json vite.config.ts "$preview/"
+          ln -s "$GITHUB_WORKSPACE/node_modules" "$preview/node_modules"
+          node scripts/biology/assessment-quality/materialize-preview.mjs "$preview" | tee qa-artifacts/assessment-quality/candidate-preflight.json
+          (
+            cd "$preview"
+            "$GITHUB_WORKSPACE/node_modules/.bin/tsc" -b
+            "$GITHUB_WORKSPACE/node_modules/.bin/vite" build --outDir "$GITHUB_WORKSPACE/qa-patch-dist"
+          )
       - name: Browser assessment checks with offline Chromium
         run: |
           set -euo pipefail
@@ -87,6 +100,16 @@ jobs:
               done
               test "$ready" = 1 || { cat qa-artifacts/assessment-quality/preview.log; exit 1; }
               node scripts/biology/assessment-quality/browser.mjs | tee qa-artifacts/assessment-quality/browser.log
+              "$PWD/node_modules/.bin/vite" preview --host 127.0.0.1 --port 4174 --outDir qa-patch-dist > qa-artifacts/assessment-quality/candidate-preview.log 2>&1 &
+              candidate_pid=$!
+              trap "kill $candidate_pid $preview_pid 2>/dev/null || true" EXIT
+              candidate_ready=0
+              for attempt in $(seq 1 45); do
+                if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4174/; then candidate_ready=1; break; fi
+                sleep 1
+              done
+              test "$candidate_ready" = 1 || { cat qa-artifacts/assessment-quality/candidate-preview.log; exit 1; }
+              BIOLAB_PATCH_PREVIEW=1 LITLAB_PREVIEW_URL=http://127.0.0.1:4174/ node scripts/biology/assessment-quality/browser.mjs | tee qa-artifacts/assessment-quality/browser-candidate.log
             '
       - name: Save recorded evidence
         if: always()

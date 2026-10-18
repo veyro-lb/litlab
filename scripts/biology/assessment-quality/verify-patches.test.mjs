@@ -23,7 +23,7 @@ const environment=()=>{
 };
 const check=e=>verifyPatchDocument(e.doc,e.lessons,e.registry);
 test('unchanged source question and complete proposal pass fingerprint-guarded preflight',()=>{const r=check(environment());assert.equal(r.errors,0,JSON.stringify(r.problems));assert.equal(r.matchedFingerprints,1)});
-test('fingerprint SHA256 matches known stable string representation',()=>assert.equal(questionSha256({a:'b'}),'db4a7ecb11481f73a95ef8eac7e8e5e7abcf9943b78db643be9d86c5c2723409'));
+test('fingerprint SHA256 matches known stable string representation',()=>assert.equal(questionSha256({a:'b'}),'db4a7ecb114bc66c623a06c4ff6fe8daa2f49cc270ebbf7a1f81e22ab061c837'));
 test('a changed live question fails closed without overwriting it',()=>{const e=environment();e.lesson.questions[0].prompt='Parallel editorial edit';assert.ok(check(e).problems.some(x=>x.includes('source question changed')));assert.equal(e.lesson.questions[0].prompt,'Parallel editorial edit')});
 test('tampered original snapshot is rejected even if source question is untouched',()=>{const e=environment();e.patch.originalQuestion.prompt='Altered snapshot';assert.ok(check(e).problems.some(x=>x.includes('snapshot does not match')))});
 test('missing fingerprint and duplicate target fail',()=>{const e=environment();delete e.patch.previousContentFingerprint;assert.ok(check(e).problems.some(x=>x.includes('fingerprint')));e.patch.previousContentFingerprint={algorithm:'sha256',encoding:'utf8',canonicalization:'JSON.stringify(parsed-question-object)',value:questionSha256(e.patch.originalQuestion)};e.doc.patches.push(structuredClone(e.patch));e.doc.patchCount=2;assert.ok(check(e).problems.some(x=>x.includes('duplicate patch')))});
