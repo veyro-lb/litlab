@@ -12,7 +12,7 @@ test('the educational whitelist is fixed, complete and deduplicated', () => {
   assert.ok(authorities[0].url.includes('ibo.org/'));
   assert.ok(authorities[1].url.includes('hachettelearning.com/'));
   assert.match(authorities[1].description, /independently published/i);
-  assert.doesNotMatch(authorities[1].description, /official IB publication\./i);
+  assert.match(authorities[1].description, /not an official IB publication/i);
 });
 
 test('arbitrary teaching links can never be promoted by the Sources component', async () => {
