@@ -5,7 +5,7 @@ on:
       - feature/biolab-preview-qa-fixes-20261018
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   compatible-security-updates:
     runs-on: ubuntu-22.04
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          persist-credentials: true
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -23,6 +23,7 @@ jobs:
       - name: Propose compatible, explicit development-tooling updates in disposable runner
         run: |
           npm install --save-dev --save-exact vite@6.4.4 wrangler@4.151.1
+          npm update source-map-js
           npm ci
       - name: Capture updated audit
         run: |
@@ -40,7 +41,21 @@ jobs:
           node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs
           npm run quality
           npm run build
-      - name: Store reviewable lockfile proposal (never auto-commit or deploy)
+      - name: Require zero high-severity advisories after compatibility tests
+        run: npm audit --audit-level=high
+      - name: Commit only verified package changes to isolated QA branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/feature/biolab-preview-qa-fixes-20261018"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(biology): patch audited development dependencies without major upgrades"
+            git push origin HEAD:refs/heads/feature/biolab-preview-qa-fixes-20261018
+          fi
+      - name: Store reviewed security update evidence (no public deployment)
         if: always()
         uses: actions/upload-artifact@v4
         with:
