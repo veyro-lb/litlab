@@ -1,0 +1,73 @@
+name: BioLab Final Student UX Acceptance
+on:
+  push:
+    branches:
+      - feature/biolab-ib-ux-final-20261018
+permissions:
+  contents: read
+jobs:
+  ux-acceptance:
+    name: Build, genuine Chromium journeys, screenshots
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify isolated branch and exact commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          printf 'Testing commit %s\n' "$GITHUB_SHA"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Site quality and existing Biology validators
+        run: |
+          npm run quality
+          node scripts/validate-biology.mjs
+          node scripts/validate-lessons.mjs
+          node scripts/biology/full-course/readiness-audit.mjs
+          node --test scripts/biology/full-course/integration-negative.test.mjs
+      - name: TypeScript and production bundle
+        run: npm run build
+      - name: Isolated real Chromium browser acceptance
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/ux-final node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm --network none --cap-drop ALL \
+            --user "$(id -u):$(id -g)" --env HOME=/tmp \
+            --env "GITHUB_SHA=$GITHUB_SHA" \
+            --security-opt no-new-privileges --read-only \
+            --tmpfs /tmp:rw,nosuid,size=768m --shm-size=1g \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
+            --workdir /work mcr.microsoft.com/playwright:v1.56.1-noble \
+            bash -euo pipefail -c '
+              export CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              test -n "$CHROME_BIN"
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/ux-final/preview.log 2>&1 &
+              for attempt in $(seq 1 50); do
+                if node -e "fetch(\"http://127.0.0.1:4173/\").then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"; then break; fi
+                sleep 1
+              done
+              node scripts/biology/ux-final/browser.mjs
+            '
+      - name: Upload real mobile and desktop screenshots and test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-final-ux-browser-evidence
+          path: qa-artifacts/ux-final/
+          if-no-files-found: warn
+          retention-days: 14

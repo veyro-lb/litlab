@@ -361,3 +361,31 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
 .bio-microscopy-case textarea:focus-visible,.bio-microscopy-case button:focus-visible,.bio-microscopy-case a:focus-visible{outline:3px solid var(--bio-green);outline-offset:3px}
 .bio-microscopy-case details{font-size:13px;line-height:1.8;margin:18px 0}
 .bio-microscopy-case summary{cursor:pointer;font-weight:700;color:var(--bio-green)}
+
+
+/* Approved educational authorities are always separate from figure licences or research evidence. */
+.bio-app .bio-sources{max-width:920px;margin:0 auto 60px;min-width:0}
+.bio-app .bio-sources>h2{font-size:clamp(27px,3.2vw,40px);letter-spacing:-1px;margin-bottom:14px}
+.bio-app .bio-sources>h3{font-size:18px;letter-spacing:-.3px;margin:34px 0 15px}
+.bio-app .bio-sources .bio-sources-intro{max-width:72ch;color:var(--muted);font-size:15px;line-height:1.8}
+.bio-app .bio-educational-sources{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.bio-app .bio-educational-sources>li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:23px 25px;min-width:0}
+.bio-app .bio-educational-sources h4{font-size:18px;line-height:1.35;margin:0 0 11px}
+.bio-app .bio-educational-sources p{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 13px}
+.bio-app .bio-educational-sources a,.bio-app .bio-credit-links a{font-size:13px;color:var(--bio-green);font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.bio-app .bio-sources .bio-sources-muted{font-size:13px;color:var(--muted);line-height:1.75}
+.bio-app .bio-media-credits{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 0}
+.bio-app .bio-media-credits>summary{min-height:48px;display:flex;align-items:center;cursor:pointer;color:var(--bio-green);font-weight:700;font-size:13px}
+.bio-app .bio-media-credits ul{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.bio-app .bio-media-credits li{padding:18px 0;border-top:1px solid var(--line);min-width:0}
+.bio-app .bio-media-credits li>strong{display:block;font-size:13px;line-height:1.55;overflow-wrap:anywhere}
+.bio-app .bio-media-credits .bio-credit-kind{display:inline-block;margin:7px 0;font-size:11px;color:var(--bio-green);font-weight:650}
+.bio-app .bio-media-credits li p{font-size:12px;line-height:1.7;color:var(--muted);margin:5px 0;overflow-wrap:anywhere}
+.bio-app .bio-media-credits .bio-credit-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+.bio-app .bio-sources .bio-sources-disclaimer{border-top:1px solid var(--line);padding-top:19px;margin:32px 0 0;font-size:12px;color:var(--muted);line-height:1.7}
+@media(max-width:760px){
+  .bio-app .bio-sources>h3{margin-top:28px}
+  .bio-app .bio-educational-sources>li{padding:18px 17px}
+  .bio-app .bio-educational-sources h4{font-size:16px}
+  .bio-app .bio-sources .bio-sources-intro{font-size:14px}
+}
