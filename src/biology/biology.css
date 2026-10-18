@@ -361,3 +361,18 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
 .bio-microscopy-case textarea:focus-visible,.bio-microscopy-case button:focus-visible,.bio-microscopy-case a:focus-visible{outline:3px solid var(--bio-green);outline-offset:3px}
 .bio-microscopy-case details{font-size:13px;line-height:1.8;margin:18px 0}
 .bio-microscopy-case summary{cursor:pointer;font-weight:700;color:var(--bio-green)}
+
+/* IB source policy: two concise educational references; keep licensing in an optional disclosure. */
+.bio-approved-sources{list-style:none!important;margin:24px 0;padding:0!important;display:grid;gap:13px}
+.bio-approved-sources>li{margin:0!important;padding:19px 21px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.bio-approved-sources strong{display:block;font-size:15px;line-height:1.45}
+.bio-approved-sources p{margin:9px 0 10px;line-height:1.65}
+.bio-approved-sources a{font-size:12px;font-weight:650}
+.bio-sources .bio-source-review-note{line-height:1.8;margin:20px 0 30px}
+.bio-source-credits{border-top:1px solid var(--line);padding:20px 0;overflow-wrap:anywhere}
+.bio-source-credits summary{cursor:pointer;font-size:13px;font-weight:700;min-height:38px}
+.bio-source-credits ul{list-style:none;margin:12px 0 0;padding:0}
+.bio-source-credits li{border-top:1px solid var(--line);padding:13px 0;margin:0!important}
+.bio-source-credits strong,.bio-source-credits span{display:block;font-size:12px;line-height:1.6}
+.bio-source-credits a{font-size:12px;display:inline-block;margin:7px 12px 0 0}
+@media(max-width:600px){.bio-approved-sources>li{padding:15px}.bio-approved-sources strong{font-size:14px}}
