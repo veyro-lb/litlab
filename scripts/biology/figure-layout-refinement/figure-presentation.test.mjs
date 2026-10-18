@@ -27,4 +27,5 @@ test('all lesson figure placements still point to known assets',()=>{
 test('responsive original aspect ratio and zoom controls are styled',()=>{
  const css=readFileSync('src/biology/biology.css','utf8');
  for(const token of ['data-size="compact"','data-size="detailed"','bio-figure-zoom img','object-fit:contain','@media(max-width:760px)'])assert.ok(css.includes(token),token);
+ assert.ok(css.includes('.bio-app .bio-figure.bio-figure-clean .bio-figure-dialog .bio-figure-zoom img{max-width:none;min-width:0;max-height:none}'), 'modal must bypass lesson image width cap');
 });

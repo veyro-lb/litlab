@@ -421,3 +421,5 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
 }
 @media(max-width:760px){.bio-figure-clean,.bio-reading .bio-figure.bio-figure-clean{max-inline-size:100%;margin:20px auto 26px}.bio-figure-dialog{padding:12px}.bio-figure-dialog-controls{justify-content:flex-start}}
 @media(prefers-reduced-motion:reduce){.bio-figure-clean *,.bio-figure-dialog *{scroll-behavior:auto;transition:none}}
+/* Modal zoom must escape the higher-specificity general lesson image cap. */
+.bio-app .bio-figure.bio-figure-clean .bio-figure-dialog .bio-figure-zoom img{max-width:none;min-width:0;max-height:none}
