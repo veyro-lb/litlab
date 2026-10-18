@@ -1,0 +1,55 @@
+name: BioLab Scientific Visual Redesign QA
+on:
+  push:
+    branches:
+      - feature/biolab-complete-scientific-visual-redesign-20261018
+  workflow_dispatch:
+concurrency:
+  group: biolab-scientific-visual-redesign-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  visual-qa:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Syllabus and SVG source regressions
+        run: node --test scripts/biology/scientific-visual-redesign.test.mjs src/biology/learning/reproduction/reproduction.test.mjs
+      - name: Full repository quality
+        run: npm run quality
+      - name: Production build without deployment
+        run: npm run build
+      - name: Responsive and recall screenshot verification
+        run: |
+          mkdir -p qa-artifacts/scientific-visual-redesign node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm --network none --cap-drop ALL --user "$(id -u):$(id -g)" --env HOME=/tmp --security-opt no-new-privileges --read-only --tmpfs /tmp:rw,nosuid,size=768m --shm-size=1g \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
+            --workdir /work mcr.microsoft.com/playwright:v1.56.1-noble bash -euo pipefail -c '
+              CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              export CHROME_BIN
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/scientific-visual-redesign/preview.log 2>&1 &
+              for attempt in $(seq 1 30); do
+                if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4173/; then break; fi
+                sleep 1
+              done
+              node scripts/biology/scientific-visual-redesign-browser.mjs
+            '
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: biolab-scientific-visual-redesign-private-evidence
+          path: qa-artifacts/scientific-visual-redesign/
+          retention-days: 14
