@@ -29,7 +29,7 @@
         "D3.2.1"
       ],
       "level": "shared",
-      "guidingQuestion": "How does gametes and diploid zygotes work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How do meiosis and fertilization maintain chromosome number across generations?",
       "explanation": "Meiosis in a diploid parent separates homologous chromosomes so that gametes contain one chromosome from each pair. For each autosomal locus, a haploid gamete normally carries one allele, while a diploid body cell generally has two alleles, one inherited from each parent. Fusion of two haploid gametes during fertilization restores the diploid chromosome complement in the zygote. Subsequent mitotic divisions retain that complement.\n\nThis alternating halving and restoration is shared by eukaryotes with sexual life cycles, although the relative duration of haploid and diploid stages differs among species. The inheritance of an allele is therefore a physical consequence of chromosome segregation and gamete fusion, not an independent process.",
       "revisionSummary": "Gamete fusion restores the diploid complement after meiotic reduction.",
       "terms": [
@@ -166,7 +166,7 @@
         "D3.2.2"
       ],
       "level": "shared",
-      "guidingQuestion": "How does genetic crosses in flowering plants work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How can breeders control pollen transfer to test a genetic cross?",
       "explanation": "In a flowering plant such as a pea, pollen contains the male gametes and the embryo sac within an ovule in the ovary contains the egg cell. To make a controlled cross, a breeder prevents self-pollination of the chosen female parent, transfers pollen from the selected male parent, and labels the cross. Some flowers contain both male and female reproductive structures and can self-pollinate unless this is prevented.\n\nThe parents are the P generation. Their direct offspring form F1, and breeding F1 plants with each other or self-pollinating them produces F2. A Punnett grid places the parental gamete types on its edges and shows the possible combinations in offspring. It predicts probabilities, not an exact count in a small sample. Selective crosses are used to develop crop and ornamental varieties.",
       "revisionSummary": "A controlled plant cross requires specified parental pollen and egg sources.",
       "terms": [
@@ -303,8 +303,8 @@
         "D3.2.3"
       ],
       "level": "shared",
-      "guidingQuestion": "How does genotypes and allele combinations work, and what evidence or calculation supports it?",
-      "explanation": "A gene is a DNA sequence whose product contributes to a biological function; an allele is one alternative sequence form at a genetic locus. Genotype refers to the allele combination for the gene or genes under discussion, rather than directly to the visible trait. At an autosomal locus in a typical diploid individual there are two alleles.\n\nHomozygous describes two identical alleles (AA or aa); heterozygous describes two different alleles (Aa). Genetic cross calculations depend on identifying the parents' genotypes before listing the gametes they can make. A heterozygote can form A- and a-bearing gametes in approximately equal proportions if segregation is normal.",
+      "guidingQuestion": "How do homozygous and heterozygous genotypes differ?",
+      "explanation": "A gene is a DNA sequence whose product contributes to a biological function; an allele is one alternative sequence form at a genetic locus. Genotype refers to the allele combination for the gene or genes under discussion, rather than directly to the visible trait. At an autosomal locus in a typical diploid individual there are two alleles.\n\nHomozygous describes two identical alleles (AA or aa); heterozygous describes two different alleles (Aa). Genetic cross calculations depend on identifying the parents' genotypes before listing the gametes they can make. A heterozygote can form A- and a-bearing gametes in approximately equal proportions if segregation is normal.\n\nGenotype specifies the alleles at a locus or loci, such as AA, Aa or aa. Phenotype is the observed trait produced through genotype interacting with developmental and environmental conditions. Under a simple complete-dominance model, AA and Aa share one phenotype but remain different genotypes; the same genotype can also produce different phenotype values in different environments.",
       "revisionSummary": "Aa is heterozygous because the two alleles differ.",
       "terms": [
         "Genes, alleles and genotype"
@@ -330,6 +330,13 @@
             "ib-d32",
             "hodder-d32"
           ]
+        },
+        {
+          "claim": "Genotype specifies the alleles at a locus or loci, such as AA, Aa or aa. Phenotype is the observed trait produced through genotype interacting with developmental and environmental conditions. Under a simple complete-dominance model, AA and Aa share one phenotype but remain different genotypes; the same genotype can also produce different phenotype values in different environments.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
         }
       ],
       "referenceIds": [
@@ -349,6 +356,14 @@
         {
           "title": "Mechanism, prediction and limits",
           "explanation": "Homozygous describes two identical alleles (AA or aa); heterozygous describes two different alleles (Aa). Genetic cross calculations depend on identifying the parents' genotypes before listing the gametes they can make. A heterozygote can form A- and a-bearing gametes in approximately equal proportions if segregation is normal.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "Keep allele combinations distinct from observed traits",
+          "explanation": "Genotype specifies the alleles at a locus or loci, such as AA, Aa or aa. Phenotype is the observed trait produced through genotype interacting with developmental and environmental conditions. Under a simple complete-dominance model, AA and Aa share one phenotype but remain different genotypes; the same genotype can also produce different phenotype values in different environments.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -432,7 +447,34 @@
         ]
       },
       "exampleTitle": "Worked biological example",
-      "activityTitle": "Check your understanding"
+      "activityTitle": "Check your understanding",
+      "graphTables": [
+        {
+          "caption": "Illustrative complete-dominance model (A dominant to a); not empirical counts",
+          "headers": [
+            "Genotype",
+            "Genotype class",
+            "Predicted phenotype"
+          ],
+          "rows": [
+            [
+              "AA",
+              "Homozygous dominant",
+              "Dominant trait"
+            ],
+            [
+              "Aa",
+              "Heterozygous",
+              "Dominant trait"
+            ],
+            [
+              "aa",
+              "Homozygous recessive",
+              "Recessive trait"
+            ]
+          ]
+        }
+      ]
     },
     {
       "id": "inheritance-4",
@@ -440,7 +482,7 @@
         "D3.2.4"
       ],
       "level": "shared",
-      "guidingQuestion": "How does phenotypes: genes and environment work, and what evidence or calculation supports it?",
+      "guidingQuestion": "Why may two genotypes give the same phenotype, or one genotype different phenotypes?",
       "explanation": "Phenotype is the observable or measurable expression of an organism's traits. It can reflect genotype, environmental influences and interactions between them. An ABO blood group is determined largely by inherited alleles at the ABO locus; a suntan results from environmental ultraviolet exposure; stature is influenced by many genes together with nutrition and health.\n\nOrganisms with the same genotype can show different phenotypes under different conditions. Conversely, the same outward phenotype can be produced by different genotypes: in a complete-dominance model both AA and Aa may have the dominant phenotype. Phenotype alone therefore does not always identify a genotype.",
       "revisionSummary": "Height commonly reflects both genes and environmental conditions.",
       "terms": [
@@ -577,7 +619,7 @@
         "D3.2.5"
       ],
       "level": "shared",
-      "guidingQuestion": "How does dominant and recessive alleles work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How do complete dominance and recessiveness affect a monohybrid cross?",
       "explanation": "In complete dominance, the dominant phenotype appears in both a homozygote for a dominant allele (AA) and a heterozygote (Aa). Often, although not always, one functioning copy produces sufficient gene product for the trait in question; the recessive phenotype appears when neither copy provides the dominant effect. Dominance describes an observed relationship between alleles for a specified phenotype; it does not mean an allele is more common or beneficial.\n\nWhen two heterozygotes are crossed, AA, Aa, Aa and aa are equally likely zygote combinations under Mendelian segregation. Their genotypic ratio is 1:2:1 and, for a fully penetrant complete-dominance trait, the phenotypic ratio is 3 dominant : 1 recessive. These are probabilities over many offspring.\n\nTwo heterozygous parents each produce A and a gametes with 1/2 probability. The four equally probable genotypes are AA, Aa, Aa, aa. The genotype ratio is 1:2:1, and with complete dominance the phenotype ratio is 3:1. These fractions predict probabilities, not exact outcomes for a family of four.",
       "revisionSummary": "AA and Aa can have the same dominant phenotype despite different genotypes.",
       "terms": [
@@ -731,7 +773,7 @@
         "D3.2.6"
       ],
       "level": "shared",
-      "guidingQuestion": "How does phenotypic plasticity work, and what evidence or calculation supports it?",
+      "guidingQuestion": "What changes in phenotypic plasticity without changing inherited alleles?",
       "explanation": "Phenotypic plasticity is the capacity of one genotype to produce different phenotypes in different environments. Environmental signals can alter gene regulation, hormone signalling, enzyme activity and development. Some responses are reversible during an individual's life, whereas developmental changes can persist after the triggering conditions disappear.\n\nPlasticity is distinct from evolutionary adaptation: an individual may adjust its phenotype without its DNA base sequence changing. Selection can act across generations on genetically determined differences in capacity for plasticity, but a change caused by temperature or diet in one organism is not automatically inherited. Examples include altered leaf development in contrasting light environments.",
       "revisionSummary": "Plasticity changes trait expression in response to conditions without requiring a new allele.",
       "terms": [
@@ -868,7 +910,7 @@
         "D3.2.7"
       ],
       "level": "shared",
-      "guidingQuestion": "How does phenylketonuria and recessive inheritance work, and what evidence or calculation supports it?",
+      "guidingQuestion": "Why can two unaffected PKU carriers have an affected child?",
       "explanation": "Phenylketonuria (PKU) is usually caused by disease-associated variants in both copies of the autosomal PAH gene. PAH encodes phenylalanine hydroxylase, needed to convert phenylalanine into tyrosine. Inadequate activity allows phenylalanine to accumulate; without timely treatment, elevated levels can damage developing nervous tissue. Newborn screening and controlled dietary phenylalanine intake help prevent serious harm.\n\nA carrier usually has one functioning PAH allele and no classic PKU phenotype. For two heterozygous carrier parents, each pregnancy has a 1/4 probability of an affected child, 1/2 of a carrier and 1/4 of a child without either pathogenic allele. This is a probability for each pregnancy, not a prediction that exactly one in every four siblings will be affected.",
       "revisionSummary": "Two carrier parents have a 25% affected-offspring probability per pregnancy.",
       "terms": [
@@ -1010,7 +1052,7 @@
         "D3.2.8"
       ],
       "level": "shared",
-      "guidingQuestion": "How does snps and multiple alleles work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How can a population contain more than two alleles at one locus?",
       "explanation": "A single-nucleotide polymorphism (SNP) is a variation at one nucleotide position among individuals. Such variation can occur in coding or noncoding DNA and need not change protein function. A gene may have numerous alleles within the population gene pool, generated historically by mutations and then influenced by selection, migration and chance.\n\nA diploid individual usually possesses at most two alleles at a given autosomal locus, despite the population having many alternatives. A SNP and an allele are not interchangeable: a SNP describes a nucleotide difference, whereas an allele is the sequence version defined at the locus and may contain one or more variants.",
       "revisionSummary": "A population can carry many alleles at a locus while a diploid person carries two.",
       "terms": [
@@ -1147,8 +1189,8 @@
         "D3.2.9"
       ],
       "level": "shared",
-      "guidingQuestion": "How does inheritance of abo blood groups work, and what evidence or calculation supports it?",
-      "explanation": "At the ABO locus, Iᴬ and Iᴮ encode enzymes that produce A and B antigens on red blood cells and are codominant; the common i allele produces neither functional A nor B transferase. IᴬIᴬ and Iᴬi give phenotype A; IᴮIᴮ and Iᴮi give B; IᴬIᴮ gives AB; ii gives O. The three allele symbols must be distinguished from the four blood-group phenotypes.\n\nIn the cross Iᴬi × Iᴮi, possible gametes are Iᴬ or i and Iᴮ or i. Combining them gives IᴬIᴮ (AB), Iᴬi (A), Iᴮi (B) and ii (O), each with probability 1/4. This describes a simplified ABO model; clinical blood compatibility also depends on other blood-group antigens.",
+      "guidingQuestion": "Which ABO genotypes produce each blood-group phenotype?",
+      "explanation": "At the ABO locus, Iᴬ and Iᴮ encode enzymes that produce A and B antigens on red blood cells and are codominant; the common i allele produces neither functional A nor B transferase. IᴬIᴬ and Iᴬi give phenotype A; IᴮIᴮ and Iᴮi give B; IᴬIᴮ gives AB; ii gives O. The three allele symbols must be distinguished from the four blood-group phenotypes.\n\nIn the cross Iᴬi × Iᴮi, possible gametes are Iᴬ or i and Iᴮ or i. Combining them gives IᴬIᴮ (AB), Iᴬi (A), Iᴮi (B) and ii (O), each with probability 1/4. This describes a simplified ABO model; clinical blood compatibility also depends on other blood-group antigens.\n\nIn the standard ABO model, Iᴬ and Iᴮ are codominant to one another, and each is dominant over i. Thus IᴬIᴬ and Iᴬi yield group A, IᴮIᴮ and Iᴮi group B, IᴬIᴮ group AB, and ii group O. These are phenotype predictions for the specified model, not observations of a particular family.",
       "revisionSummary": "IᴬIᴮ expresses both A and B antigens, yielding group AB.",
       "terms": [
         "ABO phenotypes arise from three alleles"
@@ -1175,6 +1217,13 @@
             "ib-d32",
             "hodder-d32",
             "ncbi-abo"
+          ]
+        },
+        {
+          "claim": "In the standard ABO model, Iᴬ and Iᴮ are codominant to one another, and each is dominant over i. Thus IᴬIᴬ and Iᴬi yield group A, IᴮIᴮ and Iᴮi group B, IᴬIᴮ group AB, and ii group O. These are phenotype predictions for the specified model, not observations of a particular family.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
           ]
         }
       ],
@@ -1203,6 +1252,14 @@
             "ib-d32",
             "hodder-d32",
             "ncbi-abo"
+          ]
+        },
+        {
+          "title": "An ABO genotype is not an ABO phenotype",
+          "explanation": "In the standard ABO model, Iᴬ and Iᴮ are codominant to one another, and each is dominant over i. Thus IᴬIᴬ and Iᴬi yield group A, IᴮIᴮ and Iᴮi group B, IᴬIᴮ group AB, and ii group O. These are phenotype predictions for the specified model, not observations of a particular family.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
           ]
         }
       ],
@@ -1324,7 +1381,7 @@
         "D3.2.10"
       ],
       "level": "shared",
-      "guidingQuestion": "How does incomplete dominance and codominance work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How can incomplete dominance be distinguished from codominance?",
       "explanation": "Incomplete dominance occurs when the heterozygote has an intermediate phenotype compared with both homozygotes. The four-o'clock plant (Mirabilis jalapa) can show red, pink and white flower colours: crossing red and white pure-breeding parents produces pink heterozygotes in this teaching model. Codominance instead means both allelic products are visibly expressed in the heterozygote, as with A and B antigens in people with genotype IᴬIᴮ.\n\nFor two pink Mirabilis heterozygotes, the predicted phenotypic ratio is 1 red : 2 pink : 1 white if a single incomplete-dominance locus explains the colour. These examples refer to particular phenotypes; dominance relationships can differ for different traits or molecular scales.",
       "revisionSummary": "An intermediate heterozygote illustrates incomplete dominance; a dual phenotype illustrates codominance.",
       "terms": [
@@ -1461,7 +1518,7 @@
         "D3.2.11"
       ],
       "level": "shared",
-      "guidingQuestion": "How does human sex chromosomes and inheritance work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How do the X and Y chromosomes affect transmission of sex-linked traits?",
       "explanation": "In the common human XX/XY pattern, most eggs carry an X chromosome, whereas sperm carry either X or Y. An X-bearing sperm commonly produces an XX zygote and a Y-bearing sperm commonly produces an XY zygote. The Y chromosome commonly carries SRY, which can initiate testis development and downstream hormonal changes in embryos. Chromosomal sex, reproductive anatomy and gender identity should not be treated as perfectly interchangeable.\n\nThe X chromosome contains substantially more genes than the Y chromosome. Individuals with one X can be hemizygous for many X-linked loci, allowing an allele to affect phenotype without another allele at that locus. Human sex development has naturally occurring chromosomal and developmental variations, so simple XX/XY crosses are useful models rather than exhaustive rules.",
       "revisionSummary": "The sex chromosome carried by an X- or Y-bearing sperm affects common XX/XY developmental outcomes.",
       "terms": [
@@ -1598,7 +1655,7 @@
         "D3.2.12"
       ],
       "level": "shared",
-      "guidingQuestion": "How does x-linked inheritance of haemophilia work, and what evidence or calculation supports it?",
+      "guidingQuestion": "Why is haemophilia often observed in males with an affected X allele?",
       "explanation": "Haemophilia A is commonly associated with variants in the X-linked F8 gene affecting clotting factor VIII; haemophilia B involves F9 and factor IX. For a simple recessive X-linked model, write alleles as Xᴴ (usual clotting) and Xʰ (haemophilia-associated). A person with XʰY typically expresses the condition because there is no second X allele for that gene. XᴴXʰ is typically described as a carrier, although some heterozygous people also bleed due partly to X-inactivation.\n\nA cross XᴴXʰ × XᴴY gives XᴴXᴴ, XᴴXʰ, XᴴY and XʰY each with probability 1/4 overall. Therefore half the sons are predicted affected, and half the daughters are predicted carriers under this idealized Mendelian model. Fathers pass their Y, not their X, to sons; father-to-son transmission is not the usual pattern for X-linked traits.",
       "revisionSummary": "A carrier mother and unaffected father predict a 50% chance of haemophilia among sons.",
       "terms": [
@@ -1740,7 +1797,7 @@
         "D3.2.13"
       ],
       "level": "shared",
-      "guidingQuestion": "How does inferring inheritance from pedigrees work, and what evidence or calculation supports it?",
+      "guidingQuestion": "What family pattern would support autosomal recessive inheritance?",
       "explanation": "A pedigree displays parent–offspring relationships and observed phenotypes across generations. Squares usually represent males, circles females, shaded symbols the specified trait and horizontal/vertical lines mating and descent. A recessive trait can appear in a child whose two parents are unaffected carriers; a dominant trait usually appears in successive generations if penetrance is complete. X-linked recessive traits may be more frequent among XY individuals and lack typical father-to-son transmission.\n\nInferring a plausible inheritance mode from repeated patterns is inductive reasoning; once a mode is hypothesized, assigning possible genotypes to family members is deductive. Small pedigrees, incomplete penetrance, new variants and chance can make multiple models compatible with the same observations. Close biological relatives are more likely to share a rare recessive pathogenic allele inherited from a common ancestor, increasing the chance of homozygosity in offspring.",
       "revisionSummary": "Unrelated observations in a pedigree may support a mode of inheritance but do not prove it uniquely.",
       "terms": [
@@ -1877,7 +1934,7 @@
         "D3.2.14"
       ],
       "level": "shared",
-      "guidingQuestion": "How does polygenic traits and continuous variation work, and what evidence or calculation supports it?",
+      "guidingQuestion": "Why do polygenes and environment produce continuously variable traits?",
       "explanation": "Polygenic inheritance occurs when alleles at multiple genetic loci contribute to a trait. Height and skin pigmentation typically show a wide range of values rather than a few discrete categories. Environmental conditions can also affect the distribution: for height, nutrition and childhood disease matter; pigmentation is affected by inherited pathways and exposure to sunlight.\n\nContinuous variables can take many measurements across an interval, whereas discrete categories such as the four common ABO blood groups are counted by category. Summarize quantitative observations using mean (sum divided by number), median (central ordered value) and mode (most frequent value). These measures may differ for skewed distributions, and the mean can be shifted by extreme values.",
       "revisionSummary": "A multi-locus trait often shows continuous variation, potentially modified by the environment.",
       "terms": [
@@ -2014,7 +2071,7 @@
         "D3.2.15"
       ],
       "level": "shared",
-      "guidingQuestion": "How does interpreting box-and-whisker plots work, and what evidence or calculation supports it?",
+      "guidingQuestion": "What do median, quartiles and whiskers reveal about a height dataset?",
       "explanation": "A box-and-whisker plot displays a distribution using the median, first quartile Q1 and third quartile Q3, with the box spanning the interquartile range (IQR = Q3 − Q1). Under the 1.5 × IQR convention, values smaller than Q1 − 1.5 IQR or larger than Q3 + 1.5 IQR are plotted individually as outliers. The whiskers extend to the smallest and largest non-outlying values, which may differ from the absolute minimum and maximum.\n\nWhen interpreting the six required features, identify outliers, actual minimum, Q1, median, Q3 and actual maximum; if the plot uses Tukey-style whiskers, the actual extreme values can appear as outlier points. Comparing medians and IQRs helps distinguish typical values from variability, but overlapping plots alone do not demonstrate statistical significance.\n\nFor ordered heights 150, 156, 160, 164, 169, 172 and 178 cm, the exclusive-median convention gives Q1 = 156, median = 164, Q3 = 172. IQR = 16 cm. Fences are Q1 − 24 = 132 and Q3 + 24 = 196 cm, so there are no outliers. Other quartile conventions must be named explicitly.",
       "revisionSummary": "A value above Q3 + 1.5 × IQR is classified as an outlier.",
       "terms": [
@@ -2191,7 +2248,7 @@
         "D3.2.16"
       ],
       "level": "HL",
-      "guidingQuestion": "How does segregation and independent assortment work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How do segregating and unlinked genes generate gamete combinations?",
       "explanation": "At meiosis I, each pair of homologous chromosomes aligns in a random orientation relative to the poles. Alleles at loci on different chromosome pairs therefore assort independently: for AaBb, with A/a on one homologous pair and B/b on another, meiosis can generate AB, Ab, aB and ab gametes in expected equal proportions. Segregation refers to separation of the two alleles of one locus into different gametes.\n\nGenes far apart on the same chromosome may behave as unlinked when crossover leads to about 50% recombination; tightly linked genes generally do not show independent assortment. This physical qualification is why a dihybrid ratio should not be applied blindly to all gene pairs. Recombination can be considered separately from chromosomal assortment.",
       "revisionSummary": "An AaBb parent with unlinked loci forms AB, Ab, aB and ab gametes in equal expected proportions.",
       "terms": [
@@ -2328,7 +2385,7 @@
         "D3.2.17"
       ],
       "level": "HL",
-      "guidingQuestion": "How does dihybrid punnett squares work, and what evidence or calculation supports it?",
+      "guidingQuestion": "Why does an AaBb × AaBb cross predict 9:3:3:1 under specified assumptions?",
       "explanation": "For two independently assorting autosomal genes showing complete dominance, AaBb × AaBb gives four equally likely gametes from each parent. A four-by-four Punnett grid has 16 equally likely genotype combinations. For phenotype at locus A, three quarters show the A-dominant trait; for B, three quarters show the B-dominant trait. Multiply independent probabilities: A_B_ = 9/16; A_bb = 3/16; aaB_ = 3/16; aabb = 1/16.\n\nA test cross AaBb × aabb is different: the double recessive parent produces only ab gametes, so four offspring classes each have expected probability 1/4, yielding 1:1:1:1. Neither ratio is universal: both assume unlinked genes, ordinary segregation, equal viability and appropriate phenotype dominance.\n\nFor unlinked AaBb × AaBb with complete dominance, P(A_B_) = (3/4)(3/4) = 9/16, P(A_bb) = 3/16, P(aaB_) = 3/16 and P(aabb) = 1/16. Expected phenotype counts among 160 offspring are 90, 30, 30 and 10. Observed counts may vary.",
       "revisionSummary": "AaBb × AaBb at unlinked completely dominant loci yields a 9:3:3:1 phenotypic ratio.",
       "terms": [
@@ -2507,7 +2564,7 @@
         "D3.2.18"
       ],
       "level": "HL",
-      "guidingQuestion": "How does human gene loci and polypeptides work, and what evidence or calculation supports it?",
+      "guidingQuestion": "Where are the specified human gene loci and what do their products do?",
       "explanation": "A gene locus is its position on a chromosome. Human gene databases such as NCBI Gene and Ensembl record chromosomal coordinates and gene products, allowing students to distinguish genes on separate chromosomes from neighbours on the same chromosome. For example, the HBB beta-globin gene lies on chromosome 11 and PAH on chromosome 12; their positions on different chromosome pairs support independent assortment in the simple model.\n\nWhen searching a database, record the assembly version, gene symbol, chromosome, coordinates and annotated polypeptide product. Do not confuse a gene's physical chromosomal distance with its genetic map distance, which reflects recombination. Genes close together tend to be linked, whereas genes on different autosomes segregate independently under ordinary meiosis.",
       "revisionSummary": "Two loci on different autosomes usually assort independently.",
       "terms": [
@@ -2644,7 +2701,7 @@
         "D3.2.19"
       ],
       "level": "HL",
-      "guidingQuestion": "How does autosomal linkage work, and what evidence or calculation supports it?",
+      "guidingQuestion": "How do loci on one autosome deviate from independent assortment?",
       "explanation": "Two loci on the same autosome can be linked because they are carried on one physical chromosome. Show a double heterozygote's phase explicitly with vertical homologous lines, for example A—B on one homologue and a—b on the other (AB/ab). Without crossing over between the loci, gametes retain parental AB or ab combinations rather than the four equiprobable classes expected for unlinked loci.\n\nCrossing over in prophase I can exchange segments between non-sister chromatids and produce recombinant combinations Ab or aB. Recombination probability increases with the distance between loci in many genomic regions but is not a simple direct linear ruler across long distances. A frequency near 50% is indistinguishable from unlinked segregation on this measure.",
       "revisionSummary": "Nearby loci on one autosome may co-segregate because they share a chromosome.",
       "terms": [
@@ -2789,8 +2846,8 @@
         "D3.2.20"
       ],
       "level": "HL",
-      "guidingQuestion": "How does crossovers and recombinant offspring work, and what evidence or calculation supports it?",
-      "explanation": "A test cross of AB/ab × ab/ab makes the doubly recessive parent contribute only ab. Consequently each offspring phenotype, if the two loci show simple complete dominance, identifies the gamete genotype produced by the double heterozygote. AB/ab and ab/ab are parental classes for coupling phase; Ab/ab and aB/ab are recombinant classes.\n\nCalculate recombination frequency as 100 × (number of recombinant offspring ÷ total offspring). For observed counts AB 42, ab 41, Ab 8 and aB 9, the total is 100, so recombinant frequency is 17%. The result indicates linkage in this test-cross model and corresponds to approximately 17 map units for this interval, subject to limitations such as undetected multiple crossovers. For unlinked genes, the expected total recombinant frequency is 50%.\n\nFor AB/ab × ab/ab, assume 42 AB, 41 ab, 8 Ab and 9 aB offspring. AB and ab are parental classes. Recombinants are Ab and aB, so frequency = (8 + 9)/(42 + 41 + 8 + 9) × 100 = 17%. Recombination near 50% does not prove loci are on different chromosomes.",
+      "guidingQuestion": "How can test-cross counts estimate recombination frequency?",
+      "explanation": "A test cross of AB/ab × ab/ab makes the doubly recessive parent contribute only ab. Consequently each offspring phenotype, if the two loci show simple complete dominance, identifies the gamete genotype produced by the double heterozygote. AB/ab and ab/ab are parental classes for coupling phase; Ab/ab and aB/ab are recombinant classes.\n\nCalculate recombination frequency as 100 × (number of recombinant offspring ÷ total offspring). For observed counts AB 42, ab 41, Ab 8 and aB 9, the total is 100, so recombinant frequency is 17%. The result indicates linkage in this test-cross model and corresponds to approximately 17 map units for this interval, subject to limitations such as undetected multiple crossovers. For unlinked genes, the expected total recombinant frequency is 50%.\n\nFor AB/ab × ab/ab, assume 42 AB, 41 ab, 8 Ab and 9 aB offspring. AB and ab are parental classes. Recombinants are Ab and aB, so frequency = (8 + 9)/(42 + 41 + 8 + 9) × 100 = 17%. Recombination near 50% does not prove loci are on different chromosomes.\n\nIn a test cross of a linked heterozygote, first identify the two parental allele combinations using the documented parental phase; the other two classes are recombinant. With parental counts 42 and 41, recombinant counts 8 and 9, total 100, the observed recombination frequency is (8+9)/100 × 100 = 17%. It is an estimate from a cross, not a guarantee that physical distance equals 17 units in every genomic context.",
       "revisionSummary": "Recombinant frequency is recombinant offspring divided by total offspring × 100%.",
       "terms": [
         "Test-cross data reveal recombinant types"
@@ -2819,6 +2876,13 @@
         },
         {
           "claim": "For AB/ab × ab/ab, assume 42 AB, 41 ab, 8 Ab and 9 aB offspring. AB and ab are parental classes. Recombinants are Ab and aB, so frequency = (8 + 9)/(42 + 41 + 8 + 9) × 100 = 17%. Recombination near 50% does not prove loci are on different chromosomes.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "claim": "In a test cross of a linked heterozygote, first identify the two parental allele combinations using the documented parental phase; the other two classes are recombinant. With parental counts 42 and 41, recombinant counts 8 and 9, total 100, the observed recombination frequency is (8+9)/100 × 100 = 17%. It is an estimate from a cross, not a guarantee that physical distance equals 17 units in every genomic context.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2852,6 +2916,14 @@
         {
           "title": "Linkage test cross with explicit counts",
           "explanation": "For AB/ab × ab/ab, assume 42 AB, 41 ab, 8 Ab and 9 aB offspring. AB and ab are parental classes. Recombinants are Ab and aB, so frequency = (8 + 9)/(42 + 41 + 8 + 9) × 100 = 17%. Recombination near 50% does not prove loci are on different chromosomes.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "Do not identify recombinants merely by alphabetical order",
+          "explanation": "In a test cross of a linked heterozygote, first identify the two parental allele combinations using the documented parental phase; the other two classes are recombinant. With parental counts 42 and 41, recombinant counts 8 and 9, total 100, the observed recombination frequency is (8+9)/100 × 100 = 17%. It is an estimate from a cross, not a guarantee that physical distance equals 17 units in every genomic context.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
@@ -2970,8 +3042,8 @@
         "D3.2.21"
       ],
       "level": "HL",
-      "guidingQuestion": "How does chi-squared tests of dihybrid data work, and what evidence or calculation supports it?",
-      "explanation": "The chi-squared goodness-of-fit test compares observed categorical counts with expected counts predicted by a null hypothesis. For an unlinked AaBb × AaBb F2 cross under complete dominance, the null hypothesis may specify a 9:3:3:1 ratio; the alternative is that the data are inconsistent with this ratio. Compute each category's contribution (O − E)²/E and add them. If total n = 160, expected counts are 90, 30, 30 and 10.\n\nWith observed counts 88, 32, 29 and 11, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, degrees of freedom = 3; the 5% critical value is approximately 7.815. Because 0.311 is smaller, do not reject the null hypothesis: the differences are compatible with sampling variation. Failure to reject is not proof of a particular model. Ensure expected counts are adequate for chi-squared approximation and interpret a p value as a probability under the null, not as the probability that the null is true.\n\nFor observed 88:32:29:11 and expected 90:30:30:10, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, df = 3 and the 5% critical value is 7.815. Fail to reject the hypothesized ratio. This does not prove the null model.",
+      "guidingQuestion": "Does a chi-squared result justify rejecting the Mendelian ratio?",
+      "explanation": "The chi-squared goodness-of-fit test compares observed categorical counts with expected counts predicted by a null hypothesis. For an unlinked AaBb × AaBb F2 cross under complete dominance, the null hypothesis may specify a 9:3:3:1 ratio; the alternative is that the data are inconsistent with this ratio. Compute each category's contribution (O − E)²/E and add them. If total n = 160, expected counts are 90, 30, 30 and 10.\n\nWith observed counts 88, 32, 29 and 11, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, degrees of freedom = 3; the 5% critical value is approximately 7.815. Because 0.311 is smaller, do not reject the null hypothesis: the differences are compatible with sampling variation. Failure to reject is not proof of a particular model. Ensure expected counts are adequate for chi-squared approximation and interpret a p value as a probability under the null, not as the probability that the null is true.\n\nFor observed 88:32:29:11 and expected 90:30:30:10, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, df = 3 and the 5% critical value is 7.815. Fail to reject the hypothesized ratio. This does not prove the null model.\n\nFor an observed distribution O and a Mendelian expected distribution E, calculate χ² = Σ((O−E)²/E). Under the 9:3:3:1 null with 160 offspring, expected counts are 90, 30, 30 and 10. If observed counts are 88, 32, 29 and 11, χ² = 0.0444+0.1333+0.0333+0.1000 ≈ 0.3111. With four independent phenotype categories and no fitted parameters, df = 3; sufficient expected counts and independent observations are assumptions. Failing to reject the null does not prove that genes are unlinked.",
       "revisionSummary": "A chi-squared result below the relevant critical value does not justify rejecting the null hypothesis.",
       "terms": [
         "Chi-squared tests assess a genetic model"
@@ -3004,6 +3076,13 @@
             "ib-d32",
             "hodder-d32"
           ]
+        },
+        {
+          "claim": "For an observed distribution O and a Mendelian expected distribution E, calculate χ² = Σ((O−E)²/E). Under the 9:3:3:1 null with 160 offspring, expected counts are 90, 30, 30 and 10. If observed counts are 88, 32, 29 and 11, χ² = 0.0444+0.1333+0.0333+0.1000 ≈ 0.3111. With four independent phenotype categories and no fitted parameters, df = 3; sufficient expected counts and independent observations are assumptions. Failing to reject the null does not prove that genes are unlinked.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
         }
       ],
       "referenceIds": [
@@ -3031,6 +3110,14 @@
         {
           "title": "Chi-squared worked calculation and inference",
           "explanation": "For observed 88:32:29:11 and expected 90:30:30:10, χ² = 4/90 + 4/30 + 1/30 + 1/10 ≈ 0.311. With four categories and no fitted parameters, df = 3 and the 5% critical value is 7.815. Fail to reject the hypothesized ratio. This does not prove the null model.",
+          "referenceIds": [
+            "ib-d32",
+            "hodder-d32"
+          ]
+        },
+        {
+          "title": "State chi-squared assumptions and degrees of freedom",
+          "explanation": "For an observed distribution O and a Mendelian expected distribution E, calculate χ² = Σ((O−E)²/E). Under the 9:3:3:1 null with 160 offspring, expected counts are 90, 30, 30 and 10. If observed counts are 88, 32, 29 and 11, χ² = 0.0444+0.1333+0.0333+0.1000 ≈ 0.3111. With four independent phenotype categories and no fitted parameters, df = 3; sufficient expected counts and independent observations are assumptions. Failing to reject the null does not prove that genes are unlinked.",
           "referenceIds": [
             "ib-d32",
             "hodder-d32"
