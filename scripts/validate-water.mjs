@@ -33,7 +33,7 @@ export function validateWater(d) {
     if(q.paper==='1B'&&(!q.data?.caption.includes('Illustrative')||!q.data?.rows?.length||!q.data?.headers?.length))fail(`Unlabelled data ${q.id}`);
   }
   if(d.questions.filter(q=>q.paper==='1A').length!==10||d.questions.filter(q=>q.paper==='1B').length!==2||d.questions.filter(q=>q.paper==='2').length!==3)fail('Incomplete practice bank');
-  for(const a of d.assets||[]){if(!a.alt||!a.attribution||!a.license||!a.permissionEvidence||a.review!=='scientific-review'||!a.src?.startsWith('/biology/water/'))fail(`Missing asset provenance ${a.id}`);references(a.referenceIds,a.id);if(a.kind==='photograph'&&(!a.sourceUrl||!a.originalUrl||!a.termsUrl))fail(`Missing photo permission evidence ${a.id}`);}
+  for(const a of d.assets||[]){if(!a.alt||!a.attribution||!a.license||!a.permissionEvidence||a.review!=='scientific-review'||!(a.src?.startsWith('/biology/water/') || (a.id==='bonding' && a.src==='/biology/source-pdf-figures/a11-water-bonds.png' && a.attribution.includes('IB Biology Drawings') && a.permissionEvidence.includes('source-figure-credits.json'))))fail(`Missing asset provenance ${a.id}`);references(a.referenceIds,a.id);if(a.kind==='photograph'&&(!a.sourceUrl||!a.originalUrl||!a.termsUrl))fail(`Missing photo permission evidence ${a.id}`);}
   return errors;
 }
 const registry=JSON.parse(await readFile(new URL('../src/biology/curriculum/registry.json',import.meta.url),'utf8'));

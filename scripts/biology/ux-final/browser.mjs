@@ -124,12 +124,14 @@ try {
   await visit(page,'#biology/topic/A1.1/practice');
   const q=page.locator('fieldset.bio-check').first();
   await q.waitFor();
-  await q.locator('input[type="radio"]').first().check({force:true});
+  await q.locator('.bio-options label').first().click();
+  assert.ok(await q.locator('input[type="radio"]').first().isChecked(),'Visible practice option did not select its radio input');
   await q.getByRole('button',{name:'Check my answer'}).click();
   await q.locator('.bio-feedback').waitFor();
   await q.getByRole('button',{name:'Try again'}).click();
   assert.equal(await q.locator('.bio-feedback').count(),0);
-  await q.locator('input[type="radio"]').first().check({force:true});
+  await q.locator('.bio-options label').first().click();
+  assert.ok(await q.locator('input[type="radio"]').first().isChecked(),'Visible practice option did not select its radio input');
   await q.getByRole('button',{name:'Check my answer'}).click();
   await visit(page,'#biology/topic/A1.1/revision');
   await visit(page,'#biology/topic/A1.1/practice');

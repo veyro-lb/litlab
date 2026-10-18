@@ -32,9 +32,12 @@ function validateSources(x) {
  for(const {id} of targets){
   const asset=x.assets.find(a=>a.id===id);
   if(!asset) {errors.push(id+' metadata');continue;}
+  const sourcePdf=asset.src.startsWith('/biology/source-pdf-figures/');
   for(const key of ['src','recallSrc','mobileSrc','recallMobileSrc']){
    if(!asset[key]||!existsSync(join(root,'public',asset[key].replace(/^\//,''))))errors.push(id+' '+key+' unavailable');
+   if(sourcePdf && asset[key]!==asset.src)errors.push(id+' '+key+' mismatch');
   }
+  if(sourcePdf && (!asset.attribution.includes('IB Biology Drawings') || !asset.permissionEvidence.includes('source-figure-credits.json')))errors.push(id+' original attribution');
   if(!asset.alt||asset.alt.length<80||!asset.permissionEvidence||!asset.referenceIds.includes('ib-d31'))errors.push(id+' provenance/alt');
  }
  return errors;
@@ -46,7 +49,7 @@ test('negative: deleting a placement fails the validator',()=>{
 });
 test('negative: broken recall path fails the validator',()=>{
  const copy=structuredClone(lesson);copy.assets.find(a=>a.id==='d31-male-anatomy').recallSrc='/biology/reproduction/not-present.svg';
- assert.ok(validateSources(copy).some(e=>e.includes('recallSrc unavailable')));
+ assert.ok(validateSources(copy).some(e=>e.includes('recallSrc unavailable')||e.includes('recallSrc mismatch')));
 });
 test('all sixteen labelled/recall/mobile SVGs use safe local SVG markup',()=>{
  for(const {id,labels} of targets){
@@ -100,7 +103,11 @@ function sourceImageErrors(record){
  if(!existsSync(file))return ['missing image'];
  const bytes=readFileSync(file);
  if(!bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])))errors.push('invalid PNG');
- if(createHash('sha256').update(bytes).digest('hex')!==record.sha256)errors.push('changed original pixels');
+ const observedSha256=createHash('sha256').update(bytes).digest('hex');
+ if(observedSha256!==record.sha256){
+  console.error('SOURCE_SHA256_MISMATCH '+record.figureId+' expected='+record.sha256+' actual='+observedSha256);
+  errors.push('changed original pixels');
+ }
  const lessons=readdirSync(join(root,'src/biology/learning'),{withFileTypes:true})
   .filter(d=>d.isDirectory()&&existsSync(join(root,'src/biology/learning',d.name,'lesson.json')))
   .map(d=>json('src/biology/learning/'+d.name+'/lesson.json'));
