@@ -1,42 +1,50 @@
 {
-  "audit": "GitHub connector remote data-level editorial validations",
+  "audit": "GitHub connector remote in-memory editorial and structural validation after integrating updated base",
   "date": "2026-10-18",
   "branch": "feature/biolab-ib-theme-d-final-20261018",
-  "sourceCommit": "e72d6f183418e401849bc8b45db14bd34242cc70",
+  "sourceCommit": "4f98d90334ce0122e1228ceb7d6a606ecf1132b8",
   "counts": {
     "topics": 12,
     "requirements": 171,
     "shared": 101,
     "HL": 70,
-    "teachingBlocks": 383,
-    "originalAssetReferences": 27,
-    "graphTables": 39,
+    "teachingBlocks": 381,
+    "originalAssetReferences": 29,
+    "graphTables": 37,
     "improvedGuidingQuestions": 62,
     "refinedUnderstandings": 43
   },
   "checks": [
     {
-      "name": "Official Theme D IDs and SL/HL scope",
+      "name": "Complete official IB Theme D topic, understanding and SL/HL mapping",
       "status": "pass"
     },
     {
-      "name": "IB and Hodder locators / sufficient original explanations and examples",
+      "name": "Original explanation, worked example, IB/Hodder page locator for each of 171",
       "status": "pass"
     },
     {
-      "name": "Tables including legitimate single-row worked examples",
+      "name": "Valid comparison/worked tables, including one-row numerical tables",
       "status": "pass"
     },
     {
-      "name": "All 27 existing first-party Theme D asset paths and provenance",
+      "name": "All 29 existing first-party Theme D figures resolve to files",
       "status": "pass"
     },
     {
-      "name": "Topic-specific guiding questions",
+      "name": "62 topic-specific revised guiding questions",
       "status": "pass"
     },
     {
-      "name": "Per-understanding matrix crosswalk",
+      "name": "Coverage matrix matches reconciled lesson sections",
+      "status": "pass"
+    },
+    {
+      "name": "Twelve high-risk scientific terminology and model checks",
+      "status": "pass"
+    },
+    {
+      "name": "Six conflicting upstream file updates reconciled without discarding them",
       "status": "pass"
     }
   ],
@@ -95,5 +103,14 @@
     "nodeTest": "Test source committed, but not executed in a local checkout in this session.",
     "unitAndBuild": "The project unit/build commands could not be run without a local GitHub checkout.",
     "browserAndExternalReview": "Visual browser QA and independent examiner certification not executed."
+  },
+  "initialBase": "73f6278c6f8d941f2eeb68b836459efe78572a0b",
+  "integratedBase": "ab5bc2b8ae83f7e3bfedd3e52097ea3daa7a1d3f",
+  "errorCount": 0,
+  "notes": "The initial base was verified before branching; it subsequently advanced by five commits. Those commits were merged ONLY into this isolated Theme D branch, with per-field preservation of upstream Theme D edits, assets and sources. The checks above use current reconciled JSON via GitHub. They do not establish independent subject-expert certification.",
+  "executionLimitations": {
+    "nodeTest": "Test file committed but not executed from a checkout.",
+    "browserBuildAndCI": "No complete local build, Node test suite or browser visual regression executed in this session.",
+    "independentSubjectReview": "External IB examiner or peer-review certification not obtained."
   }
 }
