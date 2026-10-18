@@ -146,7 +146,10 @@ try {
  await test('Sources mode renders without changing its implementation',async()=>{
   await visit(page,'#biology/topic/A1.1/sources');
   await page.locator('.bio-sources').waitFor();
-  assert.ok((await page.locator('.bio-sources').innerText()).includes('References'));
+  assert.equal(await page.locator('#bio-sources-heading').innerText(),'Sources for this topic');
+  await page.getByRole('heading',{name:'Principal educational sources'}).waitFor();
+  assert.ok((await page.locator('.bio-educational-sources li')).count()>=2,'Official guide and coursebook sources must be visible');
+  assert.equal(await page.locator('.bio-educational-sources a[href^="https://"]').count(),await page.locator('.bio-educational-sources li').count(),'Each educational source needs a live provider link');
  });
  await test('Figure enlargement: focus, Escape, return to opener',async()=>{
   await visit(page,'#biology/topic/A1.1/learn?understanding=A1.1.2');
