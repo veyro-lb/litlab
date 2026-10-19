@@ -19,7 +19,9 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
   // Discard unknown or out-of-scope deep links before selecting a section or practice target.
   const requestedId=topic.understandings.some(u=>u.id===requestedCandidate&&(level==='HL'||u.level==='shared'))?requestedCandidate:null;
   const [study,setStudy]=useState<StudyState>(()=>{const saved=readStudy(lesson.id);return {...saved,sectionId:lesson.sections.find(s=>s.understandingIds.includes(requestedId??''))?.id??saved.sectionId}});
-  useEffect(()=>{const target=lesson.sections.find(s=>s.understandingIds.includes(requestedId??''));if(target){setStudy(s=>{const next={...s,sectionId:target.id};saveStudy(lesson.id,next);return next});requestAnimationFrame(()=>{const el=document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLElement>('.bio-lesson-content');el?.focus({preventScroll:true});el?.scrollIntoView({block:'start',behavior:'instant' as ScrollBehavior})})}},[requestedId,lesson]);
+  useEffect(()=>{const target=lesson.sections.find(s=>s.understandingIds.includes(requestedId??''));if(target){setStudy(s=>{const next={...s,sectionId:target.id};saveStudy(lesson.id,next);return next});requestAnimationFrame(()=>{const root=document.querySelector('[data-biology-host]')?.shadowRoot;const el=root?.querySelector<HTMLElement>('.bio-lesson-content');const focused=root?.activeElement; // Do not steal focus from controls while the section settles after navigation.
+    if(focused?.closest('button,a[href],input,select,textarea,[role="button"],[role="link"],[contenteditable="true"]'))return;
+    el?.focus({preventScroll:true});el?.scrollIntoView({block:'start',behavior:'instant' as ScrollBehavior})})}},[requestedId,lesson]);
   const base=`#biology/topic/${lesson.topicId}`;
   const toc=useRef<HTMLDetailsElement>(null);
   useEffect(()=>{const media=window.matchMedia('(min-width: 761px)');const sync=()=>{if(toc.current)toc.current.open=media.matches};sync();media.addEventListener('change',sync);return ()=>media.removeEventListener('change',sync)},[mode]);
