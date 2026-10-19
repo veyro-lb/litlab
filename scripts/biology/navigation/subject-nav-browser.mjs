@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {existsSync,mkdirSync} from 'node:fs';
 import {resolve} from 'node:path';
-import {chromium} from '@playwright/test';
+import {chromium,expect} from '@playwright/test';
 
 const base=process.env.LITLAB_PREVIEW_URL || 'http://127.0.0.1:4173/';
 const candidates=[process.env.CHROME_BIN,'/usr/bin/google-chrome','/usr/bin/google-chrome-stable','/usr/bin/chromium','/usr/bin/chromium-browser'].filter(Boolean);
@@ -34,17 +34,17 @@ try {
    await page.screenshot({path:resolve(output,name+'-biolab-home.png'),animations:'disabled'});
    await nav.getByRole('link',{name:'Theme B'}).click();
    await page.waitForURL(/#biology\/theme\/B$/);
-   assert.equal(await nav.locator('a[aria-current="page"]').innerText(),'Theme B');
+   await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme B');
    await visit('biology/topic/A1.1/learn?understanding=A1.1.1');
    await page.locator('[data-biology-host] .bio-lesson').waitFor();
-   assert.equal(await nav.locator('a[aria-current="page"]').innerText(),'Theme A','Topic pages must retain their active theme navigation');
+   await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
    await page.screenshot({path:resolve(output,name+'-biolab-lesson.png'),animations:'disabled'});
    const back=page.getByRole('link',{name:'Return to LitLab home'});
    assert.equal(await back.count(),1,'BioLab header must include a clear way back to LitLab');
    await back.click();
    await page.waitForURL(/#home$/);
    assert.equal(await page.locator('.subject-bar[data-subject="english"]').count(),1);
-   assert.equal(await switcher.locator('a[aria-current="page"]').innerText(),'LitLab');
+   await expect(switcher.locator('a[aria-current="page"]')).toHaveText('LitLab');
    const metrics=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
    assert(metrics.scroll<=metrics.client+2,'Return route overflows at '+name+': '+JSON.stringify(metrics));
    await visit('biology');
