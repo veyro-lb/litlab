@@ -13,6 +13,10 @@ export function validatePhase5Figures(files,lessons){
  for(const lesson of Object.values(lessons)){
   for(const asset of lesson.assets){
    if(asset.kind!=='diagram')continue;
+   if(asset.src?.startsWith('/biology/licensed-book-crops/')){
+    if(!/^\/biology\/licensed-book-crops\/[a-z0-9-]+\.png$/.test(asset.src)||asset.publicReproductionRights!=='cleared'||!asset.permissionEvidence||asset.recallSrc||asset.mobileSrc||asset.recallMobileSrc)fail('Invalid registered textbook crop '+asset.id);
+    continue; // Byte identity, exact placements and attribution are checked by licensed-book-figures/verify.mjs.
+   }
    // Exact source-PDF PNGs are validated by the source fingerprint suite, not as authored SVGs.
    if(asset.src?.startsWith('/biology/source-pdf-figures/')){
     if(!/^\/biology\/source-pdf-figures\/[a-z0-9-]+\.png$/.test(asset.src)||
@@ -75,7 +79,9 @@ export async function readPhase5FigureFiles(lessons){
   files[path]=await readFile(new URL('../public'+path,import.meta.url),'utf8');
  }
  // Preserve regression verification of the inactive archival SVG without showing it instead of the PDF.
- files['/biology/nucleic-acids/paired.svg']=await readFile(new URL('../public/biology/nucleic-acids/paired.svg',import.meta.url),'utf8');
+ for(const name of ['paired','sugars','nucleotide','nucleotide-recall']){
+  files['/biology/nucleic-acids/'+name+'.svg']=await readFile(new URL('../public/biology/nucleic-acids/'+name+'.svg',import.meta.url),'utf8');
+ }
  return files;
 }
 export async function readPhase5Lessons(){

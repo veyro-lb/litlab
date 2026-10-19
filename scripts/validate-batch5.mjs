@@ -25,7 +25,8 @@ export function validateBatch5(registry,catalog,lessons){
   if(d.questions.filter(q=>q.paper==='1A').some(q=>q.options.length!==4||q.options.filter(o=>o.correct).length!==1||q.options.some(o=>o.feedback.trim().length<15)))errors.push('MCQ answer/feedback invalid '+id);
   if(d.assets.length<figureMinimum||d.assets.some(a=>{
    const authoredNucleosome=id==='A1.2'&&a.id==='a12-nucleosome'&&a.src==='/biology/nucleic-acids/nucleosome-topology-20261017.svg';
-   return (!a.recallSrc&&!authoredNucleosome)||!a.src||!['HL','shared'].includes(a.level)||a.review!=='scientific-review'||!a.permissionEvidence;
+   const originalBookCrop=/^\/biology\/licensed-book-crops\/[a-z0-9-]+\.png$/.test(a.src||'')&&a.publicReproductionRights==='cleared'&&a.permissionEvidence?.includes('2026-10-19');
+   return (!a.recallSrc&&!authoredNucleosome&&!originalBookCrop)||!a.src||!['HL','shared'].includes(a.level)||a.review!=='scientific-review'||!a.permissionEvidence;
   }))errors.push('Original/recall assets missing '+id);
   if(d.review.status!=='scientific-review'||d.review.reviewer!==null)errors.push('Human review falsely recorded '+id);
  }

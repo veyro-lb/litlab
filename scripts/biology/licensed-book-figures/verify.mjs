@@ -4,9 +4,19 @@ import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 const registry=JSON.parse(readFileSync('docs/biology/licensed-book-figures/FIGURE_SOURCE_REGISTER.json','utf8'));
 assert.equal(registry.version,2);
-assert.equal(registry.figures.length,26);
-assert.equal(registry.figures.filter(f=>f.sourceBook==='Biology for the IB Diploma, Third Edition').length,14);
+const baseline=JSON.parse(readFileSync('docs/biology/textbook-figure-expansion/BASELINE_26.json','utf8'));
+const candidates=JSON.parse(readFileSync('docs/biology/textbook-figure-expansion/CANDIDATE_REGISTER.json','utf8')).candidates.filter(f=>f.placements);
+assert.equal(baseline.figures.length,26);
+assert.equal(candidates.length,19);
+assert.equal(registry.figures.length,baseline.figures.length+candidates.length);
+assert.equal(registry.figures.filter(f=>f.sourceBook==='Biology for the IB Diploma, Third Edition').length,33);
 assert.equal(registry.figures.filter(f=>f.sourceBook==='IB Biology Drawings').length,12);
+for(const old of baseline.figures){
+ const fig=registry.figures.find(f=>f.topicId===old.topicId&&f.assetId===old.assetId);
+ assert.ok(fig,'Protected original missing: '+old.assetId);
+ assert.equal(fig.path,old.path);assert.equal(fig.originalSha256,old.sha256);assert.equal(old.sha256,old.registeredSha256);
+ assert.deepEqual(fig.placements,old.placements,'Protected original placement changed');
+}
 const root='src/biology/learning';
 const lessons=readdirSync(root,{withFileTypes:true}).filter(d=>d.isDirectory()&&existsSync(`${root}/${d.name}/lesson.json`)).map(d=>({slug:d.name,...JSON.parse(readFileSync(`${root}/${d.name}/lesson.json`,'utf8'))}));
 const seenPaths=new Set(),seenAssets=new Set();let placements=0;
@@ -39,9 +49,17 @@ for(const fig of registry.figures){
  }
  assert.ok(fig.placements.some(p=>p.lessonSectionId===fig.lessonSectionId&&p.understandingId===fig.understandingId));
  if(fig.cropBoxPdfPoints){
-  assert.equal(fig.cropBoxPdfPoints.length,4);assert.equal(fig.renderDpi,216);
-  assert.equal(fig.printedPage,fig.sourcePdfPage-12);assert.ok(fig.figureNumber&&fig.replacedRecreatedFigure&&fig.oldAssetPath.endsWith('.svg'));
-  assert.ok(bytes.readUInt32BE(16)>=850&&bytes.readUInt32BE(20)>=500,'Insufficient crop resolution '+identity);
+  assert.equal(fig.cropBoxPdfPoints.length,4);assert.ok([216,300].includes(fig.renderDpi));
+  assert.ok(Number.isInteger(fig.printedPage)&&fig.printedPage>0&&fig.figureNumber);
+  if(fig.batch==='textbook-figure-expansion'){
+   const candidate=candidates.find(f=>f.topicId===fig.topicId&&f.assetId===fig.assetId);assert.ok(candidate);
+   for(const key of ['sourcePdfPage','printedPage','cropBoxPdfPoints','renderDpi','originalCaption','placements'])assert.deepEqual(fig[key],candidate[key],identity+' candidate mismatch '+key);
+   for(const oldPath of fig.replacedAssetPaths)assert.ok(!lesson.assets.some(a=>a.src===oldPath),identity+' old diagram still registered');
+   assert.ok(bytes.readUInt32BE(16)>=600&&bytes.readUInt32BE(20)>=350,'Insufficient crop resolution '+identity);
+  }else{
+   assert.ok(fig.replacedRecreatedFigure&&fig.oldAssetPath.endsWith('.svg'));
+   assert.ok(bytes.readUInt32BE(16)>=850&&bytes.readUInt32BE(20)>=500,'Insufficient crop resolution '+identity);
+  }
  }
 }
 for(const lesson of lessons)for(const a of lesson.assets.filter(a=>a.src.startsWith('/biology/licensed-book-crops/'))){
@@ -53,4 +71,4 @@ for(const figure of required)assert.ok(registry.figures.some(f=>f.figureNumber==
 assert.ok(!registry.figures.some(f=>f.figureNumber==='C1.2.10'),'Rejected ATP-yield figure included');
 assert.deepEqual(readdirSync('public/biology/licensed-book-crops').map(f=>'/biology/licensed-book-crops/'+f).sort(),[...seenPaths].sort(),'Unregistered public screenshot files');
 assert.ok(!existsSync('public/biology/source-pdf-figures'));
-console.log(`Original source-PDF crops passed: 26 exact SHA-256 matches (14 Hodder, 12 Drawings), ${placements} attributed section placements; all 12 required Hodder figures present.`);
+console.log(`Original source-PDF crops passed: ${registry.figures.length} exact SHA-256 matches (33 Hodder, 12 Drawings), ${placements} attributed section placements; original 26 bytes and placements preserved; 19 expansion crops verified; all 12 required Hodder figures present.`);

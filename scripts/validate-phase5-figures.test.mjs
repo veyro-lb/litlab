@@ -24,7 +24,7 @@ test('rejects stale alternative text inconsistent with updated inhibition diagra
  assert.match(validatePhase5Figures(files,changed).join('; '),/accessibility description/);
 });
 test('rejects missing recall SVG',()=>{
- const copy={...files};delete copy['/biology/nucleic-acids/nucleotide-recall.svg'];
+ const copy={...files};delete copy['/biology/nucleic-acids/bases-recall.svg'];
  assert.match(validatePhase5Figures(copy,lessons).join('; '),/Missing recall SVG/);
 });
 

@@ -1,0 +1,59 @@
+name: BioLab textbook figure expansion (no deployment)
+on:
+  push:
+    branches: [feature/biolab-textbook-figure-expansion]
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/biology/**'
+      - 'public/biology/licensed-book-crops/**'
+      - 'scripts/biology/licensed-book-figures/**'
+      - 'docs/biology/textbook-figure-expansion/**'
+      - '.github/workflows/biolab-textbook-figure-expansion.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate all lessons, crop integrity and targeted provenance regressions
+        run: |
+          npm run quality
+          node scripts/validate-biology.mjs
+          node scripts/validate-lessons.mjs
+          node scripts/biology/full-course/readiness-audit.mjs
+          node scripts/biology/licensed-book-figures/verify.mjs
+          node --test scripts/validate-batch5.test.mjs scripts/validate-phase5-figures.test.mjs scripts/validate-biology.test.mjs scripts/validate-lesson.test.mjs
+      - name: Build and check public files
+        run: |
+          npm run build
+          node scripts/biology/preview-readiness/verify-public-build.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Verify all crops, new crops on four widths and both themes, and subject navigation
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > preview.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/biology/licensed-book-figures/browser.mjs
+          BIOLAB_CROP_QA_BATCH=textbook-figure-expansion BIOLAB_CROP_QA_WIDTHS=1440,834,390,320 BIOLAB_CROP_QA_THEMES=light,dark BIOLAB_CROP_QA_DIR=qa-artifacts/textbook-figure-expansion node scripts/biology/licensed-book-figures/browser.mjs
+          node scripts/biology/navigation/subject-nav-browser.mjs
+          node scripts/biology/feedback/feedback-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: textbook-figure-expansion-evidence
+          path: |
+            qa-artifacts/
+            preview.log
+          retention-days: 14

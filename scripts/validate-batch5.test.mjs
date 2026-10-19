@@ -18,8 +18,8 @@ test('negative: arbitrary replacement cannot skip required recall figure',()=>{
  a.lessons['A1.2'].assets.find(x=>x.id==='a12-nucleosome').src='/biology/nucleic-acids/unknown.svg';
  assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Original\/recall/);
 });
-test('negative: inherited DNA figure cannot lose its recall asset',()=>{
+test('negative: a textbook crop cannot lose its reproduction provenance',()=>{
  const a=clone();
- a.lessons['A1.2'].assets.find(x=>x.id==='a12-nucleotide').recallSrc='';
+ a.lessons['A1.2'].assets.find(x=>x.id==='a12-nucleotide').permissionEvidence='';
  assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Original\/recall/);
 });
