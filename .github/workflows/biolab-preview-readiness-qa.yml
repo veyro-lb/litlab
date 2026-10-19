@@ -44,7 +44,7 @@ jobs:
           node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs
       - name: Source locators, editorial scope and specialist regressions
         run: |
-          node --test scripts/biology/ib2025-coursewide-review/verify.test.mjs scripts/biology/ib2025-coursewide-review/followup.test.mjs
+          node --test scripts/biology/launch-readiness/merge.test.mjs scripts/biology/ib2025-coursewide-review/verify.test.mjs scripts/biology/ib2025-coursewide-review/followup.test.mjs
           node scripts/biology/source-policy-cleanup/verify.mjs
           node --test scripts/biology/source-policy-cleanup/verify.test.mjs
           node scripts/biology/final-d1-d2/verify.mjs
@@ -68,6 +68,7 @@ jobs:
             sleep 1
           done
           test "$ready" = 1 || { cat qa-artifacts/preview-readiness/preview.log; exit 1; }
+          node scripts/biology/licensed-book-figures/browser.mjs
           node scripts/biology/full-course/full-course-browser.mjs
           node scripts/biology/preview-readiness/browser.mjs
           node scripts/biology-ui-acceptance.mjs
@@ -79,6 +80,7 @@ jobs:
           name: biolab-preview-readiness-qa-evidence
           path: |
             qa-artifacts/preview-readiness/
+            qa-artifacts/licensed-book-figures/
             qa-artifacts/full-course/
             qa-artifacts/ui-acceptance/
             qa-artifacts/prelaunch-student-qa/

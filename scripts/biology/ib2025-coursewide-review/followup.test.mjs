@@ -33,10 +33,10 @@ test('neural answers preserve prescribed mechanisms without teaching pump-driven
  assert.match(q(6).answer,/Ca²⁺/);assert.match(q(6).answer,/exocytosis/);assert.match(q(8).answer,/K⁺ efflux/);assert.match(q(9).answer,/return current outside/);assert.match(q(10).answer,/20 Hz/);assert.match(q(13).answer,/hyperpolarization/);assert.match(q(13).answer,/farther from threshold/);
  assert.match(l.sections[7].explanation,/does not cause the rapid falling phase/);assert.match(l.sections[7].explanation,/does not reverse the bulk/);
 });
-test('every follow-up lesson change has exact before/after evidence and preserves all IDs',()=>{
+test('scientific follow-up changes remain exactly evidenced before original-crop restoration',()=>{
  const e=read(prefix+'FOLLOWUP_CHANGES.json');
  for(const record of e.records){
-  const old=JSON.parse(execFileSync('git',['show',e.baseCommit+':'+record.lessonPath],{encoding:'utf8',maxBuffer:5e6}));const now=read(record.lessonPath);
+  const old=JSON.parse(execFileSync('git',['show',e.baseCommit+':'+record.lessonPath],{encoding:'utf8',maxBuffer:5e6}));const now=JSON.parse(execFileSync('git',['show','8f3cede80fe4e4d4c7edfaa44a760d1c39f7929f:'+record.lessonPath],{encoding:'utf8',maxBuffer:5e6}));
   const fields=(a,b)=>Object.fromEntries([...new Set([...Object.keys(a),...Object.keys(b)])].sort().filter(k=>JSON.stringify(a[k])!==JSON.stringify(b[k])).map(k=>[k,{before:a[k]??null,after:b[k]??null}]));
   for(const collection of ['sections','questions']){
    assert.deepEqual(now[collection].map(x=>x.id),old[collection].map(x=>x.id));

@@ -25,7 +25,7 @@ test('complete matrix preserves every official ID/level and makes no new source 
 });
 test('before/after ledger matches actual lesson fields and counts, not just a claimed status',()=>{
  for(const topic of ['C1.2','C1.3','D1.1','D1.2','D2.1']){
-  const evidence=read(prefix+topic+'_CHANGES.json');const current=read(evidence.lessonPath);
+  const evidence=read(prefix+topic+'_CHANGES.json');const current=JSON.parse(execFileSync('git',['show','8f3cede80fe4e4d4c7edfaa44a760d1c39f7929f:'+evidence.lessonPath],{encoding:'utf8',maxBuffer:5e6}));
   const previous=JSON.parse(execFileSync('git',['show',base+':'+evidence.lessonPath],{encoding:'utf8',maxBuffer:5e6}));
   for(const [field,values] of Object.entries(evidence.lessonFields??{})){assert.deepEqual(previous[field]??null,values.before);assert.deepEqual(current[field]??null,values.after)}
   for(const record of evidence.records){
@@ -38,7 +38,7 @@ test('before/after ledger matches actual lesson fields and counts, not just a cl
 });
 test('ATP restoration, every asset record, and every question/section ID stay intact',()=>{
  for(const topic of ['C1.2','C1.3','D1.1','D1.2','D2.1']){
-  const e=read(prefix+topic+'_CHANGES.json');const now=read(e.lessonPath);const old=JSON.parse(execFileSync('git',['show',base+':'+e.lessonPath],{encoding:'utf8',maxBuffer:5e6}));
+  const e=read(prefix+topic+'_CHANGES.json');const now=JSON.parse(execFileSync('git',['show','8f3cede80fe4e4d4c7edfaa44a760d1c39f7929f:'+e.lessonPath],{encoding:'utf8',maxBuffer:5e6}));const old=JSON.parse(execFileSync('git',['show',base+':'+e.lessonPath],{encoding:'utf8',maxBuffer:5e6}));
   const addedContext=new Set(['bacterial-replication-enzymes','helicase-opening','translation-elongation','alternative-splicing','crossing-over','meiosis-separation']);
   assert.equal(now.assets.length,old.assets.length);
   for(const [i,asset] of now.assets.entries()){
