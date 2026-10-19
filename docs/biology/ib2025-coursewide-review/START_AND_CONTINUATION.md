@@ -1,3 +1,5 @@
+> Current continuation: [REPORT_AND_HANDOFF.md](REPORT_AND_HANDOFF.md). This file preserves the initial ATP review and original plan; use REVIEW_MATRIX.json for the new pass’s counts.
+
 # BioLab — IB Biology 2025 scientific/source/editorial review
 
 ## Scope and evidence status
