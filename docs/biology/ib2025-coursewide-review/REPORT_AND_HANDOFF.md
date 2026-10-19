@@ -1,3 +1,5 @@
+> Latest follow-up: [FOLLOWUP_REPORT.md](FOLLOWUP_REPORT.md). The earlier report below is a historical snapshot; its missing-textbook status, locator gaps and validation failures have been superseded where recorded in the follow-up.
+
 # BioLab IB2025 content review — implemented batches and continuation
 
 Implementation commit: `4b8ab75af67643f30c39124feb0c7853024f8214` on `feature/biolab-ib2025-content-source-cleanup-20261019`.

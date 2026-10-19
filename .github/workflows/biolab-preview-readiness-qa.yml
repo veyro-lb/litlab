@@ -39,6 +39,15 @@ jobs:
         run: |
           node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs
           node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs
+      - name: Source locators, editorial scope and specialist regressions
+        run: |
+          node --test scripts/biology/ib2025-coursewide-review/verify.test.mjs scripts/biology/ib2025-coursewide-review/followup.test.mjs
+          node scripts/biology/source-policy-cleanup/verify.mjs
+          node --test scripts/biology/source-policy-cleanup/verify.test.mjs
+          node scripts/biology/final-d1-d2/verify.mjs
+          node --test scripts/biology/final-d1-d2/negative.test.mjs
+          node scripts/biology/final-b3-b4/validate.mjs
+          node --test scripts/biology/final-b3-b4/negative.test.mjs tests/biology/*.test.mjs
       - name: Site quality
         run: npm run quality
       - name: Build development application without deployment
