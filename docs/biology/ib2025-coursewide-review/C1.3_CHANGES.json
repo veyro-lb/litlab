@@ -4,7 +4,7 @@
   "scope": "Internal Guide/editorial pass; Hodder PDF unavailable, so complete source review remains pending.",
   "explanationCharacters": {
     "before": 27705,
-    "after": 15300
+    "after": 14501
   },
   "reason": "Remove repeated teaching, retain required causal steps and correct scope/assessment consistency. Full before/after evidence includes all modified section/question fields.",
   "records": [
@@ -202,7 +202,8 @@
           "before": "An illuminated leaf can incorporate atmospheric carbon dioxide into carbohydrate; the absorbed light is the energy input, whereas carbon dioxide supplies the carbon.",
           "after": "A leaf uses light energy to make organic compounds; a caterpillar obtains chemical energy by eating the leaf."
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -488,7 +489,8 @@
           "before": "In oxygenic photosynthesis, water is oxidized to replace electrons lost from photosystem II, while carbon from CO\u2082 enters organic compounds through fixation.",
           "after": "In the word equation, CO\u2082 supplies carbon, water supplies hydrogen, and light supplies energy."
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -785,7 +787,8 @@
           "before": "A balanced photolysis representation is 2H\u2082O \u2192 O\u2082 + 4H\u207a + 4e\u207b.",
           "after": "An illuminated aquatic plant can release oxygen bubbles; that oxygen originated in water."
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -966,7 +969,8 @@
           "before": "Compute Rf by dividing the measured migration distance of a real pigment band by the measured solvent-front migration distance from the same baseline. Do not substitute invented measurements.",
           "after": "Illustrative calculation: pigment band 3.0 cm, solvent front 6.0 cm; Rf = 0.50. A blue-green band matching a chlorophyll a reference under the same conditions supports identification as chlorophyll a."
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -1157,7 +1161,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -1348,7 +1353,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -1539,7 +1545,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -1548,11 +1555,67 @@
         "C1.3.8"
       ],
       "changedFields": [
+        "claimReferences",
+        "explanation",
         "recall",
+        "referenceIds",
         "revisionSummary",
-        "support"
+        "support",
+        "teachingBlocks"
       ],
       "fields": {
+        "claimReferences": {
+          "before": [
+            {
+              "claim": "Greenhouse enrichment increases carbon dioxide around plants in enclosed conditions. With temperature, light and water better controlled, researchers can isolate a CO\u2082 response but may change humidity, airflow and ecological interactions. A higher concentration of CO\u2082 can increase carbon fixation when CO\u2082 is limiting, yet the final response depends on nutrients, temperature, species and growth conditions.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13",
+                "openstax-c13",
+                "openstax-calvin",
+                "face-review"
+              ]
+            },
+            {
+              "claim": "Free-air CO\u2082 enrichment (FACE) experiments raise ambient CO\u2082 around field plants without enclosing them, testing responses under more realistic weather and ecological conditions. Wind and fluctuating CO\u2082 introduce challenges to exposure control, and results may differ from greenhouses. Neither approach alone justifies a single universal prediction of future crop yield. Identify how controls, replication, atmospheric concentration and measured growth affect the validity of an inference.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13",
+                "openstax-c13",
+                "openstax-calvin",
+                "face-review"
+              ]
+            },
+            {
+              "claim": "A greenhouse creates relatively reproducible conditions for comparing plants under ambient versus raised CO\u2082, but enclosure can alter light, humidity, temperature and airflow. FACE systems release CO\u2082 in the open field to expose crops or natural plant communities while preserving many outdoor interactions, though wind makes exposure less uniform. Elevated CO\u2082 may raise photosynthetic carbon fixation when carbon supply limits the process, but a short-term change in instantaneous leaf rate is not the same as increased season-long harvest or ecosystem carbon storage. Measure growth, biomass or yield over time, identify ambient-control plots and replicate across conditions before making a prediction about future climates.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13"
+              ]
+            }
+          ],
+          "after": [
+            {
+              "claim": "Compare plants at ambient and raised CO\u2082 in a greenhouse while controlling light, temperature, water and nutrients. Enclosure makes conditions easier to control but can change humidity and airflow. Measure photosynthesis and growth over time: a short-term increase in leaf rate is not necessarily a proportional increase in final yield.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13"
+              ]
+            },
+            {
+              "claim": "FACE releases CO\u2082 around unenclosed plants in fields or natural ecosystems, preserving more realistic weather and ecological interactions. Exposure is harder to control because of wind and fluctuating conditions. Use ambient-control plots and replication, identify controlled variables, and account for species and nutrient differences before predicting future growth. Careful control of variables is a central part of experimental design; some ecological responses require field experiments.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13",
+                "face-review"
+              ]
+            }
+          ]
+        },
+        "explanation": {
+          "before": "Greenhouse enrichment increases carbon dioxide around plants in enclosed conditions. With temperature, light and water better controlled, researchers can isolate a CO\u2082 response but may change humidity, airflow and ecological interactions. A higher concentration of CO\u2082 can increase carbon fixation when CO\u2082 is limiting, yet the final response depends on nutrients, temperature, species and growth conditions.\n\nFree-air CO\u2082 enrichment (FACE) experiments raise ambient CO\u2082 around field plants without enclosing them, testing responses under more realistic weather and ecological conditions. Wind and fluctuating CO\u2082 introduce challenges to exposure control, and results may differ from greenhouses. Neither approach alone justifies a single universal prediction of future crop yield. Identify how controls, replication, atmospheric concentration and measured growth affect the validity of an inference.\n\nA greenhouse creates relatively reproducible conditions for comparing plants under ambient versus raised CO\u2082, but enclosure can alter light, humidity, temperature and airflow. FACE systems release CO\u2082 in the open field to expose crops or natural plant communities while preserving many outdoor interactions, though wind makes exposure less uniform. Elevated CO\u2082 may raise photosynthetic carbon fixation when carbon supply limits the process, but a short-term change in instantaneous leaf rate is not the same as increased season-long harvest or ecosystem carbon storage. Measure growth, biomass or yield over time, identify ambient-control plots and replicate across conditions before making a prediction about future climates.",
+          "after": "Compare plants at ambient and raised CO\u2082 in a greenhouse while controlling light, temperature, water and nutrients. Enclosure makes conditions easier to control but can change humidity and airflow. Measure photosynthesis and growth over time: a short-term increase in leaf rate is not necessarily a proportional increase in final yield.\n\nFACE releases CO\u2082 around unenclosed plants in fields or natural ecosystems, preserving more realistic weather and ecological interactions. Exposure is harder to control because of wind and fluctuating conditions. Use ambient-control plots and replication, identify controlled variables, and account for species and nutrient differences before predicting future growth. Careful control of variables is a central part of experimental design; some ecological responses require field experiments."
+        },
         "recall": {
           "before": [
             {
@@ -1577,6 +1640,20 @@
                 "C1.3.8"
               ]
             }
+          ]
+        },
+        "referenceIds": {
+          "before": [
+            "ib-c13",
+            "hodder-c13",
+            "openstax-c13",
+            "openstax-calvin",
+            "face-review"
+          ],
+          "after": [
+            "ib-c13",
+            "hodder-c13",
+            "face-review"
           ]
         },
         "revisionSummary": {
@@ -1605,17 +1682,71 @@
             "different": "Wind, weather and nutrients are difficult to control.",
             "concepts": [
               {
-                "title": "CO\u2082 enrichment",
+                "title": "Enclosed greenhouse experiments",
                 "keywords": [
-                  "C1.3.8",
-                  "CO\u2082"
+                  "CO\u2082",
+                  "greenhouse"
                 ],
-                "explanation": "Greenhouse enrichment increases carbon dioxide around plants in enclosed conditions. With temperature, light and water better controlled, researchers can isolate a CO\u2082 response but may change humidity, airflow and ecological interactions. A higher concentration of CO\u2082 can increase carbon fixation when CO\u2082 is limiting, yet the final response depends on nutrients, temperature, species and growth conditions."
+                "explanation": "Compare plants at ambient and raised CO\u2082 in a greenhouse while controlling light, temperature, water and nutrients. Enclosure makes conditions easier to control but can change humidity and airflow. Measure photosynthesis and growth over time: a short-term increase in leaf rate is not necessarily a proportional increase in final yield."
               }
             ]
           }
+        },
+        "teachingBlocks": {
+          "before": [
+            {
+              "title": "CO\u2082 enrichment",
+              "explanation": "Greenhouse enrichment increases carbon dioxide around plants in enclosed conditions. With temperature, light and water better controlled, researchers can isolate a CO\u2082 response but may change humidity, airflow and ecological interactions. A higher concentration of CO\u2082 can increase carbon fixation when CO\u2082 is limiting, yet the final response depends on nutrients, temperature, species and growth conditions.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13",
+                "openstax-c13",
+                "openstax-calvin",
+                "face-review"
+              ]
+            },
+            {
+              "title": "Field and greenhouse experiments have different controls",
+              "explanation": "Free-air CO\u2082 enrichment (FACE) experiments raise ambient CO\u2082 around field plants without enclosing them, testing responses under more realistic weather and ecological conditions. Wind and fluctuating CO\u2082 introduce challenges to exposure control, and results may differ from greenhouses. Neither approach alone justifies a single universal prediction of future crop yield. Identify how controls, replication, atmospheric concentration and measured growth affect the validity of an inference.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13",
+                "openstax-c13",
+                "openstax-calvin",
+                "face-review"
+              ]
+            },
+            {
+              "title": "Interpret enrichment without overclaiming yield",
+              "explanation": "A greenhouse creates relatively reproducible conditions for comparing plants under ambient versus raised CO\u2082, but enclosure can alter light, humidity, temperature and airflow. FACE systems release CO\u2082 in the open field to expose crops or natural plant communities while preserving many outdoor interactions, though wind makes exposure less uniform. Elevated CO\u2082 may raise photosynthetic carbon fixation when carbon supply limits the process, but a short-term change in instantaneous leaf rate is not the same as increased season-long harvest or ecosystem carbon storage. Measure growth, biomass or yield over time, identify ambient-control plots and replicate across conditions before making a prediction about future climates.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13"
+              ]
+            }
+          ],
+          "after": [
+            {
+              "title": "Enclosed greenhouse experiments",
+              "explanation": "Compare plants at ambient and raised CO\u2082 in a greenhouse while controlling light, temperature, water and nutrients. Enclosure makes conditions easier to control but can change humidity and airflow. Measure photosynthesis and growth over time: a short-term increase in leaf rate is not necessarily a proportional increase in final yield.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13"
+              ]
+            },
+            {
+              "title": "Free-air carbon dioxide enrichment (FACE)",
+              "explanation": "FACE releases CO\u2082 around unenclosed plants in fields or natural ecosystems, preserving more realistic weather and ecological interactions. Exposure is harder to control because of wind and fluctuating conditions. Use ambient-control plots and replication, identify controlled variables, and account for species and nutrient differences before predicting future growth. Careful control of variables is a central part of experimental design; some ecological responses require field experiments.",
+              "referenceIds": [
+                "ib-c13",
+                "hodder-c13",
+                "face-review"
+              ]
+            }
+          ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -1801,7 +1932,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -1987,7 +2119,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -2173,7 +2306,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -2249,7 +2383,8 @@
             ]
           }
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -2435,7 +2570,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -2621,7 +2757,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -2807,7 +2944,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -2993,7 +3131,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -3179,7 +3318,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -3365,7 +3505,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "sections",
@@ -3556,7 +3697,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Consolidate repeated explanations into causal teaching blocks; synchronize concise recall/help. Preserve required scope, existing figures and identifiers. Exact changed fields and before/after text are recorded here."
     },
     {
       "collection": "questions",
@@ -3588,7 +3730,8 @@
           "before": "Explain how light energy is converted into chemical energy that supports carbon fixation in oxygenic photosynthesis. [2]",
           "after": "Explain how photosynthesis supplies energy to consumers in an ecosystem. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3659,7 +3802,8 @@
           "before": "Which substrate supplies the electrons needed to reduce carbon compounds during oxygenic photosynthesis?",
           "after": "Which substance supplies hydrogen used to convert carbon dioxide into carbohydrate?"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3691,7 +3835,8 @@
           "before": "Explain how water provides reducing power for photosynthetic carbon fixation. [2]",
           "after": "State the source of carbon and the source of hydrogen used to make glucose in photosynthesis. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3757,7 +3902,8 @@
             }
           ]
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3789,7 +3935,8 @@
           "before": "Explain photosynthetic oxygen comes from water, including the underlying mechanism and one consequence. [2]",
           "after": "State the source of oxygen released during photosynthesis and name two groups of organisms that release it. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3821,7 +3968,8 @@
           "before": "Explain identify pigments by chromatography, including the underlying mechanism and one consequence. [2]",
           "after": "A pigment band moves 3.0 cm and the solvent front moves 6.0 cm from the baseline. Calculate Rf and state one condition for comparing it with a reference. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3853,7 +4001,8 @@
           "before": "Explain pigments absorb selected wavelengths, including the underlying mechanism and one consequence. [2]",
           "after": "Explain why a photosynthetic pigment absorbs some wavelengths of light more strongly than others. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3885,7 +4034,8 @@
           "before": "Explain compare absorption and action spectra, including the underlying mechanism and one consequence. [2]",
           "after": "Distinguish an action spectrum from an absorption spectrum. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3917,7 +4067,8 @@
           "before": "Explain test limiting factors experimentally, including the underlying mechanism and one consequence. [2]",
           "after": "Describe how to test the hypothesis that increasing light intensity increases photosynthesis rate. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3949,7 +4100,8 @@
           "before": "Explain co\u2082 enrichment: greenhouse and face experiments, including the underlying mechanism and one consequence. [2]",
           "after": "Compare one advantage of a greenhouse experiment with one advantage of FACE when investigating raised CO\u2082. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -3981,7 +4133,8 @@
           "before": "Explain photosystems collect and emit excited electrons, including the underlying mechanism and one consequence. [2]",
           "after": "Explain how the pigment array in a photosystem produces an electron for electron transport. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4013,7 +4166,8 @@
           "before": "Explain why diverse pigment arrays outperform a single pigment, including the underlying mechanism and one consequence. [2]",
           "after": "Explain two advantages of an ordered array of different pigments in a photosystem. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4045,7 +4199,8 @@
           "before": "Explain photosystem ii splits water and releases o\u2082, including the underlying mechanism and one consequence. [2]",
           "after": "Explain how water splitting sustains photosystem II and contributes to ATP production. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4077,7 +4232,8 @@
           "before": "Explain photophosphorylation uses a thylakoid proton gradient, including the underlying mechanism and one consequence. [2]",
           "after": "Explain how thylakoid electron transport is coupled to ATP synthesis. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4109,7 +4265,8 @@
           "before": "Explain photosystem i reduces nadp, including the underlying mechanism and one consequence. [2]",
           "after": "Describe the reduction of NADP\u207a associated with photosystem I. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4141,7 +4298,8 @@
           "before": "Explain thylakoid orientation coordinates light reactions, including the underlying mechanism and one consequence. [2]",
           "after": "State the location of water splitting and the location of ATP formation in the thylakoid system. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4173,7 +4331,8 @@
           "before": "Explain rubisco fixes co\u2082 to rubp, including the underlying mechanism and one consequence. [2]",
           "after": "Describe the carbon-fixation reaction catalysed by Rubisco. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4205,7 +4364,8 @@
           "before": "Explain atp and nadph reduce gp to triose phosphate, including the underlying mechanism and one consequence. [2]",
           "after": "Explain the roles of ATP and NADPH in converting GP to TP. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4237,7 +4397,8 @@
           "before": "Explain rubp regeneration sustains the calvin cycle, including the underlying mechanism and one consequence. [2]",
           "after": "Explain how TP is used to regenerate RuBP. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4269,7 +4430,8 @@
           "before": "Explain calvin products support diverse biosynthesis, including the underlying mechanism and one consequence. [2]",
           "after": "Explain how plants use fixed carbon and mineral nutrients to make amino acids. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     },
     {
       "collection": "questions",
@@ -4301,7 +4463,92 @@
           "before": "Explain light reactions and calvin cycle depend on one another, including the underlying mechanism and one consequence. [2]",
           "after": "Explain how prolonged CO\u2082 deprivation can restrict photosystem II electron flow. [2]"
         }
-      }
+      },
+      "reason": "Replace a generic or mismatched structured prompt with a taught task and distinct marking points; preserve question IDs, level and marks. Updated specific MCQ wording is recorded where changed."
     }
-  ]
+  ],
+  "lessonFields": {
+    "references": {
+      "before": [
+        {
+          "id": "ib-c13",
+          "title": "International Baccalaureate Biology Guide, first assessment 2025",
+          "locator": "C1.3 pp.69\u201371 (PDF 75\u201377)",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "hodder-c13",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma (3rd ed., Hodder 2023)",
+          "locator": "Chapter C1.3 pp.425\u2013449 (supplied PDF pp.437\u2013461)",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "openstax-c13",
+          "title": "OpenStax Biology 2e, Light-dependent reactions",
+          "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+          "locator": "\u00a78.2, thylakoid orientation and photosystems",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "openstax-calvin",
+          "title": "OpenStax Concepts of Biology, Calvin cycle",
+          "url": "https://openstax.org/books/concepts-biology/pages/5-3-the-calvin-cycle",
+          "locator": "\u00a75.3, fixation, reduction, regeneration",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "face-review",
+          "title": "Ainsworth and Long, FACE meta-analysis (PubMed)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15720649/",
+          "locator": "Meta-analysis of CO\u2082 enrichment responses in 12 FACE experiments",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        }
+      ],
+      "after": [
+        {
+          "id": "ib-c13",
+          "title": "International Baccalaureate Biology Guide, first assessment 2025",
+          "locator": "C1.3 pp.69\u201371 (PDF 75\u201377)",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "hodder-c13",
+          "title": "Clegg, Davis and Talbot, Biology for the IB Diploma (3rd ed., Hodder 2023)",
+          "locator": "Chapter C1.3 pp.425\u2013449 (supplied PDF pp.437\u2013461)",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "openstax-c13",
+          "title": "OpenStax Biology 2e, Light-dependent reactions",
+          "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+          "locator": "\u00a78.2, thylakoid orientation and photosystems",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "openstax-calvin",
+          "title": "OpenStax Concepts of Biology, Calvin cycle",
+          "url": "https://openstax.org/books/concepts-biology/pages/5-3-the-calvin-cycle",
+          "locator": "\u00a75.3, fixation, reduction, regeneration",
+          "accessedAt": "2026-10-17",
+          "level": "shared"
+        },
+        {
+          "id": "face-review",
+          "title": "Ainsworth, E. A. and Long, S. P. (2005), FACE meta-analysis, New Phytologist 165(2):351\u2013371",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15720649/",
+          "locator": "Abstract; 120 primary articles from 12 FACE experiments; DOI 10.1111/j.1469-8137.2004.01224.x",
+          "accessedAt": "2026-10-19",
+          "level": "shared"
+        }
+      ]
+    }
+  }
 }
