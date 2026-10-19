@@ -35,14 +35,13 @@ function validateSources(x) {
   const sourcePdf=asset.src.startsWith('/biology/source-pdf-figures/');
   const ownerLicensedCrop=asset.src.startsWith('/biology/licensed-book-crops/');
   for(const key of ['src','recallSrc','mobileSrc','recallMobileSrc']){
-   // An original, labelled textbook screenshot has no invented unlabelled recall image.
-   const validPath=Boolean(asset[key])&&existsSync(join(root,'public',String(asset[key]).replace(/^\\//,'')));
+   // Original labelled screenshot files should not have fabricated recall variants.
+   const pathValue=asset[key];
+   const rel=typeof pathValue==='string'&&pathValue.startsWith('/')?pathValue.slice(1):pathValue;
+   const validPath=Boolean(pathValue)&&existsSync(join(root,'public',rel));
    if((key==='src'||!ownerLicensedCrop)&&!validPath)errors.push(id+' '+key+' unavailable');
-   if(ownerLicensedCrop&&asset[key]&&!validPath)errors.push(id+' '+key+' unavailable');
-   if(sourcePdf&&asset[key]!==asset.src)errors.push(id+' '+key+' mismatch');
-  }
-  if(ownerLicensedCrop&&asset[key]&&!existsSync(join(root,'public',asset[key].replace(/^\//,''))))errors.push(id+' '+key+' unavailable');
-   if(sourcePdf && asset[key]!==asset.src)errors.push(id+' '+key+' mismatch');
+   if(ownerLicensedCrop&&pathValue&&!validPath)errors.push(id+' '+key+' unavailable');
+   if(sourcePdf&&pathValue!==asset.src)errors.push(id+' '+key+' mismatch');
   }
   if(ownerLicensedCrop&&(!asset.publicReproductionRights||!asset.attribution||!asset.permissionEvidence.includes('2026-10-19')||!(asset.attribution.includes('IB Biology Drawings')||asset.attribution.includes('Hodder'))))errors.push(id+' licensed original attribution');
   if(sourcePdf && (!asset.attribution.includes('IB Biology Drawings') || !asset.permissionEvidence.includes('source-figure-credits.json')))errors.push(id+' original attribution');
