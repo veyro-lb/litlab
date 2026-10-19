@@ -59,11 +59,11 @@ export function inspectFocusedLesson(d) {
 
  }
  if(d.topicId==='C4.2'){
-  const a=one(d,'C4.2.20'),fig=d.assets.find(x=>x.id==='c42-keeling-2024-2025');
+  const a=one(d,'C4.2.20'),fig=d.assets.find(x=>x.id==='keeling-monthly-observed');
   problem(errors,!!a&&!!fig,'C4.2.20 observed monthly graph missing');
   if(a&&fig){
    problem(errors,a.assets.includes(fig.id)&&a.figurePlacements?.some(x=>x.assetId===fig.id),'C4.2.20 graph not in teaching');
-   problem(errors,fig.referenceIds.includes('noaa-keeling-monthly')&&fig.attribution.includes('NOAA'),'C4.2.20 monthly provenance missing');
+   problem(errors,fig.referenceIds.includes('noaa-monthly-observed')&&fig.attribution.includes('NOAA'),'C4.2.20 monthly provenance missing');
    problem(errors,a.graphTables?.some(x=>x.rows.length===2&&/annual|long-term/i.test(x.caption)),'C4.2.20 historical annual means incorrectly removed');
    problem(errors,/6\.14 ppm/.test(a.workedExample)&&/seasonal/i.test(a.workedExample),'C4.2.20 measured seasonal interpretation missing');
    problem(errors,/2024 and 2025/.test(fig.alt),'C4.2.20 two within-year observation series missing');
@@ -93,13 +93,13 @@ export function verifyCourse(){
  }
  assert.equal(sections,553,'Every understanding must retain teaching');
  const co2=read('src/biology/learning/transfers-energy-matter/lesson.json');
- const graph=co2.assets.find(x=>x.id==='c42-keeling-2024-2025');
+ const graph=co2.assets.find(x=>x.id==='keeling-monthly-observed');
  const svg=readFileSync(resolve(root,'public'+graph.src),'utf8');
  assert.equal((svg.match(/<circle /g)||[]).length,24,'24 observed monthly points (12 per year)');
  assert.equal((svg.match(/<polyline /g)||[]).length,2,'Exactly 2 observed series');
  assert.ok(!/<script\b/i.test(svg),'No script in plotted SVG');
  assert.ok(Math.abs((430.51-424.37)-6.14)<1e-9,'Observed 2025 seasonal amplitude');
- const result={status:'PASS',topics:40,understandings:553,shared:337,additionalHL:216,questions,assets,seasonalPoints:24,sourceScope:'validated; independent scientific examiner review still required'};
+ const result={status:'PASS',topics:40,understandings:553,shared:337,additionalHL:216,questions,assets,seasonalPoints:24,sourceScope:'focused source-policy assertions only; not a course-wide scientific/source audit'};
  return result;
 }
 

@@ -97,7 +97,7 @@ for(const src of newFigures){
 }
 results.structuralWarnings.push(
   'This script does not reverify biological claims or IB guide wording.',
-  'Section-level Hodder page pointers are absent for C3.2, C4.1 and C4.2; the chapter sources can still exist.',
+  results.missingExactHodderPagePointers ? 'Some inventory rows still need exact Hodder pointers.' : 'All inventory rows have Hodder pointers; locator presence is not full scientific verification.',
   'No desktop/mobile browser rendering, visual QA, source-rights clearance or qualified review is established here.'
 );
 console.log(JSON.stringify({status:'STRUCTURAL CHECK PASSED',...results},null,2));

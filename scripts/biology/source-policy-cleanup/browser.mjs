@@ -7,7 +7,7 @@ const cases=[
  {topic:'D4.3',id:'D4.3.1',expected:'infrared',absent:/NASA.?s 2025|1\.19 °C|1951.?1980/i},
  {topic:'D4.3',id:'D4.3.4',expected:'emperor penguins',absent:/NOAA 2025|0\.91 million|14\.12 million/i},
  {topic:'A1.1',id:'A1.1.7',expected:'asteroid',absent:/deuterium.to.protium|lunar regolith/i},
- {topic:'C4.2',id:'C4.2.20',expected:'Mauna Loa',figure:'c42-keeling-2024-2025'},
+ {topic:'C4.2',id:'C4.2.20',expected:'Mauna Loa',figure:'keeling-monthly-observed'},
  {topic:'C1.3',id:'C1.3.8',expected:'carbon dioxide'}
 ];
 mkdirSync('qa-artifacts/source-policy-cleanup',{recursive:true});

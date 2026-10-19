@@ -39,9 +39,18 @@ test('before/after ledger matches actual lesson fields and counts, not just a cl
 test('ATP restoration, every asset record, and every question/section ID stay intact',()=>{
  for(const topic of ['C1.2','C1.3','D1.1','D1.2','D2.1']){
   const e=read(prefix+topic+'_CHANGES.json');const now=read(e.lessonPath);const old=JSON.parse(execFileSync('git',['show',base+':'+e.lessonPath],{encoding:'utf8',maxBuffer:5e6}));
-  assert.deepEqual(now.assets,old.assets);
+  const addedContext=new Set(['bacterial-replication-enzymes','helicase-opening','translation-elongation','alternative-splicing','crossing-over','meiosis-separation']);
+  assert.equal(now.assets.length,old.assets.length);
+  for(const [i,asset] of now.assets.entries()){
+   const expected=old.assets[i];for(const key of Object.keys(expected))assert.deepEqual(asset[key],expected[key],topic+' asset '+asset.id+' '+key);
+   const added=Object.keys(asset).filter(k=>!Object.hasOwn(expected,k));
+   if(added.length){assert.ok(addedContext.has(asset.id));assert.deepEqual(added,['interpretation']);assert.ok(asset.interpretation.length>60)}
+  }
   for(const col of ['sections','questions'])assert.deepEqual(now[col].map(x=>x.id),old[col].map(x=>x.id));
-  if(topic==='C1.2')assert.deepEqual(now.sections[0],old.sections[0]);
+  if(topic==='C1.2'){
+   const verified=read(prefix+'TEXTBOOK_LOCATOR_VERIFICATION.json').records.find(r=>r.understandingId==='C1.2.1');
+   assert.deepEqual(now.sections[0],{...old.sections[0],textbook:verified.after});
+  }
  }
 });
 test('shared photosynthesis models do not require additional HL light-reaction mechanisms',()=>{

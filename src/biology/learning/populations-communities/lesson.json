@@ -19,7 +19,7 @@
   "objectives": [
     "Explain all eighteen C4.1 shared understandings",
     "Use quadrats, the Lincoln index and chi-squared tests correctly",
-    "Evaluate claims about competition and predator–prey relationships"
+    "Evaluate claims about competition and predator\u2013prey relationships"
   ],
   "sections": [
     {
@@ -32,9 +32,9 @@
       "explanation": "A population contains interacting organisms of the same species living in a defined place during a defined period. Within a sexually reproducing species, its members normally have opportunities to reproduce with one another. A census must specify the area and time: a flock observed today is not automatically the entire regional population.\n\nGeographic separation or another barrier to breeding can distinguish two populations even if individuals have similar appearances. Population boundaries matter because birth, death, immigration and emigration can change numbers differently in the two groups. A population is not the same as a community, which includes members of several species.\n\nA population is not simply every organism with the same species name anywhere on Earth. It is a set of conspecific individuals occupying an area and normally interacting and breeding with one another. Geographic barriers or different breeding periods can reduce gene flow between populations of the same species. An estimate of abundance must therefore specify the location, time and operational boundary being counted. For example, breeding frogs in one isolated pond may form a practical sampling population distinct from those in a distant pond. The relationship between populations and species matters because ecological interactions operate locally, whereas a species may occupy many separated habitats.",
       "revisionSummary": "Geographic separation or another barrier to breeding can distinguish two populations even if individuals have similar appearances.",
       "terms": [
-        "population — same-species interacting organisms within an area",
-        "species — organisms grouped by shared reproductive or evolutionary relationships",
-        "reproductive isolation — restricted gene exchange between groups"
+        "population \u2014 same-species interacting organisms within an area",
+        "species \u2014 organisms grouped by shared reproductive or evolutionary relationships",
+        "reproductive isolation \u2014 restricted gene exchange between groups"
       ],
       "workedExample": "Two populations of a freshwater fish may occupy separate lakes with no connection permitting migration or breeding.",
       "misconceptions": [
@@ -163,6 +163,15 @@
             "explanation": "A population is one species living and interacting in a defined place. Separate groups may be different populations if they rarely breed with one another."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          548
+        ],
+        "pdfPages": [
+          560
+        ]
       }
     },
     {
@@ -175,9 +184,9 @@
       "explanation": "Counting every member of a widespread population may be too slow, expensive or destructive, so ecologists use samples to estimate abundance. A sampling frame defines where samples can be collected. Random coordinates give locations an equal or known chance of selection instead of allowing observers to pick convenient or unusually dense sites.\n\nRandom selection reduces systematic selection bias but does not remove sampling error: an estimate from a subset can differ from the true count by chance. Larger and appropriately distributed samples can improve precision. The resulting estimate should be reported with its method, sampled area and uncertainty rather than represented as an exact census.\n\nA defensible field protocol first defines the sampling frame (the whole area eligible for sampling) and selects locations using a random-number generator or random coordinates. Sampling only visible clumps systematically overestimates abundance. Record quadrat area, number of samples and any inaccessible locations; describe the possible bias if a random location cannot actually be sampled.",
       "revisionSummary": "Random selection reduces systematic selection bias but does not remove sampling error: an estimate from a subset can differ from the true count by chance.",
       "terms": [
-        "sampling frame — all possible locations from which units can be selected",
-        "sampling error — difference between an estimate and population value",
-        "selection bias — systematic favouring of some locations"
+        "sampling frame \u2014 all possible locations from which units can be selected",
+        "sampling error \u2014 difference between an estimate and population value",
+        "selection bias \u2014 systematic favouring of some locations"
       ],
       "workedExample": "Sampling only flower-rich patches in a meadow would usually overestimate the average density of a flowering plant.",
       "misconceptions": [
@@ -317,7 +326,22 @@
           ],
           "note": "Sampling protocol, not a record of any actual field survey."
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          549,
+          550,
+          551,
+          552
+        ],
+        "pdfPages": [
+          561,
+          562,
+          563,
+          564
+        ]
+      }
     },
     {
       "id": "c41-3",
@@ -326,14 +350,14 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can small plots estimate numbers across a large field?",
-      "explanation": "A quadrat encloses a known area within which sessile organisms, such as plants or barnacles, can be counted. Position quadrats using random coordinates, record counts consistently and calculate the mean number per quadrat. For equal-area quadrats, estimated total abundance is mean count multiplied by total site area divided by quadrat area.\n\nSpread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m², twenty independently placed 0.5 m² quadrats contain 100 rooted plants in total. Mean density = 100 ÷ (20 × 0.5) = 10 plants m⁻²; projected abundance = 10 × 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
+      "explanation": "A quadrat encloses a known area within which sessile organisms, such as plants or barnacles, can be counted. Position quadrats using random coordinates, record counts consistently and calculate the mean number per quadrat. For equal-area quadrats, estimated total abundance is mean count multiplied by total site area divided by quadrat area.\n\nSpread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m\u00b2, twenty independently placed 0.5 m\u00b2 quadrats contain 100 rooted plants in total. Mean density = 100 \u00f7 (20 \u00d7 0.5) = 10 plants m\u207b\u00b2; projected abundance = 10 \u00d7 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
       "revisionSummary": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts.",
       "terms": [
-        "quadrat — sampling frame enclosing a defined area",
-        "mean density — average count per unit area",
-        "standard deviation — measure of spread around the mean"
+        "quadrat \u2014 sampling frame enclosing a defined area",
+        "mean density \u2014 average count per unit area",
+        "standard deviation \u2014 measure of spread around the mean"
       ],
-      "workedExample": "In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m²; across a 100 m² habitat the point estimate is 500 plants, assuming representative sampling.",
+      "workedExample": "In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m\u00b2; across a 100 m\u00b2 habitat the point estimate is 500 plants, assuming representative sampling.",
       "misconceptions": [
         {
           "misconception": "The mean quadrat count is automatically the total population.",
@@ -349,7 +373,7 @@
           ]
         },
         {
-          "claim": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m², twenty independently placed 0.5 m² quadrats contain 100 rooted plants in total. Mean density = 100 ÷ (20 × 0.5) = 10 plants m⁻²; projected abundance = 10 × 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
+          "claim": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m\u00b2, twenty independently placed 0.5 m\u00b2 quadrats contain 100 rooted plants in total. Mean density = 100 \u00f7 (20 \u00d7 0.5) = 10 plants m\u207b\u00b2; projected abundance = 10 \u00d7 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -422,7 +446,7 @@
         },
         {
           "title": "Convert density into abundance",
-          "explanation": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m², twenty independently placed 0.5 m² quadrats contain 100 rooted plants in total. Mean density = 100 ÷ (20 × 0.5) = 10 plants m⁻²; projected abundance = 10 × 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
+          "explanation": "Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.\n\nFor a constructed field of 120 m\u00b2, twenty independently placed 0.5 m\u00b2 quadrats contain 100 rooted plants in total. Mean density = 100 \u00f7 (20 \u00d7 0.5) = 10 plants m\u207b\u00b2; projected abundance = 10 \u00d7 120 = 1,200 plants. This assumes the sampled plots represent the field; clustered plants increase uncertainty. These numbers are a worked example, not field observations.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -432,8 +456,8 @@
       "exampleTitle": "Interpret an ecological case",
       "support": {
         "simple": "Count plants or immobile animals inside random squares. Find the average per square, then scale it to the habitat area.",
-        "example": "In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m²; across a 100 m² habitat the point estimate is 500 plants, assuming representative sampling.",
-        "different": "In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m²; across a 100 m² habitat the point estimate is 500 plants, assuming representative sampling. Consider the underlying cause rather than memorizing the pattern.",
+        "example": "In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m\u00b2; across a 100 m\u00b2 habitat the point estimate is 500 plants, assuming representative sampling.",
+        "different": "In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m\u00b2; across a 100 m\u00b2 habitat the point estimate is 500 plants, assuming representative sampling. Consider the underlying cause rather than memorizing the pattern.",
         "concepts": [
           {
             "title": "Quadrats estimate sessile population density",
@@ -449,7 +473,7 @@
       "visuals": [
         {
           "kind": "comparison",
-          "title": "Worked quadrat estimate — constructed data",
+          "title": "Worked quadrat estimate \u2014 constructed data",
           "afterBlock": 1,
           "headers": [
             "Quantity",
@@ -459,23 +483,36 @@
           "rows": [
             [
               "Total sampled area",
-              "20 plots × 0.5 m²",
-              "10 m²"
+              "20 plots \u00d7 0.5 m\u00b2",
+              "10 m\u00b2"
             ],
             [
               "Mean density",
-              "100 individuals ÷ 10 m²",
-              "10 individuals m⁻²"
+              "100 individuals \u00f7 10 m\u00b2",
+              "10 individuals m\u207b\u00b2"
             ],
             [
               "Field estimate",
-              "10 individuals m⁻² × 120 m²",
+              "10 individuals m\u207b\u00b2 \u00d7 120 m\u00b2",
               "1,200 individuals"
             ]
           ],
           "note": "Illustrative values, not measured quadrat observations. Assumes independent, representative sampling."
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          550,
+          551,
+          552
+        ],
+        "pdfPages": [
+          562,
+          563,
+          564
+        ]
+      }
     },
     {
       "id": "c41-4",
@@ -484,14 +521,14 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which assumptions make recapture proportions meaningful?",
-      "explanation": "Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).\n\nRearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M × N ÷ R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
-      "revisionSummary": "Rearranging gives the Lincoln index: estimated population = M × N ÷ R.",
+      "explanation": "Capture\u2013mark\u2013release\u2013recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).\n\nRearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M \u00d7 N \u00f7 R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
+      "revisionSummary": "Rearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R.",
       "terms": [
-        "Lincoln index — M × N ÷ R population estimate",
-        "recapture — second capture including marked individuals",
-        "closed population — little change through births, deaths or migration during sampling"
+        "Lincoln index \u2014 M \u00d7 N \u00f7 R population estimate",
+        "recapture \u2014 second capture including marked individuals",
+        "closed population \u2014 little change through births, deaths or migration during sampling"
       ],
-      "workedExample": "For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 × 40 ÷ 10 = 200 individuals.",
+      "workedExample": "For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 \u00d7 40 \u00f7 10 = 200 individuals.",
       "misconceptions": [
         {
           "misconception": "If recaptured individuals lose their marks, the estimate stays reliable.",
@@ -500,14 +537,14 @@
       ],
       "claimReferences": [
         {
-          "claim": "Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).",
+          "claim": "Capture\u2013mark\u2013release\u2013recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
           ]
         },
         {
-          "claim": "Rearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M × N ÷ R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
+          "claim": "Rearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M \u00d7 N \u00f7 R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -544,7 +581,7 @@
               "id": "c41-4-o1",
               "text": "200 individuals.",
               "correct": true,
-              "feedback": "Correct. Rearranging gives the Lincoln index: estimated population = M × N ÷ R."
+              "feedback": "Correct. Rearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R."
             },
             {
               "id": "c41-4-o2",
@@ -560,8 +597,8 @@
           "kind": "recall",
           "id": "c41-recall-4",
           "prompt": "Which assumptions make recapture proportions meaningful?",
-          "answer": "Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).",
-          "explanation": "Rearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.",
+          "answer": "Capture\u2013mark\u2013release\u2013recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).",
+          "explanation": "Rearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.",
           "understandingIds": [
             "C4.1.4"
           ]
@@ -572,7 +609,7 @@
       "teachingBlocks": [
         {
           "title": "Estimate animals from marked recaptures",
-          "explanation": "Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).",
+          "explanation": "Capture\u2013mark\u2013release\u2013recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population).",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -580,7 +617,7 @@
         },
         {
           "title": "Assumptions before calculation",
-          "explanation": "Rearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M × N ÷ R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
+          "explanation": "Rearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.\n\nA model calculation must never be interpreted as a known true census. The Lincoln estimate for M = 50, N = 40 and R = 10 is 200 individuals, but no recaptures (R = 0) makes M \u00d7 N \u00f7 R undefined. Very low recapture counts amplify uncertainty, while trap preference, mark loss or migration bias the estimate.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -589,25 +626,25 @@
       ],
       "exampleTitle": "Interpret an ecological case",
       "support": {
-        "simple": "Mark and release M animals. Catch N later, including R marked ones. Estimate total population as M × N ÷ R.",
-        "example": "For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 × 40 ÷ 10 = 200 individuals.",
-        "different": "For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 × 40 ÷ 10 = 200 individuals. Consider the underlying cause rather than memorizing the pattern.",
+        "simple": "Mark and release M animals. Catch N later, including R marked ones. Estimate total population as M \u00d7 N \u00f7 R.",
+        "example": "For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 \u00d7 40 \u00f7 10 = 200 individuals.",
+        "different": "For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 \u00d7 40 \u00f7 10 = 200 individuals. Consider the underlying cause rather than memorizing the pattern.",
         "concepts": [
           {
-            "title": "Mark–release–recapture and the Lincoln index",
+            "title": "Mark\u2013release\u2013recapture and the Lincoln index",
             "keywords": [
               "Lincoln index",
               "recapture",
               "closed population"
             ],
-            "explanation": "Mark and release M animals. Catch N later, including R marked ones. Estimate total population as M × N ÷ R."
+            "explanation": "Mark and release M animals. Catch N later, including R marked ones. Estimate total population as M \u00d7 N \u00f7 R."
           }
         ]
       },
       "visuals": [
         {
           "kind": "sequence",
-          "title": "Mark–release–recapture logic",
+          "title": "Mark\u2013release\u2013recapture logic",
           "afterBlock": 0,
           "steps": [
             {
@@ -620,11 +657,24 @@
             },
             {
               "title": "Estimate",
-              "description": "Use population estimate M × N ÷ R, checking assumptions"
+              "description": "Use population estimate M \u00d7 N \u00f7 R, checking assumptions"
             }
           ]
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          555,
+          556,
+          557
+        ],
+        "pdfPages": [
+          567,
+          568,
+          569
+        ]
+      }
     },
     {
       "id": "c41-5",
@@ -636,9 +686,9 @@
       "explanation": "Carrying capacity, commonly denoted K, is the approximate number of individuals an environment can sustain over time under its current resource constraints. Food, water, breeding sites and suitable territory may become limiting as population size increases. Because conditions change seasonally or with disturbance, carrying capacity is not a permanent fixed species property.\n\nWhen individuals compete for scarce resources, per-capita survival or reproductive success may decline. That can reduce net growth before all resources are exhausted. Carrying capacity is therefore an ecosystem-dependent estimate and not a claim that the same number of individuals must be present at every moment.\n\nCarrying capacity is the approximate population size an environment can sustain over time under its prevailing resource and environmental conditions. Food, territory, nesting sites, water and mineral nutrients can each set limits, sometimes at different points in a life cycle. As numbers rise, resource use increases and population growth tends to slow. K is not a fixed property of the species: climate change, disturbance, new predators or improved resource supply can change it. A population temporarily exceeding K does not mean the definition has failed, because models describe a tendency over time rather than an absolute barrier that no population can cross.",
       "revisionSummary": "When individuals compete for scarce resources, per-capita survival or reproductive success may decline.",
       "terms": [
-        "carrying capacity — approximate sustainable population limit",
-        "limiting resource — essential resource restricting growth",
-        "competition — use of scarce resources by multiple organisms"
+        "carrying capacity \u2014 approximate sustainable population limit",
+        "limiting resource \u2014 essential resource restricting growth",
+        "competition \u2014 use of scarce resources by multiple organisms"
       ],
       "workedExample": "On a small island, a grazing herbivore population may approach a limit set by seasonal vegetation productivity.",
       "misconceptions": [
@@ -767,6 +817,15 @@
             "explanation": "An area has a rough limit to how many organisms it can support. Food, water and shelter determine that limit."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          557
+        ],
+        "pdfPages": [
+          569
+        ]
       }
     },
     {
@@ -779,9 +838,9 @@
       "explanation": "Density-dependent factors become stronger as a population grows crowded. Increased competition for food or nesting places can reduce reproduction and survival. Dense groups may also experience easier transmission of pathogens or pests and, in some systems, increased predator encounter rates. These mechanisms often decrease the rate of population growth.\n\nNegative feedback occurs when increasing density creates effects that oppose further increase, while falling density can lessen those effects. Drought or a severe storm may reduce a population regardless of its density; such disturbances are density-independent and can push numbers far below or above a simple model prediction. Real populations often fluctuate around an approximate carrying capacity.\n\nWhen individuals crowd together, competition can reduce food per individual and breeding success, disease can spread more readily and predators may find prey more efficiently. These effects become stronger as population density rises, lowering the population's net growth and creating negative feedback toward a carrying capacity. Density-independent disturbances, such as a severe freeze or fire, can reduce a population regardless of its initial density. In a graph, explain why growth slows as density rises instead of merely labelling a curve 'logistic'. Feedback regulation does not remove all fluctuations; time delays in reproduction, predation and resource regeneration can produce overshoot and decline.",
       "revisionSummary": "Negative feedback occurs when increasing density creates effects that oppose further increase, while falling density can lessen those effects.",
       "terms": [
-        "density-dependent factor — effect changes with population density",
-        "negative feedback — change triggers effects opposing that change",
-        "density-independent factor — influence not primarily dependent on population density"
+        "density-dependent factor \u2014 effect changes with population density",
+        "negative feedback \u2014 change triggers effects opposing that change",
+        "density-independent factor \u2014 influence not primarily dependent on population density"
       ],
       "workedExample": "If a colony grows densely, a contagious pathogen may spread more easily, reducing survival and population growth.",
       "misconceptions": [
@@ -910,6 +969,17 @@
             "explanation": "When a population becomes crowded, disease and competition may reduce growth. Storms can affect it regardless of size."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          557,
+          558
+        ],
+        "pdfPages": [
+          569,
+          570
+        ]
       }
     },
     {
@@ -919,14 +989,14 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can a semi-log graph reveal exponential growth?",
-      "explanation": "In an ideal population with a constant positive per-capita growth rate and abundant resources, numbers may increase exponentially. The absolute increase becomes larger as population size increases because more individuals reproduce. On ordinary axes this produces a J-shaped upward curve; it is an approximation most useful for early phases of growth rather than a universal lifetime pattern.\n\nTo test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log₁₀(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
+      "explanation": "In an ideal population with a constant positive per-capita growth rate and abundant resources, numbers may increase exponentially. The absolute increase becomes larger as population size increases because more individuals reproduce. On ordinary axes this produces a J-shaped upward curve; it is an approximation most useful for early phases of growth rather than a universal lifetime pattern.\n\nTo test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log\u2081\u2080(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
       "revisionSummary": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale.",
       "terms": [
-        "exponential growth — change proportional to current abundance",
-        "semi-log graph — one logarithmic axis and one linear axis",
-        "per-capita growth rate — increase relative to population size"
+        "exponential growth \u2014 change proportional to current abundance",
+        "semi-log graph \u2014 one logarithmic axis and one linear axis",
+        "per-capita growth rate \u2014 increase relative to population size"
       ],
-      "workedExample": "Constructed counts doubling each day—10, 20, 40, 80—plot as a straight line on a semi-log graph over those days.",
+      "workedExample": "Constructed counts doubling each day\u201410, 20, 40, 80\u2014plot as a straight line on a semi-log graph over those days.",
       "misconceptions": [
         {
           "misconception": "Any rising line on ordinary axes proves exponential growth.",
@@ -942,7 +1012,7 @@
           ]
         },
         {
-          "claim": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log₁₀(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
+          "claim": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log\u2081\u2080(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1017,7 +1087,7 @@
         },
         {
           "title": "Why the logarithmic axis matters",
-          "explanation": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log₁₀(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
+          "explanation": "To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.\n\nAn ordinary linear y-axis is useful for showing the J-shaped increase in absolute abundance; a logarithmic y-axis tests a different property. The constructed sequence 10, 20, 40, 80 doubles each time unit, so log\u2081\u2080(N) increases by approximately 0.301 per interval. A zero or negative population count cannot be displayed on a logarithmic axis.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1027,8 +1097,8 @@
       "exampleTitle": "Interpret an ecological case",
       "support": {
         "simple": "When numbers grow by the same fraction each time, growth is exponential. A semi-log graph helps you recognize it.",
-        "example": "Constructed counts doubling each day—10, 20, 40, 80—plot as a straight line on a semi-log graph over those days.",
-        "different": "Constructed counts doubling each day—10, 20, 40, 80—plot as a straight line on a semi-log graph over those days. Consider the underlying cause rather than memorizing the pattern.",
+        "example": "Constructed counts doubling each day\u201410, 20, 40, 80\u2014plot as a straight line on a semi-log graph over those days.",
+        "different": "Constructed counts doubling each day\u201410, 20, 40, 80\u2014plot as a straight line on a semi-log graph over those days. Consider the underlying cause rather than memorizing the pattern.",
         "concepts": [
           {
             "title": "Exponential growth and its ecological limits",
@@ -1075,7 +1145,22 @@
           "assetId": "exponential-semilog",
           "afterBlock": 1
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          558,
+          559,
+          560,
+          561
+        ],
+        "pdfPages": [
+          570,
+          571,
+          572,
+          573
+        ]
+      }
     },
     {
       "id": "c41-8",
@@ -1087,9 +1172,9 @@
       "explanation": "Sigmoid or logistic models show rapid population growth at low density and progressively slower growth as density-dependent limits strengthen. The curve approaches carrying capacity rather than increasing without limit. It is an idealization: fluctuations, delays, migration and environmental changes mean field measurements rarely trace a smooth mathematical S-shape. The prescribed model does not require a separate lag phase.\n\nYeast cultures or duckweed can be used to collect repeated abundance measures over time under controlled conditions. Use consistent sampling intervals, record environmental conditions and distinguish measured points from a fitted theoretical curve. Changing nutrients or light may shift the carrying capacity, so a model fit should include assumptions and limitations.\n\nDuckweed or yeast can be followed through time by using a consistent count, surface coverage or validated biomass proxy. Plot population size against elapsed time using comparable intervals, identify whether growth accelerates initially and later slows, and estimate where numbers approach a plateau. A sigmoid model represents the effect of changing resource limits, but a real time series may not fit it cleanly. A plateau can also arise from measurement limits, nutrient exhaustion or a short-lived physiological response, so replicate cultures and control vessel size, nutrient concentration and temperature. Use the model to interpret evidence, not to manufacture data that match an ideal S-shape.",
       "revisionSummary": "Yeast cultures or duckweed can be used to collect repeated abundance measures over time under controlled conditions.",
       "terms": [
-        "sigmoid curve — S-shaped growth pattern approaching a plateau",
-        "logistic model — density-limited population growth model",
-        "plateau — region of little net increase"
+        "sigmoid curve \u2014 S-shaped growth pattern approaching a plateau",
+        "logistic model \u2014 density-limited population growth model",
+        "plateau \u2014 region of little net increase"
       ],
       "workedExample": "Illustrative model counts 10, 18, 31, 45, 53, 55 approach an apparent plateau; these are constructed values, not a measured culture.",
       "misconceptions": [
@@ -1261,7 +1346,16 @@
           "assetId": "sigmoid-model",
           "afterBlock": 0
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          562
+        ],
+        "pdfPages": [
+          574
+        ]
+      }
     },
     {
       "id": "c41-9",
@@ -1273,9 +1367,9 @@
       "explanation": "Intraspecific relationships occur among individuals of the same species. Individuals may compete for food, light, mates, territory or nesting sites, and stronger competition at higher density can reduce each individual's access. Even without aggressive encounters, plants of one species can compete through uptake of shared soil nutrients.\n\nCooperation can improve survival or breeding success: social insects share care of offspring, wolves sometimes hunt cooperatively, and flocking birds may reduce individual predation risk. Benefits do not mean cooperation is cost-free. Population regulation arises from the balance among these interactions and the resources available.\n\nIndividuals of one species compete when they require the same limited food, nesting space or mates. As population density rises, a competitive advantage for one individual may reduce the resources available to others. The same species may also show cooperation: social carnivores can hunt in groups, and many birds give alarm calls that benefit nearby conspecifics. These behaviours are not logically incompatible; an animal can cooperate during defence and compete over breeding opportunities. State which resource or benefit is shared and how individual success changes. Intraspecific interactions act within a population, unlike interspecific competition between different species.",
       "revisionSummary": "Cooperation can improve survival or breeding success: social insects share care of offspring, wolves sometimes hunt cooperatively, and flocking birds may reduce individual predation risk.",
       "terms": [
-        "intraspecific — occurring within one species",
-        "cooperation — interaction providing shared or reciprocal benefit",
-        "territoriality — defence of a space or resources"
+        "intraspecific \u2014 occurring within one species",
+        "cooperation \u2014 interaction providing shared or reciprocal benefit",
+        "territoriality \u2014 defence of a space or resources"
       ],
       "workedExample": "Two oak seedlings compete for soil water, whereas members of a meerkat group may coordinate vigilance against predators.",
       "misconceptions": [
@@ -1404,6 +1498,17 @@
             "explanation": "Members of one species may compete for food or mates, but they can also help one another survive."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          563,
+          564
+        ],
+        "pdfPages": [
+          575,
+          576
+        ]
       }
     },
     {
@@ -1413,12 +1518,12 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why are bacteria and fungi part of a biological community?",
-      "explanation": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms—not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.\n\nAn ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry. Studying a community therefore means looking at relationships across species, not simply collecting an isolated list of one population. Community boundaries should be defined for any ecological investigation.\n\nA community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment—light, water, temperature and mineral conditions—is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
+      "explanation": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms\u2014not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.\n\nAn ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry. Studying a community therefore means looking at relationships across species, not simply collecting an isolated list of one population. Community boundaries should be defined for any ecological investigation.\n\nA community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment\u2014light, water, temperature and mineral conditions\u2014is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
       "revisionSummary": "An ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry.",
       "terms": [
-        "community — interacting populations of different species",
-        "biotic component — living part of an ecosystem",
-        "abiotic component — non-living physical and chemical environment"
+        "community \u2014 interacting populations of different species",
+        "biotic component \u2014 living part of an ecosystem",
+        "abiotic component \u2014 non-living physical and chemical environment"
       ],
       "workedExample": "A pond community contains algae, submerged plants, herbivorous invertebrates, fish, fungi and microbes, not the water chemistry itself.",
       "misconceptions": [
@@ -1429,7 +1534,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms—not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.",
+          "claim": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms\u2014not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1443,7 +1548,7 @@
           ]
         },
         {
-          "claim": "A community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment—light, water, temperature and mineral conditions—is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
+          "claim": "A community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment\u2014light, water, temperature and mineral conditions\u2014is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1496,7 +1601,7 @@
           "kind": "recall",
           "id": "c41-recall-10",
           "prompt": "Why are bacteria and fungi part of a biological community?",
-          "answer": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms—not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.\n\nAn ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry. Studying a community therefore means looking at relationships across species, not simply collecting an isolated list of one population. Community boundaries should be defined for any ecological investigation.\n\nA community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment—light, water, temperature and mineral conditions—is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
+          "answer": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms\u2014not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.\n\nAn ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry. Studying a community therefore means looking at relationships across species, not simply collecting an isolated list of one population. Community boundaries should be defined for any ecological investigation.\n\nA community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment\u2014light, water, temperature and mineral conditions\u2014is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
           "explanation": "An ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry. Studying a community therefore means looking at relationships across species, not simply collecting an isolated list of one population. Community boundaries should be defined for any ecological investigation.",
           "understandingIds": [
             "C4.1.10"
@@ -1508,7 +1613,7 @@
       "teachingBlocks": [
         {
           "title": "Communities include microbes and fungi",
-          "explanation": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms—not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.",
+          "explanation": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms\u2014not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1524,7 +1629,7 @@
         },
         {
           "title": "Include invisible community members",
-          "explanation": "A community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment—light, water, temperature and mineral conditions—is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
+          "explanation": "A community consists of all populations of different species interacting in a specified area. A forest community includes trees, herbivores and predators but also fungi decomposing litter, soil bacteria and protists in water films. Those microorganisms affect nutrient supply, disease and the functioning of larger organisms even when they are not conspicuous. The physical environment\u2014light, water, temperature and mineral conditions\u2014is part of the ecosystem but not itself a population within the biological community. Explain interactions such as feeding, competition, mutualism and decomposition rather than defining a community as only a list of visible animals.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1547,6 +1652,17 @@
             "explanation": "A community is all the living populations interacting in an area. The ecosystem also includes nonliving conditions."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          562,
+          563
+        ],
+        "pdfPages": [
+          574,
+          575
+        ]
       }
     },
     {
@@ -1559,9 +1675,9 @@
       "explanation": "Herbivory is consumption of plant or algal tissue; predation involves an organism killing and eating prey. Interspecific competition occurs when different species depend on a limiting resource. Mutualism gives both species a benefit, whereas parasitism benefits a parasite at the host's expense. Pathogenicity describes disease caused by an infectious agent in its host.\n\nMany organisms participate in more than one type of interaction over their lifetimes. The classification must describe the particular biological relationship, not simply label a species as 'good' or 'bad'. A grazing caterpillar may itself be prey to a bird; two bird species may compete for nest sites while both are preyed upon by larger animals.\n\nHerbivory involves an animal consuming plant material, such as a caterpillar feeding on leaves. Predation involves one organism capturing and consuming another, such as a fox eating a vole. Interspecific competition makes a limited resource less available to both competitors, as when two bird species use the same nesting cavities. Mutualism benefits both partners, such as legumes and nitrogen-fixing bacteria; parasitism benefits a parasite while harming a host, such as a tick feeding on a mammal. Pathogenicity concerns disease-causing interactions, such as a fungal pathogen infecting a plant. Real interactions can depend on context, but classification begins by identifying which participant benefits, loses resources or suffers harm.",
       "revisionSummary": "Many organisms participate in more than one type of interaction over their lifetimes.",
       "terms": [
-        "interspecific — between different species",
-        "mutualism — interaction benefiting both partners",
-        "parasitism — parasite benefits while host is harmed"
+        "interspecific \u2014 between different species",
+        "mutualism \u2014 interaction benefiting both partners",
+        "parasitism \u2014 parasite benefits while host is harmed"
       ],
       "workedExample": "A deer browsing leaves is herbivory; an owl catching a mouse is predation; competing plant species may restrict each other's access to light.",
       "misconceptions": [
@@ -1724,7 +1840,18 @@
             ]
           ]
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          564,
+          565
+        ],
+        "pdfPages": [
+          576,
+          577
+        ]
+      }
     },
     {
       "id": "c41-12",
@@ -1736,9 +1863,9 @@
       "explanation": "In legume root nodules, nitrogen-fixing bacteria supply the plant with biologically usable nitrogen compounds while receiving carbon compounds and a protected habitat. In orchid mycorrhizae, fungi assist uptake of water and mineral nutrients and can support seed germination; many adult orchids provide the fungal partner with photosynthate, although some orchids depend on fungi for carbon rather than supplying it.\n\nReef-building corals commonly shelter photosynthetic dinoflagellates known as zooxanthellae. The algae receive light-accessible shelter and inorganic nutrients, while transferring photosynthetic carbon compounds that support coral growth. Benefits depend on conditions: warming can disrupt the partnership and lead to bleaching, so mutualism is not invariably stable.\n\nIn legumes such as peas, nitrogen-fixing bacteria in root nodules provide reduced nitrogen compounds useful for plant growth; the plant supplies carbohydrate energy and a protected habitat. Orchid mycorrhizal fungi improve nutrient supply to developing seeds and roots, while receiving plant carbon in many established relationships; some stages can be more complex, so avoid assuming all orchid-fungus exchanges are identical. Hard corals house photosynthetic dinoflagellate symbionts commonly called zooxanthellae, which supply organic photosynthate; the coral provides shelter and access to inorganic nutrients. Each example involves two species with different complementary capacities. A mutualistic label requires identifying both benefits, not merely saying the organisms live together.",
       "revisionSummary": "Reef-building corals commonly shelter photosynthetic dinoflagellates known as zooxanthellae.",
       "terms": [
-        "root nodule — symbiotic root structure containing nitrogen-fixing bacteria",
-        "mycorrhiza — association between a fungus and plant roots",
-        "zooxanthellae — photosynthetic algal symbionts of many corals"
+        "root nodule \u2014 symbiotic root structure containing nitrogen-fixing bacteria",
+        "mycorrhiza \u2014 association between a fungus and plant roots",
+        "zooxanthellae \u2014 photosynthetic algal symbionts of many corals"
       ],
       "workedExample": "The loss of algal symbionts during coral bleaching illustrates how breaking a mutualistic partnership can damage the host.",
       "misconceptions": [
@@ -1867,6 +1994,19 @@
             "explanation": "Mutualism helps both species. Legumes exchange resources with bacteria, orchids with fungi, and corals with algae."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          566,
+          567,
+          568
+        ],
+        "pdfPages": [
+          578,
+          579,
+          580
+        ]
       }
     },
     {
@@ -1876,12 +2016,12 @@
       ],
       "level": "shared",
       "guidingQuestion": "How can an introduced species reduce resources available to native species?",
-      "explanation": "An endemic species occurs naturally only within a particular geographic area. An introduced species arrives outside its native range; it becomes invasive when it spreads and causes ecological or other harm. Competitive effects may arise from faster growth, dense shading, resource uptake or superior dispersal, but introduction alone is not proof that the species will become invasive.\n\nIn Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.\n\nA case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic ʻōhiʻa regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
-      "revisionSummary": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings.",
+      "explanation": "An endemic species occurs naturally only within a particular geographic area. An introduced species arrives outside its native range; it becomes invasive when it spreads and causes ecological or other harm. Competitive effects may arise from faster growth, dense shading, resource uptake or superior dispersal, but introduction alone is not proof that the species will become invasive.\n\nIn Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.\n\nA case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic \u02bb\u014dhi\u02bba regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
+      "revisionSummary": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings.",
       "terms": [
-        "endemic — naturally restricted to one geographic region",
-        "introduced species — species moved beyond its natural range",
-        "invasive species — introduced species spreading and causing harm"
+        "endemic \u2014 naturally restricted to one geographic region",
+        "introduced species \u2014 species moved beyond its natural range",
+        "invasive species \u2014 introduced species spreading and causing harm"
       ],
       "workedExample": "An area dominated by introduced strawberry guava can have less light available for young native understory plants; this is a specific testable competition hypothesis.",
       "misconceptions": [
@@ -1899,14 +2039,14 @@
           ]
         },
         {
-          "claim": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
+          "claim": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
           ]
         },
         {
-          "claim": "A case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic ʻōhiʻa regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
+          "claim": "A case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic \u02bb\u014dhi\u02bba regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1949,7 +2089,7 @@
               "id": "c41-13-o1",
               "text": "Shading and resource uptake can limit seedling establishment.",
               "correct": true,
-              "feedback": "Correct. In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings."
+              "feedback": "Correct. In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings."
             }
           ]
         }
@@ -1959,8 +2099,8 @@
           "kind": "recall",
           "id": "c41-recall-13",
           "prompt": "How can an introduced species reduce resources available to native species?",
-          "answer": "An endemic species occurs naturally only within a particular geographic area. An introduced species arrives outside its native range; it becomes invasive when it spreads and causes ecological or other harm. Competitive effects may arise from faster growth, dense shading, resource uptake or superior dispersal, but introduction alone is not proof that the species will become invasive.\n\nIn Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.\n\nA case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic ʻōhiʻa regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
-          "explanation": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
+          "answer": "An endemic species occurs naturally only within a particular geographic area. An introduced species arrives outside its native range; it becomes invasive when it spreads and causes ecological or other harm. Competitive effects may arise from faster growth, dense shading, resource uptake or superior dispersal, but introduction alone is not proof that the species will become invasive.\n\nIn Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.\n\nA case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic \u02bb\u014dhi\u02bba regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
+          "explanation": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
           "understandingIds": [
             "C4.1.13"
           ]
@@ -1979,7 +2119,7 @@
         },
         {
           "title": "Evidence beyond mere introduction",
-          "explanation": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
+          "explanation": "In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -1987,7 +2127,7 @@
         },
         {
           "title": "Separate invasion from its mechanism of competition",
-          "explanation": "A case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic ʻōhiʻa regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
+          "explanation": "A case study should name an introduced organism, a native or endemic organism and the contested resource. In Hawaiian forests, invasive strawberry guava forms dense vegetation that can reduce light and growing space available to endemic \u02bb\u014dhi\u02bba regeneration. Evidence for resource competition is stronger if plots with different guava densities show predictable changes in light, seedling survival or growth and if suitable removal experiments support the relationship. A species being introduced does not automatically make it invasive, and replacement of a native species could also reflect disease or habitat disturbance. Match the causal claim to measured resources rather than an assumption based only on range expansion.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2010,6 +2150,17 @@
             "explanation": "An introduced plant may spread and crowd out a native plant by taking light, water or space. Not every introduced species is invasive."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          568,
+          569
+        ],
+        "pdfPages": [
+          580,
+          581
+        ]
       }
     },
     {
@@ -2022,9 +2173,9 @@
       "explanation": "If one species is less abundant in the presence of another, interspecific competition is a possible explanation. However, both might respond differently to soil moisture, shade or disturbance. Observations and random samples identify patterns; they cannot always distinguish shared environmental preferences from direct competition.\n\nA stronger test may grow species together and separately under controlled laboratory conditions or manipulate one population in the field and compare responses with appropriate controls. Field removal can provide causal evidence but may disturb habitat in other ways. Experiments and observational surveys therefore contribute different types of evidence, both requiring replication and careful consideration of confounders.\n\nField observations may show that one species is rarer where another is abundant, but the association could arise because both respond differently to temperature, water or habitat. A stronger test compares controlled plots where the suspected competitor is removed with matched plots where it remains, measuring target species' growth or survival while controlling disturbance. A laboratory experiment can isolate resource effects but may lose natural environmental context; random field sampling is realistic but is often less able to demonstrate causation. Explain why replication, a control treatment and measurement of the contested resource strengthen the inference of competition.",
       "revisionSummary": "A stronger test may grow species together and separately under controlled laboratory conditions or manipulate one population in the field and compare responses with appropriate controls.",
       "terms": [
-        "interspecific competition — resource competition between species",
-        "control — comparison condition without the treatment",
-        "confounding factor — unaccounted influence on the outcome"
+        "interspecific competition \u2014 resource competition between species",
+        "control \u2014 comparison condition without the treatment",
+        "confounding factor \u2014 unaccounted influence on the outcome"
       ],
       "workedExample": "If a grass grows better after a neighbouring species is removed, competition is supported, but removal might also have changed soil structure.",
       "misconceptions": [
@@ -2153,6 +2304,19 @@
             "explanation": "If species A grows better without species B, competition is possible. Controlled removals offer stronger evidence than co-occurrence alone."
           }
         ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          569,
+          570,
+          571
+        ],
+        "pdfPages": [
+          581,
+          582,
+          583
+        ]
       }
     },
     {
@@ -2161,15 +2325,15 @@
         "C4.1.15"
       ],
       "level": "shared",
-      "guidingQuestion": "How do quadrat presence–absence counts test an association?",
-      "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.\n\nWith 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 × 20) ÷ 40 = 10. The four chi-squared contributions each equal (4 − 10)² ÷ 10 = 3.6 or (16 − 10)² ÷ 10 = 3.6, giving χ² = 14.4 with df = (2 − 1)(2 − 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
-      "revisionSummary": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions.",
+      "guidingQuestion": "How do quadrat presence\u2013absence counts test an association?",
+      "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 \u00d7 2 contingency table. Expected frequency in a cell equals row total \u00d7 column total \u00f7 grand total; sum (observed \u2212 expected)\u00b2 \u00f7 expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.\n\nWith 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 \u00d7 20) \u00f7 40 = 10. The four chi-squared contributions each equal (4 \u2212 10)\u00b2 \u00f7 10 = 3.6 or (16 \u2212 10)\u00b2 \u00f7 10 = 3.6, giving \u03c7\u00b2 = 14.4 with df = (2 \u2212 1)(2 \u2212 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
+      "revisionSummary": "With 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions.",
       "terms": [
-        "contingency table — counts classified by two categories",
-        "expected frequency — frequency predicted under independence",
-        "chi-squared statistic — sum of squared deviations divided by expected counts"
+        "contingency table \u2014 counts classified by two categories",
+        "expected frequency \u2014 frequency predicted under independence",
+        "chi-squared statistic \u2014 sum of squared deviations divided by expected counts"
       ],
-      "workedExample": "Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; χ² = 14.4, indicating a strong negative association under the test assumptions.",
+      "workedExample": "Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; \u03c7\u00b2 = 14.4, indicating a strong negative association under the test assumptions.",
       "misconceptions": [
         {
           "misconception": "A significant chi-squared test proves two species compete.",
@@ -2178,14 +2342,14 @@
       ],
       "claimReferences": [
         {
-          "claim": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.",
+          "claim": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 \u00d7 2 contingency table. Expected frequency in a cell equals row total \u00d7 column total \u00f7 grand total; sum (observed \u2212 expected)\u00b2 \u00f7 expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
           ]
         },
         {
-          "claim": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 × 20) ÷ 40 = 10. The four chi-squared contributions each equal (4 − 10)² ÷ 10 = 3.6 or (16 − 10)² ÷ 10 = 3.6, giving χ² = 14.4 with df = (2 − 1)(2 − 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
+          "claim": "With 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 \u00d7 20) \u00f7 40 = 10. The four chi-squared contributions each equal (4 \u2212 10)\u00b2 \u00f7 10 = 3.6 or (16 \u2212 10)\u00b2 \u00f7 10 = 3.6, giving \u03c7\u00b2 = 14.4 with df = (2 \u2212 1)(2 \u2212 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2210,7 +2374,7 @@
               "id": "c41-15-o1",
               "text": "Their sampled distributions depart from independence, but not necessarily because of competition.",
               "correct": true,
-              "feedback": "Correct. With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions."
+              "feedback": "Correct. With 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions."
             },
             {
               "id": "c41-15-o2",
@@ -2237,9 +2401,9 @@
         {
           "kind": "recall",
           "id": "c41-recall-15",
-          "prompt": "How do quadrat presence–absence counts test an association?",
-          "answer": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells.",
-          "explanation": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.",
+          "prompt": "How do quadrat presence\u2013absence counts test an association?",
+          "answer": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 \u00d7 2 contingency table. Expected frequency in a cell equals row total \u00d7 column total \u00f7 grand total; sum (observed \u2212 expected)\u00b2 \u00f7 expected across cells.",
+          "explanation": "With 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.",
           "understandingIds": [
             "C4.1.15"
           ]
@@ -2250,7 +2414,7 @@
       "teachingBlocks": [
         {
           "title": "Set up observed and expected counts",
-          "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.",
+          "explanation": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 \u00d7 2 contingency table. Expected frequency in a cell equals row total \u00d7 column total \u00f7 grand total; sum (observed \u2212 expected)\u00b2 \u00f7 expected across cells. Each presence/absence observation comes from a distinct sampled site, which is the statistical unit; contingency-table cell counts are site frequencies, not counts of individual organisms. Verify expected frequencies and sampling independence.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2258,7 +2422,7 @@
         },
         {
           "title": "Interpret a significant chi-squared result",
-          "explanation": "With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 × 20) ÷ 40 = 10. The four chi-squared contributions each equal (4 − 10)² ÷ 10 = 3.6 or (16 − 10)² ÷ 10 = 3.6, giving χ² = 14.4 with df = (2 − 1)(2 − 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
+          "explanation": "With 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.\n\nIn the constructed 40-site example, the observed table is 4/16/16/4 and every expected cell count is (20 \u00d7 20) \u00f7 40 = 10. The four chi-squared contributions each equal (4 \u2212 10)\u00b2 \u00f7 10 = 3.6 or (16 \u2212 10)\u00b2 \u00f7 10 = 3.6, giving \u03c7\u00b2 = 14.4 with df = (2 \u2212 1)(2 \u2212 1) = 1. At a 5% significance level the reference critical value is about 3.84, so the null hypothesis of independence is rejected. This is evidence of association, not proof of competition.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2267,9 +2431,9 @@
       ],
       "exampleTitle": "Interpret an ecological case",
       "support": {
-        "simple": "Make a presence–absence table, calculate expected values, then χ². Association does not prove competition caused it.",
-        "example": "Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; χ² = 14.4, indicating a strong negative association under the test assumptions.",
-        "different": "Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; χ² = 14.4, indicating a strong negative association under the test assumptions. Consider the underlying cause rather than memorizing the pattern.",
+        "simple": "Make a presence\u2013absence table, calculate expected values, then \u03c7\u00b2. Association does not prove competition caused it.",
+        "example": "Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; \u03c7\u00b2 = 14.4, indicating a strong negative association under the test assumptions.",
+        "different": "Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; \u03c7\u00b2 = 14.4, indicating a strong negative association under the test assumptions. Consider the underlying cause rather than memorizing the pattern.",
         "concepts": [
           {
             "title": "Chi-squared tests for species association",
@@ -2278,13 +2442,13 @@
               "expected frequency",
               "chi-squared statistic"
             ],
-            "explanation": "Make a presence–absence table, calculate expected values, then χ². Association does not prove competition caused it."
+            "explanation": "Make a presence\u2013absence table, calculate expected values, then \u03c7\u00b2. Association does not prove competition caused it."
           }
         ]
       },
       "graphTables": [
         {
-          "caption": "Constructed presence–absence sample across 40 independent sites (observed frequencies)",
+          "caption": "Constructed presence\u2013absence sample across 40 independent sites (observed frequencies)",
           "headers": [
             "Species A",
             "Species B present",
@@ -2316,7 +2480,7 @@
           ],
           "rows": [
             [
-              "χ² = 14.4, df = 1, constructed 40-site table",
+              "\u03c7\u00b2 = 14.4, df = 1, constructed 40-site table",
               "Presence of two species is not independent under test assumptions",
               "A negative association proves one species displaced the other"
             ],
@@ -2328,7 +2492,20 @@
           ],
           "note": "Constructed example; 5% chi-squared critical value for df=1 is approximately 3.84."
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          572,
+          573,
+          574
+        ],
+        "pdfPages": [
+          584,
+          585,
+          586
+        ]
+      }
     },
     {
       "id": "c41-16",
@@ -2337,12 +2514,12 @@
       ],
       "level": "shared",
       "guidingQuestion": "Why can prey abundance affect later predator abundance?",
-      "explanation": "Predation can act as a density-dependent influence because a higher prey population may supply more food to predators, increasing predator survival or reproduction. As predators become more abundant they may increase prey mortality, reducing prey numbers and eventually restricting their own food supply. The timing may produce predator peaks after prey peaks.\n\nRecords of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator–prey cycle is therefore not explained by predation alone in every dataset.\n\nWhen prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator–prey interaction.",
+      "explanation": "Predation can act as a density-dependent influence because a higher prey population may supply more food to predators, increasing predator survival or reproduction. As predators become more abundant they may increase prey mortality, reducing prey numbers and eventually restricting their own food supply. The timing may produce predator peaks after prey peaks.\n\nRecords of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator\u2013prey cycle is therefore not explained by predation alone in every dataset.\n\nWhen prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator\u2013prey interaction.",
       "revisionSummary": "Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour.",
       "terms": [
-        "predator — organism that kills and consumes prey",
-        "prey — organism consumed by a predator",
-        "time lag — delay between linked population responses"
+        "predator \u2014 organism that kills and consumes prey",
+        "prey \u2014 organism consumed by a predator",
+        "time lag \u2014 delay between linked population responses"
       ],
       "workedExample": "In boreal forests, changes in snowshoe hare abundance can precede changes in Canada lynx abundance, partly through food availability.",
       "misconceptions": [
@@ -2360,14 +2537,14 @@
           ]
         },
         {
-          "claim": "Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator–prey cycle is therefore not explained by predation alone in every dataset.",
+          "claim": "Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator\u2013prey cycle is therefore not explained by predation alone in every dataset.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
           ]
         },
         {
-          "claim": "When prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator–prey interaction.",
+          "claim": "When prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator\u2013prey interaction.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2420,8 +2597,8 @@
           "kind": "recall",
           "id": "c41-recall-16",
           "prompt": "Why can prey abundance affect later predator abundance?",
-          "answer": "Predation can act as a density-dependent influence because a higher prey population may supply more food to predators, increasing predator survival or reproduction. As predators become more abundant they may increase prey mortality, reducing prey numbers and eventually restricting their own food supply. The timing may produce predator peaks after prey peaks.\n\nRecords of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator–prey cycle is therefore not explained by predation alone in every dataset.\n\nWhen prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator–prey interaction.",
-          "explanation": "Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator–prey cycle is therefore not explained by predation alone in every dataset.",
+          "answer": "Predation can act as a density-dependent influence because a higher prey population may supply more food to predators, increasing predator survival or reproduction. As predators become more abundant they may increase prey mortality, reducing prey numbers and eventually restricting their own food supply. The timing may produce predator peaks after prey peaks.\n\nRecords of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator\u2013prey cycle is therefore not explained by predation alone in every dataset.\n\nWhen prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator\u2013prey interaction.",
+          "explanation": "Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator\u2013prey cycle is therefore not explained by predation alone in every dataset.",
           "understandingIds": [
             "C4.1.16"
           ]
@@ -2439,8 +2616,8 @@
           ]
         },
         {
-          "title": "Historic hare–lynx evidence and its limits",
-          "explanation": "Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator–prey cycle is therefore not explained by predation alone in every dataset.",
+          "title": "Historic hare\u2013lynx evidence and its limits",
+          "explanation": "Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator\u2013prey cycle is therefore not explained by predation alone in every dataset.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2448,7 +2625,7 @@
         },
         {
           "title": "Predators and prey respond with a time lag",
-          "explanation": "When prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator–prey interaction.",
+          "explanation": "When prey numbers rise, predators may obtain more food and produce more offspring, raising predator abundance after a delay. Increased predation can then reduce prey numbers; reduced food supply may subsequently decrease predator numbers, allowing prey populations to recover. This feedback can generate oscillations but its exact pattern also depends on prey food plants, diseases and climate. Historical Canadian snowshoe hare and lynx fur-return records illustrate roughly associated cycles but are indirect measures of abundance that can be influenced by trapping effort. A causal explanation should therefore discuss multiple influences as well as the predator\u2013prey interaction.",
           "referenceIds": [
             "ib-c41",
             "hodder-c41"
@@ -2462,7 +2639,7 @@
         "different": "In boreal forests, changes in snowshoe hare abundance can precede changes in Canada lynx abundance, partly through food availability. Consider the underlying cause rather than memorizing the pattern.",
         "concepts": [
           {
-            "title": "Predator–prey numbers change together",
+            "title": "Predator\u2013prey numbers change together",
             "keywords": [
               "predator",
               "prey",
@@ -2470,6 +2647,17 @@
             ],
             "explanation": "More prey can support more predators; later those predators may reduce prey. Predator peaks can follow prey peaks."
           }
+        ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          574,
+          575
+        ],
+        "pdfPages": [
+          586,
+          587
         ]
       }
     },
@@ -2483,9 +2671,9 @@
       "explanation": "Top-down control occurs when consumers, especially predators, strongly determine the abundance of organisms at lower trophic levels. Bottom-up control occurs when nutrients, light or primary production limit the abundance of herbivores and predators. Both processes operate together; their relative strength depends on the system and conditions.\n\nSea otters can suppress sea urchin grazing, indirectly helping kelp forests: a top-down cascade. In a nutrient-poor lake, limited phosphorus availability may restrict algal production and therefore herbivores and fish: bottom-up regulation. Predicting which dominates needs actual ecological measurements, not just a food web diagram.\n\nTop-down control occurs when predators or higher-level consumers strongly restrict organisms at lower trophic levels; reducing a predator can allow its prey to become more numerous. Bottom-up control occurs when food or primary production limits consumers, so low nutrient supply or low plant biomass limits herbivores and their predators. Both pathways can operate in one community, but evidence may suggest one dominates under particular conditions. An experimental comparison could measure responses after predator removal versus nutrient addition. Avoid labelling every decrease in a population as top-down control without establishing the cause.",
       "revisionSummary": "Sea otters can suppress sea urchin grazing, indirectly helping kelp forests: a top-down cascade.",
       "terms": [
-        "top-down control — consumers regulate lower trophic levels",
-        "bottom-up control — resource supply regulates higher trophic levels",
-        "trophic cascade — indirect effects transmitted across trophic levels"
+        "top-down control \u2014 consumers regulate lower trophic levels",
+        "bottom-up control \u2014 resource supply regulates higher trophic levels",
+        "trophic cascade \u2014 indirect effects transmitted across trophic levels"
       ],
       "workedExample": "Removing sea otters can allow sea urchins to expand and graze kelp more heavily, illustrating a possible trophic cascade.",
       "misconceptions": [
@@ -2638,7 +2826,18 @@
             ]
           ]
         }
-      ]
+      ],
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          575,
+          576
+        ],
+        "pdfPages": [
+          587,
+          588
+        ]
+      }
     },
     {
       "id": "c41-18",
@@ -2650,9 +2849,9 @@
       "explanation": "Allelopathy occurs when a plant releases chemicals into its environment that affect the growth or germination of nearby plants. Black walnut produces juglone, a compound that can inhibit susceptible neighbouring plants under some conditions. The effect depends on concentrations, soil processes and the tolerance of the receiving species.\n\nAntibiotic secretion is a comparable form of chemical interference among microorganisms. Penicillium mould can produce penicillin, which inhibits susceptible bacteria by interfering with cell-wall synthesis. Laboratory inhibition does not prove that every natural soil interaction is controlled by antibiotics; surrounding ecological conditions and concentrations determine the effect.\n\nTo test allelopathy, a researcher might compare target-seed germination in treated and control media while holding water, nutrients and light constant. If germination falls only when a plant-derived compound such as juglone is present at a measured concentration, that supports a chemical mechanism beyond shading or root competition. Similarly, an inhibition zone around a Penicillium culture may show that secreted substances suppress susceptible bacteria, but the ecological effect depends on diffusion, concentrations and competing microbes. These examples demonstrate inhibition through released molecules rather than direct removal of food or territory. A mechanism is strongest when chemical exposure and biological response are both measured.",
       "revisionSummary": "Antibiotic secretion is a comparable form of chemical interference among microorganisms.",
       "terms": [
-        "allelopathy — biological effect of plant-released compounds on another plant",
-        "juglone — inhibitory compound produced by black walnut",
-        "antibiotic secretion — microbial release of compounds inhibiting other microbes"
+        "allelopathy \u2014 biological effect of plant-released compounds on another plant",
+        "juglone \u2014 inhibitory compound produced by black walnut",
+        "antibiotic secretion \u2014 microbial release of compounds inhibiting other microbes"
       ],
       "workedExample": "Growth of a susceptible plant near black walnut can be suppressed by juglone; Penicillium can inhibit susceptible bacteria through penicillin.",
       "misconceptions": [
@@ -2780,6 +2979,17 @@
             ],
             "explanation": "Some plants release compounds that slow neighbours, and fungi can make bacterial inhibitors. Effects depend on dose and conditions."
           }
+        ]
+      },
+      "textbook": {
+        "referenceId": "hodder-c41",
+        "printedPages": [
+          576,
+          577
+        ],
+        "pdfPages": [
+          588,
+          589
         ]
       }
     }
@@ -2982,7 +3192,7 @@
       "answer": "A quadrat encloses a known area within which sessile organisms, such as plants or barnacles, can be counted. Position quadrats using random coordinates, record counts consistently and calculate the mean number per quadrat. For equal-area quadrats, estimated total abundance is mean count multiplied by total site area divided by quadrat area. Spread between quadrats matters: a large standard deviation indicates uneven distribution or substantial variation among counts. It does not say that the sampling method is automatically biased. Replicate sampling and a transparent treatment of boundary individuals help prevent misleading results. When individuals cannot be reliably separated, percentage cover may be more appropriate than abundance.",
       "markingPoints": [
         "Explain the scientific principle: A quadrat encloses a known area within which sessile organisms, such as plants or barnacles, can be counted.",
-        "Support the explanation with relevant ecological reasoning or a valid example: In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m²; across a 100 m² habitat the point estimate is 500 plants, assuming representative sampling."
+        "Support the explanation with relevant ecological reasoning or a valid example: In a constructed example, quadrat counts 4, 6, 5 and 5 have mean 5 plants per 1 m\u00b2; across a 100 m\u00b2 habitat the point estimate is 500 plants, assuming representative sampling."
       ],
       "review": "source-mapped"
     },
@@ -3007,19 +3217,19 @@
           "id": "c41-q4-o1",
           "text": "100 individuals.",
           "correct": false,
-          "feedback": "Do not divide the marked count by the entire recaptured sample. Use M × N ÷ R = 50 × 40 ÷ 10."
+          "feedback": "Do not divide the marked count by the entire recaptured sample. Use M \u00d7 N \u00f7 R = 50 \u00d7 40 \u00f7 10."
         },
         {
           "id": "c41-q4-o2",
           "text": "2,000 individuals.",
           "correct": false,
-          "feedback": "Do not multiply marked and recaptured counts without dividing by the marked recaptures: 50 × 40 ÷ 10 = 200."
+          "feedback": "Do not multiply marked and recaptured counts without dividing by the marked recaptures: 50 \u00d7 40 \u00f7 10 = 200."
         },
         {
           "id": "c41-q4-o3",
           "text": "200 individuals.",
           "correct": true,
-          "feedback": "Correct. Rearranging gives the Lincoln index: estimated population = M × N ÷ R."
+          "feedback": "Correct. Rearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R."
         },
         {
           "id": "c41-q4-o4",
@@ -3046,10 +3256,10 @@
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population). Rearranging gives the Lincoln index: estimated population = M × N ÷ R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.",
+      "answer": "Capture\u2013mark\u2013release\u2013recapture estimates abundance of motile organisms that cannot all be counted directly. Initially capture and harmlessly mark M individuals, release and allow them to mix. Capture N individuals on the next occasion and count R already marked. If the samples are representative, the fraction marked in the second sample (R/N) approximates the fraction marked in the population (M/population). Rearranging gives the Lincoln index: estimated population = M \u00d7 N \u00f7 R. The estimate depends on marks being retained, marked and unmarked animals being equally catchable, adequate mixing, and little birth, death or movement between captures. Very small R makes the estimate unstable. Handle organisms ethically and choose a suitable recapture interval.",
       "markingPoints": [
-        "Explain the scientific principle: Capture–mark–release–recapture estimates abundance of motile organisms that cannot all be counted directly.",
-        "Support the explanation with relevant ecological reasoning or a valid example: For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 × 40 ÷ 10 = 200 individuals."
+        "Explain the scientific principle: Capture\u2013mark\u2013release\u2013recapture estimates abundance of motile organisms that cannot all be counted directly.",
+        "Support the explanation with relevant ecological reasoning or a valid example: For a constructed survey M=50 initially marked, N=40 recaptured and R=10 marked again; the estimated population is 50 \u00d7 40 \u00f7 10 = 200 individuals."
       ],
       "review": "source-mapped"
     },
@@ -3113,9 +3323,9 @@
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "Net change = births − deaths = 18 − 16 = +2 individuals. Competition for limited food, space or nesting sites can reduce birth rates or increase mortality as density increases; growth can therefore be slow even though some offspring are born.",
+      "answer": "Net change = births \u2212 deaths = 18 \u2212 16 = +2 individuals. Competition for limited food, space or nesting sites can reduce birth rates or increase mortality as density increases; growth can therefore be slow even though some offspring are born.",
       "markingPoints": [
-        "Calculates a net gain of 2 individuals from 18 − 16, with the correct positive sign.",
+        "Calculates a net gain of 2 individuals from 18 \u2212 16, with the correct positive sign.",
         "Explains a density-dependent mechanism (for example resource competition reducing survival or reproduction) that lowers net growth despite ongoing births."
       ],
       "review": "scientific-review"
@@ -3250,7 +3460,7 @@
       "answer": "In an ideal population with a constant positive per-capita growth rate and abundant resources, numbers may increase exponentially. The absolute increase becomes larger as population size increases because more individuals reproduce. On ordinary axes this produces a J-shaped upward curve; it is an approximation most useful for early phases of growth rather than a universal lifetime pattern. To test against exponential growth, plot population size on a logarithmic vertical scale and time on a linear horizontal scale. A roughly straight segment supports approximately constant proportional growth during that interval. It does not prove a biological mechanism or predict indefinite growth. In a real population, predation, disease and limited resources eventually alter the pattern.",
       "markingPoints": [
         "Explain the scientific principle: In an ideal population with a constant positive per-capita growth rate and abundant resources, numbers may increase exponentially.",
-        "Support the explanation with relevant ecological reasoning or a valid example: Constructed counts doubling each day—10, 20, 40, 80—plot as a straight line on a semi-log graph over those days."
+        "Support the explanation with relevant ecological reasoning or a valid example: Constructed counts doubling each day\u201410, 20, 40, 80\u2014plot as a straight line on a semi-log graph over those days."
       ],
       "review": "source-mapped"
     },
@@ -3448,7 +3658,7 @@
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms—not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability. An ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry. Studying a community therefore means looking at relationships across species, not simply collecting an isolated list of one population. Community boundaries should be defined for any ecological investigation.",
+      "answer": "A community comprises the populations of different species living and interacting in a place. It includes plants, animals, fungi, bacteria and other organisms\u2014not only conspicuous large animals. A forest community, for example, includes decomposer fungi in fallen wood and microorganisms in the soil that influence nutrient availability. An ecosystem includes this biological community together with its abiotic surroundings, such as water, temperature and soil chemistry. Studying a community therefore means looking at relationships across species, not simply collecting an isolated list of one population. Community boundaries should be defined for any ecological investigation.",
       "markingPoints": [
         "Explain the scientific principle: A community comprises the populations of different species living and interacting in a place.",
         "Support the explanation with relevant ecological reasoning or a valid example: A pond community contains algae, submerged plants, herbivorous invertebrates, fish, fungi and microbes, not the water chemistry itself."
@@ -3628,7 +3838,7 @@
           "id": "c41-q13-o4",
           "text": "Shading and resource uptake can limit seedling establishment.",
           "correct": true,
-          "feedback": "Correct. In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings."
+          "feedback": "Correct. In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings."
         }
       ],
       "review": "source-mapped"
@@ -3649,7 +3859,7 @@
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "An endemic species occurs naturally only within a particular geographic area. An introduced species arrives outside its native range; it becomes invasive when it spreads and causes ecological or other harm. Competitive effects may arise from faster growth, dense shading, resource uptake or superior dispersal, but introduction alone is not proof that the species will become invasive. In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as ʻōhiʻa seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
+      "answer": "An endemic species occurs naturally only within a particular geographic area. An introduced species arrives outside its native range; it becomes invasive when it spreads and causes ecological or other harm. Competitive effects may arise from faster growth, dense shading, resource uptake or superior dispersal, but introduction alone is not proof that the species will become invasive. In Hawaiian forests, the introduced strawberry guava can form dense stands that intercept light and use space and other resources needed by native and endemic plants such as \u02bb\u014dhi\u02bba seedlings. Researchers must distinguish direct competition from other effects, including disease and habitat modification. Resource availability and population responses require observation or experiments rather than assumptions based only on an invader's presence.",
       "markingPoints": [
         "Explain the scientific principle: An endemic species occurs naturally only within a particular geographic area.",
         "Support the explanation with relevant ecological reasoning or a valid example: An area dominated by introduced strawberry guava can have less light available for young native understory plants; this is a specific testable competition hypothesis."
@@ -3744,13 +3954,13 @@
           "id": "c41-q15-o1",
           "text": "Their sampled distributions depart from independence, but not necessarily because of competition.",
           "correct": true,
-          "feedback": "Correct. With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions."
+          "feedback": "Correct. With 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions."
         },
         {
           "id": "c41-q15-o2",
           "text": "One species must be a predator of the other.",
           "correct": false,
-          "feedback": "A negative association does not identify predator–prey interactions or prove the reason the species rarely co-occur."
+          "feedback": "A negative association does not identify predator\u2013prey interactions or prove the reason the species rarely co-occur."
         },
         {
           "id": "c41-q15-o3",
@@ -3776,17 +3986,17 @@
         "C4.1.15"
       ],
       "level": "shared",
-      "prompt": "Using an ecological example, explain: How do quadrat presence–absence counts test an association?",
+      "prompt": "Using an ecological example, explain: How do quadrat presence\u2013absence counts test an association?",
       "marks": 2,
       "sectionId": "c41-15",
       "referenceIds": [
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 × 2 contingency table. Expected frequency in a cell equals row total × column total ÷ grand total; sum (observed − expected)² ÷ expected across cells. With 1 degree of freedom for a 2 × 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.",
+      "answer": "A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent. Record whether species A and B are present in each sampling site and organize observations into a 2 \u00d7 2 contingency table. Expected frequency in a cell equals row total \u00d7 column total \u00f7 grand total; sum (observed \u2212 expected)\u00b2 \u00f7 expected across cells. With 1 degree of freedom for a 2 \u00d7 2 table, a large calculated chi-squared value is evidence against independent distributions. It does not demonstrate that competition caused any association: environmental gradients, facilitation and other processes can also influence co-occurrence. Sampling sites should be independent and expected counts sufficiently large for the approximation.",
       "markingPoints": [
         "Explain the scientific principle: A chi-squared test of association compares observed frequencies with expected frequencies if two categorical variables were independent.",
-        "Support the explanation with relevant ecological reasoning or a valid example: Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; χ² = 14.4, indicating a strong negative association under the test assumptions."
+        "Support the explanation with relevant ecological reasoning or a valid example: Constructed counts across 40 sites: both 4, A only 16, B only 16, neither 4. All expected cells are 10; \u03c7\u00b2 = 14.4, indicating a strong negative association under the test assumptions."
       ],
       "review": "source-mapped"
     },
@@ -3850,7 +4060,7 @@
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "Predation can act as a density-dependent influence because a higher prey population may supply more food to predators, increasing predator survival or reproduction. As predators become more abundant they may increase prey mortality, reducing prey numbers and eventually restricting their own food supply. The timing may produce predator peaks after prey peaks. Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator–prey cycle is therefore not explained by predation alone in every dataset.",
+      "answer": "Predation can act as a density-dependent influence because a higher prey population may supply more food to predators, increasing predator survival or reproduction. As predators become more abundant they may increase prey mortality, reducing prey numbers and eventually restricting their own food supply. The timing may produce predator peaks after prey peaks. Records of snowshoe hare and Canada lynx population fluctuations are a familiar real-world case, but historic fur returns were proxies influenced by trapping effort and market behaviour. Nutrient availability, plant defences, weather and other predators also affect hare numbers. A coupled predator\u2013prey cycle is therefore not explained by predation alone in every dataset.",
       "markingPoints": [
         "Explain the scientific principle: Predation can act as a density-dependent influence because a higher prey population may supply more food to predators, increasing predator survival or reproduction.",
         "Support the explanation with relevant ecological reasoning or a valid example: In boreal forests, changes in snowshoe hare abundance can precede changes in Canada lynx abundance, partly through food availability."
@@ -4000,17 +4210,17 @@
         "C4.1.3"
       ],
       "level": "shared",
-      "prompt": "Twenty random 0.5 m² quadrats in a 120 m² field contain 100 plants in total. Calculate the estimated number in the field and state one limitation. This is constructed classroom data. [3]",
+      "prompt": "Twenty random 0.5 m\u00b2 quadrats in a 120 m\u00b2 field contain 100 plants in total. Calculate the estimated number in the field and state one limitation. This is constructed classroom data. [3]",
       "marks": 3,
       "sectionId": "c41-3",
       "referenceIds": [
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "Sampled area = 20 × 0.5 = 10 m² (1). Mean density = 100 ÷ 10 = 10 plants m⁻²; abundance = 10 × 120 = 1,200 plants (1). State a valid limitation, e.g. quadrat plots may not represent clustered distribution (1).",
+      "answer": "Sampled area = 20 \u00d7 0.5 = 10 m\u00b2 (1). Mean density = 100 \u00f7 10 = 10 plants m\u207b\u00b2; abundance = 10 \u00d7 120 = 1,200 plants (1). State a valid limitation, e.g. quadrat plots may not represent clustered distribution (1).",
       "markingPoints": [
-        "Sampled area = 20 × 0.5 = 10 m² (1).",
-        "Mean density = 100 ÷ 10 = 10 plants m⁻²; abundance = 10 × 120 = 1,200 plants (1).",
+        "Sampled area = 20 \u00d7 0.5 = 10 m\u00b2 (1).",
+        "Mean density = 100 \u00f7 10 = 10 plants m\u207b\u00b2; abundance = 10 \u00d7 120 = 1,200 plants (1).",
         "State a valid limitation, e.g. quadrat plots may not represent clustered distribution (1)."
       ],
       "review": "sprint8-science-edited"
@@ -4024,16 +4234,16 @@
         "C4.1.4"
       ],
       "level": "shared",
-      "prompt": "A hypothetical mark–release–recapture study marks 50 animals. A later sample contains 40 animals, of which 10 are marked. Estimate population size and explain one assumption; explain what R = 0 would imply. [3]",
+      "prompt": "A hypothetical mark\u2013release\u2013recapture study marks 50 animals. A later sample contains 40 animals, of which 10 are marked. Estimate population size and explain one assumption; explain what R = 0 would imply. [3]",
       "marks": 3,
       "sectionId": "c41-4",
       "referenceIds": [
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "Estimated size = (50 × 40) ÷ 10 = 200 individuals (1). Explain one assumption such as random mixing, unchanged population, retained marks or equal capture probability (1). If R = 0 the Lincoln calculation is undefined; a numerical estimate cannot be justified with this formula (1).",
+      "answer": "Estimated size = (50 \u00d7 40) \u00f7 10 = 200 individuals (1). Explain one assumption such as random mixing, unchanged population, retained marks or equal capture probability (1). If R = 0 the Lincoln calculation is undefined; a numerical estimate cannot be justified with this formula (1).",
       "markingPoints": [
-        "Estimated size = (50 × 40) ÷ 10 = 200 individuals (1).",
+        "Estimated size = (50 \u00d7 40) \u00f7 10 = 200 individuals (1).",
         "Explain one assumption such as random mixing, unchanged population, retained marks or equal capture probability (1).",
         "If R = 0 the Lincoln calculation is undefined; a numerical estimate cannot be justified with this formula (1)."
       ],
@@ -4048,18 +4258,18 @@
         "C4.1.15"
       ],
       "level": "shared",
-      "prompt": "A constructed 2 × 2 presence–absence table has counts (both present 4, A only 16, B only 16, neither 4) across 40 independent sites. Calculate an expected count, χ² and df; interpret whether this proves competition. [4]",
+      "prompt": "A constructed 2 \u00d7 2 presence\u2013absence table has counts (both present 4, A only 16, B only 16, neither 4) across 40 independent sites. Calculate an expected count, \u03c7\u00b2 and df; interpret whether this proves competition. [4]",
       "marks": 4,
       "sectionId": "c41-15",
       "referenceIds": [
         "ib-c41",
         "hodder-c41"
       ],
-      "answer": "Expected count of each cell = 20 × 20 ÷ 40 = 10 (1). χ² = Σ((O−E)²/E) = 4 × 3.6 = 14.4 (1). Degrees of freedom = (2−1)(2−1) = 1; exceeds 5% critical value ≈ 3.84 (1). Evidence of association, not proof of competition or causality (1).",
+      "answer": "Expected count of each cell = 20 \u00d7 20 \u00f7 40 = 10 (1). \u03c7\u00b2 = \u03a3((O\u2212E)\u00b2/E) = 4 \u00d7 3.6 = 14.4 (1). Degrees of freedom = (2\u22121)(2\u22121) = 1; exceeds 5% critical value \u2248 3.84 (1). Evidence of association, not proof of competition or causality (1).",
       "markingPoints": [
-        "Expected count of each cell = 20 × 20 ÷ 40 = 10 (1).",
-        "χ² = Σ((O−E)²/E) = 4 × 3.6 = 14.4 (1).",
-        "Degrees of freedom = (2−1)(2−1) = 1; exceeds 5% critical value ≈ 3.84 (1).",
+        "Expected count of each cell = 20 \u00d7 20 \u00f7 40 = 10 (1).",
+        "\u03c7\u00b2 = \u03a3((O\u2212E)\u00b2/E) = 4 \u00d7 3.6 = 14.4 (1).",
+        "Degrees of freedom = (2\u22121)(2\u22121) = 1; exceeds 5% critical value \u2248 3.84 (1).",
         "Evidence of association, not proof of competition or causality (1)."
       ],
       "review": "sprint8-science-edited"
@@ -4069,14 +4279,14 @@
     {
       "id": "ib-c41",
       "title": "International Baccalaureate, Biology guide, first assessment 2025",
-      "locator": "C4.1 Populations and communities, printed pp. 80–83; supplied PDF pp. 86–89",
+      "locator": "C4.1 Populations and communities, printed pp. 80\u201383; supplied PDF pp. 86\u201389",
       "accessedAt": "2026-10-17",
       "level": "shared"
     },
     {
       "id": "hodder-c41",
       "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, 3rd edition (Hodder, 2023)",
-      "locator": "C4.1 Populations and communities, printed pp. 548–577; supplied PDF pp. 560–589",
+      "locator": "C4.1 Populations and communities, printed pp. 548\u2013577; supplied PDF pp. 560\u2013589",
       "accessedAt": "2026-10-17",
       "level": "shared"
     }
@@ -4121,9 +4331,9 @@
     "sourceCheckedAt": "2026-10-18",
     "reviewer": null,
     "notes": [
-      "Original educational draft aligned to IB Guide C4.1 printed pp. 80–83 and Hodder chapter printed pp. 548–577; wording, questions and visuals are newly authored.",
-      "All quadrat, mark–recapture, logistic and contingency-table numbers labelled constructed; no dataset falsely attributed to field observation.",
-      "Real ecological examples (hare–lynx, corals, Hawaiian plants, sea otters, walnut and Penicillium) require independent qualified review of evidence and specificity.",
+      "Original educational draft aligned to IB Guide C4.1 printed pp. 80\u201383 and Hodder chapter printed pp. 548\u2013577; wording, questions and visuals are newly authored.",
+      "All quadrat, mark\u2013recapture, logistic and contingency-table numbers labelled constructed; no dataset falsely attributed to field observation.",
+      "Real ecological examples (hare\u2013lynx, corals, Hawaiian plants, sea otters, walnut and Penicillium) require independent qualified review of evidence and specificity.",
       "Statistical association is not treated as proof of interspecific competition.",
       "No independent Biology, assessment, accessibility or rights approval.",
       "Sprint 8: source-led clarifications for C4.1.2, .3, .4, .7, .15 and .18; constructed numerical calculations and hypothesis limits added, no field records represented as observed.",
