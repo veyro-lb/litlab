@@ -1,0 +1,67 @@
+name: BioLab Compatible Dependency Upgrade Probe (No Deployment)
+on:
+  push:
+    branches:
+      - feature/biolab-preview-qa-fixes-20261018
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  compatible-security-updates:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install baseline exactly as locked
+        run: npm ci
+      - name: Propose compatible, explicit development-tooling updates in disposable runner
+        run: |
+          npm install --save-dev --save-exact vite@6.4.4 wrangler@4.151.1
+          npm update source-map-js
+          npm ci
+      - name: Capture updated audit
+        run: |
+          mkdir -p qa-artifacts/preview-security
+          npm audit --json > qa-artifacts/preview-security/full-audit.json || true
+          npm audit --omit=dev --json > qa-artifacts/preview-security/production-audit.json || true
+          npm ls vite wrangler esbuild miniflare sharp source-map-js undici > qa-artifacts/preview-security/versions.txt || true
+      - name: Check full app compatibility before recommending update
+        run: |
+          node scripts/validate-lessons.mjs
+          node scripts/validate-biology.mjs
+          node scripts/biology/validate-full-course-depth-audit.mjs
+          node scripts/biology/validate-final-consolidation.mjs
+          node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs
+          node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs
+          npm run quality
+          npm run build
+      - name: Require zero high-severity advisories after compatibility tests
+        run: npm audit --audit-level=high
+      - name: Commit only verified package changes to isolated QA branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/feature/biolab-preview-qa-fixes-20261018"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(biology): patch audited development dependencies without major upgrades"
+            git push origin HEAD:refs/heads/feature/biolab-preview-qa-fixes-20261018
+          fi
+      - name: Store reviewed security update evidence (no public deployment)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-verified-compatible-dependency-upgrade
+          path: |
+            package.json
+            package-lock.json
+            qa-artifacts/preview-security/
+          retention-days: 14

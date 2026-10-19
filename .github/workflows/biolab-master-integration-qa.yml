@@ -1,0 +1,182 @@
+name: BioLab Master Integration QA (no deployment)
+
+on:
+  push:
+    branches:
+      - feature/biolab-ib-final-integration-20261018
+
+permissions:
+  contents: read
+
+jobs:
+  integrated-validation:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 65
+    env:
+      CI: 'true'
+    steps:
+      - name: Checkout exact combined commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Confirm isolated branch and clean checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = feature/biolab-ib-final-integration-20261018
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          git log -12 --pretty=format:'%h %s'
+          echo
+          echo "integration_sha=$GITHUB_SHA" > qa-integration-sha.txt
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install lockfile dependencies
+        run: npm ci 2>&1 | tee qa-install.log
+      - name: Standard site quality
+        run: npm run quality 2>&1 | tee qa-quality.log
+      - name: Run existing course checks
+        id: existing
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            node scripts/biology/full-course/readiness-audit.mjs
+            node --test scripts/biology/full-course/glossary-schema.test.mjs
+            node scripts/validate-phase9.mjs
+            node --test scripts/validate-phase9.test.mjs
+            node scripts/validate-phase7-batch3.mjs
+            node --test scripts/validate-phase7-batch3.test.mjs
+            node scripts/biology/phase8/validate.mjs
+            node scripts/biology/phase8/negative.test.mjs
+            node scripts/validate-biology.mjs
+            node --test scripts/validate-biology.test.mjs
+            node scripts/validate-water.mjs
+            node scripts/validate-lessons.mjs
+            node scripts/validate-batch32.mjs
+            node scripts/validate-batch5.mjs
+            node --test scripts/validate-batch5.test.mjs
+            node scripts/validate-phase5-figures.mjs
+            node --test scripts/validate-phase5-figures.test.mjs
+            node scripts/validate-phase6-editorial.mjs
+            node --test scripts/validate-phase6-editorial.test.mjs
+            node scripts/validate-phase4-figures.mjs
+            node --test scripts/validate-phase4-figures.test.mjs
+            node --test scripts/validate-batch32.test.mjs
+            node --test scripts/validate-water.test.mjs scripts/validate-lesson.test.mjs
+            node --test scripts/biology/full-course/integration-negative.test.mjs
+            for file in scripts/biology/theme-a/*-qa.mjs; do node "$file"; done
+            node scripts/biology/theme-b/validate-all.mjs
+            node --test scripts/biology/theme-c1/*.test.mjs scripts/biology/theme-c2/*.test.mjs
+            node --test src/biology/learning/*/*.test.mjs
+          } 2>&1 | tee qa-existing.log
+      - name: All imported specialist and negative validation suites
+        id: specialists
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            node scripts/biology/themes-ab-final/validate.mjs
+            node scripts/biology/themes-ab-final/negative.test.mjs
+            node --test scripts/biology/final-a1-a2/verify.test.mjs
+            node scripts/biology/final-a3-a4/validate.mjs
+            node --test scripts/biology/final-a3-a4/validate.test.mjs
+            node scripts/biology/final-b1-b2/verify.mjs
+            node scripts/biology/final-b3-b4/validate.mjs
+            node scripts/biology/final-b3-b4/negative.test.mjs
+            node scripts/biology/final-c1-c2/validate.mjs
+            node scripts/biology/final-c3-c4/validate-final-sprint.mjs
+            node --test scripts/biology/final-c3-c4/validate-final-sprint.test.mjs
+            node scripts/biology/final-d1-d2/verify.mjs
+            node scripts/biology/final-d1-d2/negative.test.mjs
+            node scripts/biology/final-d3-d4/validate.mjs
+            node --test scripts/biology/parallel-student-qa/audit.test.mjs
+            node scripts/biology/parallel-student-qa/audit.mjs
+            node --test scripts/biology/assessment-quality/audit.test.mjs
+            node scripts/biology/assessment-quality/audit.mjs
+            node --test scripts/biology/scientific-visual-redesign.test.mjs
+            node --test scripts/biology/independent-visual-qa/audit.test.mjs
+            node scripts/biology/theme-c-final/verify-theme-c.mjs
+            node --test tests/biology/theme-b-depth-review.test.mjs tests/biology/theme-b-final-editorial.test.mjs
+            node --test scripts/biology/theme-d-final-20261018/depth.test.mjs scripts/biology/theme-d-final-20261018/editorial.test.mjs
+            node --experimental-strip-types --test scripts/biology/source-policy/source-policy.test.mjs
+            node scripts/biology/source-policy/verify.mjs
+            node --test scripts/biology/visual-lab-final/visual-lab.test.mjs
+            node --test scripts/biology/assessment-quality/verify-patches.test.mjs
+            node scripts/biology/assessment-quality/integration-verified.mjs
+            node --test scripts/biology/assessment-quality/integration-verified.test.mjs
+          } 2>&1 | tee qa-specialists.log
+      - name: Build integrated application
+        id: build
+        continue-on-error: true
+        run: npm run build 2>&1 | tee qa-build.log
+      - name: Build original source for visual before comparisons
+        id: baseline
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .qa-baseline
+          git archive 2c321ae547baa2a97294728b337a4dfa46e64408 | tar -x -C .qa-baseline
+          ln -s ../node_modules .qa-baseline/node_modules
+          npm run build --prefix .qa-baseline 2>&1 | tee qa-baseline-build.log
+      - name: Run browser suites in a non-networked Chromium container
+        id: browser
+        if: steps.build.outcome == 'success' && steps.baseline.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/premium-interface qa-artifacts/parallel-student-qa docs/biology/parallel-student-qa/evidence node_modules/.vite-temp .qa-baseline/node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges --read-only --user "$(id -u):$(id -g)" --env HOME=/tmp --env CI=true --env GITHUB_SHA="$GITHUB_SHA" --tmpfs /tmp:rw,nosuid,size=1024m --shm-size=1g --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" --mount "type=bind,src=$GITHUB_WORKSPACE/docs/biology/parallel-student-qa/evidence,dst=/work/docs/biology/parallel-student-qa/evidence" --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" --mount "type=bind,src=$GITHUB_WORKSPACE/.qa-baseline/node_modules/.vite-temp,dst=/work/.qa-baseline/node_modules/.vite-temp" --workdir /work mcr.microsoft.com/playwright:v1.56.1-noble bash -euo pipefail -c '
+            test "$(ls -1 /sys/class/net | tr "\n" " ")" = "lo "
+            export CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+            test -x "$CHROME_BIN"
+            npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/preview.log 2>&1 &
+            npm run preview --prefix .qa-baseline -- --host 127.0.0.1 --port 4174 > qa-artifacts/baseline-preview.log 2>&1 &
+            for attempt in $(seq 1 45); do
+              if node -e "Promise.all([fetch(\"http://127.0.0.1:4173/\"),fetch(\"http://127.0.0.1:4174/\")]).then(r=>process.exit(r.every(x=>x.ok)?0:1)).catch(()=>process.exit(1))"; then break; fi
+              sleep 1
+            done
+            node scripts/biolab-reading-browser.mjs
+            node scripts/biology/full-course/full-course-browser.mjs
+            node scripts/biology/parallel-student-qa/browser.mjs
+            node scripts/biology-premium-interface-smoke.mjs
+            node scripts/biology/theme-b/final-depth-browser.mjs
+            node scripts/biology/theme-d-final-20261018/browser.mjs
+            node scripts/biology/ux-final/browser.mjs
+            node scripts/biology/prelaunch-student-qa/browser.mjs
+          ' 2>&1 | tee qa-browser.log
+      - name: Preserve QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-master-integration-qa
+          path: |
+            qa-*.log
+            qa-integration-sha.txt
+            qa-artifacts/
+            docs/biology/parallel-student-qa/evidence/
+          if-no-files-found: warn
+          retention-days: 21
+
+      - name: Fail closed on any incomplete integration gate
+        if: always()
+        env:
+          EXISTING: ${{ steps.existing.outcome }}
+          SPECIALISTS: ${{ steps.specialists.outcome }}
+          BUILD: ${{ steps.build.outcome }}
+          BASELINE: ${{ steps.baseline.outcome }}
+          BROWSER: ${{ steps.browser.outcome }}
+        run: |
+          printf 'existing=%s specialists=%s build=%s baseline=%s browser=%s\n' "$EXISTING" "$SPECIALISTS" "$BUILD" "$BASELINE" "$BROWSER"
+          for state in "$EXISTING" "$SPECIALISTS" "$BUILD" "$BASELINE" "$BROWSER"; do
+            test "$state" = success || exit 1
+          done

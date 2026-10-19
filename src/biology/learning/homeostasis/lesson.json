@@ -1,0 +1,2839 @@
+{
+  "schemaVersion": 1,
+  "id": "d3-3-homeostasis-v1",
+  "topicId": "D3.3",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Homeostasis",
+  "introduction": "Stable internal conditions arise from active negative feedback, not inactivity. Follow sensors, control systems and effectors from pancreatic hormones to temperature regulation, then extend to nephron transport and water balance at HL.",
+  "learningPath": [
+    "Identify variables and feedback components",
+    "Trace insulin and glucagon loops",
+    "Differentiate diabetes and temperature regulation",
+    "HL: filtration, nephron gradients and ADH",
+    "Compare perfusion as physiological demand changes"
+  ],
+  "prerequisites": [
+    "Cell metabolism and hormones",
+    "Diffusion, osmosis and transport proteins",
+    "Blood circulation"
+  ],
+  "objectives": [
+    "Explain six shared and five additional HL understandings",
+    "Trace correct feedback direction with receptor, controller and effector roles",
+    "Distinguish excretion from osmoregulation and predict renal responses"
+  ],
+  "sections": [
+    {
+      "id": "homeostasis-1",
+      "understandingIds": [
+        "D3.3.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why does homeostasis regulate a range rather than an unchanging value?",
+      "explanation": "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance. Human examples include core temperature, blood glucose concentration, blood pH and plasma osmotic concentration. Homeostasis does not mean that values never change: each regulated variable fluctuates about a set point or operating range, and different physiological states may change the target.\n\nFor effective feedback, a controlled variable must be measured and a response must oppose dangerous deviations. Enzymes, neuronal excitability and cell volume depend on relatively stable conditions. A temporary rise in blood glucose after eating is compatible with homeostasis if corrective mechanisms return it towards normal without overshoot.\n\nHomeostasis is dynamic regulation rather than a permanently fixed value. Blood glucose rises after meals, body temperature varies with daily activity, and blood pH is maintained within a narrow compatible range. Sensors detect deviations and corrective mechanisms act to counter them, often with a delay; the variable can overshoot or fluctuate. The relevant comparison is whether it remains inside tolerable physiological limits. Do not infer that one numerical reading represents the exact set point for every person or time of day.",
+      "revisionSummary": "Homeostasis maintains controlled ranges, not perfectly constant values.",
+      "terms": [
+        "Internal conditions and homeostasis"
+      ],
+      "workedExample": "Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage.",
+      "misconceptions": [
+        {
+          "misconception": "A homeostatic range is the same as a fixed unchanging number.",
+          "correction": "Living systems have normal fluctuations while feedback keeps variables within physiologically acceptable limits."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance. Human examples include core temperature, blood glucose concentration, blood pH and plasma osmotic concentration. Homeostasis does not mean that values never change: each regulated variable fluctuates about a set point or operating range, and different physiological states may change the target.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "For effective feedback, a controlled variable must be measured and a response must oppose dangerous deviations. Enzymes, neuronal excitability and cell volume depend on relatively stable conditions. A temporary rise in blood glucose after eating is compatible with homeostasis if corrective mechanisms return it towards normal without overshoot.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "Homeostasis is dynamic regulation rather than a permanently fixed value. Blood glucose rises after meals, body temperature varies with daily activity, and blood pH is maintained within a narrow compatible range. Sensors detect deviations and corrective mechanisms act to counter them, often with a delay; the variable can overshoot or fluctuate. The relevant comparison is whether it remains inside tolerable physiological limits. Do not infer that one numerical reading represents the exact set point for every person or time of day.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Regulating a dynamic internal environment",
+          "explanation": "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance. Human examples include core temperature, blood glucose concentration, blood pH and plasma osmotic concentration. Homeostasis does not mean that values never change: each regulated variable fluctuates about a set point or operating range, and different physiological states may change the target.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "For effective feedback, a controlled variable must be measured and a response must oppose dangerous deviations. Enzymes, neuronal excitability and cell volume depend on relatively stable conditions. A temporary rise in blood glucose after eating is compatible with homeostasis if corrective mechanisms return it towards normal without overshoot.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Controlled conditions may vary around a target",
+          "explanation": "Homeostasis is dynamic regulation rather than a permanently fixed value. Blood glucose rises after meals, body temperature varies with daily activity, and blood pH is maintained within a narrow compatible range. Sensors detect deviations and corrective mechanisms act to counter them, often with a delay; the variable can overshoot or fluctuate. The relevant comparison is whether it remains inside tolerable physiological limits. Do not infer that one numerical reading represents the exact set point for every person or time of day.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Homeostasis maintains controlled ranges, not perfectly constant values.",
+        "example": "Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage.",
+        "different": "Living systems have normal fluctuations while feedback keeps variables within physiologically acceptable limits.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Homeostasis maintains controlled ranges, not perfectly constant values.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-1",
+          "prompt": "Choose the accurate explanation of internal conditions and homeostasis.",
+          "understandingIds": [
+            "D3.3.1"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Homeostasis maintains controlled ranges, not perfectly constant values.",
+              "correct": true,
+              "feedback": "Correct: Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage."
+            },
+            {
+              "id": "b",
+              "text": "Homeostasis requires every measurement to remain exactly at the set point.",
+              "correct": false,
+              "feedback": "Living systems have normal fluctuations while feedback keeps variables within physiologically acceptable limits."
+            },
+            {
+              "id": "c",
+              "text": "Only ambient external temperature is homeostatically regulated.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Homeostasis maintains controlled ranges, not perfectly constant values."
+            },
+            {
+              "id": "d",
+              "text": "Body conditions change only after the genes mutate.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Homeostasis maintains controlled ranges, not perfectly constant values."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-1",
+          "prompt": "State the mechanism for internal conditions and homeostasis and its corrective consequence.",
+          "answer": "Homeostasis maintains controlled ranges, not perfectly constant values.",
+          "explanation": "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance. Human examples include core temperature, blood glucose concentration, blood pH and plasma osmotic concentration. Homeostasis does not mean that values never change: each regulated variable fluctuates about a set point or operating range, and different physiological states may change the target.",
+          "understandingIds": [
+            "D3.3.1"
+          ]
+        }
+      ],
+      "guidePage": 100,
+      "pdfPage": 106,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction"
+    },
+    {
+      "id": "homeostasis-2",
+      "understandingIds": [
+        "D3.3.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What sensor–controller–effector sequence reverses a disturbance?",
+      "explanation": "A negative-feedback loop begins when a controlled variable deviates from a set point. A receptor or sensor detects the change and conveys information to a control system, which compares the measured value with the desired state and signals effectors. The effector produces a response that opposes the original deviation, reducing the error. For a variable above its set point, the response tends to lower it; for a variable below, the response tends to raise it.\n\nThe stimulus is the departure of the variable, the receptor detects it, the control system coordinates the response, and the effector acts. Do not swap receptor and effector or show the response amplifying the initial change: that would be positive feedback. A control circuit can use hormones, nerves or both, and no diagram should imply every system has a single anatomical control centre.\n\nA controlled variable is sensed and compared with a defended range, then effectors alter it in the opposite direction to the original disturbance. Above-range temperature elicits cooling responses; below-range temperature elicits heat conservation and generation. Negative feedback limits a deviation rather than holding a value absolutely constant. A drawn feedback loop is a conceptual model, not a recorded sensor trace.",
+      "revisionSummary": "A response that reduces the original deviation is negative feedback.",
+      "terms": [
+        "Components of negative feedback"
+      ],
+      "workedExample": "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
+      "misconceptions": [
+        {
+          "misconception": "Negative feedback and negative changes are the same thing.",
+          "correction": "Negative refers to opposing an error; an effector may either increase or decrease its activity."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A negative-feedback loop begins when a controlled variable deviates from a set point. A receptor or sensor detects the change and conveys information to a control system, which compares the measured value with the desired state and signals effectors. The effector produces a response that opposes the original deviation, reducing the error. For a variable above its set point, the response tends to lower it; for a variable below, the response tends to raise it.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "The stimulus is the departure of the variable, the receptor detects it, the control system coordinates the response, and the effector acts. Do not swap receptor and effector or show the response amplifying the initial change: that would be positive feedback. A control circuit can use hormones, nerves or both, and no diagram should imply every system has a single anatomical control centre.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "A controlled variable is sensed and compared with a defended range, then effectors alter it in the opposite direction to the original disturbance. Above-range temperature elicits cooling responses; below-range temperature elicits heat conservation and generation. Negative feedback limits a deviation rather than holding a value absolutely constant. A drawn feedback loop is a conceptual model, not a recorded sensor trace.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [
+        "d33-feedback"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "Negative feedback: sensors, controllers and effectors",
+          "explanation": "A negative-feedback loop begins when a controlled variable deviates from a set point. A receptor or sensor detects the change and conveys information to a control system, which compares the measured value with the desired state and signals effectors. The effector produces a response that opposes the original deviation, reducing the error. For a variable above its set point, the response tends to lower it; for a variable below, the response tends to raise it.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "The stimulus is the departure of the variable, the receptor detects it, the control system coordinates the response, and the effector acts. Do not swap receptor and effector or show the response amplifying the initial change: that would be positive feedback. A control circuit can use hormones, nerves or both, and no diagram should imply every system has a single anatomical control centre.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Specify what makes feedback negative",
+          "explanation": "A controlled variable is sensed and compared with a defended range, then effectors alter it in the opposite direction to the original disturbance. Above-range temperature elicits cooling responses; below-range temperature elicits heat conservation and generation. Negative feedback limits a deviation rather than holding a value absolutely constant. A drawn feedback loop is a conceptual model, not a recorded sensor trace.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A response that reduces the original deviation is negative feedback.",
+        "example": "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
+        "different": "Negative refers to opposing an error; an effector may either increase or decrease its activity.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "A response that reduces the original deviation is negative feedback.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-2",
+          "prompt": "Choose the accurate explanation of components of negative feedback.",
+          "understandingIds": [
+            "D3.3.2"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "The receptor must perform the final corrective action.",
+              "correct": false,
+              "feedback": "Negative refers to opposing an error; an effector may either increase or decrease its activity."
+            },
+            {
+              "id": "b",
+              "text": "A response that reduces the original deviation is negative feedback.",
+              "correct": true,
+              "feedback": "Correct: Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature."
+            },
+            {
+              "id": "c",
+              "text": "Negative feedback amplifies the initial change until it reaches a maximum.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: A response that reduces the original deviation is negative feedback."
+            },
+            {
+              "id": "d",
+              "text": "The control system always directly releases the effector response without signalling.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: A response that reduces the original deviation is negative feedback."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-2",
+          "prompt": "State the mechanism for components of negative feedback and its corrective consequence.",
+          "answer": "A response that reduces the original deviation is negative feedback.",
+          "explanation": "A negative-feedback loop begins when a controlled variable deviates from a set point. A receptor or sensor detects the change and conveys information to a control system, which compares the measured value with the desired state and signals effectors. The effector produces a response that opposes the original deviation, reducing the error. For a variable above its set point, the response tends to lower it; for a variable below, the response tends to raise it.",
+          "understandingIds": [
+            "D3.3.2"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "figurePlacements": [
+        {
+          "assetId": "d33-feedback",
+          "afterBlock": 0
+        }
+      ],
+      "graphTables": [
+        {
+          "caption": "Generic two-direction negative feedback (illustrative)",
+          "headers": [
+            "Initial disturbance",
+            "Sensor/controller signal",
+            "Effector response",
+            "Corrective result"
+          ],
+          "rows": [
+            [
+              "Variable too high",
+              "Detect above target",
+              "Reduce variable",
+              "Towards set point"
+            ],
+            [
+              "Variable too low",
+              "Detect below target",
+              "Increase variable",
+              "Towards set point"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "homeostasis-3",
+      "understandingIds": [
+        "D3.3.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How do insulin and glucagon respond to opposite blood-glucose changes?",
+      "explanation": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.\n\nWhen blood glucose drops, pancreatic alpha cells increase glucagon secretion. Glucagon acts chiefly on the liver, stimulating glycogen breakdown and glucose production/release to help restore blood glucose. Both loops provide negative feedback, but the receptor–control functions reside largely in pancreatic endocrine cells rather than a simplistic single brain centre.\n\nA rise in blood glucose stimulates pancreatic beta-cell insulin release, promoting uptake and glycogen storage to lower blood glucose. A fall stimulates alpha-cell glucagon secretion, increasing hepatic glycogen breakdown and glucose production. Each response opposes the starting deviation; glucagon does not cause skeletal muscle to release free glucose into blood.\n\nAfter a meal, increased blood glucose promotes insulin secretion by pancreatic beta cells, stimulating glucose uptake in responsive tissues and storage as glycogen. When blood glucose decreases, pancreatic alpha cells secrete glucagon, promoting hepatic glucose release. Insulin and glucagon participate in coordinated regulation; not every tissue's glucose uptake depends on insulin.",
+      "revisionSummary": "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
+      "terms": [
+        "Hormonal control of blood glucose"
+      ],
+      "workedExample": "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
+      "misconceptions": [
+        {
+          "misconception": "Glucagon and insulin have the same immediate effect on hepatic glucose output.",
+          "correction": "They usually have opposing net effects on blood glucose and respond to different glucose states."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "When blood glucose drops, pancreatic alpha cells increase glucagon secretion. Glucagon acts chiefly on the liver, stimulating glycogen breakdown and glucose production/release to help restore blood glucose. Both loops provide negative feedback, but the receptor–control functions reside largely in pancreatic endocrine cells rather than a simplistic single brain centre.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "A rise in blood glucose stimulates pancreatic beta-cell insulin release, promoting uptake and glycogen storage to lower blood glucose. A fall stimulates alpha-cell glucagon secretion, increasing hepatic glycogen breakdown and glucose production. Each response opposes the starting deviation; glucagon does not cause skeletal muscle to release free glucose into blood.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "After a meal, increased blood glucose promotes insulin secretion by pancreatic beta cells, stimulating glucose uptake in responsive tissues and storage as glycogen. When blood glucose decreases, pancreatic alpha cells secrete glucagon, promoting hepatic glucose release. Insulin and glucagon participate in coordinated regulation; not every tissue's glucose uptake depends on insulin.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [
+        "d33-glucose-feedback"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "Hormonal correction of blood glucose",
+          "explanation": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "When blood glucose drops, pancreatic alpha cells increase glucagon secretion. Glucagon acts chiefly on the liver, stimulating glycogen breakdown and glucose production/release to help restore blood glucose. Both loops provide negative feedback, but the receptor–control functions reside largely in pancreatic endocrine cells rather than a simplistic single brain centre.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Compare insulin and glucagon loops",
+          "explanation": "A rise in blood glucose stimulates pancreatic beta-cell insulin release, promoting uptake and glycogen storage to lower blood glucose. A fall stimulates alpha-cell glucagon secretion, increasing hepatic glycogen breakdown and glucose production. Each response opposes the starting deviation; glucagon does not cause skeletal muscle to release free glucose into blood.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Blood glucose requires two opposing hormonal responses",
+          "explanation": "After a meal, increased blood glucose promotes insulin secretion by pancreatic beta cells, stimulating glucose uptake in responsive tissues and storage as glycogen. When blood glucose decreases, pancreatic alpha cells secrete glucagon, promoting hepatic glucose release. Insulin and glucagon participate in coordinated regulation; not every tissue's glucose uptake depends on insulin.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
+        "example": "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
+        "different": "They usually have opposing net effects on blood glucose and respond to different glucose states.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-3",
+          "prompt": "Choose the accurate explanation of hormonal control of blood glucose.",
+          "understandingIds": [
+            "D3.3.3"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Glucagon is secreted by pancreatic beta cells to reduce blood sugar.",
+              "correct": false,
+              "feedback": "They usually have opposing net effects on blood glucose and respond to different glucose states."
+            },
+            {
+              "id": "b",
+              "text": "Insulin directly converts glycogen into glucose after fasting.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose."
+            },
+            {
+              "id": "c",
+              "text": "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
+              "correct": true,
+              "feedback": "Correct: Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓."
+            },
+            {
+              "id": "d",
+              "text": "Glucose homeostasis depends entirely on one hormone regardless of state.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-3",
+          "prompt": "State the mechanism for hormonal control of blood glucose and its corrective consequence.",
+          "answer": "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
+          "explanation": "After a meal raises blood glucose, pancreatic beta cells detect the rise and secrete insulin into the bloodstream. Insulin binds receptors in responsive tissues; it stimulates glucose uptake in muscle and adipose tissue, promotes glycogen synthesis and restrains hepatic glucose production. As glucose decreases toward the regulated range, insulin secretion normally falls. The hormone is the signal; glucose uptake and storage are the effector responses.",
+          "understandingIds": [
+            "D3.3.3"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "graphTables": [
+        {
+          "caption": "Blood glucose response (conceptual, not numerical data)",
+          "headers": [
+            "State",
+            "Pancreatic response",
+            "Main target consequence"
+          ],
+          "rows": [
+            [
+              "Blood glucose rises",
+              "Insulin secretion rises",
+              "Muscle/adipose uptake and hepatic storage increase"
+            ],
+            [
+              "Blood glucose falls",
+              "Glucagon secretion rises",
+              "Liver increases glucose release"
+            ]
+          ]
+        },
+        {
+          "caption": "Simplified two-direction blood-glucose feedback model",
+          "headers": [
+            "Change",
+            "Hormone source",
+            "Main response"
+          ],
+          "rows": [
+            [
+              "Blood glucose rises",
+              "Beta cells: insulin",
+              "Increase uptake/storage"
+            ],
+            [
+              "Blood glucose falls",
+              "Alpha cells: glucagon",
+              "Increase liver glucose release"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "homeostasis-4",
+      "understandingIds": [
+        "D3.3.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How do type 1 and type 2 diabetes differ in their underlying physiology?",
+      "explanation": "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin. Without sufficient insulin, blood glucose cannot be regulated normally and affected people need replacement insulin. The condition is not caused simply by eating sugar and currently cannot reliably be prevented by lifestyle measures. Type 2 diabetes commonly begins with decreased responsiveness of liver, muscle and adipose tissue to insulin and may progress to insufficient beta-cell output.\n\nType 2 risk reflects combinations of genetics, age, activity, body composition and other factors. Prevention or delay may be possible for some people through sustained lifestyle and health measures; treatments can include changes in activity/nutrition, glucose-lowering medications and sometimes insulin. Do not equate insulin resistance with complete absence of insulin or assume all patients share the same pathophysiology.\n\nType 1 diabetes usually involves autoimmune destruction of pancreatic beta cells, leaving insufficient insulin secretion even when blood glucose rises. In type 2 diabetes, target tissues respond less effectively to insulin, often accompanied over time by inadequate compensation from beta cells. Both can cause elevated blood glucose, but the impaired components of the normal control system differ. Management can include insulin replacement in type 1 and varied lifestyle and drug approaches in type 2; these are physiological explanations, not individual treatment instructions.",
+      "revisionSummary": "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
+      "terms": [
+        "Type 1 and type 2 diabetes"
+      ],
+      "workedExample": "A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand.",
+      "misconceptions": [
+        {
+          "misconception": "Type 2 diabetes is solely the result of personal behaviour.",
+          "correction": "Type 2 has multiple biological and social risk factors; individual blame misrepresents causation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin. Without sufficient insulin, blood glucose cannot be regulated normally and affected people need replacement insulin. The condition is not caused simply by eating sugar and currently cannot reliably be prevented by lifestyle measures. Type 2 diabetes commonly begins with decreased responsiveness of liver, muscle and adipose tissue to insulin and may progress to insufficient beta-cell output.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-diabetes"
+          ]
+        },
+        {
+          "claim": "Type 2 risk reflects combinations of genetics, age, activity, body composition and other factors. Prevention or delay may be possible for some people through sustained lifestyle and health measures; treatments can include changes in activity/nutrition, glucose-lowering medications and sometimes insulin. Do not equate insulin resistance with complete absence of insulin or assume all patients share the same pathophysiology.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-diabetes"
+          ]
+        },
+        {
+          "claim": "Type 1 diabetes usually involves autoimmune destruction of pancreatic beta cells, leaving insufficient insulin secretion even when blood glucose rises. In type 2 diabetes, target tissues respond less effectively to insulin, often accompanied over time by inadequate compensation from beta cells. Both can cause elevated blood glucose, but the impaired components of the normal control system differ. Management can include insulin replacement in type 1 and varied lifestyle and drug approaches in type 2; these are physiological explanations, not individual treatment instructions.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-diabetes"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Type 1 and type 2 diabetes have different mechanisms",
+          "explanation": "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin. Without sufficient insulin, blood glucose cannot be regulated normally and affected people need replacement insulin. The condition is not caused simply by eating sugar and currently cannot reliably be prevented by lifestyle measures. Type 2 diabetes commonly begins with decreased responsiveness of liver, muscle and adipose tissue to insulin and may progress to insufficient beta-cell output.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-diabetes"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "Type 2 risk reflects combinations of genetics, age, activity, body composition and other factors. Prevention or delay may be possible for some people through sustained lifestyle and health measures; treatments can include changes in activity/nutrition, glucose-lowering medications and sometimes insulin. Do not equate insulin resistance with complete absence of insulin or assume all patients share the same pathophysiology.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-diabetes"
+          ]
+        },
+        {
+          "title": "The two diabetes types interrupt different points in the loop",
+          "explanation": "Type 1 diabetes usually involves autoimmune destruction of pancreatic beta cells, leaving insufficient insulin secretion even when blood glucose rises. In type 2 diabetes, target tissues respond less effectively to insulin, often accompanied over time by inadequate compensation from beta cells. Both can cause elevated blood glucose, but the impaired components of the normal control system differ. Management can include insulin replacement in type 1 and varied lifestyle and drug approaches in type 2; these are physiological explanations, not individual treatment instructions.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
+        "example": "A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand.",
+        "different": "Type 2 has multiple biological and social risk factors; individual blame misrepresents causation.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-4",
+          "prompt": "Choose the accurate explanation of type 1 and type 2 diabetes.",
+          "understandingIds": [
+            "D3.3.4"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Both types are always caused by autoimmune beta-cell destruction.",
+              "correct": false,
+              "feedback": "Type 2 has multiple biological and social risk factors; individual blame misrepresents causation."
+            },
+            {
+              "id": "b",
+              "text": "Type 1 can routinely be reversed by physical activity alone.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation."
+            },
+            {
+              "id": "c",
+              "text": "Type 2 always means the pancreas releases no insulin at diagnosis.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation."
+            },
+            {
+              "id": "d",
+              "text": "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
+              "correct": true,
+              "feedback": "Correct: A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-4",
+          "prompt": "State the mechanism for type 1 and type 2 diabetes and its corrective consequence.",
+          "answer": "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
+          "explanation": "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin. Without sufficient insulin, blood glucose cannot be regulated normally and affected people need replacement insulin. The condition is not caused simply by eating sugar and currently cannot reliably be prevented by lifestyle measures. Type 2 diabetes commonly begins with decreased responsiveness of liver, muscle and adipose tissue to insulin and may progress to insufficient beta-cell output.",
+          "understandingIds": [
+            "D3.3.4"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction"
+    },
+    {
+      "id": "homeostasis-5",
+      "understandingIds": [
+        "D3.3.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "How does temperature feedback change when body temperature rises or falls?",
+      "explanation": "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature. Hypothalamic thermoregulatory circuits integrate these signals with the defended core-temperature range and coordinate effectors through autonomic and somatic pathways. Increased heat activates skin vasodilation and sweating; cooling activates heat conservation and production pathways such as vasoconstriction and shivering. Each response reduces the temperature deviation.\n\nLonger-term metabolic heat production can involve hypothalamic–pituitary–thyroid signalling: pituitary TSH promotes thyroid secretion of thyroxine (T4), influencing basal metabolic rate. This is not the fast pathway directly responsible for every sweating or shivering episode. Skeletal muscle and brown adipose tissue can increase heat production; skin vasculature and sweat glands regulate heat exchange.\n\nSkin and internal thermoreceptors detect temperature-related changes, while the hypothalamus integrates information relevant to body temperature. When temperature rises, it increases signals promoting sweating and skin vasodilation; when it falls, mechanisms including shivering and peripheral vasoconstriction help conserve or produce heat. Each response opposes the initial deviation. These are negative-feedback reactions because they reduce the error signal, even though sweat production or muscle activity itself may increase. Behavioural responses such as seeking shade or warmth can reinforce physiological correction.",
+      "revisionSummary": "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
+      "terms": [
+        "Negative feedback in thermoregulation"
+      ],
+      "workedExample": "Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation.",
+      "misconceptions": [
+        {
+          "misconception": "Thyroxine is the only signal involved in thermoregulation.",
+          "correction": "Fast neural responses and slower hormonal metabolic effects contribute on different timescales."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature. Hypothalamic thermoregulatory circuits integrate these signals with the defended core-temperature range and coordinate effectors through autonomic and somatic pathways. Increased heat activates skin vasodilation and sweating; cooling activates heat conservation and production pathways such as vasoconstriction and shivering. Each response reduces the temperature deviation.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "Longer-term metabolic heat production can involve hypothalamic–pituitary–thyroid signalling: pituitary TSH promotes thyroid secretion of thyroxine (T4), influencing basal metabolic rate. This is not the fast pathway directly responsible for every sweating or shivering episode. Skeletal muscle and brown adipose tissue can increase heat production; skin vasculature and sweat glands regulate heat exchange.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "Skin and internal thermoreceptors detect temperature-related changes, while the hypothalamus integrates information relevant to body temperature. When temperature rises, it increases signals promoting sweating and skin vasodilation; when it falls, mechanisms including shivering and peripheral vasoconstriction help conserve or produce heat. Each response opposes the initial deviation. These are negative-feedback reactions because they reduce the error signal, even though sweat production or muscle activity itself may increase. Behavioural responses such as seeking shade or warmth can reinforce physiological correction.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [
+        "d33-feedback"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "Thermoregulation closes opposing feedback loops",
+          "explanation": "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature. Hypothalamic thermoregulatory circuits integrate these signals with the defended core-temperature range and coordinate effectors through autonomic and somatic pathways. Increased heat activates skin vasodilation and sweating; cooling activates heat conservation and production pathways such as vasoconstriction and shivering. Each response reduces the temperature deviation.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "Longer-term metabolic heat production can involve hypothalamic–pituitary–thyroid signalling: pituitary TSH promotes thyroid secretion of thyroxine (T4), influencing basal metabolic rate. This is not the fast pathway directly responsible for every sweating or shivering episode. Skeletal muscle and brown adipose tissue can increase heat production; skin vasculature and sweat glands regulate heat exchange.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Trace the temperature-control pathway",
+          "explanation": "Skin and internal thermoreceptors detect temperature-related changes, while the hypothalamus integrates information relevant to body temperature. When temperature rises, it increases signals promoting sweating and skin vasodilation; when it falls, mechanisms including shivering and peripheral vasoconstriction help conserve or produce heat. Each response opposes the initial deviation. These are negative-feedback reactions because they reduce the error signal, even though sweat production or muscle activity itself may increase. Behavioural responses such as seeking shade or warmth can reinforce physiological correction.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
+        "example": "Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation.",
+        "different": "Fast neural responses and slower hormonal metabolic effects contribute on different timescales.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-5",
+          "prompt": "Choose the accurate explanation of negative feedback in thermoregulation.",
+          "understandingIds": [
+            "D3.3.5"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
+              "correct": true,
+              "feedback": "Correct: Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation."
+            },
+            {
+              "id": "b",
+              "text": "The pituitary directly operates sweat glands in every acute heat response.",
+              "correct": false,
+              "feedback": "Fast neural responses and slower hormonal metabolic effects contribute on different timescales."
+            },
+            {
+              "id": "c",
+              "text": "Cold exposure primarily causes cutaneous vasodilation to conserve heat.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Thermoregulatory effectors act in the direction that opposes core-temperature deviation."
+            },
+            {
+              "id": "d",
+              "text": "Shivering lowers metabolic heat production.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Thermoregulatory effectors act in the direction that opposes core-temperature deviation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-5",
+          "prompt": "State the mechanism for negative feedback in thermoregulation and its corrective consequence.",
+          "answer": "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
+          "explanation": "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature. Hypothalamic thermoregulatory circuits integrate these signals with the defended core-temperature range and coordinate effectors through autonomic and somatic pathways. Increased heat activates skin vasodilation and sweating; cooling activates heat conservation and production pathways such as vasoconstriction and shivering. Each response reduces the temperature deviation.",
+          "understandingIds": [
+            "D3.3.5"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "figurePlacements": [
+        {
+          "assetId": "d33-feedback",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "homeostasis-6",
+      "understandingIds": [
+        "D3.3.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What roles do sweating, shivering and blood-vessel changes play?",
+      "explanation": "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible. In cold conditions, vasoconstriction reduces skin heat transfer while involuntary skeletal-muscle shivering generates heat through ATP use. Brown adipose tissue can release energy as heat through mitochondrial uncoupling protein UCP1 rather than driving ATP synthesis. Erection of body hairs can trap insulating air in furry mammals but offers little insulation for sparsely haired humans.\n\nBehavioural responses such as seeking shade, adding clothes or changing activity also change heat exchange. The effectiveness of sweating depends strongly on humidity, air movement and hydration; sweat that drips without evaporating does not provide equivalent cooling. Skin temperature and core temperature are distinct variables and should not be treated as synonymous measurements.\n\nSweat evaporation removes latent heat from the skin; sweating is less effective when air is so humid that evaporation is limited. Dilating blood vessels near the skin can increase heat exchange with a cooler environment, while constriction can reduce heat transfer from the body's core. In the cold, involuntary skeletal-muscle contractions during shivering raise metabolic heat production. The net effect depends on ambient temperature, humidity, clothing and activity. The mechanisms are coordinated rather than a rule that one response operates alone.",
+      "revisionSummary": "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
+      "terms": [
+        "Human temperature-control responses"
+      ],
+      "workedExample": "High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise.",
+      "misconceptions": [
+        {
+          "misconception": "Sweating cools by absorbing heat when it first leaves the gland.",
+          "correction": "Evaporation of liquid water from the skin consumes heat and drives cooling."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible. In cold conditions, vasoconstriction reduces skin heat transfer while involuntary skeletal-muscle shivering generates heat through ATP use. Brown adipose tissue can release energy as heat through mitochondrial uncoupling protein UCP1 rather than driving ATP synthesis. Erection of body hairs can trap insulating air in furry mammals but offers little insulation for sparsely haired humans.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "Behavioural responses such as seeking shade, adding clothes or changing activity also change heat exchange. The effectiveness of sweating depends strongly on humidity, air movement and hydration; sweat that drips without evaporating does not provide equivalent cooling. Skin temperature and core temperature are distinct variables and should not be treated as synonymous measurements.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "Sweat evaporation removes latent heat from the skin; sweating is less effective when air is so humid that evaporation is limited. Dilating blood vessels near the skin can increase heat exchange with a cooler environment, while constriction can reduce heat transfer from the body's core. In the cold, involuntary skeletal-muscle contractions during shivering raise metabolic heat production. The net effect depends on ambient temperature, humidity, clothing and activity. The mechanisms are coordinated rather than a rule that one response operates alone.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Physiological and behavioural heat balance",
+          "explanation": "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible. In cold conditions, vasoconstriction reduces skin heat transfer while involuntary skeletal-muscle shivering generates heat through ATP use. Brown adipose tissue can release energy as heat through mitochondrial uncoupling protein UCP1 rather than driving ATP synthesis. Erection of body hairs can trap insulating air in furry mammals but offers little insulation for sparsely haired humans.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "Behavioural responses such as seeking shade, adding clothes or changing activity also change heat exchange. The effectiveness of sweating depends strongly on humidity, air movement and hydration; sweat that drips without evaporating does not provide equivalent cooling. Skin temperature and core temperature are distinct variables and should not be treated as synonymous measurements.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Explain why each heat-loss mechanism works",
+          "explanation": "Sweat evaporation removes latent heat from the skin; sweating is less effective when air is so humid that evaporation is limited. Dilating blood vessels near the skin can increase heat exchange with a cooler environment, while constriction can reduce heat transfer from the body's core. In the cold, involuntary skeletal-muscle contractions during shivering raise metabolic heat production. The net effect depends on ambient temperature, humidity, clothing and activity. The mechanisms are coordinated rather than a rule that one response operates alone.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
+        "example": "High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise.",
+        "different": "Evaporation of liquid water from the skin consumes heat and drives cooling.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-6",
+          "prompt": "Choose the accurate explanation of human temperature-control responses.",
+          "understandingIds": [
+            "D3.3.6"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "A droplet of sweat cools equally whether it evaporates or stays on skin.",
+              "correct": false,
+              "feedback": "Evaporation of liquid water from the skin consumes heat and drives cooling."
+            },
+            {
+              "id": "b",
+              "text": "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
+              "correct": true,
+              "feedback": "Correct: High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise."
+            },
+            {
+              "id": "c",
+              "text": "Human hair erection provides the same insulation as a thick animal coat.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Sweat cools chiefly by evaporation; shivering and brown fat generate heat."
+            },
+            {
+              "id": "d",
+              "text": "Vasoconstriction exposes more blood to the skin to increase cooling.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Sweat cools chiefly by evaporation; shivering and brown fat generate heat."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-6",
+          "prompt": "State the mechanism for human temperature-control responses and its corrective consequence.",
+          "answer": "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
+          "explanation": "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible. In cold conditions, vasoconstriction reduces skin heat transfer while involuntary skeletal-muscle shivering generates heat through ATP use. Brown adipose tissue can release energy as heat through mitochondrial uncoupling protein UCP1 rather than driving ATP synthesis. Erection of body hairs can trap insulating air in furry mammals but offers little insulation for sparsely haired humans.",
+          "understandingIds": [
+            "D3.3.6"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "graphTables": [
+        {
+          "caption": "Human thermoregulation: heat gain and loss",
+          "headers": [
+            "Hot",
+            "Cold"
+          ],
+          "rows": [
+            [
+              "Sweating with evaporation",
+              "Shivering in skeletal muscle"
+            ],
+            [
+              "Skin vasodilation",
+              "Skin vasoconstriction"
+            ],
+            [
+              "Seek shade / reduce activity",
+              "Seek shelter / add clothing"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "homeostasis-7",
+      "understandingIds": [
+        "D3.3.7"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How does the kidney regulate osmotic balance while removing waste?",
+      "explanation": "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance. The kidneys perform both through filtration, selective reabsorption, secretion and adjustable water recovery. Plasma osmotic concentration is measured in osmoles per litre (osmol L⁻¹), often expressed clinically as mOsm/kg for osmolality; these units are not interchangeable without assumptions.\n\nRenal tubules return most filtered water and valuable solutes to blood while eliminating waste such as urea. Depending on hydration state, urine can be dilute or concentrated. Kidney function also contributes to electrolyte and acid-base regulation, but students should distinguish the aim of regulating osmotic concentration from the separate aim of removing nitrogenous wastes.\n\nKidneys filter blood plasma and selectively reabsorb needed water and solutes while excreting metabolic wastes, including urea, in urine. Excretion is removal of wastes or excess substances; osmoregulation is maintenance of the concentration and volume of body fluids. Nephrons accomplish both because filtrate composition changes as it passes through specialized regions. A kidney does not simply strain out all unwanted molecules and discard the rest: selective transport and hormone-dependent water reabsorption are essential to conserving useful resources.",
+      "revisionSummary": "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
+      "terms": [
+        "Kidney functions in osmoregulation"
+      ],
+      "workedExample": "Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated.",
+      "misconceptions": [
+        {
+          "misconception": "Producing more concentrated urine means more waste is created.",
+          "correction": "Urine concentration can rise because proportionally more water is recovered from the filtrate."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance. The kidneys perform both through filtration, selective reabsorption, secretion and adjustable water recovery. Plasma osmotic concentration is measured in osmoles per litre (osmol L⁻¹), often expressed clinically as mOsm/kg for osmolality; these units are not interchangeable without assumptions.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "claim": "Renal tubules return most filtered water and valuable solutes to blood while eliminating waste such as urea. Depending on hydration state, urine can be dilute or concentrated. Kidney function also contributes to electrolyte and acid-base regulation, but students should distinguish the aim of regulating osmotic concentration from the separate aim of removing nitrogenous wastes.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "claim": "Kidneys filter blood plasma and selectively reabsorb needed water and solutes while excreting metabolic wastes, including urea, in urine. Excretion is removal of wastes or excess substances; osmoregulation is maintenance of the concentration and volume of body fluids. Nephrons accomplish both because filtrate composition changes as it passes through specialized regions. A kidney does not simply strain out all unwanted molecules and discard the rest: selective transport and hormone-dependent water reabsorption are essential to conserving useful resources.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-kidney"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Kidneys regulate water and remove wastes",
+          "explanation": "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance. The kidneys perform both through filtration, selective reabsorption, secretion and adjustable water recovery. Plasma osmotic concentration is measured in osmoles per litre (osmol L⁻¹), often expressed clinically as mOsm/kg for osmolality; these units are not interchangeable without assumptions.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "Renal tubules return most filtered water and valuable solutes to blood while eliminating waste such as urea. Depending on hydration state, urine can be dilute or concentrated. Kidney function also contributes to electrolyte and acid-base regulation, but students should distinguish the aim of regulating osmotic concentration from the separate aim of removing nitrogenous wastes.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "title": "Separate water balance from removal of nitrogenous waste",
+          "explanation": "Kidneys filter blood plasma and selectively reabsorb needed water and solutes while excreting metabolic wastes, including urea, in urine. Excretion is removal of wastes or excess substances; osmoregulation is maintenance of the concentration and volume of body fluids. Nephrons accomplish both because filtrate composition changes as it passes through specialized regions. A kidney does not simply strain out all unwanted molecules and discard the rest: selective transport and hormone-dependent water reabsorption are essential to conserving useful resources.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
+        "example": "Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated.",
+        "different": "Urine concentration can rise because proportionally more water is recovered from the filtrate.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-7",
+          "prompt": "Choose the accurate explanation of kidney functions in osmoregulation.",
+          "understandingIds": [
+            "D3.3.7"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Osmoregulation and excretion name exactly the same process.",
+              "correct": false,
+              "feedback": "Urine concentration can rise because proportionally more water is recovered from the filtrate."
+            },
+            {
+              "id": "b",
+              "text": "All filtered water must leave the body as urine.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances."
+            },
+            {
+              "id": "c",
+              "text": "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
+              "correct": true,
+              "feedback": "Correct: Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated."
+            },
+            {
+              "id": "d",
+              "text": "An osmole measures only the mass of sodium ions.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-7",
+          "prompt": "State the mechanism for kidney functions in osmoregulation and its corrective consequence.",
+          "answer": "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
+          "explanation": "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance. The kidneys perform both through filtration, selective reabsorption, secretion and adjustable water recovery. Plasma osmotic concentration is measured in osmoles per litre (osmol L⁻¹), often expressed clinically as mOsm/kg for osmolality; these units are not interchangeable without assumptions.",
+          "understandingIds": [
+            "D3.3.7"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction"
+    },
+    {
+      "id": "homeostasis-8",
+      "understandingIds": [
+        "D3.3.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which substances are filtered and then reclaimed in the nephron?",
+      "explanation": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.\n\nSodium reabsorption helps establish gradients enabling cotransport of solutes, while water follows osmotically. Filtration is therefore bulk, size/charge-selective entry into the nephron, whereas reabsorption selects substances to retain. Tubular secretion can add unwanted solutes to the lumen later. The eventual urine composition depends on all of these processes, not glomerular filtration alone.\n\nGlomerular hydrostatic pressure drives water and small solutes through the filtration barrier into Bowman's space, while cells and most proteins remain in the blood. The proximal tubule then selectively reabsorbs useful solutes; water follows osmotically. Do not describe filtration as active transport of glucose.",
+      "revisionSummary": "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
+      "terms": [
+        "Filtration and proximal reabsorption"
+      ],
+      "workedExample": "Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded.",
+      "misconceptions": [
+        {
+          "misconception": "All solutes crossing the glomerulus are immediately excreted.",
+          "correction": "Filtered solutes can be selectively reabsorbed before urine formation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "claim": "Sodium reabsorption helps establish gradients enabling cotransport of solutes, while water follows osmotically. Filtration is therefore bulk, size/charge-selective entry into the nephron, whereas reabsorption selects substances to retain. Tubular secretion can add unwanted solutes to the lumen later. The eventual urine composition depends on all of these processes, not glomerular filtration alone.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "claim": "Glomerular hydrostatic pressure drives water and small solutes through the filtration barrier into Bowman's space, while cells and most proteins remain in the blood. The proximal tubule then selectively reabsorbs useful solutes; water follows osmotically. Do not describe filtration as active transport of glucose.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-kidney"
+      ],
+      "assets": [
+        "filtration-reabsorption"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "Ultrafiltration and proximal tubular reabsorption",
+          "explanation": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "Sodium reabsorption helps establish gradients enabling cotransport of solutes, while water follows osmotically. Filtration is therefore bulk, size/charge-selective entry into the nephron, whereas reabsorption selects substances to retain. Tubular secretion can add unwanted solutes to the lumen later. The eventual urine composition depends on all of these processes, not glomerular filtration alone.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33",
+            "niddk-kidney"
+          ]
+        },
+        {
+          "title": "Filtration versus selective reabsorption",
+          "explanation": "Glomerular hydrostatic pressure drives water and small solutes through the filtration barrier into Bowman's space, while cells and most proteins remain in the blood. The proximal tubule then selectively reabsorbs useful solutes; water follows osmotically. Do not describe filtration as active transport of glucose.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
+        "example": "Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded.",
+        "different": "Filtered solutes can be selectively reabsorbed before urine formation.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-8",
+          "prompt": "Choose the accurate explanation of filtration and proximal reabsorption.",
+          "understandingIds": [
+            "D3.3.8"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Healthy filtration normally transfers most red blood cells into Bowman’s capsule.",
+              "correct": false,
+              "feedback": "Filtered solutes can be selectively reabsorbed before urine formation."
+            },
+            {
+              "id": "b",
+              "text": "The proximal tubule is the main site where blood pressure directly creates the initial filtrate.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules."
+            },
+            {
+              "id": "c",
+              "text": "Glucose remains in urine because it cannot cross the filtration barrier.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules."
+            },
+            {
+              "id": "d",
+              "text": "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
+              "correct": true,
+              "feedback": "Correct: Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-8",
+          "prompt": "State the mechanism for filtration and proximal reabsorption and its corrective consequence.",
+          "answer": "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
+          "explanation": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.",
+          "understandingIds": [
+            "D3.3.8"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "figurePlacements": [
+        {
+          "assetId": "filtration-reabsorption",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "homeostasis-9",
+      "understandingIds": [
+        "D3.3.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How do the descending and ascending limbs establish the medullary gradient?",
+      "explanation": "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla. The descending limb is permeable to water, allowing water to leave into progressively more concentrated medullary tissue. Opposing flows in the limbs act as a countercurrent multiplier, establishing a corticomedullary osmotic gradient.\n\nThe gradient is maintained by transport and specialized blood flow and enables water to move osmotically from collecting ducts when those ducts become water permeable under ADH influence. The loop itself does not create ADH, and active sodium transport rather than direct active pumping of water is the essential energy-consuming process in the simplified IB mechanism.\n\nDescending loop-of-Henle segments are relatively permeable to water, enabling its exit into hyperosmotic medullary interstitium. The ascending limb is relatively impermeable to water and moves sodium and chloride into the interstitium, building a gradient through countercurrent multiplication. This simplifies a complex kidney mechanism; the ascending limb does not recover water in the same way as the descending limb.",
+      "revisionSummary": "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
+      "terms": [
+        "How the loop of Henle builds a gradient"
+      ],
+      "workedExample": "As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct.",
+      "misconceptions": [
+        {
+          "misconception": "The kidney uses ATP to pump water directly through aquaporins.",
+          "correction": "Water moves by osmosis; ATP-dependent solute transport creates the driving gradient."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla. The descending limb is permeable to water, allowing water to leave into progressively more concentrated medullary tissue. Opposing flows in the limbs act as a countercurrent multiplier, establishing a corticomedullary osmotic gradient.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "The gradient is maintained by transport and specialized blood flow and enables water to move osmotically from collecting ducts when those ducts become water permeable under ADH influence. The loop itself does not create ADH, and active sodium transport rather than direct active pumping of water is the essential energy-consuming process in the simplified IB mechanism.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "Descending loop-of-Henle segments are relatively permeable to water, enabling its exit into hyperosmotic medullary interstitium. The ascending limb is relatively impermeable to water and moves sodium and chloride into the interstitium, building a gradient through countercurrent multiplication. This simplifies a complex kidney mechanism; the ascending limb does not recover water in the same way as the descending limb.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [
+        "loop-henle-gradient"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "Loop of Henle maintains a medullary gradient",
+          "explanation": "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla. The descending limb is permeable to water, allowing water to leave into progressively more concentrated medullary tissue. Opposing flows in the limbs act as a countercurrent multiplier, establishing a corticomedullary osmotic gradient.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "The gradient is maintained by transport and specialized blood flow and enables water to move osmotically from collecting ducts when those ducts become water permeable under ADH influence. The loop itself does not create ADH, and active sodium transport rather than direct active pumping of water is the essential energy-consuming process in the simplified IB mechanism.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "The countercurrent mechanism has two different limb properties",
+          "explanation": "Descending loop-of-Henle segments are relatively permeable to water, enabling its exit into hyperosmotic medullary interstitium. The ascending limb is relatively impermeable to water and moves sodium and chloride into the interstitium, building a gradient through countercurrent multiplication. This simplifies a complex kidney mechanism; the ascending limb does not recover water in the same way as the descending limb.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
+        "example": "As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct.",
+        "different": "Water moves by osmosis; ATP-dependent solute transport creates the driving gradient.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-9",
+          "prompt": "Choose the accurate explanation of how the loop of henle builds a gradient.",
+          "understandingIds": [
+            "D3.3.9"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
+              "correct": true,
+              "feedback": "Correct: As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct."
+            },
+            {
+              "id": "b",
+              "text": "Ascending limb actively pumps water into the medulla.",
+              "correct": false,
+              "feedback": "Water moves by osmosis; ATP-dependent solute transport creates the driving gradient."
+            },
+            {
+              "id": "c",
+              "text": "The whole loop of Henle is equally permeable to water.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation."
+            },
+            {
+              "id": "d",
+              "text": "High medullary solute concentration prevents collecting-duct water reabsorption.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-9",
+          "prompt": "State the mechanism for how the loop of henle builds a gradient and its corrective consequence.",
+          "answer": "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
+          "explanation": "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla. The descending limb is permeable to water, allowing water to leave into progressively more concentrated medullary tissue. Opposing flows in the limbs act as a countercurrent multiplier, establishing a corticomedullary osmotic gradient.",
+          "understandingIds": [
+            "D3.3.9"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "figurePlacements": [
+        {
+          "assetId": "loop-henle-gradient",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "homeostasis-10",
+      "understandingIds": [
+        "D3.3.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why does ADH change the concentration and volume of urine?",
+      "explanation": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.\n\nMore water can then enter cells from tubular fluid and return to blood across basolateral pathways down the osmotic gradient established in the medulla. Urine becomes smaller in volume and more concentrated, helping reverse the original osmotic rise. When plasma osmotic concentration falls, ADH secretion decreases, aquaporin-2 channels are internalized and more dilute urine can be excreted. This is a two-direction negative-feedback system.\n\nHigh plasma osmolality activates hypothalamic osmoreceptors. The posterior pituitary releases ADH, which stimulates aquaporin-2 insertion into the apical membrane of collecting-duct cells. Water then follows an existing medullary gradient by osmosis, producing more concentrated urine; low ADH reduces collecting-duct water permeability.\n\nIn response to increased blood osmotic concentration, hypothalamic osmoreceptors promote ADH release from the posterior pituitary. ADH raises collecting-duct permeability by increasing aquaporin availability. Water then follows a water-potential gradient into the medulla and blood; ADH itself does not carry or actively pump water molecules.",
+      "revisionSummary": "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
+      "terms": [
+        "ADH and water recovery in collecting ducts"
+      ],
+      "workedExample": "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
+      "misconceptions": [
+        {
+          "misconception": "ADH directly draws water uphill against its osmotic gradient.",
+          "correction": "ADH changes membrane permeability, allowing osmosis along the existing gradient."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "More water can then enter cells from tubular fluid and return to blood across basolateral pathways down the osmotic gradient established in the medulla. Urine becomes smaller in volume and more concentrated, helping reverse the original osmotic rise. When plasma osmotic concentration falls, ADH secretion decreases, aquaporin-2 channels are internalized and more dilute urine can be excreted. This is a two-direction negative-feedback system.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "High plasma osmolality activates hypothalamic osmoreceptors. The posterior pituitary releases ADH, which stimulates aquaporin-2 insertion into the apical membrane of collecting-duct cells. Water then follows an existing medullary gradient by osmosis, producing more concentrated urine; low ADH reduces collecting-duct water permeability.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "In response to increased blood osmotic concentration, hypothalamic osmoreceptors promote ADH release from the posterior pituitary. ADH raises collecting-duct permeability by increasing aquaporin availability. Water then follows a water-potential gradient into the medulla and blood; ADH itself does not carry or actively pump water molecules.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [
+        "d33-adh"
+      ],
+      "teachingBlocks": [
+        {
+          "title": "ADH changes collecting-duct permeability",
+          "explanation": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "More water can then enter cells from tubular fluid and return to blood across basolateral pathways down the osmotic gradient established in the medulla. Urine becomes smaller in volume and more concentrated, helping reverse the original osmotic rise. When plasma osmotic concentration falls, ADH secretion decreases, aquaporin-2 channels are internalized and more dilute urine can be excreted. This is a two-direction negative-feedback system.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "ADH pathway from stimulus to effect",
+          "explanation": "High plasma osmolality activates hypothalamic osmoreceptors. The posterior pituitary releases ADH, which stimulates aquaporin-2 insertion into the apical membrane of collecting-duct cells. Water then follows an existing medullary gradient by osmosis, producing more concentrated urine; low ADH reduces collecting-duct water permeability.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "ADH changes permeability rather than directly pumping water",
+          "explanation": "In response to increased blood osmotic concentration, hypothalamic osmoreceptors promote ADH release from the posterior pituitary. ADH raises collecting-duct permeability by increasing aquaporin availability. Water then follows a water-potential gradient into the medulla and blood; ADH itself does not carry or actively pump water molecules.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
+        "example": "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
+        "different": "ADH changes membrane permeability, allowing osmosis along the existing gradient.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-10",
+          "prompt": "Choose the accurate explanation of adh and water recovery in collecting ducts.",
+          "understandingIds": [
+            "D3.3.10"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "ADH is synthesized inside the collecting-duct epithelium.",
+              "correct": false,
+              "feedback": "ADH changes membrane permeability, allowing osmosis along the existing gradient."
+            },
+            {
+              "id": "b",
+              "text": "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
+              "correct": true,
+              "feedback": "Correct: High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases."
+            },
+            {
+              "id": "c",
+              "text": "More ADH normally makes collecting ducts less permeable to water.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: ADH increases collecting-duct water permeability via aquaporin insertion and conserves water."
+            },
+            {
+              "id": "d",
+              "text": "Aquaporins generate the osmotic gradient by active pumping.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: ADH increases collecting-duct water permeability via aquaporin insertion and conserves water."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-10",
+          "prompt": "State the mechanism for adh and water recovery in collecting ducts and its corrective consequence.",
+          "answer": "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
+          "explanation": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.",
+          "understandingIds": [
+            "D3.3.10"
+          ]
+        }
+      ],
+      "guidePage": 101,
+      "pdfPage": 107,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "figurePlacements": [
+        {
+          "assetId": "d33-adh",
+          "afterBlock": 0
+        }
+      ]
+    },
+    {
+      "id": "homeostasis-11",
+      "understandingIds": [
+        "D3.3.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How is blood flow redistributed during exercise?",
+      "explanation": "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output. During vigorous exercise, blood flow to working skeletal muscle rises markedly, while splanchnic (including gut) and renal perfusion commonly decline relative to resting conditions. Cerebral blood supply remains a critical priority and is regulated tightly, although it can vary with activity and carbon dioxide concentration.\n\nDuring wakeful rest, gut and kidneys receive substantial flow for digestion and filtration, with resting skeletal muscle receiving less than during heavy exercise. Sleep alters autonomic tone and the distribution and total rate of blood flow, but patterns depend on sleep stage and individual physiology: never present simplistic exact percentages as universal. The observable physiological pattern follows organ function, not a claim that the brain stops requiring oxygen during sleep.\n\nDuring vigorous exercise, increased cardiac output and altered resistance deliver more blood to active skeletal muscles while relative flow to some digestive tissues decreases. Brain perfusion is usually defended rather than increasing in the same proportion as muscle flow; kidney and gut flow vary with the activity state. At wakeful rest and during sleep the distribution shifts again with tissue metabolic demand and autonomic regulation. Interpret a graph by distinguishing absolute blood flow from the percentage of cardiac output, which can change even if an organ's absolute flow stays similar.",
+      "revisionSummary": "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
+      "terms": [
+        "Redistribution of organ blood supply"
+      ],
+      "workedExample": "During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs.",
+      "misconceptions": [
+        {
+          "misconception": "Organ blood supply is redistributed only by growth of new arteries.",
+          "correction": "Acute changes in vessel tone and cardiac output alter flow within seconds or minutes."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output. During vigorous exercise, blood flow to working skeletal muscle rises markedly, while splanchnic (including gut) and renal perfusion commonly decline relative to resting conditions. Cerebral blood supply remains a critical priority and is regulated tightly, although it can vary with activity and carbon dioxide concentration.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "During wakeful rest, gut and kidneys receive substantial flow for digestion and filtration, with resting skeletal muscle receiving less than during heavy exercise. Sleep alters autonomic tone and the distribution and total rate of blood flow, but patterns depend on sleep stage and individual physiology: never present simplistic exact percentages as universal. The observable physiological pattern follows organ function, not a claim that the brain stops requiring oxygen during sleep.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "claim": "During vigorous exercise, increased cardiac output and altered resistance deliver more blood to active skeletal muscles while relative flow to some digestive tissues decreases. Brain perfusion is usually defended rather than increasing in the same proportion as muscle flow; kidney and gut flow vary with the activity state. At wakeful rest and during sleep the distribution shifts again with tissue metabolic demand and autonomic regulation. Interpret a graph by distinguishing absolute blood flow from the percentage of cardiac output, which can change even if an organ's absolute flow stays similar.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "assets": [],
+      "teachingBlocks": [
+        {
+          "title": "Organ perfusion changes with activity state",
+          "explanation": "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output. During vigorous exercise, blood flow to working skeletal muscle rises markedly, while splanchnic (including gut) and renal perfusion commonly decline relative to resting conditions. Cerebral blood supply remains a critical priority and is regulated tightly, although it can vary with activity and carbon dioxide concentration.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "Feedback, consequences and limits",
+          "explanation": "During wakeful rest, gut and kidneys receive substantial flow for digestion and filtration, with resting skeletal muscle receiving less than during heavy exercise. Sleep alters autonomic tone and the distribution and total rate of blood flow, but patterns depend on sleep stage and individual physiology: never present simplistic exact percentages as universal. The observable physiological pattern follows organ function, not a claim that the brain stops requiring oxygen during sleep.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        },
+        {
+          "title": "How activity redistributes a limited cardiac output",
+          "explanation": "During vigorous exercise, increased cardiac output and altered resistance deliver more blood to active skeletal muscles while relative flow to some digestive tissues decreases. Brain perfusion is usually defended rather than increasing in the same proportion as muscle flow; kidney and gut flow vary with the activity state. At wakeful rest and during sleep the distribution shifts again with tissue metabolic demand and autonomic regulation. Interpret a graph by distinguishing absolute blood flow from the percentage of cardiac output, which can change even if an organ's absolute flow stays similar.",
+          "referenceIds": [
+            "ib-d33",
+            "hodder-d33"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
+        "example": "During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs.",
+        "different": "Acute changes in vessel tone and cardiac output alter flow within seconds or minutes.",
+        "concepts": [
+          {
+            "title": "Causal takeaway",
+            "explanation": "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
+            "keywords": [
+              "stimulus",
+              "response"
+            ]
+          }
+        ]
+      },
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d33-check-11",
+          "prompt": "Choose the accurate explanation of redistribution of organ blood supply.",
+          "understandingIds": [
+            "D3.3.11"
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "During exercise brain blood flow is eliminated to feed muscle.",
+              "correct": false,
+              "feedback": "Acute changes in vessel tone and cardiac output alter flow within seconds or minutes."
+            },
+            {
+              "id": "b",
+              "text": "Kidney filtration necessarily stops completely whenever someone runs.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs."
+            },
+            {
+              "id": "c",
+              "text": "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
+              "correct": true,
+              "feedback": "Correct: During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs."
+            },
+            {
+              "id": "d",
+              "text": "Every organ receives a fixed fraction of cardiac output in all activity states.",
+              "correct": false,
+              "feedback": "The claimed relationship does not follow: Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d33-recall-11",
+          "prompt": "State the mechanism for redistribution of organ blood supply and its corrective consequence.",
+          "answer": "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
+          "explanation": "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output. During vigorous exercise, blood flow to working skeletal muscle rises markedly, while splanchnic (including gut) and renal perfusion commonly decline relative to resting conditions. Cerebral blood supply remains a critical priority and is regulated tightly, although it can vary with activity and carbon dioxide concentration.",
+          "understandingIds": [
+            "D3.3.11"
+          ]
+        }
+      ],
+      "guidePage": 102,
+      "pdfPage": 108,
+      "textbook": {
+        "referenceId": "hodder-d33",
+        "printedPages": [
+          760,
+          778
+        ],
+        "pdfPages": [
+          772,
+          790
+        ]
+      },
+      "exampleTitle": "Mechanism in context",
+      "activityTitle": "Check the feedback direction",
+      "graphTables": [
+        {
+          "caption": "Qualitative relative perfusion (varies by state, no invented percentages)",
+          "headers": [
+            "Tissue",
+            "Wakeful rest",
+            "Vigorous exercise"
+          ],
+          "rows": [
+            [
+              "Skeletal muscle",
+              "Lower",
+              "Much higher"
+            ],
+            [
+              "Gut/splanchnic organs",
+              "Substantial",
+              "Lower"
+            ],
+            [
+              "Kidneys",
+              "Substantial",
+              "Often lower"
+            ],
+            [
+              "Brain",
+              "Maintained",
+              "Maintained/regulated"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "d33-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.1"
+      ],
+      "level": "shared",
+      "prompt": "In internal conditions and homeostasis, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-1",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Homeostasis requires every measurement to remain exactly at the set point.",
+          "correct": false,
+          "feedback": "Living systems have normal fluctuations while feedback keeps variables within physiologically acceptable limits."
+        },
+        {
+          "id": "b",
+          "text": "Only ambient external temperature is homeostatically regulated.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Homeostasis maintains controlled ranges, not perfectly constant values."
+        },
+        {
+          "id": "c",
+          "text": "Homeostasis maintains controlled ranges, not perfectly constant values.",
+          "correct": true,
+          "feedback": "Correct: Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage."
+        },
+        {
+          "id": "d",
+          "text": "Body conditions change only after the genes mutate.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Homeostasis maintains controlled ranges, not perfectly constant values."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-1",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.1"
+      ],
+      "level": "shared",
+      "prompt": "Explain the sequence of causes and effects in internal conditions and homeostasis, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-1",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance. Human examples include core temperature, blood glucose concentration, blood pH and plasma osmotic concentration. Homeostasis does not mean that values never change: each regulated variable fluctuates about a set point or operating range, and different physiological states may change the target.\nBlood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage.",
+      "markingPoints": [
+        "Homeostasis maintains controlled ranges, not perfectly constant values.",
+        "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance.",
+        "Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.2"
+      ],
+      "level": "shared",
+      "prompt": "In components of negative feedback, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-2",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The receptor must perform the final corrective action.",
+          "correct": false,
+          "feedback": "Negative refers to opposing an error; an effector may either increase or decrease its activity."
+        },
+        {
+          "id": "b",
+          "text": "Negative feedback amplifies the initial change until it reaches a maximum.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: A response that reduces the original deviation is negative feedback."
+        },
+        {
+          "id": "c",
+          "text": "The control system always directly releases the effector response without signalling.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: A response that reduces the original deviation is negative feedback."
+        },
+        {
+          "id": "d",
+          "text": "A response that reduces the original deviation is negative feedback.",
+          "correct": true,
+          "feedback": "Correct: Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-2",
+      "paper": "1B",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.2"
+      ],
+      "level": "shared",
+      "prompt": "Explain the sequence of causes and effects in components of negative feedback, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-2",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "A negative-feedback loop begins when a controlled variable deviates from a set point. A receptor or sensor detects the change and conveys information to a control system, which compares the measured value with the desired state and signals effectors. The effector produces a response that opposes the original deviation, reducing the error. For a variable above its set point, the response tends to lower it; for a variable below, the response tends to raise it.\nCore temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
+      "markingPoints": [
+        "A response that reduces the original deviation is negative feedback.",
+        "A negative-feedback loop begins when a controlled variable deviates from a set point.",
+        "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature."
+      ],
+      "data": {
+        "caption": "Conceptual stimulus-response pair",
+        "headers": [
+          "Stimulus or condition",
+          "Observed or predicted action"
+        ],
+        "rows": [
+          [
+            "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
+            "Deduce direction of correction"
+          ]
+        ]
+      },
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.3"
+      ],
+      "level": "shared",
+      "prompt": "In hormonal control of blood glucose, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-3",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose.",
+          "correct": true,
+          "feedback": "Correct: Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓."
+        },
+        {
+          "id": "b",
+          "text": "Glucagon is secreted by pancreatic beta cells to reduce blood sugar.",
+          "correct": false,
+          "feedback": "They usually have opposing net effects on blood glucose and respond to different glucose states."
+        },
+        {
+          "id": "c",
+          "text": "Insulin directly converts glycogen into glucose after fasting.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose."
+        },
+        {
+          "id": "d",
+          "text": "Glucose homeostasis depends entirely on one hormone regardless of state.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Insulin generally lowers elevated blood glucose; glucagon helps raise low blood glucose."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-3",
+      "paper": "1B",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.3"
+      ],
+      "level": "shared",
+      "prompt": "Explain how pancreatic beta and alpha cells, their hormones and target organs oppose glucose changes after meals and during fasting.",
+      "marks": 3,
+      "sectionId": "homeostasis-3",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "When blood glucose rises, pancreatic beta cells secrete insulin; insulin promotes uptake by insulin-responsive tissues, promotes storage and inhibits hepatic glucose production. When blood glucose falls, pancreatic alpha cells secrete glucagon; glucagon acts particularly on liver cells to increase glucose release through glycogen breakdown and gluconeogenesis. Hormonal secretion adjusts as glucose returns toward the regulated range, completing the negative-feedback response.",
+      "markingPoints": [
+        "When blood glucose rises, pancreatic beta cells secrete insulin; insulin promotes uptake by insulin-responsive tissues, promotes storage and inhibits hepatic glucose production.",
+        "When blood glucose falls, pancreatic alpha cells secrete glucagon; glucagon acts particularly on liver cells to increase glucose release through glycogen breakdown and gluconeogenesis.",
+        "Hormonal secretion adjusts as glucose returns toward the regulated range, completing the negative-feedback response."
+      ],
+      "data": {
+        "caption": "Conceptual stimulus-response pair",
+        "headers": [
+          "Stimulus or condition",
+          "Observed or predicted action"
+        ],
+        "rows": [
+          [
+            "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
+            "Deduce direction of correction"
+          ]
+        ]
+      },
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.4"
+      ],
+      "level": "shared",
+      "prompt": "In type 1 and type 2 diabetes, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-4",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-diabetes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Both types are always caused by autoimmune beta-cell destruction.",
+          "correct": false,
+          "feedback": "Type 2 has multiple biological and social risk factors; individual blame misrepresents causation."
+        },
+        {
+          "id": "b",
+          "text": "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
+          "correct": true,
+          "feedback": "Correct: A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand."
+        },
+        {
+          "id": "c",
+          "text": "Type 1 can routinely be reversed by physical activity alone.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation."
+        },
+        {
+          "id": "d",
+          "text": "Type 2 always means the pancreas releases no insulin at diagnosis.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-4",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.4"
+      ],
+      "level": "shared",
+      "prompt": "Explain the sequence of causes and effects in type 1 and type 2 diabetes, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-4",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-diabetes"
+      ],
+      "answer": "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin. Without sufficient insulin, blood glucose cannot be regulated normally and affected people need replacement insulin. The condition is not caused simply by eating sugar and currently cannot reliably be prevented by lifestyle measures. Type 2 diabetes commonly begins with decreased responsiveness of liver, muscle and adipose tissue to insulin and may progress to insufficient beta-cell output.\nA person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand.",
+      "markingPoints": [
+        "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
+        "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin.",
+        "A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.5"
+      ],
+      "level": "shared",
+      "prompt": "In negative feedback in thermoregulation, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-5",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The pituitary directly operates sweat glands in every acute heat response.",
+          "correct": false,
+          "feedback": "Fast neural responses and slower hormonal metabolic effects contribute on different timescales."
+        },
+        {
+          "id": "b",
+          "text": "Cold exposure primarily causes cutaneous vasodilation to conserve heat.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Thermoregulatory effectors act in the direction that opposes core-temperature deviation."
+        },
+        {
+          "id": "c",
+          "text": "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
+          "correct": true,
+          "feedback": "Correct: Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation."
+        },
+        {
+          "id": "d",
+          "text": "Shivering lowers metabolic heat production.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Thermoregulatory effectors act in the direction that opposes core-temperature deviation."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-5",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.5"
+      ],
+      "level": "shared",
+      "prompt": "Explain the sequence of causes and effects in negative feedback in thermoregulation, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-5",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature. Hypothalamic thermoregulatory circuits integrate these signals with the defended core-temperature range and coordinate effectors through autonomic and somatic pathways. Increased heat activates skin vasodilation and sweating; cooling activates heat conservation and production pathways such as vasoconstriction and shivering. Each response reduces the temperature deviation.\nCore temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation.",
+      "markingPoints": [
+        "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
+        "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature.",
+        "Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.6"
+      ],
+      "level": "shared",
+      "prompt": "In human temperature-control responses, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-6",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "A droplet of sweat cools equally whether it evaporates or stays on skin.",
+          "correct": false,
+          "feedback": "Evaporation of liquid water from the skin consumes heat and drives cooling."
+        },
+        {
+          "id": "b",
+          "text": "Human hair erection provides the same insulation as a thick animal coat.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Sweat cools chiefly by evaporation; shivering and brown fat generate heat."
+        },
+        {
+          "id": "c",
+          "text": "Vasoconstriction exposes more blood to the skin to increase cooling.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Sweat cools chiefly by evaporation; shivering and brown fat generate heat."
+        },
+        {
+          "id": "d",
+          "text": "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
+          "correct": true,
+          "feedback": "Correct: High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-6",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Explain the sequence of causes and effects in human temperature-control responses, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-6",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible. In cold conditions, vasoconstriction reduces skin heat transfer while involuntary skeletal-muscle shivering generates heat through ATP use. Brown adipose tissue can release energy as heat through mitochondrial uncoupling protein UCP1 rather than driving ATP synthesis. Erection of body hairs can trap insulating air in furry mammals but offers little insulation for sparsely haired humans.\nHigh humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise.",
+      "markingPoints": [
+        "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
+        "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible.",
+        "High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.7"
+      ],
+      "level": "HL",
+      "prompt": "In kidney functions in osmoregulation, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-7",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-kidney"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
+          "correct": true,
+          "feedback": "Correct: Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated."
+        },
+        {
+          "id": "b",
+          "text": "Osmoregulation and excretion name exactly the same process.",
+          "correct": false,
+          "feedback": "Urine concentration can rise because proportionally more water is recovered from the filtrate."
+        },
+        {
+          "id": "c",
+          "text": "All filtered water must leave the body as urine.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances."
+        },
+        {
+          "id": "d",
+          "text": "An osmole measures only the mass of sodium ions.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-7",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.7"
+      ],
+      "level": "HL",
+      "prompt": "Explain the sequence of causes and effects in kidney functions in osmoregulation, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-7",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-kidney"
+      ],
+      "answer": "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance. The kidneys perform both through filtration, selective reabsorption, secretion and adjustable water recovery. Plasma osmotic concentration is measured in osmoles per litre (osmol L⁻¹), often expressed clinically as mOsm/kg for osmolality; these units are not interchangeable without assumptions.\nFollowing dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated.",
+      "markingPoints": [
+        "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
+        "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance.",
+        "Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.8"
+      ],
+      "level": "HL",
+      "prompt": "In filtration and proximal reabsorption, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-8",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-kidney"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Healthy filtration normally transfers most red blood cells into Bowman’s capsule.",
+          "correct": false,
+          "feedback": "Filtered solutes can be selectively reabsorbed before urine formation."
+        },
+        {
+          "id": "b",
+          "text": "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
+          "correct": true,
+          "feedback": "Correct: Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded."
+        },
+        {
+          "id": "c",
+          "text": "The proximal tubule is the main site where blood pressure directly creates the initial filtrate.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules."
+        },
+        {
+          "id": "d",
+          "text": "Glucose remains in urine because it cannot cross the filtration barrier.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-8",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.8"
+      ],
+      "level": "HL",
+      "prompt": "Explain the sequence of causes and effects in filtration and proximal reabsorption, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-8",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-kidney"
+      ],
+      "answer": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.\nGlucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded.",
+      "markingPoints": [
+        "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
+        "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space.",
+        "Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.9"
+      ],
+      "level": "HL",
+      "prompt": "In how the loop of henle builds a gradient, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-9",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Ascending limb actively pumps water into the medulla.",
+          "correct": false,
+          "feedback": "Water moves by osmosis; ATP-dependent solute transport creates the driving gradient."
+        },
+        {
+          "id": "b",
+          "text": "The whole loop of Henle is equally permeable to water.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation."
+        },
+        {
+          "id": "c",
+          "text": "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
+          "correct": true,
+          "feedback": "Correct: As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct."
+        },
+        {
+          "id": "d",
+          "text": "High medullary solute concentration prevents collecting-duct water reabsorption.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-9",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.9"
+      ],
+      "level": "HL",
+      "prompt": "Explain the sequence of causes and effects in how the loop of henle builds a gradient, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-9",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla. The descending limb is permeable to water, allowing water to leave into progressively more concentrated medullary tissue. Opposing flows in the limbs act as a countercurrent multiplier, establishing a corticomedullary osmotic gradient.\nAs salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct.",
+      "markingPoints": [
+        "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
+        "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla.",
+        "As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.10"
+      ],
+      "level": "HL",
+      "prompt": "In adh and water recovery in collecting ducts, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-10",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ADH is synthesized inside the collecting-duct epithelium.",
+          "correct": false,
+          "feedback": "ADH changes membrane permeability, allowing osmosis along the existing gradient."
+        },
+        {
+          "id": "b",
+          "text": "More ADH normally makes collecting ducts less permeable to water.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: ADH increases collecting-duct water permeability via aquaporin insertion and conserves water."
+        },
+        {
+          "id": "c",
+          "text": "Aquaporins generate the osmotic gradient by active pumping.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: ADH increases collecting-duct water permeability via aquaporin insertion and conserves water."
+        },
+        {
+          "id": "d",
+          "text": "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
+          "correct": true,
+          "feedback": "Correct: High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-10",
+      "paper": "1B",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.10"
+      ],
+      "level": "HL",
+      "prompt": "Explain the sequence of causes and effects in adh and water recovery in collecting ducts, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-10",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.\nHigh plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
+      "markingPoints": [
+        "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
+        "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration.",
+        "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases."
+      ],
+      "data": {
+        "caption": "Conceptual stimulus-response pair",
+        "headers": [
+          "Stimulus or condition",
+          "Observed or predicted action"
+        ],
+        "rows": [
+          [
+            "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
+            "Deduce direction of correction"
+          ]
+        ]
+      },
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d33-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.3.11"
+      ],
+      "level": "HL",
+      "prompt": "In redistribution of organ blood supply, which statement correctly identifies the causal relationship?",
+      "marks": 1,
+      "sectionId": "homeostasis-11",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
+          "correct": true,
+          "feedback": "Correct: During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs."
+        },
+        {
+          "id": "b",
+          "text": "During exercise brain blood flow is eliminated to feed muscle.",
+          "correct": false,
+          "feedback": "Acute changes in vessel tone and cardiac output alter flow within seconds or minutes."
+        },
+        {
+          "id": "c",
+          "text": "Kidney filtration necessarily stops completely whenever someone runs.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs."
+        },
+        {
+          "id": "d",
+          "text": "Every organ receives a fixed fraction of cardiac output in all activity states.",
+          "correct": false,
+          "feedback": "The claimed relationship does not follow: Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs."
+        }
+      ],
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-written-11",
+      "paper": "2",
+      "kind": "structured-response",
+      "original": true,
+      "understandingIds": [
+        "D3.3.11"
+      ],
+      "level": "HL",
+      "prompt": "Explain the sequence of causes and effects in redistribution of organ blood supply, naming the relevant sensors/signals or tissues and the consequence.",
+      "marks": 3,
+      "sectionId": "homeostasis-11",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "answer": "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output. During vigorous exercise, blood flow to working skeletal muscle rises markedly, while splanchnic (including gut) and renal perfusion commonly decline relative to resting conditions. Cerebral blood supply remains a critical priority and is regulated tightly, although it can vary with activity and carbon dioxide concentration.\nDuring strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs.",
+      "markingPoints": [
+        "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
+        "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output.",
+        "During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs."
+      ],
+      "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-d33",
+      "title": "International Baccalaureate, Biology guide, first assessment 2025",
+      "locator": "D3.3, printed pp. 100–102; PDF pp. 106–108",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-d33",
+      "title": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, third edition (Hodder, 2023)",
+      "locator": "D3.3, printed pp. 760–778; PDF pp. 772–790",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "niddk-diabetes",
+      "title": "NIDDK, What Is Diabetes?",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes",
+      "locator": "Type 1 and type 2 physiology",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "niddk-kidney",
+      "title": "NIDDK, Your Kidneys & How They Work",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidneys-how-they-work",
+      "locator": "Filtration, reabsorption and renal functions",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    }
+  ],
+  "assets": [
+    {
+      "id": "d33-feedback",
+      "kind": "diagram",
+      "src": "/biology/homeostasis/d33-negative-feedback.svg",
+      "alt": "Causal negative feedback schematic with stimulus, sensor/receptor, hypothalamic or endocrine controller, effector and response opposing the original deviation, plus two opposing paths for high versus low temperature.",
+      "captionTitle": "The direction of negative feedback",
+      "interpretation": "A response counteracts the original deviation; the receptor detects and the effector acts. Thermoregulatory pathways shown as conceptual examples.",
+      "attribution": "Original BioLab SVG 2026-10-17",
+      "license": "Original project work, no imported images",
+      "permissionEvidence": "Original layout and biological relationships paraphrased from referenced curriculum, awaiting independent review",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-adh",
+      "kind": "diagram",
+      "src": "/biology/homeostasis/d33-adh-nephron.svg",
+      "alt": "Diagram of hypothalamic osmoreceptor detection, posterior pituitary ADH release, aquaporin-2 insertion in collecting-duct apical membrane and osmotic water recovery, opposed by low-ADH removal of aquaporins.",
+      "captionTitle": "Osmoregulation: ADH changes permeability",
+      "interpretation": "The kidney recovers water by osmosis, not active pumping; solute gradient is produced by salt transport in the loop of Henle.",
+      "attribution": "Original BioLab SVG 2026-10-17",
+      "license": "Original project work, no imported images",
+      "permissionEvidence": "Original schematic constructed without copying source figures",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    },
+    {
+      "id": "d33-glucose-feedback",
+      "kind": "diagram",
+      "src": "/biology/homeostasis/d33-glucose-feedback.svg",
+      "alt": "Two parallel negative-feedback pathways from high or low blood glucose through pancreatic cells and hormones to target-organ responses.",
+      "captionTitle": "Opposing insulin and glucagon responses",
+      "interpretation": "Two parallel negative-feedback pathways from high or low blood glucose through pancreatic cells and hormones to target-organ responses.",
+      "attribution": "Original BioLab scientific SVG, 2026-10-17",
+      "license": "Original project work; no textbook figure reused",
+      "permissionEvidence": "Created from original geometric shapes and explanatory labels; independent visual/scientific review pending",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "level": "shared",
+      "review": "sprint9-source-mapped"
+    },
+    {
+      "id": "loop-henle-gradient",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-d3311.png",
+      "alt": "Descending limb loses water by osmosis; ascending limb is impermeable to water and loses sodium and chloride. The medullary concentration gradient and neighbouring vasa recta are labelled, with passive ion loss in the thin ascending region and active transport in the thick region.",
+      "captionTitle": "The functioning loop of Henle",
+      "attribution": "C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D3.3.11, printed page 774 (PDF page 786).",
+      "license": "Reproduced with permission as affirmed by the BioLab project owner; source creator/publisher retains copyright.",
+      "permissionEvidence": "User confirmed public reproduction permission in ChatGPT conversation 2026-10-19; exact source, crop coordinates and SHA-256 are recorded in docs/biology/licensed-book-figures/FIGURE_SOURCE_REGISTER.json.",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "displaySize": "detailed",
+      "publicReproductionRights": "cleared"
+    },
+    {
+      "id": "filtration-reabsorption",
+      "kind": "diagram",
+      "src": "/biology/homeostasis/filtration-reabsorption.svg",
+      "alt": "Functional compartment model: hydrostatic pressure filters water and small solutes from glomerular blood to Bowman’s capsule, normally retaining cells and large proteins. Useful solutes and water return from proximal-tubule filtrate to nearby blood; remaining filtrate flows to loop of Henle. Boxes are not anatomical shapes.",
+      "captionTitle": "Kidney: filter, then selectively return",
+      "attribution": "Original BioLab scientific model, 18 October 2026",
+      "license": "Original project artwork; rights retained by BioLab",
+      "permissionEvidence": "Independent vector model. No publisher artwork or patient/family data used.",
+      "referenceIds": [
+        "ib-d33",
+        "hodder-d33",
+        "niddk-kidney"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "displaySize": "standard"
+    }
+  ],
+  "summary": "Homeostasis uses sensors and negative feedback to keep variables within defended ranges. Pancreatic hormones, neural and thyroid thermoregulation, renal tubular transport and ADH illustrate distinct but coordinated control mechanisms.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "Original first-pass draft; no qualified scientific or instructional sign-off.",
+      "All mechanisms are taught in prose without numbered teaching accordions.",
+      "Diabetes material provides educational information, not individualized medical guidance.",
+      "Relative perfusion differences are qualitative, avoiding unsupported universal percentages.",
+      "Original SVG figures and test cases still require executed automated, visual and accessibility checks.",
+      "Assessment quality update: correct-option positions balanced across four choices; distractor feedback and biological content retained. Qualified examiner review remains pending.",
+      "Sprint 9: all understanding-level structured-response marking points replaced with content-specific scientific statements; independent content and examiner review outstanding."
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+name: BioLab Assessment Quality (isolated QA, no deployment)
+
+on:
+  push:
+    branches:
+      - feature/biolab-final-assessment-quality-20261018
+    paths:
+      - '.github/workflows/biolab-assessment-quality.yml'
+      - 'scripts/biology/assessment-quality/**'
+      - 'docs/biology/assessment-quality/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assessment-qa:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    env:
+      CI: 'true'
+    steps:
+      - name: Checkout exactly this isolated commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify branch, SHA and clean checkout
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = feature/biolab-final-assessment-quality-20261018
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          mkdir -p qa-artifacts/assessment-quality
+          printf 'tested_sha=%s\nbranch=%s\n' "$GITHUB_SHA" "$GITHUB_REF_NAME" | tee qa-artifacts/assessment-quality/checkout.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Exact npm dependency install
+        run: npm ci
+      - name: Existing quality and Biology validators
+        run: |
+          set -euo pipefail
+          npm run quality
+          node scripts/validate-biology.mjs
+          node scripts/biology/full-course/readiness-audit.mjs
+      - name: Assessment validator negative fixtures
+        run: node --test scripts/biology/assessment-quality/audit.test.mjs
+      - name: Entire course assessment validator
+        run: node scripts/biology/assessment-quality/audit.mjs > qa-artifacts/assessment-quality/audit-output.json
+      - name: Patch package preflight without changing lessons
+        run: node scripts/biology/assessment-quality/verify-patches.mjs | tee qa-artifacts/assessment-quality/patch-preflight.json
+      - name: Production application build (not deployment)
+        run: npm run build
+      - name: Browser assessment checks with offline Chromium
+        run: |
+          set -euo pipefail
+          mkdir -p node_modules/.vite-temp
+          docker pull mcr.microsoft.com/playwright:v1.56.1-noble
+          docker run --rm \
+            --network none \
+            --cap-drop ALL \
+            --security-opt no-new-privileges \
+            --read-only \
+            --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp \
+            --env CI=true \
+            --env GITHUB_SHA="$GITHUB_SHA" \
+            --tmpfs /tmp:rw,nosuid,size=1024m \
+            --shm-size=1g \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \
+            --workdir /work \
+            mcr.microsoft.com/playwright:v1.56.1-noble \
+            bash -euo pipefail -c '
+              export CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"
+              test -x "$CHROME_BIN"
+              npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/assessment-quality/preview.log 2>&1 &
+              preview_pid=$!
+              trap "kill $preview_pid 2>/dev/null || true" EXIT
+              ready=0
+              for attempt in $(seq 1 45); do
+                if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4173/; then ready=1; break; fi
+                sleep 1
+              done
+              test "$ready" = 1 || { cat qa-artifacts/assessment-quality/preview.log; exit 1; }
+              node scripts/biology/assessment-quality/browser.mjs | tee qa-artifacts/assessment-quality/browser.log
+            '
+      - name: Save recorded evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: assessment-quality-evidence
+          path: qa-artifacts/assessment-quality/
+          if-no-files-found: warn
+          retention-days: 30

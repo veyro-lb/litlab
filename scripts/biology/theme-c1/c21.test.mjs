@@ -1,0 +1,12 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {validateLesson} from '../../validate-lesson.mjs';
+const root=new URL('../../../',import.meta.url);
+const read=path=>JSON.parse(readFileSync(new URL(path,root),'utf8'));
+const lesson=read('src/biology/learning/chemical-signalling/lesson.json');
+const topic=read('src/biology/curriculum/registry.json').find(t=>t.id==='C2.1');
+test('C2.1 has every HL-only understanding and 29 assessment items',()=>{assert.equal(lesson.sections.length,14);assert.deepEqual(validateLesson(lesson,topic),[]);assert.equal(lesson.questions.length,29);assert.ok(lesson.questions.some(q=>q.id==='c21-data-second-messenger-20261017'&&q.original&&q.level==='HL'&&q.markingPoints?.length===q.marks));assert.equal(lesson.questions.filter(q=>q.paper==='1A').length,14);assert.ok(lesson.sections.every(s=>s.level==='HL'));assert.ok(lesson.questions.every(q=>q.level==='HL'))});
+test('receptor mechanisms and source records',()=>{for(const a of lesson.assets){assert.ok(existsSync(new URL('public'+a.src,root)));assert.equal(a.level,'HL');assert.ok(a.permissionEvidence)}for(const s of lesson.sections){assert.ok(s.teachingBlocks.length>=2);assert.equal(s.recall.length,1);assert.equal(s.interactions.length,1);assert.ok(s.referenceIds.length>0)} });
+test('original MCQs have defensible structure and individual feedback',()=>{for(const q of lesson.questions.filter(q=>q.paper==='1A')){assert.equal(q.options.length,4);assert.equal(q.options.filter(o=>o.correct).length,1);assert.ok(q.options.every(o=>o.feedback.length>20))}});
+test('C2.1 is not accessible as SL content',()=>{assert.ok(topic.understandings.every(u=>u.level==='HL'));assert.equal(topic.level,'HL')});

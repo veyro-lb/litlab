@@ -1,0 +1,88 @@
+name: BioLab Shareable Preview Readiness QA (No Deployment)
+on:
+  push:
+    branches:
+      - feature/biolab-preview-qa-fixes-20261018
+      - feature/biolab-original-textbook-crops-20261019
+      - feature/biolab-ib2025-content-source-cleanup-20261019
+      - feature/biolab-launch-readiness-20261019
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-build-and-browser:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 80
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Mark this checkout as a safe Git directory for baseline-diff tests
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Capture dependency audit without masking findings
+        run: |
+          mkdir -p qa-artifacts/preview-readiness
+          npm audit --json > qa-artifacts/preview-readiness/npm-audit.json || true
+          npm audit --omit=dev --json > qa-artifacts/preview-readiness/npm-production-audit.json || true
+      - name: Validate lessons, syllabus, depth and consolidation
+        run: |
+          node scripts/validate-lessons.mjs
+          node scripts/validate-biology.mjs
+          node scripts/biology/validate-full-course-depth-audit.mjs
+          node scripts/biology/validate-final-consolidation.mjs
+          node scripts/biology/licensed-book-figures/verify.mjs
+      - name: Figure and scientific-visual regression tests
+        run: |
+          node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs
+          node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs
+      - name: Source locators, editorial scope and specialist regressions
+        run: |
+          node --test scripts/biology/launch-readiness/merge.test.mjs scripts/biology/ib2025-coursewide-review/verify.test.mjs scripts/biology/ib2025-coursewide-review/followup.test.mjs
+          node scripts/biology/source-policy-cleanup/verify.mjs
+          node --test scripts/biology/source-policy-cleanup/verify.test.mjs
+          node scripts/biology/final-d1-d2/verify.mjs
+          node --test scripts/biology/final-d1-d2/negative.test.mjs
+          node scripts/biology/final-b3-b4/validate.mjs
+          node --test scripts/biology/final-b3-b4/negative.test.mjs tests/biology/*.test.mjs
+      - name: Site quality
+        run: npm run quality
+      - name: Build development application without deployment
+        run: npm run build
+      - name: Verify public build contains no protected reference files
+        run: node scripts/biology/preview-readiness/verify-public-build.mjs
+      - name: Start actual built website and run Chromium QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/preview-readiness/preview.log 2>&1 &
+          ready=0
+          for attempt in $(seq 1 45); do
+            if node -e 'fetch("http://127.0.0.1:4173/").then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))'; then ready=1; break; fi
+            sleep 1
+          done
+          test "$ready" = 1 || { cat qa-artifacts/preview-readiness/preview.log; exit 1; }
+          node scripts/biology/licensed-book-figures/browser.mjs
+          node scripts/biology/full-course/full-course-browser.mjs
+          node scripts/biology/preview-readiness/browser.mjs
+          node scripts/biology-ui-acceptance.mjs
+          node scripts/biology/prelaunch-student-qa/browser.mjs
+      - name: Store Chromium screenshots and audits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biolab-preview-readiness-qa-evidence
+          path: |
+            qa-artifacts/preview-readiness/
+            qa-artifacts/licensed-book-figures/
+            qa-artifacts/full-course/
+            qa-artifacts/ui-acceptance/
+            qa-artifacts/prelaunch-student-qa/
+          if-no-files-found: warn
+          retention-days: 21

@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-17",
+  "sourceBranch": "feature/biolab-themes-ab-final-completion-20261017",
+  "sourceCommit": "4cd33a7d54bde055e123bd9052ea59c36aae9232",
+  "targetBranch": "feature/biolab-final-b3-b4-20261017",
+  "context": "Remote GitHub connector content verification performed with JavaScript in the connector environment. This is NOT a native repository checkout or a node/npm/build/browser execution.",
+  "performed": {
+    "sourceAndCoverage": {
+      "result": "PASS",
+      "topicCount": 5,
+      "understandings": 62,
+      "scope": {
+        "B3.1": {
+          "shared": 10,
+          "HL": 3
+        },
+        "B3.2": {
+          "shared": 10,
+          "HL": 8
+        },
+        "B3.3": {
+          "shared": 0,
+          "HL": 10
+        },
+        "B4.1": {
+          "shared": 8,
+          "HL": 0
+        },
+        "B4.2": {
+          "shared": 13,
+          "HL": 0
+        }
+      },
+      "questions": 72,
+      "nonemptyAnswersAndMarkSchemes": true,
+      "uniqueAndOrderedUnderstandingIds": true,
+      "threeTeachingBlocksPerUnderstanding": true,
+      "teachingBlockExplanationDriftDetected": 0,
+      "claimReferenceExplanationDriftDetected": 0
+    },
+    "visualReferences": {
+      "result": "PASS",
+      "inLessonComparisonVisuals": 9,
+      "totalReferencedDesktopAndMobileSVGs": 15,
+      "allSVGPathsFetchable": true,
+      "checkedSVGFields": [
+        "root <svg>",
+        "viewBox",
+        "title",
+        "description"
+      ],
+      "figurePlacementReferences": "PASS",
+      "comparisonRowLengths": "PASS",
+      "afterBlockAnchors": "PASS",
+      "mobileAssets": [
+        "/biology/transport/heart-frontal-mobile.svg",
+        "/biology/muscle-motility/sarcomere-mobile.svg"
+      ],
+      "caveat": "Only source text and asset-existence checks; SVG rendered appearance, 320/390-px widths, browser interaction and keyboard tests NOT validated."
+    },
+    "negativeMutationChecks": {
+      "result": "PASS",
+      "cases": 7,
+      "rejected": 7,
+      "mutations": [
+        "duplicate numbered understanding",
+        "SL/HL assessment-level leakage",
+        "two marked-correct MCQ choices",
+        "teaching-versus-claim source drift",
+        "missing heart asset path",
+        "ragged comparison table",
+        "out-of-range visual anchor"
+      ],
+      "method": "Connector-backed JavaScript mutation probes of the B3.2 package; not native node:test runtime. Dedicated native negative.test.mjs committed but unexecuted."
+    },
+    "externalMicroscopySourceReview": {
+      "result": "PASS for provenance/rights metadata",
+      "images": 2,
+      "checks": [
+        "CC license stated by Commons file page",
+        "image creator named",
+        "unmodified image URL from Commons content store",
+        "scale disclosure and limitations",
+        "visible image inspection: leaf and stem sections"
+      ],
+      "cases": [
+        {
+          "topic": "B3.1.8",
+          "source": "https://commons.wikimedia.org/wiki/File:Dicot_leaf.jpg",
+          "license": "CC BY-SA 4.0",
+          "scale": "source 0.2 mm bar; not an independently calibrated new dataset"
+        },
+        {
+          "topic": "B3.2.9",
+          "source": "https://commons.wikimedia.org/wiki/File:Stem_of_Dicotyledon_C.S.png",
+          "license": "CC BY 4.0",
+          "scale": "x10 as stated by source, not dimensional calibration"
+        }
+      ],
+      "limitation": "Browser remote resource loading, microscope species identification and numerical calibration NOT independently verified."
+    }
+  },
+  "notRun": [
+    {
+      "command": "node scripts/biology/final-b3-b4/validate.mjs",
+      "reason": "No runnable local GitHub repository checkout; GitHub network access from container unavailable."
+    },
+    {
+      "command": "node --test scripts/biology/final-b3-b4/negative.test.mjs",
+      "reason": "Same limitation; seven parallel logic mutation checks were conducted in connector environment."
+    },
+    {
+      "command": "node scripts/biology/theme-b/validate-all.mjs",
+      "reason": "Requires native repo checkout."
+    },
+    {
+      "command": "node scripts/biology/themes-ab-final/validate.mjs",
+      "reason": "Requires native repo checkout."
+    },
+    {
+      "command": "npm run quality",
+      "reason": "Requires native repo checkout and dependencies."
+    },
+    {
+      "command": "npm run build",
+      "reason": "Requires native repo checkout and dependencies."
+    },
+    {
+      "command": "Playwright browser QA at 320, 390, 768 and 1440 px",
+      "reason": "No branch-local site preview/hosted test environment supplied. Public deployment expressly disallowed."
+    }
+  ],
+  "caution": "Source correctness is improved but not qualified independent scientific approval. Synthetic examples are not measurements, and original schematics require rights/accessibility/expert review."
+}

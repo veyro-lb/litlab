@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-18",
+  "ownership": "No visual assets altered. Issues for visual team.",
+  "issues": [
+    {
+      "id": "B-VIS-001",
+      "priority": "HIGH",
+      "topic": "B3.2",
+      "understanding": "B3.2.14",
+      "asset": "public/biology/transport/heart-circuits.svg",
+      "status": "OPEN",
+      "finding": "Previously reported fish single-circulation figure. SVG text labels were inspected, but full rendered geometry and arrow direction were not verified.",
+      "acceptance": [
+        "Fish: heart → gill capillaries → body capillaries → heart; no second return between gills and body.",
+        "Fish heart pumps deoxygenated blood to gills, with oxygenation before systemic tissues.",
+        "Mammal: right heart → lungs → left heart → body → right heart.",
+        "Labels, colours and directionality independently verified in browser, including mobile."
+      ]
+    },
+    {
+      "id": "B-VIS-002",
+      "priority": "MEDIUM",
+      "topic": "B4.1",
+      "understanding": "B4.1.6",
+      "asset": "public/biology/adaptation-environment/biome-climate.svg",
+      "status": "VERIFY",
+      "finding": "Climate graphic has labelled temperature and rainfall axes but biome-region positions not visually verified.",
+      "acceptance": [
+        "Axes and units correct.",
+        "Six IB-listed biomes correctly placed.",
+        "Schematic not presented as measured observations."
+      ]
+    },
+    {
+      "id": "B-VIS-003",
+      "priority": "MEDIUM",
+      "topic": "B3.1",
+      "understanding": "B3.1.8, B3.1.10",
+      "status": "VERIFY",
+      "finding": "Leaf plan and stomatal density micrograph require image-scale, tissue location, licensing and replicate-count checks.",
+      "acceptance": [
+        "Plan-diagram tissues verified against image.",
+        "Authentic calibrated scale and replicated stomatal counts."
+      ]
+    },
+    {
+      "id": "B-VIS-004",
+      "priority": "MEDIUM",
+      "topic": "B1.2",
+      "understanding": "B1.2.9, B1.2.11",
+      "status": "VERIFY",
+      "finding": "Protein cartoons need independent visual inspection for correct peptide/disulfide bonds and distinction of haem groups from globin chains.",
+      "acceptance": [
+        "Cysteine and peptide bonds separately labelled.",
+        "Haemoglobin four subunits and four haem groups represented correctly."
+      ]
+    }
+  ]
+}

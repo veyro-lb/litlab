@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {validateLesson} from '../../validate-lesson.mjs';
+const load=path=>JSON.parse(readFileSync(new URL('../../../'+path,import.meta.url),'utf8'));
+const d=load('src/biology/learning/origins-cells/lesson.json');
+const topic=load('src/biology/curriculum/registry.json').find(t=>t.id==='A2.1');
+const testTopic={...topic,lessonId:d.id};
+assert.equal(topic.availability,'draft');
+assert.equal(d.sections.length,9);assert.equal(d.questions.length,18);
+assert.deepEqual(d.sections.map(s=>s.understandingIds[0]),topic.understandings.map(x=>x.id));
+assert.deepEqual(validateLesson(d,testTopic),[]);
+const bad=structuredClone(d);bad.sections[0].level='shared';assert.ok(validateLesson(bad,testTopic).some(e=>/Scope mismatch/.test(e)));
+const broken=structuredClone(d);broken.sections[1].claimReferences=[];assert.ok(validateLesson(broken,testTopic).some(e=>/Unmapped explanation/.test(e)));
+const missing=structuredClone(d);missing.sections.pop();assert.ok(validateLesson(missing,testTopic).some(e=>/curriculum coverage/.test(e)));
+const answer=structuredClone(d);answer.questions[0].options[1].correct=true;assert.ok(validateLesson(answer,testTopic).some(e=>/selection/.test(e)));
+const asset=structuredClone(d);asset.assets[0].permissionEvidence='';assert.ok(validateLesson(asset,testTopic).some(e=>/Incomplete asset/.test(e)));
+console.log('A2.1 9 sections / 18 assessments: positive and five negative validations pass; registered draft matches integrated course catalog');

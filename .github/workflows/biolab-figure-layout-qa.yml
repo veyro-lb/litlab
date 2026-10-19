@@ -1,0 +1,58 @@
+name: BioLab Figure Layout QA (no deployment)
+on:
+  push:
+    branches:
+      - feature/biolab-figure-layout-refinement-20261018
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-and-verify:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 55
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Figure regression tests
+        run: node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs
+      - name: Course, lesson and site validation
+        run: |
+          node scripts/validate-lessons.mjs
+          node scripts/validate-biology.mjs
+          npm run quality
+      - name: Build updated site
+        run: npm run build
+      - name: Build exact pre-change integration revision
+        run: |
+          mkdir -p .figure-baseline
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git archive a03f8f86af7009a529b6aaf8fd7e581a3928de52 | tar -x -C .figure-baseline
+          ln -s ../node_modules .figure-baseline/node_modules
+          npm run build --prefix .figure-baseline
+      - name: Chromium — comparison, sizes, zoom, keyboard and mobile
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/figure-layout
+          npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/figure-layout/after-preview.log 2>&1 &
+          npm run preview --prefix .figure-baseline -- --host 127.0.0.1 --port 4174 > qa-artifacts/figure-layout/before-preview.log 2>&1 &
+          ready=0
+          for i in $(seq 1 50); do
+            if node -e 'Promise.all([fetch("http://127.0.0.1:4173"),fetch("http://127.0.0.1:4174")]).then(r=>process.exit(r.every(x=>x.ok)?0:1)).catch(()=>process.exit(1))'; then ready=1;break;fi
+            sleep 1
+          done
+          test "$ready" = 1
+          node scripts/biology/figure-layout-refinement/browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: biolab-figure-layout-before-after-qa
+          path: qa-artifacts/figure-layout/
+          retention-days: 21
+          if-no-files-found: warn

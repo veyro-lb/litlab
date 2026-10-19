@@ -1,0 +1,166 @@
+{
+  "implementationCommits": [
+    {
+      "local": "d5d8423",
+      "sha": "781888dc51f149e4a5e3b08f635376b941e277e0",
+      "message": "fix(biolab): verify 173 textbook locators and repair source and figure validation"
+    },
+    {
+      "local": "a7ef111",
+      "sha": "e134db66a95e5a03bd11adc77f21712483a5d059",
+      "message": "content(biolab): clarify neural signalling and align mechanism marking points"
+    },
+    {
+      "local": "e0f20f9",
+      "sha": "4c55784a25dbf1deae342ebc037af685a1de5d75",
+      "message": "content(biolab): streamline transport with explicit syllabus coverage checks"
+    }
+  ],
+  "automatedChecks": [
+    {
+      "name": "lessons",
+      "command": "node scripts/validate-lessons.mjs",
+      "exitCode": 0,
+      "output": "All 40 registered lesson packages passed generic mapping, content, scope, provenance and asset-file checks.\n",
+      "logSha256": "bee808be5d0b4d85db27256436eed747d0f9be1247c4b9e9b5770d632078ed41"
+    },
+    {
+      "name": "registry",
+      "command": "node scripts/validate-biology.mjs",
+      "exitCode": 0,
+      "output": "Biology registry passed: 40 topics, 553 statements, 337 shared / 216 HL; source references and level classifications checked.\n",
+      "logSha256": "1861a1f0cd6472dd451c2ee63c979673522a704719b1a436fc197a8069a93a92"
+    },
+    {
+      "name": "locators-depth",
+      "command": "node scripts/biology/validate-full-course-depth-audit.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"STRUCTURAL CHECK PASSED\",\n  \"topics\": 40,\n  \"understandings\": 553,\n  \"improved\": 8,\n  \"complete\": 0,\n  \"needsFurtherWork\": 545,\n  \"missingExactHodderPagePointers\": 0,\n  \"structuralWarnings\": [\n    \"This script does not reverify biological claims or IB guide wording.\",\n    \"All inventory rows have Hodder pointers; locator presence is not full scientific verification.\",\n    \"No desktop/mobile browser rendering, visual QA, source-rights clearance or qualified review is established here.\"\n  ]\n}\n",
+      "logSha256": "558a15916f3504011e279d8ed53edd9cda7d1b6bb390b708dfc6cb2bf1f20f19"
+    },
+    {
+      "name": "consolidation",
+      "command": "node scripts/biology/validate-final-consolidation.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"STRUCTURAL CONSOLIDATION CHECK PASSED\",\n  \"topics\": 40,\n  \"understandings\": 553,\n  \"sourceInformedRevisions\": 12,\n  \"remainingDepthReviews\": 541,\n  \"removedRightsUnclearedPublicCrops\": 18\n}\n",
+      "logSha256": "3ff775cfe31b9aecfda5e2c4bb3cfeb35589e9f87eff53d9edf4741e49475cb9"
+    },
+    {
+      "name": "source-crops",
+      "command": "node scripts/biology/licensed-book-figures/verify.mjs",
+      "exitCode": 0,
+      "output": "Original source-PDF crops passed: 14 exact SHA-256 matches, placed and source-attributed.\n",
+      "logSha256": "3f74156276406914e22bc43c67c65f9808c751ed2e6e839febc1074700f1b159"
+    },
+    {
+      "name": "source-policy",
+      "command": "node scripts/biology/source-policy-cleanup/verify.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"topics\": 40,\n  \"understandings\": 553,\n  \"shared\": 337,\n  \"additionalHL\": 216,\n  \"questions\": 1007,\n  \"assets\": 191,\n  \"seasonalPoints\": 24,\n  \"sourceScope\": \"focused source-policy assertions only; not a course-wide scientific/source audit\"\n}\n",
+      "logSha256": "a0c7b4b442277813de37325325300e8438a95e1af6dcac92b6c5ab69409e3166"
+    },
+    {
+      "name": "source-policy-negative",
+      "command": "node --test scripts/biology/source-policy-cleanup/verify.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 course registry, lessons, science references, diagrams and 553 understanding IDs remain mapped (149.282948ms)\n\u2714 negative: removed NASA annual anomaly in core climate teaching is detected (5.869719ms)\n\u2714 negative: Arctic NOAA statistics incorrectly attached to required penguin/walrus teaching are detected (4.35479ms)\n\u2714 negative: removal of required FACE evidence from C1.3.8 is detected (1.743587ms)\n\u2714 negative: missing actual monthly CO2 graph in C4.2.20 is detected (7.45952ms)\n\u2714 negative: removal of Goldilocks-zone HL teaching from A1.1.8 is detected (1.696708ms)\n\u2139 tests 6\n\u2139 suites 0\n\u2139 pass 6\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 368.642491\n",
+      "logSha256": "dec54dde8044526d1de3f8942e91dabb5358af4b942e6f4eebeed7d9601fcf2b"
+    },
+    {
+      "name": "d1d2",
+      "command": "node scripts/biology/final-d1-d2/verify.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"PASS: isolated local syllabus/content preflight (NOT external scientific approval)\",\n  \"sections\": 77,\n  \"questions\": 161,\n  \"visuals\": 30,\n  \"details\": [\n    {\n      \"topic\": \"D1.1\",\n      \"shared\": 5,\n      \"HL\": 4,\n      \"sections\": 9,\n      \"questions\": 19,\n      \"visuals\": 4\n    },\n    {\n      \"topic\": \"D1.2\",\n      \"shared\": 11,\n      \"HL\": 8,\n      \"sections\": 19,\n      \"questions\": 39,\n      \"visuals\": 5\n    },\n    {\n      \"topic\": \"D1.3\",\n      \"shared\": 7,\n      \"HL\": 3,\n      \"sections\": 10,\n      \"questions\": 21,\n      \"visuals\": 4\n    },\n    {\n      \"topic\": \"D2.1\",\n      \"shared\": 11,\n      \"HL\": 6,\n      \"sections\": 17,\n      \"questions\": 35,\n      \"visuals\": 7\n    },\n    {\n      \"topic\": \"D2.2\",\n      \"shared\": 0,\n      \"HL\": 11,\n      \"sections\": 11,\n      \"questions\": 23,\n      \"visuals\": 5\n    },\n    {\n      \"topic\": \"D2.3\",\n      \"shared\": 7,\n      \"HL\": 4,\n      \"sections\": 11,\n      \"questions\": 24,\n      \"visuals\": 5\n    }\n  ]\n}\n",
+      "logSha256": "23bbaf038f6b5c0108d4c7585a2abaf444a2cee0636f82657224c778d1cdab2c"
+    },
+    {
+      "name": "d1d2-negative",
+      "command": "node --test scripts/biology/final-d1-d2/negative.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 baseline 77-understanding package remains internally consistent (30.605459ms)\n\u2714 negative: missing numbered syllabus entry is rejected (11.649947ms)\n\u2714 negative: HL-only D2.2 cannot leak into SL (11.014382ms)\n\u2714 negative: altered DNA synthesis direction is rejected (13.30293ms)\n\u2714 negative: two keyed choices cannot both be correct (24.624726ms)\n\u2714 negative: question loses its matching scope (10.376162ms)\n\u2714 negative: contradictory water-potential result is rejected (20.638892ms)\n\u2714 negative: malformed comparison rows are rejected (10.89785ms)\n\u2714 negative: editorial draft cannot falsely claim independent review (13.30856ms)\n\u2139 tests 9\n\u2139 suites 0\n\u2139 pass 9\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 363.015631\n",
+      "logSha256": "dc5aa80c11fe6bc632956540f7fe919817c657d14468d96ce225ba3cb95bda4f"
+    },
+    {
+      "name": "b3b4",
+      "command": "node scripts/biology/final-b3-b4/validate.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"scope\": \"final-b3-b4\",\n  \"sectionCount\": 62,\n  \"questionCount\": 77,\n  \"visualCount\": 22,\n  \"registeredAssets\": 17,\n  \"assetPathsVerified\": 17,\n  \"positive\": \"PASS\",\n  \"nativeRuntime\": \"v24.19.0\"\n}\n",
+      "logSha256": "924dc4f0d3415aa19ca58d7817bac8fc866d6e7fce2cf308fd98515448fced9c"
+    },
+    {
+      "name": "b3b4-negative",
+      "command": "node --test scripts/biology/final-b3-b4/negative.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 duplicate numbered understanding rejected (7.22207ms)\n\u2714 HL assessment leaking into shared understanding rejected (3.856236ms)\n\u2714 two correct MCQ options rejected (4.086124ms)\n\u2714 source-claim drift rejected (1.683758ms)\n\u2714 missing heart asset rejected (5.132229ms)\n\u2714 ragged embedded scientific comparison rejected (5.035432ms)\n\u2714 unanchored scientific comparison rejected (1.900537ms)\n\u2139 tests 7\n\u2139 suites 0\n\u2139 pass 7\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 209.71861\n",
+      "logSha256": "b022d61340f404d80322311aa530c6172acfafa6d9472fdb44620a64bf4d9a9e"
+    },
+    {
+      "name": "c1c2",
+      "command": "node scripts/biology/final-c1-c2/validate.mjs",
+      "exitCode": 0,
+      "output": "PASS: 83 numbered understandings, 159 assessments, 664 answer options, 83 ledger entries and original figure assertions.\nScope: automated structural checks ONLY. Run project quality, build, all pre-existing validators and browsers separately.\n",
+      "logSha256": "38738d3ec33bb1916202ff5517a3ac99d65ecc348767a5b0fdeec60593eb3f8c"
+    },
+    {
+      "name": "c12",
+      "command": "node --test scripts/biology/theme-c1/c12.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 C1.2 full official coverage and schema (3.972617ms)\n\u2714 C1.2 SL has no HL-only educational content (0.340031ms)\n\u2714 C1.2 diagrams exist and mitochondrial orientation is explicit (2.245986ms)\n\u2714 C1.2 each question maps to taught understanding with one correct answer (0.432917ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 218.32544\n",
+      "logSha256": "236b3d12405e27351bf0c320886edcc0fa1bc16bed152d0207b1a8dacdd01d32"
+    },
+    {
+      "name": "figures",
+      "command": "node --test scripts/biology/scientific-visual-redesign.test.mjs scripts/biology/scientific-visual-assets-repair/verify.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 six authentic source files have individual reuse grants and modification records (6.533105ms)\n\u2714 negative: an unknown grant or absent creator is rejected (0.247945ms)\n\u2714 essential mechanisms are attached to exact existing teaching blocks with correct scope (0.854308ms)\n\u2714 negative: dropping a required placement is detected (72.187251ms)\n\u2714 all 40 topics and 553 unique understandings survive; no source crop is in an active bundle (2.617833ms)\n\u2714 graph has explicit before/after key, axes and a mobile layout (0.573714ms)\n\u2714 enlargement and recall do not misdescribe photographs or missing recall variants (1.697708ms)\n\u2714 C4.2.20 plots exactly 24 observed, non-deseasonalized NOAA monthly means (1.679752ms)\n\u2714 negative: a substituted monthly mean is detected in the plot (2.062566ms)\n\u2714 D3.1 exact figure placements, accessibility and local variants (4.104291ms)\n\u2714 negative: deleting a placement fails the validator (1.520148ms)\n\u2714 negative: broken recall path fails the validator (3.887652ms)\n\u2714 all sixteen labelled/recall/mobile SVGs use safe local SVG markup (11.999823ms)\n\u2714 course inventory remains 40 topics, 553 unique understandings and handout crosswalk (81.393175ms)\n\u2714 A2.2.8 plant palisade cell is present, localized and paired with exact mobile recall (5.928466ms)\n\u2714 all 18 PDF crops remain recorded but are excluded from public bundles (73.58925ms)\n\u2139 tests 16\n\u2139 suites 0\n\u2139 pass 16\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 346.921253\n",
+      "logSha256": "ddb8079ab39dfc19685846e94d004c16591ab32f5db811986dd1f451101cc426"
+    },
+    {
+      "name": "presentation",
+      "command": "node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 scientific sizes and overrides (1.687013ms)\n\u2714 PDF provenance is not reproduction permission (0.339079ms)\n\u2714 all lesson figure placements still point to known assets (86.397157ms)\n\u2714 responsive original aspect ratio and zoom controls are styled (0.552363ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 423.39326\n",
+      "logSha256": "c0379193b1d55da54d37544f66747f63bddb2a7ae75b31340ec6cbe71628bc23"
+    },
+    {
+      "name": "review",
+      "command": "node --test scripts/biology/ib2025-coursewide-review/verify.test.mjs scripts/biology/ib2025-coursewide-review/followup.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 173 exact textbook locators and all 58 former gaps match the lessons (189.305306ms)\n\u2714 all 18 transport understandings retain prescribed mechanisms and skills (1.608037ms)\n\u2714 negative: loss of prescribed B3.2.1 content is rejected (2.273617ms)\n\u2714 negative: loss of prescribed B3.2.2 content is rejected (1.074772ms)\n\u2714 negative: loss of prescribed B3.2.3 content is rejected (1.122563ms)\n\u2714 negative: loss of prescribed B3.2.4 content is rejected (0.969688ms)\n\u2714 negative: loss of prescribed B3.2.5 content is rejected (0.853186ms)\n\u2714 negative: loss of prescribed B3.2.6 content is rejected (4.330484ms)\n\u2714 negative: loss of prescribed B3.2.7 content is rejected (1.231663ms)\n\u2714 negative: loss of prescribed B3.2.8 content is rejected (1.29056ms)\n\u2714 negative: loss of prescribed B3.2.9 content is rejected (1.14148ms)\n\u2714 negative: loss of prescribed B3.2.10 content is rejected (1.029545ms)\n\u2714 negative: loss of prescribed B3.2.11 content is rejected (0.938481ms)\n\u2714 negative: loss of prescribed B3.2.12 content is rejected (0.964951ms)\n\u2714 negative: loss of prescribed B3.2.13 content is rejected (1.030657ms)\n\u2714 negative: loss of prescribed B3.2.14 content is rejected (1.176051ms)\n\u2714 negative: loss of prescribed B3.2.15 content is rejected (0.788631ms)\n\u2714 negative: loss of prescribed B3.2.16 content is rejected (0.57127ms)\n\u2714 negative: loss of prescribed B3.2.17 content is rejected (0.600945ms)\n\u2714 negative: loss of prescribed B3.2.18 content is rejected (0.634985ms)\n\u2714 all native scientific visuals remain anchored to actual teaching blocks (28.382547ms)\n\u2714 neural answers preserve prescribed mechanisms without teaching pump-driven rapid repolarization (0.81529ms)\n\u2714 every follow-up lesson change has exact before/after evidence and preserves all IDs (113.09638ms)\n\u2714 complete matrix preserves every official ID/level and makes no new source certification (3.274761ms)\n\u2714 before/after ledger matches actual lesson fields and counts, not just a claimed status (46.965357ms)\n\u2714 ATP restoration, every asset record, and every question/section ID stay intact (35.694023ms)\n\u2714 shared photosynthesis models do not require additional HL light-reaction mechanisms (1.025209ms)\n\u2714 specific mechanism marking points include the answer the question asks for (0.436723ms)\n\u2139 tests 28\n\u2139 suites 0\n\u2139 pass 28\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 518.366616\n",
+      "logSha256": "a0a6ade6834ccf357a16d9f912747c7d21ae580d996391298c5f5bf7283c8fab"
+    },
+    {
+      "name": "theme-b-tests",
+      "command": "node --test tests/biology/*.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 Every one of 123 understanding IDs has a source-scoped before/after record (19.565293ms)\n\u2714 B3.2 concurrent specialist and baseline corrections survive together (0.59741ms)\n\u2714 Core scientific directions remain explicit (0.308474ms)\n\u2714 Theme B syllabus alignment, source and learning checks (36.937628ms)\n\u2714 Mechanistic high-risk signposts (11.660944ms)\n\u2139 tests 5\n\u2139 suites 0\n\u2139 pass 5\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 239.498595\n",
+      "logSha256": "322105fa9f56d339eb78b45697635ad4da6e25e8b832f3b267e73f2f07479c91"
+    },
+    {
+      "name": "quality",
+      "command": "npm run quality",
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> litlab@2.0.0 quality\n> node scripts/site-quality.mjs\n\nSite quality checks passed across 373 source files.\nTop-level module entries: /src/main.tsx, /src/site-runtime.ts\n",
+      "logSha256": "7b1c5efabe6ccc3b2a78ca83e24dc6e8d045dab25b98cf916772eb80ecddfce4"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> litlab@2.0.0 build\n> tsc -b && vite build\n\nvite v6.4.4 building for production...\ntransforming...\n\u2713 2269 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                             0.70 kB \u2502 gzip:   0.41 kB\ndist/assets/sentence-frames-BIqwdZTB.css   15.24 kB \u2502 gzip:   2.94 kB\ndist/assets/books-D35H726a.css             48.62 kB \u2502 gzip:   9.22 kB\ndist/assets/essays-PcF26EZi.css            57.58 kB \u2502 gzip:  10.02 kB\ndist/assets/toolkit-B97DLq7a.css           84.77 kB \u2502 gzip:  13.19 kB\ndist/assets/assessments-I5Jxm80t.css      123.83 kB \u2502 gzip:  18.50 kB\ndist/assets/index-buSCZllY.css            192.38 kB \u2502 gzip:  34.76 kB\ndist/assets/contributor-BnMp5yNC.css      364.55 kB \u2502 gzip:  61.07 kB\ndist/assets/books-DCtH8hOb.js              39.13 kB \u2502 gzip:  11.31 kB\ndist/assets/sentence-frames-CwgFzrkv.js    59.70 kB \u2502 gzip:  17.33 kB\ndist/assets/lesson-Ch6HUFOj.js             65.49 kB \u2502 gzip:  11.82 kB\ndist/assets/lesson-AgSyYShF.js             75.57 kB \u2502 gzip:  12.85 kB\ndist/assets/lesson-iKNAZhHH.js             83.25 kB \u2502 gzip:  14.22 kB\ndist/assets/lesson-BAJr4lvf.js             87.60 kB \u2502 gzip:  14.81 kB\ndist/assets/essays-DBzbkQfE.js             91.71 kB \u2502 gzip:  27.95 kB\ndist/assets/lesson-DZbyGXUD.js             92.69 kB \u2502 gzip:  14.36 kB\ndist/assets/lesson-Dg2YJtZ2.js             94.04 kB \u2502 gzip:  14.56 kB\ndist/assets/lesson-BM-t5j5K.js             95.83 kB \u2502 gzip:  17.54 kB\ndist/assets/assessments-DhYqsPvC.js       108.94 kB \u2502 gzip:  32.44 kB\ndist/assets/lesson-w1uPccZ5.js            109.01 kB \u2502 gzip:  16.16 kB\ndist/assets/lesson-MTTa88DA.js            116.66 kB \u2502 gzip:  19.03 kB\ndist/assets/lesson-EGxBIMHD.js            116.75 kB \u2502 gzip:  25.54 kB\ndist/assets/lesson-CVdTuzV2.js            119.21 kB \u2502 gzip:  17.84 kB\ndist/assets/lesson-B1DUTwx8.js            123.88 kB \u2502 gzip:  22.09 kB\ndist/assets/lesson-CwiZSTiF.js            132.55 kB \u2502 gzip:  19.58 kB\ndist/assets/lesson-zz-f87Cv.js            140.44 kB \u2502 gzip:  23.03 kB\ndist/assets/lesson-CPB0vNQS.js            141.31 kB \u2502 gzip:  20.72 kB\ndist/assets/lesson-CC7d6xwQ.js            142.16 kB \u2502 gzip:  22.38 kB\ndist/assets/lesson-YkVlTmkI.js            142.58 kB \u2502 gzip:  20.98 kB\ndist/assets/lesson-Rsoj4hCW.js            142.90 kB \u2502 gzip:  21.52 kB\ndist/assets/lesson-c1mO3GSa.js            143.14 kB \u2502 gzip:  22.51 kB\ndist/assets/lesson-BPvnIzHB.js            143.92 kB \u2502 gzip:  23.75 kB\ndist/assets/lesson-Crt1rcuk.js            146.67 kB \u2502 gzip:  22.82 kB\ndist/assets/lesson-2o-FFhS6.js            147.48 kB \u2502 gzip:  24.59 kB\ndist/assets/lesson-D0K20ds6.js            149.59 kB \u2502 gzip:  21.18 kB\ndist/assets/lesson-qdm8D56S.js            154.63 kB \u2502 gzip:  30.24 kB\ndist/assets/lesson-DpiY3xnm.js            156.25 kB \u2502 gzip:  27.33 kB\ndist/assets/lesson-B33kwSvx.js            156.29 kB \u2502 gzip:  22.33 kB\ndist/assets/lesson-BC7APcI_.js            157.06 kB \u2502 gzip:  24.80 kB\ndist/assets/lesson-BBshyb5M.js            157.45 kB \u2502 gzip:  24.14 kB\ndist/assets/lesson-BEJ4xNFe.js            158.79 kB \u2502 gzip:  22.96 kB\ndist/assets/lesson-bX6yqCrX.js            165.31 kB \u2502 gzip:  22.86 kB\ndist/assets/lesson-D0gEeMnA.js            165.58 kB \u2502 gzip:  27.20 kB\ndist/assets/lesson-DjjflM6b.js            165.87 kB \u2502 gzip:  24.44 kB\ndist/assets/lesson-BYMyEpOR.js            182.42 kB \u2502 gzip:  33.00 kB\ndist/assets/lesson-BjpFXS3q.js            193.09 kB \u2502 gzip:  29.25 kB\ndist/assets/lesson-BS7tq-e9.js            223.67 kB \u2502 gzip:  34.98 kB\ndist/assets/lesson-Dl-UbgZs.js            224.42 kB \u2502 gzip:  37.42 kB\ndist/assets/lesson-DVLNz9BG.js            232.37 kB \u2502 gzip:  34.62 kB\ndist/assets/toolkit-Ccj7P8gP.js           262.24 kB \u2502 gzip:  82.13 kB\ndist/assets/lesson-D0VY0UJ2.js            262.75 kB \u2502 gzip:  37.88 kB\ndist/assets/lesson-BccuA4Wc.js            267.27 kB \u2502 gzip:  37.02 kB\ndist/assets/lesson-DWEWg7u0.js            269.66 kB \u2502 gzip:  40.53 kB\ndist/assets/entry-BalA35oO.js             328.05 kB \u2502 gzip:  65.67 kB\ndist/assets/index-BToAPi7j.js             755.12 kB \u2502 gzip: 235.84 kB\ndist/assets/contributor-DDIUhlbp.js       806.27 kB \u2502 gzip: 204.67 kB\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n\u2713 built in 4.54s\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n",
+      "logSha256": "3da1672c041153b411016a7e655de623538d123ed3bb15bef004556d72af7c63"
+    },
+    {
+      "name": "public-build",
+      "command": "node scripts/biology/preview-readiness/verify-public-build.mjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"PUBLIC BUILD RIGHTS AND PRIVATE FILE GATE PASSED\",\"files\":401,\"originalScientificSvgAssets\":297,\"licensedPhotoAssets\":10,\"prohibitedFiles\":0}\n",
+      "logSha256": "5b457ea30920759bc997a642fb0c9ae349863d9baf4a1b2a62d703e7da06fbe2"
+    }
+  ],
+  "browser": {
+    "status": "BLOCKED, not passed",
+    "detail": "Freshly downloaded Playwright Chromium Headless Shell exits SIGTRAP before a page opens. No desktop/mobile lesson interaction, zoom or screenshot QA obtained in this pass. Existing protected-preview access was blocked in the preceding pass; no new preview browser pass is claimed."
+  },
+  "scope": "Source locators and focused teaching/regression review only; not a full 553-understanding scientific audit or independent approval."
+}

@@ -1,0 +1,25 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {validateBatch5} from './validate-batch5.mjs';
+const p=name=>JSON.parse(readFileSync(new URL(name,import.meta.url),'utf8'));
+const reg=p('../src/biology/curriculum/registry.json'),cat=p('../src/biology/learning/catalog.json');
+const lessons={'A1.2':p('../src/biology/learning/nucleic-acids/lesson.json'),'C1.1':p('../src/biology/learning/enzymes-metabolism/lesson.json')};
+const clone=()=>({registry:structuredClone(reg),catalog:structuredClone(cat),lessons:structuredClone(lessons)});
+test('real Batch 2 data satisfies source and lesson mapping',()=>assert.deepEqual(validateBatch5(reg,cat,lessons),[]));
+test('negative: additional HL cannot leak into SL',()=>{const a=clone();a.registry.find(t=>t.id==='A1.2').understandings[14].level='shared';assert.notDeepEqual(validateBatch5(a.registry,a.catalog,a.lessons),[])});
+test('negative: missing molecular viewer fails',()=>{const a=clone();delete a.lessons['A1.2'].sections[12].molecularViewer;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/nucleosome software|molecular/)});
+test('negative: graph must disclose modelling not real measurements',()=>{const a=clone();a.lessons['C1.1'].sections[7].graphTables[0].caption='Results from a real biological experiment';assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/provenance/)});
+test('negative: graph calculations must agree',()=>{const a=clone();a.lessons['C1.1'].sections[7].graphTables[2].rows[2][1]=6;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Michaelis/)});
+test('negative: altered textbook page offset is blocked',()=>{const a=clone();a.lessons['C1.1'].sections[10].textbook.pdfPages[0]+=1;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Hodder/)});
+test('negative: no falsely qualified reviewer',()=>{const a=clone();a.lessons['A1.2'].review.reviewer={name:'Invented',qualification:'none'};assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Human review/)});
+test('negative: arbitrary replacement cannot skip required recall figure',()=>{
+ const a=clone();
+ a.lessons['A1.2'].assets.find(x=>x.id==='a12-nucleosome').src='/biology/nucleic-acids/unknown.svg';
+ assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Original\/recall/);
+});
+test('negative: inherited DNA figure cannot lose its recall asset',()=>{
+ const a=clone();
+ a.lessons['A1.2'].assets.find(x=>x.id==='a12-nucleotide').recallSrc='';
+ assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/Original\/recall/);
+});

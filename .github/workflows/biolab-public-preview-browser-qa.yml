@@ -1,0 +1,33 @@
+name: BioLab Public Cloudflare Preview Browser QA (No Deployment)
+on:
+  push:
+    branches:
+      - feature/biolab-preview-qa-fixes-20261018
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  anonymous-deployed-chromium:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
+    env:
+      CI: "true"
+      BIOLAB_PUBLIC_PREVIEW_URL: https://feature-biolab-preview-qa-fixes-20261018-litlab.jamesloom18.workers.dev/
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install exact test dependencies
+        run: npm ci --ignore-scripts
+      - name: Exercise actual public Cloudflare branch preview, without credentials
+        run: node scripts/biology/preview-readiness/deployed-browser.mjs
+      - name: Store public-preview screenshots and test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: biolab-actual-public-preview-evidence
+          path: qa-artifacts/preview-readiness/deployed/
+          if-no-files-found: warn
+          retention-days: 21

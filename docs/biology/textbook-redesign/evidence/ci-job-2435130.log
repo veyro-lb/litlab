@@ -1,0 +1,1940 @@
+﻿2026-10-17T06:36:14.7617313Z Current runner version: '2.337.0'
+2026-10-17T06:36:14.7635951Z ##[group]Runner Image Provisioner
+2026-10-17T06:36:14.7636522Z Hosted Compute Agent
+2026-10-17T06:36:14.7636847Z Version: 20261012.601
+2026-10-17T06:36:14.7637184Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-17T06:36:14.7637634Z Build Date: 2026-10-12T17:48:21Z
+2026-10-17T06:36:14.7638004Z Worker ID: {c2568cce-9651-4ec6-8ff5-42e0de76ba2c}
+2026-10-17T06:36:14.7638425Z Region: southcentralus
+2026-10-17T06:36:14.7638750Z Cloud: Azure
+2026-10-17T06:36:14.7639038Z ##[endgroup]
+2026-10-17T06:36:14.7639820Z ##[group]Operating System
+2026-10-17T06:36:14.7640145Z Ubuntu
+2026-10-17T06:36:14.7640455Z 22.04.5
+2026-10-17T06:36:14.7640757Z LTS
+2026-10-17T06:36:14.7641038Z ##[endgroup]
+2026-10-17T06:36:14.7641367Z ##[group]Runner Image
+2026-10-17T06:36:14.7641733Z Image: ubuntu-22.04
+2026-10-17T06:36:14.7642055Z Version: 20261012.322.1
+2026-10-17T06:36:14.7643021Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261012.322/images/ubuntu/Ubuntu2204-Readme.md
+2026-10-17T06:36:14.7643878Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261012.322
+2026-10-17T06:36:14.7644403Z ##[endgroup]
+2026-10-17T06:36:14.7645172Z ##[group]GITHUB_TOKEN Permissions
+2026-10-17T06:36:14.7646522Z Contents: read
+2026-10-17T06:36:14.7646860Z Metadata: read
+2026-10-17T06:36:14.7647176Z ##[endgroup]
+2026-10-17T06:36:14.7648582Z Secret source: Actions
+2026-10-17T06:36:14.7649131Z Cache mode: write
+2026-10-17T06:36:14.7649622Z Prepare workflow directory
+2026-10-17T06:36:14.7899148Z Prepare all required actions
+2026-10-17T06:36:14.7931013Z Getting action download info
+2026-10-17T06:36:15.0398251Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-17T06:36:15.2368700Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-17T06:36:15.3244871Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-17T06:36:15.5776373Z Complete job name: Checkout, quality, build, audit, isolated browser
+2026-10-17T06:36:15.6185998Z ##[group]Run actions/checkout@v4
+2026-10-17T06:36:15.6186409Z with:
+2026-10-17T06:36:15.6186644Z   persist-credentials: false
+2026-10-17T06:36:15.6186913Z   fetch-depth: 0
+2026-10-17T06:36:15.6187156Z   repository: veyro-lb/litlab
+2026-10-17T06:36:15.6189037Z   token: ***
+2026-10-17T06:36:15.6189268Z   ssh-strict: true
+2026-10-17T06:36:15.6189525Z   ssh-user: git
+2026-10-17T06:36:15.6189750Z   clean: true
+2026-10-17T06:36:15.6189987Z   sparse-checkout-cone-mode: true
+2026-10-17T06:36:15.6190265Z   fetch-tags: false
+2026-10-17T06:36:15.6190503Z   show-progress: true
+2026-10-17T06:36:15.6190744Z   lfs: false
+2026-10-17T06:36:15.6190967Z   submodules: false
+2026-10-17T06:36:15.6191205Z   set-safe-directory: true
+2026-10-17T06:36:15.6191475Z   allow-unsafe-pr-checkout: false
+2026-10-17T06:36:15.6191813Z env:
+2026-10-17T06:36:15.6192023Z   CI: true
+2026-10-17T06:36:15.6192364Z ##[endgroup]
+2026-10-17T06:36:15.6811231Z Syncing repository: veyro-lb/litlab
+2026-10-17T06:36:15.6813059Z ##[group]Getting Git version info
+2026-10-17T06:36:15.6813523Z Working directory is '/home/runner/work/litlab/litlab'
+2026-10-17T06:36:15.6814095Z [command]/usr/bin/git version
+2026-10-17T06:36:15.6849080Z git version 2.55.0
+2026-10-17T06:36:15.6860914Z ##[endgroup]
+2026-10-17T06:36:15.6870967Z Temporarily overriding HOME='/home/runner/work/_temp/f520c1a0-a19f-467f-aabe-137abb37fbd6' before making global git config changes
+2026-10-17T06:36:15.6872316Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-17T06:36:15.6874570Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/litlab/litlab
+2026-10-17T06:36:15.6935567Z Deleting the contents of '/home/runner/work/litlab/litlab'
+2026-10-17T06:36:15.6941280Z ##[group]Initializing the repository
+2026-10-17T06:36:15.6941930Z [command]/usr/bin/git init /home/runner/work/litlab/litlab
+2026-10-17T06:36:15.7138946Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-17T06:36:15.7140359Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-17T06:36:15.7141181Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-17T06:36:15.7141827Z hint: call:
+2026-10-17T06:36:15.7142157Z hint:
+2026-10-17T06:36:15.7142704Z hint: 	git config --global init.defaultBranch <name>
+2026-10-17T06:36:15.7143229Z hint:
+2026-10-17T06:36:15.7143721Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-17T06:36:15.7144532Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-17T06:36:15.7145167Z hint:
+2026-10-17T06:36:15.7145504Z hint: 	git branch -m <name>
+2026-10-17T06:36:15.7145896Z hint:
+2026-10-17T06:36:15.7146426Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-17T06:36:15.7147435Z Initialized empty Git repository in /home/runner/work/litlab/litlab/.git/
+2026-10-17T06:36:15.7149094Z [command]/usr/bin/git remote add origin https://github.com/veyro-lb/litlab
+2026-10-17T06:36:15.7239810Z ##[endgroup]
+2026-10-17T06:36:15.7240310Z ##[group]Disabling automatic garbage collection
+2026-10-17T06:36:15.7243185Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-17T06:36:15.7333128Z ##[endgroup]
+2026-10-17T06:36:15.7333779Z ##[group]Setting up auth
+2026-10-17T06:36:15.7338821Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-17T06:36:15.7361257Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-17T06:36:15.7539822Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-17T06:36:15.7561351Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-17T06:36:15.7677278Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-17T06:36:15.7701468Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-17T06:36:15.7814735Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-17T06:36:15.8024688Z ##[endgroup]
+2026-10-17T06:36:15.8025919Z ##[group]Fetching the repository
+2026-10-17T06:36:15.8034563Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-17T06:36:16.6714244Z From https://github.com/veyro-lb/litlab
+2026-10-17T06:36:16.6715459Z  * [new branch]      account-progress-sync   -> origin/account-progress-sync
+2026-10-17T06:36:16.6716383Z  * [new branch]      american-spelling       -> origin/american-spelling
+2026-10-17T06:36:16.6717273Z  * [new branch]      analysis-lab            -> origin/analysis-lab
+2026-10-17T06:36:16.6718108Z  * [new branch]      assessment-pages-polish -> origin/assessment-pages-polish
+2026-10-17T06:36:16.6719031Z  * [new branch]      auth-prompt-non-home    -> origin/auth-prompt-non-home
+2026-10-17T06:36:16.6720030Z  * [new branch]      books-coming-soon-placeholders -> origin/books-coming-soon-placeholders
+2026-10-17T06:36:16.6721016Z  * [new branch]      command-terms           -> origin/command-terms
+2026-10-17T06:36:16.6721916Z  * [new branch]      compass-orbit-redesign  -> origin/compass-orbit-redesign
+2026-10-17T06:36:16.6723334Z  * [new branch]      developer-admin-analytics -> origin/developer-admin-analytics
+2026-10-17T06:36:16.6724370Z  * [new branch]      disable-cloud-sync-regression -> origin/disable-cloud-sync-regression
+2026-10-17T06:36:16.6725311Z  * [new branch]      essays-hub              -> origin/essays-hub
+2026-10-17T06:36:16.6726430Z  * [new branch]      essays-hub-hl-essay     -> origin/essays-hub-hl-essay
+2026-10-17T06:36:16.6727380Z  * [new branch]      feature-essay-workspace -> origin/feature-essay-workspace
+2026-10-17T06:36:16.6728397Z  * [new branch]      feature-evidence-bank   -> origin/feature-evidence-bank
+2026-10-17T06:36:16.6729404Z  * [new branch]      feature-io-planner      -> origin/feature-io-planner
+2026-10-17T06:36:16.6730476Z  * [new branch]      feature-paper2-comparison-builder -> origin/feature-paper2-comparison-builder
+2026-10-17T06:36:16.6731723Z  * [new branch]      feature-planner-auth-required -> origin/feature-planner-auth-required
+2026-10-17T06:36:16.6733059Z  * [new branch]      feature/ace-criteria-launch-notice -> origin/feature/ace-criteria-launch-notice
+2026-10-17T06:36:16.6734255Z  * [new branch]      feature/admin-account-delete -> origin/feature/admin-account-delete
+2026-10-17T06:36:16.6735325Z  * [new branch]      feature/admin-role-preview -> origin/feature/admin-role-preview
+2026-10-17T06:36:16.6736544Z  * [new branch]      feature/admin-role-preview-v2 -> origin/feature/admin-role-preview-v2
+2026-10-17T06:36:16.6738289Z  * [new branch]      feature/biolab-learning-experience-redesign-20261016 -> origin/feature/biolab-learning-experience-redesign-20261016
+2026-10-17T06:36:16.6740058Z  * [new branch]      feature/biology-biolab-launch-20261016 -> origin/feature/biology-biolab-launch-20261016
+2026-10-17T06:36:16.6741451Z  * [new branch]      feature/biology-design-lab -> origin/feature/biology-design-lab
+2026-10-17T06:36:16.6743045Z  * [new branch]      feature/biology-foundation -> origin/feature/biology-foundation
+2026-10-17T06:36:16.6744253Z  * [new branch]      feature/biology-phase32-batch-20261016 -> origin/feature/biology-phase32-batch-20261016
+2026-10-17T06:36:16.6745631Z  * [new branch]      feature/biology-phase4-integration -> origin/feature/biology-phase4-integration
+2026-10-17T06:36:16.6746921Z  * [new branch]      feature/biology-phase5-batch2-20261016 -> origin/feature/biology-phase5-batch2-20261016
+2026-10-17T06:36:16.6748666Z  * [new branch]      feature/biology-phase6-hardening-20261016 -> origin/feature/biology-phase6-hardening-20261016
+2026-10-17T06:36:16.6750590Z  * [new branch]      feature/biology-phase7-batch3-content-20261016 -> origin/feature/biology-phase7-batch3-content-20261016
+2026-10-17T06:36:16.6752142Z  * [new branch]      feature/biology-phase8-batch4-content-20261016 -> origin/feature/biology-phase8-batch4-content-20261016
+2026-10-17T06:36:16.6754012Z  * [new branch]      feature/biology-phase9-nine-topic-integration-20261016 -> origin/feature/biology-phase9-nine-topic-integration-20261016
+2026-10-17T06:36:16.6755560Z  * [new branch]      feature/contributor-journey-live-sync -> origin/feature/contributor-journey-live-sync
+2026-10-17T06:36:16.6757038Z  * [new branch]      feature/contributor-journey-live-sync-v2 -> origin/feature/contributor-journey-live-sync-v2
+2026-10-17T06:36:16.6758311Z  * [new branch]      feature/contributor-program-v3 -> origin/feature/contributor-program-v3
+2026-10-17T06:36:16.6759802Z  * [new branch]      feature/insight-analysis-definitions -> origin/feature/insight-analysis-definitions
+2026-10-17T06:36:16.6761010Z  * [new branch]      feature/insight-analysis-examples -> origin/feature/insight-analysis-examples
+2026-10-17T06:36:16.6762368Z  * [new branch]      feature/insight-analysis-feature-breakdowns -> origin/feature/insight-analysis-feature-breakdowns
+2026-10-17T06:36:16.6763676Z  * [new branch]      feature/insightful-analysis-toolkit -> origin/feature/insightful-analysis-toolkit
+2026-10-17T06:36:16.6764882Z  * [new branch]      feature/per-feature-analysis-examples -> origin/feature/per-feature-analysis-examples
+2026-10-17T06:36:16.6765914Z  * [new branch]      fix-ee-workspace-theme  -> origin/fix-ee-workspace-theme
+2026-10-17T06:36:16.6766843Z  * [new branch]      fix-essay-refresh-root-cause -> origin/fix-essay-refresh-root-cause
+2026-10-17T06:36:16.6767781Z  * [new branch]      fix-essay-route-dock    -> origin/fix-essay-route-dock
+2026-10-17T06:36:16.6768795Z  * [new branch]      fix-essay-route-race    -> origin/fix-essay-route-race
+2026-10-17T06:36:16.6769671Z  * [new branch]      fix-essay-router-architecture -> origin/fix-essay-router-architecture
+2026-10-17T06:36:16.6770584Z  * [new branch]      fix-essays-guest-copy   -> origin/fix-essays-guest-copy
+2026-10-17T06:36:16.6771419Z  * [new branch]      fix-essays-signin-modal -> origin/fix-essays-signin-modal
+2026-10-17T06:36:16.6772529Z  * [new branch]      fix-first-click-route-selection -> origin/fix-first-click-route-selection
+2026-10-17T06:36:16.6773529Z  * [new branch]      fix-google-auth-button  -> origin/fix-google-auth-button
+2026-10-17T06:36:16.6774485Z  * [new branch]      fix-google-auth-interaction -> origin/fix-google-auth-interaction
+2026-10-17T06:36:16.6775467Z  * [new branch]      fix-hl-essay-route-dock-visible -> origin/fix-hl-essay-route-dock-visible
+2026-10-17T06:36:16.6776446Z  * [new branch]      fix-native-essay-routes-final -> origin/fix-native-essay-routes-final
+2026-10-17T06:36:16.6777402Z  * [new branch]      fix-native-special-routes -> origin/fix-native-special-routes
+2026-10-17T06:36:16.6778206Z  * [new branch]      fix-score-rings         -> origin/fix-score-rings
+2026-10-17T06:36:16.6779124Z  * [new branch]      fix-signed-in-button-freeze -> origin/fix-signed-in-button-freeze
+2026-10-17T06:36:16.6780055Z  * [new branch]      fix-special-route-navigation -> origin/fix-special-route-navigation
+2026-10-17T06:36:16.6780896Z  * [new branch]      fix-toc-compass         -> origin/fix-toc-compass
+2026-10-17T06:36:16.6781661Z  * [new branch]      fix-toolkit-mode-state  -> origin/fix-toolkit-mode-state
+2026-10-17T06:36:16.6782592Z  * [new branch]      fix-toolkit-motion-loop -> origin/fix-toolkit-motion-loop
+2026-10-17T06:36:16.6783353Z  * [new branch]      fix-toolkit-tabs        -> origin/fix-toolkit-tabs
+2026-10-17T06:36:16.6784197Z  * [new branch]      fix-tutor-viewport-frame -> origin/fix-tutor-viewport-frame
+2026-10-17T06:36:16.6785124Z  * [new branch]      fix/admin-role-badges-load -> origin/fix/admin-role-badges-load
+2026-10-17T06:36:16.6786402Z  * [new branch]      fix/books-toolkit-route-handoff -> origin/fix/books-toolkit-route-handoff
+2026-10-17T06:36:16.6787563Z  * [new branch]      fix/completed-student-guide-sync -> origin/fix/completed-student-guide-sync
+2026-10-17T06:36:16.6788695Z  * [new branch]      fix/contributor-chat-modal-frame -> origin/fix/contributor-chat-modal-frame
+2026-10-17T06:36:16.6789943Z  * [new branch]      fix/contributor-deep-qa -> origin/fix/contributor-deep-qa
+2026-10-17T06:36:16.6791322Z  * [new branch]      fix/contributor-final-review-handoff -> origin/fix/contributor-final-review-handoff
+2026-10-17T06:36:16.6792838Z  * [new branch]      fix/contributor-guide-bar -> origin/fix/contributor-guide-bar
+2026-10-17T06:36:16.6794361Z  * [new branch]      fix/contributor-guide-button-order-stability -> origin/fix/contributor-guide-button-order-stability
+2026-10-17T06:36:16.6861061Z  * [new branch]      fix/contributor-guide-notification-regressions -> origin/fix/contributor-guide-notification-regressions
+2026-10-17T06:36:16.6862950Z  * [new branch]      fix/contributor-guide-workflow-coherence -> origin/fix/contributor-guide-workflow-coherence
+2026-10-17T06:36:16.6864641Z  * [new branch]      fix/contributor-guide-workflow-coherence-clean -> origin/fix/contributor-guide-workflow-coherence-clean
+2026-10-17T06:36:16.6866111Z  * [new branch]      fix/contributor-mobile-in-frame -> origin/fix/contributor-mobile-in-frame
+2026-10-17T06:36:16.6867476Z  * [new branch]      fix/contributor-role-gate-toolkit-new -> origin/fix/contributor-role-gate-toolkit-new
+2026-10-17T06:36:16.6868821Z  * [new branch]      fix/contributor-role-ui-clarity -> origin/fix/contributor-role-ui-clarity
+2026-10-17T06:36:16.6870285Z  * [new branch]      fix/contributor-section-bar-scroll-locks -> origin/fix/contributor-section-bar-scroll-locks
+2026-10-17T06:36:16.6871632Z  * [new branch]      fix/contributor-state-guide-bar -> origin/fix/contributor-state-guide-bar
+2026-10-17T06:36:16.6873203Z  * [new branch]      fix/contributor-sticky-section-toc -> origin/fix/contributor-sticky-section-toc
+2026-10-17T06:36:16.6874385Z  * [new branch]      fix/full-glossary-button -> origin/fix/full-glossary-button
+2026-10-17T06:36:16.6875392Z  * [new branch]      fix/google-account-chooser -> origin/fix/google-account-chooser
+2026-10-17T06:36:16.6876393Z  * [new branch]      fix/guide-scroll-tracker -> origin/fix/guide-scroll-tracker
+2026-10-17T06:36:16.6877560Z  * [new branch]      fix/insight-mini-example-proportions -> origin/fix/insight-mini-example-proportions
+2026-10-17T06:36:16.6878920Z  * [new branch]      fix/promotion-admin-legacy-panels -> origin/fix/promotion-admin-legacy-panels
+2026-10-17T06:36:16.6880080Z  * [new branch]      fix/promotion-admin-modal -> origin/fix/promotion-admin-modal
+2026-10-17T06:36:16.6881867Z  * [new branch]      fix/promotion-core-render -> origin/fix/promotion-core-render
+2026-10-17T06:36:16.6883462Z  * [new branch]      fix/require-account-role-choice -> origin/fix/require-account-role-choice
+2026-10-17T06:36:16.6884744Z  * [new branch]      fix/restore-admin-dashboard-launcher -> origin/fix/restore-admin-dashboard-launcher
+2026-10-17T06:36:16.6886060Z  * [new branch]      fix/sitewide-qa-performance-cleanup -> origin/fix/sitewide-qa-performance-cleanup
+2026-10-17T06:36:16.6887228Z  * [new branch]      fix/sitewide-runtime-audit -> origin/fix/sitewide-runtime-audit
+2026-10-17T06:36:16.6888464Z  * [new branch]      fix/student-guide-orientation-highlight -> origin/fix/student-guide-orientation-highlight
+2026-10-17T06:36:16.6889773Z  * [new branch]      fix/student-guide-scroll-glitch -> origin/fix/student-guide-scroll-glitch
+2026-10-17T06:36:16.6890907Z  * [new branch]      fix/student-guide-scroll-sync -> origin/fix/student-guide-scroll-sync
+2026-10-17T06:36:16.6892161Z  * [new branch]      fix/student-guide-single-scroll-owner -> origin/fix/student-guide-single-scroll-owner
+2026-10-17T06:36:16.6893585Z  * [new branch]      fix/teacher-approved-final-handoff -> origin/fix/teacher-approved-final-handoff
+2026-10-17T06:36:16.6894905Z  * [new branch]      fix/toolkit-border-new-badge -> origin/fix/toolkit-border-new-badge
+2026-10-17T06:36:16.6896176Z  * [new branch]      fix/toolkit-launch-notice-persistence -> origin/fix/toolkit-launch-notice-persistence
+2026-10-17T06:36:16.6897370Z  * [new branch]      fix/toolkit-new-badge-layout -> origin/fix/toolkit-new-badge-layout
+2026-10-17T06:36:16.6898321Z  * [new branch]      fix/toolkit-new-pill    -> origin/fix/toolkit-new-pill
+2026-10-17T06:36:16.6899224Z  * [new branch]      fix/topbar-wrap-regression -> origin/fix/topbar-wrap-regression
+2026-10-17T06:36:16.6900325Z  * [new branch]      fix/unify-student-submission-action -> origin/fix/unify-student-submission-action
+2026-10-17T06:36:16.6901473Z  * [new branch]      frankenstein-book-profile -> origin/frankenstein-book-profile
+2026-10-17T06:36:16.6902480Z  * [new branch]      full-ee-guide           -> origin/full-ee-guide
+2026-10-17T06:36:16.6903293Z  * [new branch]      google-auth-login       -> origin/google-auth-login
+2026-10-17T06:36:16.6904213Z  * [new branch]      handmaids-tale-book-profile -> origin/handmaids-tale-book-profile
+2026-10-17T06:36:16.6905149Z  * [new branch]      hl-essay-full-guide     -> origin/hl-essay-full-guide
+2026-10-17T06:36:16.6906057Z  * [new branch]      home-only-litlab-dashboard -> origin/home-only-litlab-dashboard
+2026-10-17T06:36:16.6906961Z  * [new branch]      io-full-guide           -> origin/io-full-guide
+2026-10-17T06:36:16.6907739Z  * [new branch]      keyword-bank            -> origin/keyword-bank
+2026-10-17T06:36:16.6908535Z  * [new branch]      litlab-local-tutor      -> origin/litlab-local-tutor
+2026-10-17T06:36:16.6909365Z  * [new branch]      litlab-polish-nav       -> origin/litlab-polish-nav
+2026-10-17T06:36:16.6910196Z  * [new branch]      litlab-redesign         -> origin/litlab-redesign
+2026-10-17T06:36:16.6910932Z  * [new branch]      main                    -> origin/main
+2026-10-17T06:36:16.6911864Z  * [new branch]      microsoft-account-chooser -> origin/microsoft-account-chooser
+2026-10-17T06:36:16.6912865Z  * [new branch]      microsoft-login         -> origin/microsoft-login
+2026-10-17T06:36:16.6913796Z  * [new branch]      motion-accordion-scrollspy -> origin/motion-accordion-scrollspy
+2026-10-17T06:36:16.6914822Z  * [new branch]      my-litlab-mistake-clinic -> origin/my-litlab-mistake-clinic
+2026-10-17T06:36:16.6915872Z  * [new branch]      nineteen-eighty-four-sl-profile -> origin/nineteen-eighty-four-sl-profile
+2026-10-17T06:36:16.6917030Z  * [new branch]      paper1-choice-table-full-span -> origin/paper1-choice-table-full-span
+2026-10-17T06:36:16.6918077Z  * [new branch]      paper1-direct-copy-tables -> origin/paper1-direct-copy-tables
+2026-10-17T06:36:16.6919020Z  * [new branch]      paper1-elena-content    -> origin/paper1-elena-content
+2026-10-17T06:36:16.6919866Z  * [new branch]      paper1-render-fix       -> origin/paper1-render-fix
+2026-10-17T06:36:16.6920784Z  * [new branch]      paper1-table-in-frame   -> origin/paper1-table-in-frame
+2026-10-17T06:36:16.6921890Z  * [new branch]      paper1-wide-mechanisms-level-table -> origin/paper1-wide-mechanisms-level-table
+2026-10-17T06:36:16.6923103Z  * [new branch]      paper2-full-guide       -> origin/paper2-full-guide
+2026-10-17T06:36:16.6923937Z  * [new branch]      paper2-small-fonts      -> origin/paper2-small-fonts
+2026-10-17T06:36:16.6924764Z  * [new branch]      persepolis-book-profile -> origin/persepolis-book-profile
+2026-10-17T06:36:16.6925765Z  * [new branch]      polish-essay-design-navigation -> origin/polish-essay-design-navigation
+2026-10-17T06:36:16.6926400Z  * [new branch]      promotion-workflow      -> origin/promotion-workflow
+2026-10-17T06:36:16.6926958Z  * [new branch]      restore-start-compass   -> origin/restore-start-compass
+2026-10-17T06:36:16.6927738Z  * [new branch]      revert/biolab-public-beta-to-preview-20261017 -> origin/revert/biolab-public-beta-to-preview-20261017
+2026-10-17T06:36:16.6928507Z  * [new branch]      safe-account-center     -> origin/safe-account-center
+2026-10-17T06:36:16.6929175Z  * [new branch]      sentence-frames-toolkit -> origin/sentence-frames-toolkit
+2026-10-17T06:36:16.6929804Z  * [new branch]      simplify-compass-anchor-fix -> origin/simplify-compass-anchor-fix
+2026-10-17T06:36:16.6930405Z  * [new branch]      site-qa-hardening       -> origin/site-qa-hardening
+2026-10-17T06:36:16.6930981Z  * [new branch]      sitewide-interaction-audit -> origin/sitewide-interaction-audit
+2026-10-17T06:36:16.6931650Z  * [new branch]      skills-authorial-choice-bank -> origin/skills-authorial-choice-bank
+2026-10-17T06:36:16.6932462Z  * [new branch]      skills-choice-bank-layout-fix -> origin/skills-choice-bank-layout-fix
+2026-10-17T06:36:16.6933250Z  * [new branch]      skills-choice-bank-observer-stability -> origin/skills-choice-bank-observer-stability
+2026-10-17T06:36:16.6934023Z  * [new branch]      skills-lab-component-review -> origin/skills-lab-component-review
+2026-10-17T06:36:16.6934698Z  * [new branch]      skills-lab-dashboard-layout -> origin/skills-lab-dashboard-layout
+2026-10-17T06:36:16.6935432Z  * [new branch]      skills-lab-stale-choice-layout-fix -> origin/skills-lab-stale-choice-layout-fix
+2026-10-17T06:36:16.6936118Z  * [new branch]      skills-lab-suite        -> origin/skills-lab-suite
+2026-10-17T06:36:16.6936667Z  * [new branch]      thesis-evaluation       -> origin/thesis-evaluation
+2026-10-17T06:36:16.6937174Z  * [new branch]      tmp-ignore              -> origin/tmp-ignore
+2026-10-17T06:36:16.6937670Z  * [new branch]      toolkit-section         -> origin/toolkit-section
+2026-10-17T06:36:16.6938211Z  * [new branch]      tutor-mobile-upgrade    -> origin/tutor-mobile-upgrade
+2026-10-17T06:36:16.6939615Z [command]/usr/bin/git branch --list --remote origin/feature/biolab-learning-experience-redesign-20261016
+2026-10-17T06:36:16.6940303Z   origin/feature/biolab-learning-experience-redesign-20261016
+2026-10-17T06:36:16.6941299Z [command]/usr/bin/git rev-parse refs/remotes/origin/feature/biolab-learning-experience-redesign-20261016
+2026-10-17T06:36:16.6942140Z 2435130294ea0fb5ffc024109cf031402cbcdc58
+2026-10-17T06:36:16.6943057Z ##[endgroup]
+2026-10-17T06:36:16.6943462Z ##[group]Determining the checkout info
+2026-10-17T06:36:16.6943928Z ##[endgroup]
+2026-10-17T06:36:16.6944192Z [command]/usr/bin/git sparse-checkout disable
+2026-10-17T06:36:16.6944998Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-17T06:36:16.6945916Z ##[group]Checking out the ref
+2026-10-17T06:36:16.6946843Z [command]/usr/bin/git checkout --progress --force -B feature/biolab-learning-experience-redesign-20261016 refs/remotes/origin/feature/biolab-learning-experience-redesign-20261016
+2026-10-17T06:36:16.7508954Z Switched to a new branch 'feature/biolab-learning-experience-redesign-20261016'
+2026-10-17T06:36:16.7510519Z branch 'feature/biolab-learning-experience-redesign-20261016' set up to track 'origin/feature/biolab-learning-experience-redesign-20261016'.
+2026-10-17T06:36:16.7514629Z ##[endgroup]
+2026-10-17T06:36:16.7539942Z [command]/usr/bin/git log -1 --format=%H
+2026-10-17T06:36:16.7553587Z 2435130294ea0fb5ffc024109cf031402cbcdc58
+2026-10-17T06:36:16.7561747Z ##[group]Removing auth
+2026-10-17T06:36:16.7562382Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-17T06:36:16.7577799Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-17T06:36:16.7678193Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-17T06:36:16.7690654Z http.https://github.com/.extraheader
+2026-10-17T06:36:16.7695901Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-17T06:36:16.7715183Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-17T06:36:16.7817291Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-17T06:36:16.7835007Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-17T06:36:16.7930222Z ##[endgroup]
+2026-10-17T06:36:16.8221629Z ##[group]Run set -euo pipefail
+2026-10-17T06:36:16.8222081Z [36;1mset -euo pipefail[0m
+2026-10-17T06:36:16.8222611Z [36;1mtest "$(git rev-parse HEAD)" = "$GITHUB_SHA"[0m
+2026-10-17T06:36:16.8223033Z [36;1mtest -z "$(git status --porcelain)"[0m
+2026-10-17T06:36:16.8223757Z [36;1mfor path in src public scripts package.json package-lock.json vite.config.ts index.html .github/workflows; do[0m
+2026-10-17T06:36:16.8224578Z [36;1m  test -e "$path" || { echo "Missing checkout path: $path"; exit 1; }[0m
+2026-10-17T06:36:16.8225062Z [36;1mdone[0m
+2026-10-17T06:36:16.8225301Z [36;1mgit rev-parse HEAD[0m
+2026-10-17T06:36:16.8225629Z [36;1mgit status --porcelain[0m
+2026-10-17T06:36:16.8225931Z [36;1mgit ls-files | wc -l[0m
+2026-10-17T06:36:16.8226349Z [36;1mprintf "checkout_sha=%s\n" "$GITHUB_SHA" > phase16-checkout.txt[0m
+2026-10-17T06:36:16.8436326Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:36:16.8436714Z env:
+2026-10-17T06:36:16.8436955Z   CI: true
+2026-10-17T06:36:16.8437252Z ##[endgroup]
+2026-10-17T06:36:16.9018977Z 2435130294ea0fb5ffc024109cf031402cbcdc58
+2026-10-17T06:36:16.9216425Z 661
+2026-10-17T06:36:16.9327093Z ##[group]Run actions/setup-node@v4
+2026-10-17T06:36:16.9327417Z with:
+2026-10-17T06:36:16.9327643Z   node-version: 22
+2026-10-17T06:36:16.9327877Z   cache: npm
+2026-10-17T06:36:16.9328103Z   always-auth: false
+2026-10-17T06:36:16.9328350Z   check-latest: false
+2026-10-17T06:36:16.9330802Z   token: ***
+2026-10-17T06:36:16.9331020Z env:
+2026-10-17T06:36:16.9331222Z   CI: true
+2026-10-17T06:36:16.9331434Z ##[endgroup]
+2026-10-17T06:36:17.0190932Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-17T06:36:17.0194299Z (node:1924) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-17T06:36:17.0195163Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-17T06:36:17.0195940Z ##[group]Environment details
+2026-10-17T06:36:17.2097423Z node: v22.23.3
+2026-10-17T06:36:17.2097925Z npm: 10.9.9
+2026-10-17T06:36:17.2098231Z yarn: 1.22.22
+2026-10-17T06:36:17.2099155Z ##[endgroup]
+2026-10-17T06:36:17.2130630Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-17T06:36:17.3310722Z /home/runner/.npm
+2026-10-17T06:36:17.4916390Z Cache hit for: node-cache-Linux-x64-npm-f932fb7b09c719d81ff69a7826bf5f15e81e5b62f981d43dd9d6aec25e34effa
+2026-10-17T06:36:17.4986048Z (node:1924) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-17T06:36:18.5997584Z Received 102554963 of 102554963 (100.0%), 103.3 MBs/sec
+2026-10-17T06:36:18.5998138Z Cache Size: ~98 MB (102554963 B)
+2026-10-17T06:36:18.6014456Z [command]/usr/bin/tar -xf /home/runner/work/_temp/73081087-8f5a-4afd-81a4-29d84f553898/cache.tzst -P -C /home/runner/work/litlab/litlab --use-compress-program unzstd
+2026-10-17T06:36:18.6761432Z Cache restored successfully
+2026-10-17T06:36:18.6841182Z Cache restored from key: node-cache-Linux-x64-npm-f932fb7b09c719d81ff69a7826bf5f15e81e5b62f981d43dd9d6aec25e34effa
+2026-10-17T06:36:18.7608120Z ##[group]Run set -o pipefail
+2026-10-17T06:36:18.7608385Z [36;1mset -o pipefail[0m
+2026-10-17T06:36:18.7608625Z [36;1mnpm ci 2>&1 | tee phase16-install.log[0m
+2026-10-17T06:36:18.7853876Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:36:18.7854155Z env:
+2026-10-17T06:36:18.7854334Z   CI: true
+2026-10-17T06:36:18.7854505Z ##[endgroup]
+2026-10-17T06:36:23.5938835Z 
+2026-10-17T06:36:23.5954567Z added 112 packages, and audited 113 packages in 5s
+2026-10-17T06:36:23.5955081Z 
+2026-10-17T06:36:23.5955361Z 16 packages are looking for funding
+2026-10-17T06:36:23.5955685Z   run `npm fund` for details
+2026-10-17T06:36:23.6553663Z 
+2026-10-17T06:36:23.6555546Z 7 vulnerabilities (1 moderate, 6 high)
+2026-10-17T06:36:23.6555910Z 
+2026-10-17T06:36:23.6556200Z To address issues that do not require attention, run:
+2026-10-17T06:36:23.6557570Z   npm audit fix
+2026-10-17T06:36:23.6557699Z 
+2026-10-17T06:36:23.6557874Z To address all issues, run:
+2026-10-17T06:36:23.6558134Z   npm audit fix --force
+2026-10-17T06:36:23.6558379Z 
+2026-10-17T06:36:23.6558499Z Run `npm audit` for details.
+2026-10-17T06:36:23.6857852Z ##[group]Run set -o pipefail
+2026-10-17T06:36:23.6858119Z [36;1mset -o pipefail[0m
+2026-10-17T06:36:23.6858330Z [36;1mnpm run quality 2>&1 | tee phase16-quality.log[0m
+2026-10-17T06:36:23.6858557Z [36;1mnode scripts/validate-phase9.mjs[0m
+2026-10-17T06:36:23.6858758Z [36;1mnode --test scripts/validate-phase9.test.mjs[0m
+2026-10-17T06:36:23.6858994Z [36;1mnode scripts/validate-phase7-batch3.mjs[0m
+2026-10-17T06:36:23.6859217Z [36;1mnode --test scripts/validate-phase7-batch3.test.mjs[0m
+2026-10-17T06:36:23.6859448Z [36;1mnode scripts/biology/phase8/validate.mjs[0m
+2026-10-17T06:36:23.6859676Z [36;1mnode scripts/biology/phase8/negative.test.mjs[0m
+2026-10-17T06:36:23.6859931Z [36;1mnode scripts/validate-biology.mjs[0m
+2026-10-17T06:36:23.6860126Z [36;1mnode --test scripts/validate-biology.test.mjs[0m
+2026-10-17T06:36:23.6860324Z [36;1mnode scripts/validate-water.mjs[0m
+2026-10-17T06:36:23.6860513Z [36;1mnode scripts/validate-lessons.mjs[0m
+2026-10-17T06:36:23.6860726Z [36;1mnode scripts/validate-batch32.mjs[0m
+2026-10-17T06:36:23.6860906Z [36;1mnode scripts/validate-batch5.mjs[0m
+2026-10-17T06:36:23.6861103Z [36;1mnode --test scripts/validate-batch5.test.mjs[0m
+2026-10-17T06:36:23.6861334Z [36;1mnode scripts/validate-phase5-figures.mjs[0m
+2026-10-17T06:36:23.6861576Z [36;1mnode --test scripts/validate-phase5-figures.test.mjs[0m
+2026-10-17T06:36:23.6861916Z [36;1mnode scripts/validate-phase6-editorial.mjs[0m
+2026-10-17T06:36:23.6862179Z [36;1mnode --test scripts/validate-phase6-editorial.test.mjs[0m
+2026-10-17T06:36:23.6862844Z [36;1mnode scripts/validate-phase4-figures.mjs[0m
+2026-10-17T06:36:23.6863119Z [36;1mnode --test scripts/validate-phase4-figures.test.mjs[0m
+2026-10-17T06:36:23.6863393Z [36;1mnode --test scripts/validate-batch32.test.mjs[0m
+2026-10-17T06:36:23.6863699Z [36;1mnode --test scripts/validate-water.test.mjs scripts/validate-lesson.test.mjs[0m
+2026-10-17T06:36:23.6897465Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:36:23.6897652Z env:
+2026-10-17T06:36:23.6897776Z   CI: true
+2026-10-17T06:36:23.6897900Z ##[endgroup]
+2026-10-17T06:36:23.7702691Z 
+2026-10-17T06:36:23.7703569Z > litlab@2.0.0 quality
+2026-10-17T06:36:23.7704080Z > node scripts/site-quality.mjs
+2026-10-17T06:36:23.7704277Z 
+2026-10-17T06:36:23.8410508Z Site quality checks passed across 365 source files.
+2026-10-17T06:36:23.8412428Z Top-level module entries: /src/main.tsx, /src/site-runtime.ts
+2026-10-17T06:36:23.9044397Z {
+2026-10-17T06:36:23.9045110Z   "errors": [],
+2026-10-17T06:36:23.9046634Z   "summary": {
+2026-10-17T06:36:23.9046977Z     "topics": 40,
+2026-10-17T06:36:23.9047295Z     "understandings": 553,
+2026-10-17T06:36:23.9048385Z     "activeTopics": 8,
+2026-10-17T06:36:23.9048765Z     "activeUnderstandings": 101,
+2026-10-17T06:36:23.9049099Z     "shared": 63,
+2026-10-17T06:36:23.9049375Z     "HL": 38,
+2026-10-17T06:36:23.9049681Z     "importedIncomplete": [
+2026-10-17T06:36:23.9050013Z       "A2.2"
+2026-10-17T06:36:23.9050272Z     ],
+2026-10-17T06:36:23.9050803Z     "registryDigest": "39c41d236aeb7e34d107cb3e38f6b1d575a78626b7f96b758c7f0ed269894d4f"
+2026-10-17T06:36:23.9051359Z   }
+2026-10-17T06:36:23.9051646Z }
+2026-10-17T06:36:23.9400165Z TAP version 13
+2026-10-17T06:36:24.0122662Z # Subtest: eight registered drafts and frozen 40-topic official registry
+2026-10-17T06:36:24.0139883Z ok 1 - eight registered drafts and frozen 40-topic official registry
+2026-10-17T06:36:24.0140616Z   ---
+2026-10-17T06:36:24.0149797Z   duration_ms: 10.360444
+2026-10-17T06:36:24.0150284Z   type: 'test'
+2026-10-17T06:36:24.0150603Z   ...
+2026-10-17T06:36:24.0151026Z # Subtest: pump cannot reverse Na/K stoichiometry
+2026-10-17T06:36:24.0151530Z ok 2 - pump cannot reverse Na/K stoichiometry
+2026-10-17T06:36:24.0151911Z   ---
+2026-10-17T06:36:24.0152350Z   duration_ms: 3.507041
+2026-10-17T06:36:24.0153335Z   type: 'test'
+2026-10-17T06:36:24.0153727Z   ...
+2026-10-17T06:36:24.0154255Z # Subtest: secondary transport is driven by sodium, not direct carrier ATP hydrolysis
+2026-10-17T06:36:24.0160613Z ok 3 - secondary transport is driven by sodium, not direct carrier ATP hydrolysis
+2026-10-17T06:36:24.0161151Z   ---
+2026-10-17T06:36:24.0164920Z   duration_ms: 3.374402
+2026-10-17T06:36:24.0165250Z   type: 'test'
+2026-10-17T06:36:24.0165523Z   ...
+2026-10-17T06:36:24.0166143Z # Subtest: photosystems and Calvin enzymes occupy distinct compartments
+2026-10-17T06:36:24.0168419Z ok 4 - photosystems and Calvin enzymes occupy distinct compartments
+2026-10-17T06:36:24.0168850Z   ---
+2026-10-17T06:36:24.0169131Z   duration_ms: 2.334302
+2026-10-17T06:36:24.0169433Z   type: 'test'
+2026-10-17T06:36:24.0169729Z   ...
+2026-10-17T06:36:24.0191933Z # Subtest: cube calculation retains inverse-length units
+2026-10-17T06:36:24.0192549Z ok 5 - cube calculation retains inverse-length units
+2026-10-17T06:36:24.0192924Z   ---
+2026-10-17T06:36:24.0193206Z   duration_ms: 3.047292
+2026-10-17T06:36:24.0193616Z   type: 'test'
+2026-10-17T06:36:24.0193890Z   ...
+2026-10-17T06:36:24.0194279Z # Subtest: magnification uses matching length units
+2026-10-17T06:36:24.0194728Z ok 6 - magnification uses matching length units
+2026-10-17T06:36:24.0195079Z   ---
+2026-10-17T06:36:24.0195354Z   duration_ms: 3.233552
+2026-10-17T06:36:24.0195648Z   type: 'test'
+2026-10-17T06:36:24.0195914Z   ...
+2026-10-17T06:36:24.0196338Z # Subtest: calibrated scale-bar ratio converts into micrometres
+2026-10-17T06:36:24.0197211Z ok 7 - calibrated scale-bar ratio converts into micrometres
+2026-10-17T06:36:24.0197594Z   ---
+2026-10-17T06:36:24.0197866Z   duration_ms: 2.240802
+2026-10-17T06:36:24.0198160Z   type: 'test'
+2026-10-17T06:36:24.0198429Z   ...
+2026-10-17T06:36:24.0198981Z # Subtest: larger cube decreases SA/V; each displayed row obeys area and volume formulas
+2026-10-17T06:36:24.0199654Z ok 8 - larger cube decreases SA/V; each displayed row obeys area and volume formulas
+2026-10-17T06:36:24.0200102Z   ---
+2026-10-17T06:36:24.0200366Z   duration_ms: 2.802384
+2026-10-17T06:36:24.0200658Z   type: 'test'
+2026-10-17T06:36:24.0200926Z   ...
+2026-10-17T06:36:24.0201439Z # Subtest: authentic microscopy needs original source, permission terms and scale evidence
+2026-10-17T06:36:24.0202136Z ok 9 - authentic microscopy needs original source, permission terms and scale evidence
+2026-10-17T06:36:24.0202639Z   ---
+2026-10-17T06:36:24.0202879Z   duration_ms: 2.53896
+2026-10-17T06:36:24.0203154Z   type: 'test'
+2026-10-17T06:36:24.0203415Z   ...
+2026-10-17T06:36:24.0203799Z # Subtest: shared teaching cannot cite HL-only sources
+2026-10-17T06:36:24.0204251Z ok 10 - shared teaching cannot cite HL-only sources
+2026-10-17T06:36:24.0204614Z   ---
+2026-10-17T06:36:24.0204879Z   duration_ms: 2.816917
+2026-10-17T06:36:24.0205169Z   type: 'test'
+2026-10-17T06:36:24.0205437Z   ...
+2026-10-17T06:36:24.0205834Z # Subtest: answer keys cannot repeat a fixed four-position cycle
+2026-10-17T06:36:24.0206361Z ok 11 - answer keys cannot repeat a fixed four-position cycle
+2026-10-17T06:36:24.0206812Z   ---
+2026-10-17T06:36:24.0207080Z   duration_ms: 2.588273
+2026-10-17T06:36:24.0207377Z   type: 'test'
+2026-10-17T06:36:24.0207712Z   ...
+2026-10-17T06:36:24.0208165Z # Subtest: Learn and Practice causal feedback stay aligned after a content edit
+2026-10-17T06:36:24.0208835Z ok 12 - Learn and Practice causal feedback stay aligned after a content edit
+2026-10-17T06:36:24.0209320Z   ---
+2026-10-17T06:36:24.0209570Z   duration_ms: 2.651168
+2026-10-17T06:36:24.0209848Z   type: 'test'
+2026-10-17T06:36:24.0210110Z   ...
+2026-10-17T06:36:24.0232709Z 1..12
+2026-10-17T06:36:24.0232927Z # tests 12
+2026-10-17T06:36:24.0233110Z # suites 0
+2026-10-17T06:36:24.0233288Z # pass 12
+2026-10-17T06:36:24.0233468Z # fail 0
+2026-10-17T06:36:24.0233638Z # cancelled 0
+2026-10-17T06:36:24.0233836Z # skipped 0
+2026-10-17T06:36:24.0234019Z # todo 0
+2026-10-17T06:36:24.0234218Z # duration_ms 91.661031
+2026-10-17T06:36:24.0651897Z PASS [{"topic":"B2.1","sections":17,"mcqs":17,"structured":8,"figures":17},{"topic":"B2.2","sections":9,"mcqs":9,"structured":8,"figures":9}]
+2026-10-17T06:36:24.0936648Z TAP version 13
+2026-10-17T06:36:24.1391117Z # Subtest: B2.1 positive structural mapping
+2026-10-17T06:36:24.1419992Z ok 1 - B2.1 positive structural mapping
+2026-10-17T06:36:24.1420345Z   ---
+2026-10-17T06:36:24.1420544Z   duration_ms: 3.163356
+2026-10-17T06:36:24.1420756Z   type: 'test'
+2026-10-17T06:36:24.1420940Z   ...
+2026-10-17T06:36:24.1421169Z # Subtest: B2.1 rejects duplicate ID
+2026-10-17T06:36:24.1421500Z ok 2 - B2.1 rejects duplicate ID
+2026-10-17T06:36:24.1421721Z   ---
+2026-10-17T06:36:24.1421903Z   duration_ms: 1.943406
+2026-10-17T06:36:24.1422108Z   type: 'test'
+2026-10-17T06:36:24.1422395Z   ...
+2026-10-17T06:36:24.1422618Z # Subtest: B2.1 rejects SL/HL leakage
+2026-10-17T06:36:24.1422904Z ok 3 - B2.1 rejects SL/HL leakage
+2026-10-17T06:36:24.1423124Z   ---
+2026-10-17T06:36:24.1423293Z   duration_ms: 1.11933
+2026-10-17T06:36:24.1423496Z   type: 'test'
+2026-10-17T06:36:24.1423668Z   ...
+2026-10-17T06:36:24.1423916Z # Subtest: B2.1 rejects unknown science reference
+2026-10-17T06:36:24.1424268Z ok 4 - B2.1 rejects unknown science reference
+2026-10-17T06:36:24.1424518Z   ---
+2026-10-17T06:36:24.1424686Z   duration_ms: 1.149735
+2026-10-17T06:36:24.1424946Z   type: 'test'
+2026-10-17T06:36:24.1425116Z   ...
+2026-10-17T06:36:24.1425336Z # Subtest: B2.1 rejects false approval
+2026-10-17T06:36:24.1425620Z ok 5 - B2.1 rejects false approval
+2026-10-17T06:36:24.1425852Z   ---
+2026-10-17T06:36:24.1426023Z   duration_ms: 1.400562
+2026-10-17T06:36:24.1426480Z   type: 'test'
+2026-10-17T06:36:24.1426656Z   ...
+2026-10-17T06:36:24.1426869Z # Subtest: B2.1 rejects wrong page
+2026-10-17T06:36:24.1427144Z ok 6 - B2.1 rejects wrong page
+2026-10-17T06:36:24.1427362Z   ---
+2026-10-17T06:36:24.1427530Z   duration_ms: 1.224217
+2026-10-17T06:36:24.1427726Z   type: 'test'
+2026-10-17T06:36:24.1427895Z   ...
+2026-10-17T06:36:24.1428143Z # Subtest: B2.1 rejects two correct MCQ options
+2026-10-17T06:36:24.1428466Z ok 7 - B2.1 rejects two correct MCQ options
+2026-10-17T06:36:24.1428708Z   ---
+2026-10-17T06:36:24.1428880Z   duration_ms: 1.20649
+2026-10-17T06:36:24.1429090Z   type: 'test'
+2026-10-17T06:36:24.1429258Z   ...
+2026-10-17T06:36:24.1429468Z # Subtest: B2.1 rejects invalid marks
+2026-10-17T06:36:24.1429745Z ok 8 - B2.1 rejects invalid marks
+2026-10-17T06:36:24.1429961Z   ---
+2026-10-17T06:36:24.1430127Z   duration_ms: 1.80572
+2026-10-17T06:36:24.1430344Z   type: 'test'
+2026-10-17T06:36:24.1430680Z   ...
+2026-10-17T06:36:24.1430923Z # Subtest: B2.1 rejects missing artwork recall
+2026-10-17T06:36:24.1431241Z ok 9 - B2.1 rejects missing artwork recall
+2026-10-17T06:36:24.1431478Z   ---
+2026-10-17T06:36:24.1431647Z   duration_ms: 1.164267
+2026-10-17T06:36:24.1431842Z   type: 'test'
+2026-10-17T06:36:24.1432009Z   ...
+2026-10-17T06:36:24.1432321Z # Subtest: B2.1 rejects missing correction
+2026-10-17T06:36:24.1432612Z ok 10 - B2.1 rejects missing correction
+2026-10-17T06:36:24.1432845Z   ---
+2026-10-17T06:36:24.1433010Z   duration_ms: 1.900421
+2026-10-17T06:36:24.1433210Z   type: 'test'
+2026-10-17T06:36:24.1433378Z   ...
+2026-10-17T06:36:24.1602879Z # Subtest: B2.2 positive structural mapping
+2026-10-17T06:36:24.1603498Z ok 11 - B2.2 positive structural mapping
+2026-10-17T06:36:24.1603933Z   ---
+2026-10-17T06:36:24.1604208Z   duration_ms: 0.945339
+2026-10-17T06:36:24.1604498Z   type: 'test'
+2026-10-17T06:36:24.1604756Z   ...
+2026-10-17T06:36:24.1605064Z # Subtest: B2.2 rejects duplicate ID
+2026-10-17T06:36:24.1605434Z ok 12 - B2.2 rejects duplicate ID
+2026-10-17T06:36:24.1605757Z   ---
+2026-10-17T06:36:24.1606022Z   duration_ms: 1.356205
+2026-10-17T06:36:24.1606307Z   type: 'test'
+2026-10-17T06:36:24.1606531Z   ...
+2026-10-17T06:36:24.1606741Z # Subtest: B2.2 rejects SL/HL leakage
+2026-10-17T06:36:24.1606994Z ok 13 - B2.2 rejects SL/HL leakage
+2026-10-17T06:36:24.1607204Z   ---
+2026-10-17T06:36:24.1607383Z   duration_ms: 1.218789
+2026-10-17T06:36:24.1607586Z   type: 'test'
+2026-10-17T06:36:24.1607768Z   ...
+2026-10-17T06:36:24.1607993Z # Subtest: B2.2 rejects unknown science reference
+2026-10-17T06:36:24.1608282Z ok 14 - B2.2 rejects unknown science reference
+2026-10-17T06:36:24.1608830Z   ---
+2026-10-17T06:36:24.1609014Z   duration_ms: 1.173991
+2026-10-17T06:36:24.1609214Z   type: 'test'
+2026-10-17T06:36:24.1609394Z   ...
+2026-10-17T06:36:24.1609602Z # Subtest: B2.2 rejects false approval
+2026-10-17T06:36:24.1609857Z ok 15 - B2.2 rejects false approval
+2026-10-17T06:36:24.1610070Z   ---
+2026-10-17T06:36:24.1610247Z   duration_ms: 1.169004
+2026-10-17T06:36:24.1610449Z   type: 'test'
+2026-10-17T06:36:24.1610630Z   ...
+2026-10-17T06:36:24.1610834Z # Subtest: B2.2 rejects wrong page
+2026-10-17T06:36:24.1611081Z ok 16 - B2.2 rejects wrong page
+2026-10-17T06:36:24.1611286Z   ---
+2026-10-17T06:36:24.1611467Z   duration_ms: 2.008393
+2026-10-17T06:36:24.1611664Z   type: 'test'
+2026-10-17T06:36:24.1611842Z   ...
+2026-10-17T06:36:24.1612068Z # Subtest: B2.2 rejects two correct MCQ options
+2026-10-17T06:36:24.1612606Z ok 17 - B2.2 rejects two correct MCQ options
+2026-10-17T06:36:24.1612836Z   ---
+2026-10-17T06:36:24.1613099Z   duration_ms: 1.0927
+2026-10-17T06:36:24.1613545Z   type: 'test'
+2026-10-17T06:36:24.1613941Z   ...
+2026-10-17T06:36:24.1614246Z # Subtest: B2.2 rejects invalid marks
+2026-10-17T06:36:24.1614617Z ok 18 - B2.2 rejects invalid marks
+2026-10-17T06:36:24.1614829Z   ---
+2026-10-17T06:36:24.1615008Z   duration_ms: 1.047542
+2026-10-17T06:36:24.1615211Z   type: 'test'
+2026-10-17T06:36:24.1615393Z   ...
+2026-10-17T06:36:24.1615618Z # Subtest: B2.2 rejects missing artwork recall
+2026-10-17T06:36:24.1616050Z ok 19 - B2.2 rejects missing artwork recall
+2026-10-17T06:36:24.1616481Z   ---
+2026-10-17T06:36:24.1616709Z   duration_ms: 0.753691
+2026-10-17T06:36:24.1616936Z   type: 'test'
+2026-10-17T06:36:24.1617125Z   ...
+2026-10-17T06:36:24.1617375Z # Subtest: B2.2 rejects missing correction
+2026-10-17T06:36:24.1617700Z ok 20 - B2.2 rejects missing correction
+2026-10-17T06:36:24.1617945Z   ---
+2026-10-17T06:36:24.1618127Z   duration_ms: 0.820501
+2026-10-17T06:36:24.1618417Z   type: 'test'
+2026-10-17T06:36:24.1618592Z   ...
+2026-10-17T06:36:24.1803356Z # Subtest: all 26 original figure pairs exist
+2026-10-17T06:36:24.1804093Z ok 21 - all 26 original figure pairs exist
+2026-10-17T06:36:24.1804407Z   ---
+2026-10-17T06:36:24.1804703Z   duration_ms: 23.254874
+2026-10-17T06:36:24.1804958Z   type: 'test'
+2026-10-17T06:36:24.1805188Z   ...
+2026-10-17T06:36:24.1874669Z 1..21
+2026-10-17T06:36:24.1874920Z # tests 21
+2026-10-17T06:36:24.1875100Z # suites 0
+2026-10-17T06:36:24.1875314Z # pass 21
+2026-10-17T06:36:24.1875494Z # fail 0
+2026-10-17T06:36:24.1875665Z # cancelled 0
+2026-10-17T06:36:24.1875860Z # skipped 0
+2026-10-17T06:36:24.1876033Z # todo 0
+2026-10-17T06:36:24.1876225Z # duration_ms 101.207284
+2026-10-17T06:36:24.2123706Z Phase 8: positive validation passed for both authored packages
+2026-10-17T06:36:24.2529102Z Phase 8: thirteen deliberately malformed fixtures rejected
+2026-10-17T06:36:24.2773462Z Biology registry passed: 40 topics, 553 statements, 337 shared / 216 HL; source references and level classifications checked.
+2026-10-17T06:36:24.3043986Z TAP version 13
+2026-10-17T06:36:24.3478609Z # Subtest: source registry passes
+2026-10-17T06:36:24.3499648Z ok 1 - source registry passes
+2026-10-17T06:36:24.3528850Z   ---
+2026-10-17T06:36:24.3530356Z   duration_ms: 2.229966
+2026-10-17T06:36:24.3530705Z   type: 'test'
+2026-10-17T06:36:24.3530974Z   ...
+2026-10-17T06:36:24.3531294Z # Subtest: rejects duplicate topic
+2026-10-17T06:36:24.3531675Z ok 2 - rejects duplicate topic
+2026-10-17T06:36:24.3532008Z   ---
+2026-10-17T06:36:24.3532398Z   duration_ms: 1.234402
+2026-10-17T06:36:24.3532685Z   type: 'test'
+2026-10-17T06:36:24.3532939Z   ...
+2026-10-17T06:36:24.3533246Z # Subtest: rejects missing statement
+2026-10-17T06:36:24.3533629Z ok 3 - rejects missing statement
+2026-10-17T06:36:24.3533928Z   ---
+2026-10-17T06:36:24.3534179Z   duration_ms: 1.550456
+2026-10-17T06:36:24.3534462Z   type: 'test'
+2026-10-17T06:36:24.3534713Z   ...
+2026-10-17T06:36:24.3535014Z # Subtest: rejects duplicate statement
+2026-10-17T06:36:24.3535385Z ok 4 - rejects duplicate statement
+2026-10-17T06:36:24.3535689Z   ---
+2026-10-17T06:36:24.3536302Z   duration_ms: 0.785789
+2026-10-17T06:36:24.3536581Z   type: 'test'
+2026-10-17T06:36:24.3536833Z   ...
+2026-10-17T06:36:24.3537129Z # Subtest: rejects incorrect theme
+2026-10-17T06:36:24.3537480Z ok 5 - rejects incorrect theme
+2026-10-17T06:36:24.3537771Z   ---
+2026-10-17T06:36:24.3538020Z   duration_ms: 0.944557
+2026-10-17T06:36:24.3538308Z   type: 'test'
+2026-10-17T06:36:24.3538572Z   ...
+2026-10-17T06:36:24.3538904Z # Subtest: rejects HL statement exposed as shared
+2026-10-17T06:36:24.3539340Z ok 6 - rejects HL statement exposed as shared
+2026-10-17T06:36:24.3539675Z   ---
+2026-10-17T06:36:24.3539924Z   duration_ms: 1.233711
+2026-10-17T06:36:24.3540206Z   type: 'test'
+2026-10-17T06:36:24.3540478Z   ...
+2026-10-17T06:36:24.3540835Z # Subtest: rejects bad source reference
+2026-10-17T06:36:24.3541222Z ok 7 - rejects bad source reference
+2026-10-17T06:36:24.3541527Z   ---
+2026-10-17T06:36:24.3541781Z   duration_ms: 0.783386
+2026-10-17T06:36:24.3542065Z   type: 'test'
+2026-10-17T06:36:24.3542412Z   ...
+2026-10-17T06:36:24.3542847Z # Subtest: rejects missing metadata
+2026-10-17T06:36:24.3543225Z ok 8 - rejects missing metadata
+2026-10-17T06:36:24.3543532Z   ---
+2026-10-17T06:36:24.3543780Z   duration_ms: 0.81995
+2026-10-17T06:36:24.3544058Z   type: 'test'
+2026-10-17T06:36:24.3544308Z   ...
+2026-10-17T06:36:24.3544610Z # Subtest: rejects Water missing lesson
+2026-10-17T06:36:24.3545111Z ok 9 - rejects Water missing lesson
+2026-10-17T06:36:24.3545412Z   ---
+2026-10-17T06:36:24.3545660Z   duration_ms: 1.19325
+2026-10-17T06:36:24.3545961Z   type: 'test'
+2026-10-17T06:36:24.3546213Z   ...
+2026-10-17T06:36:24.3546517Z # Subtest: rejects Water called approved
+2026-10-17T06:36:24.3546893Z ok 10 - rejects Water called approved
+2026-10-17T06:36:24.3547203Z   ---
+2026-10-17T06:36:24.3547448Z   duration_ms: 0.965459
+2026-10-17T06:36:24.3547726Z   type: 'test'
+2026-10-17T06:36:24.3547985Z   ...
+2026-10-17T06:36:24.3548290Z # Subtest: rejects unsupported lesson
+2026-10-17T06:36:24.3548675Z ok 11 - rejects unsupported lesson
+2026-10-17T06:36:24.3548992Z   ---
+2026-10-17T06:36:24.3549250Z   duration_ms: 1.017146
+2026-10-17T06:36:24.3549551Z   type: 'test'
+2026-10-17T06:36:24.3549814Z   ...
+2026-10-17T06:36:24.3550131Z # Subtest: rejects wrong curriculum version
+2026-10-17T06:36:24.3550536Z ok 12 - rejects wrong curriculum version
+2026-10-17T06:36:24.3550883Z   ---
+2026-10-17T06:36:24.3551155Z   duration_ms: 1.140501
+2026-10-17T06:36:24.3551467Z   type: 'test'
+2026-10-17T06:36:24.3551724Z   ...
+2026-10-17T06:36:24.3552041Z # Subtest: rejects false review status
+2026-10-17T06:36:24.3552491Z ok 13 - rejects false review status
+2026-10-17T06:36:24.3552791Z   ---
+2026-10-17T06:36:24.3553039Z   duration_ms: 0.885298
+2026-10-17T06:36:24.3553323Z   type: 'test'
+2026-10-17T06:36:24.3553574Z   ...
+2026-10-17T06:36:24.3643746Z # Subtest: rejects unrelated topic given an unregistered/mismatched lesson
+2026-10-17T06:36:24.3651344Z ok 14 - rejects unrelated topic given an unregistered/mismatched lesson
+2026-10-17T06:36:24.3651901Z   ---
+2026-10-17T06:36:24.3652190Z   duration_ms: 2.933962
+2026-10-17T06:36:24.3652609Z   type: 'test'
+2026-10-17T06:36:24.3652868Z   ...
+2026-10-17T06:36:24.3653292Z # Subtest: rejects unrelated topic made draft without a registered lesson
+2026-10-17T06:36:24.3653862Z ok 15 - rejects unrelated topic made draft without a registered lesson
+2026-10-17T06:36:24.3654269Z   ---
+2026-10-17T06:36:24.3654518Z   duration_ms: 1.389515
+2026-10-17T06:36:24.3654801Z   type: 'test'
+2026-10-17T06:36:24.3655051Z   ...
+2026-10-17T06:36:24.3655512Z # Subtest: rejects unsupported draft when there are no naturally planned topics left
+2026-10-17T06:36:24.3656161Z ok 16 - rejects unsupported draft when there are no naturally planned topics left
+2026-10-17T06:36:24.3656630Z   ---
+2026-10-17T06:36:24.3656874Z   duration_ms: 3.97254
+2026-10-17T06:36:24.3657148Z   type: 'test'
+2026-10-17T06:36:24.3657401Z   ...
+2026-10-17T06:36:24.3657820Z # Subtest: rejects a mismatched lesson ID in a fully drafted future registry
+2026-10-17T06:36:24.3658737Z ok 17 - rejects a mismatched lesson ID in a fully drafted future registry
+2026-10-17T06:36:24.3659141Z   ---
+2026-10-17T06:36:24.3659384Z   duration_ms: 4.862155
+2026-10-17T06:36:24.3659657Z   type: 'test'
+2026-10-17T06:36:24.3659908Z   ...
+2026-10-17T06:36:24.3789048Z 1..17
+2026-10-17T06:36:24.3789344Z # tests 17
+2026-10-17T06:36:24.3789532Z # suites 0
+2026-10-17T06:36:24.3789757Z # pass 17
+2026-10-17T06:36:24.3789928Z # fail 0
+2026-10-17T06:36:24.3790099Z # cancelled 0
+2026-10-17T06:36:24.3790295Z # skipped 0
+2026-10-17T06:36:24.3790462Z # todo 0
+2026-10-17T06:36:24.3790655Z # duration_ms 82.442892
+2026-10-17T06:36:24.4046956Z Water passed: 8 mapped sections, 16 recall prompts, 10 MCQs, 2 data tasks, 3 structured tasks; source and asset records present. Scientific approval remains pending.
+2026-10-17T06:36:24.4424607Z All 8 registered lesson packages passed generic mapping, content, scope, provenance and asset-file checks.
+2026-10-17T06:36:24.4702983Z Phase 3.2: 25/25 syllabus-mapped sections and B1.1/B1.2 contract/provenance gates passed. Qualified scientific and educational approval still pending.
+2026-10-17T06:36:24.4971478Z Batch 2: all 32 scoped sections, 32 MCQs, source/asset/graph contracts and scientific invariants pass structural validation. Qualified review still pending.
+2026-10-17T06:36:24.5263109Z TAP version 13
+2026-10-17T06:36:24.5728742Z # Subtest: real Batch 2 data satisfies source and lesson mapping
+2026-10-17T06:36:24.5732372Z ok 1 - real Batch 2 data satisfies source and lesson mapping
+2026-10-17T06:36:24.5732767Z   ---
+2026-10-17T06:36:24.5733038Z   duration_ms: 2.926323
+2026-10-17T06:36:24.5733333Z   type: 'test'
+2026-10-17T06:36:24.5733589Z   ...
+2026-10-17T06:36:24.5733951Z # Subtest: negative: additional HL cannot leak into SL
+2026-10-17T06:36:24.5734942Z ok 2 - negative: additional HL cannot leak into SL
+2026-10-17T06:36:24.5755554Z   ---
+2026-10-17T06:36:24.5758256Z   duration_ms: 3.229102
+2026-10-17T06:36:24.5758569Z   type: 'test'
+2026-10-17T06:36:24.5758769Z   ...
+2026-10-17T06:36:24.5759050Z # Subtest: negative: missing molecular viewer fails
+2026-10-17T06:36:24.5759425Z ok 3 - negative: missing molecular viewer fails
+2026-10-17T06:36:24.5759693Z   ---
+2026-10-17T06:36:24.5759865Z   duration_ms: 2.650306
+2026-10-17T06:36:24.5760074Z   type: 'test'
+2026-10-17T06:36:24.5760256Z   ...
+2026-10-17T06:36:24.5760597Z # Subtest: negative: graph must disclose modelling not real measurements
+2026-10-17T06:36:24.5761097Z ok 4 - negative: graph must disclose modelling not real measurements
+2026-10-17T06:36:24.5761404Z   ---
+2026-10-17T06:36:24.5761572Z   duration_ms: 2.382964
+2026-10-17T06:36:24.5761768Z   type: 'test'
+2026-10-17T06:36:24.5761938Z   ...
+2026-10-17T06:36:24.5762185Z # Subtest: negative: graph calculations must agree
+2026-10-17T06:36:24.5762622Z ok 5 - negative: graph calculations must agree
+2026-10-17T06:36:24.5762876Z   ---
+2026-10-17T06:36:24.5763047Z   duration_ms: 2.377293
+2026-10-17T06:36:24.5763241Z   type: 'test'
+2026-10-17T06:36:24.5763419Z   ...
+2026-10-17T06:36:24.5763716Z # Subtest: negative: altered textbook page offset is blocked
+2026-10-17T06:36:24.5764118Z ok 6 - negative: altered textbook page offset is blocked
+2026-10-17T06:36:24.5764402Z   ---
+2026-10-17T06:36:24.5764573Z   duration_ms: 1.773139
+2026-10-17T06:36:24.5764768Z   type: 'test'
+2026-10-17T06:36:24.5764940Z   ...
+2026-10-17T06:36:24.5765193Z # Subtest: negative: no falsely qualified reviewer
+2026-10-17T06:36:24.5765550Z ok 7 - negative: no falsely qualified reviewer
+2026-10-17T06:36:24.5765807Z   ---
+2026-10-17T06:36:24.5765982Z   duration_ms: 1.730438
+2026-10-17T06:36:24.5766180Z   type: 'test'
+2026-10-17T06:36:24.5766354Z   ...
+2026-10-17T06:36:24.5805521Z 1..7
+2026-10-17T06:36:24.5805701Z # tests 7
+2026-10-17T06:36:24.5805882Z # suites 0
+2026-10-17T06:36:24.5819207Z # pass 7
+2026-10-17T06:36:24.5819677Z # fail 0
+2026-10-17T06:36:24.5819852Z # cancelled 0
+2026-10-17T06:36:24.5822696Z # skipped 0
+2026-10-17T06:36:24.5828504Z # todo 0
+2026-10-17T06:36:24.5828805Z # duration_ms 62.180394
+2026-10-17T06:36:24.6098054Z Phase 5: 42 labelled/recall scientific SVGs, accessibility, source-safe assets and selected mechanism invariants passed automated regression checks. Specialist review pending.
+2026-10-17T06:36:24.6393721Z TAP version 13
+2026-10-17T06:36:24.6825785Z # Subtest: All Phase 5 labelled and recall original figures pass scientific regression checks
+2026-10-17T06:36:24.6831471Z ok 1 - All Phase 5 labelled and recall original figures pass scientific regression checks
+2026-10-17T06:36:24.6831934Z   ---
+2026-10-17T06:36:24.6832318Z   duration_ms: 2.295889
+2026-10-17T06:36:24.6832633Z   type: 'test'
+2026-10-17T06:36:24.6832891Z   ...
+2026-10-17T06:36:24.6833934Z # Subtest: rejects science diagram regression: wrong core histone count
+2026-10-17T06:36:24.6835484Z ok 2 - rejects science diagram regression: wrong core histone count
+2026-10-17T06:36:24.6835929Z   ---
+2026-10-17T06:36:24.6836241Z   duration_ms: 0.743902
+2026-10-17T06:36:24.6836577Z   type: 'test'
+2026-10-17T06:36:24.6836883Z   ...
+2026-10-17T06:36:24.6837358Z # Subtest: rejects science diagram regression: reversed DNA polarity
+2026-10-17T06:36:24.6838538Z ok 3 - rejects science diagram regression: reversed DNA polarity
+2026-10-17T06:36:24.6838940Z   ---
+2026-10-17T06:36:24.6839206Z   duration_ms: 0.56532
+2026-10-17T06:36:24.6839496Z   type: 'test'
+2026-10-17T06:36:24.6839754Z   ...
+2026-10-17T06:36:24.6842890Z # Subtest: rejects science diagram regression: incorrect ribose hydroxyl
+2026-10-17T06:36:24.6843668Z ok 4 - rejects science diagram regression: incorrect ribose hydroxyl
+2026-10-17T06:36:24.6844079Z   ---
+2026-10-17T06:36:24.6844349Z   duration_ms: 0.488323
+2026-10-17T06:36:24.6844642Z   type: 'test'
+2026-10-17T06:36:24.6844908Z   ...
+2026-10-17T06:36:24.6845349Z # Subtest: rejects science diagram regression: Hershey isotope flipped
+2026-10-17T06:36:24.6845937Z ok 5 - rejects science diagram regression: Hershey isotope flipped
+2026-10-17T06:36:24.6846340Z   ---
+2026-10-17T06:36:24.6846597Z   duration_ms: 0.573657
+2026-10-17T06:36:24.6846897Z   type: 'test'
+2026-10-17T06:36:24.6847165Z   ...
+2026-10-17T06:36:24.6847590Z # Subtest: rejects science diagram regression: invalid SVG paint
+2026-10-17T06:36:24.6848155Z ok 6 - rejects science diagram regression: invalid SVG paint
+2026-10-17T06:36:24.6848542Z   ---
+2026-10-17T06:36:24.6848804Z   duration_ms: 0.499074
+2026-10-17T06:36:24.6849086Z   type: 'test'
+2026-10-17T06:36:24.6849351Z   ...
+2026-10-17T06:36:24.6849835Z # Subtest: rejects science diagram regression: removing induced-fit explanation
+2026-10-17T06:36:24.6850480Z ok 7 - rejects science diagram regression: removing induced-fit explanation
+2026-10-17T06:36:24.6850899Z   ---
+2026-10-17T06:36:24.6851152Z   duration_ms: 0.820538
+2026-10-17T06:36:24.6851434Z   type: 'test'
+2026-10-17T06:36:24.6851688Z   ...
+2026-10-17T06:36:24.6852107Z # Subtest: rejects science diagram regression: removing allosteric site
+2026-10-17T06:36:24.6852765Z ok 8 - rejects science diagram regression: removing allosteric site
+2026-10-17T06:36:24.6853163Z   ---
+2026-10-17T06:36:24.6853414Z   duration_ms: 0.466952
+2026-10-17T06:36:24.6853690Z   type: 'test'
+2026-10-17T06:36:24.6853940Z   ...
+2026-10-17T06:36:24.6862864Z # Subtest: rejects science diagram regression: breaking end-product feedback
+2026-10-17T06:36:24.6863778Z ok 9 - rejects science diagram regression: breaking end-product feedback
+2026-10-17T06:36:24.6864114Z   ---
+2026-10-17T06:36:24.6880036Z   duration_ms: 0.574037
+2026-10-17T06:36:24.6880406Z   type: 'test'
+2026-10-17T06:36:24.6880639Z   ...
+2026-10-17T06:36:24.6881044Z # Subtest: rejects science diagram regression: removing graph curve
+2026-10-17T06:36:24.6881516Z ok 10 - rejects science diagram regression: removing graph curve
+2026-10-17T06:36:24.6894731Z   ---
+2026-10-17T06:36:24.6894981Z   duration_ms: 1.0884
+2026-10-17T06:36:24.6895240Z   type: 'test'
+2026-10-17T06:36:24.6895440Z   ...
+2026-10-17T06:36:24.6895861Z # Subtest: rejects science diagram regression: removing PBP active-site chemistry
+2026-10-17T06:36:24.6896831Z ok 11 - rejects science diagram regression: removing PBP active-site chemistry
+2026-10-17T06:36:24.6897219Z   ---
+2026-10-17T06:36:24.6897411Z   duration_ms: 0.896835
+2026-10-17T06:36:24.6897648Z   type: 'test'
+2026-10-17T06:36:24.6897846Z   ...
+2026-10-17T06:36:24.6898307Z # Subtest: rejects stale alternative text inconsistent with updated inhibition diagram
+2026-10-17T06:36:24.6898931Z ok 12 - rejects stale alternative text inconsistent with updated inhibition diagram
+2026-10-17T06:36:24.6899336Z   ---
+2026-10-17T06:36:24.6899565Z   duration_ms: 1.785913
+2026-10-17T06:36:24.6899801Z   type: 'test'
+2026-10-17T06:36:24.6899987Z   ...
+2026-10-17T06:36:24.6900239Z # Subtest: rejects missing recall SVG
+2026-10-17T06:36:24.6900560Z ok 13 - rejects missing recall SVG
+2026-10-17T06:36:24.6900824Z   ---
+2026-10-17T06:36:24.6901000Z   duration_ms: 0.431324
+2026-10-17T06:36:24.6901226Z   type: 'test'
+2026-10-17T06:36:24.6901443Z   ...
+2026-10-17T06:36:24.6938714Z 1..13
+2026-10-17T06:36:24.6938946Z # tests 13
+2026-10-17T06:36:24.6939153Z # suites 0
+2026-10-17T06:36:24.6954863Z # pass 13
+2026-10-17T06:36:24.6955359Z # fail 0
+2026-10-17T06:36:24.6955596Z # cancelled 0
+2026-10-17T06:36:24.6955826Z # skipped 0
+2026-10-17T06:36:24.6956040Z # todo 0
+2026-10-17T06:36:24.6956281Z # duration_ms 63.070496
+2026-10-17T06:36:24.7197310Z Phase 6: 32 paired Learn/Practice questions and 8 mechanism stages pass reusable editorial regression checks. Human plausibility review remains required.
+2026-10-17T06:36:24.7480461Z TAP version 13
+2026-10-17T06:36:24.7814199Z # Subtest: A1.2 and C1.1 have consistent, unique causal feedback between Learn and Practice
+2026-10-17T06:36:24.7818002Z ok 1 - A1.2 and C1.1 have consistent, unique causal feedback between Learn and Practice
+2026-10-17T06:36:24.7818495Z   ---
+2026-10-17T06:36:24.7818772Z   duration_ms: 1.389356
+2026-10-17T06:36:24.7819096Z   type: 'test'
+2026-10-17T06:36:24.7819387Z   ...
+2026-10-17T06:36:24.7819837Z # Subtest: negative: section/practice answer divergence is rejected
+2026-10-17T06:36:24.7820643Z ok 2 - negative: section/practice answer divergence is rejected
+2026-10-17T06:36:24.7842759Z   ---
+2026-10-17T06:36:24.7848595Z   duration_ms: 1.312499
+2026-10-17T06:36:24.7849012Z   type: 'test'
+2026-10-17T06:36:24.7849239Z   ...
+2026-10-17T06:36:24.7849602Z # Subtest: negative: duplicated distractor feedback is rejected
+2026-10-17T06:36:24.7850072Z ok 3 - negative: duplicated distractor feedback is rejected
+2026-10-17T06:36:24.7850374Z   ---
+2026-10-17T06:36:24.7850545Z   duration_ms: 0.540002
+2026-10-17T06:36:24.7850744Z   type: 'test'
+2026-10-17T06:36:24.7850919Z   ...
+2026-10-17T06:36:24.7851223Z # Subtest: negative: wrong answer-key cardinality is rejected
+2026-10-17T06:36:24.7851640Z ok 4 - negative: wrong answer-key cardinality is rejected
+2026-10-17T06:36:24.7851932Z   ---
+2026-10-17T06:36:24.7852105Z   duration_ms: 0.58061
+2026-10-17T06:36:24.7852420Z   type: 'test'
+2026-10-17T06:36:24.7852603Z   ...
+2026-10-17T06:36:24.7852939Z # Subtest: negative: superficial mechanism-step guidance is rejected
+2026-10-17T06:36:24.7853404Z ok 5 - negative: superficial mechanism-step guidance is rejected
+2026-10-17T06:36:24.7853711Z   ---
+2026-10-17T06:36:24.7853886Z   duration_ms: 0.500778
+2026-10-17T06:36:24.7854084Z   type: 'test'
+2026-10-17T06:36:24.7854257Z   ...
+2026-10-17T06:36:24.7854712Z # Subtest: PBP resistance task distinguishes altered target from drug destruction and exposure
+2026-10-17T06:36:24.7855397Z ok 6 - PBP resistance task distinguishes altered target from drug destruction and exposure
+2026-10-17T06:36:24.7855803Z   ---
+2026-10-17T06:36:24.7855977Z   duration_ms: 0.288963
+2026-10-17T06:36:24.7856176Z   type: 'test'
+2026-10-17T06:36:24.7856345Z   ...
+2026-10-17T06:36:24.7856753Z # Subtest: A1.2 transcription activity explains both strand roles and opposite directionality
+2026-10-17T06:36:24.7857367Z ok 7 - A1.2 transcription activity explains both strand roles and opposite directionality
+2026-10-17T06:36:24.7857750Z   ---
+2026-10-17T06:36:24.7857922Z   duration_ms: 0.152762
+2026-10-17T06:36:24.7858517Z   type: 'test'
+2026-10-17T06:36:24.7858701Z   ...
+2026-10-17T06:36:24.7891304Z 1..7
+2026-10-17T06:36:24.7891752Z # tests 7
+2026-10-17T06:36:24.7891939Z # suites 0
+2026-10-17T06:36:24.7892134Z # pass 7
+2026-10-17T06:36:24.7892375Z # fail 0
+2026-10-17T06:36:24.7892537Z # cancelled 0
+2026-10-17T06:36:24.7892795Z # skipped 0
+2026-10-17T06:36:24.7903049Z # todo 0
+2026-10-17T06:36:24.7903275Z # duration_ms 48.921874
+2026-10-17T06:36:24.8118533Z Phase 4 reviewed figure regressions passed; qualified diagram review remains pending.
+2026-10-17T06:36:24.8423447Z TAP version 13
+2026-10-17T06:36:24.8733977Z # Subtest: reviewed labelled and recall figure corrections pass
+2026-10-17T06:36:24.8761325Z ok 1 - reviewed labelled and recall figure corrections pass
+2026-10-17T06:36:24.8761628Z   ---
+2026-10-17T06:36:24.8761810Z   duration_ms: 1.406067
+2026-10-17T06:36:24.8762018Z   type: 'test'
+2026-10-17T06:36:24.8762193Z   ...
+2026-10-17T06:36:24.8762584Z # Subtest: rejects regression: ribose external attachment
+2026-10-17T06:36:24.8763015Z ok 2 - rejects regression: ribose external attachment
+2026-10-17T06:36:24.8763291Z   ---
+2026-10-17T06:36:24.8763462Z   duration_ms: 0.331123
+2026-10-17T06:36:24.8763658Z   type: 'test'
+2026-10-17T06:36:24.8763833Z   ...
+2026-10-17T06:36:24.8764212Z # Subtest: rejects regression: fructose atom numbering
+2026-10-17T06:36:24.8764840Z ok 3 - rejects regression: fructose atom numbering
+2026-10-17T06:36:24.8765619Z   ---
+2026-10-17T06:36:24.8765884Z   duration_ms: 0.891404
+2026-10-17T06:36:24.8766176Z   type: 'test'
+2026-10-17T06:36:24.8766443Z   ...
+2026-10-17T06:36:24.8766763Z # Subtest: rejects regression: invalid fill
+2026-10-17T06:36:24.8767164Z ok 4 - rejects regression: invalid fill
+2026-10-17T06:36:24.8767486Z   ---
+2026-10-17T06:36:24.8767744Z   duration_ms: 0.220362
+2026-10-17T06:36:24.8768032Z   type: 'test'
+2026-10-17T06:36:24.8768292Z   ...
+2026-10-17T06:36:24.8768661Z # Subtest: rejects regression: disconnected tertiary chain
+2026-10-17T06:36:24.8769159Z ok 5 - rejects regression: disconnected tertiary chain
+2026-10-17T06:36:24.8769522Z   ---
+2026-10-17T06:36:24.8769782Z   duration_ms: 0.129678
+2026-10-17T06:36:24.8770071Z   type: 'test'
+2026-10-17T06:36:24.8770330Z   ...
+2026-10-17T06:36:24.8770683Z # Subtest: rejects regression: missing collagen strand
+2026-10-17T06:36:24.8771133Z ok 6 - rejects regression: missing collagen strand
+2026-10-17T06:36:24.8771490Z   ---
+2026-10-17T06:36:24.8771749Z   duration_ms: 0.137583
+2026-10-17T06:36:24.8772037Z   type: 'test'
+2026-10-17T06:36:24.8772387Z   ...
+2026-10-17T06:36:24.8772734Z # Subtest: rejects regression: wrong steroid nucleus
+2026-10-17T06:36:24.8773176Z ok 7 - rejects regression: wrong steroid nucleus
+2026-10-17T06:36:24.8773523Z   ---
+2026-10-17T06:36:24.8773783Z   duration_ms: 0.104119
+2026-10-17T06:36:24.8774073Z   type: 'test'
+2026-10-17T06:36:24.8774333Z   ...
+2026-10-17T06:36:24.8799144Z 1..7
+2026-10-17T06:36:24.8799394Z # tests 7
+2026-10-17T06:36:24.8799577Z # suites 0
+2026-10-17T06:36:24.8799766Z # pass 7
+2026-10-17T06:36:24.8799972Z # fail 0
+2026-10-17T06:36:24.8800155Z # cancelled 0
+2026-10-17T06:36:24.8800347Z # skipped 0
+2026-10-17T06:36:24.8800510Z # todo 0
+2026-10-17T06:36:24.8800707Z # duration_ms 46.488593
+2026-10-17T06:36:24.9090941Z TAP version 13
+2026-10-17T06:36:24.9669665Z # Subtest: Phase 3.2 mapped drafts satisfy bounded contract
+2026-10-17T06:36:24.9673430Z ok 1 - Phase 3.2 mapped drafts satisfy bounded contract
+2026-10-17T06:36:24.9673897Z   ---
+2026-10-17T06:36:24.9674186Z   duration_ms: 4.192824
+2026-10-17T06:36:24.9674479Z   type: 'test'
+2026-10-17T06:36:24.9674743Z   ...
+2026-10-17T06:36:24.9675456Z # Subtest: Phase 3.2 rejects omit progressive teaching blocks
+2026-10-17T06:36:24.9679043Z ok 2 - Phase 3.2 rejects omit progressive teaching blocks
+2026-10-17T06:36:24.9679427Z   ---
+2026-10-17T06:36:24.9679706Z   duration_ms: 1.599477
+2026-10-17T06:36:24.9679990Z   type: 'test'
+2026-10-17T06:36:24.9680241Z   ...
+2026-10-17T06:36:24.9680592Z # Subtest: Phase 3.2 rejects omit protein HL section
+2026-10-17T06:36:24.9682495Z ok 3 - Phase 3.2 rejects omit protein HL section
+2026-10-17T06:36:24.9682786Z   ---
+2026-10-17T06:36:24.9692940Z   duration_ms: 1.664341
+2026-10-17T06:36:24.9693262Z   type: 'test'
+2026-10-17T06:36:24.9693556Z   ...
+2026-10-17T06:36:24.9693946Z # Subtest: Phase 3.2 rejects leak HL into SL
+2026-10-17T06:36:24.9694478Z ok 4 - Phase 3.2 rejects leak HL into SL
+2026-10-17T06:36:24.9701014Z   ---
+2026-10-17T06:36:24.9701386Z   duration_ms: 1.378525
+2026-10-17T06:36:24.9701656Z   type: 'test'
+2026-10-17T06:36:24.9701933Z   ...
+2026-10-17T06:36:24.9702463Z # Subtest: Phase 3.2 rejects remove claim evidence
+2026-10-17T06:36:24.9702873Z ok 5 - Phase 3.2 rejects remove claim evidence
+2026-10-17T06:36:24.9712720Z   ---
+2026-10-17T06:36:24.9712930Z   duration_ms: 1.602613
+2026-10-17T06:36:24.9713142Z   type: 'test'
+2026-10-17T06:36:24.9713292Z   ...
+2026-10-17T06:36:24.9713491Z # Subtest: Phase 3.2 rejects duplicate B1.1 understanding
+2026-10-17T06:36:24.9713761Z ok 6 - Phase 3.2 rejects duplicate B1.1 understanding
+2026-10-17T06:36:24.9713936Z   ---
+2026-10-17T06:36:24.9714060Z   duration_ms: 1.533601
+2026-10-17T06:36:24.9714200Z   type: 'test'
+2026-10-17T06:36:24.9714319Z   ...
+2026-10-17T06:36:24.9714479Z # Subtest: Phase 3.2 rejects drift textbook page
+2026-10-17T06:36:24.9714696Z ok 7 - Phase 3.2 rejects drift textbook page
+2026-10-17T06:36:24.9714851Z   ---
+2026-10-17T06:36:24.9715370Z   duration_ms: 2.038316
+2026-10-17T06:36:24.9715556Z   type: 'test'
+2026-10-17T06:36:24.9715727Z   ...
+2026-10-17T06:36:24.9715996Z # Subtest: Phase 3.2 rejects remove practice for a section
+2026-10-17T06:36:24.9716372Z ok 8 - Phase 3.2 rejects remove practice for a section
+2026-10-17T06:36:24.9716629Z   ---
+2026-10-17T06:36:24.9716792Z   duration_ms: 1.295937
+2026-10-17T06:36:24.9716987Z   type: 'test'
+2026-10-17T06:36:24.9717162Z   ...
+2026-10-17T06:36:24.9717416Z # Subtest: Phase 3.2 rejects remove figure recall path
+2026-10-17T06:36:24.9717764Z ok 9 - Phase 3.2 rejects remove figure recall path
+2026-10-17T06:36:24.9718022Z   ---
+2026-10-17T06:36:24.9718187Z   duration_ms: 1.813747
+2026-10-17T06:36:24.9718375Z   type: 'test'
+2026-10-17T06:36:24.9718540Z   ...
+2026-10-17T06:36:24.9718807Z # Subtest: Phase 3.2 rejects claim unqualified approval
+2026-10-17T06:36:24.9719160Z ok 10 - Phase 3.2 rejects claim unqualified approval
+2026-10-17T06:36:24.9719419Z   ---
+2026-10-17T06:36:24.9719598Z   duration_ms: 1.466212
+2026-10-17T06:36:24.9719806Z   type: 'test'
+2026-10-17T06:36:24.9719982Z   ...
+2026-10-17T06:36:24.9720236Z # Subtest: Phase 3.2 rejects catalog mismatch
+2026-10-17T06:36:24.9720583Z ok 11 - Phase 3.2 rejects catalog mismatch
+2026-10-17T06:36:24.9720829Z   ---
+2026-10-17T06:36:24.9721003Z   duration_ms: 1.792836
+2026-10-17T06:36:24.9721202Z   type: 'test'
+2026-10-17T06:36:24.9721375Z   ...
+2026-10-17T06:36:24.9721681Z # Subtest: Phase 3.2 rejects missing scientific misconception feedback
+2026-10-17T06:36:24.9725950Z ok 12 - Phase 3.2 rejects missing scientific misconception feedback
+2026-10-17T06:36:24.9726260Z   ---
+2026-10-17T06:36:24.9726432Z   duration_ms: 1.233237
+2026-10-17T06:36:24.9726596Z   type: 'test'
+2026-10-17T06:36:24.9726710Z   ...
+2026-10-17T06:36:24.9726886Z # Subtest: Phase 3.2 rejects missing official steroid visual
+2026-10-17T06:36:24.9727135Z ok 13 - Phase 3.2 rejects missing official steroid visual
+2026-10-17T06:36:24.9727312Z   ---
+2026-10-17T06:36:24.9727419Z   duration_ms: 1.237836
+2026-10-17T06:36:24.9727550Z   type: 'test'
+2026-10-17T06:36:24.9727668Z   ...
+2026-10-17T06:36:24.9727860Z # Subtest: Phase 3.2 rejects missing B1.1 nature-of-science recall
+2026-10-17T06:36:24.9728136Z ok 14 - Phase 3.2 rejects missing B1.1 nature-of-science recall
+2026-10-17T06:36:24.9728326Z   ---
+2026-10-17T06:36:24.9728439Z   duration_ms: 1.316276
+2026-10-17T06:36:24.9728569Z   type: 'test'
+2026-10-17T06:36:24.9728689Z   ...
+2026-10-17T06:36:24.9728879Z # Subtest: Phase 3.2 rejects missing interactive peptide mechanism
+2026-10-17T06:36:24.9729138Z ok 15 - Phase 3.2 rejects missing interactive peptide mechanism
+2026-10-17T06:36:24.9729497Z   ---
+2026-10-17T06:36:24.9729604Z   duration_ms: 1.670262
+2026-10-17T06:36:24.9729729Z   type: 'test'
+2026-10-17T06:36:24.9729838Z   ...
+2026-10-17T06:36:24.9730022Z # Subtest: Phase 3.2 rejects unbalanced correct answer position
+2026-10-17T06:36:24.9730273Z ok 16 - Phase 3.2 rejects unbalanced correct answer position
+2026-10-17T06:36:24.9730447Z   ---
+2026-10-17T06:36:24.9730567Z   duration_ms: 1.382232
+2026-10-17T06:36:24.9730693Z   type: 'test'
+2026-10-17T06:36:24.9730804Z   ...
+2026-10-17T06:36:24.9767596Z 1..16
+2026-10-17T06:36:24.9767766Z # tests 16
+2026-10-17T06:36:24.9767883Z # suites 0
+2026-10-17T06:36:24.9768043Z # pass 16
+2026-10-17T06:36:24.9768228Z # fail 0
+2026-10-17T06:36:24.9768451Z # cancelled 0
+2026-10-17T06:36:24.9768671Z # skipped 0
+2026-10-17T06:36:24.9768887Z # todo 0
+2026-10-17T06:36:24.9769131Z # duration_ms 75.620483
+2026-10-17T06:36:25.0103563Z TAP version 13
+2026-10-17T06:36:25.0778166Z # Subtest: generic contract validates actual Water against registry
+2026-10-17T06:36:25.0783945Z ok 1 - generic contract validates actual Water against registry
+2026-10-17T06:36:25.0784393Z   ---
+2026-10-17T06:36:25.0784670Z   duration_ms: 3.624177
+2026-10-17T06:36:25.0784955Z   type: 'test'
+2026-10-17T06:36:25.0785208Z   ...
+2026-10-17T06:36:25.0785553Z # Subtest: generic contract rejects schema version
+2026-10-17T06:36:25.0786256Z ok 2 - generic contract rejects schema version
+2026-10-17T06:36:25.0792712Z   ---
+2026-10-17T06:36:25.0792840Z   duration_ms: 1.342817
+2026-10-17T06:36:25.0792976Z   type: 'test'
+2026-10-17T06:36:25.0793094Z   ...
+2026-10-17T06:36:25.0793255Z # Subtest: generic contract rejects wrong topic
+2026-10-17T06:36:25.0793559Z ok 3 - generic contract rejects wrong topic
+2026-10-17T06:36:25.0793791Z   ---
+2026-10-17T06:36:25.0793962Z   duration_ms: 0.492952
+2026-10-17T06:36:25.0794161Z   type: 'test'
+2026-10-17T06:36:25.0794330Z   ...
+2026-10-17T06:36:25.0794500Z # Subtest: generic contract rejects duplicate coverage
+2026-10-17T06:36:25.0794754Z ok 4 - generic contract rejects duplicate coverage
+2026-10-17T06:36:25.0795020Z   ---
+2026-10-17T06:36:25.0795198Z   duration_ms: 2.624235
+2026-10-17T06:36:25.0795388Z   type: 'test'
+2026-10-17T06:36:25.0795524Z   ...
+2026-10-17T06:36:25.0795712Z # Subtest: generic contract rejects independent section title
+2026-10-17T06:36:25.0796106Z ok 5 - generic contract rejects independent section title
+2026-10-17T06:36:25.0796384Z   ---
+2026-10-17T06:36:25.0796542Z   duration_ms: 0.665573
+2026-10-17T06:36:25.0796736Z   type: 'test'
+2026-10-17T06:36:25.0796904Z   ...
+2026-10-17T06:36:25.0797155Z # Subtest: generic contract rejects wrong recall mapping
+2026-10-17T06:36:25.0797510Z ok 6 - generic contract rejects wrong recall mapping
+2026-10-17T06:36:25.0797757Z   ---
+2026-10-17T06:36:25.0797923Z   duration_ms: 0.898758
+2026-10-17T06:36:25.0798075Z   type: 'test'
+2026-10-17T06:36:25.0798186Z   ...
+2026-10-17T06:36:25.0798520Z # Subtest: generic contract rejects wrong explanation return
+2026-10-17T06:36:25.0813246Z ok 7 - generic contract rejects wrong explanation return
+2026-10-17T06:36:25.0813523Z   ---
+2026-10-17T06:36:25.0813641Z   duration_ms: 0.680279
+2026-10-17T06:36:25.0813773Z   type: 'test'
+2026-10-17T06:36:25.0813888Z   ...
+2026-10-17T06:36:25.0814130Z # Subtest: generic contract rejects blocks differ from claims
+2026-10-17T06:36:25.0814512Z ok 8 - generic contract rejects blocks differ from claims
+2026-10-17T06:36:25.0814784Z   ---
+2026-10-17T06:36:25.0814899Z   duration_ms: 1.147904
+2026-10-17T06:36:25.0815023Z   type: 'test'
+2026-10-17T06:36:25.0815138Z   ...
+2026-10-17T06:36:25.0815321Z # Subtest: generic contract rejects unknown enrichment evidence
+2026-10-17T06:36:25.0815576Z ok 9 - generic contract rejects unknown enrichment evidence
+2026-10-17T06:36:25.0815751Z   ---
+2026-10-17T06:36:25.0815858Z   duration_ms: 0.707783
+2026-10-17T06:36:25.0815982Z   type: 'test'
+2026-10-17T06:36:25.0816090Z   ...
+2026-10-17T06:36:25.0816321Z # Subtest: generic contract rejects blank explorer prediction
+2026-10-17T06:36:25.0816979Z ok 10 - generic contract rejects blank explorer prediction
+2026-10-17T06:36:25.0817259Z   ---
+2026-10-17T06:36:25.0817430Z   duration_ms: 0.614725
+2026-10-17T06:36:25.0817607Z   type: 'test'
+2026-10-17T06:36:25.0817720Z   ...
+2026-10-17T06:36:25.0817886Z # Subtest: generic contract rejects unqualified approval
+2026-10-17T06:36:25.0818122Z ok 11 - generic contract rejects unqualified approval
+2026-10-17T06:36:25.0818291Z   ---
+2026-10-17T06:36:25.0818397Z   duration_ms: 0.518421
+2026-10-17T06:36:25.0818523Z   type: 'test'
+2026-10-17T06:36:25.0818633Z   ...
+2026-10-17T06:36:25.0818791Z # Subtest: generic contract rejects HL figure leakage
+2026-10-17T06:36:25.0819009Z ok 12 - generic contract rejects HL figure leakage
+2026-10-17T06:36:25.0819169Z   ---
+2026-10-17T06:36:25.0819274Z   duration_ms: 0.408641
+2026-10-17T06:36:25.0819394Z   type: 'test'
+2026-10-17T06:36:25.0819505Z   ...
+2026-10-17T06:36:25.0819671Z # Subtest: generic contract rejects missing asset caption
+2026-10-17T06:36:25.0819904Z ok 13 - generic contract rejects missing asset caption
+2026-10-17T06:36:25.0820072Z   ---
+2026-10-17T06:36:25.0820178Z   duration_ms: 0.627579
+2026-10-17T06:36:25.0820299Z   type: 'test'
+2026-10-17T06:36:25.0820408Z   ...
+2026-10-17T06:36:25.0820569Z # Subtest: generic contract rejects empty section list
+2026-10-17T06:36:25.0820789Z ok 14 - generic contract rejects empty section list
+2026-10-17T06:36:25.0821073Z   ---
+2026-10-17T06:36:25.0821184Z   duration_ms: 0.321685
+2026-10-17T06:36:25.0821309Z   type: 'test'
+2026-10-17T06:36:25.0821416Z   ...
+2026-10-17T06:36:25.0821581Z # Subtest: generic contract rejects invalid table width
+2026-10-17T06:36:25.0821803Z ok 15 - generic contract rejects invalid table width
+2026-10-17T06:36:25.0830554Z   ---
+2026-10-17T06:36:25.0830746Z   duration_ms: 0.458717
+2026-10-17T06:36:25.0830943Z   type: 'test'
+2026-10-17T06:36:25.0831062Z   ...
+2026-10-17T06:36:25.0831251Z # Subtest: missing display title rejected at registry boundary
+2026-10-17T06:36:25.0831515Z ok 16 - missing display title rejected at registry boundary
+2026-10-17T06:36:25.0831689Z   ---
+2026-10-17T06:36:25.0831797Z   duration_ms: 0.323799
+2026-10-17T06:36:25.0831920Z   type: 'test'
+2026-10-17T06:36:25.0832027Z   ...
+2026-10-17T06:36:25.0832386Z # Subtest: synthetic three-understanding topic validates without Water IDs
+2026-10-17T06:36:25.0832702Z ok 17 - synthetic three-understanding topic validates without Water IDs
+2026-10-17T06:36:25.0832906Z   ---
+2026-10-17T06:36:25.0833012Z   duration_ms: 0.107966
+2026-10-17T06:36:25.0833138Z   type: 'test'
+2026-10-17T06:36:25.0833248Z   ...
+2026-10-17T06:36:25.2966691Z # Subtest: actual Learn and Revision headings use exact registry IDs and titles for all eight
+2026-10-17T06:36:25.2967370Z ok 18 - actual Learn and Revision headings use exact registry IDs and titles for all eight
+2026-10-17T06:36:25.2967660Z   ---
+2026-10-17T06:36:25.2967792Z   duration_ms: 68.187336
+2026-10-17T06:36:25.2967937Z   type: 'test'
+2026-10-17T06:36:25.2968057Z   ...
+2026-10-17T06:36:25.2968876Z # Subtest: actual SL markup excludes HL-only sections and assessments
+2026-10-17T06:36:25.2969555Z ok 19 - actual SL markup excludes HL-only sections and assessments
+2026-10-17T06:36:25.2969949Z   ---
+2026-10-17T06:36:25.2970188Z   duration_ms: 9.119039
+2026-10-17T06:36:25.2970386Z   type: 'test'
+2026-10-17T06:36:25.2970555Z   ...
+2026-10-17T06:36:25.2970856Z # Subtest: synthetic real renderer supports 3 sections, study modes and scoped practice
+2026-10-17T06:36:25.2971446Z ok 20 - synthetic real renderer supports 3 sections, study modes and scoped practice
+2026-10-17T06:36:25.2971800Z   ---
+2026-10-17T06:36:25.2993171Z   duration_ms: 9.376902
+2026-10-17T06:36:25.2993559Z   type: 'test'
+2026-10-17T06:36:25.2993801Z   ...
+2026-10-17T06:36:25.2994163Z # Subtest: synthetic all-HL topic validates and renders in HL
+2026-10-17T06:36:25.2994564Z ok 21 - synthetic all-HL topic validates and renders in HL
+2026-10-17T06:36:25.2994855Z   ---
+2026-10-17T06:36:25.2995028Z   duration_ms: 3.961932
+2026-10-17T06:36:25.2995177Z   type: 'test'
+2026-10-17T06:36:25.2995661Z   ...
+2026-10-17T06:36:25.2995945Z # Subtest: progressive Water teaching steps remain evidence-mapped and appear as readable headings
+2026-10-17T06:36:25.2996365Z ok 22 - progressive Water teaching steps remain evidence-mapped and appear as readable headings
+2026-10-17T06:36:25.2996612Z   ---
+2026-10-17T06:36:25.2996725Z   duration_ms: 25.271361
+2026-10-17T06:36:25.2996870Z   type: 'test'
+2026-10-17T06:36:25.2996981Z   ...
+2026-10-17T06:36:25.2997217Z # Subtest: reading is visible and optional authored support has keyboard-native controls
+2026-10-17T06:36:25.2997569Z ok 23 - reading is visible and optional authored support has keyboard-native controls
+2026-10-17T06:36:25.2997787Z   ---
+2026-10-17T06:36:25.2997895Z   duration_ms: 16.370849
+2026-10-17T06:36:25.2998023Z   type: 'test'
+2026-10-17T06:36:25.2998138Z   ...
+2026-10-17T06:36:25.2998346Z # Subtest: an HL-only or unknown deep link cannot reveal an SL practice target
+2026-10-17T06:36:25.2998650Z ok 24 - an HL-only or unknown deep link cannot reveal an SL practice target
+2026-10-17T06:36:25.2998847Z   ---
+2026-10-17T06:36:25.2998954Z   duration_ms: 8.403562
+2026-10-17T06:36:25.2999078Z   type: 'test'
+2026-10-17T06:36:25.2999193Z   ...
+2026-10-17T06:36:25.2999368Z # Subtest: generic reusable mechanism challenge validates
+2026-10-17T06:36:25.2999603Z ok 25 - generic reusable mechanism challenge validates
+2026-10-17T06:36:25.2999870Z   ---
+2026-10-17T06:36:25.2999978Z   duration_ms: 1.059986
+2026-10-17T06:36:25.3000103Z   type: 'test'
+2026-10-17T06:36:25.3000211Z   ...
+2026-10-17T06:36:25.3000371Z # Subtest: mechanism rejects two correct predictions
+2026-10-17T06:36:25.3000586Z ok 26 - mechanism rejects two correct predictions
+2026-10-17T06:36:25.3000749Z   ---
+2026-10-17T06:36:25.3000857Z   duration_ms: 0.676553
+2026-10-17T06:36:25.3000980Z   type: 'test'
+2026-10-17T06:36:25.3001087Z   ...
+2026-10-17T06:36:25.3001239Z # Subtest: mechanism rejects missing stage feedback
+2026-10-17T06:36:25.3001457Z ok 27 - mechanism rejects missing stage feedback
+2026-10-17T06:36:25.3001613Z   ---
+2026-10-17T06:36:25.3001718Z   duration_ms: 0.524653
+2026-10-17T06:36:25.3001844Z   type: 'test'
+2026-10-17T06:36:25.3001952Z   ...
+2026-10-17T06:36:25.3409327Z # Subtest: Phase 4 actual B1.1 headings and scope in Learn, Revision and targeted Practice
+2026-10-17T06:36:25.3410468Z ok 28 - Phase 4 actual B1.1 headings and scope in Learn, Revision and targeted Practice
+2026-10-17T06:36:25.3411044Z   ---
+2026-10-17T06:36:25.3411461Z   duration_ms: 35.862704
+2026-10-17T06:36:25.3411721Z   type: 'test'
+2026-10-17T06:36:25.3411918Z   ...
+2026-10-17T06:36:25.3685892Z # Subtest: Phase 4 actual B1.2 headings and scope in Learn, Revision and targeted Practice
+2026-10-17T06:36:25.3686728Z ok 29 - Phase 4 actual B1.2 headings and scope in Learn, Revision and targeted Practice
+2026-10-17T06:36:25.3687152Z   ---
+2026-10-17T06:36:25.3687389Z   duration_ms: 25.711241
+2026-10-17T06:36:25.3687646Z   type: 'test'
+2026-10-17T06:36:25.3687870Z   ...
+2026-10-17T06:36:25.3688271Z # Subtest: mechanism rejects malformed stages {"bad":true}
+2026-10-17T06:36:25.3688746Z ok 30 - mechanism rejects malformed stages {"bad":true}
+2026-10-17T06:36:25.3689076Z   ---
+2026-10-17T06:36:25.3689305Z   duration_ms: 0.777015
+2026-10-17T06:36:25.3689547Z   type: 'test'
+2026-10-17T06:36:25.3689699Z   ...
+2026-10-17T06:36:25.3689909Z # Subtest: mechanism rejects malformed stages [null,null]
+2026-10-17T06:36:25.3690217Z ok 31 - mechanism rejects malformed stages [null,null]
+2026-10-17T06:36:25.3690431Z   ---
+2026-10-17T06:36:25.3690564Z   duration_ms: 0.482101
+2026-10-17T06:36:25.3690735Z   type: 'test'
+2026-10-17T06:36:25.3690853Z   ...
+2026-10-17T06:36:25.3714539Z # Subtest: visible answer letters follow option order without changing internal IDs: B1.1
+2026-10-17T06:36:25.3715290Z ok 32 - visible answer letters follow option order without changing internal IDs: B1.1
+2026-10-17T06:36:25.3715703Z   ---
+2026-10-17T06:36:25.3715893Z   duration_ms: 1.953033
+2026-10-17T06:36:25.3716137Z   type: 'test'
+2026-10-17T06:36:25.3716727Z   ...
+2026-10-17T06:36:25.3771701Z # Subtest: visible answer letters follow option order without changing internal IDs: B1.2
+2026-10-17T06:36:25.3772503Z ok 33 - visible answer letters follow option order without changing internal IDs: B1.2
+2026-10-17T06:36:25.3772876Z   ---
+2026-10-17T06:36:25.3773064Z   duration_ms: 1.772287
+2026-10-17T06:36:25.3773271Z   type: 'test'
+2026-10-17T06:36:25.3773485Z   ...
+2026-10-17T06:36:25.3773819Z # Subtest: authored reading contract rejects empty simpler explanation
+2026-10-17T06:36:25.3774276Z ok 34 - authored reading contract rejects empty simpler explanation
+2026-10-17T06:36:25.3774578Z   ---
+2026-10-17T06:36:25.3774756Z   duration_ms: 0.58588
+2026-10-17T06:36:25.3774951Z   type: 'test'
+2026-10-17T06:36:25.3775124Z   ...
+2026-10-17T06:36:25.3775432Z # Subtest: authored reading contract rejects no matching keywords
+2026-10-17T06:36:25.3775863Z ok 35 - authored reading contract rejects no matching keywords
+2026-10-17T06:36:25.3776159Z   ---
+2026-10-17T06:36:25.3776356Z   duration_ms: 0.442405
+2026-10-17T06:36:25.3776561Z   type: 'test'
+2026-10-17T06:36:25.3776740Z   ...
+2026-10-17T06:36:25.3777098Z # Subtest: authored reading contract rejects out-of-range figure placement
+2026-10-17T06:36:25.3777616Z ok 36 - authored reading contract rejects out-of-range figure placement
+2026-10-17T06:36:25.3777962Z   ---
+2026-10-17T06:36:25.3778139Z   duration_ms: 0.38223
+2026-10-17T06:36:25.3778651Z   type: 'test'
+2026-10-17T06:36:25.3778828Z   ...
+2026-10-17T06:36:25.3779155Z # Subtest: authored reading contract rejects unmapped figure placement
+2026-10-17T06:36:25.3779610Z ok 37 - authored reading contract rejects unmapped figure placement
+2026-10-17T06:36:25.3779908Z   ---
+2026-10-17T06:36:25.3780080Z   duration_ms: 0.397169
+2026-10-17T06:36:25.3780281Z   type: 'test'
+2026-10-17T06:36:25.3780443Z   ...
+2026-10-17T06:36:25.3890226Z # Subtest: A1.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.3890672Z ok 38 - A1.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.3890888Z   ---
+2026-10-17T06:36:25.3891020Z   duration_ms: 6.581549
+2026-10-17T06:36:25.3891159Z   type: 'test'
+2026-10-17T06:36:25.3891274Z   ...
+2026-10-17T06:36:25.4016348Z # Subtest: B1.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4017077Z ok 39 - B1.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4017460Z   ---
+2026-10-17T06:36:25.4017680Z   duration_ms: 10.582947
+2026-10-17T06:36:25.4017895Z   type: 'test'
+2026-10-17T06:36:25.4018090Z   ...
+2026-10-17T06:36:25.4107868Z # Subtest: B1.2 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4108487Z ok 40 - B1.2 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4113076Z   ---
+2026-10-17T06:36:25.4113356Z   duration_ms: 7.921146
+2026-10-17T06:36:25.4113623Z   type: 'test'
+2026-10-17T06:36:25.4113845Z   ...
+2026-10-17T06:36:25.4239886Z # Subtest: A1.2 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4240459Z ok 41 - A1.2 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4242895Z   ---
+2026-10-17T06:36:25.4243267Z   duration_ms: 10.526412
+2026-10-17T06:36:25.4243769Z   type: 'test'
+2026-10-17T06:36:25.4243981Z   ...
+2026-10-17T06:36:25.4418999Z # Subtest: C1.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4426380Z ok 42 - C1.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4426650Z   ---
+2026-10-17T06:36:25.4426783Z   duration_ms: 15.419262
+2026-10-17T06:36:25.4426930Z   type: 'test'
+2026-10-17T06:36:25.4427050Z   ...
+2026-10-17T06:36:25.4598948Z # Subtest: B2.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4599373Z ok 43 - B2.1 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4599584Z   ---
+2026-10-17T06:36:25.4599717Z   duration_ms: 16.284921
+2026-10-17T06:36:25.4600263Z   type: 'test'
+2026-10-17T06:36:25.4600386Z   ...
+2026-10-17T06:36:25.4729381Z # Subtest: B2.2 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4729951Z ok 44 - B2.2 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4730282Z   ---
+2026-10-17T06:36:25.4730439Z   duration_ms: 8.619111
+2026-10-17T06:36:25.4730575Z   type: 'test'
+2026-10-17T06:36:25.4730733Z   ...
+2026-10-17T06:36:25.4806940Z # Subtest: B2.3 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4807486Z ok 45 - B2.3 full scientific prose renders without opening teaching panels
+2026-10-17T06:36:25.4807757Z   ---
+2026-10-17T06:36:25.4807959Z   duration_ms: 6.656116
+2026-10-17T06:36:25.4808156Z   type: 'test'
+2026-10-17T06:36:25.4808329Z   ...
+2026-10-17T06:36:25.4895529Z # Subtest: complete source-checked draft passes
+2026-10-17T06:36:25.4895886Z ok 46 - complete source-checked draft passes
+2026-10-17T06:36:25.4896055Z   ---
+2026-10-17T06:36:25.4896212Z   duration_ms: 3.321027
+2026-10-17T06:36:25.4896341Z   type: 'test'
+2026-10-17T06:36:25.4896454Z   ...
+2026-10-17T06:36:25.4902675Z # Subtest: rejects missing understanding
+2026-10-17T06:36:25.4927294Z ok 47 - rejects missing understanding
+2026-10-17T06:36:25.4927552Z   ---
+2026-10-17T06:36:25.4927734Z   duration_ms: 1.935129
+2026-10-17T06:36:25.4927962Z   type: 'test'
+2026-10-17T06:36:25.4928451Z   ...
+2026-10-17T06:36:25.4928598Z # Subtest: rejects HL leak into shared scope
+2026-10-17T06:36:25.4928795Z ok 48 - rejects HL leak into shared scope
+2026-10-17T06:36:25.4928942Z   ---
+2026-10-17T06:36:25.4929052Z   duration_ms: 0.659341
+2026-10-17T06:36:25.4929181Z   type: 'test'
+2026-10-17T06:36:25.4929290Z   ...
+2026-10-17T06:36:25.4929432Z # Subtest: rejects empty lesson explanation
+2026-10-17T06:36:25.4929618Z ok 49 - rejects empty lesson explanation
+2026-10-17T06:36:25.4929763Z   ---
+2026-10-17T06:36:25.4929871Z   duration_ms: 0.585349
+2026-10-17T06:36:25.4929995Z   type: 'test'
+2026-10-17T06:36:25.4930104Z   ...
+2026-10-17T06:36:25.4930250Z # Subtest: rejects unmapped scientific claim
+2026-10-17T06:36:25.4930442Z ok 50 - rejects unmapped scientific claim
+2026-10-17T06:36:25.4930589Z   ---
+2026-10-17T06:36:25.4930695Z   duration_ms: 0.730703
+2026-10-17T06:36:25.4930820Z   type: 'test'
+2026-10-17T06:36:25.4930927Z   ...
+2026-10-17T06:36:25.4931057Z # Subtest: rejects unknown source
+2026-10-17T06:36:25.4931230Z ok 51 - rejects unknown source
+2026-10-17T06:36:25.4931367Z   ---
+2026-10-17T06:36:25.4931473Z   duration_ms: 0.925498
+2026-10-17T06:36:25.4931594Z   type: 'test'
+2026-10-17T06:36:25.4931703Z   ...
+2026-10-17T06:36:25.4931844Z # Subtest: rejects false scientific approval
+2026-10-17T06:36:25.4932032Z ok 52 - rejects false scientific approval
+2026-10-17T06:36:25.4932182Z   ---
+2026-10-17T06:36:25.4932418Z   duration_ms: 0.651355
+2026-10-17T06:36:25.4932541Z   type: 'test'
+2026-10-17T06:36:25.4932649Z   ...
+2026-10-17T06:36:25.4932786Z # Subtest: rejects fabricated reviewer
+2026-10-17T06:36:25.4932968Z ok 53 - rejects fabricated reviewer
+2026-10-17T06:36:25.4933109Z   ---
+2026-10-17T06:36:25.4933217Z   duration_ms: 0.830277
+2026-10-17T06:36:25.4933342Z   type: 'test'
+2026-10-17T06:36:25.4933450Z   ...
+2026-10-17T06:36:25.4933589Z # Subtest: rejects multiple correct choices
+2026-10-17T06:36:25.4933783Z ok 54 - rejects multiple correct choices
+2026-10-17T06:36:25.4933928Z   ---
+2026-10-17T06:36:25.4934038Z   duration_ms: 1.275177
+2026-10-17T06:36:25.4934162Z   type: 'test'
+2026-10-17T06:36:25.4934271Z   ...
+2026-10-17T06:36:25.4934416Z # Subtest: rejects missing distractor feedback
+2026-10-17T06:36:25.4934613Z ok 55 - rejects missing distractor feedback
+2026-10-17T06:36:25.4934762Z   ---
+2026-10-17T06:36:25.4934868Z   duration_ms: 1.32862
+2026-10-17T06:36:25.4934990Z   type: 'test'
+2026-10-17T06:36:25.4935100Z   ...
+2026-10-17T06:36:25.4935234Z # Subtest: rejects unmapped exam question
+2026-10-17T06:36:25.4935412Z ok 56 - rejects unmapped exam question
+2026-10-17T06:36:25.4935557Z   ---
+2026-10-17T06:36:25.4935775Z   duration_ms: 0.946429
+2026-10-17T06:36:25.4935899Z   type: 'test'
+2026-10-17T06:36:25.4936011Z   ...
+2026-10-17T06:36:25.4936152Z # Subtest: rejects HL question exposed in SL
+2026-10-17T06:36:25.4936337Z ok 57 - rejects HL question exposed in SL
+2026-10-17T06:36:25.4936482Z   ---
+2026-10-17T06:36:25.4936589Z   duration_ms: 0.809668
+2026-10-17T06:36:25.4937389Z   type: 'test'
+2026-10-17T06:36:25.4937502Z   ...
+2026-10-17T06:36:25.4937651Z # Subtest: rejects unlabelled illustrative data
+2026-10-17T06:36:25.4937853Z ok 58 - rejects unlabelled illustrative data
+2026-10-17T06:36:25.4938003Z   ---
+2026-10-17T06:36:25.4938109Z   duration_ms: 0.850495
+2026-10-17T06:36:25.4938234Z   type: 'test'
+2026-10-17T06:36:25.4938342Z   ...
+2026-10-17T06:36:25.4938488Z # Subtest: rejects inconsistent mark allocation
+2026-10-17T06:36:25.4938687Z ok 59 - rejects inconsistent mark allocation
+2026-10-17T06:36:25.4938835Z   ---
+2026-10-17T06:36:25.4938942Z   duration_ms: 1.325724
+2026-10-17T06:36:25.4939069Z   type: 'test'
+2026-10-17T06:36:25.4939179Z   ...
+2026-10-17T06:36:25.4939311Z # Subtest: rejects missing image rights
+2026-10-17T06:36:25.4939489Z ok 60 - rejects missing image rights
+2026-10-17T06:36:25.4939632Z   ---
+2026-10-17T06:36:25.4939735Z   duration_ms: 0.558978
+2026-10-17T06:36:25.4939858Z   type: 'test'
+2026-10-17T06:36:25.4940000Z   ...
+2026-10-17T06:36:25.4940138Z # Subtest: rejects missing recall activity
+2026-10-17T06:36:25.4940409Z ok 61 - rejects missing recall activity
+2026-10-17T06:36:25.4940555Z   ---
+2026-10-17T06:36:25.4940660Z   duration_ms: 0.503302
+2026-10-17T06:36:25.4940782Z   type: 'test'
+2026-10-17T06:36:25.4940914Z   ...
+2026-10-17T06:36:25.4941047Z # Subtest: rejects duplicate IDs
+2026-10-17T06:36:25.4941205Z ok 62 - rejects duplicate IDs
+2026-10-17T06:36:25.4941339Z   ---
+2026-10-17T06:36:25.4941448Z   duration_ms: 0.459117
+2026-10-17T06:36:25.4941571Z   type: 'test'
+2026-10-17T06:36:25.4941678Z   ...
+2026-10-17T06:36:25.4941814Z # Subtest: rejects bad source page
+2026-10-17T06:36:25.4941990Z ok 63 - rejects bad source page
+2026-10-17T06:36:25.4942126Z   ---
+2026-10-17T06:36:25.4942382Z   duration_ms: 0.74634
+2026-10-17T06:36:25.4942513Z   type: 'test'
+2026-10-17T06:36:25.4942623Z   ...
+2026-10-17T06:36:25.4942812Z # Subtest: illustrative calculations and ratios agree with answers
+2026-10-17T06:36:25.4943088Z ok 64 - illustrative calculations and ratios agree with answers
+2026-10-17T06:36:25.4943272Z   ---
+2026-10-17T06:36:25.4943379Z   duration_ms: 0.129998
+2026-10-17T06:36:25.4943503Z   type: 'test'
+2026-10-17T06:36:25.4943638Z   ...
+2026-10-17T06:36:25.4943739Z 1..64
+2026-10-17T06:36:25.4943840Z # tests 64
+2026-10-17T06:36:25.4943951Z # suites 0
+2026-10-17T06:36:25.4944059Z # pass 64
+2026-10-17T06:36:25.4944162Z # fail 0
+2026-10-17T06:36:25.4944268Z # cancelled 0
+2026-10-17T06:36:25.4944382Z # skipped 0
+2026-10-17T06:36:25.4944487Z # todo 0
+2026-10-17T06:36:25.4944602Z # duration_ms 489.119797
+2026-10-17T06:36:25.4989546Z ##[group]Run set -o pipefail
+2026-10-17T06:36:25.4989754Z [36;1mset -o pipefail[0m
+2026-10-17T06:36:25.4989917Z [36;1mnpm run build 2>&1 | tee phase16-build.log[0m
+2026-10-17T06:36:25.5021405Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:36:25.5021560Z env:
+2026-10-17T06:36:25.5021675Z   CI: true
+2026-10-17T06:36:25.5021788Z ##[endgroup]
+2026-10-17T06:36:25.5654736Z 
+2026-10-17T06:36:25.5655248Z > litlab@2.0.0 build
+2026-10-17T06:36:25.5655499Z > tsc -b && vite build
+2026-10-17T06:36:25.5655630Z 
+2026-10-17T06:36:30.5514620Z [36mvite v6.0.7 [32mbuilding for production...[36m[39m
+2026-10-17T06:36:30.6085938Z transforming...
+2026-10-17T06:36:33.1579852Z [32m✓[39m 2229 modules transformed.
+2026-10-17T06:36:33.4170001Z rendering chunks...
+2026-10-17T06:36:33.7143219Z computing gzip size...
+2026-10-17T06:36:33.7415169Z [2mdist/[22m[32mindex.html                           [39m[1m[2m  0.70 kB[22m[1m[22m[2m │ gzip:   0.41 kB[22m
+2026-10-17T06:36:33.7416604Z [2mdist/[22m[2massets/[22m[35msentence-frames-4hGr-5ES.css  [39m[1m[2m 15.25 kB[22m[1m[22m[2m │ gzip:   2.94 kB[22m
+2026-10-17T06:36:33.7417855Z [2mdist/[22m[2massets/[22m[35mbooks-CdSdTxG_.css            [39m[1m[2m 48.64 kB[22m[1m[22m[2m │ gzip:   9.22 kB[22m
+2026-10-17T06:36:33.7418878Z [2mdist/[22m[2massets/[22m[35messays-jGcCMLUT.css           [39m[1m[2m 57.60 kB[22m[1m[22m[2m │ gzip:  10.03 kB[22m
+2026-10-17T06:36:33.7419986Z [2mdist/[22m[2massets/[22m[35mtoolkit-ChIb7ON6.css          [39m[1m[2m 84.80 kB[22m[1m[22m[2m │ gzip:  13.19 kB[22m
+2026-10-17T06:36:33.7420886Z [2mdist/[22m[2massets/[22m[35massessments-CwWgk1Kg.css      [39m[1m[2m123.86 kB[22m[1m[22m[2m │ gzip:  18.50 kB[22m
+2026-10-17T06:36:33.7421704Z [2mdist/[22m[2massets/[22m[35mindex-BEniQRWZ.css            [39m[1m[2m192.47 kB[22m[1m[22m[2m │ gzip:  34.76 kB[22m
+2026-10-17T06:36:33.7422640Z [2mdist/[22m[2massets/[22m[35mcontributor-D-MAQ_6T.css      [39m[1m[2m364.66 kB[22m[1m[22m[2m │ gzip:  61.08 kB[22m
+2026-10-17T06:36:33.7423457Z [2mdist/[22m[2massets/[22m[36mbooks-C2Mc80FR.js             [39m[1m[2m 39.01 kB[22m[1m[22m[2m │ gzip:  11.32 kB[22m
+2026-10-17T06:36:33.7424270Z [2mdist/[22m[2massets/[22m[36msentence-frames-ZTUjufH0.js   [39m[1m[2m 59.48 kB[22m[1m[22m[2m │ gzip:  17.33 kB[22m
+2026-10-17T06:36:33.7425088Z [2mdist/[22m[2massets/[22m[36messays-Cb8gbl8V.js            [39m[1m[2m 91.31 kB[22m[1m[22m[2m │ gzip:  27.95 kB[22m
+2026-10-17T06:36:33.7426834Z [2mdist/[22m[2massets/[22m[36mlesson-DfXKs1JT.js            [39m[1m[2m 93.57 kB[22m[1m[22m[2m │ gzip:  15.85 kB[22m
+2026-10-17T06:36:33.7427591Z [2mdist/[22m[2massets/[22m[36mlesson-DC3L08pW.js            [39m[1m[2m 97.07 kB[22m[1m[22m[2m │ gzip:  17.46 kB[22m
+2026-10-17T06:36:33.7428348Z [2mdist/[22m[2massets/[22m[36massessments-Cx2Xilwm.js       [39m[1m[2m108.24 kB[22m[1m[22m[2m │ gzip:  32.44 kB[22m
+2026-10-17T06:36:33.7429118Z [2mdist/[22m[2massets/[22m[36mlesson-xsvXhMKX.js            [39m[1m[2m117.64 kB[22m[1m[22m[2m │ gzip:  18.20 kB[22m
+2026-10-17T06:36:33.7429868Z [2mdist/[22m[2massets/[22m[36mlesson-iTNK6ZzB.js            [39m[1m[2m117.90 kB[22m[1m[22m[2m │ gzip:  25.42 kB[22m
+2026-10-17T06:36:33.7430617Z [2mdist/[22m[2massets/[22m[36mlesson-Dsj9uwp5.js            [39m[1m[2m140.05 kB[22m[1m[22m[2m │ gzip:  24.75 kB[22m
+2026-10-17T06:36:33.7431354Z [2mdist/[22m[2massets/[22m[36mlesson-DMoOA8L3.js            [39m[1m[2m142.17 kB[22m[1m[22m[2m │ gzip:  21.09 kB[22m
+2026-10-17T06:36:33.7431968Z [2mdist/[22m[2massets/[22m[36mlesson-DQdLufFD.js            [39m[1m[2m144.59 kB[22m[1m[22m[2m │ gzip:  22.45 kB[22m
+2026-10-17T06:36:33.7432712Z [2mdist/[22m[2massets/[22m[36mlesson-LSThIdS5.js            [39m[1m[2m150.16 kB[22m[1m[22m[2m │ gzip:  24.51 kB[22m
+2026-10-17T06:36:33.7480567Z [2mdist/[22m[2massets/[22m[36mlesson-Du59t8Xj.js            [39m[1m[2m188.67 kB[22m[1m[22m[2m │ gzip:  27.25 kB[22m
+2026-10-17T06:36:33.7481730Z [2mdist/[22m[2massets/[22m[36mentry-W_-rfFib.js             [39m[1m[2m202.58 kB[22m[1m[22m[2m │ gzip:  35.98 kB[22m
+2026-10-17T06:36:33.7482581Z [2mdist/[22m[2massets/[22m[36mtoolkit-D8b5Bkvd.js           [39m[1m[2m260.50 kB[22m[1m[22m[2m │ gzip:  82.13 kB[22m
+2026-10-17T06:36:33.7483311Z [2mdist/[22m[2massets/[22m[36mindex-Dgk3JB9U.js             [39m[1m[33m751.44 kB[39m[22m[2m │ gzip: 235.70 kB[22m
+2026-10-17T06:36:33.7484071Z [2mdist/[22m[2massets/[22m[36mcontributor-CvRnsyEP.js       [39m[1m[33m805.04 kB[39m[22m[2m │ gzip: 204.67 kB[22m
+2026-10-17T06:36:33.7484539Z [33m
+2026-10-17T06:36:33.7484874Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-10-17T06:36:33.7485290Z - Using dynamic import() to code-split the application
+2026-10-17T06:36:33.7485991Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-10-17T06:36:33.7486781Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-10-17T06:36:33.7487267Z [32m✓ built in 3.17s[39m
+2026-10-17T06:36:33.7820523Z ##[group]Run mkdir -p .qa-baseline
+2026-10-17T06:36:33.7820756Z [36;1mmkdir -p .qa-baseline[0m
+2026-10-17T06:36:33.7821004Z [36;1mgit archive 939ac3a957912c0b2db4135ad4afd719a8daf86c | tar -x -C .qa-baseline[0m
+2026-10-17T06:36:33.7821283Z [36;1mln -s ../node_modules .qa-baseline/node_modules[0m
+2026-10-17T06:36:33.7821491Z [36;1mcd .qa-baseline[0m
+2026-10-17T06:36:33.7821665Z [36;1mnpm run build > ../phase16-baseline-build.log 2>&1[0m
+2026-10-17T06:36:33.7856210Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:36:33.7856436Z env:
+2026-10-17T06:36:33.7856571Z   CI: true
+2026-10-17T06:36:33.7856696Z ##[endgroup]
+2026-10-17T06:36:41.7680826Z ##[group]Run set -o pipefail
+2026-10-17T06:36:41.7681143Z [36;1mset -o pipefail[0m
+2026-10-17T06:36:41.7681450Z [36;1mnpm audit --omit=dev --audit-level=high 2>&1 | tee phase16-audit.log[0m
+2026-10-17T06:36:41.7729047Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:36:41.7729292Z env:
+2026-10-17T06:36:41.7729471Z   CI: true
+2026-10-17T06:36:41.7729643Z ##[endgroup]
+2026-10-17T06:36:42.0705719Z found 0 vulnerabilities
+2026-10-17T06:36:42.0771230Z ##[group]Run set -o pipefail
+2026-10-17T06:36:42.0771425Z [36;1mset -o pipefail[0m
+2026-10-17T06:36:42.0771621Z [36;1mnpm audit --audit-level=high 2>&1 | tee phase6-full-audit.log[0m
+2026-10-17T06:36:42.0803438Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:36:42.0803584Z env:
+2026-10-17T06:36:42.0803696Z   CI: true
+2026-10-17T06:36:42.0803810Z ##[endgroup]
+2026-10-17T06:36:42.7224363Z # npm audit report
+2026-10-17T06:36:42.7224572Z 
+2026-10-17T06:36:42.7224681Z esbuild  <=0.24.2
+2026-10-17T06:36:42.7224889Z Severity: moderate
+2026-10-17T06:36:42.7225594Z esbuild enables any website to send any requests to the development server and read the response - https://github.com/advisories/GHSA-67mh-4wv8-2f99
+2026-10-17T06:36:42.7226201Z fix available via `npm audit fix --force`
+2026-10-17T06:36:42.7226586Z Will install vite@6.4.4, which is outside the stated dependency range
+2026-10-17T06:36:42.7226919Z node_modules/esbuild
+2026-10-17T06:36:42.7227125Z   vite  <=6.4.2
+2026-10-17T06:36:42.7227446Z   Depends on vulnerable versions of esbuild
+2026-10-17T06:36:42.7227711Z   node_modules/vite
+2026-10-17T06:36:42.7227827Z 
+2026-10-17T06:36:42.7227911Z sharp  <=0.35.5-rc.1
+2026-10-17T06:36:42.7228094Z Severity: high
+2026-10-17T06:36:42.7228658Z sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545 - https://github.com/advisories/GHSA-rgj7-g3m4-5g8c
+2026-10-17T06:36:42.7229457Z sharp : Vulnerability in librsvg dependency CVE-2026-96889 - https://github.com/advisories/GHSA-wq5f-xc86-pv6w
+2026-10-17T06:36:42.7229954Z fix available via `npm audit fix --force`
+2026-10-17T06:36:42.7230385Z Will install wrangler@4.151.1, which is outside the stated dependency range
+2026-10-17T06:36:42.7230735Z node_modules/sharp
+2026-10-17T06:36:42.7231171Z   miniflare  <=0.0.0-fec45ed61 || 4.20250508.3 - 5.20260926.0-alpha
+2026-10-17T06:36:42.7231510Z   Depends on vulnerable versions of sharp
+2026-10-17T06:36:42.7231776Z   Depends on vulnerable versions of undici
+2026-10-17T06:36:42.7232014Z   node_modules/miniflare
+2026-10-17T06:36:42.7232406Z     wrangler  <=0.0.0-7ae5dd357 || 4.16.0 - 4.130.0
+2026-10-17T06:36:42.7232692Z     Depends on vulnerable versions of miniflare
+2026-10-17T06:36:42.7232940Z     node_modules/wrangler
+2026-10-17T06:36:42.7233071Z 
+2026-10-17T06:36:42.7233165Z source-map-js  1.0.0 - 1.2.1
+2026-10-17T06:36:42.7233367Z Severity: high
+2026-10-17T06:36:42.7233947Z source-map-js allows event-loop denial of service through indexed source-map section offsets - https://github.com/advisories/GHSA-68fv-2mgg-jv7q
+2026-10-17T06:36:42.7234487Z fix available via `npm audit fix`
+2026-10-17T06:36:42.7234729Z node_modules/source-map-js
+2026-10-17T06:36:42.7234854Z 
+2026-10-17T06:36:42.7234942Z undici  7.0.0 - 7.29.0
+2026-10-17T06:36:42.7235121Z Severity: high
+2026-10-17T06:36:42.7235786Z undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression - https://github.com/advisories/GHSA-3wwx-pv8p-q78v
+2026-10-17T06:36:42.7236730Z undici vulnerable to Denial of Service via orphaned RetryHandler response body - https://github.com/advisories/GHSA-pmjh-fq2x-6v4x
+2026-10-17T06:36:42.7237567Z undici vulnerable to downstream response splitting via retry interceptor - https://github.com/advisories/GHSA-r53p-7pc4-xj5r
+2026-10-17T06:36:42.7238256Z undici vulnerable to Denial of Service via unrequested WebSocket subprotocol - https://github.com/advisories/GHSA-rfgv-xxqx-mfg5
+2026-10-17T06:36:42.7239235Z undici vulnerable to Denial of Service via unbounded decompression of compressed responses - https://github.com/advisories/GHSA-3xpg-4rpp-hhhm
+2026-10-17T06:36:42.7240200Z undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches - https://github.com/advisories/GHSA-2jfj-6hjv-fm6j
+2026-10-17T06:36:42.7241179Z undici vulnerable to response truncation via oversized chunked responses in the dump interceptor - https://github.com/advisories/GHSA-2gqq-gqf2-x968
+2026-10-17T06:36:42.7242578Z undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool - https://github.com/advisories/GHSA-w293-vg96-wgc3
+2026-10-17T06:36:42.7243457Z undici vulnerable to caching and replay of unsafe HTTP method responses - https://github.com/advisories/GHSA-8436-99hf-9mmv
+2026-10-17T06:36:42.7244418Z undici vulnerable to Denial of Service via WebSocketStream unclean close - https://github.com/advisories/GHSA-rx4f-c7p8-82vq
+2026-10-17T06:36:42.7244914Z fix available via `npm audit fix --force`
+2026-10-17T06:36:42.7245314Z Will install wrangler@4.151.1, which is outside the stated dependency range
+2026-10-17T06:36:42.7245638Z node_modules/undici
+2026-10-17T06:36:42.7245749Z 
+2026-10-17T06:36:42.7245754Z 
+2026-10-17T06:36:42.7245891Z 7 vulnerabilities (1 moderate, 6 high)
+2026-10-17T06:36:42.7246048Z 
+2026-10-17T06:36:42.7246215Z To address issues that do not require attention, run:
+2026-10-17T06:36:42.7246487Z   npm audit fix
+2026-10-17T06:36:42.7246596Z 
+2026-10-17T06:36:42.7246698Z To address all issues, run:
+2026-10-17T06:36:42.7246932Z   npm audit fix --force
+2026-10-17T06:36:42.7326840Z ##[error]Process completed with exit code 1.
+2026-10-17T06:36:42.7366217Z ##[group]Run set -euo pipefail
+2026-10-17T06:36:42.7366470Z [36;1mset -euo pipefail[0m
+2026-10-17T06:36:42.7366680Z [36;1mmkdir -p qa-artifacts node_modules/.vite-temp[0m
+2026-10-17T06:36:42.7366959Z [36;1m# Pull dependencies BEFORE entering the isolated browser-runtime network namespace.[0m
+2026-10-17T06:36:42.7367254Z [36;1mdocker pull mcr.microsoft.com/playwright:v1.56.1-noble[0m
+2026-10-17T06:36:42.7367455Z [36;1mdocker run --rm \[0m
+2026-10-17T06:36:42.7367603Z [36;1m  --network none \[0m
+2026-10-17T06:36:42.7367755Z [36;1m  --cap-drop ALL \[0m
+2026-10-17T06:36:42.7367908Z [36;1m  --user "$(id -u):$(id -g)" \[0m
+2026-10-17T06:36:42.7368066Z [36;1m  --env HOME=/tmp \[0m
+2026-10-17T06:36:42.7368222Z [36;1m  --security-opt no-new-privileges \[0m
+2026-10-17T06:36:42.7368388Z [36;1m  --read-only \[0m
+2026-10-17T06:36:42.7368532Z [36;1m  --tmpfs /tmp:rw,nosuid,size=768m \[0m
+2026-10-17T06:36:42.7368697Z [36;1m  --shm-size=1g \[0m
+2026-10-17T06:36:42.7368934Z [36;1m  --mount "type=bind,src=$GITHUB_WORKSPACE,dst=/work,readonly" \[0m
+2026-10-17T06:36:42.7369245Z [36;1m  --mount "type=bind,src=$GITHUB_WORKSPACE/qa-artifacts,dst=/work/qa-artifacts" \[0m
+2026-10-17T06:36:42.7369599Z [36;1m  --mount "type=bind,src=$GITHUB_WORKSPACE/node_modules/.vite-temp,dst=/work/node_modules/.vite-temp" \[0m
+2026-10-17T06:36:42.7369869Z [36;1m  --workdir /work \[0m
+2026-10-17T06:36:42.7370013Z [36;1m  --env CI=true \[0m
+2026-10-17T06:36:42.7370180Z [36;1m  mcr.microsoft.com/playwright:v1.56.1-noble \[0m
+2026-10-17T06:36:42.7370368Z [36;1m  bash -euo pipefail -c '[0m
+2026-10-17T06:36:42.7370555Z [36;1m    test "$(ls -1 /sys/class/net | tr "\n" " ")" = "lo " || {[0m
+2026-10-17T06:36:42.7370824Z [36;1m      echo "Isolation failure: unexpected container network interfaces"; exit 1;[0m
+2026-10-17T06:36:42.7371045Z [36;1m    }[0m
+2026-10-17T06:36:42.7371266Z [36;1m    CHROME_BIN="$(find /ms-playwright -type f -name chrome -perm /111 -print -quit)"[0m
+2026-10-17T06:36:42.7371545Z [36;1m    test -n "$CHROME_BIN" && test -x "$CHROME_BIN"[0m
+2026-10-17T06:36:42.7371723Z [36;1m    export CHROME_BIN[0m
+2026-10-17T06:36:42.7371866Z [36;1m    node -v[0m
+2026-10-17T06:36:42.7372114Z [36;1m    printf "network=none; interfaces=lo; chrome=%s\n" "$CHROME_BIN" | tee qa-artifacts/isolation-evidence.txt[0m
+2026-10-17T06:36:42.7372632Z [36;1m    npm run preview -- --host 127.0.0.1 --port 4173 > qa-artifacts/preview.log 2>&1 &[0m
+2026-10-17T06:36:42.7372887Z [36;1m    preview_pid=$![0m
+2026-10-17T06:36:42.7373055Z [36;1m    trap "kill $preview_pid 2>/dev/null || true" EXIT[0m
+2026-10-17T06:36:42.7373231Z [36;1m    ready=0[0m
+2026-10-17T06:36:42.7373368Z [36;1m    for attempt in $(seq 1 40); do[0m
+2026-10-17T06:36:42.7373680Z [36;1m      if node -e "fetch(process.argv[1]).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" http://127.0.0.1:4173/; then[0m
+2026-10-17T06:36:42.7374008Z [36;1m        ready=1; break;[0m
+2026-10-17T06:36:42.7374159Z [36;1m      fi[0m
+2026-10-17T06:36:42.7374281Z [36;1m      sleep 1[0m
+2026-10-17T06:36:42.7374405Z [36;1m    done[0m
+2026-10-17T06:36:42.7374681Z [36;1m    test "$ready" = 1 || { cat qa-artifacts/preview.log; exit 1; }[0m
+2026-10-17T06:36:42.7374988Z [36;1m    node scripts/biology-phase9-figure-render.mjs 2>&1 | tee qa-artifacts/phase9-figures.log[0m
+2026-10-17T06:36:42.7375382Z [36;1m    npm run preview --prefix .qa-baseline -- --host 127.0.0.1 --port 4174 > qa-artifacts/baseline-preview.log 2>&1 &[0m
+2026-10-17T06:36:42.7375700Z [36;1m    node scripts/biolab-reading-browser.mjs[0m
+2026-10-17T06:36:42.7376038Z [36;1m    ENGLISH_REGRESSIONS_ONLY=1 node scripts/biology-phase16-guarded-smoke.mjs 2>&1 | tee qa-artifacts/browser-smoke-console.log[0m
+2026-10-17T06:36:42.7376354Z [36;1m  '[0m
+2026-10-17T06:36:42.7409785Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-17T06:36:42.7409989Z env:
+2026-10-17T06:36:42.7410120Z   CI: true
+2026-10-17T06:36:42.7410259Z ##[endgroup]
+2026-10-17T06:36:42.9828114Z v1.56.1-noble: Pulling from playwright
+2026-10-17T06:36:43.0560712Z cf57d2112d89: Pulling fs layer
+2026-10-17T06:36:43.0561149Z e1de47aaed0a: Pulling fs layer
+2026-10-17T06:36:43.0561408Z 495d3111de8d: Pulling fs layer
+2026-10-17T06:36:43.0561774Z 44acc34a5cf7: Pulling fs layer
+2026-10-17T06:36:43.0562032Z 44acc34a5cf7: Waiting
+2026-10-17T06:36:43.1423109Z 495d3111de8d: Verifying Checksum
+2026-10-17T06:36:43.1423621Z 495d3111de8d: Download complete
+2026-10-17T06:36:43.2577458Z cf57d2112d89: Verifying Checksum
+2026-10-17T06:36:43.2577831Z cf57d2112d89: Download complete
+2026-10-17T06:36:43.5262601Z e1de47aaed0a: Verifying Checksum
+2026-10-17T06:36:43.5263251Z e1de47aaed0a: Download complete
+2026-10-17T06:36:43.8118859Z cf57d2112d89: Pull complete
+2026-10-17T06:36:46.2144948Z 44acc34a5cf7: Verifying Checksum
+2026-10-17T06:36:46.2145222Z 44acc34a5cf7: Download complete
+2026-10-17T06:36:52.7461836Z e1de47aaed0a: Pull complete
+2026-10-17T06:36:52.7632373Z 495d3111de8d: Pull complete
+2026-10-17T06:37:09.2246541Z 44acc34a5cf7: Pull complete
+2026-10-17T06:37:09.2274118Z Digest: sha256:f1e7e01021efd65dd1a2c56064be399f3e4de00fd021ac561325f2bfbb2b837a
+2026-10-17T06:37:09.2285288Z Status: Downloaded newer image for mcr.microsoft.com/playwright:v1.56.1-noble
+2026-10-17T06:37:09.2294432Z mcr.microsoft.com/playwright:v1.56.1-noble
+2026-10-17T06:37:09.3239921Z v22.20.0
+2026-10-17T06:37:09.3251228Z network=none; interfaces=lo; chrome=/ms-playwright/chromium-1194/chrome-linux/chrome
+2026-10-17T06:37:10.6794860Z PASS CDP blocks external POST before opening LitLab
+2026-10-17T06:37:38.7359243Z Rendered 182 figure views; clipped text in 0 files.
+2026-10-17T06:37:38.7359597Z []
+2026-10-17T06:37:41.8241062Z PASS before screenshot 320
+2026-10-17T06:37:42.5449736Z PASS before screenshot 390
+2026-10-17T06:37:43.3415300Z PASS before screenshot 1440
+2026-10-17T06:37:44.0489994Z PASS header 320 light guest
+2026-10-17T06:37:44.7494827Z PASS header 320 light signed fixture
+2026-10-17T06:37:45.4305237Z PASS header 320 dark guest
+2026-10-17T06:37:46.1081945Z PASS header 320 dark signed fixture
+2026-10-17T06:37:46.7907951Z PASS header 390 light guest
+2026-10-17T06:37:47.4789645Z PASS header 390 light signed fixture
+2026-10-17T06:37:48.1863426Z PASS header 390 dark guest
+2026-10-17T06:37:48.9136016Z PASS header 390 dark signed fixture
+2026-10-17T06:37:49.5915961Z PASS header 768 light guest
+2026-10-17T06:37:50.2972362Z PASS header 768 light signed fixture
+2026-10-17T06:37:50.9859974Z PASS header 768 dark guest
+2026-10-17T06:37:51.6787345Z PASS header 768 dark signed fixture
+2026-10-17T06:37:52.3926705Z PASS header 1024 light guest
+2026-10-17T06:37:53.1082105Z PASS header 1024 light signed fixture
+2026-10-17T06:37:53.7778961Z PASS header 1024 dark guest
+2026-10-17T06:37:54.4838680Z PASS header 1024 dark signed fixture
+2026-10-17T06:37:55.1718574Z PASS header 1440 light guest
+2026-10-17T06:37:55.8634739Z PASS header 1440 light signed fixture
+2026-10-17T06:37:56.5355150Z PASS header 1440 dark guest
+2026-10-17T06:37:57.1960828Z PASS header 1440 dark signed fixture
+2026-10-17T06:37:57.8659879Z PASS header 1920 light guest
+2026-10-17T06:37:58.5356811Z PASS header 1920 light signed fixture
+2026-10-17T06:37:59.1938514Z PASS header 1920 dark guest
+2026-10-17T06:37:59.8736063Z PASS header 1920 dark signed fixture
+2026-10-17T06:38:00.5305992Z PASS A1.1 primary entry opens teaching
+2026-10-17T06:38:00.7271159Z PASS A1.2 primary entry opens teaching
+2026-10-17T06:38:00.9450596Z PASS B1.1 primary entry opens teaching
+2026-10-17T06:38:01.1641440Z PASS B1.2 primary entry opens teaching
+2026-10-17T06:38:01.3933947Z PASS B2.1 primary entry opens teaching
+2026-10-17T06:38:01.6085653Z PASS B2.2 primary entry opens teaching
+2026-10-17T06:38:01.8439904Z PASS B2.3 primary entry opens teaching
+2026-10-17T06:38:02.0601261Z PASS C1.1 primary entry opens teaching
+2026-10-17T06:38:02.9762183Z PASS course library, complete Water list and direct A1.1.3 entry
+2026-10-17T06:38:03.3784940Z PASS A1.1.1 student task
+2026-10-17T06:38:04.0922478Z PASS A1.1.2 student task
+2026-10-17T06:38:04.8094957Z PASS A1.1.3 student task
+2026-10-17T06:38:05.4926536Z PASS A1.1.4 student task
+2026-10-17T06:38:06.2259068Z PASS A1.1.5 student task
+2026-10-17T06:38:07.0618752Z PASS A1.1.6 student task
+2026-10-17T06:38:07.8098008Z PASS A1.1.7 student task
+2026-10-17T06:38:08.4596414Z PASS A1.1.8 student task
+2026-10-17T06:38:08.8374309Z PASS A1.1 scope, sources, practice and state
+2026-10-17T06:38:09.2424176Z PASS B1.1.1 student task
+2026-10-17T06:38:09.7777985Z PASS B1.1.2 student task
+2026-10-17T06:38:10.2938765Z PASS B1.1.3 student task
+2026-10-17T06:38:10.7918106Z PASS B1.1.4 student task
+2026-10-17T06:38:11.2920036Z PASS B1.1.5 student task
+2026-10-17T06:38:11.8103526Z PASS B1.1.6 student task
+2026-10-17T06:38:12.2090667Z PASS B1.1.7 student task
+2026-10-17T06:38:12.6093130Z PASS B1.1.8 student task
+2026-10-17T06:38:13.1255035Z PASS B1.1.9 student task
+2026-10-17T06:38:13.6274590Z PASS B1.1.10 student task
+2026-10-17T06:38:14.0413876Z PASS B1.1.11 student task
+2026-10-17T06:38:14.5425739Z PASS B1.1.12 student task
+2026-10-17T06:38:15.0587834Z PASS B1.1.13 student task
+2026-10-17T06:38:15.3471831Z PASS B1.1 scope, sources, practice and state
+2026-10-17T06:38:15.8588699Z PASS B1.2.1 student task
+2026-10-17T06:38:16.3925076Z PASS B1.2.2 student task
+2026-10-17T06:38:16.8039675Z PASS B1.2.3 student task
+2026-10-17T06:38:17.1957470Z PASS B1.2.4 student task
+2026-10-17T06:38:17.5925469Z PASS B1.2.5 student task
+2026-10-17T06:38:17.9917916Z PASS B1.2.6 student task
+2026-10-17T06:38:18.3907648Z PASS B1.2.7 student task
+2026-10-17T06:38:18.8921701Z PASS B1.2.8 student task
+2026-10-17T06:38:19.3916697Z PASS B1.2.9 student task
+2026-10-17T06:38:19.7919882Z PASS B1.2.10 student task
+2026-10-17T06:38:20.3081747Z PASS B1.2.11 student task
+2026-10-17T06:38:20.8249438Z PASS B1.2.12 student task
+2026-10-17T06:38:21.1842976Z PASS B1.2 scope, sources, practice and state
+2026-10-17T06:38:21.5913572Z PASS A1.2.1 student task
+2026-10-17T06:38:22.1084458Z PASS A1.2.2 student task
+2026-10-17T06:38:22.6091921Z PASS A1.2.3 student task
+2026-10-17T06:38:23.1245484Z PASS A1.2.4 student task
+2026-10-17T06:38:23.6244418Z PASS A1.2.5 student task
+2026-10-17T06:38:24.1245675Z PASS A1.2.6 student task
+2026-10-17T06:38:24.6243145Z PASS A1.2.7 student task
+2026-10-17T06:38:25.1251994Z PASS A1.2.8 student task
+2026-10-17T06:38:25.6248940Z PASS A1.2.9 student task
+2026-10-17T06:38:26.0249225Z PASS A1.2.10 student task
+2026-10-17T06:38:26.5247720Z PASS A1.2.11 student task
+2026-10-17T06:38:27.0260369Z PASS A1.2.12 student task
+2026-10-17T06:38:27.4249380Z PASS A1.2.13 student task
+2026-10-17T06:38:27.9429093Z PASS A1.2.14 student task
+2026-10-17T06:38:28.4917800Z PASS A1.2.15 student task
+2026-10-17T06:38:28.8606137Z PASS A1.2 scope, sources, practice and state
+2026-10-17T06:38:29.2760270Z PASS C1.1.1 student task
+2026-10-17T06:38:29.6760859Z PASS C1.1.2 student task
+2026-10-17T06:38:30.0915304Z PASS C1.1.3 student task
+2026-10-17T06:38:30.5907873Z PASS C1.1.4 student task
+2026-10-17T06:38:31.1084238Z PASS C1.1.5 student task
+2026-10-17T06:38:31.6082611Z PASS C1.1.6 student task
+2026-10-17T06:38:32.1084767Z PASS C1.1.7 student task
+2026-10-17T06:38:32.7088234Z PASS C1.1.8 student task
+2026-10-17T06:38:33.2074003Z PASS C1.1.9 student task
+2026-10-17T06:38:33.7079067Z PASS C1.1.10 student task
+2026-10-17T06:38:34.2087980Z PASS C1.1.11 student task
+2026-10-17T06:38:34.6074409Z PASS C1.1.12 student task
+2026-10-17T06:38:35.1239636Z PASS C1.1.13 student task
+2026-10-17T06:38:35.6248500Z PASS C1.1.14 student task
+2026-10-17T06:38:36.1927352Z PASS C1.1.15 student task
+2026-10-17T06:38:36.6911684Z PASS C1.1.16 student task
+2026-10-17T06:38:37.1909362Z PASS C1.1.17 student task
+2026-10-17T06:38:37.5781522Z PASS C1.1 scope, sources, practice and state
+2026-10-17T06:38:38.0905232Z PASS B2.1.1 student task
+2026-10-17T06:38:38.5908619Z PASS B2.1.2 student task
+2026-10-17T06:38:39.1070844Z PASS B2.1.3 student task
+2026-10-17T06:38:39.6079678Z PASS B2.1.4 student task
+2026-10-17T06:38:40.1074073Z PASS B2.1.5 student task
+2026-10-17T06:38:40.6406291Z PASS B2.1.6 student task
+2026-10-17T06:38:41.0422866Z PASS B2.1.7 student task
+2026-10-17T06:38:41.5418641Z PASS B2.1.8 student task
+2026-10-17T06:38:42.0409366Z PASS B2.1.9 student task
+2026-10-17T06:38:42.5407960Z PASS B2.1.10 student task
+2026-10-17T06:38:43.0405660Z PASS B2.1.11 student task
+2026-10-17T06:38:43.5407603Z PASS B2.1.12 student task
+2026-10-17T06:38:44.0414195Z PASS B2.1.13 student task
+2026-10-17T06:38:44.5575786Z PASS B2.1.14 student task
+2026-10-17T06:38:44.9591221Z PASS B2.1.15 student task
+2026-10-17T06:38:45.3582775Z PASS B2.1.16 student task
+2026-10-17T06:38:45.8574563Z PASS B2.1.17 student task
+2026-10-17T06:38:46.2783079Z PASS B2.1 scope, sources, practice and state
+2026-10-17T06:38:47.2409244Z PASS B2.2.1 student task
+2026-10-17T06:38:48.2578666Z PASS B2.2.2 student task
+2026-10-17T06:38:49.2741454Z PASS B2.2.3 student task
+2026-10-17T06:38:50.2584012Z PASS B2.2.4 student task
+2026-10-17T06:38:51.2737171Z PASS B2.2.5 student task
+2026-10-17T06:38:52.2903752Z PASS B2.2.6 student task
+2026-10-17T06:38:53.2741403Z PASS B2.2.7 student task
+2026-10-17T06:38:54.2581325Z PASS B2.2.8 student task
+2026-10-17T06:38:55.1906155Z PASS B2.2.9 student task
+2026-10-17T06:38:55.5751723Z PASS B2.2 scope, sources, practice and state
+2026-10-17T06:38:56.0901981Z PASS B2.3.1 student task
+2026-10-17T06:38:56.5902940Z PASS B2.3.2 student task
+2026-10-17T06:38:57.0908550Z PASS B2.3.3 student task
+2026-10-17T06:38:57.6564264Z PASS B2.3.4 student task
+2026-10-17T06:38:58.1567889Z PASS B2.3.5 student task
+2026-10-17T06:38:58.6577272Z PASS B2.3.6 student task
+2026-10-17T06:38:59.1572826Z PASS B2.3.7 student task
+2026-10-17T06:38:59.6572827Z PASS B2.3.8 student task
+2026-10-17T06:39:00.1572201Z PASS B2.3.9 student task
+2026-10-17T06:39:00.6562913Z PASS B2.3.10 student task
+2026-10-17T06:39:01.0273088Z PASS B2.3 scope, sources, practice and state
+2026-10-17T06:39:05.9724786Z PASS keyboard and touch at 320, 390, 768, 1024, 1440, 1920 and 200% reflow
+2026-10-17T06:39:06.1411246Z PASS Cell structure remains planned; existing English and Biology progress unchanged
+2026-10-17T06:39:06.4280606Z PASS CDP blocks external POST before opening LitLab
+2026-10-17T06:39:07.8458063Z desktop home                width 1425/1425 main 4833 chars
+2026-10-17T06:39:09.5124875Z desktop start               width 1425/1425 main 7785 chars auth-ok
+2026-10-17T06:39:11.1728203Z desktop papers              width 1425/1425 main 625 chars auth-ok
+2026-10-17T06:39:12.9202337Z desktop paper-1             width 1425/1425 main 33316 chars auth-ok
+2026-10-17T06:39:14.6311449Z desktop paper-2             width 1425/1425 main 25904 chars auth-ok
+2026-10-17T06:39:16.3707802Z desktop io                  width 1425/1425 main 19313 chars auth-ok
+2026-10-17T06:39:18.1276586Z desktop books               width 1425/1425 main 2922 chars auth-ok
+2026-10-17T06:39:19.8450047Z desktop ee                  width 1425/1425 main 14911 chars auth-ok
+2026-10-17T06:39:21.5514291Z desktop glossary            width 1425/1425 main 205032 chars auth-ok
+2026-10-17T06:39:23.1948407Z desktop about               width 1425/1425 main 1299 chars auth-ok
+2026-10-17T06:39:24.9434116Z desktop essays              width 1425/1425 main 1005 chars auth-ok
+2026-10-17T06:39:26.7231035Z desktop hl-essay            width 1425/1425 main 17927 chars auth-ok
+2026-10-17T06:39:28.9354458Z desktop contribute          width 1425/1425 main 1299 chars auth-ok
+2026-10-17T06:39:31.1904065Z desktop admin               width 1425/1425 main 134 chars auth-ok
+2026-10-17T06:39:33.4974380Z desktop admin-contributors  width 1425/1425 main 147 chars auth-ok
+2026-10-17T06:39:34.8203207Z mobile  home                width 390/390 main 4840 chars
+2026-10-17T06:39:36.3425160Z mobile  start               width 390/390 main 7785 chars auth-ok
+2026-10-17T06:39:37.8556043Z mobile  papers              width 390/390 main 625 chars auth-ok
+2026-10-17T06:39:39.4610299Z mobile  paper-1             width 390/390 main 33316 chars auth-ok
+2026-10-17T06:39:41.0424192Z mobile  paper-2             width 390/390 main 25904 chars auth-ok
+2026-10-17T06:39:42.6110648Z mobile  io                  width 390/390 main 19313 chars auth-ok
+2026-10-17T06:39:44.1980429Z mobile  books               width 390/390 main 2906 chars auth-ok
+2026-10-17T06:39:45.7793920Z mobile  ee                  width 390/390 main 14911 chars auth-ok
+2026-10-17T06:39:47.3394085Z mobile  glossary            width 390/390 main 205032 chars auth-ok
+2026-10-17T06:39:48.8884335Z mobile  about               width 390/390 main 1299 chars auth-ok
+2026-10-17T06:39:50.4615393Z mobile  essays              width 390/390 main 1005 chars auth-ok
+2026-10-17T06:39:52.0441523Z mobile  hl-essay            width 390/390 main 17927 chars auth-ok
+2026-10-17T06:39:54.1624328Z mobile  contribute          width 390/390 main 1299 chars auth-ok
+2026-10-17T06:39:56.2746208Z mobile  admin               width 390/390 main 134 chars auth-ok
+2026-10-17T06:39:58.3755715Z mobile  admin-contributors  width 390/390 main 147 chars auth-ok
+2026-10-17T06:39:59.8991696Z PASS Primary navigation click reaches Start Here
+2026-10-17T06:40:00.6073866Z PASS Browser back and forward preserve English routes
+2026-10-17T06:40:01.7881239Z PASS Theme toggles without breaking header
+2026-10-17T06:40:02.2189122Z PASS Search dialog opens and Escape closes it
+2026-10-17T06:40:03.7889112Z PASS Glossary accepts a search term
+2026-10-17T06:40:06.0941166Z Skills Lab guest modal dismissed: true
+2026-10-17T06:40:06.3560136Z Skills Lab pretest DOM: {"route":"#skills","page":true,"cards":7,"quiz":0,"feature":"toolkit","main":"About / CASBuilt by students, for students.LitLab is a student-created educational resource designed to make the first s"}
+2026-10-17T06:40:06.6874585Z Skills Lab answer DOM: {"answered":true,"disabled":4,"explanations":4,"nextEnabled":true}
+2026-10-17T06:40:06.6874948Z PASS Skills Lab practice answer clickable
+2026-10-17T06:40:10.2039647Z PASS Six English progress keys survive read-only navigation
+2026-10-17T06:40:11.6032526Z PASS 390px mobile menu navigates to Start Here
+2026-10-17T06:40:13.7578460Z PASS Books to Glossary restores React-owned main
+2026-10-17T06:40:13.7579290Z PASS No external response bypassed interception
+2026-10-17T06:40:13.7583533Z Phase 1.6 interactions: 11/11 passed; 49 external requests blocked
+2026-10-17T06:40:13.7589277Z 
+2026-10-17T06:40:13.7589681Z Browser smoke audit passed: 30 desktop/mobile route renders checked.
+2026-10-17T06:40:15.8143993Z ##[group]Run actions/upload-artifact@v4
+2026-10-17T06:40:15.8144175Z with:
+2026-10-17T06:40:15.8144319Z   name: biolab-learning-redesign-qa
+2026-10-17T06:40:15.8144558Z   path: phase16-*.log
+phase6-full-audit.log
+phase16-checkout.txt
+qa-artifacts/
+
+2026-10-17T06:40:15.8144806Z   if-no-files-found: warn
+2026-10-17T06:40:15.8144947Z   retention-days: 14
+2026-10-17T06:40:15.8145080Z   compression-level: 6
+2026-10-17T06:40:15.8145207Z   overwrite: false
+2026-10-17T06:40:15.8145335Z   include-hidden-files: false
+2026-10-17T06:40:15.8145478Z env:
+2026-10-17T06:40:15.8145585Z   CI: true
+2026-10-17T06:40:15.8145694Z ##[endgroup]
+2026-10-17T06:40:15.9396929Z (node:3702) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-17T06:40:15.9399514Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-17T06:40:15.9905050Z With the provided path, there will be 332 files uploaded
+2026-10-17T06:40:15.9906919Z Artifact name is valid!
+2026-10-17T06:40:15.9907621Z Root directory input is valid!
+2026-10-17T06:40:16.2877240Z Beginning upload of artifact content to blob storage
+2026-10-17T06:40:16.4959535Z (node:3702) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-17T06:40:16.9639700Z Uploaded bytes 8388608
+2026-10-17T06:40:17.1685954Z Uploaded bytes 16777216
+2026-10-17T06:40:17.3107456Z Uploaded bytes 25165824
+2026-10-17T06:40:17.4005614Z Uploaded bytes 33554432
+2026-10-17T06:40:17.5149730Z Uploaded bytes 41943040
+2026-10-17T06:40:17.5781796Z Uploaded bytes 44054314
+2026-10-17T06:40:17.6178075Z Finished uploading artifact content to blob storage!
+2026-10-17T06:40:17.6180292Z SHA256 digest of uploaded artifact zip is f0281eeb64b7966812de8e0732db0abe6aa8e2b61fa59de7fb54a96dc1ed90e0
+2026-10-17T06:40:17.6181977Z Finalizing artifact upload
+2026-10-17T06:40:17.8674578Z Artifact biolab-learning-redesign-qa.zip successfully finalized. Artifact ID 12092573418
+2026-10-17T06:40:17.8675454Z Artifact biolab-learning-redesign-qa has been successfully uploaded! Final size is 44054314 bytes. Artifact ID is 12092573418
+2026-10-17T06:40:17.8680286Z Artifact download URL: https://github.com/veyro-lb/litlab/actions/runs/39010523713/artifacts/12092573418
+2026-10-17T06:40:17.8791130Z ##[group]Run printf "Install=%s\nQuality=%s\nBuild=%s\nAudit=%s\nBrowser=%s\n" "$INSTALL" "$QUALITY" "$BUILD" "$AUDIT" "$BROWSER"
+2026-10-17T06:40:17.8791609Z [36;1mprintf "Install=%s\nQuality=%s\nBuild=%s\nAudit=%s\nBrowser=%s\n" "$INSTALL" "$QUALITY" "$BUILD" "$AUDIT" "$BROWSER"[0m
+2026-10-17T06:40:17.8791962Z [36;1mfor state in "$INSTALL" "$QUALITY" "$BUILD" "$AUDIT" "$BROWSER"; do[0m
+2026-10-17T06:40:17.8792202Z [36;1m  test "$state" = success || exit 1[0m
+2026-10-17T06:40:17.8792542Z [36;1mdone[0m
+2026-10-17T06:40:17.8823309Z shell: /usr/bin/bash -e {0}
+2026-10-17T06:40:17.8823459Z env:
+2026-10-17T06:40:17.8823575Z   CI: true
+2026-10-17T06:40:17.8823689Z   INSTALL: success
+2026-10-17T06:40:17.8823810Z   QUALITY: success
+2026-10-17T06:40:17.8823931Z   BUILD: success
+2026-10-17T06:40:17.8824054Z   AUDIT: success
+2026-10-17T06:40:17.8824175Z   BROWSER: success
+2026-10-17T06:40:17.8824293Z ##[endgroup]
+2026-10-17T06:40:17.8859511Z Install=success
+2026-10-17T06:40:17.8859769Z Quality=success
+2026-10-17T06:40:17.8859961Z Build=success
+2026-10-17T06:40:17.8860167Z Audit=success
+2026-10-17T06:40:17.8860500Z Browser=success
+2026-10-17T06:40:17.8912795Z Post job cleanup.
+2026-10-17T06:40:17.9706107Z (node:3718) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-17T06:40:17.9706855Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-17T06:40:17.9708166Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-f932fb7b09c719d81ff69a7826bf5f15e81e5b62f981d43dd9d6aec25e34effa, not saving cache.
+2026-10-17T06:40:17.9786843Z Post job cleanup.
+2026-10-17T06:40:18.0355137Z [command]/usr/bin/git version
+2026-10-17T06:40:18.0382597Z git version 2.55.0
+2026-10-17T06:40:18.0407297Z Temporarily overriding HOME='/home/runner/work/_temp/2c231fa6-e936-4204-9d80-5e070fb68394' before making global git config changes
+2026-10-17T06:40:18.0408175Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-17T06:40:18.0410648Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/litlab/litlab
+2026-10-17T06:40:18.0437987Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-17T06:40:18.0459640Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-17T06:40:18.0586521Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-17T06:40:18.0619519Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-17T06:40:18.0747337Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-17T06:40:18.0771540Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-17T06:40:18.1094660Z Cleaning up orphan processes
+2026-10-17T06:40:18.1266589Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

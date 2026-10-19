@@ -1,0 +1,64 @@
+name: BioLab Cloudflare Production Verification
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-cloudflare:
+    name: Build, privacy gate and Cloudflare production fingerprint
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: "true"
+      CLOUDFLARE_ORIGIN: https://litlab.jamesloom18.workers.dev
+    steps:
+      - name: Check out the exact release revision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Validate curriculum and site quality
+        run: |
+          node scripts/validate-lessons.mjs
+          node scripts/validate-biology.mjs
+          node scripts/biology/licensed-book-figures/verify.mjs
+          npm run quality
+      - name: Build and verify public output
+        run: |
+          npm run build
+          node scripts/biology/preview-readiness/verify-public-build.mjs
+      - name: Confirm Cloudflare deployed this BioLab release
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected='"release": "biolab-public-2026-10-19"'
+          release_path="/biolab-release.json?commit=${GITHUB_SHA}"
+          echo "Waiting for Cloudflare Worker to serve BioLab release fingerprint..."
+          for attempt in $(seq 1 72); do
+            body="$(curl --max-time 15 --silent --show-error --fail --location \
+              -H 'Cache-Control: no-cache' \
+              "${CLOUDFLARE_ORIGIN}${release_path}" 2>/dev/null || true)"
+            if printf '%s' "$body" | grep -Fq "$expected"; then
+              echo "Cloudflare release fingerprint is live on attempt $attempt."
+              curl --max-time 15 --fail --silent --show-error --location "${CLOUDFLARE_ORIGIN}/" > /tmp/biolab-cloudflare-index.html
+              grep -Fq 'assets/' /tmp/biolab-cloudflare-index.html || {
+                echo "Cloudflare returned an unexpected HTML shell"; exit 1;
+              }
+              echo "Production shell and release fingerprint confirmed."
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "::error::Cloudflare did not serve the expected release fingerprint. Check its Git integration/build configuration before claiming deployment."
+          exit 1

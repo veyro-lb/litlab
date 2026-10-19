@@ -139,8 +139,11 @@ function initials(user:AuthUser){
 }
 
 function closeModal(){
+  const restoreSignInFocus=modalOpen;
   modalOpen=false;
   document.querySelector('[data-auth-modal]')?.remove();
+  // Escape also re-renders the auth control; focus the new trigger after that update.
+  if(restoreSignInFocus)queueMicrotask(()=>document.querySelector<HTMLButtonElement>('[data-auth-open]')?.focus());
 }
 
 function openModal(){
@@ -187,7 +190,7 @@ function buildAuthRoot(){
 }
 
 function renderAuth(){
-  const topActions=document.querySelector<HTMLElement>('.topbar .top-actions');
+  const topActions=document.querySelector<HTMLElement>('[data-account-slot]')??document.querySelector<HTMLElement>('.topbar .top-actions');
   if(!topActions)return;
   let root=topActions.querySelector<HTMLElement>('[data-litlab-auth-root]');
   if(!root){

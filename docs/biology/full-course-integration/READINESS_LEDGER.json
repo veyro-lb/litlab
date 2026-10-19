@@ -1,0 +1,875 @@
+{
+  "title": "BioLab Full IB Biology Course Integration — evidence-based readiness ledger",
+  "asOf": "2026-10-17",
+  "integrationBranch": "feature/biolab-complete-course-integration-20261017",
+  "verifiedGreenBaseSha": "7492d63cdc1d568e43d57edd5bf539c4317cb96c",
+  "verifiedGreenCiRun": "https://github.com/veyro-lb/litlab/actions/runs/39010840459",
+  "courseRegistry": {
+    "topics": 40,
+    "understandings": 553,
+    "shared": 337,
+    "hlOnly": 216
+  },
+  "registeredDrafts": {
+    "topics": 40,
+    "understandings": 553,
+    "shared": 337,
+    "hlOnly": 216,
+    "ids": [
+      "A1.1",
+      "A1.2",
+      "A2.1",
+      "A2.2",
+      "A2.3",
+      "A3.1",
+      "A3.2",
+      "A4.1",
+      "A4.2",
+      "B1.1",
+      "B1.2",
+      "B2.1",
+      "B2.2",
+      "B2.3",
+      "B3.1",
+      "B3.2",
+      "B3.3",
+      "B4.1",
+      "B4.2",
+      "C1.1",
+      "C1.2",
+      "C1.3",
+      "C2.1",
+      "C2.2",
+      "C3.1",
+      "C3.2",
+      "C4.1",
+      "C4.2",
+      "D1.1",
+      "D1.2",
+      "D1.3",
+      "D2.1",
+      "D2.2",
+      "D2.3",
+      "D3.1",
+      "D3.2",
+      "D3.3",
+      "D4.1",
+      "D4.2",
+      "D4.3"
+    ],
+    "educationallyApproved": 0
+  },
+  "sourceBranches": [
+    {
+      "name": "feature/biolab-learning-experience-redesign-20261016",
+      "sha": "d6f9fd552096edbdaf7096833675963ed016df72",
+      "integrationStatus": "Integrated selected redesign paths from latest green QA SHA 39022026792"
+    },
+    {
+      "name": "feature/biolab-complete-theme-a-20261017",
+      "sha": "9a2da5b26f8d4f76a87c53fc5c5984cb7a67f253",
+      "integrationStatus": "6 valid draft packages integrated; exact integration CI pending; expert approvals outstanding"
+    },
+    {
+      "name": "feature/biolab-complete-theme-b-20261017",
+      "sha": "a6ccd93b44bb84a0be64e8e3215208f595b2cde0",
+      "integrationStatus": "5 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
+    },
+    {
+      "name": "feature/biolab-complete-theme-c1-20261017",
+      "sha": "bacc4c1e454645f9b476588b6fb250c5eba35e2e",
+      "integrationStatus": "4 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
+    },
+    {
+      "name": "feature/biolab-complete-theme-c2-20261017",
+      "sha": "286841f2d2785a9d4c38de4cb5fd0f5fe13ca997",
+      "integrationStatus": "1 valid draft integrated; C3.2/C4.1/C4.2 missing; full course NO-GO"
+    },
+    {
+      "name": "feature/biolab-complete-theme-d1-20261017",
+      "sha": "fa6ef0828f6ca7230dfee79d08150ecf154f0c36",
+      "integrationStatus": "6 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
+    },
+    {
+      "name": "feature/biolab-complete-theme-d2-20261017",
+      "sha": "5d9d8b8e6420708190169c6bb55151f04adf6993",
+      "integrationStatus": "6 structurally valid draft packages integrated; expert approval and exact-SHA QA pending"
+    }
+  ],
+  "plannedTopics": [],
+  "topicAcceptance": [
+    {
+      "id": "A1.1",
+      "title": "Water",
+      "understandings": 8,
+      "shared": 6,
+      "hlOnly": 2,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A1.2",
+      "title": "Nucleic acids",
+      "understandings": 15,
+      "shared": 10,
+      "hlOnly": 5,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A2.1",
+      "title": "Origins of cells",
+      "understandings": 9,
+      "shared": 0,
+      "hlOnly": 9,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A2.2",
+      "title": "Cell structure",
+      "understandings": 14,
+      "shared": 11,
+      "hlOnly": 3,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A2.3",
+      "title": "Viruses",
+      "understandings": 6,
+      "shared": 0,
+      "hlOnly": 6,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A3.1",
+      "title": "Diversity of organisms",
+      "understandings": 15,
+      "shared": 11,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A3.2",
+      "title": "Classification and cladistics",
+      "understandings": 9,
+      "shared": 0,
+      "hlOnly": 9,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A4.1",
+      "title": "Evolution and speciation",
+      "understandings": 11,
+      "shared": 7,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "A4.2",
+      "title": "Conservation of biodiversity",
+      "understandings": 8,
+      "shared": 8,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B1.1",
+      "title": "Carbohydrates and lipids",
+      "understandings": 13,
+      "shared": 13,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B1.2",
+      "title": "Proteins",
+      "understandings": 12,
+      "shared": 5,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B2.1",
+      "title": "Membranes and membrane transport",
+      "understandings": 17,
+      "shared": 10,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B2.2",
+      "title": "Organelles and compartmentalization",
+      "understandings": 9,
+      "shared": 3,
+      "hlOnly": 6,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B2.3",
+      "title": "Cell specialization",
+      "understandings": 10,
+      "shared": 6,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B3.1",
+      "title": "Gas exchange",
+      "understandings": 13,
+      "shared": 10,
+      "hlOnly": 3,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B3.2",
+      "title": "Transport",
+      "understandings": 18,
+      "shared": 10,
+      "hlOnly": 8,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B3.3",
+      "title": "Muscle and motility",
+      "understandings": 10,
+      "shared": 0,
+      "hlOnly": 10,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B4.1",
+      "title": "Adaptation to environment",
+      "understandings": 8,
+      "shared": 8,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "B4.2",
+      "title": "Ecological niches",
+      "understandings": 13,
+      "shared": 13,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C1.1",
+      "title": "Enzymes and metabolism",
+      "understandings": 17,
+      "shared": 10,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C1.2",
+      "title": "Cell respiration",
+      "understandings": 17,
+      "shared": 6,
+      "hlOnly": 11,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C1.3",
+      "title": "Photosynthesis",
+      "understandings": 19,
+      "shared": 8,
+      "hlOnly": 11,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C2.1",
+      "title": "Chemical signalling",
+      "understandings": 14,
+      "shared": 0,
+      "hlOnly": 14,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C2.2",
+      "title": "Neural signalling",
+      "understandings": 16,
+      "shared": 7,
+      "hlOnly": 9,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C3.1",
+      "title": "Integration of body systems",
+      "understandings": 23,
+      "shared": 16,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C3.2",
+      "title": "Defence against disease",
+      "understandings": 18,
+      "shared": 18,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "Original source-mapped teaching draft integrated; qualified scientific, assessment, educational, accessibility and licensing reviews pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C4.1",
+      "title": "Populations and communities",
+      "understandings": 18,
+      "shared": 18,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "Source-mapped teaching draft integrated; independent scientific, statistical, educational, assessment and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "C4.2",
+      "title": "Transfers of energy and matter",
+      "understandings": 22,
+      "shared": 22,
+      "hlOnly": 0,
+      "cataloguedDraft": true,
+      "editorialStatus": "Complete source-mapped draft registered; independent scientific, data, educational, assessment, accessibility and image-rights review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D1.1",
+      "title": "DNA replication",
+      "understandings": 9,
+      "shared": 5,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D1.2",
+      "title": "Protein synthesis",
+      "understandings": 19,
+      "shared": 11,
+      "hlOnly": 8,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D1.3",
+      "title": "Mutation and gene editing",
+      "understandings": 10,
+      "shared": 7,
+      "hlOnly": 3,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D2.1",
+      "title": "Cell and nuclear division",
+      "understandings": 17,
+      "shared": 11,
+      "hlOnly": 6,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D2.2",
+      "title": "Gene expression",
+      "understandings": 11,
+      "shared": 0,
+      "hlOnly": 11,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D2.3",
+      "title": "Water potential",
+      "understandings": 11,
+      "shared": 7,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D3.1",
+      "title": "Reproduction",
+      "understandings": 20,
+      "shared": 12,
+      "hlOnly": 8,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D3.2",
+      "title": "Inheritance",
+      "understandings": 21,
+      "shared": 15,
+      "hlOnly": 6,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D3.3",
+      "title": "Homeostasis",
+      "understandings": 11,
+      "shared": 6,
+      "hlOnly": 5,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D4.1",
+      "title": "Natural selection",
+      "understandings": 15,
+      "shared": 8,
+      "hlOnly": 7,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D4.2",
+      "title": "Stability and change",
+      "understandings": 15,
+      "shared": 11,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    },
+    {
+      "id": "D4.3",
+      "title": "Climate change",
+      "understandings": 12,
+      "shared": 8,
+      "hlOnly": 4,
+      "cataloguedDraft": true,
+      "editorialStatus": "development draft; independent scientific, assessment, educational and accessibility review pending",
+      "qualifiedScientificApproval": false,
+      "qualifiedEducationalApproval": false
+    }
+  ],
+  "knownNewerUnverifiedRedesign": {
+    "sha": "bc434f16e041b6018d670a76593e8a1ea9bf01f5",
+    "documentedDraftTopics": 9,
+    "documentedDraftUnderstandings": 115,
+    "ciStatusAtPreflight": "in_progress",
+    "lastObservedFailedExample": "7010e5c799761d8cc299cea429826c91709b82aa",
+    "lastFailedCi": "https://github.com/veyro-lb/litlab/actions/runs/39017825191",
+    "caveat": "head and CI may change; re-read before integrating"
+  },
+  "qualityGates": {
+    "all40Topics": true,
+    "all553TeachingLessons": true,
+    "independentScientificApproval": false,
+    "independentAssessmentApproval": false,
+    "authenticImageAndRightsApproval": false,
+    "ownerApproval": false,
+    "privatePreview40TopicVerified": false,
+    "EnglishRegressionGreenOnPinnedBase": true,
+    "greenIsolatedBrowserOnPinnedBase": true,
+    "fullDependencyTreeZeroAdvisories": false,
+    "publicRelease": "NO-GO"
+  },
+  "safety": {
+    "publicBranchModified": false,
+    "sourceBranchOverwritten": false,
+    "topicPackagesArtificiallyRegistered": false,
+    "publicDeploymentTriggered": false
+  },
+  "notes": [
+    "This is a status record, not evidence of scientific certification.",
+    "Some drafts have open schematic and image issues; four original figures are withheld in the pinned baseline.",
+    "Further commits must be rechecked against the exact integration SHA.",
+    "2026-10-17: C3.2 has 18 source-mapped teaching sections and 36 draft questions; guide/Hodder cross-reference checked in supplied PDFs; quantitative COVID exercise is constructed, not historical surveillance data.",
+    "2026-10-17: C4.1 adds 18 original teaching sections and 36 original questions with constructed quantitative sampling and association data; not independently approved.",
+    "2026-10-17: C4.2 adds 22 new syllabus-numbered explanations, sourced Silver Springs energy pyramid and NOAA Mauna Loa CO2 historical data; independent review remains pending."
+  ],
+  "integrationHistory": [
+    {
+      "date": "2026-10-17",
+      "source": "Learning redesign",
+      "sourceSha": "d6f9fd552096edbdaf7096833675963ed016df72",
+      "registeredTopics": 9,
+      "registeredUnderstandings": 115,
+      "ci": "https://github.com/veyro-lb/litlab/actions/runs/39022026792",
+      "status": "imported; target-branch CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme A",
+      "sourceSha": "9a2da5b26f8d4f76a87c53fc5c5984cb7a67f253",
+      "registeredTopics": 15,
+      "registeredUnderstandings": 173,
+      "accepted": [
+        {
+          "id": "A2.1",
+          "sections": 9,
+          "questions": 18
+        },
+        {
+          "id": "A2.3",
+          "sections": 6,
+          "questions": 12
+        },
+        {
+          "id": "A3.1",
+          "sections": 15,
+          "questions": 30
+        },
+        {
+          "id": "A3.2",
+          "sections": 9,
+          "questions": 18
+        },
+        {
+          "id": "A4.1",
+          "sections": 11,
+          "questions": 22
+        },
+        {
+          "id": "A4.2",
+          "sections": 8,
+          "questions": 17
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme B",
+      "sourceSha": "a6ccd93b44bb84a0be64e8e3215208f595b2cde0",
+      "registeredTopics": 20,
+      "registeredUnderstandings": 235,
+      "accepted": [
+        {
+          "id": "B3.1",
+          "sections": 13,
+          "questions": 16
+        },
+        {
+          "id": "B3.2",
+          "sections": 18,
+          "questions": 21
+        },
+        {
+          "id": "B3.3",
+          "sections": 10,
+          "questions": 12
+        },
+        {
+          "id": "B4.1",
+          "sections": 8,
+          "questions": 9
+        },
+        {
+          "id": "B4.2",
+          "sections": 13,
+          "questions": 14
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme C1",
+      "sourceSha": "bacc4c1e454645f9b476588b6fb250c5eba35e2e",
+      "registeredTopics": 24,
+      "registeredUnderstandings": 301,
+      "accepted": [
+        {
+          "id": "C1.2",
+          "sections": 17,
+          "questions": 34
+        },
+        {
+          "id": "C1.3",
+          "sections": 19,
+          "questions": 38
+        },
+        {
+          "id": "C2.1",
+          "sections": 14,
+          "questions": 28
+        },
+        {
+          "id": "C2.2",
+          "sections": 16,
+          "questions": 32
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme C2",
+      "sourceSha": "286841f2d2785a9d4c38de4cb5fd0f5fe13ca997",
+      "registeredTopics": 25,
+      "registeredUnderstandings": 324,
+      "accepted": [
+        {
+          "id": "C3.1",
+          "sections": 23,
+          "questions": 31
+        }
+      ],
+      "rejected": [],
+      "missing": [
+        "C3.2",
+        "C4.1",
+        "C4.2"
+      ],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme D1",
+      "sourceSha": "fa6ef0828f6ca7230dfee79d08150ecf154f0c36",
+      "registeredTopics": 31,
+      "registeredUnderstandings": 401,
+      "accepted": [
+        {
+          "id": "D1.1",
+          "sections": 9,
+          "questions": 18
+        },
+        {
+          "id": "D1.2",
+          "sections": 19,
+          "questions": 38
+        },
+        {
+          "id": "D1.3",
+          "sections": 10,
+          "questions": 20
+        },
+        {
+          "id": "D2.1",
+          "sections": 17,
+          "questions": 35
+        },
+        {
+          "id": "D2.2",
+          "sections": 11,
+          "questions": 22
+        },
+        {
+          "id": "D2.3",
+          "sections": 11,
+          "questions": 23
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Theme D2",
+      "sourceSha": "5d9d8b8e6420708190169c6bb55151f04adf6993",
+      "registeredTopics": 37,
+      "registeredUnderstandings": 495,
+      "accepted": [
+        {
+          "id": "D3.1",
+          "sections": 20,
+          "questions": 20
+        },
+        {
+          "id": "D3.2",
+          "sections": 21,
+          "questions": 42
+        },
+        {
+          "id": "D3.3",
+          "sections": 11,
+          "questions": 22
+        },
+        {
+          "id": "D4.1",
+          "sections": 15,
+          "questions": 30
+        },
+        {
+          "id": "D4.2",
+          "sections": 15,
+          "questions": 30
+        },
+        {
+          "id": "D4.3",
+          "sections": 12,
+          "questions": 24
+        }
+      ],
+      "rejected": [],
+      "status": "draft integrated; CI pending"
+    },
+    {
+      "date": "2026-10-17",
+      "source": "Phase 5 focused review",
+      "sourceSha": "da0e6a0b475eb513563de9dd9fde9fa586729c57",
+      "registeredTopics": 40,
+      "registeredUnderstandings": 553,
+      "accepted": [
+        {
+          "id": "C3.2",
+          "sections": 18,
+          "questions": 36,
+          "status": "targeted editorial changes; draft remains unapproved"
+        }
+      ],
+      "status": "No approval or release; exact-commit CI pending"
+    }
+  ],
+  "phase5": {
+    "asOf": "2026-10-17",
+    "startingHead": "e9090a1db0bc535f407a6fe1e86c0ca6fe160c01",
+    "scopedContentCommit": "da0e6a0b475eb513563de9dd9fde9fa586729c57",
+    "understandingAuditCommit": "4a989c74dacea41695524648079cef5bad5a8667",
+    "cataloguedTopics": 40,
+    "registeredUnderstandings": 553,
+    "contentEditoriallyTouched": [
+      "C3.2.1",
+      "C3.2.2",
+      "C3.2.3",
+      "C3.2.4",
+      "C3.2.5",
+      "C3.2.6",
+      "C3.2.7",
+      "C3.2.8",
+      "C3.2.9",
+      "C3.2.10",
+      "C3.2.11",
+      "C3.2.12",
+      "C3.2.13",
+      "C3.2.14",
+      "C3.2.15",
+      "C3.2.16",
+      "C3.2.17",
+      "C3.2.18"
+    ],
+    "editorialActions": {
+      "diagnosticIncorrectDistractors": 54,
+      "updatedFeedbackOccurrences": 108,
+      "addedOriginalVisuals": 5,
+      "newVisualLocations": [
+        "C3.2.5 phagocytosis sequence",
+        "C3.2.6 lymphocyte comparison",
+        "C3.2.12 HIV and AIDS comparison",
+        "C3.2.14 antibiotic selection sequence",
+        "C3.2.18 percentage method comparison"
+      ],
+      "numericAssessment": "C3.2.18 worked five-mark question with explicit hypothetical-data warning"
+    },
+    "chapterEditorialComparison": "targeted topical cross-check against official Guide printed pp. 78–80 and Hodder chapter beginning printed p. 517; NOT a qualified complete chapter-level independent line-by-line review",
+    "machineReadableAudit": "docs/biology/full-course-integration/PHASE5_UNDERSTANDING_AUDIT.json",
+    "remainingToReviewIndividually": 535,
+    "humanApprovalsGranted": 0,
+    "validation": {
+      "inRepoManualInvariantCheck": "C3.2 18 sections, 36 questions, 108 corrected incorrect-response instances; no mismatched references, scope, markingPoint counts or visual shapes",
+      "npmQuality": "not run locally; exact-branch Actions run required",
+      "npmBuild": "not run locally; exact-branch Actions run required",
+      "fullBrowser": "not run locally; exact-branch Actions run required",
+      "exactFinalHeadCi": "awaiting result"
+    },
+    "remainingBlockers": [
+      "All 553 qualified editorial and scientific comparisons remain incomplete",
+      "C3.2 still lacks independent scientific, assessment, educational, licensing and accessibility sign-off",
+      "Other 535 understandings not individually inspected in this Phase 5 batch",
+      "Authentic microscopy and observational image gaps in earlier audits remain outstanding",
+      "Full branch-specific automated checks must be checked against final HEAD before review"
+    ]
+  }
+}

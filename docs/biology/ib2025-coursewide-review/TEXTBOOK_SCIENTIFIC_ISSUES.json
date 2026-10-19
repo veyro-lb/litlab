@@ -1,0 +1,32 @@
+{
+  "source": "Clegg, Davis and Talbot, Biology for the IB Diploma Programme, Third Edition (2023)",
+  "issues": [
+    {
+      "printedPage": 481,
+      "pdfPage": 493,
+      "status": "Confirmed source conflict; not reproduced in BioLab",
+      "issue": "The refractory-period paragraph states that a single impulse largely reverses ionic distributions and that the pump must restore them before another impulse. On the same page the common-mistake box correctly distinguishes rapid K-channel repolarization from pumping.",
+      "handling": "C2.2.8 explains Na-channel inactivation/recovery and delayed K-channel effects. Pumps maintain gradients over many impulses; the bulk ion concentrations do not reverse during one impulse. No universal refractory duration or maximum firing frequency is asserted.",
+      "corroboration": {
+        "author": "John H. Byrne, McGovern Medical School",
+        "title": "Neuroscience Online, Chapter 2",
+        "url": "https://nba.uth.tmc.edu/neuroscience/s1/chapter02.html",
+        "sections": [
+          "2.6 Pumps and Leaks",
+          "2.9 Absolute and Relative Refractory Periods"
+        ],
+        "accessedAt": "2026-10-19"
+      },
+      "visualInspection": "PDF page rendered and inspected; the discrepancy is present on the page, not a text-extraction artefact."
+    },
+    {
+      "printedPage": 474,
+      "pdfPage": 486,
+      "figureOrTable": "Table C2.2.2",
+      "status": "Needs further scientific/source investigation",
+      "issue": "The rendered diameter header reads mm beside the fibre-size values. Numerical values and this unit label were not adopted as a teaching dataset.",
+      "handling": "Keep the qualitative diameter/myelination comparison and explicitly hypothetical correlation calculation. Verify measurement units independently before reproducing this table.",
+      "visualInspection": "PDF page rendered and inspected."
+    }
+  ]
+}

@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "id": "d1-3-mutation-gene-editing-v1",
+  "topicId": "D1.3",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Mutation and gene editing",
+  "introduction": "See how changes in DNA arise, why consequences depend on context, and what modern genome-editing tools can genuinely achieve.",
+  "learningPath": [
+    "Recognize substitution, insertion and deletion",
+    "Explain mutation causes and evolutionary consequences",
+    "Distinguish somatic and germ-line inheritance",
+    "HL: knockout, CRISPR and sequence conservation"
+  ],
+  "prerequisites": [
+    "DNA nucleotide sequence and base pairing",
+    "Triplet genetic code, codons and proteins",
+    "Differences between somatic cells and gametes"
+  ],
+  "objectives": [
+    "Classify mutation mechanisms and predicted consequences",
+    "Explain variation without goal-directed mutation claims",
+    "For HL, appraise documented gene-editing applications and sequence conservation"
+  ],
+  "sections": [
+    {
+      "id": "d13-1",
+      "understandingIds": [
+        "D1.3.1"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which event is an example of a gene-level substitution?",
+      "explanation": "A gene mutation is a change in the DNA nucleotide sequence within a gene. A substitution replaces one base pair with another, an insertion adds one or more nucleotide pairs, and a deletion removes them. These changes can be small or substantial; it is the sequence alteration, not its benefit or harm, that defines a mutation.\n\nA mutation in a protein-coding exon may alter codons, while a change in a regulatory or splicing sequence can affect when RNA is made or processed. Some DNA changes do not have an observable effect. Use the terms substitution, insertion and deletion before predicting consequences.\n\nA DNA substitution changes one nucleotide pair; an insertion adds base pairs and a deletion removes them. The same category can be neutral or consequential depending on whether it affects a regulatory sequence, RNA splicing, a coding triplet or a protein active site. A mutation describes a sequence change, not a phenotype by itself.",
+      "revisionSummary": "A gene mutation is a change in the DNA nucleotide sequence within a gene. A mutation in a protein-coding exon may alter codons, while a change in a regulatory or splicing sequence can affect when RNA is made or processed.",
+      "terms": [
+        "Changing a gene's nucleotide sequence: the focal mechanism",
+        "Effects depend on genomic context: conceptual distinction"
+      ],
+      "workedExample": "Replacing one G–C base pair with A–T in a gene is a substitution; removing three adjacent base pairs is a deletion.",
+      "misconceptions": [
+        {
+          "misconception": "Mutation always means loss of a complete chromosome.",
+          "correction": "A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A gene mutation is a change in the DNA nucleotide sequence within a gene. A substitution replaces one base pair with another, an insertion adds one or more nucleotide pairs, and a deletion removes them. These changes can be small or substantial; it is the sequence alteration, not its benefit or harm, that defines a mutation.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "A mutation in a protein-coding exon may alter codons, while a change in a regulatory or splicing sequence can affect when RNA is made or processed. Some DNA changes do not have an observable effect. Use the terms substitution, insertion and deletion before predicting consequences.\n\nA DNA substitution changes one nucleotide pair; an insertion adds base pairs and a deletion removes them. The same category can be neutral or consequential depending on whether it affects a regulatory sequence, RNA splicing, a coding triplet or a protein active site. A mutation describes a sequence change, not a phenotype by itself.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-1",
+          "understandingIds": [
+            "D1.3.1"
+          ],
+          "prompt": "Which event is an example of a gene-level substitution?",
+          "options": [
+            {
+              "id": "d13-1-o1",
+              "text": "Replacement of one nucleotide pair",
+              "correct": true,
+              "feedback": "Correct: A gene mutation is a change in the DNA nucleotide sequence within a gene."
+            },
+            {
+              "id": "d13-1-o2",
+              "text": "Exchange of entire sister chromatids during meiosis",
+              "correct": false,
+              "feedback": "Consider why “Exchange of entire sister chromatids during meiosis” does not answer this question. A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+            },
+            {
+              "id": "d13-1-o3",
+              "text": "Division of the cytoplasm",
+              "correct": false,
+              "feedback": "Consider why “Division of the cytoplasm” does not answer this question. A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+            },
+            {
+              "id": "d13-1-o4",
+              "text": "Cellular uptake of glucose",
+              "correct": false,
+              "feedback": "Consider why “Cellular uptake of glucose” does not answer this question. A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-1",
+          "understandingIds": [
+            "D1.3.1"
+          ],
+          "prompt": "Explain the likely consequence and limitations of changing a gene's nucleotide sequence in your own words.",
+          "answer": "A gene mutation is a change in the DNA nucleotide sequence within a gene. A substitution replaces one base pair with another, an insertion adds one or more nucleotide pairs, and a deletion removes them. These changes can be small or substantial; it is the sequence alteration, not its benefit or harm, that defines a mutation. Replacing one G–C base pair with A–T in a gene is a substitution; removing three adjacent base pairs is a deletion.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 89,
+      "pdfPage": 95,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          637
+        ],
+        "pdfPages": [
+          649
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Changing a gene's nucleotide sequence",
+          "explanation": "A gene mutation is a change in the DNA nucleotide sequence within a gene. A substitution replaces one base pair with another, an insertion adds one or more nucleotide pairs, and a deletion removes them. These changes can be small or substantial; it is the sequence alteration, not its benefit or harm, that defines a mutation.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Effects depend on genomic context",
+          "explanation": "A mutation in a protein-coding exon may alter codons, while a change in a regulatory or splicing sequence can affect when RNA is made or processed. Some DNA changes do not have an observable effect. Use the terms substitution, insertion and deletion before predicting consequences.\n\nA DNA substitution changes one nucleotide pair; an insertion adds base pairs and a deletion removes them. The same category can be neutral or consequential depending on whether it affects a regulatory sequence, RNA splicing, a coding triplet or a protein active site. A mutation describes a sequence change, not a phenotype by itself.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A gene mutation is a change in the DNA nucleotide sequence within a gene.",
+        "example": "Replacing one G–C base pair with A–T in a gene is a substitution; removing three adjacent base pairs is a deletion.",
+        "different": "A mutation in a protein-coding exon may alter codons, while a change in a regulatory or splicing sequence can affect when RNA is made or processed.",
+        "concepts": [
+          {
+            "title": "Changing a gene's nucleotide sequence",
+            "keywords": [
+              "changing",
+              "a",
+              "gene's"
+            ],
+            "explanation": "A gene mutation is a change in the DNA nucleotide sequence within a gene. A substitution replaces one base pair with another, an insertion adds one or more nucleotide pairs, and a deletion removes them. These changes can be small or substantial; it is the sequence alteration, not its benefit or harm, that defines a mutation."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d13-2",
+      "understandingIds": [
+        "D1.3.2"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Why might a base substitution leave the polypeptide sequence unchanged?",
+      "explanation": "A single-base substitution creates a different DNA sequence. If it changes a coding codon, the consequence may be synonymous (same amino acid), missense (a different amino acid) or nonsense (a stop signal), depending on the original codon and reading frame.\n\nA single-nucleotide polymorphism is a variant at one nucleotide position that occurs in a population. Its history can involve substitution, but its existence does not establish that it is harmful. Degeneracy of the genetic code explains why a substitution may preserve a polypeptide's amino-acid sequence.\n\nThe genetic code is degenerate, so two codons can encode the same amino acid. A base substitution can therefore be synonymous, missense or nonsense in a protein-coding region, depending on the resulting codon. A single-nucleotide polymorphism describes variation at one genomic position and need not cause a disease.\n\nA substitution changes a single DNA base pair. In the coding sequence, the resulting mRNA codon may still specify the same amino acid, may encode a different amino acid, or may become a stop codon. A changed amino acid matters most when it affects folding, an active site or another functionally important region; some substitutions have little detectable effect. Changes in regulatory DNA can alter gene expression without changing the polypeptide's amino-acid sequence. Therefore a mutated base does not automatically mean that the phenotype changes.",
+      "revisionSummary": "A single-base substitution creates a different DNA sequence. A single-nucleotide polymorphism is a variant at one nucleotide position that occurs in a population.",
+      "terms": [
+        "A substitution may or may not alter a codon meaning: the focal mechanism",
+        "SNPs are sequence variants, not diagnoses: conceptual distinction"
+      ],
+      "workedExample": "Changing the mRNA codon GAA to GAG preserves glutamate, whereas GAA to GUA changes glutamate to valine.",
+      "misconceptions": [
+        {
+          "misconception": "Every SNP changes the amino acid of the encoded polypeptide.",
+          "correction": "Synonymous substitutions are possible because multiple codons can encode an amino acid."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A single-base substitution creates a different DNA sequence. If it changes a coding codon, the consequence may be synonymous (same amino acid), missense (a different amino acid) or nonsense (a stop signal), depending on the original codon and reading frame.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "A single-nucleotide polymorphism is a variant at one nucleotide position that occurs in a population. Its history can involve substitution, but its existence does not establish that it is harmful. Degeneracy of the genetic code explains why a substitution may preserve a polypeptide's amino-acid sequence.\n\nThe genetic code is degenerate, so two codons can encode the same amino acid. A base substitution can therefore be synonymous, missense or nonsense in a protein-coding region, depending on the resulting codon. A single-nucleotide polymorphism describes variation at one genomic position and need not cause a disease.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "A substitution changes a single DNA base pair. In the coding sequence, the resulting mRNA codon may still specify the same amino acid, may encode a different amino acid, or may become a stop codon. A changed amino acid matters most when it affects folding, an active site or another functionally important region; some substitutions have little detectable effect. Changes in regulatory DNA can alter gene expression without changing the polypeptide's amino-acid sequence. Therefore a mutated base does not automatically mean that the phenotype changes.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [
+        "d13-hbb-codon"
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "d13-hbb-codon",
+          "afterBlock": 1
+        }
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-2",
+          "understandingIds": [
+            "D1.3.2"
+          ],
+          "prompt": "Why might a base substitution leave the polypeptide sequence unchanged?",
+          "options": [
+            {
+              "id": "d13-2-o1",
+              "text": "The new codon can encode the same amino acid",
+              "correct": true,
+              "feedback": "Correct: A single-base substitution creates a different DNA sequence."
+            },
+            {
+              "id": "d13-2-o2",
+              "text": "RNA uses thymine instead of uracil",
+              "correct": false,
+              "feedback": "Consider why “RNA uses thymine instead of uracil” does not answer this question. Synonymous substitutions are possible because multiple codons can encode an amino acid."
+            },
+            {
+              "id": "d13-2-o3",
+              "text": "The ribosome ignores every third base",
+              "correct": false,
+              "feedback": "Consider why “The ribosome ignores every third base” does not answer this question. Synonymous substitutions are possible because multiple codons can encode an amino acid."
+            },
+            {
+              "id": "d13-2-o4",
+              "text": "Every base is outside a gene",
+              "correct": false,
+              "feedback": "Consider why “Every base is outside a gene” does not answer this question. Synonymous substitutions are possible because multiple codons can encode an amino acid."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-2",
+          "understandingIds": [
+            "D1.3.2"
+          ],
+          "prompt": "Explain the likely consequence and limitations of a substitution may or may not alter a codon meaning in your own words.",
+          "answer": "A single-base substitution creates a different DNA sequence. If it changes a coding codon, the consequence may be synonymous (same amino acid), missense (a different amino acid) or nonsense (a stop signal), depending on the original codon and reading frame. Changing the mRNA codon GAA to GAG preserves glutamate, whereas GAA to GUA changes glutamate to valine.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 89,
+      "pdfPage": 95,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          638
+        ],
+        "pdfPages": [
+          650
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "A substitution may or may not alter a codon meaning",
+          "explanation": "A single-base substitution creates a different DNA sequence. If it changes a coding codon, the consequence may be synonymous (same amino acid), missense (a different amino acid) or nonsense (a stop signal), depending on the original codon and reading frame.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "SNPs are sequence variants, not diagnoses",
+          "explanation": "A single-nucleotide polymorphism is a variant at one nucleotide position that occurs in a population. Its history can involve substitution, but its existence does not establish that it is harmful. Degeneracy of the genetic code explains why a substitution may preserve a polypeptide's amino-acid sequence.\n\nThe genetic code is degenerate, so two codons can encode the same amino acid. A base substitution can therefore be synonymous, missense or nonsense in a protein-coding region, depending on the resulting codon. A single-nucleotide polymorphism describes variation at one genomic position and need not cause a disease.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Trace a base change to a possible phenotype",
+          "explanation": "A substitution changes a single DNA base pair. In the coding sequence, the resulting mRNA codon may still specify the same amino acid, may encode a different amino acid, or may become a stop codon. A changed amino acid matters most when it affects folding, an active site or another functionally important region; some substitutions have little detectable effect. Changes in regulatory DNA can alter gene expression without changing the polypeptide's amino-acid sequence. Therefore a mutated base does not automatically mean that the phenotype changes.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A single-base substitution creates a different DNA sequence.",
+        "example": "Changing the mRNA codon GAA to GAG preserves glutamate, whereas GAA to GUA changes glutamate to valine.",
+        "different": "A single-nucleotide polymorphism is a variant at one nucleotide position that occurs in a population.",
+        "concepts": [
+          {
+            "title": "A substitution may or may not alter a codon meaning",
+            "keywords": [
+              "a",
+              "substitution",
+              "may"
+            ],
+            "explanation": "A single-base substitution creates a different DNA sequence. If it changes a coding codon, the consequence may be synonymous (same amino acid), missense (a different amino acid) or nonsense (a stop signal), depending on the original codon and reading frame."
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Possible consequences of a coding substitution",
+          "afterBlock": 0,
+          "headers": [
+            "Outcome",
+            "What changes",
+            "Possible consequence"
+          ],
+          "rows": [
+            [
+              "Synonymous",
+              "Codon changes, amino acid does not",
+              "Polypeptide sequence unchanged"
+            ],
+            [
+              "Missense",
+              "One amino acid changes",
+              "Protein function may change"
+            ],
+            [
+              "Nonsense",
+              "A sense codon becomes stop",
+              "Premature termination may result"
+            ]
+          ],
+          "note": "Outcomes depend on position and cellular context; theoretical categories, not frequency data."
+        }
+      ]
+    },
+    {
+      "id": "d13-3",
+      "understandingIds": [
+        "D1.3.3"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which coding change is most likely to produce a downstream frameshift?",
+      "explanation": "The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift.\n\nAn addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid. A large in-frame deletion can still destroy essential domains or folding, so being in-frame does not guarantee normal protein function.\n\nAn insertion or deletion of one or two bases inside a coding region generally shifts the downstream reading frame. An insertion/deletion of three bases may preserve the frame but still alter important amino acids. A premature stop can result from a frameshift, though outcomes depend on location and transcript processing.\n\nAdding or removing one nucleotide in a coding region usually shifts the downstream codon reading frame, potentially changing many amino acids or introducing a premature stop. Adding or removing three coding nucleotides preserves the downstream reading frame but still changes protein length and potentially its function. Non-coding changes require a different analysis.",
+      "revisionSummary": "The ribosome groups bases into successive non-overlapping triplets after the start codon. An addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid.",
+      "terms": [
+        "Insertions and deletions can shift the frame: the focal mechanism",
+        "In-frame changes also matter: conceptual distinction"
+      ],
+      "workedExample": "Deleting one coding nucleotide may alter every downstream triplet, but deleting three bases may preserve the later reading frame.",
+      "misconceptions": [
+        {
+          "misconception": "All insertions and deletions cause an identical frameshift.",
+          "correction": "The reading frame shifts when the net nucleotide change is not divisible by three."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "An addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid. A large in-frame deletion can still destroy essential domains or folding, so being in-frame does not guarantee normal protein function.\n\nAn insertion or deletion of one or two bases inside a coding region generally shifts the downstream reading frame. An insertion/deletion of three bases may preserve the frame but still alter important amino acids. A premature stop can result from a frameshift, though outcomes depend on location and transcript processing.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Adding or removing one nucleotide in a coding region usually shifts the downstream codon reading frame, potentially changing many amino acids or introducing a premature stop. Adding or removing three coding nucleotides preserves the downstream reading frame but still changes protein length and potentially its function. Non-coding changes require a different analysis.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-3",
+          "understandingIds": [
+            "D1.3.3"
+          ],
+          "prompt": "Which coding change is most likely to produce a downstream frameshift?",
+          "options": [
+            {
+              "id": "d13-3-o1",
+              "text": "Deletion of one nucleotide",
+              "correct": true,
+              "feedback": "Correct: The ribosome groups bases into successive non-overlapping triplets after the start codon."
+            },
+            {
+              "id": "d13-3-o2",
+              "text": "Deletion of three nucleotides",
+              "correct": false,
+              "feedback": "Consider why “Deletion of three nucleotides” does not answer this question. The reading frame shifts when the net nucleotide change is not divisible by three."
+            },
+            {
+              "id": "d13-3-o3",
+              "text": "A synonymous substitution",
+              "correct": false,
+              "feedback": "Consider why “A synonymous substitution” does not answer this question. The reading frame shifts when the net nucleotide change is not divisible by three."
+            },
+            {
+              "id": "d13-3-o4",
+              "text": "A change in untranslated RNA stability",
+              "correct": false,
+              "feedback": "Consider why “A change in untranslated RNA stability” does not answer this question. The reading frame shifts when the net nucleotide change is not divisible by three."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-3",
+          "understandingIds": [
+            "D1.3.3"
+          ],
+          "prompt": "Explain the likely consequence and limitations of insertions and deletions can shift the frame in your own words.",
+          "answer": "The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift. Deleting one coding nucleotide may alter every downstream triplet, but deleting three bases may preserve the later reading frame.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 89,
+      "pdfPage": 95,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          639
+        ],
+        "pdfPages": [
+          651
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Insertions and deletions can shift the frame",
+          "explanation": "The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "In-frame changes also matter",
+          "explanation": "An addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid. A large in-frame deletion can still destroy essential domains or folding, so being in-frame does not guarantee normal protein function.\n\nAn insertion or deletion of one or two bases inside a coding region generally shifts the downstream reading frame. An insertion/deletion of three bases may preserve the frame but still alter important amino acids. A premature stop can result from a frameshift, though outcomes depend on location and transcript processing.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Frame shifts and three-base changes are different",
+          "explanation": "Adding or removing one nucleotide in a coding region usually shifts the downstream codon reading frame, potentially changing many amino acids or introducing a premature stop. Adding or removing three coding nucleotides preserves the downstream reading frame but still changes protein length and potentially its function. Non-coding changes require a different analysis.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "The ribosome groups bases into successive non-overlapping triplets after the start codon.",
+        "example": "Deleting one coding nucleotide may alter every downstream triplet, but deleting three bases may preserve the later reading frame.",
+        "different": "An addition or removal of three nucleotides generally preserves the downstream triplet reading frame but adds or removes an amino acid.",
+        "concepts": [
+          {
+            "title": "Insertions and deletions can shift the frame",
+            "keywords": [
+              "insertions",
+              "and",
+              "deletions"
+            ],
+            "explanation": "The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Model coding-sequence changes; reading frame established at AUG, not to scale",
+          "headers": [
+            "Change",
+            "Reading frame",
+            "Possible consequence"
+          ],
+          "rows": [
+            [
+              "1 base inserted within coding region",
+              "Usually shifts",
+              "Downstream codons altered"
+            ],
+            [
+              "3 bases inserted within coding region",
+              "Preserved",
+              "One amino acid added"
+            ],
+            [
+              "3 bases deleted within coding region",
+              "Preserved",
+              "One amino acid removed; function may change"
+            ]
+          ]
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Insertions and deletions: frame comparison",
+          "afterBlock": 1,
+          "headers": [
+            "Change in coding region",
+            "Frame effect",
+            "Illustrative consequence"
+          ],
+          "rows": [
+            [
+              "Add 1 base",
+              "Shifts downstream triplets",
+              "Different codons after insertion"
+            ],
+            [
+              "Delete 2 bases",
+              "Shifts downstream triplets",
+              "May introduce premature stop"
+            ],
+            [
+              "Delete 3 bases",
+              "Frame maintained",
+              "One amino acid may be lost"
+            ]
+          ],
+          "note": "Applies within a coding sequence; splice/regulatory effects can differ."
+        }
+      ]
+    },
+    {
+      "id": "d13-4",
+      "understandingIds": [
+        "D1.3.4"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which is a biologically realistic source of mutation?",
+      "explanation": "Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence. Mutagens increase the likelihood of genetic changes: ultraviolet light can generate pyrimidine dimers, ionizing radiation can damage DNA, and some chemicals modify bases or interfere with replication.\n\nA mutagen raises mutation risk but does not guarantee a mutation at a chosen gene. Mutation rates vary with exposure, sequence context and cellular repair. Damage to DNA is not yet the same as a permanent inherited change until it is fixed as an altered DNA sequence.\n\nReplication errors and imperfect DNA repair introduce spontaneous mutations. Chemical agents can modify DNA bases, and ultraviolet or ionizing radiation can damage DNA in different ways. DNA repair systems lower mutation risk; detecting DNA damage is not proof that an unrepaired heritable base change has occurred.\n\nReplication errors may arise spontaneously and persist if proofreading and repair fail. Ultraviolet radiation, certain chemicals and ionizing radiation can damage DNA and raise the probability of mutations, but they do not direct a useful change to a specific gene. If a mutation improves survival under a new pressure, selection may increase its frequency after it occurs. The environmental factor that causes DNA damage and the environmental factor that favours an allele may be different. Evidence of a mutagenic effect requires comparison with controls rather than assuming every exposed cell mutates.",
+      "revisionSummary": "Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence. A mutagen raises mutation risk but does not guarantee a mutation at a chosen gene.",
+      "terms": [
+        "Errors and mutagens produce mutations: the focal mechanism",
+        "Exposure changes probabilities: conceptual distinction"
+      ],
+      "workedExample": "UV-induced DNA damage in skin cells may become a stable mutation if copying or repair fails.",
+      "misconceptions": [
+        {
+          "misconception": "A mutagen deliberately rewrites a chosen gene to improve survival.",
+          "correction": "Mutagens create damage or increase error rates without purposeful targeting."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence. Mutagens increase the likelihood of genetic changes: ultraviolet light can generate pyrimidine dimers, ionizing radiation can damage DNA, and some chemicals modify bases or interfere with replication.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "A mutagen raises mutation risk but does not guarantee a mutation at a chosen gene. Mutation rates vary with exposure, sequence context and cellular repair. Damage to DNA is not yet the same as a permanent inherited change until it is fixed as an altered DNA sequence.\n\nReplication errors and imperfect DNA repair introduce spontaneous mutations. Chemical agents can modify DNA bases, and ultraviolet or ionizing radiation can damage DNA in different ways. DNA repair systems lower mutation risk; detecting DNA damage is not proof that an unrepaired heritable base change has occurred.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Replication errors may arise spontaneously and persist if proofreading and repair fail. Ultraviolet radiation, certain chemicals and ionizing radiation can damage DNA and raise the probability of mutations, but they do not direct a useful change to a specific gene. If a mutation improves survival under a new pressure, selection may increase its frequency after it occurs. The environmental factor that causes DNA damage and the environmental factor that favours an allele may be different. Evidence of a mutagenic effect requires comparison with controls rather than assuming every exposed cell mutates.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-4",
+          "understandingIds": [
+            "D1.3.4"
+          ],
+          "prompt": "Which is a biologically realistic source of mutation?",
+          "options": [
+            {
+              "id": "d13-4-o1",
+              "text": "An unrepaired DNA replication error",
+              "correct": true,
+              "feedback": "Correct: Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence."
+            },
+            {
+              "id": "d13-4-o2",
+              "text": "Normal tRNA codon recognition",
+              "correct": false,
+              "feedback": "Consider why “Normal tRNA codon recognition” does not answer this question. Mutagens create damage or increase error rates without purposeful targeting."
+            },
+            {
+              "id": "d13-4-o3",
+              "text": "A chromosome undergoing ordinary interphase growth",
+              "correct": false,
+              "feedback": "Consider why “A chromosome undergoing ordinary interphase growth” does not answer this question. Mutagens create damage or increase error rates without purposeful targeting."
+            },
+            {
+              "id": "d13-4-o4",
+              "text": "A completely accurate DNA copy",
+              "correct": false,
+              "feedback": "Consider why “A completely accurate DNA copy” does not answer this question. Mutagens create damage or increase error rates without purposeful targeting."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-4",
+          "understandingIds": [
+            "D1.3.4"
+          ],
+          "prompt": "Explain the likely consequence and limitations of errors and mutagens produce mutations in your own words.",
+          "answer": "Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence. Mutagens increase the likelihood of genetic changes: ultraviolet light can generate pyrimidine dimers, ionizing radiation can damage DNA, and some chemicals modify bases or interfere with replication. UV-induced DNA damage in skin cells may become a stable mutation if copying or repair fails.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 89,
+      "pdfPage": 95,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          640
+        ],
+        "pdfPages": [
+          652
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Errors and mutagens produce mutations",
+          "explanation": "Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence. Mutagens increase the likelihood of genetic changes: ultraviolet light can generate pyrimidine dimers, ionizing radiation can damage DNA, and some chemicals modify bases or interfere with replication.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Exposure changes probabilities",
+          "explanation": "A mutagen raises mutation risk but does not guarantee a mutation at a chosen gene. Mutation rates vary with exposure, sequence context and cellular repair. Damage to DNA is not yet the same as a permanent inherited change until it is fixed as an altered DNA sequence.\n\nReplication errors and imperfect DNA repair introduce spontaneous mutations. Chemical agents can modify DNA bases, and ultraviolet or ionizing radiation can damage DNA in different ways. DNA repair systems lower mutation risk; detecting DNA damage is not proof that an unrepaired heritable base change has occurred.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Separate mutation rate from selection",
+          "explanation": "Replication errors may arise spontaneously and persist if proofreading and repair fail. Ultraviolet radiation, certain chemicals and ionizing radiation can damage DNA and raise the probability of mutations, but they do not direct a useful change to a specific gene. If a mutation improves survival under a new pressure, selection may increase its frequency after it occurs. The environmental factor that causes DNA damage and the environmental factor that favours an allele may be different. Evidence of a mutagenic effect requires comparison with controls rather than assuming every exposed cell mutates.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence.",
+        "example": "UV-induced DNA damage in skin cells may become a stable mutation if copying or repair fails.",
+        "different": "A mutagen raises mutation risk but does not guarantee a mutation at a chosen gene.",
+        "concepts": [
+          {
+            "title": "Errors and mutagens produce mutations",
+            "keywords": [
+              "errors",
+              "and",
+              "mutagens"
+            ],
+            "explanation": "Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence. Mutagens increase the likelihood of genetic changes: ultraviolet light can generate pyrimidine dimers, ionizing radiation can damage DNA, and some chemicals modify bases or interfere with replication."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d13-5",
+      "understandingIds": [
+        "D1.3.5"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which description best captures randomness in natural mutation?",
+      "explanation": "Natural mutations arise without foresight about the traits an organism will need. They can occur in many parts of the genome, although some sequence contexts have higher mutation rates than others. Selection acts later on organisms with different variants; it does not instruct DNA to create a needed base change.\n\nAntibiotic resistance illustrates this distinction: resistant bacterial variants may already exist before treatment, and exposure then favours their survival and reproduction. This does not mean that mutation rates are uniform, nor that mutagens have no effect.\n\nMutation is not a directed response to a species' needs. Some genomic sites mutate more frequently than others, but a new useful variant does not arise because an organism consciously requires it. Natural selection subsequently changes the relative frequencies of inherited variants when they affect survival or reproduction.\n\nMutations can arise through replication errors or DNA damage without being directed toward what an organism needs. An antibiotic does not instruct a bacterium to mutate into a resistant form: variants can exist or arise and then be favoured when susceptible cells are less likely to survive. Genetic sites need not have equal mutation rates, so 'random' does not mean all substitutions are equally probable. The occurrence of the mutation and the environment-dependent change in its frequency are different processes. This distinction is central to understanding mutation and natural selection.",
+      "revisionSummary": "Natural mutations arise without foresight about the traits an organism will need. Antibiotic resistance illustrates this distinction: resistant bacterial variants may already exist before treatment, and exposure then favours their survival and reproduction.",
+      "terms": [
+        "Mutations are not goal-directed: the focal mechanism",
+        "Random with respect to adaptive need: conceptual distinction"
+      ],
+      "workedExample": "A pre-existing resistant bacterium can outgrow susceptible bacteria after an antibiotic is applied.",
+      "misconceptions": [
+        {
+          "misconception": "Bacteria anticipate antibiotics and intentionally mutate the exact resistance gene they need.",
+          "correction": "Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Natural mutations arise without foresight about the traits an organism will need. They can occur in many parts of the genome, although some sequence contexts have higher mutation rates than others. Selection acts later on organisms with different variants; it does not instruct DNA to create a needed base change.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Antibiotic resistance illustrates this distinction: resistant bacterial variants may already exist before treatment, and exposure then favours their survival and reproduction. This does not mean that mutation rates are uniform, nor that mutagens have no effect.\n\nMutation is not a directed response to a species' needs. Some genomic sites mutate more frequently than others, but a new useful variant does not arise because an organism consciously requires it. Natural selection subsequently changes the relative frequencies of inherited variants when they affect survival or reproduction.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Mutations can arise through replication errors or DNA damage without being directed toward what an organism needs. An antibiotic does not instruct a bacterium to mutate into a resistant form: variants can exist or arise and then be favoured when susceptible cells are less likely to survive. Genetic sites need not have equal mutation rates, so 'random' does not mean all substitutions are equally probable. The occurrence of the mutation and the environment-dependent change in its frequency are different processes. This distinction is central to understanding mutation and natural selection.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-5",
+          "understandingIds": [
+            "D1.3.5"
+          ],
+          "prompt": "Which description best captures randomness in natural mutation?",
+          "options": [
+            {
+              "id": "d13-5-o1",
+              "text": "Mutations arise without foreknowledge of adaptive usefulness",
+              "correct": true,
+              "feedback": "Correct: Natural mutations arise without foresight about the traits an organism will need."
+            },
+            {
+              "id": "d13-5-o2",
+              "text": "Every nucleotide has exactly the same mutation probability",
+              "correct": false,
+              "feedback": "Consider why “Every nucleotide has exactly the same mutation probability” does not answer this question. Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+            },
+            {
+              "id": "d13-5-o3",
+              "text": "Selection chooses a DNA base to mutate intentionally",
+              "correct": false,
+              "feedback": "Consider why “Selection chooses a DNA base to mutate intentionally” does not answer this question. Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+            },
+            {
+              "id": "d13-5-o4",
+              "text": "Only useful mutations can occur",
+              "correct": false,
+              "feedback": "Consider why “Only useful mutations can occur” does not answer this question. Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-5",
+          "understandingIds": [
+            "D1.3.5"
+          ],
+          "prompt": "Explain the likely consequence and limitations of mutations are not goal-directed in your own words.",
+          "answer": "Natural mutations arise without foresight about the traits an organism will need. They can occur in many parts of the genome, although some sequence contexts have higher mutation rates than others. Selection acts later on organisms with different variants; it does not instruct DNA to create a needed base change. A pre-existing resistant bacterium can outgrow susceptible bacteria after an antibiotic is applied.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 89,
+      "pdfPage": 95,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          641
+        ],
+        "pdfPages": [
+          653
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Mutations are not goal-directed",
+          "explanation": "Natural mutations arise without foresight about the traits an organism will need. They can occur in many parts of the genome, although some sequence contexts have higher mutation rates than others. Selection acts later on organisms with different variants; it does not instruct DNA to create a needed base change.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Random with respect to adaptive need",
+          "explanation": "Antibiotic resistance illustrates this distinction: resistant bacterial variants may already exist before treatment, and exposure then favours their survival and reproduction. This does not mean that mutation rates are uniform, nor that mutagens have no effect.\n\nMutation is not a directed response to a species' needs. Some genomic sites mutate more frequently than others, but a new useful variant does not arise because an organism consciously requires it. Natural selection subsequently changes the relative frequencies of inherited variants when they affect survival or reproduction.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Random occurrence versus non-random selection",
+          "explanation": "Mutations can arise through replication errors or DNA damage without being directed toward what an organism needs. An antibiotic does not instruct a bacterium to mutate into a resistant form: variants can exist or arise and then be favoured when susceptible cells are less likely to survive. Genetic sites need not have equal mutation rates, so 'random' does not mean all substitutions are equally probable. The occurrence of the mutation and the environment-dependent change in its frequency are different processes. This distinction is central to understanding mutation and natural selection.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Natural mutations arise without foresight about the traits an organism will need.",
+        "example": "A pre-existing resistant bacterium can outgrow susceptible bacteria after an antibiotic is applied.",
+        "different": "Antibiotic resistance illustrates this distinction: resistant bacterial variants may already exist before treatment, and exposure then favours their survival and reproduction.",
+        "concepts": [
+          {
+            "title": "Mutations are not goal-directed",
+            "keywords": [
+              "mutations",
+              "are",
+              "not"
+            ],
+            "explanation": "Natural mutations arise without foresight about the traits an organism will need. They can occur in many parts of the genome, although some sequence contexts have higher mutation rates than others. Selection acts later on organisms with different variants; it does not instruct DNA to create a needed base change."
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Mutation does not equal natural selection",
+          "afterBlock": 1,
+          "headers": [
+            "Process",
+            "Immediate event",
+            "Biological consequence"
+          ],
+          "rows": [
+            [
+              "Mutation",
+              "DNA sequence changes",
+              "New allele may arise"
+            ],
+            [
+              "Selection",
+              "Differential reproductive success of inherited variants",
+              "Allele frequencies can shift"
+            ],
+            [
+              "Genetic drift",
+              "Stochastic sampling across generations",
+              "Allele frequencies can change without adaptive advantage"
+            ]
+          ],
+          "note": "Mechanism comparison; no empirical frequency inference is implied."
+        }
+      ]
+    },
+    {
+      "id": "d13-6",
+      "understandingIds": [
+        "D1.3.6"
+      ],
+      "level": "shared",
+      "guidingQuestion": "Which type of mutation can be inherited by biological offspring?",
+      "explanation": "A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring. In contrast, a mutation confined to most somatic cells is transmitted only to that cell's mitotic descendants within the individual, not normally to the next generation.\n\nAccumulated somatic changes in genes regulating proliferation can allow uncontrolled growth and contribute to cancer. A mutation in a skin cell after UV exposure does not mean the person's children will inherit that exact mutation. Inheritance depends on the cell lineage affected.\n\nA variant present in an egg or sperm lineage may be transmitted to offspring. A somatic variant typically remains limited to that person's descendant cell lineage, although it can contribute to clonal expansion and cancer. A mutation is not necessarily beneficial or harmful just because of the tissue in which it appeared.\n\nA somatic mutation becomes part of the descendants of the altered body cell after mitosis; it may form a localized patch of altered tissue or contribute to cancer. It is not normally transmitted to children because their nuclear DNA comes from gametes. A mutation in a cell that gives rise to functional sperm or eggs can enter the next generation and potentially every tissue of that offspring. Neither type is inherently always harmful: location, cellular function, timing and inheritance determine consequences.",
+      "revisionSummary": "A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring. Accumulated somatic changes in genes regulating proliferation can allow uncontrolled growth and contribute to cancer.",
+      "terms": [
+        "Germ-line and somatic mutations have different inheritability: the focal mechanism",
+        "Somatic mutation and cancer: conceptual distinction"
+      ],
+      "workedExample": "An inherited pathogenic variant may originate in a gamete precursor, whereas UV-related skin mutations are generally somatic.",
+      "misconceptions": [
+        {
+          "misconception": "Every cancer-associated mutation is automatically passed to the next generation.",
+          "correction": "Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring. In contrast, a mutation confined to most somatic cells is transmitted only to that cell's mitotic descendants within the individual, not normally to the next generation.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Accumulated somatic changes in genes regulating proliferation can allow uncontrolled growth and contribute to cancer. A mutation in a skin cell after UV exposure does not mean the person's children will inherit that exact mutation. Inheritance depends on the cell lineage affected.\n\nA variant present in an egg or sperm lineage may be transmitted to offspring. A somatic variant typically remains limited to that person's descendant cell lineage, although it can contribute to clonal expansion and cancer. A mutation is not necessarily beneficial or harmful just because of the tissue in which it appeared.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "A somatic mutation becomes part of the descendants of the altered body cell after mitosis; it may form a localized patch of altered tissue or contribute to cancer. It is not normally transmitted to children because their nuclear DNA comes from gametes. A mutation in a cell that gives rise to functional sperm or eggs can enter the next generation and potentially every tissue of that offspring. Neither type is inherently always harmful: location, cellular function, timing and inheritance determine consequences.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-6",
+          "understandingIds": [
+            "D1.3.6"
+          ],
+          "prompt": "Which type of mutation can be inherited by biological offspring?",
+          "options": [
+            {
+              "id": "d13-6-o1",
+              "text": "A mutation present in a gamete",
+              "correct": true,
+              "feedback": "Correct: A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring."
+            },
+            {
+              "id": "d13-6-o2",
+              "text": "A mutation restricted to a mature skin cell",
+              "correct": false,
+              "feedback": "Consider why “A mutation restricted to a mature skin cell” does not answer this question. Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+            },
+            {
+              "id": "d13-6-o3",
+              "text": "A change to an erythrocyte protein",
+              "correct": false,
+              "feedback": "Consider why “A change to an erythrocyte protein” does not answer this question. Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+            },
+            {
+              "id": "d13-6-o4",
+              "text": "A temporary RNA transcription error",
+              "correct": false,
+              "feedback": "Consider why “A temporary RNA transcription error” does not answer this question. Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-6",
+          "understandingIds": [
+            "D1.3.6"
+          ],
+          "prompt": "Explain the likely consequence and limitations of germ-line and somatic mutations have different inheritability in your own words.",
+          "answer": "A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring. In contrast, a mutation confined to most somatic cells is transmitted only to that cell's mitotic descendants within the individual, not normally to the next generation. An inherited pathogenic variant may originate in a gamete precursor, whereas UV-related skin mutations are generally somatic.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 89,
+      "pdfPage": 95,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          642
+        ],
+        "pdfPages": [
+          654
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Germ-line and somatic mutations have different inheritability",
+          "explanation": "A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring. In contrast, a mutation confined to most somatic cells is transmitted only to that cell's mitotic descendants within the individual, not normally to the next generation.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Somatic mutation and cancer",
+          "explanation": "Accumulated somatic changes in genes regulating proliferation can allow uncontrolled growth and contribute to cancer. A mutation in a skin cell after UV exposure does not mean the person's children will inherit that exact mutation. Inheritance depends on the cell lineage affected.\n\nA variant present in an egg or sperm lineage may be transmitted to offspring. A somatic variant typically remains limited to that person's descendant cell lineage, although it can contribute to clonal expansion and cancer. A mutation is not necessarily beneficial or harmful just because of the tissue in which it appeared.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Follow the affected cell lineage",
+          "explanation": "A somatic mutation becomes part of the descendants of the altered body cell after mitosis; it may form a localized patch of altered tissue or contribute to cancer. It is not normally transmitted to children because their nuclear DNA comes from gametes. A mutation in a cell that gives rise to functional sperm or eggs can enter the next generation and potentially every tissue of that offspring. Neither type is inherently always harmful: location, cellular function, timing and inheritance determine consequences.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring.",
+        "example": "An inherited pathogenic variant may originate in a gamete precursor, whereas UV-related skin mutations are generally somatic.",
+        "different": "Accumulated somatic changes in genes regulating proliferation can allow uncontrolled growth and contribute to cancer.",
+        "concepts": [
+          {
+            "title": "Germ-line and somatic mutations have different inheritability",
+            "keywords": [
+              "germ-line",
+              "and",
+              "somatic"
+            ],
+            "explanation": "A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring. In contrast, a mutation confined to most somatic cells is transmitted only to that cell's mitotic descendants within the individual, not normally to the next generation."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d13-7",
+      "understandingIds": [
+        "D1.3.7"
+      ],
+      "level": "shared",
+      "guidingQuestion": "What is the ultimate origin of a novel allele?",
+      "explanation": "Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time. Sexual reproduction reshuffles existing alleles through meiosis and fertilization but does not itself create a novel nucleotide sequence unless mutation occurs.\n\nMany new variants are neutral or harmful under current conditions; some can increase fitness in a particular environment. Natural selection alters allele frequencies over generations, and the benefits or costs of a variant can depend on genetic background and ecological conditions.\n\nMutation supplies novel alleles over evolutionary time; meiosis and fertilization mostly reshuffle alleles that already exist. Natural selection acts on phenotypic effects of inherited variation and may increase or decrease an allele's frequency. Distinguish the generation of variation from sorting of variation.\n\nNatural selection needs heritable variation to produce an inherited population response. Mutation creates novel nucleotide sequences and can therefore introduce previously absent alleles to a gene pool. Meiosis and fertilization mainly recombine alleles that already exist, creating new genotypes rather than new gene sequences. A new allele may be lost by chance, remain neutral or become common under selection. Distinguish the appearance of a mutation in one cell from an increase in its frequency across a population over generations.",
+      "revisionSummary": "Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time. Many new variants are neutral or harmful under current conditions; some can increase fitness in a particular environment.",
+      "terms": [
+        "Mutation introduces new alleles: the focal mechanism",
+        "Effects differ across environments: conceptual distinction"
+      ],
+      "workedExample": "A novel bacterial resistance allele can spread when antibiotics select for carriers, while often offering no advantage without the drug.",
+      "misconceptions": [
+        {
+          "misconception": "Meiosis produces new DNA base sequences solely by independent assortment.",
+          "correction": "Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time. Sexual reproduction reshuffles existing alleles through meiosis and fertilization but does not itself create a novel nucleotide sequence unless mutation occurs.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Many new variants are neutral or harmful under current conditions; some can increase fitness in a particular environment. Natural selection alters allele frequencies over generations, and the benefits or costs of a variant can depend on genetic background and ecological conditions.\n\nMutation supplies novel alleles over evolutionary time; meiosis and fertilization mostly reshuffle alleles that already exist. Natural selection acts on phenotypic effects of inherited variation and may increase or decrease an allele's frequency. Distinguish the generation of variation from sorting of variation.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Natural selection needs heritable variation to produce an inherited population response. Mutation creates novel nucleotide sequences and can therefore introduce previously absent alleles to a gene pool. Meiosis and fertilization mainly recombine alleles that already exist, creating new genotypes rather than new gene sequences. A new allele may be lost by chance, remain neutral or become common under selection. Distinguish the appearance of a mutation in one cell from an increase in its frequency across a population over generations.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-7",
+          "understandingIds": [
+            "D1.3.7"
+          ],
+          "prompt": "What is the ultimate origin of a novel allele?",
+          "options": [
+            {
+              "id": "d13-7-o1",
+              "text": "Mutation",
+              "correct": true,
+              "feedback": "Correct: Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time."
+            },
+            {
+              "id": "d13-7-o2",
+              "text": "Asexual binary fission without DNA errors",
+              "correct": false,
+              "feedback": "Consider why “Asexual binary fission without DNA errors” does not answer this question. Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+            },
+            {
+              "id": "d13-7-o3",
+              "text": "Ordinary translation",
+              "correct": false,
+              "feedback": "Consider why “Ordinary translation” does not answer this question. Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+            },
+            {
+              "id": "d13-7-o4",
+              "text": "Membrane osmosis",
+              "correct": false,
+              "feedback": "Consider why “Membrane osmosis” does not answer this question. Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-7",
+          "understandingIds": [
+            "D1.3.7"
+          ],
+          "prompt": "Explain the likely consequence and limitations of mutation introduces new alleles in your own words.",
+          "answer": "Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time. Sexual reproduction reshuffles existing alleles through meiosis and fertilization but does not itself create a novel nucleotide sequence unless mutation occurs. A novel bacterial resistance allele can spread when antibiotics select for carriers, while often offering no advantage without the drug.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 89,
+      "pdfPage": 95,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          643
+        ],
+        "pdfPages": [
+          655
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Mutation introduces new alleles",
+          "explanation": "Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time. Sexual reproduction reshuffles existing alleles through meiosis and fertilization but does not itself create a novel nucleotide sequence unless mutation occurs.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Effects differ across environments",
+          "explanation": "Many new variants are neutral or harmful under current conditions; some can increase fitness in a particular environment. Natural selection alters allele frequencies over generations, and the benefits or costs of a variant can depend on genetic background and ecological conditions.\n\nMutation supplies novel alleles over evolutionary time; meiosis and fertilization mostly reshuffle alleles that already exist. Natural selection acts on phenotypic effects of inherited variation and may increase or decrease an allele's frequency. Distinguish the generation of variation from sorting of variation.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Mutation provides alleles; reproduction sorts them",
+          "explanation": "Natural selection needs heritable variation to produce an inherited population response. Mutation creates novel nucleotide sequences and can therefore introduce previously absent alleles to a gene pool. Meiosis and fertilization mainly recombine alleles that already exist, creating new genotypes rather than new gene sequences. A new allele may be lost by chance, remain neutral or become common under selection. Distinguish the appearance of a mutation in one cell from an increase in its frequency across a population over generations.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time.",
+        "example": "A novel bacterial resistance allele can spread when antibiotics select for carriers, while often offering no advantage without the drug.",
+        "different": "Many new variants are neutral or harmful under current conditions; some can increase fitness in a particular environment.",
+        "concepts": [
+          {
+            "title": "Mutation introduces new alleles",
+            "keywords": [
+              "mutation",
+              "introduces",
+              "new"
+            ],
+            "explanation": "Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time. Sexual reproduction reshuffles existing alleles through meiosis and fertilization but does not itself create a novel nucleotide sequence unless mutation occurs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d13-8",
+      "understandingIds": [
+        "D1.3.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why is a gene-knockout organism useful?",
+      "explanation": "A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product. Researchers compare knockout organisms or cells with appropriate unmodified controls and ask which features differ. Knockout libraries in some model species allow the effects of many genes to be investigated.\n\nA knockout phenotype is evidence that the gene contributes to the measured trait under the test conditions, not proof that the gene acts alone. Other genes may compensate, and a lethal knockout may prevent observation of later functions. The guide does not require memorizing knockout production techniques.\n\nDisabling a gene can reveal its contribution to phenotype by comparing knockout and otherwise comparable wild-type organisms. Changes in other genes or developmental compensation can obscure a simple one-gene/one-trait inference; appropriate controls and replication are essential. Detailed knockout methods are not required in this IB understanding.\n\nResearchers compare organisms or cells with a functional gene against otherwise comparable material in which that gene has been deliberately rendered inoperative. A lost function can provide evidence that the original gene contributes to a particular process, such as pigment production. However, little visible effect need not mean the gene is useless: another gene might compensate, or a phenotype may appear only under certain conditions. The official requirement is the logic and use of gene knockouts, not the laboratory details of constructing a knockout.",
+      "revisionSummary": "A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product. A knockout phenotype is evidence that the gene contributes to the measured trait under the test conditions, not proof that the gene acts alone.",
+      "terms": [
+        "Knocking out a gene tests its role: the focal mechanism",
+        "Interpret controls carefully: conceptual distinction"
+      ],
+      "workedExample": "A yeast knockout lacking a nutrient-synthesis enzyme grows only if the missing nutrient is supplied.",
+      "misconceptions": [
+        {
+          "misconception": "A knockout result proves that a gene is the sole cause of a complex trait.",
+          "correction": "A controlled knockout suggests gene function but requires interpretation and replication."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product. Researchers compare knockout organisms or cells with appropriate unmodified controls and ask which features differ. Knockout libraries in some model species allow the effects of many genes to be investigated.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "A knockout phenotype is evidence that the gene contributes to the measured trait under the test conditions, not proof that the gene acts alone. Other genes may compensate, and a lethal knockout may prevent observation of later functions. The guide does not require memorizing knockout production techniques.\n\nDisabling a gene can reveal its contribution to phenotype by comparing knockout and otherwise comparable wild-type organisms. Changes in other genes or developmental compensation can obscure a simple one-gene/one-trait inference; appropriate controls and replication are essential. Detailed knockout methods are not required in this IB understanding.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Researchers compare organisms or cells with a functional gene against otherwise comparable material in which that gene has been deliberately rendered inoperative. A lost function can provide evidence that the original gene contributes to a particular process, such as pigment production. However, little visible effect need not mean the gene is useless: another gene might compensate, or a phenotype may appear only under certain conditions. The official requirement is the logic and use of gene knockouts, not the laboratory details of constructing a knockout.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-8",
+          "understandingIds": [
+            "D1.3.8"
+          ],
+          "prompt": "Why is a gene-knockout organism useful?",
+          "options": [
+            {
+              "id": "d13-8-o1",
+              "text": "It helps infer gene function by observing loss-of-function consequences",
+              "correct": true,
+              "feedback": "Correct: A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product."
+            },
+            {
+              "id": "d13-8-o2",
+              "text": "It guarantees that no compensatory genes exist",
+              "correct": false,
+              "feedback": "Consider why “It guarantees that no compensatory genes exist” does not answer this question. A controlled knockout suggests gene function but requires interpretation and replication."
+            },
+            {
+              "id": "d13-8-o3",
+              "text": "It permanently changes the genetic code for all species",
+              "correct": false,
+              "feedback": "Consider why “It permanently changes the genetic code for all species” does not answer this question. A controlled knockout suggests gene function but requires interpretation and replication."
+            },
+            {
+              "id": "d13-8-o4",
+              "text": "It makes every gene more highly expressed",
+              "correct": false,
+              "feedback": "Consider why “It makes every gene more highly expressed” does not answer this question. A controlled knockout suggests gene function but requires interpretation and replication."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-8",
+          "understandingIds": [
+            "D1.3.8"
+          ],
+          "prompt": "Explain the likely consequence and limitations of knocking out a gene tests its role in your own words.",
+          "answer": "A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product. Researchers compare knockout organisms or cells with appropriate unmodified controls and ask which features differ. Knockout libraries in some model species allow the effects of many genes to be investigated. A yeast knockout lacking a nutrient-synthesis enzyme grows only if the missing nutrient is supplied.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 90,
+      "pdfPage": 96,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          644
+        ],
+        "pdfPages": [
+          656
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Knocking out a gene tests its role",
+          "explanation": "A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product. Researchers compare knockout organisms or cells with appropriate unmodified controls and ask which features differ. Knockout libraries in some model species allow the effects of many genes to be investigated.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Interpret controls carefully",
+          "explanation": "A knockout phenotype is evidence that the gene contributes to the measured trait under the test conditions, not proof that the gene acts alone. Other genes may compensate, and a lethal knockout may prevent observation of later functions. The guide does not require memorizing knockout production techniques.\n\nDisabling a gene can reveal its contribution to phenotype by comparing knockout and otherwise comparable wild-type organisms. Changes in other genes or developmental compensation can obscure a simple one-gene/one-trait inference; appropriate controls and replication are essential. Detailed knockout methods are not required in this IB understanding.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Interpret knockout results cautiously",
+          "explanation": "Researchers compare organisms or cells with a functional gene against otherwise comparable material in which that gene has been deliberately rendered inoperative. A lost function can provide evidence that the original gene contributes to a particular process, such as pigment production. However, little visible effect need not mean the gene is useless: another gene might compensate, or a phenotype may appear only under certain conditions. The official requirement is the logic and use of gene knockouts, not the laboratory details of constructing a knockout.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product.",
+        "example": "A yeast knockout lacking a nutrient-synthesis enzyme grows only if the missing nutrient is supplied.",
+        "different": "A knockout phenotype is evidence that the gene contributes to the measured trait under the test conditions, not proof that the gene acts alone.",
+        "concepts": [
+          {
+            "title": "Knocking out a gene tests its role",
+            "keywords": [
+              "knocking",
+              "out",
+              "a"
+            ],
+            "explanation": "A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product. Researchers compare knockout organisms or cells with appropriate unmodified controls and ask which features differ. Knockout libraries in some model species allow the effects of many genes to be investigated."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d13-9",
+      "understandingIds": [
+        "D1.3.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What role does guide RNA serve in a typical CRISPR–Cas9 editing system?",
+      "explanation": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment.\n\nCasgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A. Reduced BCL11A in erythroid cells increases fetal hemoglobin, benefiting some people with sickle cell disease or transfusion-dependent beta-thalassemia. This is a regulated ex vivo intervention, not evidence that arbitrary disease-causing variants can be safely repaired throughout the body.\n\nA common CRISPR–Cas9 editing design uses guide RNA for target recognition and Cas9 to cleave DNA near a target adjacent to a suitable recognition motif. Cellular repair can disrupt the gene or enable a designed edit, but outcomes can include unexpected insertions/deletions and off-target changes. A successful therapy for one condition does not establish universal safety or germ-line acceptability.\n\nGuide RNA specifies a complementary DNA target near a suitable adjacent recognition motif; Cas9 cuts it. Cellular repair then determines the sequence outcome. Error-prone repair may disrupt the gene, while precisely specified changes generally require additional strategies. Confirm edited sequence, possible off-target changes and measured phenotype separately rather than inferring successful editing from cleavage alone.",
+      "revisionSummary": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Casgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A.",
+      "terms": [
+        "CRISPR–Cas9 can target DNA but outcomes need checking: the focal mechanism",
+        "A documented clinical application: conceptual distinction"
+      ],
+      "workedExample": "An ex vivo Casgevy treatment edits the patient's own harvested blood stem cells and returns them after conditioning.",
+      "misconceptions": [
+        {
+          "misconception": "Every CRISPR cut produces the precise planned DNA replacement without errors.",
+          "correction": "A directed cut permits editing, but repair outcomes and clinical safety require testing."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution",
+            "fda-casgevy"
+          ]
+        },
+        {
+          "claim": "Casgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A. Reduced BCL11A in erythroid cells increases fetal hemoglobin, benefiting some people with sickle cell disease or transfusion-dependent beta-thalassemia. This is a regulated ex vivo intervention, not evidence that arbitrary disease-causing variants can be safely repaired throughout the body.\n\nA common CRISPR–Cas9 editing design uses guide RNA for target recognition and Cas9 to cleave DNA near a target adjacent to a suitable recognition motif. Cellular repair can disrupt the gene or enable a designed edit, but outcomes can include unexpected insertions/deletions and off-target changes. A successful therapy for one condition does not establish universal safety or germ-line acceptability.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution",
+            "fda-casgevy"
+          ]
+        },
+        {
+          "claim": "Guide RNA specifies a complementary DNA target near a suitable adjacent recognition motif; Cas9 cuts it. Cellular repair then determines the sequence outcome. Error-prone repair may disrupt the gene, while precisely specified changes generally require additional strategies. Confirm edited sequence, possible off-target changes and measured phenotype separately rather than inferring successful editing from cleavage alone.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution",
+        "fda-casgevy"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-9",
+          "understandingIds": [
+            "D1.3.9"
+          ],
+          "prompt": "What role does guide RNA serve in a typical CRISPR–Cas9 editing system?",
+          "options": [
+            {
+              "id": "d13-9-o1",
+              "text": "Direct Cas9 toward a complementary DNA target",
+              "correct": true,
+              "feedback": "Correct: In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif."
+            },
+            {
+              "id": "d13-9-o2",
+              "text": "Translate Cas9 protein into DNA",
+              "correct": false,
+              "feedback": "Consider why “Translate Cas9 protein into DNA” does not answer this question. A directed cut permits editing, but repair outcomes and clinical safety require testing."
+            },
+            {
+              "id": "d13-9-o3",
+              "text": "Guarantee an error-free repair product",
+              "correct": false,
+              "feedback": "Consider why “Guarantee an error-free repair product” does not answer this question. A directed cut permits editing, but repair outcomes and clinical safety require testing."
+            },
+            {
+              "id": "d13-9-o4",
+              "text": "Replace all ribosomes in the cell",
+              "correct": false,
+              "feedback": "Consider why “Replace all ribosomes in the cell” does not answer this question. A directed cut permits editing, but repair outcomes and clinical safety require testing."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-9",
+          "understandingIds": [
+            "D1.3.9"
+          ],
+          "prompt": "Explain the likely consequence and limitations of crispr–cas9 can target dna but outcomes need checking in your own words.",
+          "answer": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment. An ex vivo Casgevy treatment edits the patient's own harvested blood stem cells and returns them after conditioning.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 90,
+      "pdfPage": 96,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          645
+        ],
+        "pdfPages": [
+          657
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "CRISPR–Cas9 can target DNA but outcomes need checking",
+          "explanation": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution",
+            "fda-casgevy"
+          ]
+        },
+        {
+          "title": "A documented clinical application",
+          "explanation": "Casgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A. Reduced BCL11A in erythroid cells increases fetal hemoglobin, benefiting some people with sickle cell disease or transfusion-dependent beta-thalassemia. This is a regulated ex vivo intervention, not evidence that arbitrary disease-causing variants can be safely repaired throughout the body.\n\nA common CRISPR–Cas9 editing design uses guide RNA for target recognition and Cas9 to cleave DNA near a target adjacent to a suitable recognition motif. Cellular repair can disrupt the gene or enable a designed edit, but outcomes can include unexpected insertions/deletions and off-target changes. A successful therapy for one condition does not establish universal safety or germ-line acceptability.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution",
+            "fda-casgevy"
+          ]
+        },
+        {
+          "title": "A Cas9 cut is not a guaranteed precise edit",
+          "explanation": "Guide RNA specifies a complementary DNA target near a suitable adjacent recognition motif; Cas9 cuts it. Cellular repair then determines the sequence outcome. Error-prone repair may disrupt the gene, while precisely specified changes generally require additional strategies. Confirm edited sequence, possible off-target changes and measured phenotype separately rather than inferring successful editing from cleavage alone.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif.",
+        "example": "An ex vivo Casgevy treatment edits the patient's own harvested blood stem cells and returns them after conditioning.",
+        "different": "Casgevy uses CRISPR–Cas9 edited patient blood stem cells targeting a regulatory enhancer of BCL11A.",
+        "concepts": [
+          {
+            "title": "CRISPR–Cas9 can target DNA but outcomes need checking",
+            "keywords": [
+              "crispr–cas9",
+              "can",
+              "target"
+            ],
+            "explanation": "In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Clinical application versus unsupported inference",
+          "headers": [
+            "Documented technology",
+            "Unsupported inference"
+          ],
+          "rows": [
+            [
+              "Ex vivo editing of specific blood stem cells in an approved product",
+              "Every somatic cell can be edited effectively and safely"
+            ],
+            [
+              "Directed Cas9 break at BCL11A enhancer and measured HbF production",
+              "A CRISPR cut guarantees any desired sequence"
+            ]
+          ]
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Gene-editing result needs verification",
+          "afterBlock": 0,
+          "steps": [
+            {
+              "title": "Target",
+              "description": "Guide RNA directs Cas9 to a compatible DNA target."
+            },
+            {
+              "title": "Cut",
+              "description": "Cas9 generates a DNA break."
+            },
+            {
+              "title": "Repair",
+              "description": "Cellular pathways repair DNA with different possible outcomes."
+            },
+            {
+              "title": "Verify",
+              "description": "Sequence the intended site, inspect unintended edits and evaluate biological function."
+            }
+          ],
+          "note": "Simplified CRISPR–Cas9 model; not a clinical protocol."
+        }
+      ]
+    },
+    {
+      "id": "d13-10",
+      "understandingIds": [
+        "D1.3.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What can help explain a highly conserved sequence?",
+      "explanation": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations.\n\nSome regions may also accumulate fewer changes because their local mutation rate is lower. Shared ancestry, selection and regional mutational processes all affect observed conservation. Comparing aligned sequences is evidence, but a conserved sequence does not by itself prove what precise molecular function it performs.\n\nConservation means that related sequences remain alike over evolutionary time. Functional constraint and purifying selection can explain similarity because damaging variants are removed; locally lower mutation rates are an alternative hypothesis. Sequence similarity alone cannot distinguish these explanations without more evidence.\n\nComparative sequence observations can show that sites are conserved across taxa. Functional constraint is a plausible, testable hypothesis, while shared ancestry and local mutation rates also shape conservation. Establishing the specific function of a conserved sequence requires further experimental or comparative evidence.",
+      "revisionSummary": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. Some regions may also accumulate fewer changes because their local mutation rate is lower.",
+      "terms": [
+        "Conservation suggests constraints, not a single explanation: the focal mechanism",
+        "Mutation rate is another hypothesis: conceptual distinction"
+      ],
+      "workedExample": "A catalytic residue conserved in related enzymes suggests that substitutions there often reduce enzyme performance.",
+      "misconceptions": [
+        {
+          "misconception": "All conserved sequences must have an identical mutation rate and an experimentally proven function.",
+          "correction": "Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Some regions may also accumulate fewer changes because their local mutation rate is lower. Shared ancestry, selection and regional mutational processes all affect observed conservation. Comparing aligned sequences is evidence, but a conserved sequence does not by itself prove what precise molecular function it performs.\n\nConservation means that related sequences remain alike over evolutionary time. Functional constraint and purifying selection can explain similarity because damaging variants are removed; locally lower mutation rates are an alternative hypothesis. Sequence similarity alone cannot distinguish these explanations without more evidence.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "claim": "Comparative sequence observations can show that sites are conserved across taxa. Functional constraint is a plausible, testable hypothesis, while shared ancestry and local mutation rates also shape conservation. Establishing the specific function of a conserved sequence requires further experimental or comparative evidence.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d13-check-10",
+          "understandingIds": [
+            "D1.3.10"
+          ],
+          "prompt": "What can help explain a highly conserved sequence?",
+          "options": [
+            {
+              "id": "d13-10-o1",
+              "text": "Functional constraint under purifying selection",
+              "correct": true,
+              "feedback": "Correct: Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals."
+            },
+            {
+              "id": "d13-10-o2",
+              "text": "Universal absence of DNA replication",
+              "correct": false,
+              "feedback": "Consider why “Universal absence of DNA replication” does not answer this question. Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+            },
+            {
+              "id": "d13-10-o3",
+              "text": "Purposeful mutation toward the ancestral sequence",
+              "correct": false,
+              "feedback": "Consider why “Purposeful mutation toward the ancestral sequence” does not answer this question. Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+            },
+            {
+              "id": "d13-10-o4",
+              "text": "All substitutions being beneficial",
+              "correct": false,
+              "feedback": "Consider why “All substitutions being beneficial” does not answer this question. Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d13-recall-10",
+          "understandingIds": [
+            "D1.3.10"
+          ],
+          "prompt": "Explain the likely consequence and limitations of conservation suggests constraints, not a single explanation in your own words.",
+          "answer": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations. A catalytic residue conserved in related enzymes suggests that substitutions there often reduce enzyme performance.",
+          "explanation": "Distinguish mechanism, uncertainty and the observed phenotype."
+        }
+      ],
+      "guidePage": 90,
+      "pdfPage": 96,
+      "textbook": {
+        "referenceId": "hodder-d13",
+        "printedPages": [
+          646
+        ],
+        "pdfPages": [
+          658
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Conservation suggests constraints, not a single explanation",
+          "explanation": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Mutation rate is another hypothesis",
+          "explanation": "Some regions may also accumulate fewer changes because their local mutation rate is lower. Shared ancestry, selection and regional mutational processes all affect observed conservation. Comparing aligned sequences is evidence, but a conserved sequence does not by itself prove what precise molecular function it performs.\n\nConservation means that related sequences remain alike over evolutionary time. Functional constraint and purifying selection can explain similarity because damaging variants are removed; locally lower mutation rates are an alternative hypothesis. Sequence similarity alone cannot distinguish these explanations without more evidence.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13",
+            "ncbi-evolution"
+          ]
+        },
+        {
+          "title": "Sequence conservation is evidence, not direct proof of function",
+          "explanation": "Comparative sequence observations can show that sites are conserved across taxa. Functional constraint is a plausible, testable hypothesis, while shared ancestry and local mutation rates also shape conservation. Establishing the specific function of a conserved sequence requires further experimental or comparative evidence.",
+          "referenceIds": [
+            "ib-d13",
+            "hodder-d13"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals.",
+        "example": "A catalytic residue conserved in related enzymes suggests that substitutions there often reduce enzyme performance.",
+        "different": "Some regions may also accumulate fewer changes because their local mutation rate is lower.",
+        "concepts": [
+          {
+            "title": "Conservation suggests constraints, not a single explanation",
+            "keywords": [
+              "conservation",
+              "suggests",
+              "constraints,"
+            ],
+            "explanation": "Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations."
+          }
+        ]
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "d13-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.1"
+      ],
+      "level": "shared",
+      "prompt": "Which event is an example of a gene-level substitution?",
+      "marks": 1,
+      "sectionId": "d13-1",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-1-o1",
+          "text": "Replacement of one nucleotide pair",
+          "correct": true,
+          "feedback": "Correct: A gene mutation is a change in the DNA nucleotide sequence within a gene."
+        },
+        {
+          "id": "d13-1-o2",
+          "text": "Exchange of entire sister chromatids during meiosis",
+          "correct": false,
+          "feedback": "Consider why “Exchange of entire sister chromatids during meiosis” does not answer this question. A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+        },
+        {
+          "id": "d13-1-o3",
+          "text": "Division of the cytoplasm",
+          "correct": false,
+          "feedback": "Consider why “Division of the cytoplasm” does not answer this question. A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+        },
+        {
+          "id": "d13-1-o4",
+          "text": "Cellular uptake of glucose",
+          "correct": false,
+          "feedback": "Consider why “Cellular uptake of glucose” does not answer this question. A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-1",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.1"
+      ],
+      "level": "shared",
+      "prompt": "Evaluate the claim \"Mutation always means loss of a complete chromosome.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-1",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "A gene mutation changes nucleotide sequence; it need not remove a chromosome. A gene mutation is a change in the DNA nucleotide sequence within a gene. A substitution replaces one base pair with another, an insertion adds one or more nucleotide pairs, and a deletion removes them. These changes can be small or substantial; it is the sequence alteration, not its benefit or harm, that defines a mutation. Replacing one G–C base pair with A–T in a gene is a substitution; removing three adjacent base pairs is a deletion.",
+      "markingPoints": [
+        "A DNA substitution changes one nucleotide pair; an insertion adds base pairs and a deletion removes them",
+        "The same category can be neutral or consequential depending on whether it affects a regulatory sequence, RNA splicing, a coding triplet or a protein active site",
+        "Correct the common inference: A gene mutation changes nucleotide sequence; it need not remove a chromosome."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.2"
+      ],
+      "level": "shared",
+      "prompt": "Why might a base substitution leave the polypeptide sequence unchanged?",
+      "marks": 1,
+      "sectionId": "d13-2",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-2-o1",
+          "text": "The new codon can encode the same amino acid",
+          "correct": true,
+          "feedback": "Correct: A single-base substitution creates a different DNA sequence."
+        },
+        {
+          "id": "d13-2-o2",
+          "text": "RNA uses thymine instead of uracil",
+          "correct": false,
+          "feedback": "Consider why “RNA uses thymine instead of uracil” does not answer this question. Synonymous substitutions are possible because multiple codons can encode an amino acid."
+        },
+        {
+          "id": "d13-2-o3",
+          "text": "The ribosome ignores every third base",
+          "correct": false,
+          "feedback": "Consider why “The ribosome ignores every third base” does not answer this question. Synonymous substitutions are possible because multiple codons can encode an amino acid."
+        },
+        {
+          "id": "d13-2-o4",
+          "text": "Every base is outside a gene",
+          "correct": false,
+          "feedback": "Consider why “Every base is outside a gene” does not answer this question. Synonymous substitutions are possible because multiple codons can encode an amino acid."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-2",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.2"
+      ],
+      "level": "shared",
+      "prompt": "Evaluate the claim \"Every SNP changes the amino acid of the encoded polypeptide.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-2",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "Synonymous substitutions are possible because multiple codons can encode an amino acid. A single-base substitution creates a different DNA sequence. If it changes a coding codon, the consequence may be synonymous (same amino acid), missense (a different amino acid) or nonsense (a stop signal), depending on the original codon and reading frame. Changing the mRNA codon GAA to GAG preserves glutamate, whereas GAA to GUA changes glutamate to valine.",
+      "markingPoints": [
+        "The genetic code is degenerate, so two codons can encode the same amino acid",
+        "A base substitution can therefore be synonymous, missense or nonsense in a protein-coding region, depending on the resulting codon",
+        "Correct the common inference: Synonymous substitutions are possible because multiple codons can encode an amino acid."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.3"
+      ],
+      "level": "shared",
+      "prompt": "Which coding change is most likely to produce a downstream frameshift?",
+      "marks": 1,
+      "sectionId": "d13-3",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-3-o1",
+          "text": "Deletion of one nucleotide",
+          "correct": true,
+          "feedback": "Correct: The ribosome groups bases into successive non-overlapping triplets after the start codon."
+        },
+        {
+          "id": "d13-3-o2",
+          "text": "Deletion of three nucleotides",
+          "correct": false,
+          "feedback": "Consider why “Deletion of three nucleotides” does not answer this question. The reading frame shifts when the net nucleotide change is not divisible by three."
+        },
+        {
+          "id": "d13-3-o3",
+          "text": "A synonymous substitution",
+          "correct": false,
+          "feedback": "Consider why “A synonymous substitution” does not answer this question. The reading frame shifts when the net nucleotide change is not divisible by three."
+        },
+        {
+          "id": "d13-3-o4",
+          "text": "A change in untranslated RNA stability",
+          "correct": false,
+          "feedback": "Consider why “A change in untranslated RNA stability” does not answer this question. The reading frame shifts when the net nucleotide change is not divisible by three."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-3",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.3"
+      ],
+      "level": "shared",
+      "prompt": "Evaluate the claim \"All insertions and deletions cause an identical frameshift.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-3",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "The reading frame shifts when the net nucleotide change is not divisible by three. The ribosome groups bases into successive non-overlapping triplets after the start codon. In a coding region, an insertion or deletion involving a number of bases not divisible by three changes the downstream reading frame, often producing many altered amino acids and an early stop. This is a frameshift. Deleting one coding nucleotide may alter every downstream triplet, but deleting three bases may preserve the later reading frame.",
+      "markingPoints": [
+        "An insertion or deletion of one or two bases inside a coding region generally shifts the downstream reading frame",
+        "An insertion/deletion of three bases may preserve the frame but still alter important amino acids",
+        "Correct the common inference: The reading frame shifts when the net nucleotide change is not divisible by three."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.4"
+      ],
+      "level": "shared",
+      "prompt": "Which is a biologically realistic source of mutation?",
+      "marks": 1,
+      "sectionId": "d13-4",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-4-o1",
+          "text": "An unrepaired DNA replication error",
+          "correct": true,
+          "feedback": "Correct: Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence."
+        },
+        {
+          "id": "d13-4-o2",
+          "text": "Normal tRNA codon recognition",
+          "correct": false,
+          "feedback": "Consider why “Normal tRNA codon recognition” does not answer this question. Mutagens create damage or increase error rates without purposeful targeting."
+        },
+        {
+          "id": "d13-4-o3",
+          "text": "A chromosome undergoing ordinary interphase growth",
+          "correct": false,
+          "feedback": "Consider why “A chromosome undergoing ordinary interphase growth” does not answer this question. Mutagens create damage or increase error rates without purposeful targeting."
+        },
+        {
+          "id": "d13-4-o4",
+          "text": "A completely accurate DNA copy",
+          "correct": false,
+          "feedback": "Consider why “A completely accurate DNA copy” does not answer this question. Mutagens create damage or increase error rates without purposeful targeting."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-4",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.4"
+      ],
+      "level": "shared",
+      "prompt": "Evaluate the claim \"A mutagen deliberately rewrites a chosen gene to improve survival.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-4",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "Mutagens create damage or increase error rates without purposeful targeting. Copying errors can escape DNA polymerase proofreading, and DNA-repair mistakes can preserve a wrong sequence. Mutagens increase the likelihood of genetic changes: ultraviolet light can generate pyrimidine dimers, ionizing radiation can damage DNA, and some chemicals modify bases or interfere with replication. UV-induced DNA damage in skin cells may become a stable mutation if copying or repair fails.",
+      "markingPoints": [
+        "Replication errors and imperfect DNA repair introduce spontaneous mutations",
+        "Chemical agents can modify DNA bases, and ultraviolet or ionizing radiation can damage DNA in different ways",
+        "Correct the common inference: Mutagens create damage or increase error rates without purposeful targeting."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.5"
+      ],
+      "level": "shared",
+      "prompt": "Which description best captures randomness in natural mutation?",
+      "marks": 1,
+      "sectionId": "d13-5",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-5-o1",
+          "text": "Mutations arise without foreknowledge of adaptive usefulness",
+          "correct": true,
+          "feedback": "Correct: Natural mutations arise without foresight about the traits an organism will need."
+        },
+        {
+          "id": "d13-5-o2",
+          "text": "Every nucleotide has exactly the same mutation probability",
+          "correct": false,
+          "feedback": "Consider why “Every nucleotide has exactly the same mutation probability” does not answer this question. Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+        },
+        {
+          "id": "d13-5-o3",
+          "text": "Selection chooses a DNA base to mutate intentionally",
+          "correct": false,
+          "feedback": "Consider why “Selection chooses a DNA base to mutate intentionally” does not answer this question. Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+        },
+        {
+          "id": "d13-5-o4",
+          "text": "Only useful mutations can occur",
+          "correct": false,
+          "feedback": "Consider why “Only useful mutations can occur” does not answer this question. Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-5",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.5"
+      ],
+      "level": "shared",
+      "prompt": "Evaluate the claim \"Bacteria anticipate antibiotics and intentionally mutate the exact resistance gene they need.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-5",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "Mutation is not directed toward a beneficial outcome; selection changes variant frequencies. Natural mutations arise without foresight about the traits an organism will need. They can occur in many parts of the genome, although some sequence contexts have higher mutation rates than others. Selection acts later on organisms with different variants; it does not instruct DNA to create a needed base change. A pre-existing resistant bacterium can outgrow susceptible bacteria after an antibiotic is applied.",
+      "markingPoints": [
+        "Mutation is not a directed response to a species' needs",
+        "Some genomic sites mutate more frequently than others, but a new useful variant does not arise because an organism consciously requires it",
+        "Correct the common inference: Mutation is not directed toward a beneficial outcome; selection changes variant frequencies."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Which type of mutation can be inherited by biological offspring?",
+      "marks": 1,
+      "sectionId": "d13-6",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-6-o1",
+          "text": "A mutation present in a gamete",
+          "correct": true,
+          "feedback": "Correct: A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring."
+        },
+        {
+          "id": "d13-6-o2",
+          "text": "A mutation restricted to a mature skin cell",
+          "correct": false,
+          "feedback": "Consider why “A mutation restricted to a mature skin cell” does not answer this question. Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+        },
+        {
+          "id": "d13-6-o3",
+          "text": "A change to an erythrocyte protein",
+          "correct": false,
+          "feedback": "Consider why “A change to an erythrocyte protein” does not answer this question. Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+        },
+        {
+          "id": "d13-6-o4",
+          "text": "A temporary RNA transcription error",
+          "correct": false,
+          "feedback": "Consider why “A temporary RNA transcription error” does not answer this question. Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-6",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Evaluate the claim \"Every cancer-associated mutation is automatically passed to the next generation.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-6",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "Somatic mutations generally stay within the organism; germ-line mutations can be inherited. A mutation arising in a cell that contributes DNA to eggs or sperm can be passed to offspring. In contrast, a mutation confined to most somatic cells is transmitted only to that cell's mitotic descendants within the individual, not normally to the next generation. An inherited pathogenic variant may originate in a gamete precursor, whereas UV-related skin mutations are generally somatic.",
+      "markingPoints": [
+        "A variant present in an egg or sperm lineage may be transmitted to offspring",
+        "A somatic variant typically remains limited to that person's descendant cell lineage, although it can contribute to clonal expansion and cancer",
+        "Correct the common inference: Somatic mutations generally stay within the organism; germ-line mutations can be inherited."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.7"
+      ],
+      "level": "shared",
+      "prompt": "What is the ultimate origin of a novel allele?",
+      "marks": 1,
+      "sectionId": "d13-7",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-7-o1",
+          "text": "Mutation",
+          "correct": true,
+          "feedback": "Correct: Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time."
+        },
+        {
+          "id": "d13-7-o2",
+          "text": "Asexual binary fission without DNA errors",
+          "correct": false,
+          "feedback": "Consider why “Asexual binary fission without DNA errors” does not answer this question. Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+        },
+        {
+          "id": "d13-7-o3",
+          "text": "Ordinary translation",
+          "correct": false,
+          "feedback": "Consider why “Ordinary translation” does not answer this question. Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+        },
+        {
+          "id": "d13-7-o4",
+          "text": "Membrane osmosis",
+          "correct": false,
+          "feedback": "Consider why “Membrane osmosis” does not answer this question. Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-7",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.7"
+      ],
+      "level": "shared",
+      "prompt": "Evaluate the claim \"Meiosis produces new DNA base sequences solely by independent assortment.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-7",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "Independent assortment rearranges existing alleles; mutation creates new sequence variants. Mutation is the ultimate source of new sequence variants and hence new alleles over evolutionary time. Sexual reproduction reshuffles existing alleles through meiosis and fertilization but does not itself create a novel nucleotide sequence unless mutation occurs. A novel bacterial resistance allele can spread when antibiotics select for carriers, while often offering no advantage without the drug.",
+      "markingPoints": [
+        "Mutation supplies novel alleles over evolutionary time; meiosis and fertilization mostly reshuffle alleles that already exist",
+        "Natural selection acts on phenotypic effects of inherited variation and may increase or decrease an allele's frequency",
+        "Correct the common inference: Independent assortment rearranges existing alleles; mutation creates new sequence variants."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.8"
+      ],
+      "level": "HL",
+      "prompt": "Why is a gene-knockout organism useful?",
+      "marks": 1,
+      "sectionId": "d13-8",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-8-o1",
+          "text": "It helps infer gene function by observing loss-of-function consequences",
+          "correct": true,
+          "feedback": "Correct: A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product."
+        },
+        {
+          "id": "d13-8-o2",
+          "text": "It guarantees that no compensatory genes exist",
+          "correct": false,
+          "feedback": "Consider why “It guarantees that no compensatory genes exist” does not answer this question. A controlled knockout suggests gene function but requires interpretation and replication."
+        },
+        {
+          "id": "d13-8-o3",
+          "text": "It permanently changes the genetic code for all species",
+          "correct": false,
+          "feedback": "Consider why “It permanently changes the genetic code for all species” does not answer this question. A controlled knockout suggests gene function but requires interpretation and replication."
+        },
+        {
+          "id": "d13-8-o4",
+          "text": "It makes every gene more highly expressed",
+          "correct": false,
+          "feedback": "Consider why “It makes every gene more highly expressed” does not answer this question. A controlled knockout suggests gene function but requires interpretation and replication."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-8",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.8"
+      ],
+      "level": "HL",
+      "prompt": "Evaluate the claim \"A knockout result proves that a gene is the sole cause of a complex trait.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-8",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "A controlled knockout suggests gene function but requires interpretation and replication. A gene knockout deliberately disrupts a gene so that it no longer provides its usual functional product. Researchers compare knockout organisms or cells with appropriate unmodified controls and ask which features differ. Knockout libraries in some model species allow the effects of many genes to be investigated. A yeast knockout lacking a nutrient-synthesis enzyme grows only if the missing nutrient is supplied.",
+      "markingPoints": [
+        "Disabling a gene can reveal its contribution to phenotype by comparing knockout and otherwise comparable wild-type organisms",
+        "Changes in other genes or developmental compensation can obscure a simple one-gene/one-trait inference; appropriate controls and replication are essential",
+        "Correct the common inference: A controlled knockout suggests gene function but requires interpretation and replication."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.9"
+      ],
+      "level": "HL",
+      "prompt": "What role does guide RNA serve in a typical CRISPR–Cas9 editing system?",
+      "marks": 1,
+      "sectionId": "d13-9",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution",
+        "fda-casgevy"
+      ],
+      "options": [
+        {
+          "id": "d13-9-o1",
+          "text": "Direct Cas9 toward a complementary DNA target",
+          "correct": true,
+          "feedback": "Correct: In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif."
+        },
+        {
+          "id": "d13-9-o2",
+          "text": "Translate Cas9 protein into DNA",
+          "correct": false,
+          "feedback": "Consider why “Translate Cas9 protein into DNA” does not answer this question. A directed cut permits editing, but repair outcomes and clinical safety require testing."
+        },
+        {
+          "id": "d13-9-o3",
+          "text": "Guarantee an error-free repair product",
+          "correct": false,
+          "feedback": "Consider why “Guarantee an error-free repair product” does not answer this question. A directed cut permits editing, but repair outcomes and clinical safety require testing."
+        },
+        {
+          "id": "d13-9-o4",
+          "text": "Replace all ribosomes in the cell",
+          "correct": false,
+          "feedback": "Consider why “Replace all ribosomes in the cell” does not answer this question. A directed cut permits editing, but repair outcomes and clinical safety require testing."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-9",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.9"
+      ],
+      "level": "HL",
+      "prompt": "Evaluate the claim \"Every CRISPR cut produces the precise planned DNA replacement without errors.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-9",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution",
+        "fda-casgevy"
+      ],
+      "answer": "A directed cut permits editing, but repair outcomes and clinical safety require testing. In engineered gene editing, a guide RNA directs Cas9 to a complementary DNA target adjacent to an appropriate recognition motif. Cas9 can cut the target DNA; cellular repair can introduce insertions or deletions, while other editing configurations may achieve specified sequence changes. Off-target edits, incomplete editing and variable repair outcomes require assessment. An ex vivo Casgevy treatment edits the patient's own harvested blood stem cells and returns them after conditioning.",
+      "markingPoints": [
+        "A common CRISPR–Cas9 editing design uses guide RNA for target recognition and Cas9 to cleave DNA near a target adjacent to a suitable recognition motif",
+        "Cellular repair can disrupt the gene or enable a designed edit, but outcomes can include unexpected insertions/deletions and off-target changes",
+        "Correct the common inference: A directed cut permits editing, but repair outcomes and clinical safety require testing."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D1.3.10"
+      ],
+      "level": "HL",
+      "prompt": "What can help explain a highly conserved sequence?",
+      "marks": 1,
+      "sectionId": "d13-10",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "options": [
+        {
+          "id": "d13-10-o1",
+          "text": "Functional constraint under purifying selection",
+          "correct": true,
+          "feedback": "Correct: Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals."
+        },
+        {
+          "id": "d13-10-o2",
+          "text": "Universal absence of DNA replication",
+          "correct": false,
+          "feedback": "Consider why “Universal absence of DNA replication” does not answer this question. Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+        },
+        {
+          "id": "d13-10-o3",
+          "text": "Purposeful mutation toward the ancestral sequence",
+          "correct": false,
+          "feedback": "Consider why “Purposeful mutation toward the ancestral sequence” does not answer this question. Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+        },
+        {
+          "id": "d13-10-o4",
+          "text": "All substitutions being beneficial",
+          "correct": false,
+          "feedback": "Consider why “All substitutions being beneficial” does not answer this question. Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-response-10",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D1.3.10"
+      ],
+      "level": "HL",
+      "prompt": "Evaluate the claim \"All conserved sequences must have an identical mutation rate and an experimentally proven function.\" using a mechanistic explanation and a suitable biological example.",
+      "marks": 3,
+      "sectionId": "d13-10",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "Purifying selection and lower local mutation rates are alternative or joint hypotheses. Conserved nucleotide or amino-acid sequences remain similar across populations or species, sometimes over long evolutionary intervals. One explanation is functional constraint: changes disrupt an important product, so purifying selection removes many altered variants from populations. A catalytic residue conserved in related enzymes suggests that substitutions there often reduce enzyme performance.",
+      "markingPoints": [
+        "Conservation means that related sequences remain alike over evolutionary time",
+        "Functional constraint and purifying selection can explain similarity because damaging variants are removed; locally lower mutation rates are an alternative hypothesis",
+        "Correct the common inference: Purifying selection and lower local mutation rates are alternative or joint hypotheses."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d13-frame-reasoning-1b",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "D1.3.2",
+        "D1.3.3"
+      ],
+      "level": "shared",
+      "prompt": "In this theoretical mRNA coding example, compare the original codons with the one-nucleotide-deletion product. Identify the mutation category and explain why amino acids downstream may differ.",
+      "marks": 2,
+      "sectionId": "d13-3",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "answer": "A deletion of one nucleotide in the coding region causes a frameshift. Bases after the deletion are regrouped into different successive codons, so downstream amino acids may change and a stop may arise.",
+      "markingPoints": [
+        "Identifies a one-base deletion causing a frameshift.",
+        "Explains regrouping of all downstream triplets and possible changed amino acids."
+      ],
+      "data": {
+        "caption": "Original teaching sequences, not naturally observed mutations",
+        "headers": [
+          "Version",
+          "Read from AUG (5′→3′)",
+          "Segmentation"
+        ],
+        "rows": [
+          [
+            "Original",
+            "AUG GAA CCU GGU",
+            "AUG | GAA | CCU | GGU"
+          ],
+          [
+            "One G deleted after AUG",
+            "AUG AAC CUG GU…",
+            "AUG | AAC | CUG | GU…"
+          ]
+        ]
+      },
+      "review": "draft"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-d13",
+      "title": "IB Biology Guide, first assessment 2025 — D1.3",
+      "locator": "Syllabus pp.89–90; D1.3.1–D1.3.10 and NOS statements",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "hodder-d13",
+      "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+      "locator": "D1.3 Mutation and gene editing, printed pp.637–647 (PDF pp.649–659)",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "ncbi-evolution",
+      "title": "Alberts et al., How Genomes Evolve, NCBI Bookshelf",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK26836/",
+      "locator": "Mutation, conserved sequences and purifying selection",
+      "accessedAt": "2026-10-17",
+      "level": "shared"
+    },
+    {
+      "id": "fda-casgevy",
+      "title": "US Food and Drug Administration, Casgevy approval and prescribing information",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/casgevy",
+      "locator": "Regulated ex vivo CRISPR–Cas9 therapy; BCL11A enhancer mechanism",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    }
+  ],
+  "assets": [
+    {
+      "id": "d13-hbb-codon",
+      "kind": "schematic",
+      "src": "/biology/mutation-gene-editing/single-substitution.svg",
+      "alt": "The HBB coding DNA codon changes 5′-GAG-3′ to 5′-GTG-3′ by a single base substitution. Corresponding mRNA GAG changes to GUG and the amino acid glutamate changes to valine; no frameshift occurs.",
+      "captionTitle": "From DNA base substitution to altered beta-globin amino acid",
+      "interpretation": "Compare the second nucleotide of DNA and mRNA. Protein function may change despite unchanged codon position and reading frame.",
+      "attribution": "Original BioLab codon diagram",
+      "license": "Original first-party authored SVG",
+      "permissionEvidence": "Fully new SVG; not traced or reproduced from Hodder",
+      "referenceIds": [
+        "ib-d13",
+        "hodder-d13",
+        "ncbi-evolution"
+      ],
+      "level": "shared",
+      "review": "source-mapped"
+    }
+  ],
+  "summary": "Mutations create new sequence variants through copying errors or DNA damage; their effects depend on context. Targeted editing and gene knockouts offer powerful, limited tools requiring evidence and ethical scrutiny.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "Official guide 2025 D1.3.1–D1.3.10 sets scope; Hodder (2023) D1.3 is the coursebook.",
+      "FDA regulatory documentation confirms specific edited BCL11A enhancer in Casgevy; do not overgeneralize.",
+      "Clinical indications can change. Re-verify FDA data before any public lesson release.",
+      "This is a research-based draft without qualified clinical, ethical, biological or assessment sign-off.",
+      "Final Sprint D: clarified nucleotide mutation versus selection, somatic/germ-line inheritance, repair, gene knockout and edit verification; added original comparisons and a frameshift data question.",
+      "Final Sprint D assessment pass: tailored three-point marking schemes with mechanism-specific statements, and option-specific feedback replaced duplicated generic feedback wherever present; answer keys unchanged."
+    ]
+  }
+}

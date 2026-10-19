@@ -1,0 +1,2887 @@
+{
+  "schemaVersion": 1,
+  "id": "d2-2-gene-expression-v1",
+  "topicId": "D2.2",
+  "curriculumVersion": "ib-biology-fa2025-v1",
+  "title": "Gene expression",
+  "introduction": "HL-only: learn how one DNA genome can give rise to distinct cell identities through transcription, RNA stability, chromatin changes and environmental responses.",
+  "learningPath": [
+    "Connect genotype to phenotype",
+    "Regulate transcription and RNA stability",
+    "Contrast genome, transcriptome and proteome",
+    "Evaluate epigenetic inheritance and environmental evidence"
+  ],
+  "prerequisites": [
+    "D1.2 transcription and translation",
+    "A1.2 gene and chromatin vocabulary",
+    "Distinguish correlation from causation"
+  ],
+  "objectives": [
+    "Differentiate promoter, enhancer and transcription-factor roles",
+    "Explain epigenetic changes without implying sequence mutation",
+    "Critically examine imprinting, twin comparisons and environmental evidence"
+  ],
+  "sections": [
+    {
+      "id": "d22-1",
+      "understandingIds": [
+        "D2.2.1"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What links a protein-coding gene to a cellular trait?",
+      "explanation": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide. The folded protein may serve as an enzyme, structural component, receptor or regulatory factor. Many phenotypic effects therefore emerge through a chain of molecular consequences.\n\nCells with similar DNA often differ in phenotype because they express different subsets and quantities of genes. Non-protein-coding functional RNAs also influence phenotype, so the DNA-to-protein path is common but not universal. Regulation acts at transcription, RNA stability, translation and later protein activity.\n\nDNA sequence can influence phenotype through a causal chain: transcription creates RNA, translation of a protein-coding transcript yields a polypeptide, and the folded protein acts as an enzyme, receptor or structural component. Functional RNA genes are a real exception to the protein-coding path. Two genetically similar cells can differ greatly in phenotype by expressing different genes.\n\nA protein-coding gene can be transcribed to an RNA message, which may be translated into a polypeptide. Its structure and abundance affect molecular interactions, cellular activities and ultimately observable traits. However, not every gene codes for protein: some functional products are RNAs. Alleles may influence phenotype by changing a coding sequence or the regulation of expression, and the outcome may depend on additional genes and environmental signals. Inheritance supplies the genomic information, but gene expression controls when and where that information affects cells.",
+      "revisionSummary": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide. Cells with similar DNA often differ in phenotype because they express different subsets and quantities of genes.",
+      "terms": [
+        "Genes influence phenotype through expression: mechanism",
+        "Expression is not the DNA sequence itself: boundary or comparison"
+      ],
+      "workedExample": "Pancreatic beta cells transcribe INS and produce insulin while most skin cells do not produce appreciable insulin.",
+      "misconceptions": [
+        {
+          "misconception": "Genes directly become proteins without any RNA intermediate.",
+          "correction": "Most protein-coding genes act through transcription followed by translation and protein function."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide. The folded protein may serve as an enzyme, structural component, receptor or regulatory factor. Many phenotypic effects therefore emerge through a chain of molecular consequences.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Cells with similar DNA often differ in phenotype because they express different subsets and quantities of genes. Non-protein-coding functional RNAs also influence phenotype, so the DNA-to-protein path is common but not universal. Regulation acts at transcription, RNA stability, translation and later protein activity.\n\nDNA sequence can influence phenotype through a causal chain: transcription creates RNA, translation of a protein-coding transcript yields a polypeptide, and the folded protein acts as an enzyme, receptor or structural component. Functional RNA genes are a real exception to the protein-coding path. Two genetically similar cells can differ greatly in phenotype by expressing different genes.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "A protein-coding gene can be transcribed to an RNA message, which may be translated into a polypeptide. Its structure and abundance affect molecular interactions, cellular activities and ultimately observable traits. However, not every gene codes for protein: some functional products are RNAs. Alleles may influence phenotype by changing a coding sequence or the regulation of expression, and the outcome may depend on additional genes and environmental signals. Inheritance supplies the genomic information, but gene expression controls when and where that information affects cells.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-1",
+          "understandingIds": [
+            "D2.2.1"
+          ],
+          "prompt": "What links a protein-coding gene to a cellular trait?",
+          "options": [
+            {
+              "id": "d22-1-o1",
+              "text": "Transcription, translation and protein function",
+              "correct": true,
+              "feedback": "Correct. A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide."
+            },
+            {
+              "id": "d22-1-o2",
+              "text": "Conversion of DNA directly into amino acids",
+              "correct": false,
+              "feedback": "Consider why “Conversion of DNA directly into amino acids” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+            },
+            {
+              "id": "d22-1-o3",
+              "text": "Universal expression of every gene",
+              "correct": false,
+              "feedback": "Consider why “Universal expression of every gene” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+            },
+            {
+              "id": "d22-1-o4",
+              "text": "Division of every organelle",
+              "correct": false,
+              "feedback": "Consider why “Division of every organelle” does not answer this question. Most protein-coding genes act through transcription followed by translation and protein function."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-1",
+          "understandingIds": [
+            "D2.2.1"
+          ],
+          "prompt": "Use a regulatory example to explain genes influence phenotype through expression and specify what does not change in the DNA.",
+          "answer": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide. The folded protein may serve as an enzyme, structural component, receptor or regulatory factor. Many phenotypic effects therefore emerge through a chain of molecular consequences. Pancreatic beta cells transcribe INS and produce insulin while most skin cells do not produce appreciable insulin.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 92,
+      "pdfPage": 98,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          670
+        ],
+        "pdfPages": [
+          682
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Genes influence phenotype through expression",
+          "explanation": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide. The folded protein may serve as an enzyme, structural component, receptor or regulatory factor. Many phenotypic effects therefore emerge through a chain of molecular consequences.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Expression is not the DNA sequence itself",
+          "explanation": "Cells with similar DNA often differ in phenotype because they express different subsets and quantities of genes. Non-protein-coding functional RNAs also influence phenotype, so the DNA-to-protein path is common but not universal. Regulation acts at transcription, RNA stability, translation and later protein activity.\n\nDNA sequence can influence phenotype through a causal chain: transcription creates RNA, translation of a protein-coding transcript yields a polypeptide, and the folded protein acts as an enzyme, receptor or structural component. Functional RNA genes are a real exception to the protein-coding path. Two genetically similar cells can differ greatly in phenotype by expressing different genes.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "From genotype to functional phenotype",
+          "explanation": "A protein-coding gene can be transcribed to an RNA message, which may be translated into a polypeptide. Its structure and abundance affect molecular interactions, cellular activities and ultimately observable traits. However, not every gene codes for protein: some functional products are RNAs. Alleles may influence phenotype by changing a coding sequence or the regulation of expression, and the outcome may depend on additional genes and environmental signals. Inheritance supplies the genomic information, but gene expression controls when and where that information affects cells.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide.",
+        "example": "Pancreatic beta cells transcribe INS and produce insulin while most skin cells do not produce appreciable insulin.",
+        "different": "Cells with similar DNA often differ in phenotype because they express different subsets and quantities of genes.",
+        "concepts": [
+          {
+            "title": "Genes influence phenotype through expression",
+            "keywords": [
+              "genes",
+              "influence",
+              "phenotype",
+              "through"
+            ],
+            "explanation": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide. The folded protein may serve as an enzyme, structural component, receptor or regulatory factor. Many phenotypic effects therefore emerge through a chain of molecular consequences."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d22-2",
+      "understandingIds": [
+        "D2.2.2"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which pair is directly involved in transcription initiation control?",
+      "explanation": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription. Promoters define an initiation region; enhancers can be distant DNA elements that bind activators or other transcription factors. DNA looping or molecular interactions connect enhancer-bound proteins with promoter-associated machinery.\n\nCell identity and hormone signals influence which transcription factors are active. Activators or repressors can raise or lower transcription; a promoter is not an amino-acid sequence, and an enhancer does not need to be next to the gene to affect it.\n\nSequence-specific transcription factors can bind promoters and distal enhancers, modulating transcription initiation by influencing polymerase recruitment or chromatin accessibility. An enhancer need not sit next to a promoter along the linear DNA sequence; folding can bring these elements together. The same genome therefore gives distinct outputs in different cell types.\n\nPromoters help position the transcription machinery at the start of a gene. A transcription factor can bind a specific regulatory sequence and increase or decrease initiation; an enhancer can influence a promoter even when it is not directly adjacent to it. The relevant outcome is a change in how frequently new RNA molecules are made, not a change in the gene's DNA base sequence. A factor might be present in one differentiated cell type but absent or inactive in another, producing different protein levels from the same genome.",
+      "revisionSummary": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription. Cell identity and hormone signals influence which transcription factors are active.",
+      "terms": [
+        "Transcription factors read regulatory DNA sequences: mechanism",
+        "The same DNA can yield different outputs: boundary or comparison"
+      ],
+      "workedExample": "In a muscle cell, tissue-specific transcription factors activate sets of genes important for contraction.",
+      "misconceptions": [
+        {
+          "misconception": "Enhancers are proteins that move amino acids into a ribosome.",
+          "correction": "Enhancers are DNA regulatory regions that bind regulatory proteins."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription. Promoters define an initiation region; enhancers can be distant DNA elements that bind activators or other transcription factors. DNA looping or molecular interactions connect enhancer-bound proteins with promoter-associated machinery.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Cell identity and hormone signals influence which transcription factors are active. Activators or repressors can raise or lower transcription; a promoter is not an amino-acid sequence, and an enhancer does not need to be next to the gene to affect it.\n\nSequence-specific transcription factors can bind promoters and distal enhancers, modulating transcription initiation by influencing polymerase recruitment or chromatin accessibility. An enhancer need not sit next to a promoter along the linear DNA sequence; folding can bring these elements together. The same genome therefore gives distinct outputs in different cell types.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Promoters help position the transcription machinery at the start of a gene. A transcription factor can bind a specific regulatory sequence and increase or decrease initiation; an enhancer can influence a promoter even when it is not directly adjacent to it. The relevant outcome is a change in how frequently new RNA molecules are made, not a change in the gene's DNA base sequence. A factor might be present in one differentiated cell type but absent or inactive in another, producing different protein levels from the same genome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [
+        "d22-regulatory-flow"
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "d22-regulatory-flow",
+          "afterBlock": 1
+        }
+      ],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-2",
+          "understandingIds": [
+            "D2.2.2"
+          ],
+          "prompt": "Which pair is directly involved in transcription initiation control?",
+          "options": [
+            {
+              "id": "d22-2-o1",
+              "text": "Promoter DNA and sequence-binding transcription factors",
+              "correct": true,
+              "feedback": "Correct. Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription."
+            },
+            {
+              "id": "d22-2-o2",
+              "text": "Anticodon and tRNA exit site",
+              "correct": false,
+              "feedback": "Consider why “Anticodon and tRNA exit site” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+            },
+            {
+              "id": "d22-2-o3",
+              "text": "Histone amino acid and newly formed peptide bond",
+              "correct": false,
+              "feedback": "Consider why “Histone amino acid and newly formed peptide bond” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+            },
+            {
+              "id": "d22-2-o4",
+              "text": "Mitochondrial ATP and osmotic pressure",
+              "correct": false,
+              "feedback": "Consider why “Mitochondrial ATP and osmotic pressure” does not answer this question. Enhancers are DNA regulatory regions that bind regulatory proteins."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-2",
+          "understandingIds": [
+            "D2.2.2"
+          ],
+          "prompt": "Use a regulatory example to explain transcription factors read regulatory dna sequences and specify what does not change in the DNA.",
+          "answer": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription. Promoters define an initiation region; enhancers can be distant DNA elements that bind activators or other transcription factors. DNA looping or molecular interactions connect enhancer-bound proteins with promoter-associated machinery. In a muscle cell, tissue-specific transcription factors activate sets of genes important for contraction.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 92,
+      "pdfPage": 98,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          671
+        ],
+        "pdfPages": [
+          683
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Transcription factors read regulatory DNA sequences",
+          "explanation": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription. Promoters define an initiation region; enhancers can be distant DNA elements that bind activators or other transcription factors. DNA looping or molecular interactions connect enhancer-bound proteins with promoter-associated machinery.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "The same DNA can yield different outputs",
+          "explanation": "Cell identity and hormone signals influence which transcription factors are active. Activators or repressors can raise or lower transcription; a promoter is not an amino-acid sequence, and an enhancer does not need to be next to the gene to affect it.\n\nSequence-specific transcription factors can bind promoters and distal enhancers, modulating transcription initiation by influencing polymerase recruitment or chromatin accessibility. An enhancer need not sit next to a promoter along the linear DNA sequence; folding can bring these elements together. The same genome therefore gives distinct outputs in different cell types.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "How regulatory DNA changes transcription rate",
+          "explanation": "Promoters help position the transcription machinery at the start of a gene. A transcription factor can bind a specific regulatory sequence and increase or decrease initiation; an enhancer can influence a promoter even when it is not directly adjacent to it. The relevant outcome is a change in how frequently new RNA molecules are made, not a change in the gene's DNA base sequence. A factor might be present in one differentiated cell type but absent or inactive in another, producing different protein levels from the same genome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription.",
+        "example": "In a muscle cell, tissue-specific transcription factors activate sets of genes important for contraction.",
+        "different": "Cell identity and hormone signals influence which transcription factors are active.",
+        "concepts": [
+          {
+            "title": "Transcription factors read regulatory DNA sequences",
+            "keywords": [
+              "transcription",
+              "factors",
+              "regulatory",
+              "sequences"
+            ],
+            "explanation": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription. Promoters define an initiation region; enhancers can be distant DNA elements that bind activators or other transcription factors. DNA looping or molecular interactions connect enhancer-bound proteins with promoter-associated machinery."
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "How DNA binding regulates transcription",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Regulatory sequence",
+              "description": "Promoter or enhancer DNA provides a protein-binding site."
+            },
+            {
+              "title": "Factor binding",
+              "description": "Sequence-specific transcription factor binds DNA."
+            },
+            {
+              "title": "Recruitment and control",
+              "description": "Transcription initiation rate changes."
+            },
+            {
+              "title": "Biological consequence",
+              "description": "Altered transcript supply can change protein abundance and phenotype."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d22-3",
+      "understandingIds": [
+        "D2.2.3"
+      ],
+      "level": "HL",
+      "guidingQuestion": "If mRNA is degraded faster while transcription stays constant, what generally happens to its abundance?",
+      "explanation": "A newly made mRNA can be translated repeatedly while it persists. Nucleases eventually break RNA into smaller units, so differences in mRNA degradation rate influence how many protein molecules can be synthesized from one transcript. In human cells, some mRNAs last only minutes whereas others persist for hours or days.\n\nTwo cells could transcribe the same gene at similar rates but produce different protein amounts if one rapidly degrades its mRNA. It is therefore incorrect to infer protein synthesis rate from promoter activity alone; RNA abundance depends on both production and decay.\n\nAn mRNA's abundance depends on both synthesis and degradation. If transcription supplies 100 transcripts per hour but degradation accelerates, a lower steady-state transcript pool usually results and the opportunity for translation decreases. Human RNA lifetimes range from minutes to days, so no fixed universal half-life should be claimed.\n\nConsider two cells transcribing the same gene at the same rate. If one cell rapidly degrades that transcript using nucleases, fewer mRNA molecules remain available for ribosomes and total protein production can be lower. A more stable mRNA may support many rounds of translation. A short mRNA half-life makes it possible to change protein production rapidly after a signal; a longer lifetime can sustain expression. This control acts after transcription and must not be confused with proteasomal degradation of the completed protein.",
+      "revisionSummary": "A newly made mRNA can be translated repeatedly while it persists. Two cells could transcribe the same gene at similar rates but produce different protein amounts if one rapidly degrades its mRNA.",
+      "terms": [
+        "mRNA lifetime controls protein production: mechanism",
+        "Compare equal transcription with unequal stability: boundary or comparison"
+      ],
+      "workedExample": "A short-lived regulatory mRNA allows its protein production to fall rapidly when transcription ceases.",
+      "misconceptions": [
+        {
+          "misconception": "Transcription rate alone determines the lifetime of every mature mRNA.",
+          "correction": "mRNA degradation regulates how long transcripts remain available for translation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A newly made mRNA can be translated repeatedly while it persists. Nucleases eventually break RNA into smaller units, so differences in mRNA degradation rate influence how many protein molecules can be synthesized from one transcript. In human cells, some mRNAs last only minutes whereas others persist for hours or days.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Two cells could transcribe the same gene at similar rates but produce different protein amounts if one rapidly degrades its mRNA. It is therefore incorrect to infer protein synthesis rate from promoter activity alone; RNA abundance depends on both production and decay.\n\nAn mRNA's abundance depends on both synthesis and degradation. If transcription supplies 100 transcripts per hour but degradation accelerates, a lower steady-state transcript pool usually results and the opportunity for translation decreases. Human RNA lifetimes range from minutes to days, so no fixed universal half-life should be claimed.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Consider two cells transcribing the same gene at the same rate. If one cell rapidly degrades that transcript using nucleases, fewer mRNA molecules remain available for ribosomes and total protein production can be lower. A more stable mRNA may support many rounds of translation. A short mRNA half-life makes it possible to change protein production rapidly after a signal; a longer lifetime can sustain expression. This control acts after transcription and must not be confused with proteasomal degradation of the completed protein.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-3",
+          "understandingIds": [
+            "D2.2.3"
+          ],
+          "prompt": "If mRNA is degraded faster while transcription stays constant, what generally happens to its abundance?",
+          "options": [
+            {
+              "id": "d22-3-o1",
+              "text": "It falls",
+              "correct": true,
+              "feedback": "Correct. A newly made mRNA can be translated repeatedly while it persists."
+            },
+            {
+              "id": "d22-3-o2",
+              "text": "It must rise",
+              "correct": false,
+              "feedback": "Consider why “It must rise” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+            },
+            {
+              "id": "d22-3-o3",
+              "text": "The DNA sequence changes to RNA",
+              "correct": false,
+              "feedback": "Consider why “The DNA sequence changes to RNA” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+            },
+            {
+              "id": "d22-3-o4",
+              "text": "Every ribosome gains a new gene",
+              "correct": false,
+              "feedback": "Consider why “Every ribosome gains a new gene” does not answer this question. mRNA degradation regulates how long transcripts remain available for translation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-3",
+          "understandingIds": [
+            "D2.2.3"
+          ],
+          "prompt": "Use a regulatory example to explain mrna lifetime controls protein production and specify what does not change in the DNA.",
+          "answer": "A newly made mRNA can be translated repeatedly while it persists. Nucleases eventually break RNA into smaller units, so differences in mRNA degradation rate influence how many protein molecules can be synthesized from one transcript. In human cells, some mRNAs last only minutes whereas others persist for hours or days. A short-lived regulatory mRNA allows its protein production to fall rapidly when transcription ceases.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          672
+        ],
+        "pdfPages": [
+          684
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "mRNA lifetime controls protein production",
+          "explanation": "A newly made mRNA can be translated repeatedly while it persists. Nucleases eventually break RNA into smaller units, so differences in mRNA degradation rate influence how many protein molecules can be synthesized from one transcript. In human cells, some mRNAs last only minutes whereas others persist for hours or days.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Compare equal transcription with unequal stability",
+          "explanation": "Two cells could transcribe the same gene at similar rates but produce different protein amounts if one rapidly degrades its mRNA. It is therefore incorrect to infer protein synthesis rate from promoter activity alone; RNA abundance depends on both production and decay.\n\nAn mRNA's abundance depends on both synthesis and degradation. If transcription supplies 100 transcripts per hour but degradation accelerates, a lower steady-state transcript pool usually results and the opportunity for translation decreases. Human RNA lifetimes range from minutes to days, so no fixed universal half-life should be claimed.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Connect RNA lifetime to protein output",
+          "explanation": "Consider two cells transcribing the same gene at the same rate. If one cell rapidly degrades that transcript using nucleases, fewer mRNA molecules remain available for ribosomes and total protein production can be lower. A more stable mRNA may support many rounds of translation. A short mRNA half-life makes it possible to change protein production rapidly after a signal; a longer lifetime can sustain expression. This control acts after transcription and must not be confused with proteasomal degradation of the completed protein.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A newly made mRNA can be translated repeatedly while it persists.",
+        "example": "A short-lived regulatory mRNA allows its protein production to fall rapidly when transcription ceases.",
+        "different": "Two cells could transcribe the same gene at similar rates but produce different protein amounts if one rapidly degrades its mRNA.",
+        "concepts": [
+          {
+            "title": "mRNA lifetime controls protein production",
+            "keywords": [
+              "lifetime",
+              "controls",
+              "protein",
+              "production"
+            ],
+            "explanation": "A newly made mRNA can be translated repeatedly while it persists. Nucleases eventually break RNA into smaller units, so differences in mRNA degradation rate influence how many protein molecules can be synthesized from one transcript. In human cells, some mRNAs last only minutes whereas others persist for hours or days."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Modelled equal transcription but unequal RNA stability — hypothetical steady states, not empirical concentrations",
+          "headers": [
+            "Condition",
+            "RNA production (molecules/min)",
+            "RNA removed (molecules/min) at shown state",
+            "Interpretation"
+          ],
+          "rows": [
+            [
+              "A",
+              10,
+              10,
+              "Stable RNA abundance at this state"
+            ],
+            [
+              "B",
+              10,
+              5,
+              "RNA abundance initially rises"
+            ],
+            [
+              "C",
+              10,
+              20,
+              "RNA abundance initially falls"
+            ]
+          ]
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Equal transcription is not equal RNA output",
+          "afterBlock": 1,
+          "headers": [
+            "Condition",
+            "mRNA production per hour",
+            "mRNA clearance per hour",
+            "Direction of steady-state mRNA"
+          ],
+          "rows": [
+            [
+              "Baseline model",
+              "100",
+              "100",
+              "Stable"
+            ],
+            [
+              "Faster removal",
+              "100",
+              "150",
+              "Falls initially"
+            ],
+            [
+              "Slower removal",
+              "100",
+              "50",
+              "Rises initially"
+            ]
+          ],
+          "note": "Illustrative fluxes in arbitrary transcript counts per hour; not measured human-cell data. Rates will change as abundance adjusts."
+        }
+      ]
+    },
+    {
+      "id": "d22-4",
+      "understandingIds": [
+        "D2.2.4"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What makes epigenetic regulation distinct from sequence mutation?",
+      "explanation": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate. Transcription factors and chromatin states help stabilize these patterns so a neuron and a hepatocyte perform different functions despite broadly sharing the same inherited genome.\n\nEpigenetic regulation changes gene activity or chromatin organization without changing the underlying DNA nucleotide sequence. A change in transcription does not by itself prove that a chromatin tag caused it; the explanation must connect regulatory mechanisms and cell identity.\n\nEpigenesis is the progressive establishment of differentiated cell states during development. Epigenetic marks and regulatory feedback can stabilize patterns of gene activity without replacing DNA bases. A changed expression state can alter phenotype while leaving genotype (DNA sequence) unchanged.\n\nAn early embryonic cell and its descendants generally inherit the same DNA sequence through mitosis, yet descendants can become muscle, nerve or epithelial cells. Regulatory signals establish and maintain different combinations of active and inactive genes, leading to different proteins and functions. These stable patterns are part of epigenesis, which concerns developmental differentiation without requiring DNA sequence changes. Do not label every difference between two differentiated cells as a genetic mutation: altered expression can explain major phenotypic differences with an unchanged genome.",
+      "revisionSummary": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate. Epigenetic regulation changes gene activity or chromatin organization without changing the underlying DNA nucleotide sequence.",
+      "terms": [
+        "Epigenesis generates differentiated cell identities: mechanism",
+        "Epigenetic change is not a DNA base substitution: boundary or comparison"
+      ],
+      "workedExample": "A liver cell and a neuron retain similar genomes but express different proteins needed for their functions.",
+      "misconceptions": [
+        {
+          "misconception": "Epigenetic differentiation requires replacing an entire chromosome's DNA sequence.",
+          "correction": "Different gene expression programs can develop without altering DNA base order."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate. Transcription factors and chromatin states help stabilize these patterns so a neuron and a hepatocyte perform different functions despite broadly sharing the same inherited genome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Epigenetic regulation changes gene activity or chromatin organization without changing the underlying DNA nucleotide sequence. A change in transcription does not by itself prove that a chromatin tag caused it; the explanation must connect regulatory mechanisms and cell identity.\n\nEpigenesis is the progressive establishment of differentiated cell states during development. Epigenetic marks and regulatory feedback can stabilize patterns of gene activity without replacing DNA bases. A changed expression state can alter phenotype while leaving genotype (DNA sequence) unchanged.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "An early embryonic cell and its descendants generally inherit the same DNA sequence through mitosis, yet descendants can become muscle, nerve or epithelial cells. Regulatory signals establish and maintain different combinations of active and inactive genes, leading to different proteins and functions. These stable patterns are part of epigenesis, which concerns developmental differentiation without requiring DNA sequence changes. Do not label every difference between two differentiated cells as a genetic mutation: altered expression can explain major phenotypic differences with an unchanged genome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-4",
+          "understandingIds": [
+            "D2.2.4"
+          ],
+          "prompt": "What makes epigenetic regulation distinct from sequence mutation?",
+          "options": [
+            {
+              "id": "d22-4-o1",
+              "text": "It changes expression without changing DNA base sequence",
+              "correct": true,
+              "feedback": "Correct. During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate."
+            },
+            {
+              "id": "d22-4-o2",
+              "text": "It always inserts a new codon",
+              "correct": false,
+              "feedback": "Consider why “It always inserts a new codon” does not answer this question. Different gene expression programs can develop without altering DNA base order."
+            },
+            {
+              "id": "d22-4-o3",
+              "text": "It removes every promoter",
+              "correct": false,
+              "feedback": "Consider why “It removes every promoter” does not answer this question. Different gene expression programs can develop without altering DNA base order."
+            },
+            {
+              "id": "d22-4-o4",
+              "text": "It can occur only after meiosis",
+              "correct": false,
+              "feedback": "Consider why “It can occur only after meiosis” does not answer this question. Different gene expression programs can develop without altering DNA base order."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-4",
+          "understandingIds": [
+            "D2.2.4"
+          ],
+          "prompt": "Use a regulatory example to explain epigenesis generates differentiated cell identities and specify what does not change in the DNA.",
+          "answer": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate. Transcription factors and chromatin states help stabilize these patterns so a neuron and a hepatocyte perform different functions despite broadly sharing the same inherited genome. A liver cell and a neuron retain similar genomes but express different proteins needed for their functions.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          673
+        ],
+        "pdfPages": [
+          685
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Epigenesis generates differentiated cell identities",
+          "explanation": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate. Transcription factors and chromatin states help stabilize these patterns so a neuron and a hepatocyte perform different functions despite broadly sharing the same inherited genome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Epigenetic change is not a DNA base substitution",
+          "explanation": "Epigenetic regulation changes gene activity or chromatin organization without changing the underlying DNA nucleotide sequence. A change in transcription does not by itself prove that a chromatin tag caused it; the explanation must connect regulatory mechanisms and cell identity.\n\nEpigenesis is the progressive establishment of differentiated cell states during development. Epigenetic marks and regulatory feedback can stabilize patterns of gene activity without replacing DNA bases. A changed expression state can alter phenotype while leaving genotype (DNA sequence) unchanged.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "From a common genome to distinct cell identities",
+          "explanation": "An early embryonic cell and its descendants generally inherit the same DNA sequence through mitosis, yet descendants can become muscle, nerve or epithelial cells. Regulatory signals establish and maintain different combinations of active and inactive genes, leading to different proteins and functions. These stable patterns are part of epigenesis, which concerns developmental differentiation without requiring DNA sequence changes. Do not label every difference between two differentiated cells as a genetic mutation: altered expression can explain major phenotypic differences with an unchanged genome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate.",
+        "example": "A liver cell and a neuron retain similar genomes but express different proteins needed for their functions.",
+        "different": "Epigenetic regulation changes gene activity or chromatin organization without changing the underlying DNA nucleotide sequence.",
+        "concepts": [
+          {
+            "title": "Epigenesis generates differentiated cell identities",
+            "keywords": [
+              "epigenesis",
+              "generates",
+              "differentiated",
+              "identities"
+            ],
+            "explanation": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate. Transcription factors and chromatin states help stabilize these patterns so a neuron and a hepatocyte perform different functions despite broadly sharing the same inherited genome."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d22-5",
+      "understandingIds": [
+        "D2.2.5"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which cellular dataset measures RNA molecules present at a given time?",
+      "explanation": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions. The same genome can support very different transcriptomes and proteomes.\n\nAn mRNA may change faster than its protein product; protein abundance also depends on translation, folding and degradation. Therefore transcript and protein measurements from the same cell need not agree directly. Not all genes are expressed in any one cell.\n\nThe genome is the DNA complement; the transcriptome is the set and abundances of RNA transcripts in a given cell and condition; the proteome is the set and amounts of proteins. Proteins persist and undergo modification on different timescales from their mRNAs, so transcript level does not map one-to-one onto protein abundance.\n\nThe genome describes inherited DNA information; the transcriptome describes RNA molecules present in a sampled cell at a particular time; the proteome describes expressed proteins and their forms. A neuron and a pancreatic beta cell may share essentially the same nuclear DNA while transcribing different genes and accumulating different protein products. A transcript abundance measurement is not automatically a protein-abundance measurement.",
+      "revisionSummary": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions. An mRNA may change faster than its protein product; protein abundance also depends on translation, folding and degradation.",
+      "terms": [
+        "Genome, transcriptome and proteome describe different layers: mechanism",
+        "Timing and turnover matter: boundary or comparison"
+      ],
+      "workedExample": "A pancreatic beta cell and a neuron contain related genomes but differ in insulin mRNA and in their many specialized proteins.",
+      "misconceptions": [
+        {
+          "misconception": "A transcriptome is an exact duplicate of the cell's complete genome.",
+          "correction": "Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions. The same genome can support very different transcriptomes and proteomes.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "An mRNA may change faster than its protein product; protein abundance also depends on translation, folding and degradation. Therefore transcript and protein measurements from the same cell need not agree directly. Not all genes are expressed in any one cell.\n\nThe genome is the DNA complement; the transcriptome is the set and abundances of RNA transcripts in a given cell and condition; the proteome is the set and amounts of proteins. Proteins persist and undergo modification on different timescales from their mRNAs, so transcript level does not map one-to-one onto protein abundance.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "The genome describes inherited DNA information; the transcriptome describes RNA molecules present in a sampled cell at a particular time; the proteome describes expressed proteins and their forms. A neuron and a pancreatic beta cell may share essentially the same nuclear DNA while transcribing different genes and accumulating different protein products. A transcript abundance measurement is not automatically a protein-abundance measurement.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-5",
+          "understandingIds": [
+            "D2.2.5"
+          ],
+          "prompt": "Which cellular dataset measures RNA molecules present at a given time?",
+          "options": [
+            {
+              "id": "d22-5-o1",
+              "text": "Transcriptome",
+              "correct": true,
+              "feedback": "Correct. A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions."
+            },
+            {
+              "id": "d22-5-o2",
+              "text": "Genome",
+              "correct": false,
+              "feedback": "Consider why “Genome” does not answer this question. Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+            },
+            {
+              "id": "d22-5-o3",
+              "text": "Proteome",
+              "correct": false,
+              "feedback": "Consider why “Proteome” does not answer this question. Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+            },
+            {
+              "id": "d22-5-o4",
+              "text": "Chromosome karyotype alone",
+              "correct": false,
+              "feedback": "Consider why “Chromosome karyotype alone” does not answer this question. Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-5",
+          "understandingIds": [
+            "D2.2.5"
+          ],
+          "prompt": "Use a regulatory example to explain genome, transcriptome and proteome describe different layers and specify what does not change in the DNA.",
+          "answer": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions. The same genome can support very different transcriptomes and proteomes. A pancreatic beta cell and a neuron contain related genomes but differ in insulin mRNA and in their many specialized proteins.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          674
+        ],
+        "pdfPages": [
+          686
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Genome, transcriptome and proteome describe different layers",
+          "explanation": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions. The same genome can support very different transcriptomes and proteomes.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Timing and turnover matter",
+          "explanation": "An mRNA may change faster than its protein product; protein abundance also depends on translation, folding and degradation. Therefore transcript and protein measurements from the same cell need not agree directly. Not all genes are expressed in any one cell.\n\nThe genome is the DNA complement; the transcriptome is the set and abundances of RNA transcripts in a given cell and condition; the proteome is the set and amounts of proteins. Proteins persist and undergo modification on different timescales from their mRNAs, so transcript level does not map one-to-one onto protein abundance.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Genome, transcriptome and proteome answer different questions",
+          "explanation": "The genome describes inherited DNA information; the transcriptome describes RNA molecules present in a sampled cell at a particular time; the proteome describes expressed proteins and their forms. A neuron and a pancreatic beta cell may share essentially the same nuclear DNA while transcribing different genes and accumulating different protein products. A transcript abundance measurement is not automatically a protein-abundance measurement.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions.",
+        "example": "A pancreatic beta cell and a neuron contain related genomes but differ in insulin mRNA and in their many specialized proteins.",
+        "different": "An mRNA may change faster than its protein product; protein abundance also depends on translation, folding and degradation.",
+        "concepts": [
+          {
+            "title": "Genome, transcriptome and proteome describe different layers",
+            "keywords": [
+              "genome,",
+              "transcriptome",
+              "proteome",
+              "describe"
+            ],
+            "explanation": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions. The same genome can support very different transcriptomes and proteomes."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Three molecular layers compared; cell examples are illustrative",
+          "headers": [
+            "Layer",
+            "Measures",
+            "Can differ between neuron and beta cell?"
+          ],
+          "rows": [
+            [
+              "Genome",
+              "DNA base sequences",
+              "Usually largely shared"
+            ],
+            [
+              "Transcriptome",
+              "RNA species and abundance",
+              "Yes, strongly"
+            ],
+            [
+              "Proteome",
+              "Proteins and abundance",
+              "Yes, strongly"
+            ]
+          ]
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Three biological information layers",
+          "afterBlock": 0,
+          "headers": [
+            "Layer",
+            "Measured material",
+            "Varies between cell types?"
+          ],
+          "rows": [
+            [
+              "Genome",
+              "DNA sequences",
+              "Usually largely shared in one individual"
+            ],
+            [
+              "Transcriptome",
+              "RNA identity and quantity",
+              "Yes, often rapidly"
+            ],
+            [
+              "Proteome",
+              "Protein identity and quantity",
+              "Yes, including turnover and processing"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d22-6",
+      "understandingIds": [
+        "D2.2.6"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which statement about methylation is most accurate?",
+      "explanation": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins. Histone proteins in nucleosomes can also be chemically modified, altering how chromatin interacts with regulatory machinery.\n\nUnlike the simplified notion that all methylation turns genes off, different histone methylation positions and patterns can be associated with gene activation or repression. For IB purposes, distinguish promoter DNA methylation from histone modification without memorizing individual histone residues.\n\nDNA cytosine methylation at a promoter commonly reduces downstream transcription. Histone methylation modifies certain amino acid residues on histone proteins and can correlate with activation or repression depending on position and context. The existence of a methyl group does not always mean a gene is switched off.\n\nAdding a methyl group to cytosine in the promoter of a gene is often associated with reduced transcription of that gene. Modifications to histone proteins can also influence whether the DNA packaged around them is accessible to the transcription machinery; depending on the context, histone methylation can be associated with activation or repression. These are chemical tags, not substitutions of one DNA base for another. The IB scope requires the regulatory effects and distinction from mutation, not a catalogue of individual histone marks or their modifying enzymes.",
+      "revisionSummary": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins. Unlike the simplified notion that all methylation turns genes off, different histone methylation positions and patterns can be associated with gene activation or repression.",
+      "terms": [
+        "DNA and histone tags influence expression: mechanism",
+        "Histone methylation is context-dependent: boundary or comparison"
+      ],
+      "workedExample": "Methylating cytosines in a promoter can reduce transcription even though its nucleotide sequence has not changed.",
+      "misconceptions": [
+        {
+          "misconception": "Every methyl tag on every histone always represses transcription.",
+          "correction": "Promoter cytosine methylation often represses; histone methylation may activate or repress."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins. Histone proteins in nucleosomes can also be chemically modified, altering how chromatin interacts with regulatory machinery.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Unlike the simplified notion that all methylation turns genes off, different histone methylation positions and patterns can be associated with gene activation or repression. For IB purposes, distinguish promoter DNA methylation from histone modification without memorizing individual histone residues.\n\nDNA cytosine methylation at a promoter commonly reduces downstream transcription. Histone methylation modifies certain amino acid residues on histone proteins and can correlate with activation or repression depending on position and context. The existence of a methyl group does not always mean a gene is switched off.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Adding a methyl group to cytosine in the promoter of a gene is often associated with reduced transcription of that gene. Modifications to histone proteins can also influence whether the DNA packaged around them is accessible to the transcription machinery; depending on the context, histone methylation can be associated with activation or repression. These are chemical tags, not substitutions of one DNA base for another. The IB scope requires the regulatory effects and distinction from mutation, not a catalogue of individual histone marks or their modifying enzymes.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-6",
+          "understandingIds": [
+            "D2.2.6"
+          ],
+          "prompt": "Which statement about methylation is most accurate?",
+          "options": [
+            {
+              "id": "d22-6-o1",
+              "text": "Promoter DNA methylation often reduces transcription",
+              "correct": true,
+              "feedback": "Correct. Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins."
+            },
+            {
+              "id": "d22-6-o2",
+              "text": "All histone methylation invariably activates transcription",
+              "correct": false,
+              "feedback": "Consider why “All histone methylation invariably activates transcription” does not answer this question. Promoter cytosine methylation often represses; histone methylation may activate or repress."
+            },
+            {
+              "id": "d22-6-o3",
+              "text": "Methylation always replaces DNA bases",
+              "correct": false,
+              "feedback": "Consider why “Methylation always replaces DNA bases” does not answer this question. Promoter cytosine methylation often represses; histone methylation may activate or repress."
+            },
+            {
+              "id": "d22-6-o4",
+              "text": "Histones are translated from mRNA codons on DNA directly",
+              "correct": false,
+              "feedback": "Consider why “Histones are translated from mRNA codons on DNA directly” does not answer this question. Promoter cytosine methylation often represses; histone methylation may activate or repress."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-6",
+          "understandingIds": [
+            "D2.2.6"
+          ],
+          "prompt": "Use a regulatory example to explain dna and histone tags influence expression and specify what does not change in the DNA.",
+          "answer": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins. Histone proteins in nucleosomes can also be chemically modified, altering how chromatin interacts with regulatory machinery. Methylating cytosines in a promoter can reduce transcription even though its nucleotide sequence has not changed.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          675
+        ],
+        "pdfPages": [
+          687
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "DNA and histone tags influence expression",
+          "explanation": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins. Histone proteins in nucleosomes can also be chemically modified, altering how chromatin interacts with regulatory machinery.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Histone methylation is context-dependent",
+          "explanation": "Unlike the simplified notion that all methylation turns genes off, different histone methylation positions and patterns can be associated with gene activation or repression. For IB purposes, distinguish promoter DNA methylation from histone modification without memorizing individual histone residues.\n\nDNA cytosine methylation at a promoter commonly reduces downstream transcription. Histone methylation modifies certain amino acid residues on histone proteins and can correlate with activation or repression depending on position and context. The existence of a methyl group does not always mean a gene is switched off.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Keep the two methylation examples distinct",
+          "explanation": "Adding a methyl group to cytosine in the promoter of a gene is often associated with reduced transcription of that gene. Modifications to histone proteins can also influence whether the DNA packaged around them is accessible to the transcription machinery; depending on the context, histone methylation can be associated with activation or repression. These are chemical tags, not substitutions of one DNA base for another. The IB scope requires the regulatory effects and distinction from mutation, not a catalogue of individual histone marks or their modifying enzymes.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins.",
+        "example": "Methylating cytosines in a promoter can reduce transcription even though its nucleotide sequence has not changed.",
+        "different": "Unlike the simplified notion that all methylation turns genes off, different histone methylation positions and patterns can be associated with gene activation or repression.",
+        "concepts": [
+          {
+            "title": "DNA and histone tags influence expression",
+            "keywords": [
+              "histone",
+              "influence",
+              "expression"
+            ],
+            "explanation": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins. Histone proteins in nucleosomes can also be chemically modified, altering how chromatin interacts with regulatory machinery."
+          }
+        ]
+      },
+      "graphTables": [
+        {
+          "caption": "Different modifications and possible transcription effects",
+          "headers": [
+            "Modification",
+            "Common interpretation",
+            "Important caveat"
+          ],
+          "rows": [
+            [
+              "Promoter cytosine methylation",
+              "Often repression",
+              "Depends on locus"
+            ],
+            [
+              "Histone methylation",
+              "Activation or repression",
+              "Depends on histone residue and context"
+            ]
+          ]
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "comparison",
+          "title": "Not all methylation has the same regulatory effect",
+          "afterBlock": 1,
+          "headers": [
+            "Molecular target",
+            "Common consequence",
+            "Important limit"
+          ],
+          "rows": [
+            [
+              "Promoter cytosine in DNA",
+              "Often lowers downstream transcription",
+              "Genomic context matters"
+            ],
+            [
+              "Histone amino-acid residues",
+              "May activate or repress transcription",
+              "Depends on residue/site and chromatin state"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d22-7",
+      "understandingIds": [
+        "D2.2.7"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What may be inherited through mitosis without changing DNA sequence?",
+      "explanation": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution. Some parent-of-origin marks can also influence offspring phenotypes, but germ-line and early embryonic reprogramming remove many marks.\n\nEpigenetic inheritance across cell divisions is well established; widespread transmission of environmentally induced patterns across multiple human generations is far harder to demonstrate and should not be presented as routine. Molecular maintenance mechanisms and germ-line erasure constrain persistence.\n\nSome DNA methylation and histone-state information can be recreated after replication, allowing daughter-cell lineages to retain expression patterns without a base substitution. Inheritance through an entire organismal generation is more constrained because many marks are reset in gamete formation and early development. Distinguish mitotic inheritance from proven transgenerational inheritance.\n\nAn epigenetic expression pattern may be copied as somatic cells divide, helping maintain tissue identity without altering DNA base sequence. This does not imply that every such mark is passed through the egg or sperm to descendants. Extensive epigenetic reprogramming occurs during germ-cell and early embryo development; claims of inheritance across generations need evidence beyond persistence in one cell lineage.",
+      "revisionSummary": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution. Epigenetic inheritance across cell divisions is well established; widespread transmission of environmentally induced patterns across multiple human generations is far harder to demonstrate and should not be presented as routine.",
+      "terms": [
+        "Some regulatory states persist through division: mechanism",
+        "Do not treat all acquired marks as permanently inherited: boundary or comparison"
+      ],
+      "workedExample": "A differentiated cell lineage can preserve a silenced promoter through repeated mitotic divisions.",
+      "misconceptions": [
+        {
+          "misconception": "Every diet-induced methyl tag in one adult is passed permanently to all descendants.",
+          "correction": "Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution. Some parent-of-origin marks can also influence offspring phenotypes, but germ-line and early embryonic reprogramming remove many marks.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Epigenetic inheritance across cell divisions is well established; widespread transmission of environmentally induced patterns across multiple human generations is far harder to demonstrate and should not be presented as routine. Molecular maintenance mechanisms and germ-line erasure constrain persistence.\n\nSome DNA methylation and histone-state information can be recreated after replication, allowing daughter-cell lineages to retain expression patterns without a base substitution. Inheritance through an entire organismal generation is more constrained because many marks are reset in gamete formation and early development. Distinguish mitotic inheritance from proven transgenerational inheritance.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "An epigenetic expression pattern may be copied as somatic cells divide, helping maintain tissue identity without altering DNA base sequence. This does not imply that every such mark is passed through the egg or sperm to descendants. Extensive epigenetic reprogramming occurs during germ-cell and early embryo development; claims of inheritance across generations need evidence beyond persistence in one cell lineage.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-7",
+          "understandingIds": [
+            "D2.2.7"
+          ],
+          "prompt": "What may be inherited through mitosis without changing DNA sequence?",
+          "options": [
+            {
+              "id": "d22-7-o1",
+              "text": "A maintained promoter methylation pattern",
+              "correct": true,
+              "feedback": "Correct. If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution."
+            },
+            {
+              "id": "d22-7-o2",
+              "text": "A novel nucleotide substitution in every gamete",
+              "correct": false,
+              "feedback": "Consider why “A novel nucleotide substitution in every gamete” does not answer this question. Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+            },
+            {
+              "id": "d22-7-o3",
+              "text": "A deleted chromosome that never existed",
+              "correct": false,
+              "feedback": "Consider why “A deleted chromosome that never existed” does not answer this question. Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+            },
+            {
+              "id": "d22-7-o4",
+              "text": "Every environmental exposure as an exact phenotype",
+              "correct": false,
+              "feedback": "Consider why “Every environmental exposure as an exact phenotype” does not answer this question. Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-7",
+          "understandingIds": [
+            "D2.2.7"
+          ],
+          "prompt": "Use a regulatory example to explain some regulatory states persist through division and specify what does not change in the DNA.",
+          "answer": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution. Some parent-of-origin marks can also influence offspring phenotypes, but germ-line and early embryonic reprogramming remove many marks. A differentiated cell lineage can preserve a silenced promoter through repeated mitotic divisions.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          676
+        ],
+        "pdfPages": [
+          688
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Some regulatory states persist through division",
+          "explanation": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution. Some parent-of-origin marks can also influence offspring phenotypes, but germ-line and early embryonic reprogramming remove many marks.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Do not treat all acquired marks as permanently inherited",
+          "explanation": "Epigenetic inheritance across cell divisions is well established; widespread transmission of environmentally induced patterns across multiple human generations is far harder to demonstrate and should not be presented as routine. Molecular maintenance mechanisms and germ-line erasure constrain persistence.\n\nSome DNA methylation and histone-state information can be recreated after replication, allowing daughter-cell lineages to retain expression patterns without a base substitution. Inheritance through an entire organismal generation is more constrained because many marks are reset in gamete formation and early development. Distinguish mitotic inheritance from proven transgenerational inheritance.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Distinguish mitotic maintenance from transgenerational inheritance",
+          "explanation": "An epigenetic expression pattern may be copied as somatic cells divide, helping maintain tissue identity without altering DNA base sequence. This does not imply that every such mark is passed through the egg or sperm to descendants. Extensive epigenetic reprogramming occurs during germ-cell and early embryo development; claims of inheritance across generations need evidence beyond persistence in one cell lineage.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution.",
+        "example": "A differentiated cell lineage can preserve a silenced promoter through repeated mitotic divisions.",
+        "different": "Epigenetic inheritance across cell divisions is well established; widespread transmission of environmentally induced patterns across multiple human generations is far harder to demonstrate and should not be presented as routine.",
+        "concepts": [
+          {
+            "title": "Some regulatory states persist through division",
+            "keywords": [
+              "regulatory",
+              "states",
+              "persist",
+              "through"
+            ],
+            "explanation": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution. Some parent-of-origin marks can also influence offspring phenotypes, but germ-line and early embryonic reprogramming remove many marks."
+          }
+        ]
+      },
+      "visuals": [
+        {
+          "kind": "sequence",
+          "title": "Maintaining expression state through mitosis",
+          "afterBlock": 1,
+          "steps": [
+            {
+              "title": "Regulated parent cell",
+              "description": "Some DNA/chromatin positions carry stable expression-associated marks."
+            },
+            {
+              "title": "DNA replication",
+              "description": "Daughter DNA is synthesized and inherited chromatin states are disrupted or diluted."
+            },
+            {
+              "title": "Mark maintenance",
+              "description": "Cellular systems recreate or preserve some regulatory marks."
+            },
+            {
+              "title": "Daughter-cell consequence",
+              "description": "Descendants can maintain a similar gene-expression pattern."
+            }
+          ],
+          "note": "General epigenetic maintenance model; no implication that every modification persists."
+        }
+      ]
+    },
+    {
+      "id": "d22-8",
+      "understandingIds": [
+        "D2.2.8"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Which claim about air pollution and methylation is scientifically justified?",
+      "explanation": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns. Pollution may affect oxidative stress, cell-signaling pathways and regulatory systems, but effects can differ by tissue, dose, timing and co-exposures.\n\nA human epidemiological association between exposure and a methylation pattern must be interpreted with confounders, cell-type composition and measurement uncertainty. Controlled mechanistic experiments can strengthen a causal account; a single correlation does not prove that a methyl tag caused disease.\n\nEnvironmental conditions can be associated with changes in methylation patterns, including responses to air pollution. Exposure comparisons are vulnerable to confounding, differences in cell populations and reverse causality. An association does not by itself demonstrate that a specific methylation change caused a later health outcome.\n\nExposure to airborne pollutants is one example of an environmental condition associated with altered DNA methylation patterns. Such changes can modify the likelihood of particular genes being transcribed and therefore change cellular activity without rewriting their base sequence. To test a proposed causal effect, compare matched exposed and unexposed groups and consider age, diet, cell type and other confounding factors. Observing a methylation difference after exposure does not by itself prove that the exposure caused a specific disease or that the modification will pass to offspring.",
+      "revisionSummary": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns. A human epidemiological association between exposure and a methylation pattern must be interpreted with confounders, cell-type composition and measurement uncertainty.",
+      "terms": [
+        "Environment can correlate with epigenetic change: mechanism",
+        "Association is not necessarily causal proof: boundary or comparison"
+      ],
+      "workedExample": "Two exposed populations may differ in blood-cell methylation patterns, requiring adjustment for age, smoking and cell composition.",
+      "misconceptions": [
+        {
+          "misconception": "Any observed methylation difference after pollution definitively proves a disease mechanism.",
+          "correction": "Environmental associations need controls and cautious causal interpretation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns. Pollution may affect oxidative stress, cell-signaling pathways and regulatory systems, but effects can differ by tissue, dose, timing and co-exposures.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg",
+            "nih-epi",
+            "pubmed-pollution"
+          ]
+        },
+        {
+          "claim": "A human epidemiological association between exposure and a methylation pattern must be interpreted with confounders, cell-type composition and measurement uncertainty. Controlled mechanistic experiments can strengthen a causal account; a single correlation does not prove that a methyl tag caused disease.\n\nEnvironmental conditions can be associated with changes in methylation patterns, including responses to air pollution. Exposure comparisons are vulnerable to confounding, differences in cell populations and reverse causality. An association does not by itself demonstrate that a specific methylation change caused a later health outcome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg",
+            "nih-epi",
+            "pubmed-pollution"
+          ]
+        },
+        {
+          "claim": "Exposure to airborne pollutants is one example of an environmental condition associated with altered DNA methylation patterns. Such changes can modify the likelihood of particular genes being transcribed and therefore change cellular activity without rewriting their base sequence. To test a proposed causal effect, compare matched exposed and unexposed groups and consider age, diet, cell type and other confounding factors. Observing a methylation difference after exposure does not by itself prove that the exposure caused a specific disease or that the modification will pass to offspring.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg",
+        "nih-epi",
+        "pubmed-pollution"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-8",
+          "understandingIds": [
+            "D2.2.8"
+          ],
+          "prompt": "Which claim about air pollution and methylation is scientifically justified?",
+          "options": [
+            {
+              "id": "d22-8-o1",
+              "text": "Studies report associations that require careful causal interpretation",
+              "correct": true,
+              "feedback": "Correct. Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns."
+            },
+            {
+              "id": "d22-8-o2",
+              "text": "Every pollutant gives the same methyl mark in all tissues",
+              "correct": false,
+              "feedback": "Consider why “Every pollutant gives the same methyl mark in all tissues” does not answer this question. Environmental associations need controls and cautious causal interpretation."
+            },
+            {
+              "id": "d22-8-o3",
+              "text": "Air pollution always changes DNA base sequence",
+              "correct": false,
+              "feedback": "Consider why “Air pollution always changes DNA base sequence” does not answer this question. Environmental associations need controls and cautious causal interpretation."
+            },
+            {
+              "id": "d22-8-o4",
+              "text": "Observational association alone proves direct causation",
+              "correct": false,
+              "feedback": "Consider why “Observational association alone proves direct causation” does not answer this question. Environmental associations need controls and cautious causal interpretation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-8",
+          "understandingIds": [
+            "D2.2.8"
+          ],
+          "prompt": "Use a regulatory example to explain environment can correlate with epigenetic change and specify what does not change in the DNA.",
+          "answer": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns. Pollution may affect oxidative stress, cell-signaling pathways and regulatory systems, but effects can differ by tissue, dose, timing and co-exposures. Two exposed populations may differ in blood-cell methylation patterns, requiring adjustment for age, smoking and cell composition.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          677
+        ],
+        "pdfPages": [
+          689
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Environment can correlate with epigenetic change",
+          "explanation": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns. Pollution may affect oxidative stress, cell-signaling pathways and regulatory systems, but effects can differ by tissue, dose, timing and co-exposures.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg",
+            "nih-epi",
+            "pubmed-pollution"
+          ]
+        },
+        {
+          "title": "Association is not necessarily causal proof",
+          "explanation": "A human epidemiological association between exposure and a methylation pattern must be interpreted with confounders, cell-type composition and measurement uncertainty. Controlled mechanistic experiments can strengthen a causal account; a single correlation does not prove that a methyl tag caused disease.\n\nEnvironmental conditions can be associated with changes in methylation patterns, including responses to air pollution. Exposure comparisons are vulnerable to confounding, differences in cell populations and reverse causality. An association does not by itself demonstrate that a specific methylation change caused a later health outcome.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg",
+            "nih-epi",
+            "pubmed-pollution"
+          ]
+        },
+        {
+          "title": "Interpret an environmental methylation association",
+          "explanation": "Exposure to airborne pollutants is one example of an environmental condition associated with altered DNA methylation patterns. Such changes can modify the likelihood of particular genes being transcribed and therefore change cellular activity without rewriting their base sequence. To test a proposed causal effect, compare matched exposed and unexposed groups and consider age, diet, cell type and other confounding factors. Observing a methylation difference after exposure does not by itself prove that the exposure caused a specific disease or that the modification will pass to offspring.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns.",
+        "example": "Two exposed populations may differ in blood-cell methylation patterns, requiring adjustment for age, smoking and cell composition.",
+        "different": "A human epidemiological association between exposure and a methylation pattern must be interpreted with confounders, cell-type composition and measurement uncertainty.",
+        "concepts": [
+          {
+            "title": "Environment can correlate with epigenetic change",
+            "keywords": [
+              "environment",
+              "correlate",
+              "epigenetic",
+              "change"
+            ],
+            "explanation": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns. Pollution may affect oxidative stress, cell-signaling pathways and regulatory systems, but effects can differ by tissue, dose, timing and co-exposures."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d22-9",
+      "understandingIds": [
+        "D2.2.9"
+      ],
+      "level": "HL",
+      "guidingQuestion": "Why might reciprocal mammalian hybrid crosses differ in phenotype?",
+      "explanation": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established. Some imprinting-related marks and other protected patterns persist or are re-created in parent-specific ways, affecting how maternal and paternal contributions are expressed.\n\nA male lion crossed with a female tiger produces a liger; reversing parental species produces a tigon. Their differences in growth are often discussed in relation to genomic imprinting and parent-of-origin gene expression, but body size is multifactorial and the exact causal explanation cannot be inferred from the phenotype alone.\n\nMany epigenetic tags are removed or reset during gametogenesis and early development, but some parent-of-origin information can persist, producing genomic imprinting effects. Reciprocal lion–tiger hybrids (ligers versus tigons) are a useful classroom illustration of parent-of-origin hypotheses, not definitive evidence that a single imprinting mark explains all size differences.\n\nDuring formation of gametes and early development, many epigenetic tags are reset, while some can persist. Consequently an offspring's expression pattern is not simply a complete copy of either parent's tags. Ligers and tigons, the different offspring of reciprocal lion–tiger crosses, can be used as a model for effects related to parent-of-origin expression. The key distinction is that sequence alleles are inherited in DNA, while epigenetic differences concern regulation of those alleles. Avoid assuming that every acquired epigenetic change is transmitted across generations.",
+      "revisionSummary": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established. A male lion crossed with a female tiger produces a liger; reversing parental species produces a tigon.",
+      "terms": [
+        "Germ-line reprogramming is extensive but incomplete: mechanism",
+        "Reciprocal lion–tiger hybrids illustrate a hypothesis: boundary or comparison"
+      ],
+      "workedExample": "Ligers and tigons receive genetic contributions from the same two species but in opposite parental directions.",
+      "misconceptions": [
+        {
+          "misconception": "All epigenetic marks are always erased from egg and sperm genomes without exception.",
+          "correction": "Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established. Some imprinting-related marks and other protected patterns persist or are re-created in parent-specific ways, affecting how maternal and paternal contributions are expressed.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "A male lion crossed with a female tiger produces a liger; reversing parental species produces a tigon. Their differences in growth are often discussed in relation to genomic imprinting and parent-of-origin gene expression, but body size is multifactorial and the exact causal explanation cannot be inferred from the phenotype alone.\n\nMany epigenetic tags are removed or reset during gametogenesis and early development, but some parent-of-origin information can persist, producing genomic imprinting effects. Reciprocal lion–tiger hybrids (ligers versus tigons) are a useful classroom illustration of parent-of-origin hypotheses, not definitive evidence that a single imprinting mark explains all size differences.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "During formation of gametes and early development, many epigenetic tags are reset, while some can persist. Consequently an offspring's expression pattern is not simply a complete copy of either parent's tags. Ligers and tigons, the different offspring of reciprocal lion–tiger crosses, can be used as a model for effects related to parent-of-origin expression. The key distinction is that sequence alleles are inherited in DNA, while epigenetic differences concern regulation of those alleles. Avoid assuming that every acquired epigenetic change is transmitted across generations.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-9",
+          "understandingIds": [
+            "D2.2.9"
+          ],
+          "prompt": "Why might reciprocal mammalian hybrid crosses differ in phenotype?",
+          "options": [
+            {
+              "id": "d22-9-o1",
+              "text": "Parent-of-origin patterns of gene expression may differ",
+              "correct": true,
+              "feedback": "Correct. During germ-cell and early embryonic development, many epigenetic marks are removed or re-established."
+            },
+            {
+              "id": "d22-9-o2",
+              "text": "They necessarily have exactly the same genomic DNA",
+              "correct": false,
+              "feedback": "Consider why “They necessarily have exactly the same genomic DNA” does not answer this question. Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+            },
+            {
+              "id": "d22-9-o3",
+              "text": "All histone marks must be identical",
+              "correct": false,
+              "feedback": "Consider why “All histone marks must be identical” does not answer this question. Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+            },
+            {
+              "id": "d22-9-o4",
+              "text": "One direction of cross abolishes transcription",
+              "correct": false,
+              "feedback": "Consider why “One direction of cross abolishes transcription” does not answer this question. Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-9",
+          "understandingIds": [
+            "D2.2.9"
+          ],
+          "prompt": "Use a regulatory example to explain germ-line reprogramming is extensive but incomplete and specify what does not change in the DNA.",
+          "answer": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established. Some imprinting-related marks and other protected patterns persist or are re-created in parent-specific ways, affecting how maternal and paternal contributions are expressed. Ligers and tigons receive genetic contributions from the same two species but in opposite parental directions.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          678
+        ],
+        "pdfPages": [
+          690
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Germ-line reprogramming is extensive but incomplete",
+          "explanation": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established. Some imprinting-related marks and other protected patterns persist or are re-created in parent-specific ways, affecting how maternal and paternal contributions are expressed.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Reciprocal lion–tiger hybrids illustrate a hypothesis",
+          "explanation": "A male lion crossed with a female tiger produces a liger; reversing parental species produces a tigon. Their differences in growth are often discussed in relation to genomic imprinting and parent-of-origin gene expression, but body size is multifactorial and the exact causal explanation cannot be inferred from the phenotype alone.\n\nMany epigenetic tags are removed or reset during gametogenesis and early development, but some parent-of-origin information can persist, producing genomic imprinting effects. Reciprocal lion–tiger hybrids (ligers versus tigons) are a useful classroom illustration of parent-of-origin hypotheses, not definitive evidence that a single imprinting mark explains all size differences.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Why inherited expression states are not simple allele changes",
+          "explanation": "During formation of gametes and early development, many epigenetic tags are reset, while some can persist. Consequently an offspring's expression pattern is not simply a complete copy of either parent's tags. Ligers and tigons, the different offspring of reciprocal lion–tiger crosses, can be used as a model for effects related to parent-of-origin expression. The key distinction is that sequence alleles are inherited in DNA, while epigenetic differences concern regulation of those alleles. Avoid assuming that every acquired epigenetic change is transmitted across generations.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established.",
+        "example": "Ligers and tigons receive genetic contributions from the same two species but in opposite parental directions.",
+        "different": "A male lion crossed with a female tiger produces a liger; reversing parental species produces a tigon.",
+        "concepts": [
+          {
+            "title": "Germ-line reprogramming is extensive but incomplete",
+            "keywords": [
+              "germ-line",
+              "reprogramming",
+              "extensive",
+              "incomplete"
+            ],
+            "explanation": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established. Some imprinting-related marks and other protected patterns persist or are re-created in parent-specific ways, affecting how maternal and paternal contributions are expressed."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d22-10",
+      "understandingIds": [
+        "D2.2.10"
+      ],
+      "level": "HL",
+      "guidingQuestion": "What is the main research value of comparing monozygotic twins?",
+      "explanation": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences. As they age, their environments, developmental histories and stochastic cellular events can differ, allowing researchers to study associations with gene expression and epigenetic marks.\n\nDifferences between identical twins are not automatically caused by environment alone: somatic mutations, cell mixtures, developmental randomness and technical effects can contribute. Well designed twin studies compare exposures, tissues and molecular outcomes while acknowledging shared early environments.\n\nMonozygotic twins share an exceptionally similar initial genotype, making their comparisons useful for examining environmental influences on gene-expression phenotypes. Twin studies still need age, tissue type, exposure and longitudinal controls; differences need not arise solely from epigenetic marks.\n\nMonozygotic twins usually begin with very similar genomes, providing a useful control for many inherited differences. If their methylation or gene expression differs after dissimilar exposures, the finding is an observed association. Shared or differing environments, cell-type composition and technical variation must be considered before attributing a specific epigenetic change to one environmental cause.\n\nMonozygotic twins originate from one zygote and usually have highly similar DNA sequences, making comparisons informative when they experience different environments. Differences in gene expression or epigenetic tags can suggest contributions from environmental or developmental influences despite shared genetic origin. However, twins can experience different conditions before birth and accumulate somatic changes, so an observed difference does not identify one environmental cause on its own. Strong evidence needs suitable measurements, comparison groups and attention to age and exposure history.",
+      "revisionSummary": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences. Differences between identical twins are not automatically caused by environment alone: somatic mutations, cell mixtures, developmental randomness and technical effects can contribute.",
+      "terms": [
+        "Monozygotic twins help separate influences: mechanism",
+        "Twin comparisons still require controls: boundary or comparison"
+      ],
+      "workedExample": "Twins with different long-term exposures may show differences in measured methylation or transcript abundance.",
+      "misconceptions": [
+        {
+          "misconception": "Any difference between identical twins definitively proves a specific environmental cause.",
+          "correction": "Twin studies help investigate environmental contributions but do not eliminate all confounding."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences. As they age, their environments, developmental histories and stochastic cellular events can differ, allowing researchers to study associations with gene expression and epigenetic marks.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Differences between identical twins are not automatically caused by environment alone: somatic mutations, cell mixtures, developmental randomness and technical effects can contribute. Well designed twin studies compare exposures, tissues and molecular outcomes while acknowledging shared early environments.\n\nMonozygotic twins share an exceptionally similar initial genotype, making their comparisons useful for examining environmental influences on gene-expression phenotypes. Twin studies still need age, tissue type, exposure and longitudinal controls; differences need not arise solely from epigenetic marks.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "Monozygotic twins usually begin with very similar genomes, providing a useful control for many inherited differences. If their methylation or gene expression differs after dissimilar exposures, the finding is an observed association. Shared or differing environments, cell-type composition and technical variation must be considered before attributing a specific epigenetic change to one environmental cause.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        },
+        {
+          "claim": "Monozygotic twins originate from one zygote and usually have highly similar DNA sequences, making comparisons informative when they experience different environments. Differences in gene expression or epigenetic tags can suggest contributions from environmental or developmental influences despite shared genetic origin. However, twins can experience different conditions before birth and accumulate somatic changes, so an observed difference does not identify one environmental cause on its own. Strong evidence needs suitable measurements, comparison groups and attention to age and exposure history.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-10",
+          "understandingIds": [
+            "D2.2.10"
+          ],
+          "prompt": "What is the main research value of comparing monozygotic twins?",
+          "options": [
+            {
+              "id": "d22-10-o1",
+              "text": "Examining environmental associations against a very similar genetic background",
+              "correct": true,
+              "feedback": "Correct. Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences."
+            },
+            {
+              "id": "d22-10-o2",
+              "text": "Proving all phenotypes are controlled by only one gene",
+              "correct": false,
+              "feedback": "Consider why “Proving all phenotypes are controlled by only one gene” does not answer this question. Twin studies help investigate environmental contributions but do not eliminate all confounding."
+            },
+            {
+              "id": "d22-10-o3",
+              "text": "Removing the need for sample controls",
+              "correct": false,
+              "feedback": "Consider why “Removing the need for sample controls” does not answer this question. Twin studies help investigate environmental contributions but do not eliminate all confounding."
+            },
+            {
+              "id": "d22-10-o4",
+              "text": "Ensuring every cell has the same proteome",
+              "correct": false,
+              "feedback": "Consider why “Ensuring every cell has the same proteome” does not answer this question. Twin studies help investigate environmental contributions but do not eliminate all confounding."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-10",
+          "understandingIds": [
+            "D2.2.10"
+          ],
+          "prompt": "Use a regulatory example to explain monozygotic twins help separate influences and specify what does not change in the DNA.",
+          "answer": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences. As they age, their environments, developmental histories and stochastic cellular events can differ, allowing researchers to study associations with gene expression and epigenetic marks. Twins with different long-term exposures may show differences in measured methylation or transcript abundance.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          679
+        ],
+        "pdfPages": [
+          691
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Monozygotic twins help separate influences",
+          "explanation": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences. As they age, their environments, developmental histories and stochastic cellular events can differ, allowing researchers to study associations with gene expression and epigenetic marks.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Twin comparisons still require controls",
+          "explanation": "Differences between identical twins are not automatically caused by environment alone: somatic mutations, cell mixtures, developmental randomness and technical effects can contribute. Well designed twin studies compare exposures, tissues and molecular outcomes while acknowledging shared early environments.\n\nMonozygotic twins share an exceptionally similar initial genotype, making their comparisons useful for examining environmental influences on gene-expression phenotypes. Twin studies still need age, tissue type, exposure and longitudinal controls; differences need not arise solely from epigenetic marks.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Twin comparisons test associations, not automatic causation",
+          "explanation": "Monozygotic twins usually begin with very similar genomes, providing a useful control for many inherited differences. If their methylation or gene expression differs after dissimilar exposures, the finding is an observed association. Shared or differing environments, cell-type composition and technical variation must be considered before attributing a specific epigenetic change to one environmental cause.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        },
+        {
+          "title": "What identical twin comparisons can and cannot isolate",
+          "explanation": "Monozygotic twins originate from one zygote and usually have highly similar DNA sequences, making comparisons informative when they experience different environments. Differences in gene expression or epigenetic tags can suggest contributions from environmental or developmental influences despite shared genetic origin. However, twins can experience different conditions before birth and accumulate somatic changes, so an observed difference does not identify one environmental cause on its own. Strong evidence needs suitable measurements, comparison groups and attention to age and exposure history.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences.",
+        "example": "Twins with different long-term exposures may show differences in measured methylation or transcript abundance.",
+        "different": "Differences between identical twins are not automatically caused by environment alone: somatic mutations, cell mixtures, developmental randomness and technical effects can contribute.",
+        "concepts": [
+          {
+            "title": "Monozygotic twins help separate influences",
+            "keywords": [
+              "monozygotic",
+              "twins",
+              "separate",
+              "influences"
+            ],
+            "explanation": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences. As they age, their environments, developmental histories and stochastic cellular events can differ, allowing researchers to study associations with gene expression and epigenetic marks."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d22-11",
+      "understandingIds": [
+        "D2.2.11"
+      ],
+      "level": "HL",
+      "guidingQuestion": "How can lactose availability affect bacterial gene expression?",
+      "explanation": "External hormone signals can bind cellular receptors and change activity of transcription factors. For example, glucocorticoid receptors can alter transcription of responsive genes. In bacteria, lactose metabolism provides another form of environmental regulation through a DNA-binding repressor.\n\nWhen lactose is available, its derivative allolactose reduces lac-repressor binding to the operator, allowing increased expression of lactose-utilizing genes, especially when glucose is scarce. The mechanism is a regulatory response to the current environment, not a permanent change in bacterial DNA.\n\nRegulatory factors outside a gene can change its expression. For example, a steroid hormone can activate an intracellular receptor that binds regulatory DNA; in bacteria, the presence of lactose and availability of glucose influence transcription of genes for lactose use. Both systems respond to conditions, but molecular control architectures differ.\n\nA hormone can enter a signalling pathway that activates or inhibits transcription factors, changing the expression of target genes in cells with the appropriate receptor. In bacteria, lactose availability can alter transcription of genes involved in lactose metabolism through a regulatory protein acting at DNA. These examples show how external information can affect RNA production through different molecular routes. At the prescribed level, explain the signal, regulatory change and resulting gene activity; do not confuse hormone-induced regulation with a permanent mutation of the gene.",
+      "revisionSummary": "External hormone signals can bind cellular receptors and change activity of transcription factors. When lactose is available, its derivative allolactose reduces lac-repressor binding to the operator, allowing increased expression of lactose-utilizing genes, especially when glucose is scarce.",
+      "terms": [
+        "Hormones and metabolites alter transcription programs: mechanism",
+        "A bacterial biochemical example: boundary or comparison"
+      ],
+      "workedExample": "A bacterium growing with lactose but little glucose increases lac-operon expression to use the available carbon source.",
+      "misconceptions": [
+        {
+          "misconception": "A hormone or lactose must mutate the DNA sequence before transcription responds.",
+          "correction": "Signal-responsive regulatory proteins change transcription without requiring a mutation."
+        }
+      ],
+      "claimReferences": [
+        {
+          "claim": "External hormone signals can bind cellular receptors and change activity of transcription factors. For example, glucocorticoid receptors can alter transcription of responsive genes. In bacteria, lactose metabolism provides another form of environmental regulation through a DNA-binding repressor.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "When lactose is available, its derivative allolactose reduces lac-repressor binding to the operator, allowing increased expression of lactose-utilizing genes, especially when glucose is scarce. The mechanism is a regulatory response to the current environment, not a permanent change in bacterial DNA.\n\nRegulatory factors outside a gene can change its expression. For example, a steroid hormone can activate an intracellular receptor that binds regulatory DNA; in bacteria, the presence of lactose and availability of glucose influence transcription of genes for lactose use. Both systems respond to conditions, but molecular control architectures differ.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "claim": "A hormone can enter a signalling pathway that activates or inhibits transcription factors, changing the expression of target genes in cells with the appropriate receptor. In bacteria, lactose availability can alter transcription of genes involved in lactose metabolism through a regulatory protein acting at DNA. These examples show how external information can affect RNA production through different molecular routes. At the prescribed level, explain the signal, regulatory change and resulting gene activity; do not confuse hormone-induced regulation with a permanent mutation of the gene.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "assets": [],
+      "interactions": [
+        {
+          "kind": "selection",
+          "id": "d22-check-11",
+          "understandingIds": [
+            "D2.2.11"
+          ],
+          "prompt": "How can lactose availability affect bacterial gene expression?",
+          "options": [
+            {
+              "id": "d22-11-o1",
+              "text": "It can relieve lac-repressor inhibition of transcription",
+              "correct": true,
+              "feedback": "Correct. External hormone signals can bind cellular receptors and change activity of transcription factors."
+            },
+            {
+              "id": "d22-11-o2",
+              "text": "It converts every codon to a stop codon",
+              "correct": false,
+              "feedback": "Consider why “It converts every codon to a stop codon” does not answer this question. Signal-responsive regulatory proteins change transcription without requiring a mutation."
+            },
+            {
+              "id": "d22-11-o3",
+              "text": "It removes RNA polymerase from all genes",
+              "correct": false,
+              "feedback": "Consider why “It removes RNA polymerase from all genes” does not answer this question. Signal-responsive regulatory proteins change transcription without requiring a mutation."
+            },
+            {
+              "id": "d22-11-o4",
+              "text": "It forces DNA polymerase to synthesize mRNA",
+              "correct": false,
+              "feedback": "Consider why “It forces DNA polymerase to synthesize mRNA” does not answer this question. Signal-responsive regulatory proteins change transcription without requiring a mutation."
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "kind": "recall",
+          "id": "d22-recall-11",
+          "understandingIds": [
+            "D2.2.11"
+          ],
+          "prompt": "Use a regulatory example to explain hormones and metabolites alter transcription programs and specify what does not change in the DNA.",
+          "answer": "External hormone signals can bind cellular receptors and change activity of transcription factors. For example, glucocorticoid receptors can alter transcription of responsive genes. In bacteria, lactose metabolism provides another form of environmental regulation through a DNA-binding repressor. A bacterium growing with lactose but little glucose increases lac-operon expression to use the available carbon source.",
+          "explanation": "Distinguish gene sequence, transcription, transcript stability and downstream phenotype."
+        }
+      ],
+      "guidePage": 93,
+      "pdfPage": 99,
+      "textbook": {
+        "referenceId": "hodder-d22",
+        "printedPages": [
+          680
+        ],
+        "pdfPages": [
+          692
+        ]
+      },
+      "teachingBlocks": [
+        {
+          "title": "Hormones and metabolites alter transcription programs",
+          "explanation": "External hormone signals can bind cellular receptors and change activity of transcription factors. For example, glucocorticoid receptors can alter transcription of responsive genes. In bacteria, lactose metabolism provides another form of environmental regulation through a DNA-binding repressor.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "A bacterial biochemical example",
+          "explanation": "When lactose is available, its derivative allolactose reduces lac-repressor binding to the operator, allowing increased expression of lactose-utilizing genes, especially when glucose is scarce. The mechanism is a regulatory response to the current environment, not a permanent change in bacterial DNA.\n\nRegulatory factors outside a gene can change its expression. For example, a steroid hormone can activate an intracellular receptor that binds regulatory DNA; in bacteria, the presence of lactose and availability of glucose influence transcription of genes for lactose use. Both systems respond to conditions, but molecular control architectures differ.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22",
+            "ncbi-reg"
+          ]
+        },
+        {
+          "title": "Two contrasting environmental regulatory signals",
+          "explanation": "A hormone can enter a signalling pathway that activates or inhibits transcription factors, changing the expression of target genes in cells with the appropriate receptor. In bacteria, lactose availability can alter transcription of genes involved in lactose metabolism through a regulatory protein acting at DNA. These examples show how external information can affect RNA production through different molecular routes. At the prescribed level, explain the signal, regulatory change and resulting gene activity; do not confuse hormone-induced regulation with a permanent mutation of the gene.",
+          "referenceIds": [
+            "ib-d22",
+            "hodder-d22"
+          ]
+        }
+      ],
+      "support": {
+        "simple": "External hormone signals can bind cellular receptors and change activity of transcription factors.",
+        "example": "A bacterium growing with lactose but little glucose increases lac-operon expression to use the available carbon source.",
+        "different": "When lactose is available, its derivative allolactose reduces lac-repressor binding to the operator, allowing increased expression of lactose-utilizing genes, especially when glucose is scarce.",
+        "concepts": [
+          {
+            "title": "Hormones and metabolites alter transcription programs",
+            "keywords": [
+              "hormones",
+              "metabolites",
+              "alter",
+              "transcription"
+            ],
+            "explanation": "External hormone signals can bind cellular receptors and change activity of transcription factors. For example, glucocorticoid receptors can alter transcription of responsive genes. In bacteria, lactose metabolism provides another form of environmental regulation through a DNA-binding repressor."
+          }
+        ]
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "d22-mcq-1",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.1"
+      ],
+      "level": "HL",
+      "prompt": "Two tissues carry the same protein-coding gene but produce different amounts of its product. Which chain most directly links gene expression to a tissue-specific trait?",
+      "marks": 1,
+      "sectionId": "d22-1",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-1-o1",
+          "text": "Regulated transcription, translation and action of the resulting protein",
+          "correct": true,
+          "feedback": "Different transcription rates can change mRNA abundance, protein production and consequently a trait, without a change in the DNA sequence."
+        },
+        {
+          "id": "d22-1-o2",
+          "text": "Conversion of DNA directly into amino acids",
+          "correct": false,
+          "feedback": "DNA is transcribed to RNA, then ribosomes translate mRNA codons into a polypeptide; the DNA template does not convert directly into amino acids."
+        },
+        {
+          "id": "d22-1-o3",
+          "text": "Universal expression of every gene",
+          "correct": false,
+          "feedback": "Cell types selectively express genes. If every gene were expressed equally, differential gene expression could not explain tissue-specific protein abundance."
+        },
+        {
+          "id": "d22-1-o4",
+          "text": "Division of every organelle",
+          "correct": false,
+          "feedback": "Organelle division is not the informational pathway from a protein-coding DNA sequence to a polypeptide and its cellular effect."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "d22-response-1",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.1"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in genes influence phenotype through expression and evaluate the assertion \"Genes directly become proteins without any RNA intermediate.\"",
+      "marks": 3,
+      "sectionId": "d22-1",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "A gene's DNA sequence can affect phenotype because the cell transcribes it into RNA and, for protein-coding genes, translates the mRNA into a polypeptide. The folded protein may serve as an enzyme, structural component, receptor or regulatory factor. Many phenotypic effects therefore emerge through a chain of molecular consequences. Cells with similar DNA often differ in phenotype because they express different subsets and quantities of genes. Non-protein-coding functional RNAs also influence phenotype, so the DNA-to-protein path is common but not universal. Regulation acts at transcription, RNA stability, translation and later protein activity. Most protein-coding genes act through transcription followed by translation and protein function.",
+      "markingPoints": [
+        "DNA sequence can influence phenotype through a causal chain: transcription creates RNA, translation of a protein-coding transcript yields a polypeptide, and the folded protein acts as an enzyme, receptor or structural component",
+        "Functional RNA genes are a real exception to the protein-coding path",
+        "Correct the common inference: Most protein-coding genes act through transcription followed by translation and protein function."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-2",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.2"
+      ],
+      "level": "HL",
+      "prompt": "Which pair is directly involved in transcription initiation control?",
+      "marks": 1,
+      "sectionId": "d22-2",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-2-o1",
+          "text": "Promoter DNA and sequence-binding transcription factors",
+          "correct": true,
+          "feedback": "Transcription factors recognize DNA regulatory sequences such as promoters or enhancers and influence RNA polymerase recruitment and initiation."
+        },
+        {
+          "id": "d22-2-o2",
+          "text": "Anticodon and tRNA exit site",
+          "correct": false,
+          "feedback": "An anticodon on tRNA pairs with an mRNA codon at a ribosome during translation, after transcription has already made the mRNA."
+        },
+        {
+          "id": "d22-2-o3",
+          "text": "Histone amino acid and newly formed peptide bond",
+          "correct": false,
+          "feedback": "Histones influence DNA accessibility, but peptide-bond formation is a translation event; this pair does not describe promoter-bound transcription initiation machinery."
+        },
+        {
+          "id": "d22-2-o4",
+          "text": "Mitochondrial ATP and osmotic pressure",
+          "correct": false,
+          "feedback": "ATP availability can influence cellular activity, but osmotic pressure and mitochondrial ATP are not the DNA-binding regulatory pair specified for initiation."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "d22-response-2",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.2"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in transcription factors read regulatory dna sequences and evaluate the assertion \"Enhancers are proteins that move amino acids into a ribosome.\"",
+      "marks": 3,
+      "sectionId": "d22-2",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "Regulatory proteins recognize particular DNA sequences and change the probability that RNA polymerase begins transcription. Promoters define an initiation region; enhancers can be distant DNA elements that bind activators or other transcription factors. DNA looping or molecular interactions connect enhancer-bound proteins with promoter-associated machinery. Cell identity and hormone signals influence which transcription factors are active. Activators or repressors can raise or lower transcription; a promoter is not an amino-acid sequence, and an enhancer does not need to be next to the gene to affect it. Enhancers are DNA regulatory regions that bind regulatory proteins.",
+      "markingPoints": [
+        "Sequence-specific transcription factors can bind promoters and distal enhancers, modulating transcription initiation by influencing polymerase recruitment or chromatin accessibility",
+        "An enhancer need not sit next to a promoter along the linear DNA sequence; folding can bring these elements together",
+        "Correct the common inference: Enhancers are DNA regulatory regions that bind regulatory proteins."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-3",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.3"
+      ],
+      "level": "HL",
+      "prompt": "If mRNA is degraded faster while transcription stays constant, what generally happens to its abundance?",
+      "marks": 1,
+      "sectionId": "d22-3",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-3-o1",
+          "text": "It falls",
+          "correct": true,
+          "feedback": "If transcripts are produced at the same rate but degraded more rapidly, their steady-state abundance normally falls and less mRNA is available for translation."
+        },
+        {
+          "id": "d22-3-o2",
+          "text": "It must rise",
+          "correct": false,
+          "feedback": "Increased degradation removes transcripts faster; with transcription unchanged, it does not force the mRNA pool to grow."
+        },
+        {
+          "id": "d22-3-o3",
+          "text": "The DNA sequence changes to RNA",
+          "correct": false,
+          "feedback": "Transcription uses DNA as a template to synthesize RNA; it does not change the DNA sequence into RNA. Degradation removes RNA transcripts."
+        },
+        {
+          "id": "d22-3-o4",
+          "text": "Every ribosome gains a new gene",
+          "correct": false,
+          "feedback": "Ribosomes translate mRNA; they do not acquire a new gene when an mRNA molecule is degraded."
+        }
+      ],
+      "review": "scientific-review"
+    },
+    {
+      "id": "d22-response-3",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.3"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in mrna lifetime controls protein production and evaluate the assertion \"Transcription rate alone determines the lifetime of every mature mRNA.\"",
+      "marks": 3,
+      "sectionId": "d22-3",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "A newly made mRNA can be translated repeatedly while it persists. Nucleases eventually break RNA into smaller units, so differences in mRNA degradation rate influence how many protein molecules can be synthesized from one transcript. In human cells, some mRNAs last only minutes whereas others persist for hours or days. Two cells could transcribe the same gene at similar rates but produce different protein amounts if one rapidly degrades its mRNA. It is therefore incorrect to infer protein synthesis rate from promoter activity alone; RNA abundance depends on both production and decay. mRNA degradation regulates how long transcripts remain available for translation.",
+      "markingPoints": [
+        "An mRNA's abundance depends on both synthesis and degradation",
+        "If transcription supplies 100 transcripts per hour but degradation accelerates, a lower steady-state transcript pool usually results and the opportunity for translation decreases",
+        "Correct the common inference: mRNA degradation regulates how long transcripts remain available for translation."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-4",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.4"
+      ],
+      "level": "HL",
+      "prompt": "What makes epigenetic regulation distinct from sequence mutation?",
+      "marks": 1,
+      "sectionId": "d22-4",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-4-o1",
+          "text": "It changes expression without changing DNA base sequence",
+          "correct": true,
+          "feedback": "Correct. During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate."
+        },
+        {
+          "id": "d22-4-o2",
+          "text": "It always inserts a new codon",
+          "correct": false,
+          "feedback": "Consider why “It always inserts a new codon” does not answer this question. Different gene expression programs can develop without altering DNA base order."
+        },
+        {
+          "id": "d22-4-o3",
+          "text": "It removes every promoter",
+          "correct": false,
+          "feedback": "Consider why “It removes every promoter” does not answer this question. Different gene expression programs can develop without altering DNA base order."
+        },
+        {
+          "id": "d22-4-o4",
+          "text": "It can occur only after meiosis",
+          "correct": false,
+          "feedback": "Consider why “It can occur only after meiosis” does not answer this question. Different gene expression programs can develop without altering DNA base order."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-4",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.4"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in epigenesis generates differentiated cell identities and evaluate the assertion \"Epigenetic differentiation requires replacing an entire chromosome's DNA sequence.\"",
+      "marks": 3,
+      "sectionId": "d22-4",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "During development, descendants of an embryo's cells acquire different patterns of gene expression as they differentiate. Transcription factors and chromatin states help stabilize these patterns so a neuron and a hepatocyte perform different functions despite broadly sharing the same inherited genome. Epigenetic regulation changes gene activity or chromatin organization without changing the underlying DNA nucleotide sequence. A change in transcription does not by itself prove that a chromatin tag caused it; the explanation must connect regulatory mechanisms and cell identity. Different gene expression programs can develop without altering DNA base order.",
+      "markingPoints": [
+        "Epigenesis is the progressive establishment of differentiated cell states during development",
+        "Epigenetic marks and regulatory feedback can stabilize patterns of gene activity without replacing DNA bases",
+        "Correct the common inference: Different gene expression programs can develop without altering DNA base order."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-5",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.5"
+      ],
+      "level": "HL",
+      "prompt": "Which cellular dataset measures RNA molecules present at a given time?",
+      "marks": 1,
+      "sectionId": "d22-5",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-5-o1",
+          "text": "Transcriptome",
+          "correct": true,
+          "feedback": "Correct. A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions."
+        },
+        {
+          "id": "d22-5-o2",
+          "text": "Genome",
+          "correct": false,
+          "feedback": "Consider why “Genome” does not answer this question. Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+        },
+        {
+          "id": "d22-5-o3",
+          "text": "Proteome",
+          "correct": false,
+          "feedback": "Consider why “Proteome” does not answer this question. Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+        },
+        {
+          "id": "d22-5-o4",
+          "text": "Chromosome karyotype alone",
+          "correct": false,
+          "feedback": "Consider why “Chromosome karyotype alone” does not answer this question. Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-5",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.5"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in genome, transcriptome and proteome describe different layers and evaluate the assertion \"A transcriptome is an exact duplicate of the cell's complete genome.\"",
+      "marks": 3,
+      "sectionId": "d22-5",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "A cell's genome is its total genetic DNA information; its transcriptome is the set and relative abundance of RNA transcripts present at a particular time; its proteome is its set of proteins present under those conditions. The same genome can support very different transcriptomes and proteomes. An mRNA may change faster than its protein product; protein abundance also depends on translation, folding and degradation. Therefore transcript and protein measurements from the same cell need not agree directly. Not all genes are expressed in any one cell. Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls.",
+      "markingPoints": [
+        "The genome is the DNA complement; the transcriptome is the set and abundances of RNA transcripts in a given cell and condition; the proteome is the set and amounts of proteins",
+        "Proteins persist and undergo modification on different timescales from their mRNAs, so transcript level does not map one-to-one onto protein abundance",
+        "Correct the common inference: Only transcribed RNAs appear in the transcriptome, and protein abundance has other controls."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-6",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.6"
+      ],
+      "level": "HL",
+      "prompt": "Which statement about methylation is most accurate?",
+      "marks": 1,
+      "sectionId": "d22-6",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-6-o1",
+          "text": "Promoter DNA methylation often reduces transcription",
+          "correct": true,
+          "feedback": "Correct. Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins."
+        },
+        {
+          "id": "d22-6-o2",
+          "text": "All histone methylation invariably activates transcription",
+          "correct": false,
+          "feedback": "Consider why “All histone methylation invariably activates transcription” does not answer this question. Promoter cytosine methylation often represses; histone methylation may activate or repress."
+        },
+        {
+          "id": "d22-6-o3",
+          "text": "Methylation always replaces DNA bases",
+          "correct": false,
+          "feedback": "Consider why “Methylation always replaces DNA bases” does not answer this question. Promoter cytosine methylation often represses; histone methylation may activate or repress."
+        },
+        {
+          "id": "d22-6-o4",
+          "text": "Histones are translated from mRNA codons on DNA directly",
+          "correct": false,
+          "feedback": "Consider why “Histones are translated from mRNA codons on DNA directly” does not answer this question. Promoter cytosine methylation often represses; histone methylation may activate or repress."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-6",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.6"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in dna and histone tags influence expression and evaluate the assertion \"Every methyl tag on every histone always represses transcription.\"",
+      "marks": 3,
+      "sectionId": "d22-6",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "Methylation of cytosine in a promoter region is often associated with repression of the downstream gene, for example by preventing activator access or recruiting repressive proteins. Histone proteins in nucleosomes can also be chemically modified, altering how chromatin interacts with regulatory machinery. Unlike the simplified notion that all methylation turns genes off, different histone methylation positions and patterns can be associated with gene activation or repression. For IB purposes, distinguish promoter DNA methylation from histone modification without memorizing individual histone residues. Promoter cytosine methylation often represses; histone methylation may activate or repress.",
+      "markingPoints": [
+        "DNA cytosine methylation at a promoter commonly reduces downstream transcription",
+        "Histone methylation modifies certain amino acid residues on histone proteins and can correlate with activation or repression depending on position and context",
+        "Correct the common inference: Promoter cytosine methylation often represses; histone methylation may activate or repress."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-7",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.7"
+      ],
+      "level": "HL",
+      "prompt": "What may be inherited through mitosis without changing DNA sequence?",
+      "marks": 1,
+      "sectionId": "d22-7",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-7-o1",
+          "text": "A maintained promoter methylation pattern",
+          "correct": true,
+          "feedback": "Correct. If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution."
+        },
+        {
+          "id": "d22-7-o2",
+          "text": "A novel nucleotide substitution in every gamete",
+          "correct": false,
+          "feedback": "Consider why “A novel nucleotide substitution in every gamete” does not answer this question. Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+        },
+        {
+          "id": "d22-7-o3",
+          "text": "A deleted chromosome that never existed",
+          "correct": false,
+          "feedback": "Consider why “A deleted chromosome that never existed” does not answer this question. Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+        },
+        {
+          "id": "d22-7-o4",
+          "text": "Every environmental exposure as an exact phenotype",
+          "correct": false,
+          "feedback": "Consider why “Every environmental exposure as an exact phenotype” does not answer this question. Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-7",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.7"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in some regulatory states persist through division and evaluate the assertion \"Every diet-induced methyl tag in one adult is passed permanently to all descendants.\"",
+      "marks": 3,
+      "sectionId": "d22-7",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "If an epigenetic pattern is maintained through mitosis, daughter cells can inherit similar gene-expression states without a nucleotide substitution. Some parent-of-origin marks can also influence offspring phenotypes, but germ-line and early embryonic reprogramming remove many marks. Epigenetic inheritance across cell divisions is well established; widespread transmission of environmentally induced patterns across multiple human generations is far harder to demonstrate and should not be presented as routine. Molecular maintenance mechanisms and germ-line erasure constrain persistence. Many tags are reset; epigenetic inheritance is context-dependent and requires evidence.",
+      "markingPoints": [
+        "Some DNA methylation and histone-state information can be recreated after replication, allowing daughter-cell lineages to retain expression patterns without a base substitution",
+        "Inheritance through an entire organismal generation is more constrained because many marks are reset in gamete formation and early development",
+        "Correct the common inference: Many tags are reset; epigenetic inheritance is context-dependent and requires evidence."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-8",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.8"
+      ],
+      "level": "HL",
+      "prompt": "Which claim about air pollution and methylation is scientifically justified?",
+      "marks": 1,
+      "sectionId": "d22-8",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg",
+        "nih-epi",
+        "pubmed-pollution"
+      ],
+      "options": [
+        {
+          "id": "d22-8-o1",
+          "text": "Studies report associations that require careful causal interpretation",
+          "correct": true,
+          "feedback": "Correct. Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns."
+        },
+        {
+          "id": "d22-8-o2",
+          "text": "Every pollutant gives the same methyl mark in all tissues",
+          "correct": false,
+          "feedback": "Consider why “Every pollutant gives the same methyl mark in all tissues” does not answer this question. Environmental associations need controls and cautious causal interpretation."
+        },
+        {
+          "id": "d22-8-o3",
+          "text": "Air pollution always changes DNA base sequence",
+          "correct": false,
+          "feedback": "Consider why “Air pollution always changes DNA base sequence” does not answer this question. Environmental associations need controls and cautious causal interpretation."
+        },
+        {
+          "id": "d22-8-o4",
+          "text": "Observational association alone proves direct causation",
+          "correct": false,
+          "feedback": "Consider why “Observational association alone proves direct causation” does not answer this question. Environmental associations need controls and cautious causal interpretation."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-8",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.8"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in environment can correlate with epigenetic change and evaluate the assertion \"Any observed methylation difference after pollution definitively proves a disease mechanism.\"",
+      "marks": 3,
+      "sectionId": "d22-8",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg",
+        "nih-epi",
+        "pubmed-pollution"
+      ],
+      "answer": "Environmental exposures such as air pollution are studied for associations with DNA methylation and altered gene-expression patterns. Pollution may affect oxidative stress, cell-signaling pathways and regulatory systems, but effects can differ by tissue, dose, timing and co-exposures. A human epidemiological association between exposure and a methylation pattern must be interpreted with confounders, cell-type composition and measurement uncertainty. Controlled mechanistic experiments can strengthen a causal account; a single correlation does not prove that a methyl tag caused disease. Environmental associations need controls and cautious causal interpretation.",
+      "markingPoints": [
+        "Environmental conditions can be associated with changes in methylation patterns, including responses to air pollution",
+        "Exposure comparisons are vulnerable to confounding, differences in cell populations and reverse causality",
+        "Correct the common inference: Environmental associations need controls and cautious causal interpretation."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-9",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.9"
+      ],
+      "level": "HL",
+      "prompt": "Why might reciprocal mammalian hybrid crosses differ in phenotype?",
+      "marks": 1,
+      "sectionId": "d22-9",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-9-o1",
+          "text": "Parent-of-origin patterns of gene expression may differ",
+          "correct": true,
+          "feedback": "Correct. During germ-cell and early embryonic development, many epigenetic marks are removed or re-established."
+        },
+        {
+          "id": "d22-9-o2",
+          "text": "They necessarily have exactly the same genomic DNA",
+          "correct": false,
+          "feedback": "Consider why “They necessarily have exactly the same genomic DNA” does not answer this question. Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+        },
+        {
+          "id": "d22-9-o3",
+          "text": "All histone marks must be identical",
+          "correct": false,
+          "feedback": "Consider why “All histone marks must be identical” does not answer this question. Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+        },
+        {
+          "id": "d22-9-o4",
+          "text": "One direction of cross abolishes transcription",
+          "correct": false,
+          "feedback": "Consider why “One direction of cross abolishes transcription” does not answer this question. Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-9",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.9"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in germ-line reprogramming is extensive but incomplete and evaluate the assertion \"All epigenetic marks are always erased from egg and sperm genomes without exception.\"",
+      "marks": 3,
+      "sectionId": "d22-9",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "During germ-cell and early embryonic development, many epigenetic marks are removed or re-established. Some imprinting-related marks and other protected patterns persist or are re-created in parent-specific ways, affecting how maternal and paternal contributions are expressed. A male lion crossed with a female tiger produces a liger; reversing parental species produces a tigon. Their differences in growth are often discussed in relation to genomic imprinting and parent-of-origin gene expression, but body size is multifactorial and the exact causal explanation cannot be inferred from the phenotype alone. Most marks undergo reprogramming, but some parent-of-origin signals may persist.",
+      "markingPoints": [
+        "Many epigenetic tags are removed or reset during gametogenesis and early development, but some parent-of-origin information can persist, producing genomic imprinting effects",
+        "Reciprocal lion–tiger hybrids (ligers versus tigons) are a useful classroom illustration of parent-of-origin hypotheses, not definitive evidence that a single imprinting mark explains all size differences",
+        "Correct the common inference: Most marks undergo reprogramming, but some parent-of-origin signals may persist."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-10",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.10"
+      ],
+      "level": "HL",
+      "prompt": "What is the main research value of comparing monozygotic twins?",
+      "marks": 1,
+      "sectionId": "d22-10",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-10-o1",
+          "text": "Examining environmental associations against a very similar genetic background",
+          "correct": true,
+          "feedback": "Correct. Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences."
+        },
+        {
+          "id": "d22-10-o2",
+          "text": "Proving all phenotypes are controlled by only one gene",
+          "correct": false,
+          "feedback": "Consider why “Proving all phenotypes are controlled by only one gene” does not answer this question. Twin studies help investigate environmental contributions but do not eliminate all confounding."
+        },
+        {
+          "id": "d22-10-o3",
+          "text": "Removing the need for sample controls",
+          "correct": false,
+          "feedback": "Consider why “Removing the need for sample controls” does not answer this question. Twin studies help investigate environmental contributions but do not eliminate all confounding."
+        },
+        {
+          "id": "d22-10-o4",
+          "text": "Ensuring every cell has the same proteome",
+          "correct": false,
+          "feedback": "Consider why “Ensuring every cell has the same proteome” does not answer this question. Twin studies help investigate environmental contributions but do not eliminate all confounding."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-10",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.10"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in monozygotic twins help separate influences and evaluate the assertion \"Any difference between identical twins definitively proves a specific environmental cause.\"",
+      "marks": 3,
+      "sectionId": "d22-10",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "Monozygotic twins originate from one fertilized egg and generally begin with extremely similar DNA sequences. As they age, their environments, developmental histories and stochastic cellular events can differ, allowing researchers to study associations with gene expression and epigenetic marks. Differences between identical twins are not automatically caused by environment alone: somatic mutations, cell mixtures, developmental randomness and technical effects can contribute. Well designed twin studies compare exposures, tissues and molecular outcomes while acknowledging shared early environments. Twin studies help investigate environmental contributions but do not eliminate all confounding.",
+      "markingPoints": [
+        "Monozygotic twins share an exceptionally similar initial genotype, making their comparisons useful for examining environmental influences on gene-expression phenotypes",
+        "Twin studies still need age, tissue type, exposure and longitudinal controls; differences need not arise solely from epigenetic marks",
+        "Correct the common inference: Twin studies help investigate environmental contributions but do not eliminate all confounding."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-mcq-11",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.2.11"
+      ],
+      "level": "HL",
+      "prompt": "How can lactose availability affect bacterial gene expression?",
+      "marks": 1,
+      "sectionId": "d22-11",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "options": [
+        {
+          "id": "d22-11-o1",
+          "text": "It can relieve lac-repressor inhibition of transcription",
+          "correct": true,
+          "feedback": "Correct. External hormone signals can bind cellular receptors and change activity of transcription factors."
+        },
+        {
+          "id": "d22-11-o2",
+          "text": "It converts every codon to a stop codon",
+          "correct": false,
+          "feedback": "Consider why “It converts every codon to a stop codon” does not answer this question. Signal-responsive regulatory proteins change transcription without requiring a mutation."
+        },
+        {
+          "id": "d22-11-o3",
+          "text": "It removes RNA polymerase from all genes",
+          "correct": false,
+          "feedback": "Consider why “It removes RNA polymerase from all genes” does not answer this question. Signal-responsive regulatory proteins change transcription without requiring a mutation."
+        },
+        {
+          "id": "d22-11-o4",
+          "text": "It forces DNA polymerase to synthesize mRNA",
+          "correct": false,
+          "feedback": "Consider why “It forces DNA polymerase to synthesize mRNA” does not answer this question. Signal-responsive regulatory proteins change transcription without requiring a mutation."
+        }
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-response-11",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.2.11"
+      ],
+      "level": "HL",
+      "prompt": "Explain the regulatory mechanism in hormones and metabolites alter transcription programs and evaluate the assertion \"A hormone or lactose must mutate the DNA sequence before transcription responds.\"",
+      "marks": 3,
+      "sectionId": "d22-11",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "External hormone signals can bind cellular receptors and change activity of transcription factors. For example, glucocorticoid receptors can alter transcription of responsive genes. In bacteria, lactose metabolism provides another form of environmental regulation through a DNA-binding repressor. When lactose is available, its derivative allolactose reduces lac-repressor binding to the operator, allowing increased expression of lactose-utilizing genes, especially when glucose is scarce. The mechanism is a regulatory response to the current environment, not a permanent change in bacterial DNA. Signal-responsive regulatory proteins change transcription without requiring a mutation.",
+      "markingPoints": [
+        "Regulatory factors outside a gene can change its expression",
+        "For example, a steroid hormone can activate an intracellular receptor that binds regulatory DNA; in bacteria, the presence of lactose and availability of glucose influence transcription of genes for lactose use",
+        "Correct the common inference: Signal-responsive regulatory proteins change transcription without requiring a mutation."
+      ],
+      "review": "draft"
+    },
+    {
+      "id": "d22-rna-turnover-model-1b",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "D2.2.3"
+      ],
+      "level": "HL",
+      "prompt": "Two hypothetical cells transcribe the same gene at 60 mRNA molecules per hour. At an equal starting RNA abundance, cell X removes 60 per hour and cell Y removes 90 per hour. Predict which cell's transcript abundance falls initially and give the molecular reason.",
+      "marks": 2,
+      "sectionId": "d22-3",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "answer": "Cell Y falls initially, because clearance (90 per hour) exceeds RNA synthesis (60 per hour), whereas cell X is initially balanced. Altered transcript abundance may subsequently change translation.",
+      "markingPoints": [
+        "Identifies Y as initially declining, not X.",
+        "Explains net clearance exceeds production (90 > 60 mRNA h⁻¹)."
+      ],
+      "data": {
+        "caption": "Explicit hypothetical molecular flux model, not measured human RNA turnover",
+        "headers": [
+          "Cell",
+          "Transcribed per hour",
+          "Removed per hour"
+        ],
+        "rows": [
+          [
+            "X",
+            60,
+            60
+          ],
+          [
+            "Y",
+            60,
+            90
+          ]
+        ]
+      },
+      "review": "draft"
+    }
+  ],
+  "references": [
+    {
+      "id": "ib-d22",
+      "title": "IB Biology Guide (first assessment 2025) — D2.2 additional HL",
+      "locator": "Syllabus pp.92–93, D2.2.1–D2.2.11; no SL content",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    },
+    {
+      "id": "hodder-d22",
+      "title": "Clegg, Davis & Talbot, Biology for the IB Diploma Programme, Third Edition (Hodder, 2023)",
+      "locator": "D2.2 Gene expression, printed pp.670–680 (PDF pp.682–692)",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    },
+    {
+      "id": "ncbi-reg",
+      "title": "Cooper, The Cell — Regulation of Transcription in Eukaryotes, NCBI Bookshelf",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK9904/",
+      "locator": "Promoters, enhancers, transcription factors, DNA methylation",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    },
+    {
+      "id": "nih-epi",
+      "title": "NIH environmental epigenetics research",
+      "url": "https://research.nih.gov/environmental-epigenetics",
+      "locator": "Environmental exposures and epigenetic changes, uncertainties",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    },
+    {
+      "id": "pubmed-pollution",
+      "title": "Air pollution and epigenome: systematic review, PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30361985/",
+      "locator": "Observational evidence and causal limitations",
+      "accessedAt": "2026-10-17",
+      "level": "HL"
+    }
+  ],
+  "assets": [
+    {
+      "id": "d22-regulatory-flow",
+      "kind": "schematic",
+      "src": "/biology/gene-expression/regulatory-controls.svg",
+      "alt": "Original flow schematic: regulatory proteins bind enhancer DNA and influence transcription at promoter DNA, generating mRNA; a nuclease branch degrades some mRNA, reducing transcripts available for translation into protein. The underlying DNA sequence remains unchanged.",
+      "captionTitle": "Two distinct control points in gene expression",
+      "interpretation": "DNA regulatory sequences bind proteins; altered RNA production and degradation both affect protein output. Arrows denote conceptual influence, not reaction stoichiometry.",
+      "attribution": "Original BioLab schematic of regulatory stages",
+      "license": "Original first-party authored SVG",
+      "permissionEvidence": "All elements newly authored without publisher figure copying",
+      "referenceIds": [
+        "ib-d22",
+        "hodder-d22",
+        "ncbi-reg"
+      ],
+      "level": "HL",
+      "review": "source-mapped"
+    }
+  ],
+  "summary": "Regulatory DNA, transcription factors, RNA turnover and chromatin states determine gene-expression patterns; cells can differ in phenotype without different DNA sequences, and heritability of epigenetic changes is context-dependent.",
+  "review": {
+    "status": "source-mapped",
+    "sourceCheckedAt": "2026-10-17",
+    "reviewer": null,
+    "notes": [
+      "D2.2 is strictly additional HL; no shared SL sections or questions.",
+      "The IB guide 2025 and Hodder 2023 D2.2 establish scope and depth; NIH and NCBI support regulatory distinctions.",
+      "Liger/tigon parent-of-origin explanations are illustrative hypotheses; do not claim body-size causation has been experimentally isolated.",
+      "Air pollution associations do not by themselves establish causation; marks are often reset in gametogenesis.",
+      "Qualified epigenetics and examination review still needed.",
+      "Final Sprint D: strengthened each of 11 strictly HL regulatory mechanisms and explanatory displays; distinguished association from causation and genotype from epigenetic state.",
+      "Final Sprint D assessment pass: tailored three-point marking schemes with mechanism-specific statements, and option-specific feedback replaced duplicated generic feedback wherever present; answer keys unchanged."
+    ]
+  }
+}

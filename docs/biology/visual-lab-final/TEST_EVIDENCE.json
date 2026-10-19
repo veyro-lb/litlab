@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "branch": "feature/biolab-ib-visual-lab-final-20261018",
+  "assetCommit": "fd1cbe624911e8e836ec8a4ca36a88c1baf773aa",
+  "executed": {
+    "githubObjectChecks": {
+      "result": "passed",
+      "importedOriginalSvgCount": 20,
+      "importedAuthenticImageFileCount": 6,
+      "originalCucumberDuplicated": false,
+      "artMatchesSourceGitBlob": "20/20",
+      "microscopyMatchesSourceGitBlob": "6/6",
+      "treeExists": "34/34"
+    },
+    "contentInspection": {
+      "result": "passed",
+      "svgFileCount": 6,
+      "svgSourceRootPresent": "6/6",
+      "viewBoxPresent": "6/6",
+      "noScriptLikeTokens": "6/6",
+      "heartArrowheads": "7/7 each of 4 variants",
+      "fishStageTransitions": "3/3 each of 4 variants",
+      "mammalStageTransitions": "4/4 each of 4 variants",
+      "fishDirectGillToHeartBypass": false,
+      "DNA_ATpairCount": 2,
+      "DNA_GCpairCount": 2,
+      "DNA_ContactStrokes": "10/10 each of 2 variants",
+      "note": "Source-string assertions; not an XML parser or human scientific sign-off."
+    },
+    "upstreamArtCI": {
+      "status": "success",
+      "runId": 39073731102,
+      "headSha": "9bd8a38672b1a5bf610d9b224c7363131ab255ed",
+      "artifactId": 12116057853,
+      "source": "https://github.com/veyro-lb/litlab/actions/runs/39073731102",
+      "screenshotWidths": [
+        320,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "note": "Historic screenshots reflect illustration upstream SHA, not this branch's new circulation assets."
+    },
+    "upstreamDrawingCI": {
+      "status": "success",
+      "runId": 39073973417,
+      "headSha": "d13825d65d437aa289121654fcf4c4b233d3456b",
+      "artifactId": 12116750482,
+      "note": "Prior specialist branch; not evidence of frontend integration on this branch."
+    }
+  },
+  "notExecutedOnCurrentBranch": [
+    "node --test scripts/biology/visual-lab-final/visual-lab.test.mjs",
+    "npm ci",
+    "npm run quality",
+    "node scripts/validate-biology.mjs",
+    "npm run build",
+    "Chromium responsive screenshots of new heart and modified DNA figures",
+    "independent biological-specialist approval",
+    "manual screen-reader QA"
+  ],
+  "limitations": "This runtime cannot clone the live repository due to DNS/network restrictions. GitHub App source and Git object checks completed; no current-branch CI workflow fired. No fake before-after browser screenshots were generated.",
+  "releaseGate": "blocked"
+}
