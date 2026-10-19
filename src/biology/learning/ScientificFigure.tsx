@@ -16,7 +16,8 @@ export default function ScientificFigure({asset,hideLabels=false}:{asset:Asset;h
  const alt=recalling?'Unlabelled scientific schematic for recall. Reconstruct labels and connections, then reveal to compare.':asset.alt;
  useEffect(()=>{setFailed(false);setZoom(1)},[src]);
  const reason=asset.withheldReason||(presentation.rightsWithheld?'Documented public reproduction rights are required for this PDF-derived figure.':null);
- if(reason)return <figure className="bio-figure bio-withheld-figure" data-asset-id={asset.id}><figcaption><strong>{asset.captionTitle}</strong><p>{asset.alt}</p><small>Figure withheld pending review: {reason}</small></figcaption></figure>;
+ if(reason)return <figure className="bio-figure bio-withheld-figure" data-asset-id={asset.id}><figcaption><strong>{asset.captionTitle}</strong><p>{asset.alt}</p>
+   {asset.src.startsWith('/biology/licensed-book-crops/')&&<p className="bio-book-credit">Source: {asset.attribution}</p>}<small>Figure withheld pending review: {reason}</small></figcaption></figure>;
  return <figure className="bio-figure bio-figure-clean" data-asset-id={asset.id} data-image-kind={asset.kind} data-size={presentation.size} data-raster={presentation.raster}>
   {failed?<div className="bio-image-fallback" role="status">Figure unavailable. {asset.alt}</div>:
   <button className="bio-figure-image" type="button" ref={opener} aria-label={`Enlarge ${asset.kind==='photograph'?'image':'diagram'}: ${asset.captionTitle}`} aria-haspopup="dialog" onClick={()=>{setZoom(1);dialog.current?.showModal();setRasterBase(Math.min(viewport.current?.querySelector('img')?.naturalWidth||600,Math.max((viewport.current?.clientWidth||600)*2,650)))}}>
@@ -24,7 +25,7 @@ export default function ScientificFigure({asset,hideLabels=false}:{asset:Asset;h
   </button>}
   {asset.kind==='photograph'&&asset.interpretation&&<p className="bio-photo-context">{asset.interpretation}</p>}
   {asset.src.startsWith('/biology/licensed-book-crops/')&&<p className="bio-book-credit" style={{fontSize:'.74rem',lineHeight:1.4,opacity:.77,margin:'.35rem 0 .1rem'}}>Source: {asset.attribution}</p>}
-  <figcaption className="bio-sr-only">{asset.captionTitle}. {asset.alt}{asset.interpretation?' '+asset.interpretation:''}</figcaption>
+  <figcaption className={asset.src.startsWith('/biology/licensed-book-crops/')?'bio-book-caption':'bio-sr-only'}>{asset.captionTitle}<span className="bio-sr-only">. {asset.alt}{asset.interpretation?' '+asset.interpretation:''}</span></figcaption>
   {!failed&&<dialog ref={dialog} className="bio-figure-dialog" aria-label={asset.captionTitle} onClose={()=>opener.current?.focus()} onKeyDown={event=>{
     if(event.key==='+'||event.key==='='){event.preventDefault();setZoom(z=>clampZoom(z+.5))}
     else if(event.key==='-'&&event.target===viewport.current){event.preventDefault();setZoom(z=>clampZoom(z-.5))}
@@ -39,6 +40,7 @@ export default function ScientificFigure({asset,hideLabels=false}:{asset:Asset;h
    </div>
    <div ref={viewport} className="bio-figure-zoom" tabIndex={0} role="region" aria-label="Enlarged diagram; scroll or use arrow keys to pan"><img src={src} alt={alt} style={{width:presentation.raster?(rasterBase*zoom)+'px':(zoom*100)+'%'}}/></div>
    <p>{asset.alt}</p>
+   {asset.src.startsWith('/biology/licensed-book-crops/')&&<p className="bio-book-credit">Source: {asset.attribution}</p>}
    <details className="bio-figure-credit"><summary>Image source and reuse</summary><p>{asset.attribution}</p><p>{asset.license}</p>{asset.sourceUrl&&<a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer">Original source ↗</a>}{asset.termsUrl&&<> · <a href={asset.termsUrl} target="_blank" rel="noopener noreferrer">Licence terms ↗</a></>}</details>
    <p className="bio-figure-dialog-hint">Zoom in to inspect labels; scroll to pan. Press Escape to return to the lesson.</p>
   </dialog>}

@@ -434,3 +434,6 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
 @media(prefers-reduced-motion:reduce){.bio-figure-clean *,.bio-figure-dialog *{scroll-behavior:auto;transition:none}}
 /* Modal zoom must escape the higher-specificity general lesson image cap. */
 .bio-app .bio-figure.bio-figure-clean .bio-figure-dialog .bio-figure-zoom img{max-width:none;min-width:0;max-height:none}
+/* Original book screenshots keep their aspect ratio; dense labels are available in the zoom dialog. */
+.bio-app .bio-reading .bio-figure-clean[data-raster="true"]>.bio-figure-image picture>img{max-height:680px;width:auto;height:auto;max-width:100%;object-fit:contain}
+.bio-book-caption{font-size:.86rem;line-height:1.45;margin:.3rem 0;color:var(--bio-ink);font-weight:600}
