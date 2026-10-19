@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validateLesson} from '../../validate-lesson.mjs';
 import {validateTopic} from '../themes-ab-final/validate.mjs';
+import {inspectTransportRequirements} from '../ib2025-coursewide-review/transport-requirements.mjs';
 
 const read = path => JSON.parse(fs.readFileSync(path,'utf8'));
 const registry=read('src/biology/curriculum/registry.json');
@@ -25,6 +26,7 @@ for(const [id,slug,total,shared,hl] of specifications){
  assert.deepEqual(validateLesson(lesson,projected),[],id+' source contract');
  const exists = src=>fs.existsSync('public'+src);
  assert.deepEqual(validateTopic(projected,lesson,exists),[],id+' teaching/figure/visual contract');
+ if(id==='B3.2')assert.deepEqual(inspectTransportRequirements(lesson),[], 'B3.2 exact required mechanisms and skills');
  assert.equal(lesson.sections.length,total,id+' total understanding count');
  assert.equal(lesson.sections.filter(s=>s.level==='shared').length,shared,id+' SL scope count');
  assert.equal(lesson.sections.filter(s=>s.level==='HL').length,hl,id+' HL scope count');
@@ -32,10 +34,12 @@ for(const [id,slug,total,shared,hl] of specifications){
  for(let i=0;i<total;i++){
   const item=lesson.sections[i],number=id+'.'+(i+1);
   assert.deepEqual(item.understandingIds,[number],number+' ordered one-to-one');
-  assert.ok(item.teachingBlocks.length>=4,number+' extended teaching structure');
+  // The Oct 19 editorial brief supersedes the old transport-only four-block/200-word quota.
+  // All source/level/figure assertions remain, and every B3.2 requirement is checked above.
+  assert.ok(item.teachingBlocks.length>=(id==='B3.2'?2:4),number+' coherent teaching structure');
   assert.equal(new Set(item.teachingBlocks.map(b=>b.title)).size,item.teachingBlocks.length,number+' distinctive titled blocks');
   assert.ok(item.teachingBlocks.every(b=>b.explanation.length>100),number+' substantial explanatory paragraphs');
-  assert.ok(item.explanation.trim().split(/\s+/).length>=200,number+' complete explanation');
+  if(id!=='B3.2')assert.ok(item.explanation.trim().split(/\s+/).length>=200,number+' complete explanation');
   assert.equal(item.claimReferences.length,item.teachingBlocks.length,number+' source-mapped paragraphs');
   assert.ok(item.interactions.every(q=>q.options.filter(o=>o.correct).length===1&&q.options.every(o=>o.feedback?.length>25)));
   assert.ok(lesson.questions.some(q=>q.understandingIds.includes(number)),number+' assessment');

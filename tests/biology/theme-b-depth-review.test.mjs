@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {inspectTransportRequirements} from '../../scripts/biology/ib2025-coursewide-review/transport-requirements.mjs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const topicSlugs={'B1.1':'carbohydrates-lipids','B1.2':'proteins','B2.1':'membranes-transport','B2.2':'organelles-compartmentalization','B2.3':'cell-specialization','B3.1':'gas-exchange','B3.2':'transport','B3.3':'muscle-motility','B4.1':'adaptation-environment','B4.2':'ecological-niches'};
 const depth=read('docs/biology/theme-b-final-20261018/STRUCTURE_FUNCTION_DEPTH_REVIEW_123.json');
 const registry=read('src/biology/curriculum/registry.json');
+const transportReview=read('docs/biology/ib2025-coursewide-review/CURRENT_TRANSPORT_REVIEW.json');
 const words=s=>s.trim().split(/\s+/).filter(Boolean).length;
 // The exact final integration retains two additional scientifically reviewed-at-draft-stage
 // paragraphs/edits from the newer baseline rather than reverting to the specialist snapshot.
@@ -23,10 +25,12 @@ test('Every one of 123 understanding IDs has a source-scoped before/after record
   assert.ok(section&&u,row.id+' present');
   assert.equal(section.level,u.level,row.id+' correct shared/HL scope');
   assert.equal(section.level,row.level,row.id+' audit scope');
-  const expectedIntegratedWords=integratedWordCounts[row.id]??row.afterMainWords;
+  const revised=topic==='B3.2'?transportReview.rows.find(r=>r.id===row.id):null;
+  if(topic==='B3.2'){assert.ok(revised,row.id+' current versioned source review');assert.deepEqual(inspectTransportRequirements(lesson),[])}
+  const expectedIntegratedWords=revised?.afterMainWords??integratedWordCounts[row.id]??row.afterMainWords;
   assert.equal(words(section.explanation),expectedIntegratedWords,row.id+' final integration teaching depth');
-  if(Object.hasOwn(integratedWordCounts,row.id))assert.ok(expectedIntegratedWords>row.afterMainWords,row.id+' newer biological explanation preserved');
-  assert.equal(section.teachingBlocks.length,row.afterTeachingBlocks,row.id+' block count');
+  if(!revised&&Object.hasOwn(integratedWordCounts,row.id))assert.ok(expectedIntegratedWords>row.afterMainWords,row.id+' newer biological explanation preserved');
+  assert.equal(section.teachingBlocks.length,revised?.afterTeachingBlocks??row.afterTeachingBlocks,row.id+' block count');
   assert.equal(section.claimReferences.length,section.teachingBlocks.length,row.id+' paragraph references');
   assert.equal(section.explanation,section.teachingBlocks.map(x=>x.explanation).join('\n\n'),row.id+' Learn text matches blocks');
   assert.equal(section.explanation,section.claimReferences.map(x=>x.claim).join('\n\n'),row.id+' claims mapped');
@@ -35,7 +39,7 @@ test('Every one of 123 understanding IDs has a source-scoped before/after record
   if(topic.startsWith('B3')||topic.startsWith('B4')){
     assert.equal(row.editorialClassification,'corrected',row.id+' change classification');
     assert.ok(row.addedMainWords>=55,row.id+' substantial specific mechanism addition');
-    assert.ok(words(section.explanation)>=200,row.id+' depth');
+    if(topic!=='B3.2')assert.ok(words(section.explanation)>=200,row.id+' depth');
     assert.ok(row.addedHeadings.length===1,row.id+' unique new heading');
   }else{
     assert.equal(row.editorialClassification,'complete',row.id+' retained foundation');
