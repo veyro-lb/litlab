@@ -16,7 +16,7 @@ try {
   const page=await context.newPage();
   const errors=[];
   page.on('pageerror',err=>errors.push(String(err)));
-  const visit=async route=>{await page.goto(new URL('#'+route,base).toString());await page.locator('.subject-bar').waitFor();};
+  const visit=async route=>{await page.goto(new URL('#'+route,base).toString());await page.locator('.subject-bar[data-subject="'+(route.startsWith('biology')?'biology':'english')+'"] ').waitFor();};
   try {
    await visit('home');
    const switcher=page.getByRole('navigation',{name:'Switch between LitLab and BioLab'});
@@ -43,7 +43,7 @@ try {
    assert.equal(await back.count(),1,'BioLab header must include a clear way back to LitLab');
    await back.click();
    await page.waitForURL(/#home$/);
-   assert.equal(await page.locator('.subject-bar[data-subject="english"]').count(),1);
+   await expect(page.locator('.subject-bar[data-subject="english"]')).toHaveCount(1);
    await expect(switcher.locator('a[aria-current="page"]')).toHaveText('LitLab');
    const metrics=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
    assert(metrics.scroll<=metrics.client+2,'Return route overflows at '+name+': '+JSON.stringify(metrics));
