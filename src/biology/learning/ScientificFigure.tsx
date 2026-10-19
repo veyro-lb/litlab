@@ -23,6 +23,7 @@ export default function ScientificFigure({asset,hideLabels=false}:{asset:Asset;h
    <picture>{asset.mobileSrc&&<source media="(max-width: 560px)" srcSet={recalling&&asset.recallMobileSrc?asset.recallMobileSrc:asset.mobileSrc}/>}<img src={src} alt={alt} loading="lazy" decoding="async" onError={()=>setFailed(true)}/></picture>
   </button>}
   {asset.kind==='photograph'&&asset.interpretation&&<p className="bio-photo-context">{asset.interpretation}</p>}
+  {asset.src.startsWith('/biology/licensed-book-crops/')&&<p className="bio-book-credit" style={{fontSize:'.74rem',lineHeight:1.4,opacity:.77,margin:'.35rem 0 .1rem'}}>Source: {asset.attribution}</p>}
   <figcaption className="bio-sr-only">{asset.captionTitle}. {asset.alt}{asset.interpretation?' '+asset.interpretation:''}</figcaption>
   {!failed&&<dialog ref={dialog} className="bio-figure-dialog" aria-label={asset.captionTitle} onClose={()=>opener.current?.focus()} onKeyDown={event=>{
     if(event.key==='+'||event.key==='='){event.preventDefault();setZoom(z=>clampZoom(z+.5))}
