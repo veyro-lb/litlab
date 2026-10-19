@@ -43,6 +43,9 @@ test('the integrated 40-topic course combines science review and original textbo
   const science=from(scientific,path);
   const final=JSON.parse(readFileSync(path,'utf8'));
   const expected=merge(from(common,path),from(screenshot,path),science,path);
+  // Two publisher figure replacements require explicit, accurate accessibility interpretation.
+  const figureInterpretation={"d12-elongation-cycle":"The numbered stages represent successive steps in one translation cycle, not separate ribosomes. A ribosome advances along mRNA in the 5′ to 3′ direction and releases the polypeptide at a stop codon.","d21-meiotic-variation":"Independent orientation at metaphase I changes which maternal and paternal homologues pass to gametes; this mechanism is distinct from exchange between non-sister chromatids during prophase I."};
+  for(const asset of expected.assets)if(figureInterpretation[asset.id])asset.interpretation=figureInterpretation[asset.id];
   assert.deepEqual(final,expected,path+' changed unexpectedly');
   assert.deepEqual(final.sections.map(s=>s.id),science.sections.map(s=>s.id));
   assert.deepEqual(final.questions.map(q=>q.id),science.questions.map(q=>q.id));
