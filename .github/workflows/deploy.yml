@@ -1,7 +1,6 @@
 name: Deploy to GitHub Pages
 on:
-  push:
-    branches: [main]
+  # Cloudflare Workers is the public release host. GitHub Pages remains manual-only.
   workflow_dispatch:
 permissions:
   contents: read
