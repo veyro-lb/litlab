@@ -41,10 +41,10 @@ jobs:
           done
           cat preview.log
           exit 1
-      - name: Audit desktop and mobile route rendering
-        run: node scripts/browser-smoke.mjs
       - name: Verify LitLab and BioLab navigation on four screen sizes
         run: node scripts/biology/navigation/subject-nav-browser.mjs
+      - name: Audit desktop and mobile route rendering
+        run: node scripts/browser-smoke.mjs
       - name: Upload visual QA screenshots
         if: always()
         uses: actions/upload-artifact@v4
