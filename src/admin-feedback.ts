@@ -106,13 +106,18 @@ function commentBlock(label:string,value:string|null,tech=false){
   return `<div class="admin-feedback-comment${tech?' admin-tech-comment':''}"><span>${escapeHTML(label)}</span><p>${escapeHTML(value)}</p></div>`;
 }
 
+function productForSubmission(section:string,sourcePage:string|null){
+  return section.startsWith('BioLab —')||/^\/?#biology(?:\/|$)/i.test(sourcePage||'')||/#biology(?:\/|$)/i.test(sourcePage||'')?'biolab':'litlab';
+}
+
 function feedbackCard(item:FeedbackItem){
   const school=item.school?.trim()||'School not provided';
   const rating=Math.max(1,Math.min(5,Number(item.rating)||1));
-  const searchText=`${school} ${roleLabel(item.respondent_role)} ${item.section} ${item.useful||''} ${item.improve||''} ${item.unclear||''} ${item.feature_request||''}`.toLowerCase();
-  return `<details class="admin-feedback-item" data-feedback-item data-feedback-id="${escapeHTML(item.id)}" data-section="${escapeHTML(item.section)}" data-rating="${rating}" data-search="${escapeHTML(searchText)}">
+  const product=productForSubmission(item.section,item.source_page);
+  const searchText=`${school} ${roleLabel(item.respondent_role)} ${item.section} ${item.useful||''} ${item.improve||''} ${item.unclear||''} ${item.feature_request||''} ${item.source_page||''}`.toLowerCase();
+  return `<details class="admin-feedback-item" data-feedback-item data-feedback-id="${escapeHTML(item.id)}" data-section="${escapeHTML(item.section)}" data-rating="${rating}" data-product="${product}" data-search="${escapeHTML(searchText)}">
     <summary>
-      <div class="admin-feedback-who"><span class="admin-feedback-role">${escapeHTML(roleLabel(item.respondent_role))}</span><div><b>${escapeHTML(school)}</b><small>${escapeHTML(item.section)} • ${escapeHTML(fmt(item.created_at))}</small></div></div>
+      <div class="admin-feedback-who"><span class="admin-feedback-role">${escapeHTML(roleLabel(item.respondent_role))}</span><span class="admin-feedback-product" data-product="${product}">${product==='biolab'?'BioLab':'LitLab'}</span><div><b>${escapeHTML(school)}</b><small>${escapeHTML(item.section)} • ${escapeHTML(fmt(item.created_at))}</small></div></div>
       <div class="admin-feedback-score"><strong>${rating}/5</strong><span>${escapeHTML(recommendLabel(item.recommend))}</span></div>
     </summary>
     <div class="admin-feedback-body">
@@ -127,11 +132,12 @@ function feedbackCard(item:FeedbackItem){
 }
 
 function technicalCard(item:TechnicalItem){
+  const product=productForSubmission('',item.source_page);
   const school=item.school?.trim()||'School not provided';
   const searchText=`${school} ${roleLabel(item.respondent_role)} ${categoryLabel(item.category)} ${item.severity} ${item.description||''} ${item.steps_to_reproduce||''} ${item.expected_behavior||''} ${item.source_page||''}`.toLowerCase();
-  return `<details class="admin-feedback-item admin-tech-item" data-tech-item data-report-id="${escapeHTML(item.id)}" data-category="${escapeHTML(item.category)}" data-severity="${escapeHTML(item.severity)}" data-search="${escapeHTML(searchText)}">
+  return `<details class="admin-feedback-item admin-tech-item" data-tech-item data-report-id="${escapeHTML(item.id)}" data-category="${escapeHTML(item.category)}" data-severity="${escapeHTML(item.severity)}" data-product="${product}" data-search="${escapeHTML(searchText)}">
     <summary>
-      <div class="admin-feedback-who"><span class="admin-tech-severity" data-severity="${escapeHTML(item.severity)}">${escapeHTML(severityLabel(item.severity))}</span><div><b>${escapeHTML(categoryLabel(item.category))}</b><small>${escapeHTML(roleLabel(item.respondent_role))} • ${escapeHTML(school)} • ${escapeHTML(fmt(item.created_at))}</small></div></div>
+      <div class="admin-feedback-who"><span class="admin-tech-severity" data-severity="${escapeHTML(item.severity)}">${escapeHTML(severityLabel(item.severity))}</span><span class="admin-feedback-product" data-product="${product}">${product==='biolab'?'BioLab':'LitLab'}</span><div><b>${escapeHTML(categoryLabel(item.category))}</b><small>${escapeHTML(roleLabel(item.respondent_role))} • ${escapeHTML(school)} • ${escapeHTML(fmt(item.created_at))}</small></div></div>
       <div class="admin-tech-page">${escapeHTML(item.source_page||'Unknown page')}</div>
     </summary>
     <div class="admin-feedback-body">
@@ -161,6 +167,7 @@ function feedbackPanel(data:FeedbackData){
     </div>
     <div class="admin-feedback-tools">
       <label><span>Search</span><input type="search" data-feedback-search placeholder="School, comment, role…" /></label>
+      <label><span>Study space</span><select data-feedback-product><option value="">Both</option><option value="biolab">BioLab</option><option value="litlab">LitLab</option></select></label>
       <label><span>Section</span><select data-feedback-section><option value="">All sections</option>${sections.map(section=>`<option value="${escapeHTML(section)}">${escapeHTML(section)}</option>`).join('')}</select></label>
       <label><span>Rating</span><select data-feedback-rating><option value="">All ratings</option>${[5,4,3,2,1].map(n=>`<option value="${n}">${n}/5</option>`).join('')}</select></label>
     </div>
@@ -179,6 +186,7 @@ function technicalPanel(data:TechnicalData){
     </div>
     <div class="admin-feedback-tools admin-tech-tools">
       <label><span>Search reports</span><input type="search" data-tech-search placeholder="Problem, page, school, device…" /></label>
+      <label><span>Study space</span><select data-tech-product><option value="">Both</option><option value="biolab">BioLab</option><option value="litlab">LitLab</option></select></label>
       <label><span>Area</span><select data-tech-category><option value="">All areas</option><option value="page-loading">Page loading</option><option value="button-interaction">Button / interaction</option><option value="sign-in-account">Sign in / account</option><option value="tutor">LitLab Tutor</option><option value="mobile-layout">Mobile layout</option><option value="progress-saving">Progress / sync</option><option value="display-visual">Display / visual</option><option value="other">Other</option></select></label>
       <label><span>Severity</span><select data-tech-severity-filter><option value="">All severities</option><option value="blocked">Blocked</option><option value="major">Major</option><option value="minor">Minor</option></select></label>
     </div>
@@ -202,7 +210,7 @@ function renderSubmissions(container:HTMLElement,data:AdminSubmissionData){
   const generated=data.feedback.generated_at||data.technical.generated_at;
   container.innerHTML=`<section class="admin-feedback-shell">
     <header class="admin-feedback-head">
-      <div><span>STUDENT, TEACHER & TECHNICAL REPORTS</span><h2>LitLab feedback & reports</h2><p>Review feedback and technical issues submitted through LitLab. This dashboard refreshes automatically while you are using it.</p><small class="admin-feedback-updated">Last updated ${escapeHTML(fmt(generated))}</small></div>
+      <div><span>STUDENT, TEACHER & TECHNICAL REPORTS</span><h2>LitLab & BioLab feedback</h2><p>Review feedback and technical issues submitted through LitLab and BioLab. This dashboard refreshes automatically while you are using it.</p><small class="admin-feedback-updated">Last updated ${escapeHTML(fmt(generated))}</small></div>
       <button type="button" data-feedback-refresh>Refresh now</button>
     </header>
     <div class="admin-feedback-tabs" role="tablist" aria-label="Submission type">
@@ -217,9 +225,11 @@ function renderSubmissions(container:HTMLElement,data:AdminSubmissionData){
   container.querySelector<HTMLButtonElement>('[data-feedback-refresh]')?.addEventListener('click',()=>void refreshSubmissions(container,true));
   container.querySelectorAll<HTMLButtonElement>('[data-admin-submission-tab]').forEach(button=>button.addEventListener('click',()=>setAdminView(container,button.dataset.adminSubmissionTab==='technical'?'technical':'feedback')));
   container.querySelector<HTMLInputElement>('[data-feedback-search]')?.addEventListener('input',()=>filterFeedback(container));
+  container.querySelector<HTMLSelectElement>('[data-feedback-product]')?.addEventListener('change',()=>filterFeedback(container));
   container.querySelector<HTMLSelectElement>('[data-feedback-section]')?.addEventListener('change',()=>filterFeedback(container));
   container.querySelector<HTMLSelectElement>('[data-feedback-rating]')?.addEventListener('change',()=>filterFeedback(container));
   container.querySelector<HTMLInputElement>('[data-tech-search]')?.addEventListener('input',()=>filterTechnical(container));
+  container.querySelector<HTMLSelectElement>('[data-tech-product]')?.addEventListener('change',()=>filterTechnical(container));
   container.querySelector<HTMLSelectElement>('[data-tech-category]')?.addEventListener('change',()=>filterTechnical(container));
   container.querySelector<HTMLSelectElement>('[data-tech-severity-filter]')?.addEventListener('change',()=>filterTechnical(container));
   container.querySelectorAll<HTMLButtonElement>('[data-feedback-delete]').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();void deleteFeedback(container,button)}));
@@ -229,11 +239,12 @@ function renderSubmissions(container:HTMLElement,data:AdminSubmissionData){
 
 function filterFeedback(container:HTMLElement){
   const query=(container.querySelector<HTMLInputElement>('[data-feedback-search]')?.value||'').trim().toLowerCase();
+  const product=container.querySelector<HTMLSelectElement>('[data-feedback-product]')?.value||'';
   const section=container.querySelector<HTMLSelectElement>('[data-feedback-section]')?.value||'';
   const rating=container.querySelector<HTMLSelectElement>('[data-feedback-rating]')?.value||'';
   let visible=0;
   container.querySelectorAll<HTMLElement>('[data-feedback-item]').forEach(item=>{
-    const show=(!query||(item.dataset.search||'').includes(query))&&(!section||item.dataset.section===section)&&(!rating||item.dataset.rating===rating);
+    const show=(!query||(item.dataset.search||'').includes(query))&&(!product||item.dataset.product===product)&&(!section||item.dataset.section===section)&&(!rating||item.dataset.rating===rating);
     item.hidden=!show;if(show)visible++;
   });
   const count=container.querySelector<HTMLElement>('[data-feedback-count]');
@@ -242,11 +253,12 @@ function filterFeedback(container:HTMLElement){
 
 function filterTechnical(container:HTMLElement){
   const query=(container.querySelector<HTMLInputElement>('[data-tech-search]')?.value||'').trim().toLowerCase();
+  const product=container.querySelector<HTMLSelectElement>('[data-tech-product]')?.value||'';
   const category=container.querySelector<HTMLSelectElement>('[data-tech-category]')?.value||'';
   const severity=container.querySelector<HTMLSelectElement>('[data-tech-severity-filter]')?.value||'';
   let visible=0;
   container.querySelectorAll<HTMLElement>('[data-tech-item]').forEach(item=>{
-    const show=(!query||(item.dataset.search||'').includes(query))&&(!category||item.dataset.category===category)&&(!severity||item.dataset.severity===severity);
+    const show=(!query||(item.dataset.search||'').includes(query))&&(!product||item.dataset.product===product)&&(!category||item.dataset.category===category)&&(!severity||item.dataset.severity===severity);
     item.hidden=!show;if(show)visible++;
   });
   const count=container.querySelector<HTMLElement>('[data-tech-count]');

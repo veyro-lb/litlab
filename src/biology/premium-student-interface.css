@@ -123,3 +123,21 @@
 
 /* The course-level radios must remain thumb-sized even on a 320px phone. */
 .bio-app .bio-level label>span{min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center}
+
+
+/* Feedback on this BioLab page remains available in the course toolbar. */
+.bio-toolbar-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-width:0}
+.bio-app .bio-feedback-action{
+ display:inline-flex;align-items:center;justify-content:center;gap:8px;
+ min-height:42px;padding:9px 13px;border:1px solid var(--bio-card-border);
+ border-radius:12px;background:var(--surface);color:var(--bio-green);
+ font-size:12px;font-weight:750;line-height:1.3;white-space:nowrap;cursor:pointer
+}
+.bio-app .bio-feedback-action:hover{background:var(--surface-2);border-color:var(--bio-green)}
+.bio-app .bio-feedback-action:focus-visible{outline:3px solid var(--bio-green);outline-offset:3px}
+@media(max-width:780px){
+ .bio-app .bio-toolbar{flex-wrap:wrap;align-items:center;gap:9px}
+ .bio-toolbar-actions{flex-wrap:wrap;justify-content:space-between;gap:8px;width:100%}
+ .bio-app .bio-feedback-action{min-height:44px}
+}
+@media(max-width:370px){.bio-app .bio-feedback-action{white-space:normal;text-align:center;padding:7px 9px}}

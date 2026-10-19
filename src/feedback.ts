@@ -5,6 +5,19 @@ const esc=(value:string)=>value.replace(/[&<>"']/g,char=>({
   '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
 }[char]||char));
 
+type FeedbackContext={isBiology:boolean;product:'BioLab'|'LitLab';section:string;location:string};
+function feedbackPageContext():FeedbackContext{
+  const hash=(location.hash||'#home').replace(/^#/,'');
+  const route=hash.split('?')[0]||'home';
+  const isBiology=/^biology(?:\/|$)/i.test(route);
+  if(!isBiology)return {isBiology:false,product:'LitLab',section:currentSection(),location:'LitLab'};
+  const topic=/^biology\/topic\/([A-D][1-4]\.\d+)/i.exec(route);
+  const theme=/^biology\/theme\/([A-D])/i.exec(route);
+  const section=topic?'BioLab — '+topic[1].toUpperCase():theme?'BioLab — Theme '+theme[1].toUpperCase():'BioLab — Curriculum';
+  const mode=topic?route.split('/')[3]||'overview':new URLSearchParams(hash.split('?')[1]||'').get('resource');
+  return {isBiology:true,product:'BioLab',section,location:topic?'Topic '+topic[1].toUpperCase()+(mode?' · '+mode:''):theme?'Theme '+theme[1].toUpperCase():'Curriculum'};
+}
+
 function currentSection(){
   const hash=(location.hash||'#home').replace(/^#/,'');
   const route=hash.split('#')[0]||'home';
@@ -16,9 +29,13 @@ function currentSection(){
 }
 
 function feedbackForm(){
-  const defaultSection=currentSection();
-  const sections=['General website','Start Here','Paper 1','Paper 2','Individual Oral','Extended Essay','HL Essay','Skills Lab','Books','LitLab Tutor','Toolkit','Accounts / My LitLab','Other'];
+  const context=feedbackPageContext();
+  const defaultSection=context.section;
+  const litlabSections=['General website','Start Here','Paper 1','Paper 2','Individual Oral','Extended Essay','HL Essay','Skills Lab','Books','LitLab Tutor','Toolkit','Accounts / My LitLab','Other'];
+  const biologySections=['BioLab — Curriculum','BioLab — Lessons','BioLab — Practice','BioLab — Revision / flashcards','BioLab — Diagrams / figures','BioLab — SL / HL','BioLab — Site experience','BioLab — Other'];
+  const sections=context.isBiology?[...new Set([defaultSection,...biologySections])]:litlabSections;
   return `<form class="ll-feedback-form" id="ll-feedback-form" data-feedback-panel="feedback">
+    ${context.isBiology?'<p class="ll-feedback-context">From: <strong>'+esc(context.location)+'</strong> · We also attach this page automatically.</p>':''}
     <div class="ll-feedback-grid two">
       <label><span>You are</span><select name="respondent_role" required>
         <option value="student">Student</option><option value="teacher">Teacher</option><option value="ib-coordinator">IB Coordinator</option><option value="cas-coordinator">CAS Coordinator</option><option value="parent">Parent</option><option value="other">Other</option>
@@ -33,7 +50,7 @@ function feedbackForm(){
     <label><span>What could we improve?</span><textarea name="improve" maxlength="2000" rows="3" placeholder="Tell us what could be clearer, easier or more useful."></textarea></label>
     <label><span>Did you find anything incorrect or unclear?</span><textarea name="unclear" maxlength="2000" rows="3" placeholder="If yes, tell us the page or section and what needs checking."></textarea></label>
     <label><span>What feature would you like us to add?</span><textarea name="feature_request" maxlength="2000" rows="3" placeholder="A new tool, guide, book profile or improvement you would use."></textarea></label>
-    <fieldset class="ll-recommend"><legend>Would you recommend LitLab to another IB student?</legend><div>
+    <fieldset class="ll-recommend"><legend>Would you recommend ${context.product} to another IB student?</legend><div>
       <label><input type="radio" name="recommend" value="yes"/><span>Yes</span></label>
       <label><input type="radio" name="recommend" value="maybe"/><span>Maybe</span></label>
       <label><input type="radio" name="recommend" value="no"/><span>No</span></label>
@@ -45,8 +62,9 @@ function feedbackForm(){
 }
 
 function technicalForm(){
+  const context=feedbackPageContext();
   return `<form class="ll-feedback-form ll-technical-form" id="ll-technical-form" data-feedback-panel="technical" hidden>
-    <div class="ll-tech-intro"><span aria-hidden="true">⚙</span><div><b>Help us reproduce the problem.</b><small>LitLab will automatically attach the current page, browser, device type and screen size. We do not collect passwords or the contents of your account.</small></div></div>
+    <div class="ll-tech-intro"><span aria-hidden="true">⚙</span><div><b>Help us reproduce the problem.</b><small>${context.product} will automatically attach the current page, browser, device type and screen size. We do not collect passwords or the contents of your account.</small></div></div>
     <div class="ll-feedback-grid two">
       <label><span>You are</span><select name="respondent_role" required>
         <option value="student">Student</option><option value="teacher">Teacher</option><option value="ib-coordinator">IB Coordinator</option><option value="cas-coordinator">CAS Coordinator</option><option value="parent">Parent</option><option value="other">Other</option>
@@ -80,13 +98,14 @@ function technicalForm(){
 }
 
 function modalMarkup(){
+  const context=feedbackPageContext();
   return `<div class="ll-feedback-backdrop" data-feedback-close></div>
   <section class="ll-feedback-modal" role="dialog" aria-modal="true" aria-labelledby="ll-feedback-title">
     <button class="ll-feedback-close" type="button" aria-label="Close feedback form" data-feedback-close>×</button>
     <div class="ll-feedback-head">
-      <span class="ll-feedback-kicker">Help us improve LitLab</span>
-      <h2 id="ll-feedback-title">Tell us how LitLab can be better.</h2>
-      <p>Share general feedback or report a technical problem directly to the LitLab developers.</p>
+      <span class="ll-feedback-kicker">Help us improve ${context.product}</span>
+      <h2 id="ll-feedback-title">Tell us how ${context.product} can be better.</h2>
+      <p>Share ${context.isBiology?'lesson accuracy, diagrams, questions and ideas':'general feedback'} or report a technical problem to our team.</p>
     </div>
     <div class="ll-feedback-mode" role="tablist" aria-label="Feedback type">
       <button type="button" role="tab" aria-selected="true" data-feedback-mode="feedback"><span aria-hidden="true">✦</span><b>Give feedback</b><small>Ideas, clarity and content</small></button>
@@ -110,16 +129,21 @@ function setMode(root:HTMLElement,mode:'feedback'|'technical'){
   if(modal)modal.scrollTop=0;
   const heading=root.querySelector<HTMLElement>('#ll-feedback-title');
   const intro=root.querySelector<HTMLElement>('.ll-feedback-head p');
-  if(heading)heading.textContent=mode==='technical'?'Report a technical problem.':'Tell us how LitLab can be better.';
+  const product=root.dataset.feedbackProduct==='BioLab'?'BioLab':'LitLab';
+  if(heading)heading.textContent=mode==='technical'?'Report a technical problem.':'Tell us how '+product+' can be better.';
   if(intro)intro.textContent=mode==='technical'
     ?'Send the LitLab developers enough detail to reproduce and fix the issue.'
     :'Your feedback helps us decide what to improve, clarify and build next.';
 }
 
-function openFeedback(initialMode:'feedback'|'technical'='feedback'){
+let lastFeedbackOpener:HTMLElement|null=null;
+function openFeedback(initialMode:'feedback'|'technical'='feedback',opener?:HTMLElement){
+  if(opener)lastFeedbackOpener=opener;
+  else if(document.activeElement instanceof HTMLElement)lastFeedbackOpener=document.activeElement;
   let root=document.getElementById('ll-feedback-root');
   if(!root){root=document.createElement('div');root.id='ll-feedback-root';document.body.appendChild(root)}
   root.innerHTML=modalMarkup();
+  root.dataset.feedbackProduct=feedbackPageContext().product;
   root.classList.add('open');
   document.body.classList.add('ll-feedback-open');
   root.querySelectorAll('[data-feedback-close]').forEach(el=>el.addEventListener('click',closeFeedback));
@@ -139,7 +163,20 @@ function closeFeedback(){
   root?.classList.remove('open');
   root?.replaceChildren();
   document.body.classList.remove('ll-feedback-open');
+  const opener=lastFeedbackOpener;
+  lastFeedbackOpener=null;
+  if(opener?.isConnected)requestAnimationFrame(()=>opener.focus({preventScroll:true}));
 }
+
+window.addEventListener('litlab:open-feedback',event=>{
+  const detail=(event as CustomEvent<{mode?:string;opener?:HTMLElement}>).detail;
+  openFeedback(detail?.mode==='technical'?'technical':'feedback',detail?.opener);
+});
+window.addEventListener('litlab:feedback-confirmation-closed',()=>{
+  const opener=lastFeedbackOpener;
+  lastFeedbackOpener=null;
+  if(opener?.isConnected)requestAnimationFrame(()=>opener.focus({preventScroll:true}));
+});
 
 function installFeedback(){
   if(document.getElementById('ll-feedback-trigger'))return;
@@ -149,7 +186,7 @@ function installFeedback(){
   button.type='button';
   button.setAttribute('aria-label','Give feedback or report a technical problem');
   button.innerHTML='<span aria-hidden="true">✦</span><b>Feedback</b>';
-  button.addEventListener('click',()=>openFeedback('feedback'));
+  button.addEventListener('click',()=>openFeedback('feedback',button));
   document.body.appendChild(button);
 
   document.addEventListener('keydown',event=>{

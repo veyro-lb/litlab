@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
-import {ArrowLeft, FlaskConical} from 'lucide-react';
+import {ArrowLeft, FlaskConical, MessageSquare} from 'lucide-react';
 import BiologyDashboard from './components/BiologyDashboard';
 import CurriculumOverview from './components/CurriculumOverview';
 import ResourceNav, {resourceFromHash} from './components/ResourceNav';
@@ -30,7 +30,10 @@ export default function BiologyApp({hash}:{hash:string}) {
   return <div className="bio-app" ref={focusRef} tabIndex={-1}>
     <div className="bio-toolbar">
       {route.kind==='dashboard'?<span className="bio-toolbar-title">Your IB Biology course</span>:<nav aria-label="Biology breadcrumb"><a href="#biology"><FlaskConical size={17} aria-hidden="true"/> BioLab</a><span aria-hidden="true">/</span>{route.kind==='theme'?<span>Theme {route.id}</span>:topic?<><a href={'#biology/theme/'+topic.theme}>Theme {topic.theme}</a><span aria-hidden="true">/</span><span>{topic.id} · {topic.title}</span></>:<span>Page not found</span>}</nav>}
+      <div className="bio-toolbar-actions">
+        <button type="button" className="bio-feedback-action" onClick={event=>window.dispatchEvent(new CustomEvent('litlab:open-feedback',{detail:{mode:'feedback',opener:event.currentTarget}}))} aria-label="Give feedback about this BioLab page"><MessageSquare size={16} aria-hidden="true"/>Feedback on this page</button>
       <fieldset className="bio-level"><legend className="bio-sr-only">Course level</legend>{(['SL','HL'] as Level[]).map(l=><label key={l} title={l==='SL'?'Standard Level':'Higher Level'}><input type="radio" name="biology-level" value={l} checked={level===l} onChange={()=>{setLevel(l);saveLevel(l)}}/><span>{l}<span className="bio-level-long"> · {l==='SL'?'Standard':'Higher'}</span></span></label>)}</fieldset>
+      </div>
     </div>
     {missing?<section className="bio-empty"><span className="bio-eyebrow">PAGE NOT FOUND</span><h1>That topic isn’t on this map.</h1><p>Check the topic code or return to the curriculum.</p><a className="bio-primary" href="#biology"><ArrowLeft size={18} aria-hidden="true"/>All themes</a></section>
     :route.kind==='topic'&&topic?route.mode&&topic.lessonId?<LessonLoader topic={topic} level={level} mode={route.mode} hash={hash}/>:<TopicOverview topic={topic} level={level} hash={hash}/>
