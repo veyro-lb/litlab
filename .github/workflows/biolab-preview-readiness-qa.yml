@@ -5,6 +5,7 @@ on:
       - feature/biolab-preview-qa-fixes-20261018
       - feature/biolab-original-textbook-crops-20261019
       - feature/biolab-ib2025-content-source-cleanup-20261019
+      - feature/biolab-launch-readiness-20261019
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +22,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Mark this checkout as a safe Git directory for baseline-diff tests
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Install locked dependencies
         run: npm ci
       - name: Capture dependency audit without masking findings
