@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - feature/biolab-preview-qa-fixes-20261018
+      - feature/biolab-original-textbook-crops-20261019
   workflow_dispatch:
 permissions:
   contents: read
@@ -32,6 +33,7 @@ jobs:
           node scripts/validate-biology.mjs
           node scripts/biology/validate-full-course-depth-audit.mjs
           node scripts/biology/validate-final-consolidation.mjs
+          node scripts/biology/licensed-book-figures/verify.mjs
       - name: Figure and scientific-visual regression tests
         run: |
           node --experimental-strip-types --test scripts/biology/figure-layout-refinement/figure-presentation.test.mjs
