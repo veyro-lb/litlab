@@ -29,7 +29,7 @@ Figure C1.2.10 remains excluded because of its outdated ATP-yield issue. No requ
 
 The new crops replace the main sources for `krebs-cycle`, `mitochondrial-chemiosmosis`, `thylakoid-chemiosmosis`, `calvin-carbon`, `bacterial-replication-enzymes`, `translation-elongation`, `d12-elongation-cycle`, `crossing-over`, `d21-meiotic-variation`, `saltatory-conduction`, `phloem-pressure-flow` and `loop-henle-gradient`. Four additional redundant recreated placements were removed: `d11-orientation`, `d11-enzymes-sequence`, `d12-ribosome-orientation`, and `c22-saltatory-nodes`. Their old files remain in git history/current assets for compatibility; they are not the main teaching figures in those sections. The meiosis-separation overview remains useful in its distinct explanation of chromosome separation.
 
-The preserved first batch covers A1.1.2; A1.2.6; A2.2.5, .6, .8; B1.2.1, .2; B2.1.10; B3.1.7; B3.2.9, .10; D3.1.4, .9. The machine-readable register is authoritative for all placements.
+The preserved first batch covers A1.1.2; A1.2.6, .8; A2.2.5, .6, .8; B1.2.1, .2; B2.1.10; B3.1.7, .8; B3.2.9, .10; D3.1.4, .9. The machine-readable register is authoritative for all placements.
 
 ## Reproduce and verify
 
