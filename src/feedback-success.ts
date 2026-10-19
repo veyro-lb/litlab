@@ -90,10 +90,10 @@ function showThankYou(kind:SubmissionKind,alreadyReceived=false){
     <div class="ll-feedback-thanks" role="status" aria-live="polite">
       <div class="ll-feedback-thanks-mark" aria-hidden="true"><span>✓</span></div>
       <span class="ll-feedback-kicker">${alreadyReceived?(technical?'Report already received':'Feedback already received'):(technical?'Technical report received':'Feedback received')}</span>
-      <h2>${technical?'Thanks for helping us debug ${product}.':(alreadyReceived?'Thank you again.':'Thank you for helping shape ${product}.')}</h2>
+      <h2>${technical?`Thanks for helping us debug ${product}.`:(alreadyReceived?'Thank you again.':`Thank you for helping shape ${product}.`)}</h2>
       <p>${technical
         ?(alreadyReceived?'Your technical report was already submitted successfully. The LitLab developers have it and will use the attached technical details to investigate the issue.':'Your report has been sent to the LitLab developers. We’ll review the problem, use the attached page and device details to reproduce it, and take it into consideration as we improve the platform.')
-        :(alreadyReceived?'Your feedback was already submitted successfully. It is with the LitLab team and will be taken into consideration as we continue improving the platform.':'We’ve received your feedback. We’ll review it carefully and take it into consideration as we continue improving ${product} for current and future IB students.')}</p>
+        :(alreadyReceived?'Your feedback was already submitted successfully. It is with the LitLab team and will be taken into consideration as we continue improving the platform.':`We’ve received your feedback. We’ll review it carefully and take it into consideration as we continue improving ${product} for current and future IB students.`)}</p>
       <div class="ll-feedback-thanks-note">
         <span aria-hidden="true">${technical?'⚙':'✦'}</span>
         <div><b>${technical?'Report saved for developer review.':'Your voice matters.'}</b><small>${technical?'Page, browser, device type and viewport were included to help us diagnose the problem.':'Feedback helps us decide what to improve, clarify, and build next.'}</small></div>
