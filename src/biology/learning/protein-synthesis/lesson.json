@@ -885,7 +885,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which anticodon pairs with mRNA codon 5′-AUG-3′?",
-      "explanation": "A codon is a triplet of bases on mRNA; an anticodon is a complementary triplet on tRNA. Hydrogen bonding between them helps select the tRNA carrying the amino acid specified by the codon.\n\nIn an aligned example, mRNA 5′-AUG-3′ pairs with anticodon 3′-UAC-5′. Use AUG, not the anticodon, in an mRNA codon table: AUG specifies methionine. Anticodons pair with mRNA; they are not copied into the polypeptide.",
+      "explanation": "A codon is a triplet of bases on mRNA; an anticodon is a complementary triplet on tRNA. Hydrogen bonding between them helps select the tRNA carrying the amino acid specified by the codon. A tRNA must carry the appropriate amino acid before its anticodon pairs with an mRNA codon; the amino-acid attachment site and the anticodon are different parts of the molecule.\n\nIn an aligned example, mRNA 5′-AUG-3′ pairs with anticodon 3′-UAC-5′. Use AUG, not the anticodon, in an mRNA codon table: AUG specifies methionine. Anticodons pair with mRNA; they are not copied into the polypeptide.",
       "revisionSummary": "A codon is a triplet on mRNA. An anticodon is a complementary triplet on tRNA. Hydrogen bonding between them helps select the tRNA carrying the specified amino acid.",
       "terms": [
         "Codons are matched to anticodons: underlying concept",
@@ -900,7 +900,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "A codon is a triplet of bases on mRNA; an anticodon is a complementary triplet on tRNA. Hydrogen bonding between them helps select the tRNA carrying the amino acid specified by the codon.",
+          "claim": "A codon is a triplet of bases on mRNA; an anticodon is a complementary triplet on tRNA. Hydrogen bonding between them helps select the tRNA carrying the amino acid specified by the codon. A tRNA must carry the appropriate amino acid before its anticodon pairs with an mRNA codon; the amino-acid attachment site and the anticodon are different parts of the molecule.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12"
@@ -918,7 +918,9 @@
         "ib-d12",
         "hodder-d12"
       ],
-      "assets": [],
+      "assets": [
+        "d12-trna-attachment"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -983,7 +985,7 @@
       "teachingBlocks": [
         {
           "title": "Codon and anticodon",
-          "explanation": "A codon is a triplet of bases on mRNA; an anticodon is a complementary triplet on tRNA. Hydrogen bonding between them helps select the tRNA carrying the amino acid specified by the codon.",
+          "explanation": "A codon is a triplet of bases on mRNA; an anticodon is a complementary triplet on tRNA. Hydrogen bonding between them helps select the tRNA carrying the amino acid specified by the codon. A tRNA must carry the appropriate amino acid before its anticodon pairs with an mRNA codon; the amino-acid attachment site and the anticodon are different parts of the molecule.",
           "referenceIds": [
             "ib-d12",
             "hodder-d12"
@@ -1045,6 +1047,12 @@
             ]
           ],
           "note": "Written base order changes when the molecule is reversed."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "d12-trna-attachment",
+          "afterBlock": 0
         }
       ]
     },
@@ -4390,6 +4398,24 @@
       "publicReproductionRights": "cleared",
       "displaySize": "detailed",
       "interpretation": "The numbered stages represent successive steps in one translation cycle, not separate ribosomes. A ribosome advances along mRNA in the 5′ to 3′ direction and releases the polypeptide at a stop codon."
+    },
+    {
+      "id": "d12-trna-attachment",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-d123-expansion.png",
+      "alt": "A specific enzyme attaches the appropriate amino acid to a tRNA using ATP. The anticodon is separate from the amino-acid attachment site and is complementary to an mRNA codon; the figure gives AAA and UUU as an example.",
+      "captionTitle": "An amino acid is linked to a specific tRNA",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure D1.2.3, p. 619 (PDF p. 631).",
+      "interpretation": "Read the DNA template in its 3′→5′ direction; RNA matches the coding strand with U rather than T. The stop codon is not an amino acid.",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
+      "referenceIds": [
+        "hodder-d12"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     }
   ],
   "summary": "DNA is selectively transcribed into RNA, mRNA codons are translated into polypeptide sequence, and cellular processing and turnover contribute to functional protein diversity.",

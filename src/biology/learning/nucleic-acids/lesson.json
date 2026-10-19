@@ -350,7 +350,13 @@
             "explanation": "Phosphate means component of nucleic acid backbone. Every nucleotide includes a phosphate group, a five-carbon sugar and a nitrogenous base. In a common molecular nucleotide, the base attaches at the sugar's 1′ carbon and phosphate is associated with the 5′ carbon."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "a12-nucleotide",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "a12-3",
@@ -517,7 +523,13 @@
             "explanation": "Backbone means repeated covalently linked sugar and phosphate. Successive nucleotides are joined by covalent sugar–phosphate (phosphodiester) bonds. The backbone's covalent links are different from the hydrogen bonds that hold complementary DNA strands together."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "a12-backbone",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "a12-4",
@@ -1223,8 +1235,7 @@
         "ncbi-dna"
       ],
       "assets": [
-        "a12-sugars",
-        "a12-dna-rna-comparison"
+        "a12-sugars"
       ],
       "interactions": [
         {
@@ -1375,10 +1386,6 @@
         {
           "assetId": "a12-sugars",
           "afterBlock": 0
-        },
-        {
-          "assetId": "a12-dna-rna-comparison",
-          "afterBlock": 1
         }
       ]
     },
@@ -2205,6 +2212,12 @@
             }
           ],
           "note": "This describes chain elongation. In translation, ribosomes read mRNA codons in the 5′ → 3′ direction; the ribosome does not synthesize RNA."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "a12-backbone",
+          "afterBlock": 0
         }
       ]
     },
@@ -3904,37 +3917,37 @@
   "assets": [
     {
       "id": "a12-nucleotide",
-      "kind": "diagram",
-      "src": "/biology/nucleic-acids/nucleotide.svg",
-      "recallSrc": "/biology/nucleic-acids/nucleotide-recall.svg",
-      "captionTitle": "How nucleotide components connect",
-      "alt": "Original conceptual diagram. phosphate; pentose sugar; nitrogenous base. Drawn symbolically, not as an atom-resolved molecular structure.",
-      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
-      "license": "Original work; owner clearance for publication still pending",
-      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-a121-expansion.png",
+      "captionTitle": "The components of nucleotides",
+      "alt": "Phosphate, pentose sugars and bases, with chemical and conventional diagram representations.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure A1.2.1, p. 16 (PDF p. 28).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-a12",
         "hodder-a12"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "a12-backbone",
-      "kind": "diagram",
-      "src": "/biology/nucleic-acids/backbone.svg",
-      "recallSrc": "/biology/nucleic-acids/backbone-recall.svg",
-      "captionTitle": "Covalent sugar–phosphate chain",
-      "alt": "Original conceptual diagram. 5′ phosphate; ribose / deoxyribose; bases project from sugars. Drawn symbolically, not as an atom-resolved molecular structure.",
-      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
-      "license": "Original work; owner clearance for publication still pending",
-      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-a125-expansion.png",
+      "captionTitle": "RNA is formed by the condensation of nucleotide monomers",
+      "alt": "Condensation links the 3-prime hydroxyl and 5-prime phosphate, forming a phosphodiester linkage in an RNA backbone.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure A1.2.5, p. 18 (PDF p. 30).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-a12",
         "hodder-a12"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "a12-bases",
@@ -3972,20 +3985,20 @@
     },
     {
       "id": "a12-sugars",
-      "kind": "diagram",
-      "src": "/biology/nucleic-acids/sugars.svg",
-      "recallSrc": "/biology/nucleic-acids/sugars-recall.svg",
-      "captionTitle": "Pentose 2′ substituent",
-      "alt": "Original conceptual diagram. RNA ribose: 2′—OH; DNA deoxyribose: 2′—H; 3′—OH in both. Drawn symbolically, not as an atom-resolved molecular structure.",
-      "attribution": "Original LitLab SVG (Phase 5 Batch 2)",
-      "license": "Original work; owner clearance for publication still pending",
-      "permissionEvidence": "Drawn with original SVG geometry and wording, not copied/traced from IB, Hodder or a molecular viewer",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-a124-expansion.png",
+      "captionTitle": "The numbering of carbon atoms in ribose and deoxyribose (in their straight chain (linear) and cyclic forms)",
+      "alt": "Ribose and deoxyribose shown in linear and cyclic forms with numbered carbons; the difference is at carbon 2.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure A1.2.4, p. 18 (PDF p. 30).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-a12",
         "hodder-a12"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "a12-capacity",
@@ -4060,39 +4073,20 @@
     },
     {
       "id": "rna-polymer",
-      "kind": "diagram",
-      "src": "/biology/nucleic-acids/rna-polymer.svg",
-      "alt": "Illustrative single RNA strand 5′–AUG–3′. Phosphate circles and ribose pentagons form the covalent backbone; bases attach to sugars. U is uracil, ribose has 2′–OH, and a free 3′–OH terminates the strand. Symbols show topology, not atomic detail.",
-      "captionTitle": "RNA: sugars, phosphates and bases",
-      "attribution": "Original BioLab scientific schematic, 18 October 2026",
-      "license": "Original project artwork; rights retained by BioLab",
-      "permissionEvidence": "Independent layout and geometry authored for this repository; no publisher image crop, tracing or source pixels.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-a123-expansion.png",
+      "alt": "A single RNA strand with ribose, phosphate and the bases adenine, uracil, cytosine and guanine.",
+      "captionTitle": "An RNA polymer",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure A1.2.3, p. 18 (PDF p. 30).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-a12",
-        "hodder-a12",
-        "ncbi-dna"
+        "hodder-a12"
       ],
       "level": "shared",
       "review": "scientific-review",
-      "displaySize": "compact"
-    },
-    {
-      "id": "a12-dna-rna-comparison",
-      "kind": "schematic",
-      "src": "/biology/nucleic-acids/dna-rna-comparison.svg",
-      "alt": "Original comparison table showing strand count, sugar, nitrogenous bases and examples of DNA and RNA, emphasizing 2-prime deoxyribose versus ribose and thymine versus uracil.",
-      "captionTitle": "DNA versus RNA: strands, sugars, bases and examples",
-      "interpretation": "Original conceptual comparison/process visual; review with the adjacent explanation, not as a scale drawing.",
-      "attribution": "Original BioLab diagram for source-informed course-depth audit (2026)",
-      "license": "Original first-party BioLab illustration",
-      "permissionEvidence": "Drawn independently from underlying scientific mechanisms; publisher diagrams were not copied or traced",
-      "referenceIds": [
-        "ib-a12",
-        "hodder-a12",
-        "ncbi-dna"
-      ],
-      "level": "shared",
-      "review": "scientific-review"
+      "displaySize": "detailed",
+      "publicReproductionRights": "cleared"
     }
   ],
   "summary": "Nucleotide chemistry produces strong directional sugar–phosphate backbones and complementary strands. DNA's enormous sequence space allows genetic storage; a conserved translation code supports ancestry. HL studies nucleosomes, tracers and falsification.",

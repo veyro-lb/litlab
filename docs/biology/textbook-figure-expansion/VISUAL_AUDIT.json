@@ -2167,8 +2167,8 @@
           "A1.2.7"
         ]
       ],
-      "decision": "REVIEW",
-      "reason": "Source-level title/description and placement inventoried. Retain pending direct source-page comparison and visual inspection; no claim of complete scientific approval."
+      "decision": "REMOVE",
+      "reason": "Redundant with the accessible DNA/RNA comparison table retained at A1.2.7; remove reading placement and unused registry entry."
     },
     {
       "topicId": "B2.2",
@@ -2556,8 +2556,8 @@
           "D1.2.2"
         ]
       ],
-      "decision": "REPLACE",
-      "reason": "RNA polymerase reads the DNA template in the 3-prime to 5-prime direction and extends RNA at its 3-prime end. The coding strand matches the RNA sequence apart from thymine versus uracil."
+      "decision": "KEEP",
+      "reason": "Original transcription candidate D1.2.1 rejected during crop QA because free RNA pool contains T labels. Retain scientifically accurate current coding/template diagram."
     },
     {
       "topicId": "D1.2",
@@ -3142,6 +3142,20 @@
       ],
       "decision": "KEEP",
       "reason": "Quantitative chart/comparison/model; CSS/SVG is suitable for this purpose. Retain model limitations."
+    },
+    {
+      "topicId": "B2.2",
+      "assetId": "b22-envelope-breakdown",
+      "decision": "ADD",
+      "reason": "The nuclear lamina and envelope disassemble during open mitosis in an animal cell. The lesson retains the qualification that envelope behaviour differs among organisms.",
+      "figureNumber": "B2.2.7"
+    },
+    {
+      "topicId": "D1.2",
+      "assetId": "d12-trna-attachment",
+      "decision": "ADD",
+      "reason": "Distinguish the anticodon from the amino-acid attachment site and relate codon recognition to the amino acid delivered.",
+      "figureNumber": "D1.2.3"
     }
   ],
   "componentAudit": {
@@ -3150,5 +3164,6 @@
     "OrganelleInvestigation": "Questions, marker tables, numeric concentration model: retain. No anatomical CSS reconstruction found in this component.",
     "MechanismSequence": "Text-based prediction activities and controls: retain.",
     "MolecularViewerActivity": "External molecular viewer link and guidance: retain."
-  }
+  },
+  "completion": "Substantial batch: 18 recreated asset registrations replaced; one redundant comparison removed; 19 new authentic crops in 21 placements. Remaining REVIEW records are deferred, not signed off."
 }

@@ -250,7 +250,13 @@
             "explanation": "Ultracentrifugation means high-speed separation according to physical properties. Nuclei, vesicles, ribosomes and plasma membranes count; cell wall, cytoskeleton and cytoplasm do not."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-1",
+          "afterBlock": 2
+        }
+      ]
     },
     {
       "id": "organelle-2",
@@ -477,7 +483,13 @@
             "explanation": "Splicing means removal of introns from RNA transcript. RNA can be processed and regulated in the nucleus before mature mRNA encounters cytoplasmic ribosomes."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-2",
+          "afterBlock": 2
+        }
+      ]
     },
     {
       "id": "organelle-3",
@@ -760,7 +772,13 @@
             "explanation": "Compartmentalization means segregation into specialized cell spaces. Enzyme/metabolite concentration and incompatible-reaction separation; lysosomes and phagocytic vacuoles illustrate bounded digestion."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-3",
+          "afterBlock": 2
+        }
+      ]
     },
     {
       "id": "organelle-4",
@@ -992,11 +1010,11 @@
       },
       "figurePlacements": [
         {
-          "assetId": "b22-figure-4",
-          "afterBlock": 1
+          "assetId": "mitochondrion-tem",
+          "afterBlock": 0
         },
         {
-          "assetId": "mitochondrion-tem",
+          "assetId": "b22-figure-4",
           "afterBlock": 0
         }
       ]
@@ -1228,7 +1246,13 @@
             "explanation": "Stroma means chloroplast fluid outside thylakoids. Thylakoid membrane, thylakoid lumen and stroma, respectively."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-5",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "organelle-6",
@@ -1296,7 +1320,8 @@
         "ncbi-protein"
       ],
       "assets": [
-        "b22-figure-6"
+        "b22-figure-6",
+        "b22-envelope-breakdown"
       ],
       "interactions": [
         {
@@ -1461,7 +1486,17 @@
             "explanation": "Open mitosis means division with envelope disassembly. Segregates nuclear processing, permits selective pore traffic; in open mitosis/meiosis, envelope disassembles and later reforms."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-6",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "b22-envelope-breakdown",
+          "afterBlock": 2
+        }
+      ]
     },
     {
       "id": "organelle-7",
@@ -1529,8 +1564,8 @@
         "ncbi-protein"
       ],
       "assets": [
-        "b22-figure-7",
-        "pancreas-secretory-cell-tem"
+        "pancreas-secretory-cell-tem",
+        "b22-figure-8"
       ],
       "interactions": [
         {
@@ -1750,12 +1785,12 @@
       },
       "figurePlacements": [
         {
-          "assetId": "b22-figure-7",
-          "afterBlock": 1
-        },
-        {
           "assetId": "pancreas-secretory-cell-tem",
           "afterBlock": 0
+        },
+        {
+          "assetId": "b22-figure-8",
+          "afterBlock": 2
         }
       ]
     },
@@ -2067,6 +2102,12 @@
           ],
           "note": "Simplified secretory route. Cargo-specific modifications and routes vary; membranes preserve their orientation."
         }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-8",
+          "afterBlock": 2
+        }
       ]
     },
     {
@@ -2348,7 +2389,13 @@
             "explanation": "Uncoating means coat removal after vesicle budding. On the cytosolic surface as a coat assembled through adaptors; it is not the lumenal cargo."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b22-figure-9",
+          "afterBlock": 2
+        }
+      ]
     }
   ],
   "questions": [
@@ -3106,165 +3153,139 @@
   "assets": [
     {
       "id": "b22-figure-1",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-1.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-1-recall.svg",
-      "alt": "Cells are disrupted to obtain a homogenate retaining many intact organelles. Centrifugation produces a pellet and a supernatant. Testing several markers in separated fractions supports inference of organelle function, with contamination limiting certainty. This protocol is schematic, not an image of a real experiment.",
-      "captionTitle": "From a cell to evidence of function",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b221-expansion.png",
+      "alt": "A homogenate separates into a pellet and supernatant during centrifugation. Marker assays in the lesson test enrichment, rather than proving purity from the picture alone.",
+      "captionTitle": "Principle of centrifugation applied to a cell homogenate (cells with broken plasma membranes but intact organelles)",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.1, p. 245 (PDF p. 257).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-compartment"
+        "hodder-b22"
       ],
       "level": "shared",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b22-figure-2",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-2.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-2-recall.svg",
-      "alt": "Two nuclear-envelope membranes separate nuclear transcription and RNA processing from cytoplasmic translation. A transcript with exons A and B and intron X is spliced to mature A–B mRNA. The mRNA exits through a pore spanning both membranes and is translated by a cytoplasmic ribosome. The pore and ribosome are greatly enlarged; RNA letters denote segments, not individual bases.",
-      "captionTitle": "Separate the message from its translation",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b222-expansion.png",
+      "alt": "Nuclear pores allow small-molecule exchange and regulated movement of RNA and proteins between nucleus and cytoplasm.",
+      "captionTitle": "Transport across the nuclear membrane",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.2, p. 247 (PDF p. 259).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-compartment"
+        "hodder-b22"
       ],
       "level": "shared",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b22-figure-3",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-3.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-3-recall.svg",
-      "alt": "An engulfed bacterium is enclosed in a membrane-bounded phagocytic vacuole. A lysosome supplies digestive enzymes by fusion. The resulting phagolysosome has acidic conditions favourable to acid hydrolases, while the cytosol remains outside its membrane. Circles represent compartments at successive times, not three stages inside one continuous organelle. pH is an approximate typical value.",
-      "captionTitle": "Contain the particle and control its chemistry",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b223-expansion.png",
+      "alt": "A bacterium is engulfed, a lysosome fuses with the phagocytic vacuole, and digestion occurs within a phagolysosome.",
+      "captionTitle": "The process of phagocytosis",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.3, p. 248 (PDF p. 260).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-compartment"
+        "hodder-b22"
       ],
       "level": "shared",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b22-figure-4",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-4.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-4-recall.svg",
-      "alt": "An outer membrane surrounds a folded, continuous inner membrane. The matrix is enclosed by the inner membrane. Intermembrane space lies between outer and inner membranes and extends into crista spaces. Respiratory H+ pumping proceeds from matrix toward intermembrane space; ATP-producing return through inner-membrane ATP synthase is toward matrix. Matrix contains Krebs-cycle enzymes and substrates. The lower inset describes direction, not actual membrane position or scale.",
-      "captionTitle": "Mitochondria: area, spaces and direction",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b224-expansion.png",
+      "alt": "A mitochondrial electron micrograph and labelled interpretation show outer membrane, folded inner membrane, matrix and intermembrane space.",
+      "captionTitle": "Electron micrograph of a mitochondrion, with an interpretive drawing",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.4, p. 249 (PDF p. 261).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-organellar"
+        "hodder-b22"
       ],
       "level": "HL",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b22-figure-5",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-5.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-5-recall.svg",
-      "alt": "Two envelope membranes enclose stroma. Closed thylakoids, drawn as two simplified grana, are separate from the envelope. Their membranes contain photosystems; their small lumens accumulate H+. Return through thylakoid ATP synthase proceeds from lumen toward stroma. The stroma contains Calvin-cycle enzymes and substrates. Stromal lamellae connecting grana are omitted to keep compartment boundaries clear; no scale is implied.",
-      "captionTitle": "Chloroplasts: a separate thylakoid system",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b225-expansion.png",
+      "alt": "Chloroplast overview, granum micrograph and three-dimensional thylakoid detail show the stroma, double envelope, grana and connecting lamellae.",
+      "captionTitle": "The ultrastructure of a chloroplast",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.5, p. 250 (PDF p. 262).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-organellar"
+        "hodder-b22"
       ],
       "level": "HL",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b22-figure-6",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-6.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-6-recall.svg",
-      "alt": "A local section shows two nuclear-envelope membranes separated by perinuclear space. A nuclear pore complex spans a gap through both and regulates RNA export and protein import. In open mitosis or meiosis, envelope breakdown permits spindle access to chromosomes; membrane fragments and ER-associated material later contribute to reassembly. Membranes are thick strokes, each representing a bilayer; pore size and fragmentation are schematic. ER continuity is explained in text but not drawn here.",
-      "captionTitle": "Selective exchange, then access for division",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b226-expansion.png",
+      "alt": "The double nuclear envelope is continuous with the endoplasmic reticulum; an inset shows its two membrane surfaces and labelled pores. Pore complexes are omitted and pores enlarged in the source.",
+      "captionTitle": "Diagram showing the nuclear membrane and its connection to the ER",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.6, p. 252 (PDF p. 264).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-organellar"
+        "hodder-b22"
       ],
       "level": "HL",
-      "review": "source-mapped"
-    },
-    {
-      "id": "b22-figure-7",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-7.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-7-recall.svg",
-      "alt": "A free polysome consists of several cytosolic ribosomes translating one mRNA, producing separate polypeptide chains. In the lower panel a translating ribosome sits on the cytosolic face of rough ER and the growing targeted polypeptide enters the lumen through membrane machinery. Ribosomes are not inside the ER. The schematic shows location and destination, not molecular structure, a measured chain length or individual membrane lipids.",
-      "captionTitle": "Same ribosome machinery, different protein routes",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
-      "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-organellar"
-      ],
-      "level": "HL",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b22-figure-8",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-8.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-8-recall.svg",
-      "alt": "Secretory cargo enters rough ER, travels in membrane carriers toward the cis region of the Golgi, undergoes processing and sorting across Golgi compartments, and leaves from the trans region in secretory vesicles. A later fusion with plasma membrane releases lumenal cargo. The drawing is a functional route: cisternae and carriers are dynamic, and the image does not prescribe one microscopic mechanism of intra-Golgi transport or exclude recycling traffic.",
-      "captionTitle": "Process and sort after translation",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b2210-expansion.png",
+      "alt": "Ribosomes on rough ER, transport vesicles, Golgi cisternae and secretory vesicles show the route of secretory protein cargo.",
+      "captionTitle": "Flow of membrane and proteins from the endoplasmic reticulum through the Golgi to the plasma membrane",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.10, p. 254 (PDF p. 266).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-organellar"
+        "hodder-b22"
       ],
       "level": "HL",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b22-figure-9",
-      "kind": "original-svg",
-      "src": "/biology/organelles-compartmentalization/organelle-9.svg",
-      "recallSrc": "/biology/organelles-compartmentalization/organelle-9-recall.svg",
-      "alt": "The plasma membrane invaginates inward around external cargo bound to a receptor. Clathrin is shown along the cytosolic convex surface of the pit, outside the future lumen; adaptors connect coat to cargo receptors but are not individually resolved. Scission produces a coated vesicle, then the coat is removed before downstream fusion. The final circle shows an uncoated vesicle with lumenal cargo. Other scission and targeting machinery is omitted.",
-      "captionTitle": "A coat on the cytosolic face",
-      "attribution": "Original BioLab schematic, 2026; no publisher figure reproduced",
-      "license": "Original owner-controlled schematic; rights review pending",
-      "permissionEvidence": "Original SVG geometry authored for this redesign. No external images, traces or embedded raster content.",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b2211-expansion.png",
+      "alt": "Clathrin coats the cytosolic face of an inward-budding pit; the new vesicle loses its coat before onward transport.",
+      "captionTitle": "Endocytosis mediated by clathrin",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.11, p. 255 (PDF p. 267).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
       "referenceIds": [
-        "ib-guide-b22",
-        "hodder-b22",
-        "ncbi-organellar"
+        "hodder-b22"
       ],
       "level": "HL",
-      "review": "source-mapped"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "mitochondrion-tem",
@@ -3305,6 +3326,23 @@
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Pancreatic_acinar_cells_-_TEM.jpg",
       "termsUrl": "https://commons.wikimedia.org/wiki/File:Pancreatic_acinar_cells_-_TEM.jpg",
       "interpretation": "TEM of pancreatic secretory tissue: compare membrane systems and dense granules."
+    },
+    {
+      "id": "b22-envelope-breakdown",
+      "kind": "textbook-screenshot",
+      "src": "/biology/licensed-book-crops/hodder-b227-expansion.png",
+      "alt": "The nuclear lamina and envelope disassemble during open mitosis in an animal cell. The lesson retains the qualification that envelope behaviour differs among organisms.",
+      "captionTitle": "Breakdown of the nuclear membrane during mitosis in an animal cell",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B2.2.7, p. 252 (PDF p. 264).",
+      "license": "Reproduced on the project owner’s attestation of reproduction rights; source credited. Formal permission documents have not been independently reviewed.",
+      "permissionEvidence": "Owner attests to reproduction rights, 2026-10-19; written grant not independently examined.",
+      "referenceIds": [
+        "hodder-b22"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     }
   ],
   "summary": "Compartmentalization enables chemical specialization and coordinated flow. The nucleus separates transcription from translation; acidic digestive compartments isolate breakdown; mitochondria and chloroplasts couple membrane gradients to ATP synthesis; rough ER, Golgi and vesicles collaborate to target and secrete proteins.",
