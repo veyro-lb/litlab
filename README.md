@@ -52,7 +52,13 @@ npm run build
 
 ## Deploy
 
-The repository includes a GitHub Pages workflow in `.github/workflows/deploy.yml`. The Vite base is configured as a relative path so the static build works correctly on Pages.
+**Public host:** Cloudflare Workers at https://litlab.jamesloom18.workers.dev/. Cloudflare is connected to the GitHub repository and has previously published public branch previews. Its existing Worker configuration is `wrangler.jsonc` (name `litlab`, static assets from `dist`, SPA fallback). Do not create a second Worker for BioLab: it is a subject within the existing LitLab application.
+
+Public releases must use an approved, tested `main` commit. Before promotion, the BioLab launch checks validate all 40 lesson routes, static figure placement, the public build's private-file gate and the existing English features. Pushing to `main` is expected to trigger the existing Cloudflare Git integration. The `BioLab Cloudflare Production Verification` workflow independently polls the public Worker for `/biolab-release.json`; a successful merge **does not** itself establish that Cloudflare deployed. If the marker is not live, inspect Cloudflare's connected Git branch, build command (`npm ci && npm run build`), output (`dist`) and Worker (`litlab`) before announcing publication.
+
+The GitHub Pages workflow remains available as a **manual fallback only** and no longer publishes on every `main` push. The Vite base is relative (`./`) so asset URLs continue to work on either host.
+
+**Release restrictions:** report rights permissions as owner-attested unless documents are inspected; visibly credit third-party original figures and maintain the independent, non-IB-endorsed disclaimer. Automated science and accessibility checks are not qualified independent approvals.
 
 ## Where to edit content
 
