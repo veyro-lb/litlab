@@ -1098,11 +1098,11 @@
         "ncbi-replication"
       ],
       "assets": [
-        "d11-orientation"
+        "bacterial-replication-enzymes"
       ],
       "figurePlacements": [
         {
-          "assetId": "d11-orientation",
+          "assetId": "bacterial-replication-enzymes",
           "afterBlock": 1
         }
       ],
@@ -1329,8 +1329,7 @@
         "ncbi-replication"
       ],
       "assets": [
-        "bacterial-replication-enzymes",
-        "d11-enzymes-sequence"
+        "bacterial-replication-enzymes"
       ],
       "interactions": [
         {
@@ -1471,10 +1470,6 @@
         {
           "assetId": "bacterial-replication-enzymes",
           "afterBlock": 0
-        },
-        {
-          "assetId": "d11-enzymes-sequence",
-          "afterBlock": 1
         }
       ]
     },
@@ -2370,19 +2365,20 @@
     {
       "id": "bacterial-replication-enzymes",
       "kind": "diagram",
-      "src": "/biology/dna-replication/bacterial-replication-enzymes.svg",
-      "alt": "Primase lays RNA primer; bacterial DNA polymerase III extends DNA 5′ to 3′, polymerase I replaces primer with DNA and ligase seals the remaining backbone nick. Four successive states of one fragment, not four strands.",
-      "captionTitle": "Replication enzymes divide the work",
-      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
-      "license": "Original project artwork; rights retained by BioLab",
-      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "src": "/biology/licensed-book-crops/hodder-d117.png",
+      "alt": "Original Hodder overview of replication origins and forks, followed by an enzyme-labelled fork with helicase, primase, RNA primers, DNA polymerases, leading and lagging synthesis, Okazaki fragments and ligase. Read 5-prime and 3-prime labels with the adjacent explanation.",
+      "captionTitle": "The steps and enzymes of DNA replication",
+      "attribution": "C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D1.1.7, printed page 612 (PDF page 624).",
+      "license": "Reproduced with permission as affirmed by the BioLab project owner; source creator/publisher retains copyright.",
+      "permissionEvidence": "User confirmed public reproduction permission in ChatGPT conversation 2026-10-19; exact source, crop coordinates and SHA-256 are recorded in docs/biology/licensed-book-figures/FIGURE_SOURCE_REGISTER.json.",
       "referenceIds": [
         "ib-d11",
         "hodder-d11"
       ],
       "level": "HL",
       "review": "scientific-review",
-      "displaySize": "standard"
+      "displaySize": "detailed",
+      "publicReproductionRights": "cleared"
     },
     {
       "id": "helicase-opening",

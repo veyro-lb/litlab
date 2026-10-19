@@ -55,6 +55,7 @@ jobs:
             sleep 1
           done
           test "$ready" = 1 || { cat qa-artifacts/preview-readiness/preview.log; exit 1; }
+          node scripts/biology/licensed-book-figures/browser.mjs
           node scripts/biology/full-course/full-course-browser.mjs
           node scripts/biology/preview-readiness/browser.mjs
           node scripts/biology-ui-acceptance.mjs
@@ -66,6 +67,7 @@ jobs:
           name: biolab-preview-readiness-qa-evidence
           path: |
             qa-artifacts/preview-readiness/
+            qa-artifacts/licensed-book-figures/
             qa-artifacts/full-course/
             qa-artifacts/ui-acceptance/
             qa-artifacts/prelaunch-student-qa/

@@ -36,7 +36,7 @@ for(const l of lessons){
 }
 assert.equal(mapped.size,553);
 for(const r of ledger.rows){const item=mapped.get(r.understandingId);assert.ok(item,r.understandingId);assert.equal(item.section.id,r.actualLessonSection.id);assert.equal(item.lesson.topicId,r.topicId);}
-const exact={'A1.2.7':'a12-dna-rna-comparison','C1.2.13':'nadh-electron-energy-transfer','B3.2.17':'b32-root-pressure-flow','C2.2.11':'c22-saltatory-nodes','D1.1.8':'d11-enzymes-sequence','D1.2.10':'d12-elongation-cycle','D2.1.11':'d21-meiotic-variation'};
+const exact={'A1.2.7':'a12-dna-rna-comparison','C1.2.13':'nadh-electron-energy-transfer','B3.2.17':'b32-root-pressure-flow','C2.2.11':'saltatory-conduction','D1.1.8':'bacterial-replication-enzymes','D1.2.10':'translation-elongation','D1.2.17':'d12-elongation-cycle','D2.1.11':'d21-meiotic-variation'};
 for(const [uid,id] of Object.entries(exact)){const {section}=mapped.get(uid);assert.ok(section.assets.includes(id),uid);assert.ok(section.figurePlacements.some(p=>p.assetId===id),uid+' placement');}
 const c=lessons.find(x=>x.topicId==='C1.2');
 assert.deepEqual(c.sections.find(s=>s.understandingIds.includes('C1.2.17')).textbook.pdfPages,[436]);

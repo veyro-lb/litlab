@@ -1642,8 +1642,7 @@
         "hodder-c22"
       ],
       "assets": [
-        "saltatory-conduction",
-        "c22-saltatory-nodes"
+        "saltatory-conduction"
       ],
       "interactions": [
         {
@@ -1748,10 +1747,6 @@
         {
           "assetId": "saltatory-conduction",
           "afterBlock": 0
-        },
-        {
-          "assetId": "c22-saltatory-nodes",
-          "afterBlock": 1
         }
       ]
     },
@@ -3665,19 +3660,20 @@
     {
       "id": "saltatory-conduction",
       "kind": "diagram",
-      "src": "/biology/neural-signalling/saltatory-conduction.svg",
-      "alt": "Na⁺ influx at an active node generates local current under insulating myelin. The next node reaches threshold and regenerates the action potential. Refractoriness limits backward re-excitation; no electrical spark physically leaps the internode.",
-      "captionTitle": "Saltatory conduction at nodes",
-      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
-      "license": "Original project artwork; rights retained by BioLab",
-      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "src": "/biology/licensed-book-crops/hodder-c2213.png",
+      "alt": "An axon beneath myelin with exposed nodes, sodium and potassium movements, local circuit arrows and a leftward direction-of-impulse arrow. Action potentials regenerate at nodes; local currents spread beneath myelin.",
+      "captionTitle": "Saltatory conduction between nodes of Ranvier",
+      "attribution": "C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure C2.2.13, printed page 483 (PDF page 495).",
+      "license": "Reproduced with permission as affirmed by the BioLab project owner; source creator/publisher retains copyright.",
+      "permissionEvidence": "User confirmed public reproduction permission in ChatGPT conversation 2026-10-19; exact source, crop coordinates and SHA-256 are recorded in docs/biology/licensed-book-figures/FIGURE_SOURCE_REGISTER.json.",
       "referenceIds": [
         "ib-c22",
         "hodder-c22"
       ],
       "level": "HL",
       "review": "scientific-review",
-      "displaySize": "standard"
+      "displaySize": "standard",
+      "publicReproductionRights": "cleared"
     },
     {
       "id": "neuron-structure",

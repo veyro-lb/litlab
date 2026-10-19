@@ -1618,8 +1618,7 @@
         "ncbi-translation"
       ],
       "assets": [
-        "translation-elongation",
-        "d12-elongation-cycle"
+        "translation-elongation"
       ],
       "interactions": [
         {
@@ -1757,10 +1756,6 @@
         {
           "assetId": "translation-elongation",
           "afterBlock": 0
-        },
-        {
-          "assetId": "d12-elongation-cycle",
-          "afterBlock": 1
         }
       ]
     },
@@ -2816,7 +2811,7 @@
         "ncbi-translation"
       ],
       "assets": [
-        "d12-ribosome-orientation"
+        "d12-elongation-cycle"
       ],
       "interactions": [
         {
@@ -2977,7 +2972,7 @@
       ],
       "figurePlacements": [
         {
-          "assetId": "d12-ribosome-orientation",
+          "assetId": "d12-elongation-cycle",
           "afterBlock": 1
         }
       ]
@@ -4813,19 +4808,20 @@
     {
       "id": "translation-elongation",
       "kind": "diagram",
-      "src": "/biology/protein-synthesis/translation-elongation.svg",
-      "alt": "Original ribosome model: charged tRNA pairs with mRNA in A site; peptide bond transfers growing chain from P to A; ribosome translocates toward mRNA 3′. Illustrative AUG–CCG sequence, anticodons antiparallel. Initiation factors and E site omitted.",
-      "captionTitle": "Translation: pair, join, move",
-      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
-      "license": "Original project artwork; rights retained by BioLab",
-      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "src": "/biology/licensed-book-crops/hodder-d127.png",
+      "alt": "A ribosome moves along mRNA by one codon, two tRNAs are held at the ribosome while a peptide bond forms, and used tRNA leaves. The lower panel shows several ribosomes translating the same mRNA as a polysome.",
+      "captionTitle": "Stepwise movement of the ribosome along mRNA",
+      "attribution": "C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D1.2.7, printed page 622 (PDF page 634).",
+      "license": "Reproduced with permission as affirmed by the BioLab project owner; source creator/publisher retains copyright.",
+      "permissionEvidence": "User confirmed public reproduction permission in ChatGPT conversation 2026-10-19; exact source, crop coordinates and SHA-256 are recorded in docs/biology/licensed-book-figures/FIGURE_SOURCE_REGISTER.json.",
       "referenceIds": [
         "ib-d12",
         "hodder-d12"
       ],
       "level": "shared",
       "review": "scientific-review",
-      "displaySize": "standard"
+      "displaySize": "detailed",
+      "publicReproductionRights": "cleared"
     },
     {
       "id": "alternative-splicing",
@@ -4846,22 +4842,23 @@
     },
     {
       "id": "d12-elongation-cycle",
-      "kind": "schematic",
-      "src": "/biology/protein-synthesis/translation-elongation-cycle.svg",
-      "alt": "A three-step model of translation elongation: a matching charged tRNA enters the ribosome A site, a peptide bond transfers the growing polypeptide from the P-site tRNA to the A-site amino acid, and the ribosome advances one three-base codon along mRNA from 5-prime to 3-prime while the tRNAs shift towards the exit site.",
-      "captionTitle": "How one codon adds one amino acid to a chain",
-      "interpretation": "Original, conceptual teaching figure; labels and arrow directions correspond to the numbered understanding.",
-      "attribution": "Original BioLab SVG created for this syllabus-understanding depth audit (2026)",
-      "license": "Original first-party BioLab illustration",
-      "permissionEvidence": "Independently drawn from underlying biological mechanisms; no external textbook figures copied or traced",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-d1216.png",
+      "alt": "Eight numbered steps show initiator tRNA and ribosomal subunit assembly, aminoacyl tRNA entering the A site, peptide-bond formation, translocation, tRNA exit through the E site and release at a stop codon. Ribosome movement is from the mRNA 5-prime to 3-prime end.",
+      "captionTitle": "Translation: initiation, elongation and termination",
+      "attribution": "C. J. Clegg, Andrew Davis and Christopher Talbot, Biology for the IB Diploma, Third Edition, Hodder Education (2023), Figure D1.2.16, printed page 634 (PDF page 646).",
+      "license": "Reproduced with permission as affirmed by the BioLab project owner; source creator/publisher retains copyright.",
+      "permissionEvidence": "User confirmed public reproduction permission in ChatGPT conversation 2026-10-19; exact source, crop coordinates and SHA-256 are recorded in docs/biology/licensed-book-figures/FIGURE_SOURCE_REGISTER.json.",
       "referenceIds": [
         "ib-d12",
         "hodder-d12",
         "ncbi-rna",
         "ncbi-translation"
       ],
-      "level": "shared",
-      "review": "scientific-review"
+      "level": "HL",
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     }
   ],
   "summary": "DNA is selectively transcribed into RNA, mRNA codons are translated into polypeptide sequence, and cellular processing and turnover contribute to functional protein diversity.",
