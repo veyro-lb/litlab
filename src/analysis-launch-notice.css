@@ -72,3 +72,11 @@
 @media(prefers-reduced-motion:reduce){
   .ll-analysis-launch-notice,.ll-analysis-launch-open,.ll-analysis-launch-open span{transition:none!important}
 }
+
+
+/* Keep the English announcement above the persistent Feedback control instead of
+   covering its clickable area. Both actions remain available to visitors. */
+.ll-analysis-launch-notice{bottom:calc(82px + env(safe-area-inset-bottom))}
+@media(max-width:700px){
+ .ll-analysis-launch-notice{bottom:calc(76px + env(safe-area-inset-bottom));max-height:calc(100dvh - 90px);overflow-y:auto}
+}
