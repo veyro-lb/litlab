@@ -44,7 +44,8 @@ try {
    await expect(section).toHaveValue('BioLab — A1.1');
    await expect(section.locator('option')).toContainText(['BioLab — A1.1','BioLab — Curriculum','BioLab — Lessons','BioLab — Practice','BioLab — Revision / flashcards','BioLab — Diagrams / figures','BioLab — SL / HL','BioLab — Site experience','BioLab — Other']);
    await modal.locator('#ll-feedback-form textarea[name=unclear]').fill('Please clarify the diagram labels for this understanding.');
-   await modal.locator('#ll-feedback-form input[name=rating][value="3"]').check({force:true});
+   await modal.locator('#ll-feedback-form .ll-rating label').filter({has:page.locator('input[name=rating][value="3"]')}).click();
+   await expect(modal.locator('#ll-feedback-form input[name=rating][value="3"]')).toBeChecked();
    await modal.getByRole('button',{name:'Send feedback'}).click();
    await expect(modal.getByRole('heading',{name:'Thank you for helping shape BioLab.'})).toBeVisible();
    assert.equal(posts.length,1,'Expected one BioLab feedback submission');
