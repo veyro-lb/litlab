@@ -1,6 +1,6 @@
 .logo{display:inline-flex;align-items:center;line-height:1;min-width:0;position:relative;isolation:isolate}
 .logo img{display:block;flex:0 0 auto;object-fit:contain;position:relative;z-index:2;transition:filter .22s ease;transform-origin:50% 50%;animation:litlabLogoFloat 6.2s cubic-bezier(.4,0,.2,1) infinite;will-change:transform}
-.litlab-brand-horizontal{width:150px!important;height:auto!important;max-height:46px}
+.litlab-brand-horizontal{width:150px!important;height:auto!important;max-height:none}
 .litlab-brand-icon{width:82px!important;height:auto!important}
 .compass-center .litlab-brand-icon{width:88px!important}
 .maker-core .litlab-brand-icon{width:92px!important}
@@ -114,4 +114,64 @@ html[data-theme=dark] .logo::after{background:rgba(0,0,0,.45);opacity:.34}
 @media(max-width:520px){
   .litlab-brand-horizontal{width:122px!important;max-height:37px}
   .litlab-brand-icon{width:72px!important}
+}
+
+/* Preserve the uploaded dark-ink wordmark's contrast in dark mode. */
+html[data-theme=dark] .litlab-brand-horizontal{background:#f7f7fb;border-radius:8px;padding:3px;box-sizing:content-box}
+
+/* Animated lightbulb aligned to the i-dot in the 320×116 owner-supplied wordmark.
+   Both the image and bulb share the float keyframes, preventing drift. */
+.logo .ibdplabs-bulb{
+  position:absolute;
+  left:29.95%;
+  top:23.8%;
+  width:7.6%;
+  height:auto;
+  z-index:4;
+  overflow:visible;
+  pointer-events:none;
+  animation:litlabLogoFloat 6.2s cubic-bezier(.4,0,.2,1) infinite;
+  will-change:transform;
+}
+.ibdplabs-bulb-glow{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:ibdplabsBulbGlow 8.8s linear infinite;
+}
+.ibdplabs-bulb-glass{animation:ibdplabsBulbGlass 8.8s steps(1,end) infinite}
+.ibdplabs-bulb-filament{animation:ibdplabsBulbFilament 8.8s steps(1,end) infinite}
+.ibdplabs-bulb-rays{animation:ibdplabsBulbRays 8.8s steps(1,end) infinite}
+@keyframes ibdplabsBulbGlass{
+  0%,19.5%,26.5%,62%,68%,100%{fill:#fff7bd;stroke:#eab72b}
+  20.4%,23%,65.5%{fill:#eee8cd;stroke:#bda34f}
+  21.6%,24.1%,64.2%,66.6%{fill:#d4d8df;stroke:#9399a5}
+  25.3%,67.4%{fill:#fff7bd;stroke:#eab72b}
+}
+@keyframes ibdplabsBulbGlow{
+  0%,19.5%,26.5%,62%,68%,100%{opacity:.62;transform:scale(1.12)}
+  20.4%,23%,65.5%{opacity:.2;transform:scale(1)}
+  21.6%,24.1%,64.2%,66.6%{opacity:0;transform:scale(.9)}
+  25.3%,67.4%{opacity:.62;transform:scale(1.12)}
+}
+@keyframes ibdplabsBulbFilament{
+  0%,19.5%,26.5%,62%,68%,100%{stroke:#b47a06}
+  20.4%,23%,65.5%{stroke:#93834f}
+  21.6%,24.1%,64.2%,66.6%{stroke:#89909d}
+  25.3%,67.4%{stroke:#b47a06}
+}
+@keyframes ibdplabsBulbRays{
+  0%,19.5%,26.5%,62%,68%,100%{opacity:1}
+  20.4%,23%,65.5%{opacity:.35}
+  21.6%,24.1%,64.2%,66.6%{opacity:0}
+  25.3%,67.4%{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .logo .ibdplabs-bulb,
+  .ibdplabs-bulb-glow,
+  .ibdplabs-bulb-glass,
+  .ibdplabs-bulb-filament,
+  .ibdplabs-bulb-rays{
+    animation:none!important;
+    will-change:auto;
+  }
 }

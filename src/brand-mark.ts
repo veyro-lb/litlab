@@ -246,7 +246,15 @@ export function createLitLabMark(className='litlab-ll-mark',labelled=false){
 }
 
 export function createLitLabLogo(className='litlab-brand-horizontal',labelled=true){
-  return createBrandImage({src:'./litlab-logo.svg?v=25',darkInk:['#141a23'],prepare:'horizontal'},className,labelled);
+  // The site's new public wordmark is the actual owner-supplied logo, not a recreation.
+  const image=document.createElement('img');
+  image.className=className;
+  image.src='./ibdplabs-logo.avif?v=1';
+  image.alt=labelled?'ibdplabs':'';
+  image.decoding='async';
+  image.draggable=false;
+  if(!labelled)image.setAttribute('aria-hidden','true');
+  return image;
 }
 
 export function createLitLabStackedLogo(className='litlab-brand-stacked',labelled=true){
