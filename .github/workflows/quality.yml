@@ -43,6 +43,8 @@ jobs:
           exit 1
       - name: Verify LitLab and BioLab navigation on four screen sizes
         run: node scripts/biology/navigation/subject-nav-browser.mjs
+      - name: Verify Biology feedback and technical reports with mocked Supabase
+        run: node scripts/biology/feedback/feedback-browser.mjs
       - name: Audit desktop and mobile route rendering
         run: node scripts/browser-smoke.mjs
       - name: Upload visual QA screenshots
