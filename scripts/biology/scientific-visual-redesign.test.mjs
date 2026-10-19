@@ -33,10 +33,15 @@ function validateSources(x) {
   const asset=x.assets.find(a=>a.id===id);
   if(!asset) {errors.push(id+' metadata');continue;}
   const sourcePdf=asset.src.startsWith('/biology/source-pdf-figures/');
+  const ownerLicensedCrop=asset.src.startsWith('/biology/licensed-book-crops/');
   for(const key of ['src','recallSrc','mobileSrc','recallMobileSrc']){
-   if(!asset[key]||!existsSync(join(root,'public',asset[key].replace(/^\//,''))))errors.push(id+' '+key+' unavailable');
+   // A labelled book crop must not pretend to have an unlabelled recall variant.
+   // An explicitly supplied optional variant must still exist on disk.
+   if((key==='src'||!ownerLicensedCrop)&&(!asset[key]||!existsSync(join(root,'public',asset[key].replace(/^\//,''))))errors.push(id+' '+key+' unavailable');
+   if(ownerLicensedCrop&&asset[key]&&!existsSync(join(root,'public',asset[key].replace(/^\//,''))))errors.push(id+' '+key+' unavailable');
    if(sourcePdf && asset[key]!==asset.src)errors.push(id+' '+key+' mismatch');
   }
+  if(ownerLicensedCrop&&(!asset.publicReproductionRights||!asset.attribution||!asset.permissionEvidence.includes('2026-10-19')||!(asset.attribution.includes('IB Biology Drawings')||asset.attribution.includes('Hodder'))))errors.push(id+' licensed original attribution');
   if(sourcePdf && (!asset.attribution.includes('IB Biology Drawings') || !asset.permissionEvidence.includes('source-figure-credits.json')))errors.push(id+' original attribution');
   if(!asset.alt||asset.alt.length<80||!asset.permissionEvidence||!asset.referenceIds.includes('ib-d31'))errors.push(id+' provenance/alt');
  }
