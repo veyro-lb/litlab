@@ -1,14 +1,6 @@
 import './logo-refresh.css';
 import {createLitLabLogo,createLitLabMark} from './brand-mark';
 
-function createFullLogoDecorations(){
-  const decorations=document.createElement('span');
-  decorations.className='litlab-logo-decorations';
-  decorations.setAttribute('aria-hidden','true');
-  decorations.innerHTML='<span class="litlab-floating-star"></span>';
-  return decorations;
-}
-
 function refreshLogo(logo:HTMLElement){
   const compact=Boolean(logo.closest('.compass-center,.maker-core'));
   const variant=compact?'icon-v10':'full-v10';
@@ -21,7 +13,7 @@ function refreshLogo(logo:HTMLElement){
     return;
   }
 
-  logo.replaceChildren(createLitLabLogo('litlab-brand-horizontal',true),createFullLogoDecorations());
+  logo.replaceChildren(createLitLabLogo('litlab-brand-horizontal',true));
   logo.removeAttribute('aria-label');
 }
 
