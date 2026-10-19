@@ -42,7 +42,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          expected='"release": "biolab-public-2026-10-19"'
+          expected='"feedback_release": "biolab-feedback-2026-10-20"'
           release_path="/biolab-release.json?commit=${GITHUB_SHA}"
           echo "Waiting for Cloudflare Worker to serve BioLab release fingerprint..."
           for attempt in $(seq 1 72); do
