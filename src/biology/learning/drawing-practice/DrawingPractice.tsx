@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import PaperDrawingPractice from './PaperDrawingPractice';
 import {ArrowLeft,ArrowRight,CheckCircle2,Eye,EyeOff,PencilLine,RotateCcw} from 'lucide-react';
 import type {Lesson,Section,StudyState} from '../content';
 import type {Level} from '../../curriculum/schema';
@@ -11,8 +12,8 @@ type Step=0|1|2|3|4;
 type Activity='identify'|'draw';
 const stepTitles=['Study','Draw','Label','Compare','Self-check'] as const;
 
-export default function DrawingPractice({lesson,sections,level,study,update,requestedId}:{
- lesson:Lesson;sections:Section[];level:Level;study:StudyState;update:UpdateStudy;requestedId:string|null
+export default function DrawingPractice({lesson,sections,level,study,update,requestedId,requestedDiagram}:{
+ lesson:Lesson;sections:Section[];level:Level;study:StudyState;update:UpdateStudy;requestedId:string|null;requestedDiagram:string|null
 }){
  const eligible=availableExercises(lesson,level,sections);
  const scoped=requestedId?eligible.filter(e=>e.understandingId===requestedId):eligible;
@@ -23,12 +24,7 @@ export default function DrawingPractice({lesson,sections,level,study,update,requ
  const [confirmed,setConfirmed]=useState(false);
  const exercise=scoped.find(e=>e.id===selection)??scoped[0];
  const base=`#biology/topic/${lesson.topicId}`;
- if(!exercise)return <section className="bio-drawing bio-drawing-empty" aria-labelledby="bio-drawing-title">
-  <span className="bio-eyebrow">OPTIONAL · DIAGRAM PRACTICE</span>
-  <h2 id="bio-drawing-title">Diagrams are being checked for this topic</h2>
-  <p>No figure in this selection yet has a confirmed source-checked, reusable labelled-and-unlabelled pair. We will not display a substitute or pretend you have completed an activity.</p>
-  <a href={`${base}/learn${requestedId?'?understanding='+requestedId:''}`}>Read the explanation <ArrowRight size={16} aria-hidden="true"/></a>
- </section>;
+ if(!exercise)return <PaperDrawingPractice key={lesson.topicId+':'+(requestedId??'')} lesson={lesson} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={requestedDiagram}/>;
  const asset=lesson.assets.find(a=>a.id===exercise.assetId)!;
  const key=(suffix:string)=>`drawing:${exercise.id}:${suffix}`;
  const revealed=!!study.revealed[key('reference')],tested=!!study.revealed[key('checked')];

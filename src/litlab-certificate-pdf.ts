@@ -124,6 +124,6 @@ async function imagePdf(pages:CanvasPage[]){
 function download(bytes:Uint8Array,filename:string){const blob=new Blob([bytes],{type:'application/pdf'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();window.setTimeout(()=>URL.revokeObjectURL(url),30_000)}
 
 export async function saveCertificatePdf(data:CertificatePdfData){
-  const [logo,icon,signature,testimony]=await Promise.all([loadAsset('./litlab-logo.svg'),loadAsset('./favicon.svg'),loadAsset('./litlab-signature.svg'),loadTeacherTestimony(data.certificateCode,Boolean(data.preview))]);
+  const [logo,icon,signature,testimony]=await Promise.all([loadAsset('./ibdplabs-logo.avif'),loadAsset('./favicon.svg'),loadAsset('./litlab-signature.svg'),loadTeacherTestimony(data.certificateCode,Boolean(data.preview))]);
   const pages=[drawCertificatePage(data,logo,icon,signature)];if(testimony)pages.push(drawTestimonyPage(data,testimony,logo,icon));const bytes=await imagePdf(pages),filename=`LitLab_Contributor_Certificate_${safeFilePart(data.contributorName,'Contributor')}_${safeFilePart(data.certificateCode,'Certificate',38)}.pdf`;download(bytes,filename);
 }
