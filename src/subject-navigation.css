@@ -17,15 +17,30 @@
 html[data-litlab-subject=biology] .tutor-topbar-trigger,
 html[data-litlab-subject=biology] .litlab-tutor{display:none!important}
 
-/* A shared soft green treatment for the two study spaces. */
-.subject-navigation{border-color:#bad6c7;background:#f1f7f3}
-.subject-navigation a{color:#345949}
-.subject-navigation a:hover{background:#e2f0e7;color:#184c36}
-.subject-navigation a[aria-current=page]{background:#d3eadb;border-color:#98c6aa;color:#164b33;box-shadow:0 1px 3px rgba(22,75,51,.08)}
-html[data-theme=dark] .subject-navigation{background:#172c23;border-color:#3f6250}
-html[data-theme=dark] .subject-navigation a{color:#c3ddcc}
-html[data-theme=dark] .subject-navigation a:hover{background:#244533;color:#edfff3}
-html[data-theme=dark] .subject-navigation a[aria-current=page]{background:#315f45;border-color:#639676;color:#f2fff6}
+/* Match the active study space: LitLab purple, BioLab green. */
+.subject-bar{
+ --space-hover:#f1edff;--space-hover-ink:#50378f;
+ --space-selected:#eae3ff;--space-border:#c8b6ee;--space-ink:#50328d;
+ --space-shadow:rgba(80,50,141,.08)
+}
+.subject-bar[data-subject=biology]{
+ --space-hover:#e8f3ed;--space-hover-ink:#24583d;
+ --space-selected:#d3eadb;--space-border:#98c6aa;--space-ink:#164b33;
+ --space-shadow:rgba(22,75,51,.08)
+}
+.subject-navigation{background:var(--surface);border-color:var(--line)}
+.subject-navigation a{color:var(--muted)}
+.subject-navigation a:hover{background:var(--space-hover);color:var(--space-hover-ink)}
+.subject-navigation a[aria-current=page]{background:var(--space-selected);border-color:var(--space-border);color:var(--space-ink);box-shadow:0 1px 3px var(--space-shadow)}
+.subject-navigation a:focus-visible{outline-color:var(--space-ink)}
+html[data-theme=dark] .subject-bar{
+ --space-hover:#302842;--space-hover-ink:#e8ddff;
+ --space-selected:#463363;--space-border:#8063ab;--space-ink:#f1eaff
+}
+html[data-theme=dark] .subject-bar[data-subject=biology]{
+ --space-hover:#244533;--space-hover-ink:#edfff3;
+ --space-selected:#315f45;--space-border:#639676;--space-ink:#f2fff6
+}
 .bio-brand img{object-fit:contain;flex-shrink:0}
 
 html[data-theme=dark] :is(.bio-brand img,.litlab-brand-icon,.litlab-auth-brand-image,.litlab-auth-mini-brand,.litlab-contributor-brand-icon,.litlab-contributor-chat-brand-icon){background:#f5f3ff;border-radius:8px}
