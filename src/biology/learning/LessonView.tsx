@@ -59,7 +59,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
       {(missedOnly?missed:choices).map(q=>'options' in q&&q.options?<div className="bio-practice-choice" key={q.id}><span className="bio-eyebrow">PAPER 1A STYLE · {q.understandingIds.join(' / ')}{q.level==='HL'?' · ADDITIONAL HL':''}</span><p className="bio-question-syllabus">Syllabus: <UnderstandingLabel topic={topic} ids={q.understandingIds}/></p><ChoiceQuestion item={{...q,kind:'selection',options:q.options}} study={study} update={update} returnTo={()=>revisit(q.sectionId)}/></div>:null)}
       {!missedOnly&&targeted.filter(q=>q.markingPoints).map(q=><WrittenQuestion key={q.id} topic={topic} item={q} study={study} update={update}/>)}
     </section>}
-    {mode==='drawing'&&<DrawingPractice lesson={lesson} sections={sections} level={level} study={study} update={update} requestedId={requestedId}/>}
+    {mode==='drawing'&&<DrawingPractice key={hash} lesson={lesson} sections={sections} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={new URLSearchParams(hash.split('?')[1]??'').get('diagram')}/>}
     {mode==='flashcards'&&<FlashcardStudy lesson={lesson} sections={sections} requestedId={requestedId} study={study} update={update}/>}
     {mode==='sources'&&<SourcesPanel lesson={lesson} level={level}/>}
   </article>;

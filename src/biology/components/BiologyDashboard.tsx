@@ -1,3 +1,4 @@
+import DrawingCatalogue from '../learning/drawing-practice/DrawingCatalogue';
 import {ArrowRight, BookOpen, FlaskConical, Layers3, RotateCcw, Search} from 'lucide-react';
 import type {Level} from '../curriculum/schema';
 import {topics, visibleTopics, visibleUnderstandings} from '../curriculum/manifest';
@@ -45,9 +46,9 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
     {resource==='sources'&&<section className="bio-course-bibliography"><h2>Sources and scientific review</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic's Sources view for detailed provenance and its review record.</p></section>}
     {resource==='practice'&&<p className="bio-resource-context">Practise with original, syllabus-mapped draft questions and explanatory feedback. These are not official IB examination questions.</p>}
     {resource==='revision'&&<p className="bio-resource-context">Revisit concise explanations, figures and recall prompts in each available lesson.</p>}
-    {resource==='drawing'&&<p className="bio-resource-context">Optional diagram recall and self-assessed paper drawing. Only source-checked, reusable diagrams are unlocked; others remain pending review.</p>}
+
     {resource==='flashcards'&&<p className="bio-resource-context">Recall cards are available within teaching drafts. Opening or flipping a card does not indicate mastery.</p>}
-    <CurriculumOverview level={level} resource={resource}/>
+    {resource==='drawing'?<DrawingCatalogue level={level}/>:<CurriculumOverview level={level} resource={resource}/>}
     <details className="bio-course-info"><summary><Layers3 size={16} aria-hidden="true"/> About this course and its review status</summary><p>{drafted} teaching drafts are catalogued, and {topics.length-drafted} topics are currently planned. Scientific review is pending; the materials are independent student resources, not certified content or IB-endorsed teaching material.</p></details>
   </>;
 }

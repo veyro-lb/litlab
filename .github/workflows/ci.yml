@@ -19,4 +19,5 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: node --test src/biology/learning/drawing-practice/*.test.mjs
       - run: npm run build

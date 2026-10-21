@@ -63,3 +63,17 @@
 .bio-drawing :is(a,button,input,select):focus-visible{outline:3px solid var(--bio-green);outline-offset:3px}
 @media(max-width:650px){.bio-drawing-fields,.bio-drawing-reference dl,.bio-drawing-label-list{grid-template-columns:1fr}.bio-drawing-steps li{flex-direction:column;align-items:center;text-align:center;font-size:10px;overflow-wrap:anywhere}.bio-drawing-actions button{flex:1 1 145px}.bio-drawing-figure-head button{flex:1 1 140px}.bio-drawing-exercise-head{gap:8px}.bio-drawing-tabs button{flex:1 1 50%;padding-inline:8px}.bio-drawing-reference{padding:16px}}
 @media(prefers-reduced-motion:reduce){.bio-drawing *{transition:none!important}}
+
+.bio-drawing-catalogue>label,.bio-drawing-notes{display:block;font-weight:750;margin:24px 0 9px}
+.bio-drawing-catalogue>input,.bio-drawing textarea{display:block;width:100%;max-width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
+.bio-drawing textarea{min-height:115px;resize:vertical}
+.bio-diagram-theme{margin-top:32px}
+.bio-diagram-theme>h3{font-size:21px;margin-bottom:16px}
+.bio-diagram-card{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px;border:1px solid var(--line);border-radius:13px;margin:12px 0;text-decoration:none;color:var(--ink);background:var(--surface)}
+.bio-diagram-card:hover{border-color:var(--bio-green);background:color-mix(in srgb,var(--bio-green) 5%,var(--surface))}
+.bio-diagram-card h4{font-size:18px;margin:8px 0}
+.bio-diagram-card p{font-size:14px;color:var(--muted);margin:6px 0}
+.bio-diagram-card small{color:var(--bio-green);font-weight:700}
+.bio-diagram-open{white-space:nowrap;color:var(--bio-green);font-weight:750}
+.bio-drawing-reference li{line-height:1.7;margin:8px 0}
+@media(max-width:550px){.bio-diagram-card{align-items:flex-start;flex-direction:column;padding:16px;gap:12px}}
