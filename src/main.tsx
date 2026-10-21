@@ -35,8 +35,8 @@ function App(){
   <div className="subject-bar" data-subject={biology?'biology':'english'}>
    <span className="subject-bar-label">STUDY SPACES</span>
    <nav className="subject-navigation" aria-label="Switch between LitLab and BioLab">
-    <a href="#home" aria-current={!biology?'page':undefined} aria-label="LitLab — English"><BookOpen size={17} aria-hidden="true"/>LitLab</a>
-    <a className="biolab-nav-cta" href="#biology" aria-current={biology?'page':undefined} aria-label="BioLab — Biology"><FlaskConical size={17} aria-hidden="true"/><span>BioLab</span></a>
+    <a href="#home" aria-current={!biology?'page':undefined} aria-label="LitLab — English"><BookOpen size={17} aria-hidden="true"/><span>LitLab</span></a>
+    <a href="#biology" aria-current={biology?'page':undefined} aria-label="BioLab — Biology"><FlaskConical size={17} aria-hidden="true"/><span>BioLab</span></a>
    </nav>
    {biology&&<nav className="biolab-section-navigation" aria-label="BioLab course navigation">
     <a href="#biology" aria-current={!biologyTheme?'page':undefined}>Curriculum</a>

@@ -232,11 +232,16 @@
         }
       ],
       "assets": [
-        "b33-sarcomere"
+        "b33-sarcomere",
+        "b33-sarcomere-contraction"
       ],
       "figurePlacements": [
         {
           "assetId": "b33-sarcomere",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "b33-sarcomere-contraction",
           "afterBlock": 1
         }
       ],
@@ -660,12 +665,17 @@
         }
       ],
       "assets": [
-        "b33-motor-unit"
+        "b33-motor-unit",
+        "b33-neuromuscular-junction"
       ],
       "figurePlacements": [
         {
           "assetId": "b33-motor-unit",
-          "afterBlock": 1
+          "afterBlock": 0
+        },
+        {
+          "assetId": "b33-neuromuscular-junction",
+          "afterBlock": 0
         }
       ],
       "teachingBlocks": [
@@ -2267,36 +2277,75 @@
   "assets": [
     {
       "id": "b33-sarcomere",
-      "kind": "original-schematic",
-      "src": "/biology/muscle-motility/sarcomere.svg",
-      "alt": "Relaxed and contracted sarcomere diagrams with actin and myosin sliding and Z discs approaching; not molecular scale.",
-      "captionTitle": "b33 sarcomere",
-      "attribution": "Original BioLab vector diagram, 2026; no source art reproduced",
-      "license": "Authored educational schematic, awaiting formal rights and science review",
-      "permissionEvidence": "Newly composed path geometry and labels, no borrowed imagery",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b334-recheck.png",
+      "alt": "An electron micrograph and interpretive drawing identify Z lines, actin, myosin and the light and dark bands of a sarcomere.",
+      "captionTitle": "Ultrastructure of a sarcomere",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.3.4, p. 328 (PDF p. 340).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "guide-b33",
         "hodder-b33"
       ],
       "level": "HL",
       "review": "scientific-review",
-      "mobileSrc": "/biology/muscle-motility/sarcomere-mobile.svg"
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b33-motor-unit",
-      "kind": "original-schematic",
-      "src": "/biology/muscle-motility/motor-unit.svg",
-      "alt": "A branching motor neuron joins three muscle fibres through neuromuscular junctions.",
-      "captionTitle": "b33 motor unit",
-      "attribution": "Original BioLab vector diagram, 2026; no source art reproduced",
-      "license": "Authored educational schematic, awaiting formal rights and science review",
-      "permissionEvidence": "Newly composed path geometry and labels, no borrowed imagery",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b3310-recheck.png",
+      "alt": "A branching motor neuron ends in several motor end plates. Enlargements show axon, Schwann-cell myelin and nodes. A motor neuron and all fibres it innervates form a motor unit.",
+      "captionTitle": "Motor-neuron connections to muscle",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.3.10, p. 333 (PDF p. 345).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "guide-b33",
         "hodder-b33"
       ],
       "level": "HL",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
+    },
+    {
+      "id": "b33-sarcomere-contraction",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b335-recheck.png",
+      "captionTitle": "Relaxed and contracted sarcomeres",
+      "alt": "Micrographs and drawings compare relaxed and contracted sarcomeres: Z lines approach and filament overlap increases while the filaments retain their lengths.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.3.5, p. 328 (PDF p. 340).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
+      "publicReproductionRights": "cleared",
+      "referenceIds": [
+        "guide-b33",
+        "hodder-b33"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "displaySize": "detailed"
+    },
+    {
+      "id": "b33-neuromuscular-junction",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b3311-recheck.png",
+      "captionTitle": "The neuromuscular junction",
+      "alt": "The motor-neuron terminal contains vesicles and mitochondria and faces the folded muscle sarcolemma across a synaptic cleft.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.3.11, p. 333 (PDF p. 345).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
+      "publicReproductionRights": "cleared",
+      "referenceIds": [
+        "guide-b33",
+        "hodder-b33"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "displaySize": "detailed"
     }
   ],
   "summary": "Skeletal muscle develops pulling force via calcium-controlled, ATP-driven actin–myosin sliding. Titin, motor units, antagonists and the skeleton convert that force into controllable movement.",

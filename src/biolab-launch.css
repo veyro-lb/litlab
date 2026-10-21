@@ -4,10 +4,6 @@
 .biolab-nav-cta:focus-visible,.biolab-showcase a:focus-visible,.biolab-showcase button:focus-visible{outline:3px solid #f3b955;outline-offset:4px}
 .biolab-nav-cta[aria-current=page]{background:#104d45;outline:2px solid #79daba;outline-offset:1px}
 .biolab-nav-cta small{font-size:9px;letter-spacing:.075em;font-weight:900;border:1px solid rgba(255,255,255,.36);border-radius:5px;padding:2px 4px}
-.subject-navigation a[href="#biology"]{font-weight:850;color:#126e5b}
-.subject-navigation a[href="#biology"][aria-current=page]{background:#e1f5eb;color:#0e5b4b}
-html[data-theme=dark] .subject-navigation a[href="#biology"]{color:#87e8c5}
-html[data-theme=dark] .subject-navigation a[href="#biology"][aria-current=page]{background:#15493b;color:#dcffef}
 .biolab-showcase{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr);gap:24px;max-width:1260px;margin:10px auto 26px;padding:clamp(32px,6vw,72px);min-height:510px;overflow:hidden;border:1px solid #277d6b;border-radius:32px;background:radial-gradient(ellipse at 95% 8%,rgba(98,209,193,.22),transparent 43%),linear-gradient(125deg,#0d2f34,#105345 72%,#136f5c);color:#f3fff8;box-shadow:0 25px 68px rgba(10,74,66,.14)}
 .biolab-showcase::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(90deg,transparent,#000)}
 .biolab-showcase-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
@@ -43,21 +39,11 @@ html[data-theme=dark] .subject-navigation a[href="#biology"][aria-current=page]{
    controls are injected into the crowded header, so never put a BioLab CTA there. */
 .subject-bar{gap:13px;min-height:72px;flex-wrap:wrap}
 .subject-bar-label{font-size:10px;font-weight:850;letter-spacing:.16em;color:var(--muted)}
-.subject-navigation{gap:4px}
-.subject-navigation a{min-height:40px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 17px;font-size:13px}
-.subject-navigation a.biolab-nav-cta{min-height:43px;padding:10px 20px;background:#176c5f;color:#fff;border:1px solid #247f71;border-radius:9px;font-size:13px;font-weight:850;box-shadow:none}
-.subject-navigation a.biolab-nav-cta:hover{background:#0e554b;color:#fff}
-.subject-navigation a.biolab-nav-cta[aria-current=page]{background:#0e554b;color:#fff;outline:2px solid #8adcb8;outline-offset:2px}
-.subject-navigation a.biolab-nav-cta small{display:inline;font-size:9px;padding:2px 4px;line-height:1}
-html[data-theme=dark] .subject-navigation a.biolab-nav-cta,
-html[data-theme=dark] .subject-navigation a.biolab-nav-cta[aria-current=page]{color:#fff}
-@media(max-width:600px){.subject-bar{min-height:66px;gap:8px;padding:10px 14px}.subject-bar-label{display:none}.subject-navigation{width:100%;display:grid;grid-template-columns:1fr 1fr}.subject-navigation a{min-height:43px}.subject-navigation a.biolab-nav-cta{padding:10px 12px;font-size:13px}}
+
 
 
 /* Named study spaces and course-level navigation shared across BioLab routes. */
 .subject-navigation a{white-space:nowrap}
-.subject-navigation a[href="#home"]{gap:8px}
-.subject-navigation a[href="#home"] svg{width:17px;height:17px}
 .topbar[data-subject=biology] .bio-subject-return{
  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
  min-height:42px;padding:0 14px;border-radius:12px;border:1px solid var(--line);

@@ -553,7 +553,8 @@
         "hodder-c42"
       ],
       "assets": [
-        "meadow-food-web"
+        "meadow-food-web",
+        "c42-marine-food-web"
       ],
       "interactions": [
         {
@@ -643,6 +644,10 @@
       "figurePlacements": [
         {
           "assetId": "meadow-food-web",
+          "afterBlock": 0
+        },
+        {
+          "assetId": "c42-marine-food-web",
           "afterBlock": 0
         }
       ],
@@ -5295,6 +5300,24 @@
       "originalUrl": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt",
       "termsUrl": "https://gml.noaa.gov/ccgg/trends/data.html",
       "displaySize": "wide"
+    },
+    {
+      "id": "c42-marine-food-web",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-c424-recheck.png",
+      "captionTitle": "A marine food web",
+      "alt": "Arrows connect organisms being eaten to their consumers, indicating transfer of biomass and chemical energy. This marine example is distinct from the constructed meadow practice example.",
+      "attribution": "Biology for the IB Diploma, Third Edition \u2014 C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure C4.2.4, p. 582 (PDF p. 594).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
+      "publicReproductionRights": "cleared",
+      "referenceIds": [
+        "ib-c42",
+        "hodder-c42"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "displaySize": "detailed"
     }
   ],
   "summary": "Solar or chemical energy is captured by autotrophs and transferred through feeding, but conversions release heat at each level. Carbon and other elements move between biotic and abiotic reservoirs and are reused. Observations such as energy pyramids and the Keeling Curve reveal patterns that require careful interpretation.",

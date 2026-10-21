@@ -596,7 +596,7 @@
       "figurePlacements": [
         {
           "assetId": "b31-alveolus",
-          "afterBlock": 1
+          "afterBlock": 0
         }
       ],
       "interactions": [
@@ -1870,12 +1870,12 @@
         "hodder-b31"
       ],
       "assets": [
-        "b31-hb"
+        "b31-fetal-affinity"
       ],
       "figurePlacements": [
         {
-          "assetId": "b31-hb",
-          "afterBlock": 1
+          "assetId": "b31-fetal-affinity",
+          "afterBlock": 0
         }
       ],
       "interactions": [
@@ -2095,12 +2095,12 @@
         "hodder-b31"
       ],
       "assets": [
-        "b31-hb"
+        "b31-bohr"
       ],
       "figurePlacements": [
         {
-          "assetId": "b31-hb",
-          "afterBlock": 1
+          "assetId": "b31-bohr",
+          "afterBlock": 0
         }
       ],
       "interactions": [
@@ -2260,7 +2260,7 @@
       "figurePlacements": [
         {
           "assetId": "b31-hb",
-          "afterBlock": 1
+          "afterBlock": 0
         }
       ],
       "interactions": [
@@ -3098,19 +3098,21 @@
   "assets": [
     {
       "id": "b31-alveolus",
-      "kind": "original-schematic",
-      "src": "/biology/gas-exchange/alveolus-capillary.svg",
-      "alt": "Alveolar air, short barrier and adjacent capillary; arrows show oxygen moving into blood and carbon dioxide into air; surfactant noted.",
-      "captionTitle": "alveolus capillary",
-      "attribution": "Original BioLab vector work, authored 2026-10-17; not copied from published diagrams",
-      "license": "Newly authored; editorial rights and independent scientific review pending",
-      "permissionEvidence": "Vector elements drawn anew; no source-image pixels, logos or textbook illustrations included",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b314-recheck.png",
+      "alt": "Bronchioles lead to alveoli surrounded by capillaries. A section and photomicrograph show the thin air–blood diffusion barrier, red blood cells and the capillary network.",
+      "captionTitle": "Alveoli and the gas-exchange barrier",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.1.4, p. 278 (PDF p. 290).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b31-guide",
         "hodder-b31"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b31-leaf",
@@ -3131,19 +3133,21 @@
     },
     {
       "id": "b31-hb",
-      "kind": "original-schematic",
-      "src": "/biology/gas-exchange/haemoglobin-oxygen.svg",
-      "alt": "Calculated sigmoid Hb saturation curves versus oxygen partial pressure in kPa: fetal left, adult middle, higher CO2 right; constructed Hill model not experimental.",
-      "captionTitle": "haemoglobin oxygen",
-      "attribution": "Original BioLab vector work, authored 2026-10-17; not copied from published diagrams",
-      "license": "Newly authored; editorial rights and independent scientific review pending",
-      "permissionEvidence": "Vector elements drawn anew; no source-image pixels, logos or textbook illustrations included",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b3116-recheck.png",
+      "alt": "Haemoglobin structure is shown beside a sigmoid oxygen dissociation curve relating percentage saturation to oxygen partial pressure.",
+      "captionTitle": "Haemoglobin and oxygen affinity",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.1.16, p. 292 (PDF p. 304).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b31-guide",
         "hodder-b31"
       ],
       "level": "HL",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "dicot-leaf-light",
@@ -3164,6 +3168,42 @@
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Dicot_leaf.jpg",
       "termsUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
       "interpretation": "Light micrograph: preserve the original 0.2 mm scale when comparing tissue dimensions."
+    },
+    {
+      "id": "b31-fetal-affinity",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b3117-recheck.png",
+      "captionTitle": "Foetal and adult haemoglobin",
+      "alt": "The foetal haemoglobin curve is left of the adult curve, indicating greater saturation at the same intermediate oxygen partial pressure.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.1.17, p. 293 (PDF p. 305).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
+      "publicReproductionRights": "cleared",
+      "referenceIds": [
+        "ib-b31-guide",
+        "hodder-b31"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "displaySize": "detailed"
+    },
+    {
+      "id": "b31-bohr",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b3118-recheck.png",
+      "captionTitle": "The Bohr shift",
+      "alt": "Higher carbon dioxide shifts haemoglobin’s oxygen dissociation curve right, promoting oxygen unloading at the same oxygen partial pressure in actively respiring tissue.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.1.18, p. 294 (PDF p. 306).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
+      "publicReproductionRights": "cleared",
+      "referenceIds": [
+        "ib-b31-guide",
+        "hodder-b31"
+      ],
+      "level": "HL",
+      "review": "scientific-review",
+      "displaySize": "detailed"
     }
   ],
   "summary": "Large organisms need specialized gas-exchange surfaces and renewed gradients. Alveoli, ventilation and circulation support animals; guard cells, mesophyll air spaces and leaf vascular supply support plants. HL haemoglobin affinity explains oxygen loading and release.",

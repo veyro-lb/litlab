@@ -1,7 +1,13 @@
 .subject-bar{max-width:1200px;margin:0 auto;padding:14px 38px 0;display:flex;align-items:center}
-.subject-navigation{display:inline-flex;align-items:center;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--surface);gap:2px;flex-shrink:0}
-.subject-navigation a{padding:7px 15px;border-radius:7px;font-size:11px;font-weight:750;color:var(--muted)}
-.subject-navigation a[aria-current=page]{background:var(--surface-2);color:var(--ink)}
+/* Both study spaces share one component; only the active state differs. */
+.subject-navigation{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:14px;background:var(--surface);flex-shrink:0}
+.subject-navigation a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:112px;min-height:44px;padding:10px 18px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--muted);font:700 13px/1.2 var(--body);letter-spacing:0;white-space:nowrap;text-decoration:none;box-shadow:none;transition:background .16s ease,color .16s ease,border-color .16s ease}
+.subject-navigation a svg{width:17px;height:17px;flex:0 0 17px;stroke-width:1.8}
+.subject-navigation a:hover{background:var(--surface-2);color:var(--ink)}
+.subject-navigation a[aria-current=page]{background:var(--bg);border-color:var(--line);color:var(--ink);box-shadow:0 1px 3px rgba(15,23,42,.06)}
+.subject-navigation a:focus-visible{outline:3px solid #c48b2e;outline-offset:3px}
+@media(max-width:760px){.subject-navigation{display:grid;grid-template-columns:1fr 1fr;width:100%}.subject-navigation a{min-width:0;width:100%;padding:10px 14px}}
+@media(prefers-reduced-motion:reduce){.subject-navigation a{transition:none}}
 .topbar[data-subject=biology]{justify-content:initial;gap:25px}
 .topbar[data-subject=biology] .top-actions{margin-left:auto}
 @media(max-width:900px){.subject-bar{padding:14px 25px 0}}

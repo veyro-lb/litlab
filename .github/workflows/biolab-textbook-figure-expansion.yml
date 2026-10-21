@@ -1,7 +1,7 @@
 name: BioLab textbook figure expansion (no deployment)
 on:
   push:
-    branches: [feature/biolab-textbook-figure-expansion]
+    branches: [feature/biolab-textbook-figure-expansion, feature/biolab-coursewide-recheck-20261020]
   pull_request:
     branches: [main]
     paths:
@@ -9,6 +9,7 @@ on:
       - 'public/biology/licensed-book-crops/**'
       - 'scripts/biology/licensed-book-figures/**'
       - 'docs/biology/textbook-figure-expansion/**'
+      - 'docs/biology/coursewide-recheck-20261020/**'
       - '.github/workflows/biolab-textbook-figure-expansion.yml'
 permissions:
   contents: read
@@ -45,8 +46,9 @@ jobs:
             if curl -fsS http://127.0.0.1:4173/ > /dev/null; then break; fi
             sleep 1
           done
+          node scripts/biology/licensed-book-figures/coursewide-browser.mjs
           node scripts/biology/licensed-book-figures/browser.mjs
-          BIOLAB_CROP_QA_BATCH=textbook-figure-expansion BIOLAB_CROP_QA_WIDTHS=1440,834,390,320 BIOLAB_CROP_QA_THEMES=light,dark BIOLAB_CROP_QA_DIR=qa-artifacts/textbook-figure-expansion node scripts/biology/licensed-book-figures/browser.mjs
+          BIOLAB_CROP_QA_BATCH=coursewide-recheck-20261020 BIOLAB_CROP_QA_WIDTHS=1440,834,390,320 BIOLAB_CROP_QA_THEMES=light,dark BIOLAB_CROP_QA_DIR=qa-artifacts/coursewide-recheck node scripts/biology/licensed-book-figures/browser.mjs
           node scripts/biology/navigation/subject-nav-browser.mjs
           node scripts/biology/feedback/feedback-browser.mjs
       - uses: actions/upload-artifact@v4

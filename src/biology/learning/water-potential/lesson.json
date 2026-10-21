@@ -992,7 +992,9 @@
         "hodder-d23",
         "openstax-osmosis"
       ],
-      "assets": [],
+      "assets": [
+        "d23-plant-osmosis"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1096,7 +1098,13 @@
             "explanation": "Plant-cell walls resist the expansion caused when water enters, so pressure builds inside the cell and the membrane pushes against the wall. This positive turgor pressure contributes to structural support in non-woody tissues."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "d23-plant-osmosis",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d23-7",
@@ -2945,6 +2953,24 @@
       ],
       "level": "shared",
       "review": "source-mapped"
+    },
+    {
+      "id": "d23-plant-osmosis",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-d239-recheck.png",
+      "captionTitle": "Osmosis in plant cells",
+      "alt": "Plant cells in hypotonic, isotonic and hypertonic solutions show turgidity, loss of turgor and plasmolysis. The cell wall stays outside the retracting protoplast.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure D2.3.9, p. 689 (PDF p. 701).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
+      "publicReproductionRights": "cleared",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "displaySize": "detailed"
     }
   ],
   "summary": "Osmosis is net movement from higher to lower water potential; tonicity predicts many cell-volume responses under equal-pressure conditions, while plant turgor and xylem tension require explicit pressure-potential reasoning.",

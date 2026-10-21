@@ -9,6 +9,10 @@ export function validatePhase5Figures(files,lessons){
  const errors=[];
  const fail=m=>errors.push(m);
  const figure=(path)=>files[path];
+ // Continue checking dormant SVG fixtures after original crops replace their registrations.
+ for(const [path,svg] of Object.entries(files))for(const [,paint] of svg.matchAll(/\bfill="([^"]+)"/g)){
+  if(!/^(?:#[\da-f]{3,8}|none|transparent|white|black|url\(#[\w-]+\))$/i.test(paint))fail('Invalid paint fill '+path);
+ }
  const textCount=(s,word)=>[...(s||'').matchAll(/<text\b[^>]*>([^<]*)<\/text>/g)].filter(([,label])=>label===word).length;
  for(const lesson of Object.values(lessons)){
   for(const asset of lesson.assets){
@@ -61,7 +65,8 @@ export function validatePhase5Figures(files,lessons){
  const inhibition=figure(c+'inhibition.svg')||'';
  if(!inhibition.includes('Competitive: active site')||!inhibition.includes('Allosteric: distinct site'))fail('Competitive vs regulatory binding locations missing');
  const alt=lessons['C1.1']?.assets.find(x=>x.id==='c11-inhibition')?.alt||'';
- if(!/mechanism diagram, not a plot/.test(alt)||!/competitive inhibitor occupies/.test(alt))fail('Inhibition accessibility description does not match revised SVG');
+ const inhibitionIsCrop=lessons['C1.1']?.assets.find(x=>x.id==='c11-inhibition')?.src.startsWith('/biology/licensed-book-crops/');
+ if(inhibitionIsCrop?(!/active-site competition/.test(alt)||!/simplified model/.test(alt)):(!/mechanism diagram, not a plot/.test(alt)||!/competitive inhibitor occupies/.test(alt)))fail('Inhibition accessibility description does not match rendered diagram');
  const feedback=figure(c+'feedback.svg')||'';
  if(!feedback.includes('Threonine')||!feedback.includes('Ile')||!feedback.includes('Feedback inhibits early enzyme')||!/<path\s+d="M820 222/.test(feedback))fail('End-product feedback arrow mechanism missing');
  const penicillin=figure(c+'penicillin.svg')||'';
@@ -81,6 +86,9 @@ export async function readPhase5FigureFiles(lessons){
  // Preserve regression verification of the inactive archival SVG without showing it instead of the PDF.
  for(const name of ['paired','sugars','nucleotide','nucleotide-recall']){
   files['/biology/nucleic-acids/'+name+'.svg']=await readFile(new URL('../public/biology/nucleic-acids/'+name+'.svg',import.meta.url),'utf8');
+ }
+ for(const name of ['active','collision','induced','inhibition','feedback','penicillin','activation','pathways']){
+  files['/biology/enzymes-metabolism/'+name+'.svg']=await readFile(new URL('../public/biology/enzymes-metabolism/'+name+'.svg',import.meta.url),'utf8');
  }
  return files;
 }

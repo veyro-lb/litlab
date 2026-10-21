@@ -208,7 +208,7 @@
       "figurePlacements": [
         {
           "assetId": "b32-vessel-comparison",
-          "afterBlock": 1
+          "afterBlock": 0
         }
       ],
       "teachingBlocks": [
@@ -2021,7 +2021,7 @@
       "figurePlacements": [
         {
           "assetId": "b32-heart-circuits",
-          "afterBlock": 1
+          "afterBlock": 0
         }
       ],
       "teachingBlocks": [
@@ -2247,7 +2247,7 @@
       "figurePlacements": [
         {
           "assetId": "b32-heart-frontal",
-          "afterBlock": 1
+          "afterBlock": 0
         }
       ],
       "teachingBlocks": [
@@ -2555,17 +2555,12 @@
         }
       ],
       "assets": [
-        "root-pressure",
-        "b32-root-pressure-flow"
+        "root-pressure"
       ],
       "figurePlacements": [
         {
           "assetId": "root-pressure",
           "afterBlock": 0
-        },
-        {
-          "assetId": "b32-root-pressure-flow",
-          "afterBlock": 1
         }
       ],
       "teachingBlocks": [
@@ -3838,19 +3833,21 @@
   "assets": [
     {
       "id": "b32-vessel-comparison",
-      "kind": "original-schematic",
-      "src": "/biology/transport/vessel-comparison.svg",
-      "alt": "Schematic artery with thick media and round lumen, vein with thin wall and valve, and capillary with single thin endothelial ring.",
-      "captionTitle": "b32 vessel comparison",
-      "attribution": "Original BioLab scientific diagram 2026; no copied source artwork",
-      "license": "Original vector authorship; qualified rights/science review pending",
-      "permissionEvidence": "Newly drawn SVG geometric primitives; no third-party assets or copyrighted diagrams reproduced",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b322-recheck.png",
+      "alt": "A transverse-section micrograph and labelled drawings compare arteries and veins using wall thickness, smooth muscle, elastic fibres and lumen size.",
+      "captionTitle": "Artery and vein walls",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.2.2, p. 296 (PDF p. 308).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-guide-b32",
         "hodder-b32"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b32-dicot-stem-root",
@@ -3871,56 +3868,57 @@
     },
     {
       "id": "b32-heart-circuits",
-      "kind": "original-schematic",
-      "src": "/biology/transport/heart-circuits.svg",
-      "alt": "Schematic sequence of single circulation fish through heart, gills and body, compared to mammal's pulmonary and systemic circuits.",
-      "captionTitle": "b32 heart circuits",
-      "attribution": "Original BioLab scientific diagram 2026; no copied source artwork",
-      "license": "Original vector authorship; qualified rights/science review pending",
-      "permissionEvidence": "Newly drawn SVG geometric primitives; no third-party assets or copyrighted diagrams reproduced",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b3221-recheck.png",
+      "alt": "Bony-fish blood passes through gills then body before returning to the heart. Mammalian blood returns to the heart between pulmonary and systemic capillary beds.",
+      "captionTitle": "Single and double circulations",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.2.21, p. 314 (PDF p. 326).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-guide-b32",
         "hodder-b32"
       ],
       "level": "HL",
       "review": "scientific-review",
-      "recallSrc": "/biology/transport/heart-circuits-recall.svg",
-      "mobileSrc": "/biology/transport/heart-circuits-mobile.svg",
-      "recallMobileSrc": "/biology/transport/heart-circuits-mobile-recall.svg"
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b32-heart-frontal",
-      "kind": "original-schematic",
-      "src": "/biology/transport/heart-frontal.svg",
-      "alt": "Simplified frontal-plane mammalian heart: anatomical right on viewer left; venae cavae to right atrium and tricuspid valve then right ventricle, pulmonary valve and artery to lungs; pulmonary veins to left atrium then mitral valve, left ventricle, aortic valve and aorta. Blue shows relatively deoxygenated blood and red oxygenated blood. Arrows indicate flow; model not to scale.",
-      "captionTitle": "Mammalian heart — chambers, valves and directed blood flow",
-      "attribution": "Original BioLab schematic authored 2026-10-17",
-      "license": "Original educational vector; specialist anatomy, accessibility and rights review pending",
-      "permissionEvidence": "Composed with newly authored SVG primitives; no source-image copying or external datasets",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b3223-recheck.png",
+      "alt": "External and frontal-section views label chambers, major vessels, valves and the muscular wall. Anatomical left and right refer to the patient, not the viewer.",
+      "captionTitle": "Structure of the human heart",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.2.23, p. 316 (PDF p. 328).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-guide-b32",
         "hodder-b32"
       ],
       "level": "HL",
       "review": "scientific-review",
-      "mobileSrc": "/biology/transport/heart-frontal-mobile.svg"
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "root-pressure",
       "kind": "diagram",
-      "src": "/biology/transport/root-pressure.svg",
-      "alt": "Active ion loading lowers xylem water potential. Water enters by osmosis and raises positive root pressure, distinct from transpiration pull. Endodermal barrier omitted for clarity; not a complete root section.",
-      "captionTitle": "Root pressure: ion loading draws water",
-      "attribution": "Original BioLab scientific schematic, 18 October 2026. Independent layout and geometry; no textbook artwork copied.",
-      "license": "Original project artwork; rights retained by BioLab",
-      "permissionEvidence": "Created within this repository for BioLab; no external artwork, tracing or source-image pixels. Generator and scientific review ledger: docs/biology/scientific-visual-assets-repair/.",
+      "src": "/biology/licensed-book-crops/hodder-b3229-recheck.png",
+      "alt": "Mineral-ion uptake lowers water potential in the xylem. Water enters by osmosis, generating positive hydrostatic pressure.",
+      "captionTitle": "Development of root pressure",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B3.2.29, p. 322 (PDF p. 334).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-guide-b32",
         "hodder-b32"
       ],
       "level": "HL",
       "review": "scientific-review",
-      "displaySize": "standard"
+      "displaySize": "detailed",
+      "publicReproductionRights": "cleared"
     },
     {
       "id": "phloem-pressure-flow",
@@ -3939,23 +3937,6 @@
       "review": "scientific-review",
       "displaySize": "detailed",
       "publicReproductionRights": "cleared"
-    },
-    {
-      "id": "b32-root-pressure-flow",
-      "kind": "schematic",
-      "src": "/biology/transport/root-pressure-cause-sequence.svg",
-      "alt": "Four-stage causal flowchart: mineral ions are actively transported into root xylem, lowering its water potential; water enters by osmosis; positive hydrostatic root pressure can push water up when transpiration is low. Contrasted with negative-pressure transpiration pull.",
-      "captionTitle": "From active ion uptake to positive xylem pressure",
-      "interpretation": "Original conceptual comparison/process visual; review with the adjacent explanation, not as a scale drawing.",
-      "attribution": "Original BioLab diagram for source-informed course-depth audit (2026)",
-      "license": "Original first-party BioLab illustration",
-      "permissionEvidence": "Drawn independently from underlying scientific mechanisms; publisher diagrams were not copied or traced",
-      "referenceIds": [
-        "ib-guide-b32",
-        "hodder-b32"
-      ],
-      "level": "HL",
-      "review": "scientific-review"
     }
   ],
   "summary": "Mass flow depends on pressure differences and structures that withstand, control or exchange that flow. Capillaries, arteries, veins and cardiac valves serve distinct roles; xylem is tension-driven and phloem uses source–sink pressure flow.",

@@ -400,7 +400,9 @@
         "ib-guide-a21",
         "hodder-a21"
       ],
-      "assets": [],
+      "assets": [
+        "a21-protocell"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -488,7 +490,12 @@
           ]
         }
       ],
-      "figurePlacements": [],
+      "figurePlacements": [
+        {
+          "assetId": "a21-protocell",
+          "afterBlock": 0
+        }
+      ],
       "activityTitle": "From chemistry to inherited compartments — test your reasoning",
       "visuals": [
         {
@@ -750,9 +757,7 @@
         "ib-guide-a21",
         "hodder-a21"
       ],
-      "assets": [
-        "fatty-vesicle"
-      ],
+      "assets": [],
       "interactions": [
         {
           "kind": "selection",
@@ -840,12 +845,7 @@
           ]
         }
       ],
-      "figurePlacements": [
-        {
-          "assetId": "fatty-vesicle",
-          "afterBlock": 1
-        }
-      ],
+      "figurePlacements": [],
       "visuals": [
         {
           "kind": "sequence",
@@ -2154,21 +2154,22 @@
   ],
   "assets": [
     {
-      "id": "fatty-vesicle",
-      "kind": "scientific-schematic",
-      "src": "/biology/origins-cells/fatty-vesicle.svg",
-      "alt": "Original cross-section model of a fatty acid vesicle. Two circular rows of head groups face aqueous regions on the exterior and interior. Hydrocarbon tails point toward each other in the membrane interior. The inner compartment is enclosed but does not show a genome or enzymes.",
-      "captionTitle": "Self-assembled amphiphile bilayer enclosure",
-      "interpretation": "Locate the two water-facing surfaces and the hydrophobic membrane core. Explain why this is not, by itself, a living cell.",
-      "attribution": "Original BioLab SVG diagram (2026); no textbook artwork used",
-      "license": "Original project-authored vector drawing",
-      "permissionEvidence": "Created from programmatic SVG primitives for this lesson; scientific depiction pending specialist review.",
+      "id": "a21-protocell",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-a219-recheck.png",
+      "alt": "RNA is enclosed by a labelled phospholipid membrane in a model of compartmentalization and internal chemistry. This is a hypothesis, not a photograph or a diagram of the simpler fatty-acid vesicles discussed separately.",
+      "captionTitle": "A hypothesized protocell",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure A2.1.9, p. 45 (PDF p. 57).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "hodder-a21",
         "ib-guide-a21"
       ],
       "level": "HL",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     }
   ],
   "summary": "Abiotic molecular synthesis, membrane formation and catalytic RNA provide partial mechanisms; neither the full pathway to the first cell nor the location of LUCA is established.",

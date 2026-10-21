@@ -520,6 +520,12 @@
           ],
           "note": "Enzyme-catalysed pathways can involve activated intermediates; this table shows overall chemistry, not every microscopic step."
         }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "b11-condensation",
+          "afterBlock": 0
+        }
       ]
     },
     {
@@ -690,7 +696,13 @@
             "explanation": "Digestion means chemical and physical breakdown of food. Hydrolysis breaks a covalent link using water; H and OH become parts of the products."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b11-condensation",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "b11-4",
@@ -877,7 +889,13 @@
             "explanation": "Oxidation means electron loss during reactions; glucose oxidation releases energy. Recognize pentose and hexose sugar structures. Glucose is soluble, transportable, fairly stable and yields energy on oxidation."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b11-sugar-rings",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "b11-5",
@@ -940,7 +958,7 @@
         "ncbi-polysaccharides"
       ],
       "assets": [
-        "b11-polysaccharides"
+        "b11-starch"
       ],
       "interactions": [
         {
@@ -1079,7 +1097,13 @@
             "explanation": "Osmotic effect means effect of dissolved particles on water movement. Coiling and branching compact starch/glycogen; large size lowers solubility; chain ends allow glucose release."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b11-starch",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "b11-6",
@@ -1289,6 +1313,12 @@
             ]
           ],
           "note": "These different shapes follow from their glycosidic arrangements; all three are polysaccharides."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "b11-polysaccharides",
+          "afterBlock": 0
         }
       ]
     },
@@ -1859,6 +1889,12 @@
             ]
           ],
           "note": "This comparison describes common glycerol-based examples; it does not imply every lipid has a glycerol backbone."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "b11-lipids",
+          "afterBlock": 0
         }
       ]
     },
@@ -2452,7 +2488,13 @@
             "explanation": "Bilayer means two molecular layers. Amphipathic phospholipids form bilayers: hydrophilic heads face water, hydrophobic tails point inward."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "b11-bilayer",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "b11-13",
@@ -2649,6 +2691,12 @@
             }
           ],
           "note": "The model applies to steroid signalling pathways such as those involving oestradiol or testosterone; receptor localization and downstream events vary."
+        }
+      ],
+      "figurePlacements": [
+        {
+          "assetId": "b11-steroid-rings",
+          "afterBlock": 0
         }
       ]
     }
@@ -3432,90 +3480,95 @@
     {
       "id": "b11-condensation",
       "kind": "diagram",
-      "src": "/biology/carbohydrates-lipids/condensation.svg",
-      "recallSrc": "/biology/carbohydrates-lipids/condensation-recall.svg",
-      "alt": "Two monomers are joined by condensation with water released; hydrolysis uses water to split a covalent linkage into smaller units. Diagram illustrates opposite reaction types.",
-      "captionTitle": "Condensation versus hydrolysis: track the water",
-      "attribution": "Original LitLab instructional SVG schematic",
-      "license": "Original LitLab artwork; no third-party diagram incorporated; owner publication clearance pending",
-      "permissionEvidence": "Authored as original vector shapes and text; not traced or copied from Hodder, IB or third-party diagrams",
+      "src": "/biology/licensed-book-crops/hodder-b117-recheck.png",
+      "alt": "Condensation joins monomers and releases water. Hydrolysis consumes water to split the linkage. Arrows show the opposite reaction directions.",
+      "captionTitle": "Condensation and hydrolysis",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B1.1.7, p. 186 (PDF p. 198).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b11",
         "hodder-b11"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b11-polysaccharides",
       "kind": "diagram",
-      "src": "/biology/carbohydrates-lipids/polysaccharides.svg",
-      "recallSrc": "/biology/carbohydrates-lipids/polysaccharides-recall.svg",
-      "alt": "Schematic branched alpha-glucose storage polysaccharide compared with parallel extended cellulose beta-glucose chains; cellulose strands are linked by between-chain hydrogen bonds, unlike the chain's covalent glycosidic bonds.",
-      "captionTitle": "Why glucose chains can store energy or resist pulling",
-      "attribution": "Original LitLab instructional SVG schematic",
-      "license": "Original LitLab artwork; publication review pending",
-      "permissionEvidence": "Original shapes drawn to explain broad structure–function relationships; not a chemical bond-level image or copied art",
+      "src": "/biology/licensed-book-crops/hodder-b1117-recheck.png",
+      "alt": "Alternating beta-glucose residues form straight chains. Hydrogen bonds connect neighbouring cellulose chains into fibrils and fibres that resist tension.",
+      "captionTitle": "Cellulose chains and fibres",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B1.1.17, p. 193 (PDF p. 205).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b11",
         "hodder-b11",
         "ncbi-polysaccharides"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b11-lipids",
       "kind": "diagram",
-      "src": "/biology/carbohydrates-lipids/lipids.svg",
-      "recallSrc": "/biology/carbohydrates-lipids/lipids-recall.svg",
-      "alt": "Original abbreviated structural formula: a triglyceride has glycerol esterified to three fatty-acid residues, while a glycerophospholipid has glycerol esterified to two fatty-acid residues and connected by a phosphate ester to polar head group X. The ester C(=O)–O bonds and the distinct third glycerol substituent are shown; R denotes fatty-acid chains.",
-      "captionTitle": "Glycerol ester linkages: three acyl groups versus two plus phosphate",
-      "attribution": "Original LitLab instructional SVG schematic",
-      "license": "Original LitLab artwork; publication review pending",
-      "permissionEvidence": "Designed from biochemical relationships; no publisher figure, photograph or stock art reused",
+      "src": "/biology/licensed-book-crops/hodder-b1121-recheck.png",
+      "alt": "Three fatty acids form ester linkages with glycerol by condensation, releasing three water molecules overall.",
+      "captionTitle": "Triglyceride formation",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B1.1.21, p. 198 (PDF p. 210).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b11",
         "hodder-b11",
         "openstax-lipids"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b11-bilayer",
       "kind": "diagram",
-      "src": "/biology/carbohydrates-lipids/bilayer.svg",
-      "recallSrc": "/biology/carbohydrates-lipids/bilayer-recall.svg",
-      "alt": "Phospholipid heads contact water on the external and internal faces of a bilayer; hydrophobic hydrocarbon tails point toward each other inside the membrane.",
-      "captionTitle": "Amphipathic lipids orient head-to-water, tail-to-tail",
-      "attribution": "Original LitLab instructional SVG schematic",
-      "license": "Original LitLab artwork; publication review pending",
-      "permissionEvidence": "Original shapes assembled for the lesson; conceptual orientation checked against official and independent references",
+      "src": "/biology/licensed-book-crops/hodder-b1127-recheck.png",
+      "alt": "Hydrophilic phospholipid heads contact water while hydrophobic tails face away. The arrangement forms monolayers or bilayers according to the interface.",
+      "captionTitle": "Phospholipid monolayers and bilayers",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B1.1.27, p. 202 (PDF p. 214).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b11",
         "openstax-membranes",
         "hodder-b11"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b11-sugar-rings",
       "kind": "diagram",
-      "src": "/biology/carbohydrates-lipids/sugar-rings.svg",
-      "recallSrc": "/biology/carbohydrates-lipids/sugar-rings-recall.svg",
-      "alt": "Ribose is a five-carbon pentose with one outside-chain carbon; glucose is a six-carbon hexose with one outside-chain carbon; fructose is a six-carbon hexose whose five-membered ring has two outside-chain carbons. Count carbons, not corners, because ring oxygen does not count.",
-      "captionTitle": "Recognize pentose and hexose sugars by counting all carbons",
-      "attribution": "Original LitLab scientific teaching SVG; no third-party diagrams",
-      "license": "Original schematic, independent scientific/owner rights approval pending",
-      "permissionEvidence": "Created using original vector shapes and written chemical examples; not based on copied publisher artwork",
+      "src": "/biology/licensed-book-crops/hodder-b1113-recheck.png",
+      "alt": "Six-carbon glucose and five-carbon ribose are shown in structural formulae, including carbon atoms outside each ring and alpha/beta glucose orientations.",
+      "captionTitle": "Glucose and ribose structures",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B1.1.13, p. 190 (PDF p. 202).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b11",
         "hodder-b11"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
     },
     {
       "id": "b11-fatty-acids",
@@ -3538,20 +3591,39 @@
     {
       "id": "b11-steroid-rings",
       "kind": "diagram",
-      "src": "/biology/carbohydrates-lipids/steroid-rings.svg",
-      "recallSrc": "/biology/carbohydrates-lipids/steroid-rings-recall.svg",
-      "alt": "Steroid chemical nucleus has three fused six-carbon rings and one fused five-carbon ring. Both oestradiol and testosterone share this ring framework with different substituents; hydrogens and substituents are omitted for clarity.",
-      "captionTitle": "Identify a steroid by its characteristic four fused rings",
-      "attribution": "Original LitLab scientific teaching SVG; no third-party diagrams",
-      "license": "Original schematic, independent scientific/owner rights approval pending",
-      "permissionEvidence": "Created using original vector shapes and written chemical examples; not based on copied publisher artwork",
+      "src": "/biology/licensed-book-crops/hodder-b1128-recheck.png",
+      "alt": "Testosterone and oestradiol share the characteristic four fused carbon rings of steroid molecules.",
+      "captionTitle": "Four fused rings in steroids",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B1.1.28, p. 204 (PDF p. 216).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
       "referenceIds": [
         "ib-b11",
         "hodder-b11",
         "openstax-lipids"
       ],
       "level": "shared",
-      "review": "scientific-review"
+      "review": "scientific-review",
+      "publicReproductionRights": "cleared",
+      "displaySize": "detailed"
+    },
+    {
+      "id": "b11-starch",
+      "kind": "diagram",
+      "src": "/biology/licensed-book-crops/hodder-b1114-recheck.png",
+      "captionTitle": "Amylose and amylopectin",
+      "alt": "Amylose is an unbranched alpha-glucose polymer. Amylopectin has alpha-1,4 linkages along its chains and alpha-1,6 linkages at branch points.",
+      "attribution": "Biology for the IB Diploma, Third Edition — C. J. Clegg, Andrew Davis and Christopher Talbot; Hodder Education (2023), Figure B1.1.14, p. 191 (PDF p. 203).",
+      "license": "Owner-authorized textbook reproduction; source credited.",
+      "permissionEvidence": "User confirmed on 2026-10-19 that they hold permission to reproduce these figures and asked that the sources be credited. Formal rights documents have not been independently reviewed.",
+      "publicReproductionRights": "cleared",
+      "referenceIds": [
+        "ib-b11",
+        "hodder-b11"
+      ],
+      "level": "shared",
+      "review": "scientific-review",
+      "displaySize": "detailed"
     }
   ],
   "review": {
