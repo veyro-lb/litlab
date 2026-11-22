@@ -5,7 +5,7 @@ import {themes,organizations} from '../curriculum/manifest';
 import type {Level,Topic} from '../curriculum/schema';
 import {inScope,readStudy,saveStudy} from './content';
 import type {Lesson,StudyState} from './content';
-import {ChoiceQuestion,RecallQuestion,WrittenQuestion} from './StudyQuestion';
+import {RecallQuestion} from './StudyQuestion';
 import type {UpdateStudy} from './StudyQuestion';
 import ScientificFigure from './ScientificFigure';
 import ReadingUnderstanding from './ReadingUnderstanding';
@@ -13,12 +13,7 @@ import ResourceNav from '../components/ResourceNav';
 import FlashcardStudy from './FlashcardStudy';
 import DrawingPractice from './drawing-practice/DrawingPractice';
 import SourcesPanel from './SourcesPanel';
-const questionTypes = [
-  {id:'all', label:'All questions'},
-  {id:'multiple-choice', label:'Multiple choice'},
-  {id:'written', label:'Written response'},
-] as const;
-type QuestionType = typeof questionTypes[number]['id'];
+import TopicPractice from './TopicPractice';
 
 export type LessonMode = 'learn'|'revision'|'practice'|'sources'|'flashcards'|'drawing';
 export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesson;topic:Topic;level:Level;mode:LessonMode;hash:string}) {
@@ -32,22 +27,11 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
   const base=`#biology/topic/${lesson.topicId}`;
   const toc=useRef<HTMLDetailsElement>(null);
   useEffect(()=>{const media=window.matchMedia('(min-width: 761px)');const sync=()=>{if(toc.current)toc.current.open=media.matches};sync();media.addEventListener('change',sync);return ()=>media.removeEventListener('change',sync)},[mode]);
-  const [missedOnly,setMissedOnly]=useState(false);
-  const [questionType,setQuestionType]=useState<QuestionType>('all');
   const update:UpdateStudy=fn=>setStudy(s=>{const next=fn(s);saveStudy(lesson.id,next);return next});
   const sections=lesson.sections.filter(s=>inScope(s,level));
   if(!sections.length)return <section className="bio-empty"><h1>This topic is HL only</h1><p>Select HL to open this lesson.</p></section>;
   const section=sections.find(s=>s.id===study.sectionId)??sections[0];
   const index=sections.indexOf(section);
-  const questions=lesson.questions.filter(q=>inScope(q,level));
-  const targeted=mode==='practice'&&requestedId?questions.filter(q=>q.understandingIds.includes(requestedId)):questions;
-  const choices=targeted.filter(q=>Array.isArray(q.options)&&q.options.length>0);
-  const written=targeted.filter(q=>Array.isArray(q.markingPoints)&&q.markingPoints.length>0);
-  const showChoices=questionType!=='written'||written.length===0;
-  const showWritten=questionType!=='multiple-choice'||choices.length===0;
-  const attempted=choices.filter(q=>!!study.answers[q.id]);
-  const correct=attempted.filter(q=>'options' in q&&q.options?.some(o=>o.id===study.answers[q.id]&&o.correct));
-  const missed=attempted.filter(q=>'options' in q&&!q.options?.some(o=>o.id===study.answers[q.id]&&o.correct));
   function chooseSection(id:string){if(window.matchMedia('(max-width: 760px)').matches&&toc.current)toc.current.open=false;const target=lesson.sections.find(s=>s.id===id);if(target)location.hash=`${base}/${mode}?understanding=${target.understandingIds[0]}`;update(s=>({...s,sectionId:id}));requestAnimationFrame(()=>{const el=document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLElement>('.bio-lesson-content');el?.focus({preventScroll:true});el?.scrollIntoView({block:'start',behavior:'instant' as ScrollBehavior})})}
   function revisit(id:string){update(s=>({...s,sectionId:id}));location.hash=`${base}/learn?understanding=${lesson.sections.find(s=>s.id===id)?.understandingIds[0]??''}`}
   return <article className="bio-lesson" data-lesson-id={lesson.id} data-mode={mode}>
@@ -64,23 +48,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
       </>}
       <div className="bio-actions bio-related-study"><a href={`${base}/${mode==='revision'?'learn':'revision'}?understanding=${section.understandingIds[0]}`}>{mode==='revision'?'Read the full explanation':'Revise this understanding'} · {section.understandingIds[0]}</a><a href={`${base}/practice?understanding=${section.understandingIds[0]}`}>Practise {section.understandingIds[0]}</a></div><div className="bio-section-controls"><button type="button" disabled={index===0} onClick={()=>chooseSection(sections[index-1].id)}><ArrowLeft size={16} aria-hidden="true"/>Previous understanding</button><span>{index+1} / {sections.length}</span>{index<sections.length-1?<button type="button" onClick={()=>chooseSection(sections[index+1].id)}><span className="bio-next-label">Next: {topic.understandings.find(u=>u.id===sections[index+1].understandingIds[0])?.studentTitle??sections[index+1].understandingIds[0]}</span><ArrowRight size={16} aria-hidden="true"/></button>:<a className="bio-primary" href={`${base}/practice`}>Apply it in practice<ArrowRight size={16} aria-hidden="true"/></a>}</div>
     </section></div>}
-    {mode==='practice'&&<section className="bio-practice">
-      <h2>Practice questions</h2>
-      <p>Check multiple-choice answers for feedback. Compare written responses with the marking guidance.</p>
-      {requestedId&&<p className="bio-practice-target">Questions for {requestedId} · <a href={`${base}/practice`}>Show all practice</a></p>}
-      <div className="bio-practice-status" role="status">
-        {showChoices&&choices.length>0&&<span>{attempted.length} of {choices.length} multiple-choice questions attempted · {correct.length} correct · {missed.length} to revisit</span>}
-        {showWritten&&written.length>0&&<span>{written.length} written-response {written.length===1?'question':'questions'}</span>}
-        {choices.length===0&&written.length===0&&<span>No questions for this selection.</span>}
-      </div>
-      {choices.length>0&&written.length>0&&<div className="bio-practice-filters" role="group" aria-label="Question type">
-        {questionTypes.map(type=><button key={type.id} type="button" aria-pressed={questionType===type.id} onClick={()=>{setQuestionType(type.id);setMissedOnly(false)}}>{type.label}</button>)}
-      </div>}
-      {showChoices&&choices.length>0&&<button type="button" className="bio-btn-quiet" aria-pressed={missedOnly} onClick={()=>setMissedOnly(!missedOnly)}>{missedOnly?'Show all practice':'Review missed questions'}</button>}
-      {showChoices&&missedOnly&&choices.length>0&&missed.length===0&&<p>No missed questions to revisit.</p>}
-      {showChoices&&(missedOnly?missed:choices).map(q=>'options' in q&&q.options?<div className="bio-practice-choice" key={q.id}><span className="bio-eyebrow">PAPER 1A STYLE{q.level==='HL'?' · ADDITIONAL HL':''}</span><p className="bio-question-syllabus">Syllabus: <UnderstandingLabel topic={topic} ids={q.understandingIds}/></p><ChoiceQuestion item={{...q,kind:'selection',options:q.options}} study={study} update={update} returnTo={()=>revisit(q.sectionId)}/></div>:null)}
-      {showWritten&&(!showChoices||!missedOnly)&&written.map(q=><WrittenQuestion key={q.id} topic={topic} item={q} study={study} update={update}/>)}
-    </section>}
+    {mode==='practice'&&<TopicPractice key={hash+level} lesson={lesson} topic={topic} level={level} hash={hash} requestedId={requestedId} study={study} update={update} revisit={revisit}/>}
     {mode==='drawing'&&<DrawingPractice key={hash} lesson={lesson} sections={sections} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={new URLSearchParams(hash.split('?')[1]??'').get('diagram')}/>}
     {mode==='flashcards'&&<FlashcardStudy lesson={lesson} sections={sections} requestedId={requestedId} study={study} update={update}/>}
     {mode==='sources'&&<SourcesPanel lesson={lesson} level={level}/>}

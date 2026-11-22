@@ -1,3 +1,4 @@
+import PracticeHub from '../learning/PracticeHub';
 import DrawingCatalogue from '../learning/drawing-practice/DrawingCatalogue';
 import {ArrowRight, BookOpen, FlaskConical, Layers3, RotateCcw, Search} from 'lucide-react';
 import type {Level} from '../curriculum/schema';
@@ -12,6 +13,10 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
   const lessonCount = topics.filter(topic => Boolean(topic.lessonId)).length;
   const focusSearch = () => document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLInputElement>('#bio-topic-search')?.focus();
   const openTopics = () => document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector('#bio-topic-browser')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  if(resource==='practice')return <>
+    <ResourceNav active={resource}/>
+    <PracticeHub key={hash} level={level} hash={hash}/>
+  </>;
   return <>
     <header className="bio-welcome" aria-labelledby="bio-welcome-title">
       <div className="bio-welcome-copy">
@@ -44,7 +49,6 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
       <a className="bio-quick-item" href="#biology?resource=revision"><span className="bio-quick-icon"><RotateCcw size={20} aria-hidden="true"/></span><span><strong>Review concepts</strong><small>Revisit the key explanations</small></span><ArrowRight size={16} aria-hidden="true"/></a>
     </section>
     {resource==='sources'&&<section className="bio-course-bibliography"><h2>Course sources</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic’s Sources tab for figure credits and references.</p></section>}
-    {resource==='practice'&&<p className="bio-resource-context">Practise with original BioLab questions and feedback linked to the syllabus.</p>}
     {resource==='revision'&&<p className="bio-resource-context">Revisit concise explanations, figures and recall prompts in each available lesson.</p>}
 
     {resource==='flashcards'&&<p className="bio-resource-context">Choose a topic and try answering each flashcard before you reveal its answer.</p>}

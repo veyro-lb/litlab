@@ -9,6 +9,6 @@ export default function LessonLoader({topic,level,mode,hash}:{topic:Topic;level:
  useEffect(()=>{let live=true;setLesson(undefined);setError('');loadLesson(topic.lessonId!).then(x=>{if(live)setLesson(x)}).catch(()=>{if(live)setError('The lesson could not be loaded. Return to the overview and try again.')});return()=>{live=false}},[topic.lessonId]);
  if(topic.level==='HL'&&level==='SL')return <section className="bio-empty"><h1>This topic is HL only</h1><p>Select HL to open this lesson.</p></section>;
  if(error)return <p role="alert">{error} <a href={`#biology/topic/${topic.id}`}>Topic overview</a></p>;
- if(!lesson)return <p role="status">Loading lesson…</p>;
+ if(!lesson||lesson.topicId!==topic.id)return <p role="status">Loading lesson…</p>;
  return <LessonView key={lesson.id} lesson={lesson} topic={topic} level={level} mode={mode} hash={hash}/>;
 }

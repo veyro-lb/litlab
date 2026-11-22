@@ -1,0 +1,193 @@
+.bio-practice-hub {
+  max-width: 900px;
+  margin: clamp(24px, 5vw, 58px) auto 64px;
+}
+
+.bio-practice-hub > :is(h1,h2) {
+  margin: 0 0 9px;
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: -.04em;
+  line-height: 1.14;
+}
+
+.bio-practice-hub > p {
+  margin: 0 0 30px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.bio-paper-fieldset {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.bio-paper-fieldset legend,
+.bio-practice-scope label {
+  padding: 0;
+  margin: 0 0 9px;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.bio-paper-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bio-paper-option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 82px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.bio-paper-option:has(input:checked) {
+  border-color: var(--bio-green);
+  background: color-mix(in srgb, var(--bio-green) 9%, var(--surface));
+}
+
+.bio-paper-option:has(input:focus-visible) {
+  outline: 3px solid var(--bio-focus);
+  outline-offset: 3px;
+}
+
+.bio-paper-option input {
+  grid-column: 3;
+  grid-row: 1;
+  height: 17px;
+  width: 17px;
+  margin: 0;
+  accent-color: var(--bio-primary-bg);
+}
+
+.bio-paper-option svg {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--bio-green);
+}
+
+.bio-paper-option span {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.bio-paper-option strong,
+.bio-paper-option small {
+  display: block;
+}
+
+.bio-paper-option strong {
+  line-height: 1.3;
+}
+
+.bio-paper-option small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.bio-practice-scope {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.bio-practice-scope label {
+  display: block;
+}
+
+.bio-practice-scope select {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.bio-practice-launch,
+.bio-practice-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.bio-practice-launch p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.bio-practice .bio-back {margin-bottom: 12px}
+
+.bio-practice-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 16px 0 14px;
+}
+
+.bio-app .bio-practice-filters a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.bio-app .bio-practice-filters a:hover,
+.bio-app .bio-practice-filters a[aria-current=page] {
+  border-color: var(--bio-green);
+  background: color-mix(in srgb, var(--bio-green) 11%, var(--surface));
+  color: var(--bio-green);
+}
+
+.bio-practice-pagination {margin-top: 24px}
+.bio-practice-pagination a:last-child {margin-inline-start: auto}
+
+@media (max-width: 650px) {
+  .bio-paper-options {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .bio-paper-option {
+    min-height: 58px;
+  }
+}
+
+@media (max-width: 490px) {
+  .bio-practice-scope {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-practice-launch > a {
+    width: 100%;
+  }
+}
