@@ -110,7 +110,7 @@ export default function DrawingPractice({lesson,sections,level,study,update,requ
    </div>
   </div>}
   <footer className="bio-drawing-footer">
-   <p>Figure evidence: {exercise.availabilityEvidence} Independent specialist review is pending. BioLab is not IB-certified.</p>
+   <p>{exercise.availabilityEvidence}</p>
    <a href={`${base}/learn?understanding=${exercise.understandingId}`}>Read explanation <ArrowRight size={16} aria-hidden="true"/></a>
   </footer>
  </section>;
