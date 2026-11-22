@@ -1,0 +1,28 @@
+// Use selected compact comparisons from the lesson data. Each inherits the
+// syllabus scope of its section, and its source references remain in the lesson.
+export const revisionComparisons = new Set([
+  'Cohesion and adhesion are different',
+  'DNA compared with RNA',
+  'Plant, fungal and animal cells',
+  'Three species concepts',
+  'Homology versus analogy',
+  'Allopatric and sympatric speciation',
+  'Three scales of biodiversity',
+  'Three glucose polymers, three roles',
+  'Four levels of protein structure',
+  'Three ways across a membrane',
+  'Totipotent, pluripotent and multipotent',
+  'Ventilation: inspiration versus expiration',
+  'Single and double circulation',
+  'Fundamental versus realized niche',
+  'Anabolism and catabolism',
+  'Human glucose respiration: two routes',
+  'Receptor location and ligand access',
+  'Two ways to coordinate distant targets',
+  'Innate versus adaptive immunity',
+  'Interactions between species',
+  'Do not confuse PCR with gel electrophoresis',
+  'DNA coding strand, template strand and transcript',
+  'Mitosis versus meiosis',
+  'Tonicity must always have a reference',
+]);

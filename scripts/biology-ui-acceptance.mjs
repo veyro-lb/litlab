@@ -134,9 +134,11 @@ try {
      await mobile.close();
    }
  });
- await check('Revision and Flashcards show functional existing learning content',async()=>{
-   await navigate(p,'#biology/topic/A1.1/revision','.bio-lesson[data-mode=revision]');
-   await expect(p.locator('.bio-takeaway')).toBeVisible();
+ await check('Revision and Flashcards each reveal recall answers',async()=>{
+   await navigate(p,'#biology/topic/A1.1/revision','.bio-revision[data-mode=revision]');
+   await expect(p.locator('#bio-rev-answer')).toBeHidden();
+   await p.getByRole('button',{name:/^Show answers?$/}).click();
+   await expect(p.locator('#bio-rev-answer')).toBeVisible();
    await navigate(p,'#biology/topic/A1.1/flashcards','.bio-lesson[data-mode=flashcards]');
    await expect(p.locator('.bio-flashcards')).toBeVisible();
    await p.getByRole('button',{name:'Reveal answer'}).first().click();

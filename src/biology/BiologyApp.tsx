@@ -1,3 +1,4 @@
+import RevisionHub from './learning/RevisionHub';
 import PracticeHub from './learning/PracticeHub';
 import DrawingCatalogue from './learning/drawing-practice/DrawingCatalogue';
 import {useEffect, useRef, useState} from 'react';
@@ -20,7 +21,7 @@ export default function BiologyApp({hash}:{hash:string}) {
   const resource=resourceFromHash(hash);
   const topic=route.kind==='topic'?topics.find(t=>t.id===route.id):undefined;
   useEffect(()=>{
-    const title=route.kind==='topic'&&topic?topic.id+' '+topic.title:route.kind==='theme'?themes[route.id].title:'Curriculum';
+    const title=route.kind==='topic'&&topic?topic.id+' '+topic.title:route.kind==='theme'?themes[route.id].title:resource==='revision'?'Revision':'Curriculum';
     document.title='BioLab — '+title+' | LitLab';
     if(previousHash.current!==hash){
       const previousPath=previousHash.current.split('?')[0];
@@ -28,7 +29,7 @@ export default function BiologyApp({hash}:{hash:string}) {
       if(previousPath!==hash.split('?')[0])window.scrollTo({top:0,behavior:'instant'});
       previousHash.current=hash;
     }
-  },[hash,topic,route.kind]);
+  },[hash,topic,route.kind,resource]);
   const missing=route.kind==='not-found'||(route.kind==='topic'&&!topic);
   return <div className="bio-app" ref={focusRef} tabIndex={-1}>
     <div className="bio-toolbar">
@@ -40,6 +41,7 @@ export default function BiologyApp({hash}:{hash:string}) {
     </div>
     {missing?<section className="bio-empty"><span className="bio-eyebrow">PAGE NOT FOUND</span><h1>That topic isn’t on this map.</h1><p>Check the topic code or return to the curriculum.</p><a className="bio-primary" href="#biology"><ArrowLeft size={18} aria-hidden="true"/>All themes</a></section>
     :route.kind==='topic'&&topic?route.mode&&topic.lessonId?<LessonLoader topic={topic} level={level} mode={route.mode} hash={hash}/>:<TopicOverview topic={topic} level={level} hash={hash}/>
+    :route.kind==='theme'&&resource==='revision'?<><ResourceNav active={resource} theme={route.id}/><RevisionHub key={route.id} theme={route.id} level={level}/></>
     :route.kind==='theme'?<><a className="bio-back" href="#biology"><ArrowLeft size={16} aria-hidden="true"/>All themes</a><header className={'bio-theme-intro bio-theme-intro-'+route.id}><span className="bio-kicker">THEME {route.id} · IB BIOLOGY</span><h1>{themes[route.id].title}</h1><p>{themes[route.id].description}</p></header><ResourceNav active={resource} theme={route.id}/>{resource==='practice'?<PracticeHub key={hash} theme={route.id} level={level} hash={hash}/>:resource==='drawing'?<DrawingCatalogue key={route.id} theme={route.id} level={level}/>:<CurriculumOverview key={route.id} theme={route.id} level={level} resource={resource}/>}</>
     :<BiologyDashboard level={level} hash={hash}/>}
     <div className="bio-disclaimer">BioLab is an independent student-made educational resource by LitLab. It is not affiliated with or endorsed by the International Baccalaureate Organization.</div>
