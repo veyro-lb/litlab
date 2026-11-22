@@ -2469,6 +2469,50 @@
   ],
   "questions": [
     {
+      "id": "b23-alveolar-surface",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "B2.3.8"
+      ],
+      "level": "HL",
+      "prompt": "In a model alveolus, type I pneumocytes are replaced by cells twice as thick. Type II pneumocytes and blood flow are unchanged. What is the most direct effect?",
+      "marks": 1,
+      "sectionId": "b23-8",
+      "referenceIds": [
+        "ib-b23-hl",
+        "hodder-b23-hl",
+        "ncbi-alveoli"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Less surfactant is secreted, increasing surface tension.",
+          "correct": false,
+          "feedback": "Type II pneumocytes secrete surfactant and are unchanged in the model."
+        },
+        {
+          "id": "b",
+          "text": "Oxygen diffuses faster because thicker cells contain more cytoplasm.",
+          "correct": false,
+          "feedback": "A thicker barrier increases the diffusion path and tends to slow exchange."
+        },
+        {
+          "id": "c",
+          "text": "The oxygen gradient reverses as soon as the barrier thickens.",
+          "correct": false,
+          "feedback": "Distance affects the rate of diffusion, not the direction imposed by the oxygen gradient."
+        },
+        {
+          "id": "d",
+          "text": "Gas exchange slows because gases must diffuse farther.",
+          "correct": true,
+          "feedback": "The thin shape of type I pneumocytes minimizes the diffusion distance."
+        }
+      ]
+    },
+    {
       "id": "b23-p1a-1",
       "paper": "1A",
       "kind": "selection",
@@ -3172,6 +3216,49 @@
         "hodder-b23-hl"
       ],
       "review": "examiner-validation-pending"
+    },
+    {
+      "id": "b23-cell-size-model",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "B2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "(a) Calculate the surface-area-to-volume ratio of cell model Q. [1]\n(b) Compare the ratios for P and Q, and explain the consequence for exchange with the surroundings. [2]",
+      "marks": 3,
+      "sectionId": "b23-6",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23"
+      ],
+      "answer": "Q has a ratio of 2,400 ÷ 8,000 = 0.30 µm⁻¹. P has a larger ratio (0.60 µm⁻¹, twice that of Q). Q has less exchange surface per unit volume, limiting exchange relative to its needs when other factors are equal.",
+      "markingPoints": [
+        "Q has a ratio of 2,400 ÷ 8,000 = 0.30 µm⁻¹.",
+        "P has a larger ratio (0.60 µm⁻¹, twice that of Q).",
+        "Q has less exchange surface per unit volume, limiting exchange relative to its needs when other factors are equal."
+      ],
+      "data": {
+        "caption": "Calculated values for idealized cubic cells.",
+        "headers": [
+          "Cubic cell model",
+          "Surface area (µm²)",
+          "Volume (µm³)"
+        ],
+        "rows": [
+          [
+            "P",
+            600,
+            1000
+          ],
+          [
+            "Q",
+            2400,
+            8000
+          ]
+        ]
+      }
     }
   ],
   "references": [

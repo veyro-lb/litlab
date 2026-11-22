@@ -2632,6 +2632,50 @@
   ],
   "questions": [
     {
+      "id": "a22-resolution-application",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "A2.2.2"
+      ],
+      "level": "shared",
+      "prompt": "Two cell structures are 0.15 µm apart. Microscope P resolves separations down to 0.20 µm, while microscope Q resolves separations down to 0.10 µm. Which result is expected?",
+      "marks": 1,
+      "sectionId": "a22-2",
+      "referenceIds": [
+        "ib-a22",
+        "hodder-a22",
+        "ncbi-visualizing"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Both distinguish the structures because the separation is above 0.10 µm.",
+          "correct": false,
+          "feedback": "P requires at least 0.20 µm of separation, which is more than 0.15 µm."
+        },
+        {
+          "id": "b",
+          "text": "Only P distinguishes them because 0.20 µm is the larger value.",
+          "correct": false,
+          "feedback": "A smaller minimum resolvable separation means greater resolution."
+        },
+        {
+          "id": "c",
+          "text": "Only Q distinguishes them because its resolution limit is below 0.15 µm.",
+          "correct": true,
+          "feedback": "Q can resolve points 0.10 µm apart, so 0.15 µm is sufficient."
+        },
+        {
+          "id": "d",
+          "text": "Neither distinguishes them without knowing magnification.",
+          "correct": false,
+          "feedback": "The stated resolution limits already determine whether the two points can be distinguished."
+        }
+      ]
+    },
+    {
       "id": "a22-p1a-1",
       "paper": "1A",
       "kind": "selection",
@@ -3264,6 +3308,33 @@
       "review": "draft"
     },
     {
+      "id": "a22-endosymbiosis-evidence",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "A2.2.12"
+      ],
+      "level": "HL",
+      "prompt": "Explain how three observations about mitochondria support an endosymbiotic origin. For each observation, link it to an expected feature of an ancestral bacterium or its engulfment. [6]",
+      "marks": 6,
+      "sectionId": "a22-12",
+      "referenceIds": [
+        "ib-a22-hl",
+        "hodder-a22-hl",
+        "ncbi-origin"
+      ],
+      "answer": "Mitochondria retain their own DNA. Typically circular mitochondrial DNA is consistent with a bacterial ancestor. Mitochondria contain their own bacterial-type ribosomes. Molecular similarities between mitochondrial and bacterial ribosomes support shared ancestry. Mitochondria have an inner and outer membrane. A double boundary is consistent with an engulfed bacterium retaining its own membrane within a host-derived compartment.",
+      "markingPoints": [
+        "Mitochondria retain their own DNA.",
+        "Typically circular mitochondrial DNA is consistent with a bacterial ancestor.",
+        "Mitochondria contain their own bacterial-type ribosomes.",
+        "Molecular similarities between mitochondrial and bacterial ribosomes support shared ancestry.",
+        "Mitochondria have an inner and outer membrane.",
+        "A double boundary is consistent with an engulfed bacterium retaining its own membrane within a host-derived compartment."
+      ]
+    },
+    {
       "id": "a22-paper2-1",
       "paper": "2",
       "kind": "written",
@@ -3502,6 +3573,51 @@
         "Explains dependence on companion cells and/or why a differentiated anucleate eukaryotic element is not prokaryotic."
       ],
       "review": "scientific-review"
+    },
+    {
+      "id": "a22-image-magnification",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "A2.2.2"
+      ],
+      "level": "shared",
+      "prompt": "(a) Calculate the magnification of image Q. Show your working. [2]\n(b) Identify which image provides greater resolution and justify your answer. [2]",
+      "marks": 4,
+      "sectionId": "a22-2",
+      "referenceIds": [
+        "ib-a22",
+        "hodder-a22",
+        "ncbi-visualizing"
+      ],
+      "answer": "30 mm = 30,000 µm. 30,000 ÷ 20 = ×1,500. Image P has greater resolution. P can distinguish points with a smaller separation (0.25 µm compared with 0.75 µm).",
+      "markingPoints": [
+        "30 mm = 30,000 µm.",
+        "30,000 ÷ 20 = ×1,500.",
+        "Image P has greater resolution.",
+        "P can distinguish points with a smaller separation (0.25 µm compared with 0.75 µm)."
+      ],
+      "data": {
+        "caption": "Model measurements for two images of the same cell.",
+        "headers": [
+          "Image",
+          "Length of a 20 µm structure in the image (mm)",
+          "Minimum separation at which two points can be distinguished (µm)"
+        ],
+        "rows": [
+          [
+            "P",
+            10,
+            0.25
+          ],
+          [
+            "Q",
+            30,
+            0.75
+          ]
+        ]
+      }
     }
   ],
   "references": [

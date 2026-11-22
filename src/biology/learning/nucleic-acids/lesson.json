@@ -3744,46 +3744,106 @@
       "review": "scientific-review"
     },
     {
+      "id": "a12-template-pairing",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "A1.2.8"
+      ],
+      "level": "shared",
+      "prompt": "(a) Identify the product that is complementary to the template DNA. [1]\n(b) Use two details from the table to distinguish the DNA and RNA products. [2]",
+      "marks": 3,
+      "sectionId": "a12-8",
+      "referenceIds": [
+        "ib-a12",
+        "hodder-a12",
+        "ncbi-transcription"
+      ],
+      "answer": "Product P pairs with the template at all four positions. Products P and Q contain ribose, whereas product R contains deoxyribose. The RNA candidates contain uracil, while the DNA candidate contains thymine.",
+      "markingPoints": [
+        "Product P pairs with the template at all four positions.",
+        "Products P and Q contain ribose, whereas product R contains deoxyribose.",
+        "The RNA candidates contain uracil, while the DNA candidate contains thymine."
+      ],
+      "data": {
+        "caption": "Constructed four-base comparison to model complementary pairing.",
+        "headers": [
+          "Candidate strand",
+          "Sequence shown left to right",
+          "Sugar"
+        ],
+        "rows": [
+          [
+            "DNA template",
+            "3′–ACTG–5′",
+            "Deoxyribose"
+          ],
+          [
+            "Product P",
+            "5′–UGAC–3′",
+            "Ribose"
+          ],
+          [
+            "Product Q",
+            "5′–ACUG–3′",
+            "Ribose"
+          ],
+          [
+            "Product R",
+            "5′–AGTT–3′",
+            "Deoxyribose"
+          ]
+        ]
+      }
+    },
+    {
       "id": "a12-data-chargaff",
       "paper": "1B",
-      "kind": "written",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "A1.2.15"
       ],
       "level": "HL",
-      "prompt": "These invented values illustrate a double-stranded DNA sample, not real measured data. Estimate G and C, and explain whether the result fits a strict tetranucleotide model predicting 25% of every base.",
-      "marks": 4,
+      "prompt": "Both samples are double-stranded DNA.\n(a) Calculate the percentage of guanine in sample P. [1]\n(b) Use the data to explain why complementary-pair proportions fit both samples but a model of four equally abundant bases does not. [2]",
+      "marks": 3,
       "sectionId": "a12-15",
       "referenceIds": [
         "ib-a12",
         "hodder-a12",
         "original-evidence"
       ],
-      "answer": "A=T=30%; G+C=40%; G≈C≈20%. A strict 25% for all four bases is contradicted.",
+      "answer": "Guanine is 18% in P. A matches T and G matches C in both samples, as expected with complementary base pairing. A and G differ within either sample, so four bases at 25% each do not fit the data.",
       "markingPoints": [
-        "A=T=30% recognised.",
-        "G+C=40% calculated.",
-        "G=C≈20% calculated.",
-        "25%-per-base model rejected on these values."
+        "Guanine is 18% in P.",
+        "A matches T and G matches C in both samples, as expected with complementary base pairing.",
+        "A and G differ within either sample, so four bases at 25% each do not fit the data."
       ],
       "review": "scientific-review",
       "data": {
-        "caption": "Illustrative mathematical exercise; not empirical laboratory data. All values are percentage of total DNA bases.",
+        "caption": "Simulated base-composition measurements.",
         "headers": [
           "Sample",
-          "A (%)",
-          "T (%)",
-          "G (%)",
-          "C (%)"
+          "Adenine (%)",
+          "Thymine (%)",
+          "Guanine (%)",
+          "Cytosine (%)"
         ],
         "rows": [
           [
-            "Illustrative X",
-            30,
-            30,
+            "P",
+            32,
+            32,
             "?",
-            "?"
+            18
+          ],
+          [
+            "Q",
+            21,
+            21,
+            29,
+            29
           ]
         ]
       }

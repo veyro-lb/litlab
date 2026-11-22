@@ -1783,18 +1783,18 @@
         "D3.3.1"
       ],
       "level": "shared",
-      "prompt": "Explain the sequence of causes and effects in internal conditions and homeostasis, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Blood glucose rises after a meal and then falls toward its earlier value. Explain how this pattern illustrates homeostasis. [3]",
       "marks": 3,
       "sectionId": "homeostasis-1",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance. Human examples include core temperature, blood glucose concentration, blood pH and plasma osmotic concentration. Homeostasis does not mean that values never change: each regulated variable fluctuates about a set point or operating range, and different physiological states may change the target.\nBlood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage.",
+      "answer": "Blood glucose is a variable of the internal environment. Eating temporarily disturbs its regulated level. A physiological response opposes the rise and moves glucose back toward the regulated range.",
       "markingPoints": [
-        "Homeostasis maintains controlled ranges, not perfectly constant values.",
-        "Homeostasis maintains physiological variables within tolerable limits despite environmental or metabolic disturbance.",
-        "Blood glucose may increase after a meal and then move toward baseline as insulin promotes glucose uptake and storage."
+        "Blood glucose is a variable of the internal environment.",
+        "Eating temporarily disturbs its regulated level.",
+        "A physiological response opposes the rise and moves glucose back toward the regulated range."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -1845,35 +1845,47 @@
     {
       "id": "d33-written-2",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.3.2"
       ],
       "level": "shared",
-      "prompt": "Explain the sequence of causes and effects in components of negative feedback, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "(a) Calculate the decrease in core temperature between 5 and 20 minutes. [1]\n(b) Explain why the pattern of sweating is consistent with negative feedback. [2]",
       "marks": 3,
       "sectionId": "homeostasis-2",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "A negative-feedback loop begins when a controlled variable deviates from a set point. A receptor or sensor detects the change and conveys information to a control system, which compares the measured value with the desired state and signals effectors. The effector produces a response that opposes the original deviation, reducing the error. For a variable above its set point, the response tends to lower it; for a variable below, the response tends to raise it.\nCore temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
+      "answer": "38.4 − 37.0 = 1.4 °C. A rise in core temperature stimulates sweating; evaporation increases heat loss and opposes the rise. As temperature returns toward its regulated range, the stimulus for sweating weakens and the sweat rate falls.",
       "markingPoints": [
-        "A response that reduces the original deviation is negative feedback.",
-        "A negative-feedback loop begins when a controlled variable deviates from a set point.",
-        "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature."
+        "38.4 − 37.0 = 1.4 °C.",
+        "A rise in core temperature stimulates sweating; evaporation increases heat loss and opposes the rise.",
+        "As temperature returns toward its regulated range, the stimulus for sweating weakens and the sweat rate falls."
       ],
       "data": {
-        "caption": "Conceptual stimulus-response pair",
+        "caption": "Simulated recovery measurements after exercise.",
         "headers": [
-          "Stimulus or condition",
-          "Observed or predicted action"
+          "Minutes after exercise ended",
+          "Core temperature (°C)",
+          "Sweat rate (g min⁻¹)"
         ],
         "rows": [
           [
-            "Core temperature rises → thermoreceptors detect change → hypothalamic circuits coordinate sweating → evaporative heat loss lowers core temperature.",
-            "Deduce direction of correction"
+            5,
+            38.4,
+            14
+          ],
+          [
+            10,
+            37.9,
+            10
+          ],
+          [
+            20,
+            37.0,
+            3
           ]
         ]
       },
@@ -1926,35 +1938,47 @@
     {
       "id": "d33-written-3",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.3.3"
       ],
       "level": "shared",
-      "prompt": "Explain how pancreatic beta and alpha cells, their hormones and target organs oppose glucose changes after meals and during fasting.",
+      "prompt": "(a) Identify the time when glucose concentration was highest. [1]\n(b) Explain how the observed change in insulin can lead to the later decrease in glucose concentration. [2]",
       "marks": 3,
       "sectionId": "homeostasis-3",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "When blood glucose rises, pancreatic beta cells secrete insulin; insulin promotes uptake by insulin-responsive tissues, promotes storage and inhibits hepatic glucose production. When blood glucose falls, pancreatic alpha cells secrete glucagon; glucagon acts particularly on liver cells to increase glucose release through glycogen breakdown and gluconeogenesis. Hormonal secretion adjusts as glucose returns toward the regulated range, completing the negative-feedback response.",
+      "answer": "At 30 minutes. Higher glucose stimulates pancreatic beta cells to secrete insulin. Insulin increases glucose uptake by target tissues or glycogen formation, helping lower blood glucose.",
       "markingPoints": [
-        "When blood glucose rises, pancreatic beta cells secrete insulin; insulin promotes uptake by insulin-responsive tissues, promotes storage and inhibits hepatic glucose production.",
-        "When blood glucose falls, pancreatic alpha cells secrete glucagon; glucagon acts particularly on liver cells to increase glucose release through glycogen breakdown and gluconeogenesis.",
-        "Hormonal secretion adjusts as glucose returns toward the regulated range, completing the negative-feedback response."
+        "At 30 minutes.",
+        "Higher glucose stimulates pancreatic beta cells to secrete insulin.",
+        "Insulin increases glucose uptake by target tissues or glycogen formation, helping lower blood glucose."
       ],
       "data": {
-        "caption": "Conceptual stimulus-response pair",
+        "caption": "Simulated measurements from a healthy adult after a meal.",
         "headers": [
-          "Stimulus or condition",
-          "Observed or predicted action"
+          "Minutes after eating",
+          "Plasma glucose (mmol L⁻¹)",
+          "Insulin (relative units)"
         ],
         "rows": [
           [
-            "Post-meal: glucose ↑ → pancreatic beta-cell insulin ↑ → muscle uptake and liver glycogen storage ↑ → glucose ↓.",
-            "Deduce direction of correction"
+            0,
+            4.8,
+            10
+          ],
+          [
+            30,
+            7.5,
+            42
+          ],
+          [
+            90,
+            5.3,
+            17
           ]
         ]
       },
@@ -2014,7 +2038,7 @@
         "D3.3.4"
       ],
       "level": "shared",
-      "prompt": "Explain the sequence of causes and effects in type 1 and type 2 diabetes, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Compare the causes of impaired blood glucose regulation in type 1 and type 2 diabetes and state a consequence they have in common. [3]",
       "marks": 3,
       "sectionId": "homeostasis-4",
       "referenceIds": [
@@ -2022,11 +2046,11 @@
         "hodder-d33",
         "niddk-diabetes"
       ],
-      "answer": "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin. Without sufficient insulin, blood glucose cannot be regulated normally and affected people need replacement insulin. The condition is not caused simply by eating sugar and currently cannot reliably be prevented by lifestyle measures. Type 2 diabetes commonly begins with decreased responsiveness of liver, muscle and adipose tissue to insulin and may progress to insufficient beta-cell output.\nA person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand.",
+      "answer": "In type 1, destruction of pancreatic beta cells causes insufficient insulin secretion. In type 2, target tissues become less responsive to insulin and secretion may become insufficient to compensate. Both can cause abnormally high blood glucose.",
       "markingPoints": [
-        "Type 1 mainly involves beta-cell loss; type 2 involves insulin resistance with inadequate compensation.",
-        "In type 1 diabetes, autoimmune damage destroys most pancreatic beta cells, resulting in severe deficiency of endogenous insulin.",
-        "A person with autoimmune beta-cell destruction needs insulin replacement; in insulin resistance, pancreatic insulin may initially be elevated but insufficient for demand."
+        "In type 1, destruction of pancreatic beta cells causes insufficient insulin secretion.",
+        "In type 2, target tissues become less responsive to insulin and secretion may become insufficient to compensate.",
+        "Both can cause abnormally high blood glucose."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2083,18 +2107,18 @@
         "D3.3.5"
       ],
       "level": "shared",
-      "prompt": "Explain the sequence of causes and effects in negative feedback in thermoregulation, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Explain how the body responds when core temperature falls and why the response is an example of negative feedback. [3]",
       "marks": 3,
       "sectionId": "homeostasis-5",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature. Hypothalamic thermoregulatory circuits integrate these signals with the defended core-temperature range and coordinate effectors through autonomic and somatic pathways. Increased heat activates skin vasodilation and sweating; cooling activates heat conservation and production pathways such as vasoconstriction and shivering. Each response reduces the temperature deviation.\nCore temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation.",
+      "answer": "Thermoreceptors provide information about the temperature drop to hypothalamic control centres. Effectors reduce heat loss or increase heat production, for example through cutaneous vasoconstriction or shivering. The response opposes the initial fall, and the stimulus decreases as temperature returns toward its usual range.",
       "markingPoints": [
-        "Thermoregulatory effectors act in the direction that opposes core-temperature deviation.",
-        "Peripheral thermoreceptors in the skin and central thermosensitive neurons supply signals relevant to body temperature.",
-        "Core temperature below defended range → hypothalamic coordination → shivering and cutaneous vasoconstriction → heat production/conservation."
+        "Thermoreceptors provide information about the temperature drop to hypothalamic control centres.",
+        "Effectors reduce heat loss or increase heat production, for example through cutaneous vasoconstriction or shivering.",
+        "The response opposes the initial fall, and the stimulus decreases as temperature returns toward its usual range."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2151,18 +2175,18 @@
         "D3.3.6"
       ],
       "level": "shared",
-      "prompt": "Explain the sequence of causes and effects in human temperature-control responses, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Explain why humid air can make it harder for a sweating person to cool down despite a similar sweat rate. [3]",
       "marks": 3,
       "sectionId": "homeostasis-6",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible. In cold conditions, vasoconstriction reduces skin heat transfer while involuntary skeletal-muscle shivering generates heat through ATP use. Brown adipose tissue can release energy as heat through mitochondrial uncoupling protein UCP1 rather than driving ATP synthesis. Erection of body hairs can trap insulating air in furry mammals but offers little insulation for sparsely haired humans.\nHigh humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise.",
+      "answer": "Evaporation of sweat transfers heat from the skin to the surroundings. Humid air reduces the water-vapour gradient between skin and air, slowing evaporation. A greater fraction of sweat can remain liquid or drip away, so the same production of sweat removes less heat.",
       "markingPoints": [
-        "Sweat cools chiefly by evaporation; shivering and brown fat generate heat.",
-        "When hot, cutaneous vasodilation increases warm blood flow near the skin and sweat evaporation removes latent heat, provided evaporation is possible.",
-        "High humidity reduces evaporation, so heavy sweating may be less effective for cooling even while sweat loss and dehydration risk rise."
+        "Evaporation of sweat transfers heat from the skin to the surroundings.",
+        "Humid air reduces the water-vapour gradient between skin and air, slowing evaporation.",
+        "A greater fraction of sweat can remain liquid or drip away, so the same production of sweat removes less heat."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2220,7 +2244,7 @@
         "D3.3.7"
       ],
       "level": "HL",
-      "prompt": "Explain the sequence of causes and effects in kidney functions in osmoregulation, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Distinguish excretion from osmoregulation and give one example of each function in the kidney. [3]",
       "marks": 3,
       "sectionId": "homeostasis-7",
       "referenceIds": [
@@ -2228,11 +2252,11 @@
         "hodder-d33",
         "niddk-kidney"
       ],
-      "answer": "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance. The kidneys perform both through filtration, selective reabsorption, secretion and adjustable water recovery. Plasma osmotic concentration is measured in osmoles per litre (osmol L⁻¹), often expressed clinically as mOsm/kg for osmolality; these units are not interchangeable without assumptions.\nFollowing dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated.",
+      "answer": "Excretion removes metabolic waste, for example urea in urine. Osmoregulation controls water and solute balance in body fluids. The kidney adjusts how much water is reabsorbed, for example producing less concentrated urine after an increase in water intake.",
       "markingPoints": [
-        "Osmoregulation maintains fluid osmotic concentration; excretion removes unwanted substances.",
-        "Excretion is removal of metabolic waste products and other unwanted substances; osmoregulation maintains body-fluid osmotic concentration and water–solute balance.",
-        "Following dehydration, greater renal water conservation can make urine volume smaller and urine more concentrated."
+        "Excretion removes metabolic waste, for example urea in urine.",
+        "Osmoregulation controls water and solute balance in body fluids.",
+        "The kidney adjusts how much water is reabsorbed, for example producing less concentrated urine after an increase in water intake."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2290,7 +2314,7 @@
         "D3.3.8"
       ],
       "level": "HL",
-      "prompt": "Explain the sequence of causes and effects in filtration and proximal reabsorption, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Explain why glucose can enter the filtrate in Bowman’s capsule but normally does not remain in the final urine. [3]",
       "marks": 3,
       "sectionId": "homeostasis-8",
       "referenceIds": [
@@ -2298,11 +2322,11 @@
         "hodder-d33",
         "niddk-kidney"
       ],
-      "answer": "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space. Blood cells and most large plasma proteins remain in the circulation. The resulting filtrate is not waste-only fluid: it initially contains glucose, amino acids, ions, urea and much water. In the proximal convoluted tubule, epithelial transport mechanisms return useful solutes, including normally almost all glucose and amino acids, to nearby capillaries.\nGlucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded.",
+      "answer": "Hydrostatic pressure drives ultrafiltration in the glomerulus. Glucose is small enough to pass into Bowman’s space. Glucose is normally selectively reabsorbed in the proximal convoluted tubule and returned to the blood.",
       "markingPoints": [
-        "Glomerular filtration admits small solutes, while proximal transport recovers valuable molecules.",
-        "Blood pressure in glomerular capillaries drives water and small dissolved substances across the filtration barrier into Bowman’s space.",
-        "Glucose normally enters the glomerular filtrate and is then reclaimed in the proximal tubule; substantial glucosuria can arise if transport capacity is exceeded."
+        "Hydrostatic pressure drives ultrafiltration in the glomerulus.",
+        "Glucose is small enough to pass into Bowman’s space.",
+        "Glucose is normally selectively reabsorbed in the proximal convoluted tubule and returned to the blood."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2359,18 +2383,18 @@
         "D3.3.9"
       ],
       "level": "HL",
-      "prompt": "Explain the sequence of causes and effects in how the loop of henle builds a gradient, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "Explain how the different properties of the two limbs of the loop of Henle help establish a medullary osmotic gradient. [3]",
       "marks": 3,
       "sectionId": "homeostasis-9",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla. The descending limb is permeable to water, allowing water to leave into progressively more concentrated medullary tissue. Opposing flows in the limbs act as a countercurrent multiplier, establishing a corticomedullary osmotic gradient.\nAs salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct.",
+      "answer": "The descending limb is permeable to water, which leaves by osmosis into the more concentrated medulla. The ascending limb is relatively impermeable to water and transfers sodium and chloride out of the filtrate. Flow in opposite directions and the different permeabilities maintain or multiply the gradient.",
       "markingPoints": [
-        "Ascending-limb salt transport generates a medullary osmotic gradient that supports water conservation.",
-        "The ascending limb of the loop of Henle transports NaCl out of the tubular fluid and has low water permeability, helping create a higher osmotic concentration in the renal medulla.",
-        "As salt is transported from ascending limb to medulla, the surrounding interstitial fluid can draw water from a permeable collecting duct."
+        "The descending limb is permeable to water, which leaves by osmosis into the more concentrated medulla.",
+        "The ascending limb is relatively impermeable to water and transfers sodium and chloride out of the filtrate.",
+        "Flow in opposite directions and the different permeabilities maintain or multiply the gradient."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2421,35 +2445,42 @@
     {
       "id": "d33-written-10",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.3.10"
       ],
       "level": "HL",
-      "prompt": "Explain the sequence of causes and effects in adh and water recovery in collecting ducts, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "(a) Calculate the urine production rate after water intake as a multiple of the initial rate. [1]\n(b) Explain how the change in ADH can contribute to the observed urine output. [2]",
       "marks": 3,
       "sectionId": "homeostasis-10",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration. If plasma becomes too concentrated, hypothalamic neurons increase antidiuretic hormone (ADH, vasopressin) release from the posterior pituitary into blood. In collecting-duct principal cells, ADH activates signalling that increases insertion of aquaporin-2 channels into the apical plasma membrane from intracellular vesicles.\nHigh plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
+      "answer": "120 ÷ 48 = 2.5 times the initial rate. Lower ADH leads to fewer aquaporins in the apical membranes of collecting duct cells. Less water is reabsorbed by osmosis, leaving more in the urine.",
       "markingPoints": [
-        "ADH increases collecting-duct water permeability via aquaporin insertion and conserves water.",
-        "Osmoreceptors associated with the hypothalamus respond to changes in plasma osmotic concentration.",
-        "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases."
+        "120 ÷ 48 = 2.5 times the initial rate.",
+        "Lower ADH leads to fewer aquaporins in the apical membranes of collecting duct cells.",
+        "Less water is reabsorbed by osmosis, leaving more in the urine."
       ],
       "data": {
-        "caption": "Conceptual stimulus-response pair",
+        "caption": "Simulated fluid-balance measurements before and after water intake.",
         "headers": [
-          "Stimulus or condition",
-          "Observed or predicted action"
+          "Time",
+          "Plasma ADH (relative units)",
+          "Urine production (mL h⁻¹)"
         ],
         "rows": [
           [
-            "High plasma osmolarity → hypothalamic osmoreceptors → posterior-pituitary ADH release → aquaporin-2 insertion → water recovery → osmolarity decreases.",
-            "Deduce direction of correction"
+            "Before water intake",
+            5,
+            48
+          ],
+          [
+            "After water intake",
+            2,
+            120
           ]
         ]
       },
@@ -2508,18 +2539,18 @@
         "D3.3.11"
       ],
       "level": "HL",
-      "prompt": "Explain the sequence of causes and effects in redistribution of organ blood supply, naming the relevant sensors/signals or tissues and the consequence.",
+      "prompt": "During vigorous exercise, blood flow increases to working muscles and can decrease to the gut. Explain how this redistribution occurs and why it supports exercise. [3]",
       "marks": 3,
       "sectionId": "homeostasis-11",
       "referenceIds": [
         "ib-d33",
         "hodder-d33"
       ],
-      "answer": "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output. During vigorous exercise, blood flow to working skeletal muscle rises markedly, while splanchnic (including gut) and renal perfusion commonly decline relative to resting conditions. Cerebral blood supply remains a critical priority and is regulated tightly, although it can vary with activity and carbon dioxide concentration.\nDuring strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs.",
+      "answer": "Arterioles supplying active muscles dilate, lowering resistance and increasing blood flow. Arterioles supplying the gut can constrict, raising resistance and reducing flow there. The redistribution increases oxygen or substrate delivery to muscles, or speeds removal of carbon dioxide.",
       "markingPoints": [
-        "Perfusion is redistributed according to organ demand and vascular regulation, not equally across organs.",
-        "Blood supply is redistributed to match tissue metabolic demand through changes in vascular resistance and cardiac output.",
-        "During strenuous exercise, increased muscular demand stimulates muscle vasodilation while sympathetic control reduces flow to some abdominal organs."
+        "Arterioles supplying active muscles dilate, lowering resistance and increasing blood flow.",
+        "Arterioles supplying the gut can constrict, raising resistance and reducing flow there.",
+        "The redistribution increases oxygen or substrate delivery to muscles, or speeds removal of carbon dioxide."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     }

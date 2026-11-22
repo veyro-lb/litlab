@@ -4878,33 +4878,81 @@
       "review": "source-mapped"
     },
     {
+      "id": "c31-reflex-latency",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C3.1.9"
+      ],
+      "level": "shared",
+      "prompt": "(a) Calculate the mean latency for withdrawal from the stimulus. [1]\n(b) Compare the two timings and explain how the organization of a withdrawal reflex accounts for the difference. [2]",
+      "marks": 3,
+      "sectionId": "c31-9",
+      "referenceIds": [
+        "ib-c31",
+        "hodder-c31"
+      ],
+      "answer": "The mean withdrawal latency is (105 + 115 + 110) ÷ 3 = 110 ms. In each trial the hand withdrew sooner than the spoken response. A spinal reflex can activate skeletal muscle without waiting for conscious processing, while a voluntary spoken response requires higher processing.",
+      "markingPoints": [
+        "The mean withdrawal latency is (105 + 115 + 110) ÷ 3 = 110 ms.",
+        "In each trial the hand withdrew sooner than the spoken response.",
+        "A spinal reflex can activate skeletal muscle without waiting for conscious processing, while a voluntary spoken response requires higher processing."
+      ],
+      "data": {
+        "caption": "Simulated response times measured from the same stimulus.",
+        "headers": [
+          "Trial",
+          "Time to hand withdrawal (ms)",
+          "Time to voluntary spoken report after stimulus (ms)"
+        ],
+        "rows": [
+          [
+            1,
+            105,
+            390
+          ],
+          [
+            2,
+            115,
+            410
+          ],
+          [
+            3,
+            110,
+            420
+          ]
+        ]
+      }
+    },
+    {
       "id": "c31-written-5",
       "paper": "1B",
-      "kind": "written",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "C3.1.17"
       ],
       "level": "HL",
-      "prompt": "Synthetic teaching data: shoot curvature toward a unilateral light source was assigned as 0°, 14° and 25° after 0, 12 and 24 hours respectively. Calculate the mean change in angle per hour over the first 12 h and suggest two methodological improvements. [3]",
+      "prompt": "(a) Calculate the mean change in curvature per hour over the first 12 hours. [1]\n(b) Suggest a control that would test whether the direction of light matters. [1]\n(c) Suggest one way to estimate variation between seedlings. [1]",
       "marks": 3,
       "sectionId": "c31-17",
       "referenceIds": [
         "ib-c31",
         "hodder-c31"
       ],
-      "answer": "Rate = (14° − 0°) / 12 h = 1.17° h⁻¹ (approximately). Repeat using several seedlings and report spread/variation. Standardize lamp location and curvature reference axis or camera angle.",
+      "answer": "14 ÷ 12 = 1.17° per hour (about 1.2° per hour). Use a matched group exposed to light from directly above or from both sides, with comparable total intensity. Measure independent seedlings separately and report variation, for example the standard deviation.",
       "markingPoints": [
-        "Rate = (14° − 0°) / 12 h = 1.17° h⁻¹ (approximately).",
-        "Repeat using several seedlings and report spread/variation.",
-        "Standardize lamp location and curvature reference axis or camera angle."
+        "14 ÷ 12 = 1.17° per hour (about 1.2° per hour).",
+        "Use a matched group exposed to light from directly above or from both sides, with comparable total intensity.",
+        "Measure independent seedlings separately and report variation, for example the standard deviation."
       ],
       "review": "source-mapped",
       "data": {
-        "caption": "Constructed classroom dataset for calculation practice, not observed or published research. Temperature, light intensity and cultivar unspecified; do not generalize.",
+        "caption": "Simulated measurements of shoots exposed to light from one side.",
         "headers": [
           "Elapsed time (h)",
-          "Curvature towards light (°)"
+          "Mean curvature towards lateral light (°)"
         ],
         "rows": [
           [

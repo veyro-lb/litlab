@@ -1091,12 +1091,6 @@
       "marks": 1,
       "options": [
         {
-          "id": "a",
-          "text": "A genome and protein capsid, but no cytoplasm or ribosomes",
-          "correct": true,
-          "feedback": "Genome of DNA or RNA, protein capsid and lack of cytoplasm/ribosomes; not all have an envelope."
-        },
-        {
           "id": "2",
           "text": "A cytoplasm with free ribosomes",
           "correct": false,
@@ -1113,6 +1107,12 @@
           "text": "Only DNA and no protein covering",
           "correct": false,
           "feedback": "A virion's genome may be DNA or RNA, but it is protected by a protein capsid."
+        },
+        {
+          "id": "a",
+          "text": "A genome and protein capsid, but no cytoplasm or ribosomes",
+          "correct": true,
+          "feedback": "Genome of DNA or RNA, protein capsid and lack of cytoplasm/ribosomes; not all have an envelope."
         }
       ]
     },
@@ -1156,12 +1156,6 @@
       "marks": 1,
       "options": [
         {
-          "id": "a",
-          "text": "Lambda: dsDNA tailed phage; coronavirus: enveloped RNA; HIV: enveloped retrovirus",
-          "correct": true,
-          "feedback": "Lambda: dsDNA, non-enveloped tailed phage; coronavirus: +ssRNA, enveloped; HIV: two +ssRNA copies, enveloped retrovirus."
-        },
-        {
           "id": "2",
           "text": "Lambda: enveloped retrovirus; HIV: tailed DNA phage",
           "correct": false,
@@ -1172,6 +1166,12 @@
           "text": "All three carry the same double-stranded RNA genome",
           "correct": false,
           "feedback": "Their genomes differ: lambda has dsDNA, coronavirus +ssRNA, and HIV two copies of +ssRNA."
+        },
+        {
+          "id": "a",
+          "text": "Lambda: dsDNA tailed phage; coronavirus: enveloped RNA; HIV: enveloped retrovirus",
+          "correct": true,
+          "feedback": "Lambda: dsDNA, non-enveloped tailed phage; coronavirus: +ssRNA, enveloped; HIV: two +ssRNA copies, enveloped retrovirus."
         },
         {
           "id": "4",
@@ -1286,12 +1286,6 @@
       "marks": 1,
       "options": [
         {
-          "id": "a",
-          "text": "Integrated prophage replicated when the host chromosome replicates",
-          "correct": true,
-          "feedback": "A prophage is integrated and inherited with the bacterium; lytic growth synthesizes progeny and typically destroys the host."
-        },
-        {
           "id": "2",
           "text": "Free virions divide in the culture medium",
           "correct": false,
@@ -1308,6 +1302,12 @@
           "text": "A viral capsid is inherited as part of every chromosome",
           "correct": false,
           "feedback": "The inherited unit is prophage DNA within a chromosome, not an intact capsid fused to DNA."
+        },
+        {
+          "id": "a",
+          "text": "Integrated prophage replicated when the host chromosome replicates",
+          "correct": true,
+          "feedback": "A prophage is integrated and inherited with the bacterium; lytic growth synthesizes progeny and typically destroys the host."
         }
       ]
     },
@@ -1416,16 +1416,16 @@
       "marks": 1,
       "options": [
         {
-          "id": "a",
-          "text": "Mutation supplies variation and selection increases successful variants",
-          "correct": true,
-          "feedback": "Drift involves accumulated sequence changes; reassortment exchanges influenza segments; HIV resistance reflects selection among variable viral genotypes."
-        },
-        {
           "id": "2",
           "text": "Viruses anticipate and design adaptive changes",
           "correct": false,
           "feedback": "Evolution has no foresight; mutations arise without regard to whether they will help evade a drug or immune response."
+        },
+        {
+          "id": "a",
+          "text": "Mutation supplies variation and selection increases successful variants",
+          "correct": true,
+          "feedback": "Drift involves accumulated sequence changes; reassortment exchanges influenza segments; HIV resistance reflects selection among variable viral genotypes."
         },
         {
           "id": "3",
@@ -1462,6 +1462,54 @@
         "Links rapid HIV replication and reverse-transcription errors to heritable variation selected by drugs (1).",
         "Explains that effective combination antiretroviral therapy reduces replication and lowers the likelihood of multi-drug resistance (1)."
       ]
+    },
+    {
+      "id": "a23-particle-structure",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "A2.3.1"
+      ],
+      "level": "HL",
+      "prompt": "(a) Identify the observation that supports classifying particle X as a virion. [1]\n(b) Explain why the ribosome observation supports a different classification for object Y. [2]",
+      "marks": 3,
+      "sectionId": "a23-1",
+      "referenceIds": [
+        "ib-guide-a23",
+        "hodder-a23"
+      ],
+      "answer": "X has a nucleic acid genome enclosed in a protein coat or capsid. Ribosomes are a feature of cells that carry out translation. Y has ribosomes as well as membrane-bound cytoplasm, consistent with a cell; virions lack ribosomes.",
+      "markingPoints": [
+        "X has a nucleic acid genome enclosed in a protein coat or capsid.",
+        "Ribosomes are a feature of cells that carry out translation.",
+        "Y has ribosomes as well as membrane-bound cytoplasm, consistent with a cell; virions lack ribosomes."
+      ],
+      "data": {
+        "caption": "Hypothetical observations from two anonymous specimens.",
+        "headers": [
+          "Observation",
+          "Particle X",
+          "Object Y"
+        ],
+        "rows": [
+          [
+            "Nucleic acid",
+            "RNA detected",
+            "DNA detected"
+          ],
+          [
+            "Boundary",
+            "Protein coat around nucleic acid",
+            "Plasma membrane around cytoplasm"
+          ],
+          [
+            "Ribosomes",
+            "Absent",
+            "Present"
+          ]
+        ]
+      }
     }
   ],
   "references": [

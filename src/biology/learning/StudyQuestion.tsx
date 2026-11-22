@@ -71,10 +71,11 @@ export function RecallQuestion({item,study,update}: {item: {id:string;prompt:str
 export function WrittenQuestion({item,study,update,topic}: {item:Question;study:StudyState;update:UpdateStudy;topic:Topic}) {
   if(!('markingPoints' in item)||!item.markingPoints)return null;
   const shown=!!study.revealed[item.id];
+  const modelAnswer = item.answer === item.markingPoints.join(' ') ? undefined : item.answer;
   return <article className="bio-written" data-question-id={item.id}><span className="bio-eyebrow">PAPER {item.paper} STYLE · {item.marks} SUGGESTED MARKS</span><p className="bio-question-syllabus">Syllabus: <UnderstandingLabel topic={topic} ids={item.understandingIds}/></p><h3>{item.prompt}</h3>
     {'data' in item&&item.data&&<div className="bio-table-scroll" tabIndex={0} role="region" aria-label="Practice data"><table><caption>{item.data.caption}</caption><thead><tr>{item.data.headers.map(h=><th scope="col" key={h}>{h}</th>)}</tr></thead><tbody>{item.data.rows.map((r,i)=><tr key={i}>{r.map((c,j)=><td key={j}>{c}</td>)}</tr>)}</tbody></table></div>}
     <label className="bio-response-label" htmlFor={`response-${item.id}`}>Your response (kept in this tab until refresh)</label><textarea id={`response-${item.id}`} value={study.drafts[item.id]||''} onChange={e=>{const value=e.target.value;update(s=>({...s,drafts:{...s.drafts,[item.id]:value}}))}} rows={4}/>
     <button type="button" aria-expanded={shown} aria-controls={`answer-${item.id}`} onClick={()=>update(s=>({...s,revealed:{...s.revealed,[item.id]:!shown}}))}>{shown?'Hide marking guidance':'Compare with marking guidance'}</button>
-    {shown&&<div className="bio-feedback" id={`answer-${item.id}`}><p>{item.answer}</p><ul>{item.markingPoints.map(p=><li key={p}>{p}</li>)}</ul></div>}
+    {shown&&<div className="bio-feedback" id={`answer-${item.id}`}><h4>Mark scheme</h4>{modelAnswer&&<p>{modelAnswer}</p>}<ul>{item.markingPoints.map(point=><li key={point}>{point}</li>)}</ul></div>}
   </article>;
 }

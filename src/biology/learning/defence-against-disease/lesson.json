@@ -3952,7 +3952,7 @@
         "ib-c32",
         "hodder-c32"
       ],
-      "answer": "An antibiotic inhibits a bacterial process that can be targeted without comparably damaging human cells. Examples include synthesis of bacterial peptidoglycan cell walls or functions of bacterial ribosomes, which differ from their human counterparts. Selective toxicity has limits: adverse effects and disruption of useful microbiota can still occur. Viruses lack independent ribosomes and the bacterial cell-wall machinery targeted by these drugs. They rely on host-cell systems to reproduce, so antibiotics do not stop viral replication. A person with a viral respiratory infection might need antibiotics only if a separate susceptible bacterial infection is diagnosed\u2014not because antibiotics kill the virus.",
+      "answer": "An antibiotic inhibits a bacterial process that can be targeted without comparably damaging human cells. Examples include synthesis of bacterial peptidoglycan cell walls or functions of bacterial ribosomes, which differ from their human counterparts. Selective toxicity has limits: adverse effects and disruption of useful microbiota can still occur. Viruses lack independent ribosomes and the bacterial cell-wall machinery targeted by these drugs. They rely on host-cell systems to reproduce, so antibiotics do not stop viral replication. A person with a viral respiratory infection might need antibiotics only if a separate susceptible bacterial infection is diagnosed—not because antibiotics kill the virus.",
       "markingPoints": [
         "Correctly describe the mechanism: Antibiotics target bacterial structures or reactions, not viral reproduction.",
         "Link to a valid consequence or example: Penicillin interferes with peptidoglycan cell-wall construction in susceptible bacteria, but influenza virus has no peptidoglycan wall."
@@ -4287,10 +4287,10 @@
         "ib-c32",
         "hodder-c32"
       ],
-      "answer": "(a) Percentage change = (90 \u2212 120) \u00f7 120 \u00d7 100 = \u221225%; reported cases decreased by 25%. (b) Symmetric percentage difference = |90 \u2212 60| \u00f7 ((90 + 60) \u00f7 2) \u00d7 100 = 30 \u00f7 75 \u00d7 100 = 40%. (c) A valid limitation is that the districts may have different population sizes, testing coverage, case definitions or reporting delays. A percentage based on reported cases does not automatically measure true infection incidence. All numbers here are invented for calculation practice.",
+      "answer": "(a) Percentage change = (90 − 120) ÷ 120 × 100 = −25%; reported cases decreased by 25%. (b) Symmetric percentage difference = |90 − 60| ÷ ((90 + 60) ÷ 2) × 100 = 30 ÷ 75 × 100 = 40%. (c) A valid limitation is that the districts may have different population sizes, testing coverage, case definitions or reporting delays. A percentage based on reported cases does not automatically measure true infection incidence. All numbers here are invented for calculation practice.",
       "markingPoints": [
-        "Correctly sets up percentage change with the original value (120) as denominator: (90 \u2212 120) \u00f7 120 \u00d7 100.",
-        "Calculates \u221225% and interprets it as a decrease of 25%.",
+        "Correctly sets up percentage change with the original value (120) as denominator: (90 − 120) ÷ 120 × 100.",
+        "Calculates −25% and interprets it as a decrease of 25%.",
         "Correctly sets up symmetric percentage difference using the mean of 90 and 60 (= 75) as denominator.",
         "Calculates 40% as the symmetric percentage difference.",
         "Identifies a specific comparability limitation such as population denominators, unequal testing, case definitions or reporting delays."
@@ -4337,14 +4337,62 @@
         "ib-c32",
         "hodder-c32"
       ],
-      "answer": "Percentage change = (90 \u2212 120)/120 \u00d7 100 = \u221225% (1). Explain that \u221225% represents a decrease relative to the earlier week (1). Percentage difference = |90 \u2212 60|/((90 + 60)/2) \u00d7 100 = 40% (1). Name a limitation such as testing access, population denominator, reporting delay or case definition (1).",
+      "answer": "Percentage change = (90 − 120)/120 × 100 = −25% (1). Explain that −25% represents a decrease relative to the earlier week (1). Percentage difference = |90 − 60|/((90 + 60)/2) × 100 = 40% (1). Name a limitation such as testing access, population denominator, reporting delay or case definition (1).",
       "markingPoints": [
-        "Percentage change = (90 \u2212 120)/120 \u00d7 100 = \u221225% (1).",
-        "Explain that \u221225% represents a decrease relative to the earlier week (1).",
-        "Percentage difference = |90 \u2212 60|/((90 + 60)/2) \u00d7 100 = 40% (1).",
+        "Percentage change = (90 − 120)/120 × 100 = −25% (1).",
+        "Explain that −25% represents a decrease relative to the earlier week (1).",
+        "Percentage difference = |90 − 60|/((90 + 60)/2) × 100 = 40% (1).",
         "Name a limitation such as testing access, population denominator, reporting delay or case definition (1)."
       ],
       "review": "sprint8-science-edited"
+    },
+    {
+      "id": "c32-immune-memory",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C3.2.10"
+      ],
+      "level": "shared",
+      "prompt": "(a) Calculate how many times higher the antibody concentration was on day 4 in the previously exposed group. [1]\n(b) Explain the difference between the groups on day 4. [2]",
+      "marks": 3,
+      "sectionId": "c32-10",
+      "referenceIds": [
+        "ib-c32",
+        "hodder-c32"
+      ],
+      "answer": "60 ÷ 5 = 12 times higher. The first exposure generated memory cells specific for the antigen. On re-exposure, memory B cells can rapidly proliferate and differentiate into antibody-secreting cells.",
+      "markingPoints": [
+        "60 ÷ 5 = 12 times higher.",
+        "The first exposure generated memory cells specific for the antigen.",
+        "On re-exposure, memory B cells can rapidly proliferate and differentiate into antibody-secreting cells."
+      ],
+      "data": {
+        "caption": "Simulated antibody responses to a non-infectious antigen.",
+        "headers": [
+          "Days after exposure to an antigen",
+          "First exposure (arbitrary units)",
+          "Previously exposed to the same antigen (arbitrary units)"
+        ],
+        "rows": [
+          [
+            2,
+            0,
+            12
+          ],
+          [
+            4,
+            5,
+            60
+          ],
+          [
+            8,
+            35,
+            90
+          ]
+        ]
+      }
     }
   ],
   "references": [

@@ -191,3 +191,64 @@
     width: 100%;
   }
 }
+
+.bio-written > h3 {
+  white-space: pre-line;
+}
+
+.bio-practice-question-picker,
+.bio-practice-question-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bio-practice-question-picker > div,
+.bio-practice-question-nav button {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bio-practice-question-picker span {
+  font-weight: 700;
+}
+
+.bio-practice-question-picker select {
+  max-width: 100%;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.bio-practice-question-panel {
+  scroll-margin-top: 90px;
+}
+
+.bio-practice-question-panel:focus-visible {
+  outline: 3px solid var(--bio-focus);
+  outline-offset: 5px;
+}
+
+.bio-practice-question-nav .bio-btn-primary {
+  margin-inline-start: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bio-practice-question-panel > * {
+    animation: bio-practice-question-in 160ms ease-out both;
+  }
+}
+
+@keyframes bio-practice-question-in {
+  from {opacity: .65; transform: translateY(3px)}
+  to {opacity: 1; transform: translateY(0)}
+}
