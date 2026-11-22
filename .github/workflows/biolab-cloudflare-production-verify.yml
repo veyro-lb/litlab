@@ -42,14 +42,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          expected='"release": "biolab-rounded-favicon-2026-10-21"'
+          expected="$(node -p 'require("./public/biolab-release.json").release')"
           release_path="/biolab-release.json?commit=${GITHUB_SHA}"
           echo "Waiting for Cloudflare Worker to serve BioLab release fingerprint..."
           for attempt in $(seq 1 72); do
             body="$(curl --max-time 15 --silent --show-error --fail --location \
               -H 'Cache-Control: no-cache' \
               "${CLOUDFLARE_ORIGIN}${release_path}" 2>/dev/null || true)"
-            if printf '%s' "$body" | grep -Fq "$expected"; then
+            if printf '%s' "$body" | node -e 'try { const release = JSON.parse(require("node:fs").readFileSync(0, "utf8")).release; process.exit(release === process.argv[1] ? 0 : 1); } catch { process.exit(1); }' "$expected"; then
               echo "Cloudflare release fingerprint is live on attempt $attempt."
               curl --max-time 15 --fail --silent --show-error --location "${CLOUDFLARE_ORIGIN}/" > /tmp/biolab-cloudflare-index.html
               grep -Fq 'assets/' /tmp/biolab-cloudflare-index.html || {

@@ -145,7 +145,8 @@ try{
       const card=page.locator(selector),draft='Independent QA draft for '+id+' — ungraded self-review';
       await card.locator('textarea').fill(draft);
       await card.getByRole('button',{name:'Compare with marking guidance'}).click();
-      await expect(card.locator('.bio-feedback')).toContainText('Self-review guidance only');
+      await expect(card.locator('.bio-feedback > p')).toHaveText(written.answer);
+      await expect(card.locator('.bio-feedback li')).toHaveText(written.markingPoints);
       await visit(page,'biology/topic/'+id+'/learn');
       await visit(page,'biology/topic/'+id+'/practice');
       await expect(page.locator(selector+' textarea')).toHaveValue(draft);

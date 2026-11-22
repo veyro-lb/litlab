@@ -13,6 +13,13 @@ import ResourceNav from '../components/ResourceNav';
 import FlashcardStudy from './FlashcardStudy';
 import DrawingPractice from './drawing-practice/DrawingPractice';
 import SourcesPanel from './SourcesPanel';
+const questionTypes = [
+  {id:'all', label:'All questions'},
+  {id:'multiple-choice', label:'Multiple choice'},
+  {id:'written', label:'Written response'},
+] as const;
+type QuestionType = typeof questionTypes[number]['id'];
+
 export type LessonMode = 'learn'|'revision'|'practice'|'sources'|'flashcards'|'drawing';
 export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesson;topic:Topic;level:Level;mode:LessonMode;hash:string}) {
   const requestedCandidate=new URLSearchParams(hash.split('?')[1]??'').get('understanding');
@@ -26,6 +33,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
   const toc=useRef<HTMLDetailsElement>(null);
   useEffect(()=>{const media=window.matchMedia('(min-width: 761px)');const sync=()=>{if(toc.current)toc.current.open=media.matches};sync();media.addEventListener('change',sync);return ()=>media.removeEventListener('change',sync)},[mode]);
   const [missedOnly,setMissedOnly]=useState(false);
+  const [questionType,setQuestionType]=useState<QuestionType>('all');
   const update:UpdateStudy=fn=>setStudy(s=>{const next=fn(s);saveStudy(lesson.id,next);return next});
   const sections=lesson.sections.filter(s=>inScope(s,level));
   if(!sections.length)return <section className="bio-empty"><h1>This topic is HL only</h1><p>Select HL to open this lesson.</p></section>;
@@ -34,7 +42,9 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
   const questions=lesson.questions.filter(q=>inScope(q,level));
   const targeted=mode==='practice'&&requestedId?questions.filter(q=>q.understandingIds.includes(requestedId)):questions;
   const choices=targeted.filter(q=>Array.isArray(q.options)&&q.options.length>0);
-  const writtenCount=targeted.filter(q=>Array.isArray(q.markingPoints)&&q.markingPoints.length>0).length;
+  const written=targeted.filter(q=>Array.isArray(q.markingPoints)&&q.markingPoints.length>0);
+  const showChoices=questionType!=='written'||written.length===0;
+  const showWritten=questionType!=='multiple-choice'||choices.length===0;
   const attempted=choices.filter(q=>!!study.answers[q.id]);
   const correct=attempted.filter(q=>'options' in q&&q.options?.some(o=>o.id===study.answers[q.id]&&o.correct));
   const missed=attempted.filter(q=>'options' in q&&!q.options?.some(o=>o.id===study.answers[q.id]&&o.correct));
@@ -43,7 +53,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
   return <article className="bio-lesson" data-lesson-id={lesson.id} data-mode={mode}>
     <a className="bio-back" href={base}><ArrowLeft size={16} aria-hidden="true"/>Back to understandings</a>
     <header className="bio-lesson-hero"><div><span className="bio-eyebrow">{topic.id} / {themes[topic.theme].title.toUpperCase()} / {organizations[topic.organization-1].toUpperCase()}</span><h1>{lesson.title}</h1><p>{lesson.introduction}</p><div className="bio-lesson-meta"><span>{level} · {sections.length} sections</span><span>First assessment 2025</span></div></div></header>
-    <ResourceNav active={mode} topicId={topic.id} reading understandingId={requestedId??undefined}/>
+    <ResourceNav active={mode} topicId={topic.id} understandingId={requestedId??undefined}/>
     {(mode==='learn'||mode==='revision')&&<div className="bio-lesson-layout"><aside className="bio-lesson-nav"><span className="bio-eyebrow">YOUR PATH / {level}</span><details className="bio-toc" ref={toc} open><summary>Understandings <span>{section.understandingIds[0]} · {index+1} of {sections.length}</span></summary><ol>{sections.map((s)=><li key={s.id}><button type="button" aria-current={s.id===section.id?'step':undefined} onClick={()=>chooseSection(s.id)}><UnderstandingLabel topic={topic} ids={s.understandingIds}/>{s.level==='HL'&&<small>HL</small>}</button></li>)}</ol></details><p>Read at your own pace. Activities are optional.</p><small>Answers stay in this tab across routes. Refresh starts a new session. No mastery or completion is recorded.</small></aside>
     <section className="bio-lesson-content" tabIndex={-1} data-understanding-id={section.understandingIds[0]} data-level={section.level}><span className="bio-eyebrow">{section.understandingIds[0]} · {section.level==='HL'?'ADDITIONAL HL':'SL + HL'} · UNDERSTANDING {index+1} OF {sections.length}</span><h2><UnderstandingLabel topic={topic} ids={section.understandingIds}/></h2><p className="bio-guiding-question">{section.guidingQuestion}</p>
       {mode==='learn'?<ReadingUnderstanding lesson={lesson} section={section} study={study} update={update}/>:<>
@@ -54,9 +64,22 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
       </>}
       <div className="bio-actions bio-related-study"><a href={`${base}/${mode==='revision'?'learn':'revision'}?understanding=${section.understandingIds[0]}`}>{mode==='revision'?'Read the full explanation':'Revise this understanding'} · {section.understandingIds[0]}</a><a href={`${base}/practice?understanding=${section.understandingIds[0]}`}>Practise {section.understandingIds[0]}</a></div><div className="bio-section-controls"><button type="button" disabled={index===0} onClick={()=>chooseSection(sections[index-1].id)}><ArrowLeft size={16} aria-hidden="true"/>Previous understanding</button><span>{index+1} / {sections.length}</span>{index<sections.length-1?<button type="button" onClick={()=>chooseSection(sections[index+1].id)}><span className="bio-next-label">Next: {topic.understandings.find(u=>u.id===sections[index+1].understandingIds[0])?.studentTitle??sections[index+1].understandingIds[0]}</span><ArrowRight size={16} aria-hidden="true"/></button>:<a className="bio-primary" href={`${base}/practice`}>Apply it in practice<ArrowRight size={16} aria-hidden="true"/></a>}</div>
     </section></div>}
-    {mode==='practice'&&<section className="bio-practice"><span className="bio-eyebrow">RETRIEVE / REASON / APPLY</span><h2>Make the explanation yours.</h2><p>Practise with original BioLab questions based on IB assessment formats. Check multiple-choice answers for feedback and compare written responses with the marking guidance.</p>{requestedId&&<p className="bio-practice-target">Targeting {requestedId} · <a href={`${base}/practice`}>Show all practice</a></p>}<div className="bio-practice-status" role="status">{choices.length>0?`${attempted.length} of ${choices.length} multiple-choice questions attempted · ${correct.length} currently correct · ${missed.length} to revisit.`:"No multiple-choice questions in this selection."} {writtenCount>0&&`${writtenCount} written-response ${writtenCount===1?"question":"questions"} for self-review.`} This is a practice count, not a mastery estimate.</div>{choices.length>0&&<button type="button" className="bio-btn-quiet" aria-pressed={missedOnly} onClick={()=>setMissedOnly(!missedOnly)}>{missedOnly?'Show all practice':'Review missed questions'}</button>}{choices.length>0&&missedOnly&&missed.length===0&&<p>No currently missed questions in your {level} practice. Answer a question to begin.</p>}
-      {(missedOnly?missed:choices).map(q=>'options' in q&&q.options?<div className="bio-practice-choice" key={q.id}><span className="bio-eyebrow">PAPER 1A STYLE · {q.understandingIds.join(' / ')}{q.level==='HL'?' · ADDITIONAL HL':''}</span><p className="bio-question-syllabus">Syllabus: <UnderstandingLabel topic={topic} ids={q.understandingIds}/></p><ChoiceQuestion item={{...q,kind:'selection',options:q.options}} study={study} update={update} returnTo={()=>revisit(q.sectionId)}/></div>:null)}
-      {!missedOnly&&targeted.filter(q=>q.markingPoints).map(q=><WrittenQuestion key={q.id} topic={topic} item={q} study={study} update={update}/>)}
+    {mode==='practice'&&<section className="bio-practice">
+      <h2>Practice questions</h2>
+      <p>Check multiple-choice answers for feedback. Compare written responses with the marking guidance.</p>
+      {requestedId&&<p className="bio-practice-target">Questions for {requestedId} · <a href={`${base}/practice`}>Show all practice</a></p>}
+      <div className="bio-practice-status" role="status">
+        {showChoices&&choices.length>0&&<span>{attempted.length} of {choices.length} multiple-choice questions attempted · {correct.length} correct · {missed.length} to revisit</span>}
+        {showWritten&&written.length>0&&<span>{written.length} written-response {written.length===1?'question':'questions'}</span>}
+        {choices.length===0&&written.length===0&&<span>No questions for this selection.</span>}
+      </div>
+      {choices.length>0&&written.length>0&&<div className="bio-practice-filters" role="group" aria-label="Question type">
+        {questionTypes.map(type=><button key={type.id} type="button" aria-pressed={questionType===type.id} onClick={()=>{setQuestionType(type.id);setMissedOnly(false)}}>{type.label}</button>)}
+      </div>}
+      {showChoices&&choices.length>0&&<button type="button" className="bio-btn-quiet" aria-pressed={missedOnly} onClick={()=>setMissedOnly(!missedOnly)}>{missedOnly?'Show all practice':'Review missed questions'}</button>}
+      {showChoices&&missedOnly&&choices.length>0&&missed.length===0&&<p>No missed questions to revisit.</p>}
+      {showChoices&&(missedOnly?missed:choices).map(q=>'options' in q&&q.options?<div className="bio-practice-choice" key={q.id}><span className="bio-eyebrow">PAPER 1A STYLE{q.level==='HL'?' · ADDITIONAL HL':''}</span><p className="bio-question-syllabus">Syllabus: <UnderstandingLabel topic={topic} ids={q.understandingIds}/></p><ChoiceQuestion item={{...q,kind:'selection',options:q.options}} study={study} update={update} returnTo={()=>revisit(q.sectionId)}/></div>:null)}
+      {showWritten&&(!showChoices||!missedOnly)&&written.map(q=><WrittenQuestion key={q.id} topic={topic} item={q} study={study} update={update}/>)}
     </section>}
     {mode==='drawing'&&<DrawingPractice key={hash} lesson={lesson} sections={sections} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={new URLSearchParams(hash.split('?')[1]??'').get('diagram')}/>}
     {mode==='flashcards'&&<FlashcardStudy lesson={lesson} sections={sections} requestedId={requestedId} study={study} update={update}/>}

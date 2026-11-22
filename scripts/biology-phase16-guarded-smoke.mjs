@@ -482,12 +482,12 @@ try{
     const filtered=await bioEval("root.querySelectorAll('.bio-practice-choice').length===1&&!root.querySelector('.bio-written')");
     await bioEval("(root.querySelector('.bio-practice>button').click(),true)");return scope&&feedback&&filtered;
   });
-  await check('Written practice keeps drafts across modes without awarding a score',async()=>{
+  await check('Written practice keeps drafts across modes and shows marking guidance',async()=>{
     await evaluate(`(()=>{const root=${bio},x=root.querySelector('textarea');Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,'value').set.call(x,'My synthetic explanation');x.dispatchEvent(new Event('input',{bubbles:true}));})()`);await sleep(60);
     await evaluate("location.hash='biology/topic/A1.1/revision'");await sleep(60);await evaluate("location.hash='biology/topic/A1.1/practice'");await sleep(70);
     const saved=await bioEval("root.querySelector('textarea').value==='My synthetic explanation'");
     await bioEval("(root.querySelector('.bio-written>button').click(),true)");await sleep(60);
-    return saved&&await bioEval("root.querySelector('.bio-written .bio-feedback').textContent.includes('No automatic written-response mark')");
+    return saved&&await bioEval("!!root.querySelector('.bio-written .bio-feedback li')");
   });
   await check('HL practice contains 10 choices and all five written tasks',async()=>{
     await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(70);
@@ -802,7 +802,7 @@ try{
     await bioEval(`(root.querySelector('[data-question-id="${q.id}"] .bio-feedback button').click(),true)`);await sleep(50);
     await check(`Phase 9 ${topicId} practice retry restores keyboard focus`,async()=>await bioEval(`root.activeElement===root.querySelector('[data-question-id="${q.id}"] input')`));
     await bioEval("(root.querySelector('.bio-written button').click(),true)");await sleep(40);
-    await check(`Phase 9 ${topicId} written self-review is provisional`,async()=>await bioEval("root.querySelector('.bio-written .bio-feedback').textContent.includes('No automatic written-response mark')"));
+    await check(`Phase 9 ${topicId} written practice shows marking guidance`,async()=>await bioEval("!!root.querySelector('.bio-written .bio-feedback li')"));
     await freshBiologyRoute(`biology/topic/${topicId}/revision`);await waitLesson();
     await bioEval("(root.querySelector('.bio-recall button').click(),true)");await sleep(50);
     await check(`Phase 9 ${topicId} active recall reveals explanation`,async()=>await bioEval("root.querySelector('.bio-recall button').getAttribute('aria-expanded')==='true'&&!!root.querySelector('.bio-recall [role=status]')"));

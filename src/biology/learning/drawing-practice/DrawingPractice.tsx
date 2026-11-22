@@ -5,7 +5,8 @@ import type {Lesson,Section,StudyState} from '../content';
 import type {Level} from '../../curriculum/schema';
 import type {UpdateStudy} from '../StudyQuestion';
 import ScientificFigure from '../ScientificFigure';
-import {availableExercises,isCorrectLabel} from './data.mjs';
+import {availableExercises,exerciseFigure,isCorrectLabel} from './data.mjs';
+import {drawingRequirements} from './requirements.mjs';
 import type {DrawingExercise} from './data.mjs';
 
 type Step=0|1|2|3|4;
@@ -24,8 +25,9 @@ export default function DrawingPractice({lesson,sections,level,study,update,requ
  const [confirmed,setConfirmed]=useState(false);
  const exercise=scoped.find(e=>e.id===selection)??scoped[0];
  const base=`#biology/topic/${lesson.topicId}`;
- if(!exercise)return <PaperDrawingPractice key={lesson.topicId+':'+(requestedId??'')} lesson={lesson} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={requestedDiagram}/>;
- const asset=lesson.assets.find(a=>a.id===exercise.assetId)!;
+ if(requestedDiagram||!exercise)return <PaperDrawingPractice lesson={lesson} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={requestedDiagram} hasLabelActivity={!!exercise}/>;
+ const paperExercise=drawingRequirements.find(item=>item.understandingId===exercise.understandingId&&(level==='HL'||item.level==='shared'));
+ const asset=exerciseFigure(lesson,exercise)!;
  const key=(suffix:string)=>`drawing:${exercise.id}:${suffix}`;
  const revealed=!!study.revealed[key('reference')],tested=!!study.revealed[key('checked')];
  const answers=exercise.labels.map(label=>({label,value:study.drafts[key(label.id)]??''}));
@@ -47,9 +49,10 @@ export default function DrawingPractice({lesson,sections,level,study,update,requ
   ...exercise.conventions.map((text,index)=>({id:`convention-${index}`,text}))
  ];
  return <section className="bio-drawing" aria-labelledby="bio-drawing-title" data-exercise={exercise.id}>
-  <div className="bio-drawing-intro"><span className="bio-eyebrow">OPTIONAL · VISUAL ACTIVE RECALL</span>
-   <h2 id="bio-drawing-title">Learn it. Hide it. Draw it.</h2>
-   <p>Use original BioLab scientific art to practise identification. Typed labels are checked against specific authored clues; drawings made on paper are self-assessed, not computer-marked.</p>
+  <a className="bio-diagram-return" href={`#biology/theme/${lesson.topicId[0]}?resource=drawing`}><ArrowLeft size={16} aria-hidden="true"/> Theme {lesson.topicId[0]} diagrams</a>
+  <div className="bio-drawing-intro">
+   <h2 id="bio-drawing-title">Diagram practice</h2>
+   <p>Recall the labels or follow a guided drawing exercise.</p>
   </div>
   {scoped.length>1&&<div className="bio-drawing-picker">
    <label htmlFor="bio-drawing-structure">Choose a structure</label>
@@ -110,7 +113,8 @@ export default function DrawingPractice({lesson,sections,level,study,update,requ
    </div>
   </div>}
   <footer className="bio-drawing-footer">
-   <p>{exercise.availabilityEvidence}</p>
+   {paperExercise&&<a href={`${base}/drawing?diagram=${paperExercise.id}`}>Open paper drawing checklist <ArrowRight size={16} aria-hidden="true"/></a>}
+   <details className="bio-diagram-guide"><summary>Figure source</summary><p>{exercise.availabilityEvidence}</p></details>
    <a href={`${base}/learn?understanding=${exercise.understandingId}`}>Read explanation <ArrowRight size={16} aria-hidden="true"/></a>
   </footer>
  </section>;

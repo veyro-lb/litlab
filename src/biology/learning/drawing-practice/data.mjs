@@ -31,13 +31,42 @@ export const figureDependencies=Object.freeze([
 ].map(([topicId,title,handoutPage])=>({topicId,title,handoutPage})));
 export const normalizeLabel=value=>String(value??'').normalize('NFKC').toLowerCase().trim().replace(/[.(),]/g,' ').replace(/\s+/g,' ');
 export function isCorrectLabel(label,answer){const value=normalizeLabel(answer);return !!value&&[label.name,...label.synonyms].some(alias=>normalizeLabel(alias)===value)}
-export function availableExercises(lesson,level,sections){return exercises.filter(ex=>{
- if(lesson.topicId!==ex.topicId||(ex.level==='HL'&&level==='SL'))return false;
- if(!sections.some(s=>s.understandingIds.includes(ex.understandingId)&&s.assets.includes(ex.assetId)))return false;
- const asset=lesson.assets.find(a=>a.id===ex.assetId);
- // Explicit allowlist: no stock, unreviewed or incorrectly paired figures.
- return !!asset&&asset.level==='shared'&&asset.review==='scientific-review'&&!asset.withheldReason&&
- asset.src==='/biology/water/bonding.svg'&&asset.recallSrc==='/biology/water/bonding-recall.svg'&&
- asset.license.startsWith('Original project artwork; use under the repository')&&
- asset.permissionEvidence.includes('geometry and labels checked');
-})}
+const bondingArt = {
+ src: '/biology/water/bonding.svg',
+ recallSrc: '/biology/water/bonding-recall.svg',
+};
+
+export function exerciseFigure(lesson, exercise) {
+ const asset = lesson.assets.find(item => item.id === exercise.assetId);
+ if (!asset || asset.level !== 'shared' || asset.review !== 'scientific-review' || asset.withheldReason) return undefined;
+ if (asset.src === bondingArt.src && asset.recallSrc === bondingArt.recallSrc &&
+     asset.license.startsWith('Original project artwork; use under the repository') &&
+     asset.permissionEvidence.includes('geometry and labels checked')) return asset;
+
+ // The lesson and paper checklist use a credited crop. Label recall uses the original matched SVGs.
+ if (exercise.id === 'water-hydrogen-bonding' && asset.src === '/biology/licensed-book-crops/a11-water-bonds.png' &&
+     asset.publicReproductionRights === 'cleared') {
+  return {
+   ...bondingArt,
+   id: asset.id,
+   kind: asset.kind,
+   alt: asset.alt,
+   captionTitle: asset.captionTitle,
+   attribution: 'Original BioLab scientific schematic.',
+   license: 'Original project artwork; use under the repository’s terms.',
+   permissionEvidence: 'Original BioLab bonding and recall artwork; geometry and labels checked against the lesson references.',
+   referenceIds: asset.referenceIds,
+   level: asset.level,
+   review: asset.review,
+  };
+ }
+}
+
+export function availableExercises(lesson, level, sections) {
+ return exercises.filter(exercise =>
+  lesson.topicId === exercise.topicId &&
+  (exercise.level !== 'HL' || level !== 'SL') &&
+  sections.some(section => section.understandingIds.includes(exercise.understandingId) && section.assets.includes(exercise.assetId)) &&
+  exerciseFigure(lesson, exercise)
+ );
+}
