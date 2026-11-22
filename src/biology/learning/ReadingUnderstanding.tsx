@@ -13,7 +13,7 @@ import AuthenticMicroscopy from './AuthenticMicroscopy';
 export default function ReadingUnderstanding({lesson,section,study,update}:{lesson:Lesson;section:Section;study:StudyState;update:UpdateStudy}){
  const blocks=section.teachingBlocks??section.explanation.split('\n\n').map((explanation,i)=>({title:section.terms[i]?.split(':')[0]??'Biological connection',explanation,referenceIds:section.referenceIds}));
  const placements=section.figurePlacements??section.assets.map((assetId,i)=>({assetId,afterBlock:Math.min(i+1,blocks.length-1)}));
- const figure=(id:string)=>{const asset=lesson.assets.find(a=>a.id===id);return asset?<ScientificFigure key={id} asset={asset} hideLabels={!study.labels&&asset.kind!=='photograph'}/>:null};
+ const figure=(id:string)=>{const asset=lesson.assets.find(a=>a.id===id);return asset?<ScientificFigure key={id} asset={asset} references={lesson.references} hideLabels={!study.labels&&asset.kind!=='photograph'}/>:null};
  return <div className="bio-reading" data-reading-id={section.understandingIds[0]}>
   {blocks.map((b,i)=><div className="bio-reading-passage" key={b.title}><section aria-labelledby={section.id+'-heading-'+i}><h3 id={section.id+'-heading-'+i}>{b.title}</h3>{b.explanation.split('\n\n').map(p=><p key={p}>{p}</p>)}</section>{placements.filter(p=>p.afterBlock===i).map(p=>figure(p.assetId))}{section.visuals?.filter(v=>v.afterBlock===i).map((v,j)=><LearningVisual key={v.title+j} visual={v}/>)}</div>)}
   {section.authenticMicrographs&&section.authenticMicrographs.length>0&&<AuthenticMicroscopy cases={section.authenticMicrographs} study={study} update={update}/>}

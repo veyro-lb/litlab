@@ -493,9 +493,9 @@ try{
     await bioEval("(root.querySelector('input[value=HL]').click(),true)");await sleep(70);
     return await bioEval("root.querySelectorAll('.bio-practice-choice').length===10&&root.querySelectorAll('.bio-written').length===5");
   });
-  await check('Source register contains provenance and human-review limits',async()=>{
+  await check('Legacy Sources links open the course references',async()=>{
     await evaluate("location.hash='biology/topic/A1.1/sources'");await sleep(90);
-    return await bioEval("root.querySelector('.bio-sources').textContent.includes('Qualified reviewer: not yet assigned')&&root.querySelector('.bio-sources').textContent.includes('NOAA')&&root.querySelector('.bio-sources').textContent.includes('NASA')&&root.querySelectorAll('.bio-sources details').length===8");
+    return await bioEval("root.querySelector('#bio-sources-heading')?.textContent==='Course sources'&&root.querySelectorAll('.bio-sources cite').length===2");
   });
   await check('Reviewing a wrong answer returns to its explanation',async()=>{
     await evaluate("location.hash='biology/topic/A1.1/practice'");await sleep(80);
@@ -776,11 +776,11 @@ try{
         await evaluate(`location.hash='biology/topic/${topicId}/${mode}?understanding=${firstHL}'`);await sleep(80);
         await check(`Phase 9 ${topicId} SL ${mode} has no HL material ${width}`,async()=>await bioEval(`!root.querySelector('[data-level=HL]')&&!root.querySelector('.bio-practice-target')&&!root.querySelector('.bio-practice')?.textContent.includes('ADDITIONAL HL')`));
       }
-      for(const level of ['SL','HL'])for(const theme of ['light','dark']){
-        await freshBiologyRoute(`biology/topic/${topicId}/sources`);await waitLesson();await bioEval(`(root.querySelector('input[value=${level}]').click(),true)`);
+      for(const theme of ['light','dark']){
+        await freshBiologyRoute(`biology/topic/${topicId}/sources`);
         await evaluate(`document.documentElement.dataset.theme='${theme}'`);await sleep(70);
-        await check(`Phase 9 ${topicId} Sources ${level} ${theme} ${width}`,async()=>await bioEval(`!!root.querySelector('.bio-sources')&&root.querySelector('.bio-app').scrollWidth<=${width+2}`));
-        const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase9-${topicId}-sources-${level}-${theme}-${width}.png`),Buffer.from(shot.data,'base64'));
+        await check(`Phase 9 ${topicId} Sources ${theme} ${width}`,async()=>await bioEval(`!!root.querySelector('.bio-sources')&&root.querySelector('.bio-app').scrollWidth<=${width+2}`));
+        const shot=await command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(join(outputDir,`phase9-${topicId}-sources-${theme}-${width}.png`),Buffer.from(shot.data,'base64'));
       }
     }
     // Check every new section at the narrowest width, including label-recall image loading.

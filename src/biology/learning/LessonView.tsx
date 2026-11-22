@@ -12,10 +12,9 @@ import ReadingUnderstanding from './ReadingUnderstanding';
 import ResourceNav from '../components/ResourceNav';
 import FlashcardStudy from './FlashcardStudy';
 import DrawingPractice from './drawing-practice/DrawingPractice';
-import SourcesPanel from './SourcesPanel';
+import type {LessonMode} from '../routes';
 import TopicPractice from './TopicPractice';
 
-export type LessonMode = 'learn'|'revision'|'practice'|'sources'|'flashcards'|'drawing';
 export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesson;topic:Topic;level:Level;mode:LessonMode;hash:string}) {
   const requestedCandidate=new URLSearchParams(hash.split('?')[1]??'').get('understanding');
   // Discard unknown or out-of-scope deep links before selecting a section or practice target.
@@ -42,7 +41,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
     <section className="bio-lesson-content" tabIndex={-1} data-understanding-id={section.understandingIds[0]} data-level={section.level}><span className="bio-eyebrow">{section.understandingIds[0]} · {section.level==='HL'?'ADDITIONAL HL':'SL + HL'} · UNDERSTANDING {index+1} OF {sections.length}</span><h2><UnderstandingLabel topic={topic} ids={section.understandingIds}/></h2><p className="bio-guiding-question">{section.guidingQuestion}</p>
       {mode==='learn'?<ReadingUnderstanding lesson={lesson} section={section} study={study} update={update}/>:<>
       <div className="bio-takeaway"><strong>Retrieve the chain</strong><p>{section.revisionSummary}</p></div>
-      {section.assets.length>0&&<>{section.assets.some(id=>lesson.assets.find(a=>a.id===id)?.recallSrc&&!lesson.assets.find(a=>a.id===id)?.withheldReason)&&<div className="bio-actions"><button type="button" aria-pressed={!study.labels} onClick={()=>update(s=>({...s,labels:!s.labels}))}>{study.labels?'Hide figure labels for recall':'Reveal figure labels'}</button></div>}{section.assets.map(id=>{const asset=lesson.assets.find(a=>a.id===id)!;return <ScientificFigure key={id} asset={asset} hideLabels={!study.labels&&asset.kind!=='photograph'}/>})}</>}
+      {section.assets.length>0&&<>{section.assets.some(id=>lesson.assets.find(a=>a.id===id)?.recallSrc&&!lesson.assets.find(a=>a.id===id)?.withheldReason)&&<div className="bio-actions"><button type="button" aria-pressed={!study.labels} onClick={()=>update(s=>({...s,labels:!s.labels}))}>{study.labels?'Hide figure labels for recall':'Reveal figure labels'}</button></div>}{section.assets.map(id=>{const asset=lesson.assets.find(a=>a.id===id)!;return <ScientificFigure key={id} asset={asset} references={lesson.references} hideLabels={!study.labels&&asset.kind!=='photograph'}/>})}</>}
       {section.recall.map(q=><RecallQuestion key={q.id} item={q} study={study} update={update}/>)}
       <details className="bio-terms"><summary>Essential terms</summary><ul>{section.terms.map(t=><li key={t}>{t}</li>)}</ul></details>
       </>}
@@ -51,6 +50,5 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
     {mode==='practice'&&<TopicPractice key={hash+level} lesson={lesson} topic={topic} level={level} hash={hash} requestedId={requestedId} study={study} update={update} revisit={revisit}/>}
     {mode==='drawing'&&<DrawingPractice key={hash} lesson={lesson} sections={sections} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={new URLSearchParams(hash.split('?')[1]??'').get('diagram')}/>}
     {mode==='flashcards'&&<FlashcardStudy key={requestedId??'all'} lesson={lesson} topic={topic} sections={sections} requestedId={requestedId} study={study} update={update}/>}
-    {mode==='sources'&&<SourcesPanel lesson={lesson} level={level}/>}
   </article>;
 }

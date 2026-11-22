@@ -2,14 +2,14 @@ import {useRef, useState} from 'react';
 import {ArrowRight, Atom, Dna, Network, RefreshCw, Search, X} from 'lucide-react';
 import {findTopics, organizations, themes, visibleTopics} from '../curriculum/manifest';
 import type {Level, ThemeId, Topic} from '../curriculum/schema';
-import type {ResourceMode} from './ResourceNav';
+import type {LessonMode} from '../routes';
 
 const icons = {A:Dna,B:Atom,C:Network,D:RefreshCw};
 const ids: ThemeId[] = ['A','B','C','D'];
 
-function TopicTile({topic,resource,level}:{topic:Topic;resource:ResourceMode;level:Level}) {
+function TopicTile({topic,resource,level}:{topic:Topic;resource:LessonMode;level:Level}) {
   const destination=topic.lessonId&&resource!=='learn' ? '#biology/topic/'+topic.id+'/'+resource : '#biology/topic/'+topic.id;
-  const action=!topic.lessonId?'View topic scope':resource==='learn'?'Open topic':resource==='practice'?'Open practice':resource==='revision'?'Open revision':resource==='flashcards'?'Open flashcards':resource==='drawing'?'Practise diagrams':'View sources';
+  const action=!topic.lessonId?'View topic scope':resource==='learn'?'Open topic':resource==='practice'?'Open practice':resource==='revision'?'Open revision':resource==='flashcards'?'Open flashcards':'Practise diagrams';
   return <a className="bio-discovery-topic" href={destination} data-topic-id={topic.id}>
     <div className="bio-discovery-topic-top"><span className="bio-topic-code">{topic.id}</span>{topic.level==='HL'&&<span className="bio-hl-mark">HL ONLY</span>}</div>
     <h4>{topic.title}</h4>
@@ -18,7 +18,7 @@ function TopicTile({topic,resource,level}:{topic:Topic;resource:ResourceMode;lev
   </a>;
 }
 
-export default function CurriculumOverview({level,theme,resource='learn'}:{level:Level;theme?:ThemeId;resource?:ResourceMode}) {
+export default function CurriculumOverview({level,theme,resource='learn'}:{level:Level;theme?:ThemeId;resource?:LessonMode}) {
   const [query,setQuery]=useState('');
   const searchInput=useRef<HTMLInputElement>(null);
   const list=findTopics(query,level,theme);
