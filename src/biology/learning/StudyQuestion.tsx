@@ -1,23 +1,66 @@
-import {useRef,useState} from 'react';
+import {useId,useRef,useState} from 'react';
+import {Check,X} from 'lucide-react';
 import UnderstandingLabel from './UnderstandingLabel';
 import type {Topic} from '../curriculum/schema';
 import type {Choice, Question, StudyState} from './content';
 export type UpdateStudy = (fn: (previous: StudyState) => StudyState) => void;
 export function ChoiceQuestion({item,study,update,returnTo}: {item: Choice; study: StudyState; update: UpdateStudy; returnTo?: () => void}) {
   const fieldset=useRef<HTMLFieldSetElement>(null);
+  const groupId=useId();
   const selected=study.answers[item.id];
   const [draft,setDraft]=useState<string|undefined>(()=>selected);
   const answer=item.options.find(o=>o.id===selected);
-  return <fieldset ref={fieldset} className="bio-check" data-question-id={item.id}><legend>{item.prompt}</legend>
+  const outcome=answer?(answer.correct?'correct':'retry'):undefined;
+  const result=answer?(answer.correct?'Correct':'Incorrect'):undefined;
+
+  function clearAnswer(){
+    update(s=>{
+      const answers={...s.answers};
+      delete answers[item.id];
+      return {...s,answers};
+    });
+  }
+
+  function checkAnswer(){
+    if(!draft)return;
+    fieldset.current?.querySelector<HTMLInputElement>('input:checked')?.focus({preventScroll:true});
+    update(s=>({...s,answers:{...s.answers,[item.id]:draft}}));
+  }
+
+  function retry(){
+    clearAnswer();
+    setDraft(undefined);
+    fieldset.current?.querySelector<HTMLInputElement>('input')?.focus();
+  }
+
+  return <fieldset ref={fieldset} className="bio-check" data-question-id={item.id}>
+    <legend>{item.prompt}</legend>
     <p className="bio-check-instruction">Choose an answer, then check your reasoning.</p>
-    <div className="bio-options">{item.options.map((o,i)=><label key={o.id}><input type="radio" name={item.id} value={o.id} checked={draft===o.id} onChange={()=>{
-      setDraft(o.id);
-      if(selected)update(s=>{const answers={...s.answers};delete answers[item.id];return {...s,answers}});
-    }}/><span><b>{String.fromCharCode(65+i)}.</b> {o.text}</span></label>)}</div>
-    {!answer&&<div className="bio-answer-controls"><button type="button" className="bio-btn-primary" disabled={!draft} onClick={()=>{if(draft)update(s=>({...s,answers:{...s.answers,[item.id]:draft}}))}}>Check my answer</button></div>}
-    {answer&&<div className="bio-feedback" data-outcome={answer.correct?'correct':'retry'} role="status"><strong>{answer.correct ? 'Correct. ' : 'Reconsider. '}</strong>{answer.feedback}
+    <div className="bio-options">
+      {item.options.map((option,index)=>{
+        const checkedResult=option.id===answer?.id?outcome:undefined;
+        const ResultIcon=checkedResult==='correct'?Check:X;
+        return <label key={option.id} data-outcome={checkedResult}>
+          <input type="radio" name={groupId} value={option.id} checked={draft===option.id} onChange={()=>{
+            setDraft(option.id);
+            if(selected)clearAnswer();
+          }}/>
+          <span className="bio-option-content">
+            <span><b>{String.fromCharCode(65+index)}.</b> {option.text}</span>
+            {checkedResult&&<span className="bio-option-result"><ResultIcon size={16} aria-hidden="true"/> {result}</span>}
+          </span>
+        </label>;
+      })}
+    </div>
+    <div className="bio-sr-only" role="status" aria-atomic="true">{answer&&`${result}. ${answer.feedback}`}</div>
+    {!answer&&<div className="bio-answer-controls"><button type="button" className="bio-btn-primary" disabled={!draft} onClick={checkAnswer}>Check my answer</button></div>}
+    {answer&&<div className="bio-feedback" data-outcome={outcome}>
+      <strong>{result}.</strong>{answer.feedback}
       <details><summary>Explain every choice</summary>{item.options.map((o,i)=><p key={o.id}><b>{String.fromCharCode(65+i)}. {o.correct ? 'Correct' : 'Incorrect'}:</b> {o.feedback}</p>)}</details>
-      <div className="bio-actions"><button type="button" className="bio-btn-quiet" onClick={()=>{update(s=>{const answers={...s.answers};delete answers[item.id];return {...s,answers}});setDraft(undefined);fieldset.current?.querySelector<HTMLInputElement>('input')?.focus()}}>Try again</button>{returnTo&&<button type="button" className="bio-btn-quiet" onClick={returnTo}>Revisit explanation</button>}</div>
+      <div className="bio-actions">
+        <button type="button" className="bio-btn-quiet" onClick={retry}>Try again</button>
+        {returnTo&&<button type="button" className="bio-btn-quiet" onClick={returnTo}>Revisit explanation</button>}
+      </div>
     </div>}
   </fieldset>;
 }

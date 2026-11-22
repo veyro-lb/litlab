@@ -2,7 +2,7 @@
 // Real integrated BioLab Chromium acceptance, run against an isolated local production preview.
 // Does not mutate course content, authenticate, deploy or claim native browser zoom coverage.
 import {chromium, expect} from '@playwright/test';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
 
 const origin=process.env.UI_ACCEPTANCE_PREVIEW_URL||'http://127.0.0.1:4173/';
 const output='qa-artifacts/ui-acceptance';
@@ -91,10 +91,48 @@ try {
    await p.locator('#bio-topic-search').fill('A1.1');
    await p.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
    await expect(p.locator('.bio-practice-choice').first()).toBeVisible();
-   const first=p.locator('.bio-practice-choice').first();
-   await first.locator('input[type=radio]').first().check();
-   await first.getByRole('button',{name:'Check my answer'}).click();
-   await expect(first.locator('.bio-feedback')).toBeVisible();
+   const lesson=JSON.parse(await readFile(new URL('../src/biology/learning/water/lesson.json',import.meta.url),'utf8'));
+   const question=lesson.questions.find(item=>item.level==='shared'&&item.options?.some(option=>!option.correct)&&item.options.some(option=>option.correct));
+   const mobile=await context('SL','dark',320);
+   try{
+     const mobilePage=track(await mobile.newPage());
+     await navigate(mobilePage,'#biology/topic/A1.1/practice','.bio-practice-choice');
+     for(const [page,colors] of [[p,['rgb(163, 35, 54)','rgb(18, 96, 67)']],[mobilePage,['rgb(255, 157, 170)','rgb(144, 235, 186)']]]){
+       const field=page.locator(`[data-question-id="${question.id}"]`);
+       const checkAnswer=field.getByRole('button',{name:'Check my answer'});
+       const announcement=field.getByRole('status');
+       const wrong=field.locator(`input[value="${question.options.find(option=>!option.correct).id}"]`);
+       const right=field.locator(`input[value="${question.options.find(option=>option.correct).id}"]`);
+       await expect(checkAnswer).toBeDisabled();
+       await expect(announcement).toBeEmpty();
+       await wrong.focus();
+       await page.keyboard.press('Space');
+       await expect(wrong).toBeChecked();
+       await expect(field.locator('.bio-option-result')).toHaveCount(0);
+       await checkAnswer.press('Enter');
+       await expect(wrong).toBeFocused();
+       await expect(wrong).toHaveAccessibleName(/Incorrect/);
+       await expect(announcement).toContainText('Incorrect.');
+       const wrongRow=field.locator('label[data-outcome="retry"]');
+       await expect(wrongRow.locator('.bio-option-result')).toHaveText('Incorrect');
+       await expect(wrongRow).toHaveCSS('border-top-color',colors[0]);
+       await expect(field.locator('.bio-feedback')).toHaveCSS('animation-name','none');
+       await field.getByRole('button',{name:'Try again'}).press('Enter');
+       await expect(field.getByRole('radio').first()).toBeFocused();
+       await expect(wrong).not.toBeChecked();
+       await expect(announcement).toBeEmpty();
+       await right.check();
+       await checkAnswer.click();
+       await expect(right).toHaveAccessibleName(/Correct/);
+       await expect(announcement).toContainText('Correct.');
+       const rightRow=field.locator('label[data-outcome="correct"]');
+       await expect(rightRow.locator('.bio-option-result')).toHaveText('Correct');
+       await expect(rightRow).toHaveCSS('border-top-color',colors[1]);
+     }
+     await noOverflow(mobilePage,320);
+   }finally{
+     await mobile.close();
+   }
  });
  await check('Revision and Flashcards show functional existing learning content',async()=>{
    await navigate(p,'#biology/topic/A1.1/revision','.bio-lesson[data-mode=revision]');

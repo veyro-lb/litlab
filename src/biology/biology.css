@@ -316,17 +316,60 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
 .bio-app .bio-help-output p{font-size:16px;line-height:1.75}
 .bio-app .bio-help-output .bio-help-limit{font-size:12px}
 .bio-app .bio-activity-heading>p{font-size:15px;line-height:1.65}
-.bio-app .bio-check{padding:20px;border-radius:var(--bio-radius)}
+.bio-app .bio-check{
+  --bio-choice-correct:#126043;
+  --bio-choice-incorrect:#a32336;
+  padding:20px;
+  border-radius:var(--bio-radius);
+}
+:host-context([data-theme=dark]) .bio-app .bio-check{
+  --bio-choice-correct:#90ebba;
+  --bio-choice-incorrect:#ff9daa;
+}
 .bio-app .bio-check legend{font-size:17px;line-height:1.55}
 .bio-app .bio-check-instruction{font-size:13px!important;color:var(--muted);margin:0 0 12px!important}
-.bio-app .bio-options label{min-height:50px;padding:12px 14px;border-radius:8px;background:var(--surface);font-size:15px;line-height:1.5;align-items:center}
-.bio-app .bio-options label:has(input:checked){border-color:var(--bio-green);background:color-mix(in srgb,var(--bio-green) 9%,var(--surface));box-shadow:inset 3px 0 0 var(--bio-green)}
-.bio-app .bio-options label:hover{border-color:var(--bio-green)}
-.bio-app .bio-options input{width:18px;height:18px;accent-color:var(--bio-primary-bg)}
+.bio-app .bio-options label{
+  min-height:50px;
+  padding:12px 14px;
+  border-radius:8px;
+  background:var(--surface);
+  font-size:15px;
+  line-height:1.5;
+  align-items:center;
+}
+.bio-app .bio-options label:has(input:checked){
+  border-color:var(--choice-color,var(--ink));
+  background:color-mix(in srgb,var(--choice-color,var(--ink)) 9%,var(--surface));
+  box-shadow:inset 3px 0 0 var(--choice-color,var(--ink));
+}
+.bio-app .bio-options label:not([data-outcome]):hover{border-color:var(--ink)}
+.bio-app .bio-options input{width:18px;height:18px;accent-color:var(--choice-color,var(--ink))}
+.bio-check [data-outcome=correct]{--choice-color:var(--bio-choice-correct)}
+.bio-check [data-outcome=retry]{--choice-color:var(--bio-choice-incorrect)}
+.bio-option-content{
+  display:flex;
+  flex:1;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:5px 12px;
+  min-width:0;
+}
+.bio-option-content>span:first-child{min-width:0}
+.bio-option-result{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  color:var(--choice-color);
+  font-size:.875rem;
+  font-weight:750;
+}
+.bio-option-result svg{flex:none}
 .bio-app .bio-answer-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px}
 .bio-app .bio-feedback{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:15px;line-height:1.7}
 .bio-app .bio-feedback>strong{display:block;color:var(--ink);margin-bottom:4px}
-.bio-app .bio-feedback[data-outcome=correct]{border-top-color:var(--bio-green)}
+.bio-app .bio-feedback[data-outcome]{border-top-color:var(--choice-color)}
+.bio-app .bio-feedback[data-outcome]>strong{color:var(--choice-color)}
 .bio-app .bio-feedback .bio-actions{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}
 .bio-app .bio-feedback .bio-actions button{border-radius:var(--bio-radius);font-size:14px}
 .bio-app .bio-feedback details summary{display:flex;align-items:center;min-height:44px;font-size:14px}
@@ -440,3 +483,17 @@ font-kerning:normal;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
 .bio-practice-filters{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
 .bio-app .bio-practice-filters button{min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);font:inherit;font-size:13px;font-weight:650}
 .bio-app .bio-practice-filters button[aria-pressed=true]{border-color:var(--bio-green);background:color-mix(in srgb,var(--bio-green) 11%,var(--surface));color:var(--bio-green)}
+
+/* Brief feedback and navigation cues for students who enable motion. */
+@keyframes bio-enter {
+  from {opacity:.7;transform:translateY(5px)}
+  to {opacity:1;transform:translateY(0)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .bio-app :is(.bio-welcome h1,.bio-theme-intro h1,.bio-topic-premium-head h1,.bio-lesson-hero h1),
+  .bio-app .bio-check :is(.bio-feedback[data-outcome],.bio-option-result),
+  .bio-app .bio-figure-dialog[open]{
+    animation:bio-enter .2s ease-out;
+  }
+  .bio-app .bio-options label{transition:background-color .16s ease,border-color .16s ease}
+}
