@@ -59,6 +59,7 @@
  justify-content:space-between;gap:16px;
  background:var(--bg);border-bottom:1px solid var(--line)
 }
+html[data-litlab-subject=biology]{scroll-padding-top:var(--biolab-sticky-header-height)}
 .subject-bar[data-subject=biology] .subject-bar-label{flex:0 0 auto}
 .subject-bar[data-subject=biology] .subject-navigation{
  margin-right:auto;flex:0 0 auto
@@ -91,7 +92,6 @@ html[data-theme=dark] .biolab-section-navigation a[aria-current=page]{
 }
 @media(max-width:760px){
  .subject-bar[data-subject=biology]{
-  position:relative;top:auto;z-index:auto;
   flex-direction:column;align-items:stretch;gap:9px;
   min-height:0;padding:10px 16px 12px
  }
