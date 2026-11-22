@@ -45,9 +45,13 @@ try {
   await previewButton.click();
   const pdfPreview = page.getByRole('dialog', {name: 'Water · PDF preview'});
   await expect(pdfPreview.locator('canvas')).toBeVisible({timeout: 20000});
-  await expect(pdfPreview.getByText(/^Page 1 of /)).toBeVisible();
-  await pdfPreview.getByRole('button', {name: 'Next page'}).click();
-  await expect(pdfPreview.getByLabel('Preview of page 2')).toBeVisible();
+  await expect(pdfPreview.getByText(/^Page 1 of [12]$/)).toBeVisible();
+  const nextPdfPage = pdfPreview.getByRole('button', {name: 'Next page'});
+  if (await nextPdfPage.isEnabled()) {
+    await nextPdfPage.click();
+    await expect(pdfPreview.getByLabel('Preview of page 2')).toBeVisible();
+    await expect(nextPdfPage).toBeDisabled();
+  }
   await page.keyboard.press('Escape');
   await expect(pdfPreview).toHaveCount(0);
   await expect(previewButton).toBeFocused();
@@ -90,6 +94,7 @@ try {
   await mobile.page.getByRole('button', {name: 'Preview PDF', exact: true}).click();
   const mobilePreview = mobile.page.getByRole('dialog', {name: 'Water · PDF preview'});
   await expect(mobilePreview.locator('canvas')).toBeVisible({timeout: 20000});
+  await expect(mobilePreview.getByText(/^Page 1 of [12]$/)).toBeVisible();
   const hlDownload = mobilePreview.getByRole('link', {name: 'Download PDF', exact: true});
   await expect(hlDownload).toHaveAttribute('download', 'BioLab-A1.1-HL-Cheat-Sheet.pdf');
   expect((await mobilePreview.boundingBox()).width).toBeLessThanOrEqual(320);
@@ -117,6 +122,16 @@ try {
     const width = await mobile.page.evaluate(() => ({document: document.documentElement.scrollWidth, viewport: innerWidth}));
     expect(width.document).toBeLessThanOrEqual(width.viewport + 2);
   }
+  // The densest sheet exercises the two-page layout and viewer paging.
+  await mobile.page.goto(origin+'#biology/topic/C3.1/cheat-sheets');
+  await expect(mobile.page.locator('.bio-sheets-code')).toContainText('C3.1');
+  await mobile.page.getByRole('button', {name: 'Preview PDF', exact: true}).click();
+  const densePreview = mobile.page.getByRole('dialog', {name: 'Integration of body systems · PDF preview'});
+  await expect(densePreview.getByText('Page 1 of 2', {exact: true})).toBeVisible({timeout: 20000});
+  const lastPage = densePreview.getByRole('button', {name: 'Next page'});
+  await lastPage.click();
+  await expect(densePreview.getByLabel('Preview of page 2')).toBeVisible();
+  await expect(lastPage).toBeDisabled();
   expect(mobile.errors).toEqual([]);
   console.log('All 40 Cheat Sheets passed. Checked navigation, search, scope, legacy links, mobile comparisons and reflow.');
 } finally {
