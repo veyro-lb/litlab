@@ -40,8 +40,8 @@ function App(){
   <header className="topbar" data-subject={biology?'biology':'english'}>
    <button className="brand-btn" onClick={()=>go('home')} aria-label="LitLab home"><Logo/></button>
    {biology
-    ? <nav className="biolab-section-navigation" aria-label="BioLab course navigation">{courseLinks}</nav>
-    : <nav aria-label="Primary navigation">{nav.map(([slug,label])=><button key={slug} className={page===slug?'active':''} onClick={()=>go(slug)}>{label}</button>)}</nav>}
+    ? <nav key="biology" className="biolab-section-navigation" aria-label="BioLab course navigation">{courseLinks}</nav>
+    : <nav key="english" aria-label="Primary navigation">{nav.map(([slug,label])=><button key={slug} className={page===slug?'active':''} onClick={()=>go(slug)}>{label}</button>)}</nav>}
    <div className="top-actions">
     <div className="account-slot" data-account-slot/>
     {!biology&&<button className="search-trigger" onClick={()=>setSearchOpen(true)}><Search size={17}/><span>Search</span><kbd>⌘K</kbd></button>}

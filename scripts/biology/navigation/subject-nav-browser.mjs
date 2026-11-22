@@ -53,6 +53,7 @@ try {
    const openCourseNav=async()=>{
     if(width<=1100) await menuToggle.click();
     await expect(nav).toBeVisible();
+    await expect(nav.getByRole('button',{name:/Toolkit/})).toHaveCount(0);
    };
    await openCourseNav();
    assert.deepEqual((await nav.locator('a').allTextContents()).map(s=>s.trim()),['Curriculum','Theme A','Theme B','Theme C','Theme D']);
