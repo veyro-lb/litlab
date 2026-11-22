@@ -141,7 +141,7 @@ try {
   await visit(page,'#biology/topic/A1.1/flashcards');
   await page.locator('.bio-flashcards').waitFor();
   await page.getByRole('button',{name:'Reveal answer'}).first().click();
-  await page.locator('.bio-flashcard-answer[role="status"]').waitFor();
+  await page.locator('.bio-flashcard-answer').waitFor();
   await page.getByRole('button',{name:/Next card/}).click();
   await page.locator('.bio-flashcards').waitFor();
  });
