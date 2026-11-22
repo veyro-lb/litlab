@@ -420,7 +420,7 @@ try{
   await check('Water draft loads directly with review gate and six SL sections',async()=>await bioEval("root.querySelector('[data-lesson-id]')?.dataset.mode==='learn'&&root.querySelectorAll('.bio-lesson-nav li').length===6&&root.querySelector('.bio-review-banner').textContent.includes('Awaiting qualified')"));
   await check('Water concept check explains incorrect and correct choices and retry',async()=>{
     await bioEval("(root.querySelector('[data-question-id=c1] input[value=b]').click(),true)");await sleep(60);await bioEval("(root.querySelector('[data-question-id=c1] .bio-answer-controls button').click(),true)");await sleep(60);
-    const bad=await bioEval("root.querySelector('[data-question-id=c1] .bio-feedback')?.textContent.includes('Reconsider.')");
+    const bad=await bioEval("root.querySelector('[data-question-id=c1] .bio-feedback')?.textContent.includes('Incorrect.')");
     await bioEval("(root.querySelector('[data-question-id=c1] .bio-actions button').click(),true)");await sleep(60);
     const reset=await bioEval("!root.querySelector('[data-question-id=c1] input:checked')");
     await bioEval("(root.querySelector('[data-question-id=c1] input[value=a]').click(),true)");await sleep(60);await bioEval("(root.querySelector('[data-question-id=c1] .bio-answer-controls button').click(),true)");await sleep(60);
@@ -477,7 +477,7 @@ try{
     await evaluate("location.hash='biology/topic/A1.1/practice'");await sleep(120);
     const scope=await bioEval("root.querySelectorAll('.bio-practice-choice').length===8&&root.querySelectorAll('.bio-written').length===4&&!root.querySelector('[data-question-id=p1a-7]')&&!root.querySelector('[data-question-id=p2-3]')");
     await bioEval("(root.querySelector('[data-question-id=p1a-1] input[value=b]').click(),true)");await sleep(70);await bioEval("(root.querySelector('[data-question-id=p1a-1] .bio-answer-controls button').click(),true)");await sleep(60);
-    const feedback=await bioEval("root.querySelector('[data-question-id=p1a-1] .bio-feedback').textContent.includes('Reconsider.')&&root.querySelectorAll('[data-question-id=p1a-1] details p').length===4");
+    const feedback=await bioEval("root.querySelector('[data-question-id=p1a-1] .bio-feedback').textContent.includes('Incorrect.')&&root.querySelectorAll('[data-question-id=p1a-1] details p').length===4");
     await bioEval("(root.querySelector('.bio-practice>button').click(),true)");await sleep(60);
     const filtered=await bioEval("root.querySelectorAll('.bio-practice-choice').length===1&&!root.querySelector('.bio-written')");
     await bioEval("(root.querySelector('.bio-practice>button').click(),true)");return scope&&feedback&&filtered;
