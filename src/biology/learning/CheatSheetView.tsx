@@ -1,5 +1,5 @@
 import {useEffect, useRef} from 'react';
-import {ArrowLeft, ArrowRight} from 'lucide-react';
+import {ArrowLeft, ArrowRight, Lightbulb} from 'lucide-react';
 import {themes} from '../curriculum/manifest';
 import type {Level, Topic} from '../curriculum/schema';
 import ResourceNav from '../components/ResourceNav';
@@ -56,14 +56,14 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
       </section>
       <div className="bio-sheets-checks">
         {sheet.formula && <section><h2>{sheet.formula[0]}</h2><p>{sheet.formula[1]}</p></section>}
-        <section><h2>Exam tip</h2><p>{sheet.exam}</p></section>
+        <section className="bio-sheets-exam-tip"><h2><Lightbulb size={17} aria-hidden="true"/> Exam tip</h2><p>{sheet.exam}</p></section>
       </div>
     </>}
     {comparisons.length > 0 && <section aria-labelledby="bio-sheets-compare" className="bio-sheets-section">
       <h2 id="bio-sheets-compare">Compare</h2>
       <div className="bio-sheets-comparisons">
-        {comparisons.map(visual => <details key={visual.title}>
-          <summary>{visual.title}</summary>
+        {comparisons.map(visual => <section className="bio-sheets-comparison" key={visual.title}>
+          <h3>{visual.title}</h3>
           <div className="bio-sheets-table">
             <table aria-label={visual.title}>
               <thead><tr>{visual.headers.map((header, index) => <th key={index} scope="col">{header}</th>)}</tr></thead>
@@ -74,14 +74,14 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
           </div>
           <div className="bio-sheets-table-mobile">
             {visual.rows.map((row, index) => <div key={index}>
-              <h3>{row[0]}</h3>
+              <h4>{row[0]}</h4>
               <dl>{row.slice(1).map((cell, column) => <div key={column}>
                 <dt>{visual.headers[column + 1]}</dt><dd>{cell}</dd>
               </div>)}</dl>
             </div>)}
           </div>
           {visual.note && <p>{visual.note}</p>}
-        </details>)}
+        </section>)}
       </div>
     </section>}
     {groups.map(group => <section className="bio-sheets-group bio-sheets-section" key={group.label}
@@ -100,11 +100,10 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
             <div className="bio-sheets-point-body">
               <p>{section.revisionSummary}</p>
               {figure && <ScientificFigure asset={figure} references={lesson.references}/>}
-              {mistake && <details className="bio-sheets-note">
-                <summary>Common mistake</summary>
-                <p><s>{mistake.misconception}</s></p>
-                <p>{mistake.correction}</p>
-              </details>}
+              {mistake && <div className="bio-sheets-note">
+                <p><strong>Common mistake</strong> {mistake.misconception}</p>
+                <p><strong>Correction</strong> {mistake.correction}</p>
+              </div>}
               <a className="bio-sheets-explain" href={`${base}/learn?understanding=${id}`}>Full explanation <ArrowRight size={14} aria-hidden="true"/></a>
             </div>
           </section>;
@@ -112,12 +111,9 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
       </div>
     </section>)}
     {check && <section className="bio-sheets-self-check" aria-labelledby="bio-sheets-self-check">
-      <h2 id="bio-sheets-self-check">Test yourself</h2>
-      <p>{check[0]}</p>
-      <details>
-        <summary>Show answer</summary>
-        <p>{check[1]}</p>
-      </details>
+      <h2 id="bio-sheets-self-check">Worked question</h2>
+      <p className="bio-sheets-question">{check[0]}</p>
+      <p className="bio-sheets-answer"><strong>Answer</strong> {check[1]}</p>
       <a href={`${base}/practice`}>Practise this topic <ArrowRight size={15} aria-hidden="true"/></a>
     </section>}
   </article>;
