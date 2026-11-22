@@ -134,9 +134,9 @@ try {
      await mobile.close();
    }
  });
- await check('Revision and Flashcards show functional existing learning content',async()=>{
-   await navigate(p,'#biology/topic/A1.1/revision','.bio-lesson[data-mode=revision]');
-   await expect(p.locator('.bio-takeaway')).toBeVisible();
+ await check('Cheat Sheets and Flashcards show topic study material',async()=>{
+   await navigate(p,'#biology/topic/A1.1/cheat-sheets','.bio-sheets[data-mode=cheat-sheets]');
+   await expect(p.locator('.bio-sheets-essentials')).toBeVisible();
    await navigate(p,'#biology/topic/A1.1/flashcards','.bio-lesson[data-mode=flashcards]');
    await expect(p.locator('.bio-flashcards')).toBeVisible();
    await p.getByRole('button',{name:'Reveal answer'}).first().click();

@@ -1,6 +1,6 @@
 import type {ThemeId} from './curriculum/schema';
 
-export type LessonMode = 'learn' | 'revision' | 'practice' | 'flashcards' | 'drawing';
+export type LessonMode = 'learn' | 'cheat-sheets' | 'practice' | 'flashcards' | 'drawing';
 export type BiologyRoute =
   | {kind: 'dashboard'}
   | {kind: 'sources'}
@@ -22,8 +22,8 @@ export function parseBiologyRoute(hash: string): BiologyRoute {
   }
   if (route === 'biology') return {kind: 'dashboard'};
   if (theme) return {kind: 'theme', id: theme[1] as ThemeId};
-  const lesson = /^biology\/topic\/([A-D][1-4]\.\d+)\/(learn|revision|practice|flashcards|drawing)$/.exec(route);
-  if (lesson) return {kind: 'topic', id: lesson[1], mode: lesson[2] as LessonMode};
+  const lesson = /^biology\/topic\/([A-D][1-4]\.\d+)\/(learn|cheat-sheets|revision|practice|flashcards|drawing)$/.exec(route);
+  if (lesson) return {kind: 'topic', id: lesson[1], mode: lesson[2] === 'revision' ? 'cheat-sheets' : lesson[2] as LessonMode};
   const topic = /^biology\/topic\/([A-D][1-4]\.\d+)$/.exec(route);
   if (topic) return {kind: 'topic', id: topic[1]};
   return {kind: 'not-found'};

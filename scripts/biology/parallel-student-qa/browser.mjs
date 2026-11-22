@@ -112,14 +112,14 @@ try{
       await same.locator('details summary').click();
       await expect(same.locator('.bio-feedback details p')).toHaveCount(choice.options.length);
     });
-    await check('Flashcards and revision '+id,'1440px, flashcards + revision',async()=>{
+    await check('Flashcards and cheat sheets '+id,'1440px, flashcards + cheat sheets',async()=>{
       await visit(page,'biology/topic/'+id+'/flashcards');
       await expect(page.locator('.bio-flashcards')).toBeVisible();
       await page.getByRole('button',{name:'Reveal answer'}).first().click();
       await expect(page.locator('.bio-flashcard-answer')).toBeVisible();
       await page.getByRole('button',{name:'Next card'}).first().click();
-      await visit(page,'biology/topic/'+id+'/revision');
-      await expect(page.locator('.bio-takeaway')).toBeVisible();
+      await visit(page,'biology/topic/'+id+'/cheat-sheets');
+      await expect(page.locator('.bio-sheets-essentials')).toBeVisible();
     });
     await check('Figure interaction and keyboard dismissal '+id,'1440px, lesson',async()=>{
       await visit(page,'biology/topic/'+id+'/learn');

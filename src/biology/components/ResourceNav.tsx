@@ -1,11 +1,12 @@
 import type {ThemeId} from '../curriculum/schema';
-import {BookOpen, ClipboardList, Layers3, RotateCcw, Library, PencilLine} from 'lucide-react';
+import {BookOpen, ClipboardList, Layers3, FileText, Library, PencilLine} from 'lucide-react';
 import type {LessonMode} from '../routes';
 export type ResourceMode = LessonMode | 'sources';
-export const resources:{id:ResourceMode;label:string}[]=[{id:'learn',label:'Lessons'},{id:'practice',label:'Practice'},{id:'revision',label:'Revision'},{id:'flashcards',label:'Flashcards'},{id:'drawing',label:'Diagrams'},{id:'sources',label:'Sources'}];
-const icons={learn:BookOpen,practice:ClipboardList,revision:RotateCcw,flashcards:Layers3,sources:Library,drawing:PencilLine};
+export const resources:{id:ResourceMode;label:string}[]=[{id:'learn',label:'Lessons'},{id:'practice',label:'Practice'},{id:'cheat-sheets',label:'Cheat Sheets'},{id:'flashcards',label:'Flashcards'},{id:'drawing',label:'Diagrams'},{id:'sources',label:'Sources'}];
+const icons={learn:BookOpen,practice:ClipboardList,'cheat-sheets':FileText,flashcards:Layers3,sources:Library,drawing:PencilLine};
 export function resourceFromHash(hash:string):LessonMode {
   const value = new URLSearchParams(hash.split('?')[1]).get('resource');
+  if (value === 'revision') return 'cheat-sheets';
   const mode = resources.find(resource => resource.id === value)?.id;
   return mode && mode !== 'sources' ? mode : 'learn';
 }

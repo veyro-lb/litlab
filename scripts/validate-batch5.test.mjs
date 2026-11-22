@@ -7,6 +7,11 @@ const reg=p('../src/biology/curriculum/registry.json'),cat=p('../src/biology/lea
 const lessons={'A1.2':p('../src/biology/learning/nucleic-acids/lesson.json'),'C1.1':p('../src/biology/learning/enzymes-metabolism/lesson.json')};
 const clone=()=>({registry:structuredClone(reg),catalog:structuredClone(cat),lessons:structuredClone(lessons)});
 test('real Batch 2 data satisfies source and lesson mapping',()=>assert.deepEqual(validateBatch5(reg,cat,lessons),[]));
+test('negative: DNA exercises must disclose simulated data',()=>{
+ const a=clone();
+ for(const q of a.lessons['A1.2'].questions.filter(q=>q.paper==='1B'&&q.data))q.data.caption='Base-composition measurements';
+ assert.ok(validateBatch5(a.registry,a.catalog,a.lessons).includes('No disclosed illustrative DNA data exercise'));
+});
 test('negative: additional HL cannot leak into SL',()=>{const a=clone();a.registry.find(t=>t.id==='A1.2').understandings[14].level='shared';assert.notDeepEqual(validateBatch5(a.registry,a.catalog,a.lessons),[])});
 test('negative: missing molecular viewer fails',()=>{const a=clone();delete a.lessons['A1.2'].sections[12].molecularViewer;assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/nucleosome software|molecular/)});
 test('negative: graph must disclose modelling not real measurements',()=>{const a=clone();a.lessons['C1.1'].sections[7].graphTables[0].caption='Results from a real biological experiment';assert.match(validateBatch5(a.registry,a.catalog,a.lessons).join(';'),/provenance/)});

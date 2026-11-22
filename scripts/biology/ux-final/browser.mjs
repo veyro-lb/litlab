@@ -86,14 +86,14 @@ try {
   await page.waitForURL(/#biology\/topic\/A1\.1\/practice$/);
   await page.locator('.bio-practice').waitFor();
  });
- await test('Review concepts finds a real Revision route',async()=>{
+ await test('Cheat Sheets opens the topic summary directly',async()=>{
   await visit(page,'#biology');
-  await page.getByRole('link',{name:/Review concepts/i}).click();
-  await page.waitForURL(/#biology\?resource=revision$/);
+  await page.locator('.bio-quick-panel').getByRole('link',{name:/Cheat Sheets/i}).click();
+  await page.waitForURL(/#biology\?resource=cheat-sheets$/);
   await page.locator('#bio-topic-search').fill('A1.1');
-  await page.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
-  await page.waitForURL(/#biology\/topic\/A1\.1\/revision$/);
-  await page.locator('.bio-lesson-content').waitFor();
+  await page.getByRole('link',{name:'A1.1 Water',exact:true}).click();
+  await page.waitForURL(/#biology\/topic\/A1\.1\/cheat-sheets$/);
+  await page.locator('.bio-sheets-essentials').waitFor();
  });
  await test('Theme, topic, lesson path; browser backward/forward',async()=>{
   await visit(page,'#biology');
@@ -133,7 +133,7 @@ try {
   await q.locator('.bio-options label').first().click();
   assert.ok(await q.locator('input[type="radio"]').first().isChecked(),'Visible practice option did not select its radio input');
   await q.getByRole('button',{name:'Check my answer'}).click();
-  await visit(page,'#biology/topic/A1.1/revision');
+  await visit(page,'#biology/topic/A1.1/cheat-sheets');
   await visit(page,'#biology/topic/A1.1/practice');
   await page.locator('fieldset.bio-check .bio-feedback').first().waitFor();
  });
