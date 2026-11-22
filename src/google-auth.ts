@@ -1,4 +1,5 @@
 import './google-auth.css';
+import {isBiologyRoute} from './biology/routes';
 
 // Public browser configuration only. Never place a Supabase secret/service-role key here.
 const SUPABASE_URL='https://qdqseajcukfdbfikjptu.supabase.co';
@@ -14,6 +15,8 @@ let currentUser:AuthUser|null=null;
 let accountMenuOpen=false;
 let modalOpen=false;
 let renderScheduled=false;
+
+const signInSubject=()=>isBiologyRoute(location.hash.slice(1))?'BioLab':'LitLab';
 
 const readSession=():StoredSession|null=>{
   try{
@@ -150,26 +153,36 @@ function openModal(){
   if(modalOpen&&document.querySelector('[data-auth-modal]'))return;
   modalOpen=true;
   document.querySelector('[data-auth-modal]')?.remove();
+  const subject=signInSubject();
   const overlay=document.createElement('div');
   overlay.className='litlab-auth-modal';
   overlay.dataset.authModal='true';
+  overlay.dataset.authSubject=subject;
   overlay.setAttribute('role','dialog');
   overlay.setAttribute('aria-modal','true');
-  overlay.setAttribute('aria-label','Sign in to LitLab');
+  overlay.setAttribute('aria-labelledby','litlab-auth-title');
   overlay.innerHTML=`<div class="litlab-auth-dialog">
     <button type="button" class="litlab-auth-close" data-auth-close aria-label="Close">×</button>
     <div class="litlab-auth-mark">LL</div>
-    <span class="litlab-auth-eyebrow">MY LITLAB</span>
-    <h2>Sign in to LitLab</h2>
-    <p>Use your Google account to create or access your LitLab account. LitLab only requests your basic profile and email for sign-in.</p>
+    <span class="litlab-auth-eyebrow">MY ${subject.toUpperCase()}</span>
+    <h2 id="litlab-auth-title">Sign in to ${subject}</h2>
+    <p>${subject==='BioLab'?'Use the same account for BioLab and LitLab. You can also keep studying Biology as a guest.':'Choose an available sign-in method to create or access your LitLab account. You can also close this window and keep browsing.'}</p>
     <button type="button" class="litlab-google-button" data-auth-google><span class="litlab-google-g">G</span><b>Continue with Google</b></button>
-    <small>Your Google password is never shared with LitLab.</small>
+    ${subject==='BioLab'?'<button type="button" class="biolab-auth-guest" data-auth-guest>Continue as guest</button>':'<small>Your sign-in password is handled by your provider and is never shared with LitLab.</small>'}
     <div class="litlab-auth-error" data-auth-error hidden></div>
   </div>`;
 
   overlay.addEventListener('pointerdown',event=>{if(event.target===overlay)closeModal()});
   overlay.querySelector<HTMLButtonElement>('[data-auth-close]')?.addEventListener('click',closeModal);
+  overlay.querySelector<HTMLButtonElement>('[data-auth-guest]')?.addEventListener('click',closeModal);
   overlay.querySelector<HTMLButtonElement>('[data-auth-google]')?.addEventListener('click',signInWithGoogle);
+  overlay.addEventListener('keydown',event=>{
+    if(event.key!=='Tab')return;
+    const buttons=overlay.querySelectorAll<HTMLButtonElement>('button:not([disabled])');
+    const first=buttons[0],last=buttons[buttons.length-1];
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+  });
 
   const error=sessionStorage.getItem(ERROR_KEY);
   if(error){
@@ -204,7 +217,7 @@ function renderAuth(){
     button.type='button';
     button.className='litlab-auth-signin';
     button.dataset.authOpen='true';
-    button.setAttribute('aria-label','Sign in to LitLab');
+    button.setAttribute('aria-label',`Sign in to ${signInSubject()}`);
     button.innerHTML='<span class="litlab-google-g small">G</span><span class="litlab-auth-label">Sign in</span>';
     button.addEventListener('click',openModal);
     root.append(button);
@@ -297,7 +310,13 @@ document.addEventListener('pointerdown',event=>{
 const app=document.getElementById('root');
 if(app)new MutationObserver(scheduleRenderIfMissing).observe(app,{childList:true,subtree:true});
 
-window.addEventListener('hashchange',()=>setTimeout(scheduleRenderIfMissing,0));
+window.addEventListener('hashchange',()=>{
+  const subject=signInSubject();
+  const overlay=document.querySelector<HTMLElement>('[data-auth-modal]');
+  if(overlay&&overlay.dataset.authSubject!==subject)closeModal();
+  document.querySelector('[data-auth-open]')?.setAttribute('aria-label',`Sign in to ${subject}`);
+  setTimeout(scheduleRenderIfMissing,0);
+});
 document.addEventListener('click',event=>{
   if(accountMenuOpen&&!((event.target as Element|null)?.closest?.('[data-litlab-auth-root]'))){
     accountMenuOpen=false;

@@ -18,13 +18,6 @@ function replaceText(element:HTMLElement|null,from:string,to:string){
 }
 
 function polishAuthCopy(){
-  const dialog=document.querySelector<HTMLElement>('.litlab-auth-dialog');
-  if(dialog){
-    const intro=dialog.querySelector<HTMLElement>(':scope > p');
-    if(intro&&intro.textContent?.includes('Use your Google account'))intro.textContent='Choose an available sign-in method to create or access your LitLab account. You can also close this window and keep browsing.';
-    const note=dialog.querySelector<HTMLElement>(':scope > small');
-    if(note&&note.textContent?.includes('Google password'))note.textContent='Your sign-in password is handled by your provider and is never shared with LitLab.';
-  }
   document.querySelectorAll<HTMLElement>('.litlab-account-status b').forEach(element=>{if(element.textContent?.trim()==='Google account connected')element.textContent='Account connected'});
   document.querySelectorAll<HTMLElement>('.litlab-account-status small').forEach(element=>{
     if(element.textContent?.includes('Progress sync can be added next'))element.textContent='Your saved LitLab tools and progress are connected to this account.';

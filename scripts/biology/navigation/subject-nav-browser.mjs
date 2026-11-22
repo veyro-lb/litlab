@@ -77,6 +77,22 @@ try {
    await openCourseNav();
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
    if(width<=1100) await menuToggle.press('Escape');
+   const signIn=page.getByRole('button',{name:'Sign in to BioLab'});
+   await expect(page.locator('[data-auth-modal]')).toHaveCount(0);
+   await signIn.press('Enter');
+   const signInDialog=page.getByRole('dialog',{name:'Sign in to BioLab'});
+   const google=signInDialog.getByRole('button',{name:'Continue with Google'});
+   await expect(google).toBeFocused();
+   const guest=signInDialog.getByRole('button',{name:'Continue as guest'});
+   await guest.focus();
+   await page.keyboard.press('Tab');
+   await expect(signInDialog.getByRole('button',{name:'Close',exact:true})).toBeFocused();
+   await page.keyboard.press('Escape');
+   await expect(signIn).toBeFocused();
+   await signIn.click();
+   await guest.click();
+   await expect(signInDialog).toHaveCount(0);
+   await expect(page).toHaveURL(/#biology\/topic\/A1\.1\/learn\?understanding=A1\.1\.1$/);
    await expect.poll(async()=>{
     const heading=await page.locator('.bio-lesson-content h2').boundingBox();
     const header=await page.locator('.topbar').boundingBox();
@@ -161,6 +177,9 @@ try {
    await page.waitForURL(/#home$/);
    await expect(page.locator('.subject-bar[data-subject="english"]')).toHaveCount(1);
    await expect(switcher.locator('a[aria-current="page"]')).toHaveText('LitLab');
+   await page.getByRole('button',{name:'Sign in to LitLab'}).click();
+   await expect(page.getByRole('dialog',{name:'Sign in to LitLab'})).toBeVisible();
+   await page.keyboard.press('Escape');
    const metrics=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
    assert(metrics.scroll<=metrics.client+2,'Return route overflows at '+name+': '+JSON.stringify(metrics));
    await visit('biology');

@@ -31,7 +31,7 @@ function roleName(state:RoleState|null){if(state?.is_admin)return 'Admin';if(sta
 function roleDescription(state:RoleState|null){if(state?.is_admin)return 'LitLab admin account';if(state?.role==='teacher')return 'Teacher review and mentoring account';if(state?.role==='student')return 'Student learning and contributor account';return 'Choose Student or Teacher after sign-in'}
 
 function decorateSignInModal(){
-  const dialog=document.querySelector<HTMLElement>('[data-auth-modal] .litlab-auth-dialog');if(!dialog||dialog.querySelector('[data-auth-role-info]'))return;
+  const dialog=document.querySelector<HTMLElement>('[data-auth-subject="LitLab"] .litlab-auth-dialog');if(!dialog||dialog.querySelector('[data-auth-role-info]'))return;
   const authButton=dialog.querySelector<HTMLElement>('[data-auth-google]')||dialog.querySelector<HTMLElement>('button');if(!authButton)return;
   const info=document.createElement('div');info.className='ll-auth-role-info';info.dataset.authRoleInfo='true';
   info.innerHTML=`<span>ACCOUNT TYPE</span><b>Student or Teacher?</b><p>After your first sign-in, LitLab will ask you to choose one account type. Returning accounts keep the type already saved.</p><div class="ll-auth-role-mini-grid"><div><i>✦</i><strong>Student</strong><small>Study tools + your own contributor applications, DOCX work, feedback and student evidence.</small></div><div><i>✓</i><strong>Teacher / mentor</strong><small>Study access + teacher reviewer applications, assigned students, rubric feedback and testimony.</small></div></div><em>LitLab admin accounts are detected automatically and are not asked to choose.</em>`;
