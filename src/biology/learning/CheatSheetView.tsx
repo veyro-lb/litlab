@@ -1,14 +1,11 @@
 import {useEffect, useRef} from 'react';
 import {ArrowLeft, ArrowRight, Lightbulb} from 'lucide-react';
-import {themes} from '../curriculum/manifest';
 import type {Level, Topic} from '../curriculum/schema';
 import ResourceNav from '../components/ResourceNav';
 import type {Lesson, Section} from './content';
 import ScientificFigure from './ScientificFigure';
-import {sheetChecks, sheetIllustrations} from './cheat-sheet-extras';
-import {understandingTitle} from './UnderstandingLabel';
-import {cheatSheetComparisons} from './cheat-sheet-comparisons';
-import {cheatSheets} from './cheat-sheet-content';
+import {getCheatSheet} from './cheat-sheet-data';
+import CheatSheetPdf from './CheatSheetPdf';
 
 export default function CheatSheetView({lesson, topic, sections, level, requestedId}: {
   lesson: Lesson;
@@ -18,18 +15,9 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
   requestedId: string | null;
 }) {
   const base = `#biology/topic/${topic.id}`;
-  const sheet = cheatSheets[topic.id];
-  const check = sheetChecks[topic.id];
+  const data = getCheatSheet(lesson, topic, sections, level);
+  const {sheet, check, extension, comparisons, groups} = data;
   const targeted = useRef<HTMLElement>(null);
-  const shared = sections.filter(section => section.level === 'shared');
-  const higher = sections.filter(section => section.level === 'HL');
-  const comparisons = sections.flatMap(section => (section.visuals ?? []).flatMap(visual =>
-    visual.kind === 'comparison' && cheatSheetComparisons.has(visual.title) ? [visual] : []
-  ));
-  const groups = [
-    {label: 'Core concepts', sections: shared, higher: false},
-    {label: topic.level === 'HL' ? 'HL concepts' : 'Additional HL', sections: higher, higher: true},
-  ].filter(group => group.sections.length > 0);
 
   useEffect(() => {
     if (!requestedId) return;
@@ -41,8 +29,11 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
     <ResourceNav active="cheat-sheets" topicId={topic.id} understandingId={requestedId ?? undefined}/>
     <a className="bio-sheets-back" href="#biology?resource=cheat-sheets"><ArrowLeft size={16} aria-hidden="true"/> All cheat sheets</a>
     <header className="bio-sheets-header">
-      <p className="bio-sheets-code">{topic.id} · {themes[topic.theme].title} · {level}</p>
-      <h1>{lesson.title}</h1>
+      <div>
+        <p className="bio-sheets-code">{data.subtitle}</p>
+        <h1>{data.title}</h1>
+      </div>
+      <CheatSheetPdf data={data}/>
     </header>
     {sheet && <>
       <section aria-labelledby="bio-sheets-essentials" className="bio-sheets-section">
@@ -50,8 +41,8 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
         <dl className="bio-sheets-essentials">{sheet.essentials.map(([label, value]) => <div key={label}>
           <dt>{label}</dt><dd>{value}</dd>
         </div>)}</dl>
-        {level === 'HL' && sheet.hl && <dl className="bio-sheets-extension">
-          <dt>HL · {sheet.hl[0]}</dt><dd>{sheet.hl[1]}</dd>
+        {extension && <dl className="bio-sheets-extension">
+          <dt>HL · {extension[0]}</dt><dd>{extension[1]}</dd>
         </dl>}
       </section>
       <div className="bio-sheets-checks">
@@ -88,15 +79,11 @@ export default function CheatSheetView({lesson, topic, sections, level, requeste
       aria-label={group.label} data-higher={group.higher}>
       <h2>{group.label}</h2>
       <div className="bio-sheets-panels">
-        {group.sections.map(section => {
-          const id = section.understandingIds[0];
+        {group.points.map(({id, section, heading, figure, mistake}) => {
           const highlighted = section.understandingIds.includes(requestedId ?? '');
-          const figure = lesson.assets.find(asset => section.assets.includes(asset.id) && sheetIllustrations.has(asset.id)
-            && asset.publicReproductionRights === 'cleared' && !asset.withheldReason);
-          const mistake = section.misconceptions[0];
           return <section className="bio-sheets-point" key={section.id} data-understanding-id={id}
             data-highlighted={highlighted || undefined} ref={highlighted ? targeted : undefined}>
-            <h3><span>{id}</span> {understandingTitle(topic, id)}</h3>
+            <h3><span>{id}</span> {heading}</h3>
             <div className="bio-sheets-point-body">
               <p>{section.revisionSummary}</p>
               {figure && <ScientificFigure asset={figure} references={lesson.references}/>}
