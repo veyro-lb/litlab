@@ -3,13 +3,15 @@ import {ArrowLeft, ArrowRight} from 'lucide-react';
 import {themes} from '../curriculum/manifest';
 import type {Level, Topic} from '../curriculum/schema';
 import ResourceNav from '../components/ResourceNav';
-import type {Section} from './content';
+import type {Lesson, Section} from './content';
+import ScientificFigure from './ScientificFigure';
+import {sheetChecks, sheetIllustrations} from './cheat-sheet-extras';
 import {understandingTitle} from './UnderstandingLabel';
 import {cheatSheetComparisons} from './cheat-sheet-comparisons';
 import {cheatSheets} from './cheat-sheet-content';
 
-export default function CheatSheetView({title, topic, sections, level, requestedId}: {
-  title: string;
+export default function CheatSheetView({lesson, topic, sections, level, requestedId}: {
+  lesson: Lesson;
   topic: Topic;
   sections: Section[];
   level: Level;
@@ -17,15 +19,16 @@ export default function CheatSheetView({title, topic, sections, level, requested
 }) {
   const base = `#biology/topic/${topic.id}`;
   const sheet = cheatSheets[topic.id];
-  const targeted = useRef<HTMLDetailsElement>(null);
+  const check = sheetChecks[topic.id];
+  const targeted = useRef<HTMLElement>(null);
   const shared = sections.filter(section => section.level === 'shared');
   const higher = sections.filter(section => section.level === 'HL');
   const comparisons = sections.flatMap(section => (section.visuals ?? []).flatMap(visual =>
     visual.kind === 'comparison' && cheatSheetComparisons.has(visual.title) ? [visual] : []
   ));
   const groups = [
-    {label: topic.level === 'HL' ? 'HL syllabus points' : 'SL & HL syllabus points', sections: shared},
-    {label: topic.level === 'HL' ? 'HL syllabus points' : 'Additional HL syllabus points', sections: higher},
+    {label: 'Core concepts', sections: shared, higher: false},
+    {label: topic.level === 'HL' ? 'HL concepts' : 'Additional HL', sections: higher, higher: true},
   ].filter(group => group.sections.length > 0);
 
   useEffect(() => {
@@ -39,7 +42,7 @@ export default function CheatSheetView({title, topic, sections, level, requested
     <a className="bio-sheets-back" href="#biology?resource=cheat-sheets"><ArrowLeft size={16} aria-hidden="true"/> All cheat sheets</a>
     <header className="bio-sheets-header">
       <p className="bio-sheets-code">{topic.id} · {themes[topic.theme].title} · {level}</p>
-      <h1>{title}</h1>
+      <h1>{lesson.title}</h1>
     </header>
     {sheet && <>
       <section aria-labelledby="bio-sheets-essentials" className="bio-sheets-section">
@@ -81,24 +84,41 @@ export default function CheatSheetView({title, topic, sections, level, requested
         </details>)}
       </div>
     </section>}
-    <section aria-labelledby="bio-sheets-checklist" className="bio-sheets-section">
-      <h2 id="bio-sheets-checklist">Syllabus checklist</h2>
-      {groups.map(group => <div className="bio-sheets-group" key={group.label}>
-        <h3>{group.label}</h3>
+    {groups.map(group => <section className="bio-sheets-group bio-sheets-section" key={group.label}
+      aria-label={group.label} data-higher={group.higher}>
+      <h2>{group.label}</h2>
+      <div className="bio-sheets-panels">
         {group.sections.map(section => {
           const id = section.understandingIds[0];
           const highlighted = section.understandingIds.includes(requestedId ?? '');
-          return <details className="bio-sheets-point" key={section.id} data-understanding-id={id}
-            open={highlighted || undefined} ref={highlighted ? targeted : undefined}>
-            <summary><span>{id}</span> {understandingTitle(topic, id)}</summary>
+          const figure = lesson.assets.find(asset => section.assets.includes(asset.id) && sheetIllustrations.has(asset.id)
+            && asset.publicReproductionRights === 'cleared' && !asset.withheldReason);
+          const mistake = section.misconceptions[0];
+          return <section className="bio-sheets-point" key={section.id} data-understanding-id={id}
+            data-highlighted={highlighted || undefined} ref={highlighted ? targeted : undefined}>
+            <h3><span>{id}</span> {understandingTitle(topic, id)}</h3>
             <div className="bio-sheets-point-body">
               <p>{section.revisionSummary}</p>
-              {section.misconceptions.map(({correction}, index) => <p key={index}><strong>Watch for</strong> {correction}</p>)}
-              <a href={`${base}/learn?understanding=${id}`}>Full explanation <ArrowRight size={14} aria-hidden="true"/></a>
+              {figure && <ScientificFigure asset={figure} references={lesson.references}/>}
+              {mistake && <details className="bio-sheets-note">
+                <summary>Common mistake</summary>
+                <p><s>{mistake.misconception}</s></p>
+                <p>{mistake.correction}</p>
+              </details>}
+              <a className="bio-sheets-explain" href={`${base}/learn?understanding=${id}`}>Full explanation <ArrowRight size={14} aria-hidden="true"/></a>
             </div>
-          </details>;
+          </section>;
         })}
-      </div>)}
-    </section>
+      </div>
+    </section>)}
+    {check && <section className="bio-sheets-self-check" aria-labelledby="bio-sheets-self-check">
+      <h2 id="bio-sheets-self-check">Test yourself</h2>
+      <p>{check[0]}</p>
+      <details>
+        <summary>Show answer</summary>
+        <p>{check[1]}</p>
+      </details>
+      <a href={`${base}/practice`}>Practise this topic <ArrowRight size={15} aria-hidden="true"/></a>
+    </section>}
   </article>;
 }

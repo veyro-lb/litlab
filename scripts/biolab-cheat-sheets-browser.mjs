@@ -34,6 +34,20 @@ try {
   await expect(page).toHaveURL(/#biology\/topic\/A1\.1\/cheat-sheets$/);
   await expect(page.getByRole('heading', {name: 'At a glance'})).toBeVisible();
   await expect(page.getByRole('heading', {name: 'Exam tip'})).toBeVisible();
+  await expect(page.locator('.bio-sheets-point-body').first()).toBeVisible();
+  const note = page.locator('.bio-sheets-note').first();
+  await expect(note.locator('s')).toBeHidden();
+  await note.getByText('Common mistake', {exact: true}).press('Enter');
+  await expect(note.locator('s')).toBeVisible();
+  const figure = page.locator('.bio-sheets-point [data-asset-id="bonding"]');
+  await figure.getByRole('button', {name: /^Enlarge diagram/}).click();
+  await expect(figure.getByRole('dialog')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(figure.getByRole('dialog')).toHaveCount(0);
+  const selfCheck = page.locator('.bio-sheets-self-check');
+  await expect(selfCheck.getByText(/Hydrogen bonds create cohesion/)).toBeHidden();
+  await selfCheck.getByText('Show answer', {exact: true}).press('Enter');
+  await expect(selfCheck.getByText(/Hydrogen bonds create cohesion/)).toBeVisible();
   await expect(page.locator('.bio-sheets-point')).toHaveCount(6);
   await expect(page.locator('.bio-sheets-extension')).toHaveCount(0);
   await expect(page.getByRole('link', {name: 'Active recall', exact: true})).toHaveCount(0);
@@ -42,11 +56,11 @@ try {
 
   await page.goto(origin+'#biology/topic/A1.1/revision?understanding=A1.1.5');
   const point = page.locator('.bio-sheets-point[data-understanding-id="A1.1.5"]');
-  await expect(point).toHaveAttribute('open', '');
+  await expect(point).toHaveAttribute('data-highlighted', 'true');
   await point.getByRole('link', {name: 'Full explanation'}).click();
   await expect(page.locator('.bio-lesson-content')).toHaveAttribute('data-understanding-id', 'A1.1.5');
   await page.getByRole('link', {name: 'Cheat sheet · A1.1.5'}).click();
-  await expect(point).toHaveAttribute('open', '');
+  await expect(point).toHaveAttribute('data-highlighted', 'true');
   await page.goto(origin+'#biology?resource=revision');
   await expect(navigation.getByRole('link', {name: 'Cheat Sheets', exact: true})).toHaveAttribute('aria-current', 'page');
   expect(errors).toEqual([]);
@@ -68,7 +82,11 @@ try {
     await expect(mobile.page.locator('.bio-sheets-code')).toContainText(topic.id);
     await expect(mobile.page.locator('.bio-sheets-essentials > div')).toHaveCount(3);
     await expect(mobile.page.locator('.bio-sheets-point')).toHaveCount(topic.understandings.length);
-    await expect(mobile.page.locator('.bio-sheets img')).toHaveCount(0);
+    await expect(mobile.page.getByRole('heading', {name: 'Test yourself'})).toBeVisible();
+    for (const img of await mobile.page.locator('.bio-sheets-point picture img').all()) {
+      await img.evaluate(el => { el.loading = 'eager'; });
+      await expect.poll(() => img.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
+    }
     const firstHeading = await mobile.page.locator('.bio-sheets-essentials dt').first().innerText();
     expect(headings.has(firstHeading), firstHeading+' is repeated').toBe(false);
     headings.add(firstHeading);
