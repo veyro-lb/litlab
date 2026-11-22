@@ -28,6 +28,5 @@ export default function SourcesPanel({lesson,level}: {lesson:Lesson;level:Level}
         </p>}
       </li>)}</ul>
     </details> : <p className="bio-sources-muted">No separately licensed external media or measured dataset is listed for this scope. Original BioLab illustrations are credited at the figure.</p>}
-    <p className="bio-sources-disclaimer">Media provenance and independent scientific evidence do not imply IB approval. BioLab is an independent learning project; these draft lessons and practice questions have not been certified by the IB or a qualified scientific reviewer.</p>
   </section>;
 }

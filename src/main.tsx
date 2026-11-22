@@ -66,16 +66,16 @@ function Home({go,done}:{go:Go;done:string[]}){const[tipIndex,setTipIndex]=useSt
 
 function BioLabShowcase({go}:{go:Go}){return <section className="biolab-showcase" aria-labelledby="biolab-showcase-title">
  <div className="biolab-showcase-copy">
-  <span className="biolab-showcase-kicker"><FlaskConical size={17} aria-hidden="true"/> THE BIOLOGY SIDE OF LITLAB <span className="biolab-showcase-status">BETA</span></span>
+  <span className="biolab-showcase-kicker"><FlaskConical size={17} aria-hidden="true"/> THE BIOLOGY SIDE OF LITLAB</span>
   <h2 id="biolab-showcase-title">Meet <em>BioLab.</em><br/>Biology that finally connects.</h2>
-  <p>Explore IB Biology by understanding number, then learn through clear explanations, original scientific diagrams, active recall and real practice questions. Built for Standard and Higher Level.</p>
+  <p>Explore IB Biology by understanding number, then learn through clear explanations, original scientific diagrams, active recall and original BioLab practice questions. Built for Standard and Higher Level.</p>
   <div className="biolab-showcase-actions"><button className="biolab-showcase-primary" onClick={()=>go('biology')}>Explore BioLab <ArrowRight size={20} aria-hidden="true"/></button><span>Interactive Biology topics available</span></div>
   <div className="biolab-showcase-links" aria-label="Start studying a Biology topic">
    <a href="#biology/topic/A1.1/learn">A1.1 <span>Water</span><ArrowRight size={14} aria-hidden="true"/></a>
    <a href="#biology/topic/B2.1/learn">B2.1 <span>Membranes</span><ArrowRight size={14} aria-hidden="true"/></a>
    <a href="#biology/topic/C1.1/learn">C1.1 <span>Enzymes</span><ArrowRight size={14} aria-hidden="true"/></a>
   </div>
-  <p className="biolab-showcase-disclaimer">Early-access study drafts. Scientific and teacher review is ongoing; independent of and not endorsed by the IB.</p>
+  <p className="biolab-showcase-disclaimer">BioLab is an independent student-made study resource.</p>
  </div>
  <div className="biolab-showcase-visual" aria-hidden="true">
   <div className="biolab-showcase-orbit orbit-outer"></div><div className="biolab-showcase-orbit orbit-inner"></div>

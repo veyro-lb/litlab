@@ -18,7 +18,6 @@ export default function TopicOverview({topic,level,hash=''}:{topic:Topic;level:L
   {hlOnly?<section className="bio-empty"><h2>Higher Level topic</h2><p>Switch to HL above to see its learning content.</p></section>:<>
    {topic.lessonId&&<ResourceNav active={resource} topicId={topic.id}/>}
    <section className="bio-topic-understandings"><div className="bio-discovery-heading"><div><span className="bio-eyebrow">TOPIC CONTENT</span><h2>{topic.lessonId?'Choose an understanding':'Topic availability'}</h2><p>{topic.lessonId?'Each part follows a numbered syllabus understanding.':'This topic will open when its lesson is ready.'}</p></div></div><UnderstandingRows topic={topic} level={level} resource={resource}/></section>
-   {topic.lessonId&&<p className="bio-draft-note">Teaching draft · scientific review pending. <a href={'#biology/topic/'+topic.id+'/sources'}>Sources and review <ArrowRight size={12} aria-hidden="true"/></a></p>}
   </>}
  </article>;
 }

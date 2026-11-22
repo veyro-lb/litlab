@@ -9,7 +9,7 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
   const resource = resourceFromHash(hash);
   const available = visibleTopics(level).filter(topic => Boolean(topic.lessonId));
   const starter = available.find(topic => visibleUnderstandings(topic,level).length > 0);
-  const drafted = topics.filter(topic => Boolean(topic.lessonId)).length;
+  const lessonCount = topics.filter(topic => Boolean(topic.lessonId)).length;
   const focusSearch = () => document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLInputElement>('#bio-topic-search')?.focus();
   const openTopics = () => document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector('#bio-topic-browser')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
   return <>
@@ -19,7 +19,7 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
         <h1 id="bio-welcome-title">Biology, made <em>clearer.</em></h1>
         <p>Explore life from molecules to ecosystems. Learn the ideas, connect the concepts, and practise what you understand — at your own pace.</p>
         <div className="bio-welcome-actions">
-          <button type="button" className="bio-primary" onClick={openTopics}>Explore lessons <ArrowRight size={17} aria-hidden="true"/></button>
+          {resource==='learn'?<button type="button" className="bio-primary" onClick={openTopics}>Explore lessons <ArrowRight size={17} aria-hidden="true"/></button>:<a className="bio-primary" href="#biology">Explore lessons <ArrowRight size={17} aria-hidden="true"/></a>}
           <a className="bio-secondary" href="#biology?resource=practice">Practice questions <ArrowRight size={16} aria-hidden="true"/></a>
         </div>
       </div>
@@ -40,15 +40,15 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
     <ResourceNav active={resource}/>
     <section className="bio-quick-panel" aria-label="Quick study actions">
       {starter&&<a href={'#biology/topic/'+starter.id+'/learn?understanding='+visibleUnderstandings(starter,level)[0].id} className="bio-quick-item"><span className="bio-quick-icon"><BookOpen size={20} aria-hidden="true"/></span><span><strong>Begin a lesson</strong><small>{starter.id} · {starter.title}</small></span><ArrowRight size={16} aria-hidden="true"/></a>}
-      <button type="button" className="bio-quick-item" onClick={focusSearch}><span className="bio-quick-icon"><Search size={20} aria-hidden="true"/></span><span><strong>Find a topic</strong><small>Search by name or syllabus code</small></span><ArrowRight size={16} aria-hidden="true"/></button>
+      <button type="button" className="bio-quick-item" onClick={focusSearch}><span className="bio-quick-icon"><Search size={20} aria-hidden="true"/></span><span><strong>{resource==='drawing'?'Find a diagram':'Find a topic'}</strong><small>Search by name or syllabus code</small></span><ArrowRight size={16} aria-hidden="true"/></button>
       <a className="bio-quick-item" href="#biology?resource=revision"><span className="bio-quick-icon"><RotateCcw size={20} aria-hidden="true"/></span><span><strong>Review concepts</strong><small>Revisit the key explanations</small></span><ArrowRight size={16} aria-hidden="true"/></a>
     </section>
-    {resource==='sources'&&<section className="bio-course-bibliography"><h2>Sources and scientific review</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic's Sources view for detailed provenance and its review record.</p></section>}
-    {resource==='practice'&&<p className="bio-resource-context">Practise with original, syllabus-mapped draft questions and explanatory feedback. These are not official IB examination questions.</p>}
+    {resource==='sources'&&<section className="bio-course-bibliography"><h2>Course sources</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic’s Sources tab for figure credits and references.</p></section>}
+    {resource==='practice'&&<p className="bio-resource-context">Practise with original BioLab questions and feedback linked to the syllabus.</p>}
     {resource==='revision'&&<p className="bio-resource-context">Revisit concise explanations, figures and recall prompts in each available lesson.</p>}
 
-    {resource==='flashcards'&&<p className="bio-resource-context">Recall cards are available within teaching drafts. Opening or flipping a card does not indicate mastery.</p>}
+    {resource==='flashcards'&&<p className="bio-resource-context">Choose a topic and try answering each flashcard before you reveal its answer.</p>}
     {resource==='drawing'?<DrawingCatalogue level={level}/>:<CurriculumOverview level={level} resource={resource}/>}
-    <details className="bio-course-info"><summary><Layers3 size={16} aria-hidden="true"/> About this course and its review status</summary><p>{drafted} teaching drafts are catalogued, and {topics.length-drafted} topics are currently planned. Scientific review is pending; the materials are independent student resources, not certified content or IB-endorsed teaching material.</p></details>
+    <details className="bio-course-info"><summary><Layers3 size={16} aria-hidden="true"/> About this course</summary><p>{lessonCount} topics have published lessons. Use the course-level selector to see the content for SL or HL.</p></details>
   </>;
 }
