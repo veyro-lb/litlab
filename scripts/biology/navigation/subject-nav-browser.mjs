@@ -39,12 +39,24 @@ try {
    assert.equal(await switcher.locator('a[aria-current="page"]').innerText(),'BioLab');
    await page.locator('[data-biology-host] .bio-app').waitFor();
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-home.png'),animations:'disabled'});
+   const subjectBar=page.locator('.subject-bar[data-subject=biology]');
+   const initialBar=await subjectBar.boundingBox();
+   await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));
+   await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(100);
+   const scrolledBar=await subjectBar.boundingBox();
+   assert(Math.abs(initialBar.y-scrolledBar.y)<1,'BioLab navigation moved when scrolling at '+name);
+   await expect(nav).toBeInViewport();
    await nav.getByRole('link',{name:'Theme B'}).click();
    await page.waitForURL(/#biology\/theme\/B$/);
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme B');
    await visit('biology/topic/A1.1/learn?understanding=A1.1.1');
    await page.locator('[data-biology-host] .bio-lesson').waitFor();
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
+   await expect.poll(async()=>{
+    const heading=await page.locator('.bio-lesson-content h2').boundingBox();
+    const bar=await subjectBar.boundingBox();
+    return heading.y-bar.y-bar.height;
+   }).toBeGreaterThanOrEqual(0);
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-lesson.png'),animations:'disabled'});
    if(name==='desktop'||name==='small-mobile'){
     await visit('biology?resource=flashcards');
