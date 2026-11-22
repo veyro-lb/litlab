@@ -30,8 +30,12 @@ export function validateLesson(d,topic){
   if(s.authenticMicrographs){
    if(!Array.isArray(s.authenticMicrographs)||new Set(s.authenticMicrographs.map(c=>c.id)).size!==s.authenticMicrographs.length)fail('Duplicate/invalid authentic microscopy '+s.id);
    for(const c of s.authenticMicrographs){
-    if(!c.id||!c.title||!c.specimen||!['light','TEM'].includes(c.modality)||!c.observationPrompt||!c.expectedEvidence||!c.scaleNote||!c.limitation||!c.author||!c.license||!c.licenseUrl||!refs.has(c.referenceId)||!s.referenceIds.includes(c.referenceId))fail('Unmapped authentic microscopy '+s.id);
-    if(!c.imageUrl?.startsWith('https://upload.wikimedia.org/wikipedia/commons/')||!c.sourceUrl?.startsWith('https://commons.wikimedia.org/wiki/File:')||!c.licenseUrl?.startsWith('https://'))fail('Unverified external microscopy domain '+s.id);
+    if(!c.id||!c.title||!c.specimen||!['light','TEM','SEM'].includes(c.modality)||!c.observationPrompt||!c.expectedEvidence||!c.scaleNote||!c.limitation||!c.author||!c.license||!c.licenseUrl||!refs.has(c.referenceId)||!s.referenceIds.includes(c.referenceId))fail('Unmapped authentic microscopy '+s.id);
+    const wikimediaSource=c.sourceUrl?.startsWith('https://commons.wikimedia.org/wiki/File:');
+    const localCopy=/^\/biology\/observation\/[a-z0-9-]+\.webp$/.test(c.imageUrl);
+    const journalFigure=c.imageUrl==='/biology/cell-structure/cucumber-leaf-tem.webp'&&d.assets.some(a=>a.src===c.imageUrl&&a.sourceUrl===c.sourceUrl&&a.termsUrl===c.licenseUrl);
+    const localJournalCopy=localCopy&&c.sourceUrl?.startsWith('https://journals.plos.org/plosone/article?id=10.1371/')&&d.references.some(r=>r.id===c.referenceId&&r.url===c.sourceUrl);
+    if(!(journalFigure||localJournalCopy||wikimediaSource&&(localCopy||c.imageUrl?.startsWith('https://upload.wikimedia.org/wikipedia/commons/')))||!c.licenseUrl?.startsWith('https://'))fail('Unverified microscopy source '+s.id);
     if(!/calibrat|scale|nm|source/i.test(c.scaleNote))fail('Missing scale interpretation limits '+s.id);
    }
   }

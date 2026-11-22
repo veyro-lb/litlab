@@ -141,3 +141,22 @@
  .bio-app .bio-feedback-action{min-height:44px}
 }
 @media(max-width:370px){.bio-app .bio-feedback-action{white-space:normal;text-align:center;padding:7px 9px}}
+
+.bio-exam-skills .bio-course-bibliography{padding:clamp(1rem,3vw,1.6rem)}
+.bio-exam-skills .bio-course-bibliography p{margin:.65rem 0;line-height:1.6}
+.bio-exam-skills ol,.bio-exam-skills ul{padding-inline-start:1.35rem}
+.bio-exam-terms{display:grid;gap:.55rem}
+.bio-exam-terms div{display:grid;gap:.25rem;grid-template-columns:minmax(7rem,auto) 1fr;padding:.75rem;border-left:3px solid var(--bio-green);background:color-mix(in srgb,var(--bio-green) 6%,var(--surface))}
+.bio-exam-terms dt{font-weight:750}
+.bio-exam-terms dd{margin:0}
+.bio-exam-set{border:1px solid var(--bio-card-border);border-radius:.65rem;margin:.65rem 0}
+.bio-exam-set summary{padding:.8rem 1rem;cursor:pointer;font-weight:750}
+.bio-exam-case{padding:0 1rem 1rem;min-width:0}
+.bio-exam-parts li{padding:.6rem 0}
+.bio-exam-parts label{display:block;font-weight:700;margin-bottom:.35rem}
+.bio-exam-parts textarea{box-sizing:border-box;width:100%;min-width:0;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:.5rem;padding:.6rem;font:inherit}
+.bio-exam-chart{max-width:36rem;margin:1rem auto;color:var(--ink)}
+.bio-exam-chart svg{display:block;width:100%;height:auto}
+.bio-exam-links{display:flex;flex-wrap:wrap;gap:.75rem}
+.bio-exam-skills :is(summary,textarea,a):focus-visible{outline:2px solid var(--bio-green);outline-offset:3px}
+@media(max-width:520px){.bio-exam-terms div{grid-template-columns:1fr}.bio-exam-case{padding-inline:.65rem}}

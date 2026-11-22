@@ -3155,6 +3155,54 @@
       ],
       "review": "scientific-review",
       "original": true
+    },
+    {
+      "id": "audit-data-c2-1-1",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "C2.1.1"
+      ],
+      "level": "HL",
+      "prompt": "Use two rows to support a receptor-dependent response. Give one reason to retain the signal-absent condition.",
+      "marks": 2,
+      "sectionId": "c21-1",
+      "referenceIds": [
+        "ib-c21",
+        "hodder-c21"
+      ],
+      "answer": "With signal present, occupancy and response rise. Blocking the binding site reduces both despite the presence of signal. The signal-absent row establishes the baseline response.",
+      "markingPoints": [
+        "Compares the two signal-present conditions using occupancy or response values.",
+        "Uses the unstimulated group as a baseline for the response measurement."
+      ],
+      "data": {
+        "caption": "Hypothetical receptor-binding measurements in isolated cells",
+        "headers": [
+          "Condition",
+          "Receptors occupied / %",
+          "Relative intracellular response"
+        ],
+        "rows": [
+          [
+            "Signal absent",
+            0,
+            1.0
+          ],
+          [
+            "Signal present",
+            72,
+            4.2
+          ],
+          [
+            "Signal present, binding site blocked",
+            5,
+            1.1
+          ]
+        ]
+      },
+      "review": "source-mapped"
     }
   ],
   "references": [

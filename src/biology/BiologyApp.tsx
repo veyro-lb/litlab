@@ -5,6 +5,7 @@ import BiologyDashboard from './components/BiologyDashboard';
 import CurriculumOverview from './components/CurriculumOverview';
 import ResourceNav, {resourceFromHash} from './components/ResourceNav';
 import LessonLoader from './learning/LessonLoader';
+import ExamSkills from './learning/exam-skills/ExamSkills';
 import TopicOverview from './components/TopicOverview';
 import {topics, themes} from './curriculum/manifest';
 import type {Level} from './curriculum/schema';
@@ -18,7 +19,7 @@ export default function BiologyApp({hash}:{hash:string}) {
   const route=parseBiologyRoute(hash);
   const topic=route.kind==='topic'?topics.find(t=>t.id===route.id):undefined;
   useEffect(()=>{
-    const title=route.kind==='topic'&&topic?topic.id+' '+topic.title:route.kind==='theme'?themes[route.id].title:'Curriculum';
+    const title=route.kind==='topic'&&topic?topic.id+' '+topic.title:route.kind==='theme'?themes[route.id].title:route.kind==='skills'?'Exam skills':'Curriculum';
     document.title='BioLab — '+title+' | LitLab';
     if(previousHash.current!==hash){
       const previousPath=previousHash.current.split('?')[0];
@@ -30,7 +31,7 @@ export default function BiologyApp({hash}:{hash:string}) {
   const missing=route.kind==='not-found'||(route.kind==='topic'&&!topic);
   return <div className="bio-app" ref={focusRef} tabIndex={-1}>
     <div className="bio-toolbar">
-      {route.kind==='dashboard'?<span className="bio-toolbar-title">Your IB Biology course</span>:<nav aria-label="Biology breadcrumb"><a href="#biology"><FlaskConical size={17} aria-hidden="true"/> BioLab</a><span aria-hidden="true">/</span>{route.kind==='theme'?<span>Theme {route.id}</span>:topic?<><a href={'#biology/theme/'+topic.theme}>Theme {topic.theme}</a><span aria-hidden="true">/</span><span>{topic.id} · {topic.title}</span></>:<span>Page not found</span>}</nav>}
+      {route.kind==='dashboard'?<span className="bio-toolbar-title">Your IB Biology course</span>:<nav aria-label="Biology breadcrumb"><a href="#biology"><FlaskConical size={17} aria-hidden="true"/> BioLab</a><span aria-hidden="true">/</span>{route.kind==='theme'?<span>Theme {route.id}</span>:topic?<><a href={'#biology/theme/'+topic.theme}>Theme {topic.theme}</a><span aria-hidden="true">/</span><span>{topic.id} · {topic.title}</span></>:<span>{route.kind==='skills'?'Exam skills':'Page not found'}</span>}</nav>}
       <div className="bio-toolbar-actions">
         <button type="button" className="bio-feedback-action" onClick={event=>window.dispatchEvent(new CustomEvent('litlab:open-feedback',{detail:{mode:'feedback',opener:event.currentTarget}}))} aria-label="Give feedback about this BioLab page"><MessageSquare size={16} aria-hidden="true"/>Feedback on this page</button>
       <fieldset className="bio-level"><legend className="bio-sr-only">Course level</legend>{(['SL','HL'] as Level[]).map(l=><label key={l} title={l==='SL'?'Standard Level':'Higher Level'}><input type="radio" name="biology-level" value={l} checked={level===l} onChange={()=>{setLevel(l);saveLevel(l)}}/><span>{l}<span className="bio-level-long"> · {l==='SL'?'Standard':'Higher'}</span></span></label>)}</fieldset>
@@ -38,6 +39,7 @@ export default function BiologyApp({hash}:{hash:string}) {
     </div>
     {missing?<section className="bio-empty"><span className="bio-eyebrow">PAGE NOT FOUND</span><h1>That topic isn’t on this map.</h1><p>Check the topic code or return to the curriculum.</p><a className="bio-primary" href="#biology"><ArrowLeft size={18} aria-hidden="true"/>All themes</a></section>
     :route.kind==='topic'&&topic?route.mode&&topic.lessonId?<LessonLoader topic={topic} level={level} mode={route.mode} hash={hash}/>:<TopicOverview topic={topic} level={level} hash={hash}/>
+    :route.kind==='skills'?<><ResourceNav active="skills"/><ExamSkills/></>
     :route.kind==='theme'?<><a className="bio-back" href="#biology"><ArrowLeft size={16} aria-hidden="true"/>All themes</a><header className={'bio-theme-intro bio-theme-intro-'+route.id}><span className="bio-kicker">THEME {route.id} · IB BIOLOGY</span><h1>{themes[route.id].title}</h1><p>{themes[route.id].description}</p></header><ResourceNav active={resourceFromHash(hash)}/>{resourceFromHash(hash)==='drawing'?<DrawingCatalogue key={route.id} theme={route.id} level={level}/>:<CurriculumOverview key={route.id} theme={route.id} level={level} resource={resourceFromHash(hash)}/>}</>
     :<BiologyDashboard level={level} hash={hash}/>}
     <div className="bio-disclaimer">BioLab is an independent student-made educational resource by LitLab. It is not affiliated with or endorsed by the International Baccalaureate Organization.</div>

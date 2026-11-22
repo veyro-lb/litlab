@@ -77,3 +77,9 @@
 .bio-diagram-open{white-space:nowrap;color:var(--bio-green);font-weight:750}
 .bio-drawing-reference li{line-height:1.7;margin:8px 0}
 @media(max-width:550px){.bio-diagram-card{align-items:flex-start;flex-direction:column;padding:16px;gap:12px}}
+
+.bio-energy-pyramid{display:grid;gap:.55rem;list-style:none;margin:1rem 0;padding:0;text-align:center}
+.bio-energy-pyramid li{display:grid;justify-items:center;gap:.25rem;line-height:1.45}
+.bio-energy-pyramid li div{height:.8rem;border-radius:.2rem;background:currentColor}
+.bio-drawing-evidence{display:grid;gap:.75rem}
+.bio-drawing-evidence select{width:100%;max-width:32rem}

@@ -11,7 +11,9 @@ for(const [id,entry] of Object.entries(catalog)){
  try{
   const lesson=JSON.parse(await readFile(new URL(entry.path,root),'utf8'));
   errors.push(...validateLesson(lesson,topic));
-  for(const a of lesson.assets||[])for(const src of [a.src,a.recallSrc,a.mobileSrc,a.recallMobileSrc].filter(Boolean)){
+  const lessonAssets=(lesson.assets||[]).flatMap(a=>[a.src,a.recallSrc,a.mobileSrc,a.recallMobileSrc].filter(Boolean));
+  const localMicroscopy=(lesson.sections||[]).flatMap(s=>(s.authenticMicrographs||[]).map(m=>m.imageUrl).filter(src=>src?.startsWith('/')));
+  for(const src of new Set([...lessonAssets,...localMicroscopy])){
    if(!/^\/biology\/[a-z0-9-]+\/[a-z0-9-]+\.(svg|jpg|png|webp)$/.test(src)){errors.push('Unsafe asset path '+src);continue}
    try{await access(new URL('../public'+src,import.meta.url))}catch{errors.push('Missing asset '+src)}
   }
