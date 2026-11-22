@@ -35,6 +35,23 @@ try {
   await expect(page).toHaveURL(/#biology\/topic\/A1\.1\/cheat-sheets$/);
   await expect(page.getByRole('heading', {name: 'At a glance'})).toBeVisible();
   await expect(page.getByRole('heading', {name: 'Exam tip'})).toBeVisible();
+  const previewButton = page.getByRole('button', {name: 'Preview PDF', exact: true});
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', {name: 'Download PDF', exact: true}).click(),
+  ]);
+  expect(download.suggestedFilename()).toBe('BioLab-A1.1-SL-Cheat-Sheet.pdf');
+  const pdfBytes = await readFile(await download.path());
+  expect(pdfBytes.subarray(0, 5).toString()).toBe('%PDF-');
+  await previewButton.click();
+  const pdfPreview = page.getByRole('dialog', {name: 'Water · PDF preview'});
+  await expect(pdfPreview.locator('canvas')).toBeVisible({timeout: 20000});
+  await expect(pdfPreview.getByText(/^Page 1 of /)).toBeVisible();
+  await pdfPreview.getByRole('button', {name: 'Next page'}).click();
+  await expect(pdfPreview.getByLabel('Preview of page 2')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(pdfPreview).toHaveCount(0);
+  await expect(previewButton).toBeFocused();
   await expect(page.locator('.bio-sheets-point-body').first()).toBeVisible();
   const note = page.locator('.bio-sheets-note').first();
   await expect(note.getByText('Common mistake', {exact: true})).toBeVisible();
@@ -71,6 +88,16 @@ try {
   await expect(mobile.page.locator('.bio-sheets-table-mobile').first().getByText('Adhesion', {exact: true}).first()).toBeVisible();
   await expect(mobile.page.getByRole('table', {name: 'Cohesion and adhesion are different'})).toHaveCount(0);
   await expect(mobile.page.locator('.bio-sheets-extension')).toBeVisible();
+  await mobile.page.getByRole('button', {name: 'Preview PDF', exact: true}).click();
+  const mobilePreview = mobile.page.getByRole('dialog', {name: 'Water · PDF preview'});
+  await expect(mobilePreview.locator('canvas')).toBeVisible({timeout: 20000});
+  const hlDownload = mobilePreview.getByRole('link', {name: 'Download PDF', exact: true});
+  await expect(hlDownload).toHaveAttribute('download', 'BioLab-A1.1-HL-Cheat-Sheet.pdf');
+  expect((await mobilePreview.boundingBox()).width).toBeLessThanOrEqual(320);
+  await mobilePreview.getByRole('button', {name: 'Zoom in'}).click();
+  await expect(mobilePreview.locator('canvas')).toHaveAttribute('data-zoomed', 'true');
+  await mobilePreview.getByRole('button', {name: 'Fit page'}).click();
+  await mobilePreview.getByRole('button', {name: 'Close'}).click();
 
   const headings = new Set();
   for (const topic of registry.filter(item => item.lessonId)) {
