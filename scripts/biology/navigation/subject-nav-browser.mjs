@@ -12,7 +12,7 @@ mkdirSync(output,{recursive:true});
 const results=[];
 try {
  for(const theme of ['light','dark'])for (const {name,width,height} of [{name:'desktop',width:1440,height:900},{name:'tablet',width:768,height:1024},{name:'mobile',width:390,height:844},{name:'small-mobile',width:320,height:720}]) {
-  const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
+  const context=await browser.newContext({viewport:{width,height},hasTouch:name.includes('mobile'),reducedMotion:'reduce'});
   await context.addInitScript(theme=>localStorage.litlabTheme=theme,theme);
   const page=await context.newPage();
   const errors=[];
@@ -46,6 +46,56 @@ try {
    await page.locator('[data-biology-host] .bio-lesson').waitFor();
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-lesson.png'),animations:'disabled'});
+   if(name==='desktop'||name==='small-mobile'){
+    await visit('biology/topic/A1.1/flashcards');
+    const deck=page.getByRole('region',{name:'Flashcards'});
+    const card=deck.locator('.bio-card-button');
+    const answer=deck.locator('.bio-flashcard-answer');
+    const position=deck.locator('.bio-deck-progress');
+    await expect(position).toContainText('Card 1 of 14');
+    await expect(card).toHaveAccessibleDescription(/earliest cells/i);
+    await expect(answer).toBeHidden();
+    await page.keyboard.press('Space');
+    await expect(answer).toBeVisible();
+    await expect(deck.locator('.bio-flashcard [role=status]')).toContainText('aqueous environment');
+    await card.press('Space');
+    await expect(answer).toBeHidden();
+
+    await deck.getByLabel('Review').selectOption('A1.1.2');
+    await expect(position).toContainText('A1.1.2');
+    await expect(position).toContainText('Card 1 of 3');
+    await expect(card).toHaveAccessibleDescription(/partial charges/i);
+    await expect(deck.getByRole('link',{name:'Read the lesson'})).toHaveAttribute('href','#biology/topic/A1.1/learn?understanding=A1.1.2');
+    if(name==='desktop'){
+     await page.emulateMedia({reducedMotion:'no-preference'});
+     await card.press('ArrowRight');
+     await expect(card.locator('.bio-card-face')).toHaveCSS('animation-name','bio-card-swipe-in');
+    }else{
+     await card.scrollIntoViewIfNeeded();
+     const {x,y,width,height}=await card.boundingBox();
+     const swipeY=Math.round(y+height/2);
+     const moveX=[.75,.54,.31].map(relative=>Math.round(x+width*relative));
+     const session=await context.newCDPSession(page);
+     await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:moveX[0],y:swipeY}]});
+     for(const fingerX of moveX.slice(1)){
+      await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:fingerX,y:swipeY}]});
+     }
+     await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+     await expect(card.locator('.bio-card-face')).toHaveCSS('animation-name','none');
+    }
+    await expect(position).toContainText('Card 2 of 3');
+    await expect(answer).toBeHidden();
+    await card.click();
+    await expect(answer).toBeVisible();
+    await deck.getByRole('button',{name:'Next card'}).click();
+    await expect(position).toContainText('Card 3 of 3');
+    await deck.getByRole('button',{name:'Restart deck'}).click();
+    await expect(position).toContainText('Card 1 of 3');
+    await expect(answer).toBeHidden();
+    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+    assert(overflow<=2,'Flashcard layout overflows at '+name);
+    await page.screenshot({path:resolve(output,name+'-'+theme+'-flashcards.png'),animations:'disabled'});
+   }
    const back=page.getByRole('link',{name:'Return to LitLab home'});
    assert.equal(await back.count(),1,'BioLab header must include a clear way back to LitLab');
    await back.click();
