@@ -19,7 +19,20 @@ try {
   page.on('pageerror',err=>errors.push(String(err)));
   const visit=async route=>{await page.goto(new URL('#'+route,base).toString());await page.locator('.subject-bar[data-subject="'+(route.startsWith('biology')?'biology':'english')+'"] ').waitFor();};
   try {
+   async function verifyHeaderScroll(subject) {
+    const header=page.locator('.topbar');
+    const bar=page.locator('.subject-bar[data-subject="'+subject+'"]');
+    const start=(await header.boundingBox()).y;
+    await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));
+    await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(100);
+    const headerBox=await header.boundingBox();
+    const barBox=await bar.boundingBox();
+    assert(Math.abs(start-headerBox.y)<1,subject+' header moved when scrolling at '+name);
+    assert(barBox.y+barBox.height<=headerBox.y+1,subject+' study spaces stayed in view while scrolling at '+name);
+    await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+   }
    await visit('home');
+   await verifyHeaderScroll('english');
    const switcher=page.getByRole('navigation',{name:'Switch between LitLab and BioLab'});
    assert.equal((await switcher.locator('a').allTextContents()).map(s=>s.trim()).join('|'),'LitLab|BioLab','Study-space names must be LitLab and BioLab');
    assert.equal(await switcher.locator('a[aria-current="page"]').innerText(),'LitLab');
@@ -39,13 +52,7 @@ try {
    assert.equal(await switcher.locator('a[aria-current="page"]').innerText(),'BioLab');
    await page.locator('[data-biology-host] .bio-app').waitFor();
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-home.png'),animations:'disabled'});
-   const subjectBar=page.locator('.subject-bar[data-subject=biology]');
-   const initialBar=await subjectBar.boundingBox();
-   await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));
-   await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(100);
-   const scrolledBar=await subjectBar.boundingBox();
-   assert(Math.abs(initialBar.y-scrolledBar.y)<1,'BioLab navigation moved when scrolling at '+name);
-   await expect(nav).toBeInViewport();
+   await verifyHeaderScroll('biology');
    await nav.getByRole('link',{name:'Theme B'}).click();
    await page.waitForURL(/#biology\/theme\/B$/);
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme B');
@@ -54,8 +61,8 @@ try {
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
    await expect.poll(async()=>{
     const heading=await page.locator('.bio-lesson-content h2').boundingBox();
-    const bar=await subjectBar.boundingBox();
-    return heading.y-bar.y-bar.height;
+    const header=await page.locator('.topbar').boundingBox();
+    return heading.y-header.y-header.height;
    }).toBeGreaterThanOrEqual(0);
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-lesson.png'),animations:'disabled'});
    if(name==='desktop'||name==='small-mobile'){

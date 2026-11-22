@@ -54,12 +54,10 @@
  outline:3px solid #f3b955;outline-offset:3px
 }
 .subject-bar[data-subject=biology]{
- position:sticky;top:var(--litlab-header-height,76px);z-index:65;
  max-width:none;min-height:68px;padding:9px max(20px,4vw);
  justify-content:space-between;gap:16px;
  background:var(--bg);border-bottom:1px solid var(--line)
 }
-html[data-litlab-subject=biology]{scroll-padding-top:var(--biolab-sticky-header-height)}
 .subject-bar[data-subject=biology] .subject-bar-label{flex:0 0 auto}
 .subject-bar[data-subject=biology] .subject-navigation{
  margin-right:auto;flex:0 0 auto
