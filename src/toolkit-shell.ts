@@ -19,7 +19,7 @@ function newBadge(){
 }
 
 function ensureDesktopNav(){
-  const nav=document.querySelector<HTMLElement>('.topbar nav');
+  const nav=document.querySelector<HTMLElement>('.topbar[data-subject=english] nav');
   if(!nav)return;
   let button=nav.querySelector<HTMLButtonElement>('button[data-toolkit-nav]');
   if(!button){
@@ -38,7 +38,7 @@ function ensureDesktopNav(){
 }
 
 function ensureMobileNav(){
-  const menu=document.querySelector<HTMLElement>('.mobile-menu');
+  const menu=document.querySelector<HTMLElement>('.mobile-menu:not(.biolab-section-navigation)');
   if(!menu)return;
   let button=menu.querySelector<HTMLButtonElement>('button[data-toolkit-nav]');
   if(!button){

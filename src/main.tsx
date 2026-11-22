@@ -22,43 +22,43 @@ function App(){
  useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light';localStorage.litlabTheme=dark?'dark':'light'},[dark]);
  useEffect(()=>{const fn=()=>{setPage(parse());setMenu(false);setSearchOpen(false);if(!(isBiologyRoute(parse())&&parse().includes('?understanding=')))requestAnimationFrame(()=>scrollTo({top:0,behavior:'smooth'}))};addEventListener('hashchange',fn);return()=>removeEventListener('hashchange',fn)},[]);
  useEffect(()=>{const fn=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(isBiologyRoute(parse()))document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLInputElement>('input[type=search]')?.focus();else setSearchOpen(true)}if(e.key==='Escape'){setSearchOpen(false);setMenu(false)}};addEventListener('keydown',fn);return()=>removeEventListener('keydown',fn)},[]);
- useEffect(()=>{
-  const header = document.querySelector<HTMLElement>('.topbar');
-  const subjectBar = document.querySelector<HTMLElement>('.subject-bar');
-  if (!header || !subjectBar) return;
-  const sync = () => {
-   const headerHeight = header.getBoundingClientRect().height;
-   const subjectBarHeight = subjectBar.getBoundingClientRect().height;
-   document.documentElement.style.setProperty('--litlab-header-height', `${headerHeight}px`);
-   document.documentElement.style.setProperty('--biolab-sticky-header-height', `${headerHeight + subjectBarHeight}px`);
-  };
-  sync();
-  const observer = new ResizeObserver(sync);
-  observer.observe(header);
-  observer.observe(subjectBar);
-  return () => observer.disconnect();
- },[]);
+ useEffect(()=>{const header=document.querySelector<HTMLElement>('.topbar');if(!header)return;const sync=()=>document.documentElement.style.setProperty('--litlab-header-height',header.getBoundingClientRect().height+'px');sync();const observer=new ResizeObserver(sync);observer.observe(header);return()=>observer.disconnect()},[]);
  const biology=isBiologyRoute(page);
  const biologyTheme=page.match(/^biology\/(?:theme|topic)\/([A-D])/i)?.[1]?.toUpperCase();
+ const courseLinks=biology&&<>
+  <a href="#biology" onClick={()=>setMenu(false)} aria-current={!biologyTheme?'page':undefined}>Curriculum</a>
+  {(['A','B','C','D'] as const).map(theme=>
+   <a key={theme} href={'#biology/theme/'+theme} onClick={()=>setMenu(false)} aria-current={biologyTheme===theme?'page':undefined}>Theme {theme}</a>
+  )}
+ </>;
  useEffect(()=>{document.documentElement.dataset.litlabSubject=biology?'biology':'english'},[biology]);
  const go:Go=(to)=>{const [p,anchor]=to.split('#');if(parse()!==p) location.hash=p;else setPage(p);setMenu(false);setSearchOpen(false);setTimeout(()=>{if(anchor)document.getElementById(anchor)?.scrollIntoView({behavior:'smooth',block:'start'});else scrollTo({top:0,behavior:'smooth'})},80)};
  const mark=(id:string)=>setDone(v=>{const n=v.includes(id)?v:[...v,id];localStorage.litlabDone=JSON.stringify(n);return n});
  const results=useMemo(()=>{const q=query.trim().toLowerCase();return q?searchItems.filter(x=>(x.title+' '+x.preview+' '+x.category).toLowerCase().includes(q)).slice(0,10):[]},[query]);
  return <div className="app-shell">
   <a className="skip" href="#main" onClick={e=>{e.preventDefault();const main=document.getElementById('main');main?.focus();main?.scrollIntoView({block:'start'});}}>Skip to content</a>
-  <header className="topbar" data-subject={biology?'biology':'english'}>{biology?<a className="bio-brand" href="#biology" aria-label="BioLab home"><img src="/ibdplabs-mark.png?v=2" width="38" height="38" alt=""/><span>BioLab<small>by ibdplabs</small></span></a>:<button className="brand-btn" onClick={()=>go('home')} aria-label="LitLab home"><Logo/></button>}{!biology&&<nav aria-label="Primary navigation">{nav.map(([slug,label])=><button key={slug} className={page===slug?'active':''} onClick={()=>go(slug)}>{label}</button>)}</nav>}<div className="top-actions"><div className="account-slot" data-account-slot/>{biology&&<a className="bio-subject-return" href="#home" aria-label="Return to LitLab home"><ArrowLeft size={16} aria-hidden="true"/> LitLab</a>}{!biology&&<button className="search-trigger" onClick={()=>setSearchOpen(true)}><Search size={17}/><span>Search</span><kbd>⌘K</kbd></button>}<button className="icon-btn" onClick={()=>setDark(v=>!v)} aria-label="Toggle theme">{dark?<Sun/>:<Moon/>}</button>{!biology&&<button className="icon-btn mobile-only" onClick={()=>setMenu(v=>!v)} aria-expanded={menu} aria-label="Toggle menu">{menu?<X/>:<Menu/>}</button>}</div></header>
+  <header className="topbar" data-subject={biology?'biology':'english'}>
+   <button className="brand-btn" onClick={()=>go('home')} aria-label="LitLab home"><Logo/></button>
+   {biology
+    ? <nav key="biology" className="biolab-section-navigation" aria-label="BioLab course navigation">{courseLinks}</nav>
+    : <nav key="english" aria-label="Primary navigation">{nav.map(([slug,label])=><button key={slug} className={page===slug?'active':''} onClick={()=>go(slug)}>{label}</button>)}</nav>}
+   <div className="top-actions">
+    <div className="account-slot" data-account-slot/>
+    {!biology&&<button className="search-trigger" onClick={()=>setSearchOpen(true)}><Search size={17}/><span>Search</span><kbd>⌘K</kbd></button>}
+    <button className="icon-btn" onClick={()=>setDark(v=>!v)} aria-label="Toggle theme">{dark?<Sun/>:<Moon/>}</button>
+    <button className="icon-btn mobile-only" onClick={()=>setMenu(v=>!v)} aria-expanded={menu} aria-label="Toggle menu">{menu?<X/>:<Menu/>}</button>
+   </div>
+  </header>
   <div className="subject-bar" data-subject={biology?'biology':'english'}>
    <span className="subject-bar-label">STUDY SPACES</span>
    <nav className="subject-navigation" aria-label="Switch between LitLab and BioLab">
     <a href="#home" aria-current={!biology?'page':undefined} aria-label="LitLab — English"><BookOpen size={17} aria-hidden="true"/><span>LitLab</span></a>
     <a href="#biology" aria-current={biology?'page':undefined} aria-label="BioLab — Biology"><FlaskConical size={17} aria-hidden="true"/><span>BioLab</span></a>
    </nav>
-   {biology&&<nav className="biolab-section-navigation" aria-label="BioLab course navigation">
-    <a href="#biology" aria-current={!biologyTheme?'page':undefined}>Curriculum</a>
-    {(['A','B','C','D'] as const).map(theme=><a key={theme} href={'#biology/theme/'+theme} aria-current={biologyTheme===theme?'page':undefined}>Theme {theme}</a>)}
-   </nav>}
   </div>
-  {menu&&<div className="mobile-menu">{nav.map(([slug,label])=><button key={slug} onClick={()=>go(slug)}>{label}<ChevronRight/></button>)}<button onClick={()=>setSearchOpen(true)}>Search<Search/></button></div>}
+  {menu&&(biology
+   ? <nav className="mobile-menu biolab-section-navigation" aria-label="BioLab course navigation">{courseLinks}</nav>
+   : <div className="mobile-menu">{nav.map(([slug,label])=><button key={slug} onClick={()=>go(slug)}>{label}<ChevronRight/></button>)}<button onClick={()=>setSearchOpen(true)}>Search<Search/></button></div>)}
   {searchOpen&&<SearchModal query={query} setQuery={setQuery} results={results} close={()=>setSearchOpen(false)} go={go}/>} 
   <main id="main" tabIndex={-1}>{biology?<BiologyBoundary><Suspense fallback={<p role="status" style={{padding:'3rem'}}>Loading Biology…</p>}><BiologyEntry hash={page}/></Suspense></BiologyBoundary>:page==='home'?<Home go={go} done={done}/>:page==='start'?<StartHere go={go} done={done} mark={mark}/>:page==='papers'?<Papers go={go}/>:page==='paper-1'?<PaperPage kind="Paper 1" go={go} done={done} mark={mark}/>:page==='paper-2'?<PaperPage kind="Paper 2" go={go} done={done} mark={mark}/>:page==='io'?<IOPage go={go} done={done} mark={mark}/>:page==='books'?<BooksPage go={go} done={done} mark={mark}/>:page==='ee'?<EEPage go={go} done={done} mark={mark}/>:page==='glossary'?<GlossaryPage/>:<AboutPage/>}</main>
   {!biology&&<Footer go={go}/>}

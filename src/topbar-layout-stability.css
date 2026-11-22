@@ -16,7 +16,7 @@
   min-width:0;
   flex-wrap:nowrap;
 }
-.topbar nav button{
+.topbar nav :is(button,a){
   flex:0 0 auto!important;
   min-width:max-content;
   white-space:nowrap!important;
@@ -65,7 +65,7 @@
 @media (min-width:1101px) and (max-width:1180px){
   .topbar{padding-inline:14px;gap:8px}
   .topbar nav{gap:2px;padding:4px}
-  .topbar nav button{padding:8px 10px;font-size:12.5px}
+  .topbar nav :is(button,a){padding:8px 10px;font-size:12.5px}
   .search-trigger{padding-inline:9px}
   .search-trigger kbd{display:none}
   .litlab-account-trigger{max-width:150px;padding-inline:9px}
@@ -81,12 +81,6 @@
 .topbar .litlab-auth-signin,.topbar .litlab-account-trigger,.topbar .icon-btn,.topbar .search-trigger{min-height:44px;height:auto;min-width:44px}
 .topbar .litlab-account-trigger{max-width:min(210px,25vw)}
 .topbar .litlab-account-menu{width:min(300px,calc(100vw - 28px));right:0;left:auto;top:calc(100% + 10px);max-height:calc(100dvh - 170px)}
-.topbar[data-subject=biology]{gap:12px;justify-content:space-between}
-.bio-brand{display:flex;align-items:center;gap:9px;color:#176c5f;flex:0 0 auto;text-decoration:none;font:800 25px/1.05 var(--display)}
-.bio-brand>span{display:flex;flex-direction:column;gap:5px}.bio-brand small{color:var(--muted);font:650 10px/1.2 var(--body);letter-spacing:.03em}
-.bio-subject-return{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px;border:1px solid var(--line);border-radius:10px;font-size:12px;font-weight:700;color:var(--ink)}
-html[data-theme=dark] .bio-brand{color:#91e2bf}
-.bio-brand:focus-visible,.bio-subject-return:focus-visible{outline:3px solid #d89c2c;outline-offset:4px}
 @media(max-width:700px){
  .topbar .litlab-auth-signin,.topbar .litlab-account-trigger{width:44px;height:44px;min-width:44px}
  .topbar .litlab-account-trigger{max-width:44px}
@@ -95,10 +89,6 @@ html[data-theme=dark] .bio-brand{color:#91e2bf}
 @media(max-width:600px){
  .topbar[data-subject=english]{align-items:center;gap:8px;padding:10px 14px}
  .topbar[data-subject=english]>.top-actions{flex-basis:100%;justify-content:flex-end}
- .topbar[data-subject=biology]{padding:10px 14px;min-height:76px}
- .bio-brand{font-size:23px;gap:6px}.bio-brand>svg{width:23px}
- .topbar[data-subject=biology]>.top-actions{flex:0 1 auto;gap:5px}
- .bio-subject-return{font-size:11px;padding:8px 6px}
  .topbar .litlab-account-menu{position:fixed;top:80px;right:14px;left:auto;max-height:calc(100dvh - 100px)}
 }
 /* Menus follow the actual wrapped header height, including at browser zoom. */

@@ -19,10 +19,26 @@ try {
   page.on('pageerror',err=>errors.push(String(err)));
   const visit=async route=>{await page.goto(new URL('#'+route,base).toString());await page.locator('.subject-bar[data-subject="'+(route.startsWith('biology')?'biology':'english')+'"] ').waitFor();};
   try {
+   async function verifyHeaderScroll(subject) {
+    const header=page.locator('.topbar');
+    const bar=page.locator('.subject-bar[data-subject="'+subject+'"]');
+    const start=(await header.boundingBox()).y;
+    await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));
+    await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(100);
+    const headerBox=await header.boundingBox();
+    const barBox=await bar.boundingBox();
+    assert(Math.abs(start-headerBox.y)<1,subject+' header moved when scrolling at '+name);
+    assert(barBox.y+barBox.height<=headerBox.y+1,subject+' study spaces stayed in view while scrolling at '+name);
+    await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+   }
    await visit('home');
+   await verifyHeaderScroll('english');
    const switcher=page.getByRole('navigation',{name:'Switch between LitLab and BioLab'});
    assert.equal((await switcher.locator('a').allTextContents()).map(s=>s.trim()).join('|'),'LitLab|BioLab','Study-space names must be LitLab and BioLab');
    assert.equal(await switcher.locator('a[aria-current="page"]').innerText(),'LitLab');
+   const brand=page.getByRole('button',{name:'LitLab home'}).locator('img');
+   const sharedLogo=await brand.getAttribute('src');
+   const switcherLayout=await switcher.boundingBox();
    const styles=await switcher.locator('a').evaluateAll(links=>links.map(link=>{const r=link.getBoundingClientRect(),s=getComputedStyle(link);return {w:r.width,h:r.height,font:s.fontSize,weight:s.fontWeight,radius:s.borderRadius,padding:s.padding,gap:s.gap}}));
    assert(styles.every(s=>s.h>=44),'Study-space controls need usable touch targets');
    assert(Math.abs(styles[0].w-styles[1].w)<1&&Math.abs(styles[0].h-styles[1].h)<1,'Study-space controls should have matching dimensions');
@@ -33,29 +49,38 @@ try {
    await switcher.getByRole('link',{name:'BioLab — Biology'}).click();
    await page.waitForURL(/#biology$/);
    const nav=page.getByRole('navigation',{name:'BioLab course navigation'});
-   await nav.waitFor();
+   const menuToggle=page.getByRole('button',{name:'Toggle menu'});
+   const openCourseNav=async()=>{
+    if(width<=1100) await menuToggle.click();
+    await expect(nav).toBeVisible();
+    await expect(nav.getByRole('button',{name:/Toolkit/})).toHaveCount(0);
+   };
+   await openCourseNav();
    assert.deepEqual((await nav.locator('a').allTextContents()).map(s=>s.trim()),['Curriculum','Theme A','Theme B','Theme C','Theme D']);
    assert.equal(await nav.locator('a[aria-current="page"]').innerText(),'Curriculum');
    assert.equal(await switcher.locator('a[aria-current="page"]').innerText(),'BioLab');
+   await expect(brand).toHaveAttribute('src',sharedLogo);
+   const biologySwitcher=await switcher.boundingBox();
+   assert(Math.abs(switcherLayout.x-biologySwitcher.x)<1&&Math.abs(switcherLayout.width-biologySwitcher.width)<1,'Study-space switcher changes layout between sections at '+name);
    await page.locator('[data-biology-host] .bio-app').waitFor();
+   if(width<=1100) await menuToggle.click();
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-home.png'),animations:'disabled'});
-   const subjectBar=page.locator('.subject-bar[data-subject=biology]');
-   const initialBar=await subjectBar.boundingBox();
-   await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));
-   await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(100);
-   const scrolledBar=await subjectBar.boundingBox();
-   assert(Math.abs(initialBar.y-scrolledBar.y)<1,'BioLab navigation moved when scrolling at '+name);
-   await expect(nav).toBeInViewport();
+   await verifyHeaderScroll('biology');
+   await openCourseNav();
    await nav.getByRole('link',{name:'Theme B'}).click();
    await page.waitForURL(/#biology\/theme\/B$/);
+   if(width<=1100) await expect(menuToggle).toHaveAttribute('aria-expanded','false');
+   await openCourseNav();
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme B');
    await visit('biology/topic/A1.1/learn?understanding=A1.1.1');
    await page.locator('[data-biology-host] .bio-lesson').waitFor();
+   await openCourseNav();
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
+   if(width<=1100) await menuToggle.press('Escape');
    await expect.poll(async()=>{
     const heading=await page.locator('.bio-lesson-content h2').boundingBox();
-    const bar=await subjectBar.boundingBox();
-    return heading.y-bar.y-bar.height;
+    const header=await page.locator('.topbar').boundingBox();
+    return heading.y-header.y-header.height;
    }).toBeGreaterThanOrEqual(0);
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-lesson.png'),animations:'disabled'});
    if(name==='desktop'||name==='small-mobile'){
@@ -130,7 +155,7 @@ try {
     assert(overflow<=2,'Flashcard layout overflows at '+name);
     await page.screenshot({path:resolve(output,name+'-'+theme+'-flashcards.png'),animations:'disabled'});
    }
-   const back=page.getByRole('link',{name:'Return to LitLab home'});
+   const back=page.getByRole('button',{name:'LitLab home'});
    assert.equal(await back.count(),1,'BioLab header must include a clear way back to LitLab');
    await back.click();
    await page.waitForURL(/#home$/);
@@ -139,11 +164,10 @@ try {
    const metrics=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
    assert(metrics.scroll<=metrics.client+2,'Return route overflows at '+name+': '+JSON.stringify(metrics));
    await visit('biology');
+   await openCourseNav();
    const bioMetrics=await page.evaluate(()=>({
-    scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth,
-    navVisible:(()=>{const r=document.querySelector('.biolab-section-navigation')?.getBoundingClientRect();return Boolean(r&&r.width>0&&r.height>0)})()
+    scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth
    }));
-   assert(bioMetrics.navVisible,'BioLab nav is hidden at '+name);
    assert(bioMetrics.scroll<=bioMetrics.client+2,'BioLab route overflows at '+name+': '+JSON.stringify(bioMetrics));
    assert.deepEqual(errors,[],'JavaScript exceptions found at '+name);
    results.push({viewport:name,theme,status:'passed',...bioMetrics});
