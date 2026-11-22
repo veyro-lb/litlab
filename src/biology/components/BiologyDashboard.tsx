@@ -17,6 +17,10 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
     <ResourceNav active={resource}/>
     <PracticeHub key={hash} level={level} hash={hash}/>
   </>;
+  if(resource==='flashcards')return <>
+    <ResourceNav active={resource}/>
+    <CurriculumOverview level={level} resource={resource}/>
+  </>;
   return <>
     <header className="bio-welcome" aria-labelledby="bio-welcome-title">
       <div className="bio-welcome-copy">
@@ -51,7 +55,6 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
     {resource==='sources'&&<section className="bio-course-bibliography"><h2>Course sources</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic’s Sources tab for figure credits and references.</p></section>}
     {resource==='revision'&&<p className="bio-resource-context">Revisit concise explanations, figures and recall prompts in each available lesson.</p>}
 
-    {resource==='flashcards'&&<p className="bio-resource-context">Choose a topic and try answering each flashcard before you reveal its answer.</p>}
     {resource==='drawing'?<DrawingCatalogue level={level}/>:<CurriculumOverview level={level} resource={resource}/>}
     <details className="bio-course-info"><summary><Layers3 size={16} aria-hidden="true"/> About this course</summary><p>{lessonCount} topics have published lessons. Use the course-level selector to see the content for SL or HL.</p></details>
   </>;
