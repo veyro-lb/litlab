@@ -72,19 +72,20 @@ try{
   await test('Practice feedback and marking '+theme,async()=>{await visit(page,'biology/topic/'+id+'/practice');const q=page.locator('fieldset.bio-check').first();await q.waitFor();await q.locator('.bio-options label').first().click();ok(await q.locator('input[type=radio]').first().isChecked(),'Practice answer label did not select its radio');await q.getByRole('button',{name:'Check my answer'}).click();await q.locator('.bio-feedback').waitFor();await q.locator('details summary').click();ok((await q.locator('.bio-feedback details p').count())>=2,'No per-option reasoning');await shot(page,'practice-'+theme+'-1440');});
   await test('Cheat sheets and flashcards '+theme,async()=>{await visit(page,'biology/topic/'+id+'/cheat-sheets');await page.locator('.bio-sheets-essentials').waitFor();await visit(page,'biology/topic/'+id+'/flashcards');await page.getByRole('button',{name:'Reveal answer'}).first().click();await page.locator('.bio-flashcard-answer').waitFor();await page.getByRole('button',{name:/Next card/}).click();});
  }
- await test('Sources and credits are student accessible',async()=>{await visit(page,'biology/topic/A1.1/sources');await page.locator('#bio-sources-heading').waitFor();const n=await page.locator('.bio-educational-sources li').count();ok(n===2,'Expected official IB and Hodder listings, got '+n);const links=await page.locator('.bio-educational-sources a[href^="https://"]').count();ok(links===2,'Expected two https source links, got '+links);await shot(page,'sources-A1.1-1440');});
+ await test('Sources and credits are student accessible',async()=>{await visit(page,'biology/sources');await page.locator('#bio-sources-heading').waitFor();const n=await page.locator('.bio-educational-sources li').count();ok(n===2,'Expected official IB and Hodder listings, got '+n);const links=await page.locator('.bio-educational-sources a[href^="https://"]').count();ok(links===2,'Expected two https source links, got '+links);await shot(page,'course-sources-1440');});
  await test('Licensed scientific image has exact reusable source and terms',async()=>{
   const lesson=lessonFor(reg.find(t=>t.id==='A2.2'));
   const asset=lesson.assets.find(a=>a.id==='a22-cucumber-tem');
   ok(asset&&asset.sourceUrl&&asset.termsUrl,'Missing authoritative asset citation metadata');
-  await visit(page,'biology/topic/A2.2/sources');
-  const details=page.locator('details.bio-media-credits');
-  await details.waitFor();
-  await details.locator('summary').click();
-  const item=page.locator('.bio-media-credits li').filter({hasText:asset.captionTitle});
-  await item.waitFor();
+  const section=lesson.sections.find(s=>s.assets.includes(asset.id));
+  ok(!!section,'Licensed TEM has no lesson placement');
+  await visit(page,'biology/topic/A2.2/learn?understanding='+section.understandingIds[0]);
+  const figure=page.locator('.bio-figure[data-asset-id="'+asset.id+'"]');
+  await figure.locator('.bio-figure-image').click();
+  const item=figure.locator('.bio-figure-dialog[open] .bio-figure-credit');
+  await item.locator('summary').click();
   const source=await item.getByRole('link',{name:/Original source/}).getAttribute('href');
-  const terms=await item.getByRole('link',{name:/Licence or terms/}).getAttribute('href');
+  const terms=await item.getByRole('link',{name:/Licence terms/}).getAttribute('href');
   ok(source===asset.sourceUrl,'Exact image source URL mismatch: '+source);
   ok(terms===asset.termsUrl,'Exact license URL mismatch: '+terms);
   ok((await item.innerText()).includes(asset.attribution.slice(0,30)),'Authorship or attribution is hidden');

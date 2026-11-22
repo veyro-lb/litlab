@@ -22,6 +22,10 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
     <ResourceNav active={resource}/>
     <CheatSheetsHub level={level}/>
   </>;
+  if(resource==='flashcards')return <>
+    <ResourceNav active={resource}/>
+    <CurriculumOverview level={level} resource={resource}/>
+  </>;
   return <>
     <header className="bio-welcome" aria-labelledby="bio-welcome-title">
       <div className="bio-welcome-copy">
@@ -53,9 +57,7 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
       <button type="button" className="bio-quick-item" onClick={focusSearch}><span className="bio-quick-icon"><Search size={20} aria-hidden="true"/></span><span><strong>{resource==='drawing'?'Find a diagram':'Find a topic'}</strong><small>Search by name or syllabus code</small></span><ArrowRight size={16} aria-hidden="true"/></button>
       <a className="bio-quick-item" data-resource="cheat-sheets" href="#biology?resource=cheat-sheets"><span className="bio-quick-icon"><FileText size={20} aria-hidden="true"/></span><span><strong>Cheat Sheets</strong><small>Key points and exam tips</small></span><ArrowRight size={16} aria-hidden="true"/></a>
     </section>
-    {resource==='sources'&&<section className="bio-course-bibliography"><h2>Course sources</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic’s Sources tab for figure credits and references.</p></section>}
 
-    {resource==='flashcards'&&<p className="bio-resource-context">Choose a topic and try answering each flashcard before you reveal its answer.</p>}
     {resource==='drawing'?<DrawingCatalogue level={level}/>:<CurriculumOverview level={level} resource={resource}/>}
     <details className="bio-course-info"><summary><Layers3 size={16} aria-hidden="true"/> About this course</summary><p>{lessonCount} topics have published lessons. Use the course-level selector to see the content for SL or HL.</p></details>
   </>;

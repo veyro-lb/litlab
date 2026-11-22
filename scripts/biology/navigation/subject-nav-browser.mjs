@@ -47,8 +47,15 @@ try {
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
    await page.screenshot({path:resolve(output,name+'-'+theme+'-biolab-lesson.png'),animations:'disabled'});
    if(name==='desktop'||name==='small-mobile'){
-    await visit('biology/topic/A1.1/flashcards');
+    await visit('biology?resource=flashcards');
+    await expect(page.getByRole('heading',{name:'Flashcard decks'})).toBeVisible();
+    await expect(page.locator('.bio-discovery-topic[data-topic-id="B2.1"]')).toBeVisible();
+    await page.getByRole('navigation',{name:'Flashcard themes'}).getByRole('link',{name:'Theme A',exact:true}).click();
+    await expect(page.locator('.bio-discovery-topic[data-topic-id="B2.1"]')).toHaveCount(0);
+    await page.locator('#bio-topic-search').fill('Water');
+    await page.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
     const deck=page.getByRole('region',{name:'Flashcards'});
+    await expect(deck.getByRole('heading',{name:'A1.1 Water',level:1})).toBeVisible();
     const card=deck.locator('.bio-card-button');
     const answer=deck.locator('.bio-flashcard-answer');
     const position=deck.locator('.bio-deck-progress');
@@ -92,6 +99,21 @@ try {
     await deck.getByRole('button',{name:'Restart deck'}).click();
     await expect(position).toContainText('Card 1 of 3');
     await expect(answer).toBeHidden();
+    await card.click();
+    await deck.getByRole('button',{name:'Review again',exact:true}).click();
+    await expect(position).toContainText('Card 2 of 3');
+    const review=deck.getByRole('button',{name:'Needs review 1',exact:true});
+    await review.click();
+    await expect(review).toHaveAttribute('aria-pressed','true');
+    await expect(position).toContainText('Card 1 of 1');
+    await expect(card).toHaveAccessibleDescription(/partial charges/i);
+    await card.click();
+    await deck.getByRole('button',{name:'Got it',exact:true}).click();
+    await expect(deck.getByRole('heading',{name:'No cards to review here'})).toBeVisible();
+    await expect(deck.getByRole('button',{name:'Needs review 0',exact:true})).toBeFocused();
+    await expect(deck.locator('.bio-deck-tally')).toContainText('1 marked');
+    await deck.getByRole('button',{name:'Show all cards',exact:true}).click();
+    await expect(position).toContainText('Card 2 of 3');
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
     assert(overflow<=2,'Flashcard layout overflows at '+name);
     await page.screenshot({path:resolve(output,name+'-'+theme+'-flashcards.png'),animations:'disabled'});

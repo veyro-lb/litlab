@@ -60,18 +60,6 @@
   color: var(--resource-color);
 }
 
-.bio-app .bio-flashcard {
-  background: color-mix(in srgb, var(--resource-color) 8%, var(--surface));
-  border-color: color-mix(in srgb, var(--resource-color) 28%, var(--line));
-}
-
-.bio-app .bio-flashcard {
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 14px;
-  padding-inline: clamp(16px, 4vw, 30px);
-}
-
 .bio-app{color:var(--ink);max-width:1232px}
 .bio-app .bio-toolbar{margin-bottom:20px;padding:10px 0 17px;border-bottom:1px solid var(--line);min-height:63px;gap:14px}
 .bio-toolbar-title{font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--muted)}
@@ -152,9 +140,6 @@
 .bio-search-empty h3{margin:8px 0 3px;font-size:19px}
 .bio-search-empty p{font-size:13px;color:var(--muted)}
 .bio-search-empty button{font-weight:750;color:var(--bio-green)}
-.bio-course-bibliography{margin:0 0 25px;padding:19px 22px;border:1px solid var(--bio-card-border);border-radius:12px;background:var(--surface)}
-.bio-course-bibliography h2{font-size:19px;margin:0 0 6px}
-.bio-course-bibliography p{margin:0}
 .bio-resource-context{padding:12px 16px;border-left:3px solid var(--bio-green);border-radius:5px;background:color-mix(in srgb,var(--bio-green) 5%,var(--surface));margin:0 0 24px}
 .bio-course-info{border-top:1px solid var(--line);margin-top:32px;padding-top:8px}
 .bio-course-info summary{display:flex;align-items:center;gap:9px;cursor:pointer;min-height:44px;font-size:12px;font-weight:760;color:var(--muted)}

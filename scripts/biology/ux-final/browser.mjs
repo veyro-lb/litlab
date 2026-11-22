@@ -145,11 +145,11 @@ try {
   await page.getByRole('button',{name:/Next card/}).click();
   await page.locator('.bio-flashcards').waitFor();
  });
- await test('Sources mode renders without changing its implementation',async()=>{
+ await test('Legacy topic source links open the course sources',async()=>{
   await visit(page,'#biology/topic/A1.1/sources');
   await page.locator('.bio-sources').waitFor();
-  assert.equal(await page.locator('#bio-sources-heading').innerText(),'Sources for this topic');
-  await page.getByRole('heading',{name:'Principal educational sources'}).waitFor();
+  assert.equal(await page.locator('#bio-sources-heading').innerText(),'Course sources');
+  assert.equal(await page.locator('.bio-lesson, #bio-topic-browser').count(),0);
   const guide=page.locator('.bio-educational-sources [data-source-id="ib-biology-guide-2025"]');
   const coursebook=page.locator('.bio-educational-sources [data-source-id="hodder-biology-third-edition-2023"]');
   await guide.waitFor({state:'visible'});

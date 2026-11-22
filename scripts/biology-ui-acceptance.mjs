@@ -142,11 +142,11 @@ try {
    await p.getByRole('button',{name:'Reveal answer'}).first().click();
    await expect(p.locator('.bio-flashcard-answer')).toBeVisible();
  });
- await check('Sources mode shows syllabus and coursebook provenance and review caveat',async()=>{
-   await navigate(p,'#biology/topic/A1.1/sources','.bio-sources');
-   await expect(p.locator('.bio-sources')).toContainText('IB Diploma Programme Biology guide');
+ await check('Course sources show the syllabus guide and coursebook as references',async()=>{
+   await navigate(p,'#biology/sources','.bio-sources');
+   await expect(p.locator('.bio-sources')).toContainText('International Baccalaureate Organization. (2023).');
    await expect(p.locator('.bio-sources')).toContainText('Hodder');
-   await expect(p.locator('.bio-sources')).toContainText('not been certified by the IB or a qualified scientific reviewer');
+   await expect(p.locator('.bio-sources cite')).toHaveCount(2);
  });
  await check('Guided practice opens a filtered topic and keeps the retry in view',async()=>{
    await navigate(p,'#biology/theme/D?resource=practice');

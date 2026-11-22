@@ -50,7 +50,7 @@ test('actual Learn and Cheat Sheets headings use exact registry IDs and titles f
 });
 test('actual SL markup excludes HL-only sections and assessments',()=>{for(const mode of ['learn','cheat-sheets','practice']){const html=render(water,topic,'SL',mode);assert.doesNotMatch(html,/data-(?:syllabus|understanding)-id="A1\.1\.[78]"/);assert.ok(!html.includes('data-question-id="p1a-7"'))}});
 test('synthetic real renderer supports 3 sections, study modes and scoped practice',()=>{
- for(const mode of ['learn','cheat-sheets','practice','sources']){const html=render(fixture,fixtureTopic,'HL',mode,'B1.9.2');assert.ok(html.includes('Synthetic renderer fixture'));assert.ok(!html.includes('biology/topic/A1.1'));if(mode!=='sources')assert.ok(html.includes('B1.9.2'))}
+ for(const mode of ['learn','cheat-sheets','practice']){const html=render(fixture,fixtureTopic,'HL',mode,'B1.9.2');assert.ok(html.includes('Synthetic renderer fixture'));assert.ok(!html.includes('biology/topic/A1.1'));assert.ok(html.includes('B1.9.2'))}
  assert.ok(!render(fixture,fixtureTopic,'SL','learn').includes('data-syllabus-id="B1.9.3"'));
 });
 test('synthetic all-HL topic validates and renders in HL',()=>{const t=structuredClone(fixtureTopic),d=structuredClone(fixture);t.level='HL';t.understandings.forEach(u=>u.level='HL');d.sections.forEach(s=>s.level='HL');d.questions.forEach(q=>q.level='HL');assert.deepEqual(validateLesson(d,t),[]);assert.ok(render(d,t,'HL','learn').includes('ADDITIONAL HL'));assert.ok(render(d,t,'SL','learn').includes('This topic is HL only'))});

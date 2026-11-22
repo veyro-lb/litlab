@@ -1,15 +1,17 @@
 import {useEffect,useRef,useState} from 'react';
-import type {Asset} from './content';
+import type {Asset, Reference} from './lesson-contract';
+import {getFigureCredit} from './source-policy';
 import {getFigurePresentation} from './figure-presentation';
 const clampZoom=(z:number)=>Math.max(1,Math.min(4,z));
 /** Native dialog supplies Escape and focus semantics; scrollable zoom preserves full diagrams. */
-export default function ScientificFigure({asset,hideLabels=false}:{asset:Asset;hideLabels?:boolean}){
+export default function ScientificFigure({asset,hideLabels=false,references=[]}:{asset:Asset;hideLabels?:boolean;references?:readonly Reference[]}){
  const [failed,setFailed]=useState(false);
  const [zoom,setZoom]=useState(1);
  const [rasterBase,setRasterBase]=useState(600);
  const dialog=useRef<HTMLDialogElement>(null);
  const opener=useRef<HTMLButtonElement>(null);
  const viewport=useRef<HTMLDivElement>(null);
+ const credit=getFigureCredit(asset,references);
  const presentation=getFigurePresentation(asset);
  const recalling=hideLabels&&Boolean(asset.recallSrc);
  const src=recalling?asset.recallSrc!:asset.src;
@@ -41,7 +43,14 @@ export default function ScientificFigure({asset,hideLabels=false}:{asset:Asset;h
    <div ref={viewport} className="bio-figure-zoom" tabIndex={0} role="region" aria-label="Enlarged diagram; scroll or use arrow keys to pan"><img src={src} alt={alt} style={{width:presentation.raster?(rasterBase*zoom)+'px':(zoom*100)+'%'}}/></div>
    <p>{asset.alt}</p>
    {asset.src.startsWith('/biology/licensed-book-crops/')&&<p className="bio-book-credit">Source: {asset.attribution}</p>}
-   <details className="bio-figure-credit"><summary>Image source and reuse</summary><p>{asset.attribution}</p><p>{asset.license}</p>{asset.sourceUrl&&<a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer">Original source ↗</a>}{asset.termsUrl&&<> · <a href={asset.termsUrl} target="_blank" rel="noopener noreferrer">Licence terms ↗</a></>}</details>
+   <details className="bio-figure-credit">
+    <summary>Image source and reuse</summary>
+    <p>{credit.attribution}</p>
+    <p>{asset.license}</p>
+    {credit.sourceUrl&&<p><a href={credit.sourceUrl} target="_blank" rel="noopener noreferrer">Original source ↗</a></p>}
+    {credit.termsUrl&&<p><a href={credit.termsUrl} target="_blank" rel="noopener noreferrer">Licence terms ↗</a></p>}
+    {credit.dataSources.map(source=><p key={source.id}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a></p>)}
+   </details>
    <p className="bio-figure-dialog-hint">Zoom in to inspect labels; scroll to pan. Press Escape to return to the lesson.</p>
   </dialog>}
  </figure>;
