@@ -44,7 +44,7 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
       <a className="bio-quick-item" href="#biology?resource=revision"><span className="bio-quick-icon"><RotateCcw size={20} aria-hidden="true"/></span><span><strong>Review concepts</strong><small>Revisit the key explanations</small></span><ArrowRight size={16} aria-hidden="true"/></a>
     </section>
     {resource==='sources'&&<section className="bio-course-bibliography"><h2>Sources and scientific review</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic's Sources view for detailed provenance and its review record.</p></section>}
-    {resource==='practice'&&<p className="bio-resource-context">Practise with original, syllabus-mapped draft questions and explanatory feedback. These are not official IB examination questions.</p>}
+    {resource==='practice'&&<p className="bio-resource-context">Practise with original, syllabus-mapped draft questions and explanatory feedback. These are not official IB examination questions. <a href="#biology/exam-skills">Try cross-topic Paper 1B practice →</a></p>}
     {resource==='revision'&&<p className="bio-resource-context">Revisit concise explanations, figures and recall prompts in each available lesson.</p>}
 
     {resource==='flashcards'&&<p className="bio-resource-context">Recall cards are available within teaching drafts. Opening or flipping a card does not indicate mastery.</p>}

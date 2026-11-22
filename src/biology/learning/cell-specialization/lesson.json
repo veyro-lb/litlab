@@ -3172,6 +3172,49 @@
         "hodder-b23-hl"
       ],
       "review": "examiner-validation-pending"
+    },
+    {
+      "id": "audit-data-b2-3-6",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "B2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Calculate the surface area-to-volume ratio of each cube and explain which geometry favours exchange per unit volume.",
+      "marks": 2,
+      "sectionId": "b23-6",
+      "referenceIds": [
+        "ib-b23",
+        "hodder-b23"
+      ],
+      "answer": "The ratios are 0.60 μm⁻¹ and 0.30 μm⁻¹. The smaller cube has more surface area for exchange per unit volume.",
+      "markingPoints": [
+        "Calculates both ratios with correct units.",
+        "Connects the larger ratio of the smaller cube to more exchange area for every unit of volume."
+      ],
+      "data": {
+        "caption": "Calculated surface area and volume for two model cells",
+        "headers": [
+          "Cube edge / μm",
+          "Surface area / μm²",
+          "Volume / μm³"
+        ],
+        "rows": [
+          [
+            10,
+            600,
+            1000
+          ],
+          [
+            20,
+            2400,
+            8000
+          ]
+        ]
+      },
+      "review": "source-mapped"
     }
   ],
   "references": [

@@ -4345,6 +4345,59 @@
         "Name a limitation such as testing access, population denominator, reporting delay or case definition (1)."
       ],
       "review": "sprint8-science-edited"
+    },
+    {
+      "id": "audit-data-c3-2-10",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "C3.2.10"
+      ],
+      "level": "shared",
+      "prompt": "Use matching time points to compare the responses. Explain the difference using immunological memory.",
+      "marks": 2,
+      "sectionId": "c32-10",
+      "referenceIds": [
+        "ib-c32",
+        "hodder-c32"
+      ],
+      "answer": "At day 4 the repeat response is already 18 versus 2, and at day 9 it is 28 versus 12. Memory cells produced during the first exposure are activated on re-exposure, allowing faster production of antibody-secreting cells.",
+      "markingPoints": [
+        "Uses concentrations from the same day for a valid comparison.",
+        "Links faster or stronger antibody production to activation of memory cells."
+      ],
+      "data": {
+        "caption": "Model antibody-response data",
+        "headers": [
+          "Exposure",
+          "Day after exposure",
+          "Relative antibody concentration"
+        ],
+        "rows": [
+          [
+            "First",
+            4,
+            2
+          ],
+          [
+            "Repeat",
+            4,
+            18
+          ],
+          [
+            "First",
+            9,
+            12
+          ],
+          [
+            "Repeat",
+            9,
+            28
+          ]
+        ]
+      },
+      "review": "source-mapped"
     }
   ],
   "references": [

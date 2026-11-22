@@ -14,6 +14,16 @@ export default function LearningVisual({visual}:{visual:Visual}) {
     <ol className="bio-visual-sequence">{visual.steps.map((step,i)=><li key={i}><strong>{step.title}</strong><span>{step.description}</span></li>)}</ol>
   </section>;
   const max=Math.max(1,...visual.values.map(d=>d.value));
+  if (visual.kind === 'pyramid') return <section className="bio-learning-visual" aria-label={visual.title}>
+    <h4>{visual.title}</h4>
+    <ol className="bio-energy-pyramid">
+      {[...visual.values].reverse().map(row => <li key={row.label}>
+        <span>{row.label} · {row.value.toLocaleString('en-GB')} {visual.unit}</span>
+        <div aria-hidden="true" style={{width: (row.value / max * 100) + '%'}}/>
+      </li>)}
+    </ol>
+    <p className="bio-visual-note">Widths are proportional. On small screens the tertiary bar can be thinner than one pixel.</p>
+  </section>;
   return <section className="bio-learning-visual" aria-label={visual.title}>
     <h4>{visual.title}</h4>{visual.note&&<p className="bio-visual-note">{visual.note}</p>}
     <div className="bio-visual-bars" role="img" aria-label={visual.title+': '+visual.values.map(v=>v.label+' '+v.value+' '+visual.unit).join('; ')}>

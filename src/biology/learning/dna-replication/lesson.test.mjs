@@ -4,4 +4,14 @@ const ids=Array.from({length:9},(_,i)=>'D1.1.'+(i+1));
 test('D1.1 official coverage and boundaries',()=>{assert.deepEqual(lesson.sections.map(s=>s.understandingIds[0]),ids);assert.deepEqual(lesson.sections.map(s=>s.level),[...Array(5).fill('shared'),...Array(4).fill('HL')]);assert.equal(lesson.review.reviewer,null)});
 test('each understanding has substantive explanation, headings, feedback and application',()=>{for(const s of lesson.sections){assert.ok(s.explanation.length>320,s.id);assert.equal(s.explanation,s.teachingBlocks.map(b=>b.explanation).join('\n\n'));assert.ok(s.workedExample.length>45);assert.equal(s.interactions[0].options.length,4);assert.equal(s.interactions[0].options.filter(o=>o.correct).length,1);assert.ok(s.recall.length);assert.ok(lesson.questions.some(q=>q.understandingIds[0]===s.understandingIds[0]));assert.ok(s.claimReferences.every(x=>x.referenceIds.length))}});
 test('directionality and bacterial mechanism negative invariants',()=>{const seven=lesson.sections[6];assert.match(seven.explanation,/5′→3′/);assert.match(seven.explanation,/Okazaki/);assert.match(lesson.sections[7].explanation,/polymerase III/);assert.match(lesson.sections[8].explanation,/3′→5′ exonuclease/);assert.ok(!lesson.sections.some(s=>/lagging strand (is|being) synthesized 3′→5′/i.test(s.explanation)));assert.deepEqual(lesson.assets[0].level,'HL')});
-test('external asset safety and nonpublished status',()=>{assert.ok(lesson.assets.every(a=>a.src.startsWith('/biology/dna-replication/')));assert.equal(lesson.review.status,'source-mapped')});
+test('local figures have permission where needed and the lesson remains source-mapped',()=>{
+ for(const asset of lesson.assets){
+  assert.match(asset.src,/^\/biology\/(?:dna-replication\/[a-z0-9-]+\.svg|licensed-book-crops\/[a-z0-9-]+\.png)$/);
+  assert.ok(fs.existsSync(new URL('../../../../public'+asset.src,import.meta.url)),asset.src);
+  if(asset.src.includes('/licensed-book-crops/')){
+   assert.equal(asset.publicReproductionRights,'cleared');
+   assert.ok(asset.permissionEvidence);
+  }
+ }
+ assert.equal(lesson.review.status,'source-mapped');
+});

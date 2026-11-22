@@ -24,9 +24,11 @@ function validate(x){
  if(new Set(seen).size!==ids.length||seen.length!==ids.length||ids.some(id=>!seen.includes(id)))errors.push('coverage');
  for(const q of x.questions){
    if(!q.original||!ids.includes(q.understandingIds[0])||!x.sections.some(s=>s.id===q.sectionId))errors.push('question metadata '+q.id);
-   if(q.kind!=='structured-response'&&!q.options)errors.push('question form '+q.id);
+   if(q.paper==='1B'){
+    if(q.kind!=='data'||!q.data?.rows?.length||q.data.rows.some(row=>row.length!==q.data.headers.length)||q.markingPoints?.length!==q.marks)errors.push('invalid data question '+q.id);
+   }else if(q.kind!=='structured-response'&&!q.options)errors.push('question form '+q.id);
  }
- if(x.questions.length!==20)errors.push('questions');
+ if(x.questions.filter(q=>q.paper!=='1B').length!==20||!x.questions.some(q=>q.paper==='1B'))errors.push('questions');
  return errors;
 }
 test('exact coverage: 12 shared and 8 additional HL',()=>{

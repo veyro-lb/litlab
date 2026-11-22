@@ -271,10 +271,10 @@ export const drawingRequirements = [
     "title": "Pyramids of energy",
     "guidePage": 84,
     "checks": [
-      "Use ecosystem data to show energy transferred per unit area per unit time.",
+      "Use the Silver Springs measurements to show energy flow per unit area per unit time.",
       "Draw producer level at the base and decreasing energy at successive trophic levels.",
       "Label each level and the energy units; explain losses between levels.",
-      "The reference percentages are illustrative. Actual transfer efficiency varies; use research data for the assessed task."
+      "Use the values in the data table to calculate transfer efficiency between levels."
     ],
     "reference": "/biology/drawing-references/energy-pyramid.png",
     "handoutPage": null,

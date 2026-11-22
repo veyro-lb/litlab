@@ -1462,6 +1462,58 @@
         "Links rapid HIV replication and reverse-transcription errors to heritable variation selected by drugs (1).",
         "Explains that effective combination antiretroviral therapy reduces replication and lowers the likelihood of multi-drug resistance (1)."
       ]
+    },
+    {
+      "id": "audit-data-a2-3-1",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "A2.3.1"
+      ],
+      "level": "HL",
+      "prompt": "Identify one shared feature. Use an explicit pair of entries to evaluate the claim that an envelope predicts the type of genome.",
+      "marks": 2,
+      "sectionId": "a23-1",
+      "referenceIds": [
+        "ib-guide-a23",
+        "hodder-a23"
+      ],
+      "answer": "A protein coat is shared. The envelope does not predict genome type in these examples: S and T both have one but have DNA and RNA respectively.",
+      "markingPoints": [
+        "Identifies the visible protein coat for all three particles.",
+        "Contrasts S with T and limits the conclusion to the data supplied."
+      ],
+      "data": {
+        "caption": "Published-style descriptions of three hypothetical viral particles",
+        "headers": [
+          "Particle",
+          "Protein coat visible",
+          "Envelope visible",
+          "Genome reported"
+        ],
+        "rows": [
+          [
+            "R",
+            "Yes",
+            "No",
+            "RNA"
+          ],
+          [
+            "S",
+            "Yes",
+            "Yes",
+            "DNA"
+          ],
+          [
+            "T",
+            "Yes",
+            "Yes",
+            "RNA"
+          ]
+        ]
+      },
+      "review": "source-mapped"
     }
   ],
   "references": [

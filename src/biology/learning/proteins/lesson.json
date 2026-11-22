@@ -3302,6 +3302,55 @@
         "hodder-b12-hl"
       ],
       "review": "examiner-validation-pending"
+    },
+    {
+      "id": "audit-data-b1-2-5",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "B1.2.5"
+      ],
+      "level": "shared",
+      "prompt": "Describe the change from 40 °C to 60 °C. Explain how the finding could be consistent with denaturation.",
+      "marks": 2,
+      "sectionId": "b12-5",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "answer": "Soluble protein fell by 42 percentage points. Heating may disrupt interactions that maintain folding, exposing regions that promote aggregation.",
+      "markingPoints": [
+        "Reports a fall from 94% to 52%, or 42 percentage points.",
+        "Links altered folding to exposure of regions that can aggregate."
+      ],
+      "data": {
+        "caption": "Hypothetical protein solubility after warming",
+        "headers": [
+          "Temperature / °C",
+          "Soluble protein after cooling / %"
+        ],
+        "rows": [
+          [
+            20,
+            96
+          ],
+          [
+            40,
+            94
+          ],
+          [
+            60,
+            52
+          ],
+          [
+            80,
+            10
+          ]
+        ]
+      },
+      "review": "source-mapped"
     }
   ],
   "references": [

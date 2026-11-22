@@ -1361,13 +1361,13 @@
           "specimen": "Unidentified dicotyledon stem, whole transverse section at low power; creator-provided 10× optical magnification",
           "modality": "light",
           "referenceId": "commons-dicot-stem-wen-2019",
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Stem_of_Dicotyledon_C.S.png",
+          "imageUrl": "/biology/observation/stem.webp",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stem_of_Dicotyledon_C.S.png",
           "author": "Eugeenia Wen (Wikimedia Commons account EugeeneWhen, 2019)",
           "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
           "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "observationPrompt": "Draw a low-power plan from the observed cross section: outer epidermis/cortex, peripheral ring of vascular bundles and broad central pith. In several bundles, identify inner xylem vessels versus smaller outer phloem tissue by their relative positions. Do not add imagined cells, wall layers or a numerical scale.",
-          "expectedEvidence": "The actual stem image shows a ring of many darker vascular bundles around a broad light central pith. In individual bundles larger xylem lumens are nearer the pith and phloem lies outward toward cortex. The bundles are not scattered uniformly through the pith. A plan diagram should show shapes and positions, not copy cellular detail.",
+          "observationPrompt": "Outline the outer tissue and cortex. Map the vascular bundles and use one bundle to place xylem and phloem.",
+          "expectedEvidence": "Draw the epidermis around the outside and the cortex inside it. Place the vascular bundles in a ring around the pith. Within one bundle, show xylem on the pith side and phloem on the cortex side. Annotate water and mineral transport for xylem, assimilate transport for phloem, and protection for the epidermis.",
           "scaleNote": "The creator reports 10× magnification, not a calibrated on-image scale bar. Pixel dimensions depend on display scaling, so actual vessel/stem sizes cannot be calculated from this image without separate calibration.",
           "limitation": "Specimen species and section-preparation method are not supplied. The source provides microscope magnification only, not specimen-scale calibration; use for qualitative observation rather than quantitative measurement."
         }
@@ -1411,7 +1411,9 @@
       ],
       "referenceIds": [
         "ib-guide-b32",
-        "hodder-b32"
+        "hodder-b32",
+        "observation-root",
+        "observation-root-stele"
       ],
       "claimReferences": [
         {
@@ -1529,7 +1531,41 @@
           }
         ],
         "simple": "The young root has central star-like xylem with phloem between its arms; the stem commonly has a ring of discrete vascular bundles."
-      }
+      },
+      "authenticMicrographs": [
+        {
+          "id": "root",
+          "title": "Buttercup root at low power",
+          "specimen": "Ranunculus root, transverse section",
+          "modality": "light",
+          "referenceId": "observation-root",
+          "imageUrl": "/biology/observation/root.webp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herbaceous_Dicot_root_Ranunculus_(34727536412).jpg",
+          "author": "Berkshire Community College Bioscience Image Library",
+          "license": "CC0 1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "observationPrompt": "Use this low-power view to draw the visible outline, outer epidermis, broad cortex and central stele. Use the higher-power view to locate xylem and phloem inside the stele.",
+          "expectedEvidence": "Label the thin outer epidermis and the broad cortex between the epidermis and the central stele. Put xylem at the centre, with phloem between its arms. The stele is central; there is no outer ring of individual bundles like the one in the stem.",
+          "scaleNote": "The source reports 100× optical magnification. The displayed image is resized.",
+          "limitation": "Part of the specimen extends beyond the frame. Keep the visible outline and use the second specimen view for fine detail."
+        },
+        {
+          "id": "root-stele",
+          "title": "Buttercup root vascular tissue at high power",
+          "specimen": "Ranunculus root stele, transverse section",
+          "modality": "light",
+          "referenceId": "observation-root-stele",
+          "imageUrl": "/biology/observation/root-stele.webp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stele_in_Herbaceous_Dicot_root_Ranunculus_(34758989431).jpg",
+          "author": "Berkshire Community College Bioscience Image Library",
+          "license": "CC0 1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "observationPrompt": "Compare the position of the largest red-walled cells with the groups of smaller green-stained cells. Transfer their relative positions to your low-power plan.",
+          "expectedEvidence": "The large, red-walled xylem vessels are in the arms of the central xylem. Phloem lies between the arms. The endodermis borders the stele on the side facing the cortex.",
+          "scaleNote": "The source reports 400× optical magnification. The displayed image is resized.",
+          "limitation": "This close-up does not include the whole epidermis. The red and green colours are stains."
+        }
+      ]
     },
     {
       "id": "b32-11",
@@ -3828,6 +3864,22 @@
       "locator": "Original low-power light micrograph; author states 10× magnification but does not supply a calibrated field width",
       "accessedAt": "2026-10-18",
       "level": "shared"
+    },
+    {
+      "id": "observation-root",
+      "title": "Buttercup root at low power — Berkshire Community College Bioscience Image Library",
+      "locator": "Herbaceous Dicot root Ranunculus (34727536412).jpg · CC0 1.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Herbaceous_Dicot_root_Ranunculus_(34727536412).jpg",
+      "level": "shared",
+      "accessedAt": "2026-11-22"
+    },
+    {
+      "id": "observation-root-stele",
+      "title": "Buttercup root vascular tissue at high power — Berkshire Community College Bioscience Image Library",
+      "locator": "Stele in Herbaceous Dicot root Ranunculus (34758989431).jpg · CC0 1.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Stele_in_Herbaceous_Dicot_root_Ranunculus_(34758989431).jpg",
+      "level": "shared",
+      "accessedAt": "2026-11-22"
     }
   ],
   "assets": [

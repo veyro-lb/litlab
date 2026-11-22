@@ -10,9 +10,9 @@ export interface Asset {displaySize?:'compact'|'standard'|'detailed'|'wide';publ
 export type LearningVisual =
  | {kind:'comparison'; title:string; afterBlock:number; headers:string[]; rows:string[][]; note?:string}
  | {kind:'sequence'; title:string; afterBlock:number; steps:{title:string;description:string}[]; note?:string}
- | {kind:'bars'; title:string; afterBlock:number; unit:string; values:{label:string;value:number}[]; note:string};
+ | {kind:'bars'|'pyramid'; title:string; afterBlock:number; unit:string; values:{label:string;value:number}[]; note:string};
 export interface AuthenticMicrograph {
- id:string; title:string; specimen:string; modality:'light'|'TEM'; referenceId:string;
+ id:string; title:string; specimen:string; modality:'light'|'TEM'|'SEM'; referenceId:string;
  imageUrl:string; sourceUrl:string; author:string; license:string; licenseUrl:string;
  observationPrompt:string; expectedEvidence:string; scaleNote:string; limitation:string;
 }

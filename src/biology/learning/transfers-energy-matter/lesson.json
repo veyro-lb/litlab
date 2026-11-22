@@ -5222,6 +5222,56 @@
         "Seasonality requires observations resolved within years (e.g. monthly), not only annual means (1)."
       ],
       "review": "sprint8-science-edited"
+    },
+    {
+      "id": "audit-data-c4-2-11",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "C4.2.11"
+      ],
+      "level": "shared",
+      "prompt": "Calculate the two transfer efficiencies into primary and secondary consumers. Evaluate a claim that each transfer is always exactly 10%.",
+      "marks": 3,
+      "sectionId": "c42-11",
+      "referenceIds": [
+        "ib-c42",
+        "hodder-c42",
+        "epa-odum"
+      ],
+      "answer": "The transfers in the table are approximately 16.2% and 11.4%, respectively. Neither equals exactly 10%; these estimates describe this ecosystem and cannot establish a universal value.",
+      "markingPoints": [
+        "Calculates 3368 ÷ 20 810 × 100 ≈ 16.2%.",
+        "Calculates 383 ÷ 3368 × 100 ≈ 11.4%.",
+        "Uses the estimates as counterexamples and limits the wider conclusion appropriately."
+      ],
+      "data": {
+        "caption": "Historical Silver Springs energy-flow values (Odum, 1957)",
+        "headers": [
+          "Trophic level",
+          "Energy flow / kcal m⁻² yr⁻¹"
+        ],
+        "rows": [
+          [
+            "Producers",
+            20810
+          ],
+          [
+            "Primary consumers",
+            3368
+          ],
+          [
+            "Secondary consumers",
+            383
+          ],
+          [
+            "Tertiary consumers",
+            21
+          ]
+        ]
+      },
+      "review": "source-mapped"
     }
   ],
   "references": [

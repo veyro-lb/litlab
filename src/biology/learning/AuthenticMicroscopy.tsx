@@ -3,7 +3,7 @@ import type {AuthenticMicrograph} from './lesson-contract';
 import type {StudyState} from './content';
 import type {UpdateStudy} from './StudyQuestion';
 
-/** Deliberately user-initiated network loading: the original remains on Wikimedia Commons.
+/** Deliberately user-initiated network loading: source credits remain accessible beside the image.
  * Attribution and specimen limitations always remain visible, including offline.
  */
 export default function AuthenticMicroscopy({cases,study,update}:{cases:AuthenticMicrograph[];study:StudyState;update:UpdateStudy}){
@@ -15,11 +15,11 @@ export default function AuthenticMicroscopy({cases,study,update}:{cases:Authenti
    {cases.map(c=>{
     const key='source-micrograph:'+c.id;
     return <article key={c.id} className="bio-microscopy-case" data-micrograph-id={c.id}>
-     <h4>{c.title} <small>{c.modality==='TEM'?'Transmission electron microscopy':'Light microscopy'}</small></h4>
+     <h4>{c.title} <small>{{TEM:'Transmission electron microscopy',SEM:'Scanning electron microscopy',light:'Light microscopy'}[c.modality]}</small></h4>
      <p><strong>Specimen:</strong> {c.specimen}</p>
      <p><strong>Source and rights:</strong> {c.author} · {c.license} · <a href={c.sourceUrl} target="_blank" rel="noopener noreferrer">Original image and source details ↗</a> · <a href={c.licenseUrl} target="_blank" rel="noopener noreferrer">Reuse terms ↗</a></p>
      {!opened[c.id]?<button type="button" onClick={()=>setOpened(o=>({...o,[c.id]:true}))}>Load this sourced micrograph</button>:<>
-       {failed[c.id]?<p role="status">The image host is unavailable or blocked. <a href={c.sourceUrl} target="_blank" rel="noopener noreferrer">Open the licensed original to inspect it ↗</a></p>:<figure className="bio-microscopy-photo"><img loading="lazy" decoding="async" referrerPolicy="no-referrer" src={c.imageUrl} alt={`${c.modality==='TEM'?'Electron':'Light'} micrograph of ${c.specimen}. Observe the source image before assigning biological labels.`} onError={()=>setFailed(p=>({...p,[c.id]:true}))}/></figure>}
+       {failed[c.id]?<p role="status">The image could not be loaded. <a href={c.sourceUrl} target="_blank" rel="noopener noreferrer">Open the licensed original to inspect it ↗</a></p>:<figure className="bio-microscopy-photo"><img loading="lazy" decoding="async" referrerPolicy="no-referrer" src={c.imageUrl} alt={`${c.modality==='light'?'Light':'Electron'} micrograph of ${c.specimen}. Observe the source image before assigning biological labels.`} onError={()=>setFailed(p=>({...p,[c.id]:true}))}/></figure>}
        <button type="button" onClick={()=>setOpened(o=>({...o,[c.id]:false}))}>Close source image</button>
      </>}
      <p><strong>Observation task:</strong> {c.observationPrompt}</p>

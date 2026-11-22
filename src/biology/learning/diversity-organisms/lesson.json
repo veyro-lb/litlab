@@ -3280,6 +3280,59 @@
         "The sample contains DNA associated with the identified fish taxon, subject to controls and database match.",
         "It does not prove that a known number of live fish occupy the exact sampling point."
       ]
+    },
+    {
+      "id": "audit-data-a3-1-4",
+      "paper": "1B",
+      "kind": "data",
+      "original": true,
+      "understandingIds": [
+        "A3.1.4"
+      ],
+      "level": "shared",
+      "prompt": "Use the data to evaluate whether P and Q should be considered one species under the biological species concept.",
+      "marks": 3,
+      "sectionId": "a31-4",
+      "referenceIds": [
+        "guide-a31",
+        "hodder-a31"
+      ],
+      "answer": "The same-population crosses produced fertile offspring. Between-population crosses produced some offspring but no fertile offspring in this sample, which supports reproductive isolation. Broader sampling is needed.",
+      "markingPoints": [
+        "Uses the fertility contrast in within- and between-population crosses.",
+        "Explains why production of offspring alone is insufficient.",
+        "Notes the limited number of crosses or the need to sample additional populations."
+      ],
+      "data": {
+        "caption": "Hypothetical observations of co-occurring populations",
+        "headers": [
+          "Cross",
+          "Number of pairings",
+          "Offspring produced",
+          "Fertile offspring observed"
+        ],
+        "rows": [
+          [
+            "P × P",
+            10,
+            18,
+            "Yes"
+          ],
+          [
+            "Q × Q",
+            10,
+            17,
+            "Yes"
+          ],
+          [
+            "P × Q",
+            10,
+            3,
+            "No"
+          ]
+        ]
+      },
+      "review": "source-mapped"
     }
   ],
   "references": [

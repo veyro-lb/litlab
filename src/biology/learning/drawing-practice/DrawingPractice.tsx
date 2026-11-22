@@ -24,7 +24,7 @@ export default function DrawingPractice({lesson,sections,level,study,update,requ
  const [confirmed,setConfirmed]=useState(false);
  const exercise=scoped.find(e=>e.id===selection)??scoped[0];
  const base=`#biology/topic/${lesson.topicId}`;
- if(!exercise)return <PaperDrawingPractice key={lesson.topicId+':'+(requestedId??'')} lesson={lesson} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={requestedDiagram}/>;
+ if(requestedDiagram||!exercise)return <PaperDrawingPractice key={lesson.topicId+':'+(requestedId??'')} lesson={lesson} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={requestedDiagram}/>;
  const asset=lesson.assets.find(a=>a.id===exercise.assetId)!;
  const key=(suffix:string)=>`drawing:${exercise.id}:${suffix}`;
  const revealed=!!study.revealed[key('reference')],tested=!!study.revealed[key('checked')];

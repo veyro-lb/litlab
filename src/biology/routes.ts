@@ -1,9 +1,10 @@
 import type {ThemeId} from './curriculum/schema';
-export type BiologyRoute = {kind: 'dashboard'} | {kind: 'theme'; id: ThemeId} | {kind: 'topic'; id: string; mode?: 'learn'|'revision'|'practice'|'sources'|'flashcards'|'drawing'} | {kind: 'not-found'};
+export type BiologyRoute = {kind: 'dashboard'} | {kind: 'skills'} | {kind: 'theme'; id: ThemeId} | {kind: 'topic'; id: string; mode?: 'learn'|'revision'|'practice'|'sources'|'flashcards'|'drawing'} | {kind: 'not-found'};
 export const isBiologyRoute = (route: string) => /^biology(?:\/|$)/i.test(route.split('?')[0]);
 export function parseBiologyRoute(hash: string): BiologyRoute {
   const route = hash.replace(/^#/, '').split('?')[0].replace(/\/$/, '');
   if (route === 'biology') return {kind: 'dashboard'};
+  if (route === 'biology/exam-skills') return {kind: 'skills'};
   const theme = /^biology\/theme\/([A-D])$/.exec(route);
   if (theme) return {kind: 'theme', id: theme[1] as ThemeId};
   const lesson = /^biology\/topic\/([A-D][1-4]\.\d+)\/(learn|revision|practice|sources|flashcards|drawing)$/.exec(route);

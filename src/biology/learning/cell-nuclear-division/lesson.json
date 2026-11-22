@@ -1479,7 +1479,7 @@
       ],
       "level": "shared",
       "guidingQuestion": "Which outcome can follow meiotic nondisjunction of chromosome 21?",
-      "explanation": "Non-disjunction is failure of homologous chromosomes in meiosis I, or sister chromatids in meiosis II, to separate normally. Resulting gametes may have an extra chromosome or be missing one.\n\nA gamete carrying two copies of chromosome 21 can fuse with a normal gamete carrying one, producing a zygote with three copies (trisomy 21). This accounts for most Down syndrome cases. Other mechanisms can produce extra chromosome-21 material; it is not a disorder caused by one point mutation.",
+      "explanation": "Nondisjunction is a failure of chromosomes to separate. In meiosis I, homologous chromosomes can move together into one cell. If meiosis II then proceeds normally, all four products have an extra or a missing copy. In meiosis II, sister chromatids can fail to separate in just one of the two cells. In this case two products have the usual number, one has an extra copy, and one lacks that copy.\n\nA gamete carrying two copies of chromosome 21 can fuse with a normal gamete carrying one, producing a zygote with three copies (trisomy 21). This accounts for most Down syndrome cases. Other mechanisms can produce extra chromosome-21 material; it is not a disorder caused by one point mutation.",
       "revisionSummary": "Failure of homologues or sister chromatids to separate can produce a gamete with two chromosome-21 copies. Fusion with a normal gamete adds another chromosome 21. The resulting trisomy 21 gives three copies and accounts for most Down syndrome cases.",
       "terms": [
         "Nondisjunction can change chromosome dosage: mechanism",
@@ -1494,7 +1494,7 @@
       ],
       "claimReferences": [
         {
-          "claim": "Non-disjunction is failure of homologous chromosomes in meiosis I, or sister chromatids in meiosis II, to separate normally. Resulting gametes may have an extra chromosome or be missing one.",
+          "claim": "Nondisjunction is a failure of chromosomes to separate. In meiosis I, homologous chromosomes can move together into one cell. If meiosis II then proceeds normally, all four products have an extra or a missing copy. In meiosis II, sister chromatids can fail to separate in just one of the two cells. In this case two products have the usual number, one has an extra copy, and one lacks that copy.",
           "referenceIds": [
             "ib-d21",
             "hodder-d21"
@@ -1512,7 +1512,9 @@
         "ib-d21",
         "hodder-d21"
       ],
-      "assets": [],
+      "assets": [
+        "d21-non-disjunction"
+      ],
       "interactions": [
         {
           "kind": "selection",
@@ -1559,6 +1561,16 @@
           "prompt": "Explain how meiotic non-disjunction can cause Down syndrome.",
           "answer": "Failure of homologues or sister chromatids to separate can produce a gamete with two chromosome-21 copies. Fusion with a normal gamete adds another chromosome 21. The resulting trisomy 21 gives three copies and accounts for most Down syndrome cases.",
           "explanation": "State the correct cell-cycle stage and count chromosomes by centromeres."
+        },
+        {
+          "kind": "recall",
+          "id": "d21-recall-nondisjunction-products",
+          "prompt": "Two meiotic products have the usual chromosome number and the other two have n + 1 and n − 1. Which division was affected?",
+          "answer": "Meiosis II in one of the two cells. The other cell divided normally and produced the two usual haploid products.",
+          "explanation": "A meiosis I error would distribute both homologues into one of the first two cells and would affect all four products.",
+          "understandingIds": [
+            "D2.1.10"
+          ]
         }
       ],
       "guidePage": 91,
@@ -1577,7 +1589,7 @@
       "teachingBlocks": [
         {
           "title": "Non-disjunction changes gamete chromosome number",
-          "explanation": "Non-disjunction is failure of homologous chromosomes in meiosis I, or sister chromatids in meiosis II, to separate normally. Resulting gametes may have an extra chromosome or be missing one.",
+          "explanation": "Nondisjunction is a failure of chromosomes to separate. In meiosis I, homologous chromosomes can move together into one cell. If meiosis II then proceeds normally, all four products have an extra or a missing copy. In meiosis II, sister chromatids can fail to separate in just one of the two cells. In this case two products have the usual number, one has an extra copy, and one lacks that copy.",
           "referenceIds": [
             "ib-d21",
             "hodder-d21"
@@ -1606,7 +1618,13 @@
             "explanation": "Non-disjunction is failure of homologous chromosomes in meiosis I, or sister chromatids in meiosis II, to separate normally. Resulting gametes may have an extra chromosome or be missing one."
           }
         ]
-      }
+      },
+      "figurePlacements": [
+        {
+          "assetId": "d21-non-disjunction",
+          "afterBlock": 0
+        }
+      ]
     },
     {
       "id": "d21-11",
@@ -4130,6 +4148,24 @@
       "publicReproductionRights": "cleared",
       "displaySize": "detailed",
       "interpretation": "Independent orientation at metaphase I changes which maternal and paternal homologues pass to gametes; this mechanism is distinct from exchange between non-sister chromatids during prophase I."
+    },
+    {
+      "id": "d21-non-disjunction",
+      "kind": "diagram",
+      "src": "/biology/cell-nuclear-division/non-disjunction.svg",
+      "captionTitle": "Nondisjunction in meiosis I and meiosis II",
+      "alt": "Only the affected chromosome pair is shown. A meiosis I error causes gamete chromosome counts n + 1, n + 1, n − 1, and n − 1. A meiosis II error in one cell causes n + 1, n − 1, n, and n. n is the usual haploid number.",
+      "attribution": "Original BioLab teaching diagram.",
+      "license": "Original BioLab educational illustration.",
+      "permissionEvidence": "Created in this repository for BioLab.",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21"
+      ],
+      "level": "shared",
+      "review": "source-mapped",
+      "displaySize": "wide",
+      "publicReproductionRights": "cleared"
     }
   ],
   "summary": "Eukaryotic division requires accurate chromosome segregation and cytoplasmic allocation. Mitosis maintains genome content in daughter nuclei, meiosis produces haploid diversity, and regulated cell cycles coordinate growth and repair.",
