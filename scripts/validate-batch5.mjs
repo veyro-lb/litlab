@@ -36,7 +36,7 @@ export function validateBatch5(registry,catalog,lessons){
   if(!s('A1.2.13')?.molecularViewer?.url.startsWith('https://www.rcsb.org/3d-view/1KX5')||!s('A1.2.13')?.molecularViewer?.fallback.includes('does not satisfy'))errors.push('Missing guided hands-on nucleosome software use');
   if(!s('A1.2.8')?.explanation.includes('coding DNA strand')||!s('A1.2.8')?.explanation.includes('template'))errors.push('Transcription correction absent');
   if(!s('A1.2.6')?.explanation.includes('antiparallel')||!s('A1.2.13')?.explanation.includes('H1'))errors.push('DNA/nucleosome scientific invariants absent');
-  if(!a.questions.some(q=>q.paper==='1B'&&/invented|illustrative/i.test(q.data?.caption||'')))errors.push('No disclosed illustrative DNA data exercise');
+  if(!a.questions.some(q=>q.paper==='1B'&&/invented|illustrative|constructed|simulated/i.test(q.data?.caption||'')))errors.push('No disclosed illustrative DNA data exercise');
  }
  if(c){
   const s=id=>c.sections.find(x=>x.understandingIds[0]===id);
