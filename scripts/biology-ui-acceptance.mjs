@@ -88,8 +88,8 @@ try {
    await navigate(p,'#biology');
    await p.getByRole('link',{name:/Practice questions/i}).click();
    await expect(p.locator('.bio-resource-nav a[aria-current="page"]')).toContainText('Practice');
-   await p.locator('#bio-topic-search').fill('A1.1');
-   await p.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
+   await p.getByLabel('Topic',{exact:true}).selectOption('A1.1');
+   await p.getByRole('link',{name:'Start practice'}).click();
    await expect(p.locator('.bio-practice-choice').first()).toBeVisible();
    const lesson=JSON.parse(await readFile(new URL('../src/biology/learning/water/lesson.json',import.meta.url),'utf8'));
    const question=lesson.questions.find(item=>item.level==='shared'&&item.options?.some(option=>!option.correct)&&item.options.some(option=>option.correct));
@@ -134,11 +134,9 @@ try {
      await mobile.close();
    }
  });
- await check('Revision and Flashcards each reveal recall answers',async()=>{
-   await navigate(p,'#biology/topic/A1.1/revision','.bio-revision[data-mode=revision]');
-   await expect(p.locator('#bio-rev-answer')).toBeHidden();
-   await p.getByRole('button',{name:/^Show answers?$/}).click();
-   await expect(p.locator('#bio-rev-answer')).toBeVisible();
+ await check('Cheat Sheets and Flashcards show topic study material',async()=>{
+   await navigate(p,'#biology/topic/A1.1/cheat-sheets','.bio-sheets[data-mode=cheat-sheets]');
+   await expect(p.locator('.bio-sheets-essentials')).toBeVisible();
    await navigate(p,'#biology/topic/A1.1/flashcards','.bio-lesson[data-mode=flashcards]');
    await expect(p.locator('.bio-flashcards')).toBeVisible();
    await p.getByRole('button',{name:'Reveal answer'}).first().click();
@@ -150,12 +148,31 @@ try {
    await expect(p.locator('.bio-sources')).toContainText('Hodder');
    await expect(p.locator('.bio-sources')).toContainText('not been certified by the IB or a qualified scientific reviewer');
  });
- await check('Study mode preserved from landing page through theme and topic tile',async()=>{
-   await navigate(p,'#biology?resource=practice');
-   await p.locator('.bio-discovery-theme-A').click();
-   await expect(p).toHaveURL(/#biology\/theme\/A\?resource=practice$/);
-   await p.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
-   await expect(p.locator('.bio-practice')).toBeVisible();
+ await check('Guided practice opens a filtered topic and keeps the retry in view',async()=>{
+   await navigate(p,'#biology/theme/D?resource=practice');
+   await p.getByLabel('Topic',{exact:true}).selectOption('D3.1');
+   await p.getByRole('link',{name:'Start practice'}).click();
+   await expect(p).toHaveURL(/D3\.1\/practice\?paper=1A/);
+   await expect(p.locator('.bio-practice-choice')).toHaveCount(1);
+   await p.getByRole('combobox',{name:'Jump to a question'}).selectOption('d31-lh-surge');
+   const field=p.locator('[data-question-id="d31-lh-surge"]');
+   await field.locator('input[value="a"]').check();
+   await field.getByRole('button',{name:'Check my answer'}).click();
+   await p.getByRole('button',{name:'Review missed questions'}).click();
+   await expect(field).toBeVisible();
+   await field.getByRole('button',{name:'Try again'}).click();
+   await field.locator('input[value="c"]').check();
+   await field.getByRole('button',{name:'Check my answer'}).click();
+   await expect(field.getByRole('status')).toContainText('Correct');
+   await p.getByRole('button',{name:'Back to all questions'}).click();
+   await expect(field).toBeVisible();
+   await p.getByRole('button',{name:'Next question'}).click();
+   await expect(p.getByRole('group',{name:/Question \d+ of \d+/})).toBeFocused();
+   await p.getByRole('link',{name:'Paper 1B',exact:true}).click();
+   const written=p.locator('[data-question-id="d31-germination-controls"]');
+   await expect(written.getByRole('table')).toBeVisible();
+   await written.getByRole('button',{name:'Compare with marking guidance'}).click();
+   await expect(written.getByRole('heading',{name:'Mark scheme'})).toBeVisible();
  });
  await check('Deep links, refresh, back and forward work',async()=>{
    await navigate(p,'#biology');

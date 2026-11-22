@@ -2556,6 +2556,204 @@
   ],
   "questions": [
     {
+      "id": "d31-placental-exchange",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.1.18"
+      ],
+      "level": "HL",
+      "prompt": "In a placental model, the fetal capillaries are moved farther from the maternal blood spaces while flow rates stay constant. What is the most direct effect on oxygen transfer?",
+      "marks": 1,
+      "sectionId": "reproduction-18",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Transfer decreases because the diffusion distance increases.",
+          "correct": true,
+          "feedback": "Oxygen transfer across the placenta depends partly on the diffusion distance."
+        },
+        {
+          "id": "b",
+          "text": "Transfer increases because the exchange area increases.",
+          "correct": false,
+          "feedback": "The change specifies a greater separation, not a change in surface area."
+        },
+        {
+          "id": "c",
+          "text": "Transfer stays the same because the two blood supplies do not mix.",
+          "correct": false,
+          "feedback": "Separate blood supplies can still exchange oxygen by diffusion."
+        },
+        {
+          "id": "d",
+          "text": "Transfer reverses because the direction of diffusion depends on distance.",
+          "correct": false,
+          "feedback": "Oxygen moves down its gradient; a longer path affects rate, not the direction of the gradient."
+        }
+      ]
+    },
+    {
+      "id": "d31-cross-pollination",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.1.10"
+      ],
+      "level": "shared",
+      "prompt": "A plant species releases pollen from each flower several days before that flower’s stigma becomes receptive. How can this feature promote cross-pollination?",
+      "marks": 1,
+      "sectionId": "reproduction-10",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It causes pollen tubes from the same flower to grow more quickly.",
+          "correct": false,
+          "feedback": "Timing changes the pollen available when the stigma becomes receptive, not its growth rate."
+        },
+        {
+          "id": "b",
+          "text": "It makes the stigma receptive before pollen is released.",
+          "correct": false,
+          "feedback": "The stem describes the reverse order."
+        },
+        {
+          "id": "c",
+          "text": "It keeps genetically different pollen from reaching the stigma.",
+          "correct": false,
+          "feedback": "Pollen from another plant can reach the stigma during its receptive period."
+        },
+        {
+          "id": "d",
+          "text": "It reduces the chance that pollen released by a flower reaches its own receptive stigma.",
+          "correct": true,
+          "feedback": "Different maturation times reduce the overlap of pollen release and stigma receptivity in the same flower."
+        }
+      ]
+    },
+    {
+      "id": "d31-lh-surge",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.1.5"
+      ],
+      "level": "shared",
+      "prompt": "In a human ovarian cycle, which sequence most directly leads to ovulation?",
+      "marks": 1,
+      "sectionId": "reproduction-5",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Falling progesterone stimulates LH release from the ovary.",
+          "correct": false,
+          "feedback": "LH is released by the anterior pituitary. Progesterone is mainly elevated after ovulation."
+        },
+        {
+          "id": "b",
+          "text": "The corpus luteum stimulates the release of FSH.",
+          "correct": false,
+          "feedback": "The corpus luteum develops after ovulation."
+        },
+        {
+          "id": "c",
+          "text": "Sustained high oestradiol promotes an LH surge.",
+          "correct": true,
+          "feedback": "Positive feedback at high oestradiol increases LH release, triggering ovulation."
+        },
+        {
+          "id": "d",
+          "text": "Falling FSH causes the follicle to secrete progesterone.",
+          "correct": false,
+          "feedback": "The preovulatory follicle is a source of oestradiol; the LH surge is the immediate trigger for ovulation."
+        }
+      ]
+    },
+    {
+      "id": "d31-ploidy-in-life-cycle",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D3.1.2"
+      ],
+      "level": "shared",
+      "prompt": "A mammal has 28 chromosomes in a diploid somatic cell. Which numbers are expected in its gamete and zygote, respectively?",
+      "marks": 1,
+      "sectionId": "reproduction-2",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "14 and 14",
+          "correct": false,
+          "feedback": "Meiosis yields 14, but fertilization restores the diploid number."
+        },
+        {
+          "id": "b",
+          "text": "14 and 28",
+          "correct": true,
+          "feedback": "Meiosis halves the diploid number and gamete fusion restores it."
+        },
+        {
+          "id": "c",
+          "text": "28 and 28",
+          "correct": false,
+          "feedback": "The zygote is diploid, whereas the gamete has one chromosome set."
+        },
+        {
+          "id": "d",
+          "text": "28 and 56",
+          "correct": false,
+          "feedback": "Fertilization adds two chromosome sets, but the gametes each contain 14, not 28."
+        }
+      ]
+    },
+    {
+      "id": "d31-ovarian-uterine-cycle",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D3.1.5"
+      ],
+      "level": "shared",
+      "prompt": "Explain how ovarian and pituitary hormones coordinate ovulation and prepare the uterus for implantation. [6]",
+      "marks": 6,
+      "sectionId": "reproduction-5",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "FSH supports follicle development. The developing follicle produces oestradiol, which stimulates the rebuilding of the endometrium. Sustained high oestradiol stimulates positive feedback on the hypothalamus and pituitary. The resulting LH surge triggers ovulation. The corpus luteum formed after ovulation secretes progesterone. Progesterone maintains the endometrium in a state suitable for implantation.",
+      "markingPoints": [
+        "FSH supports follicle development.",
+        "The developing follicle produces oestradiol, which stimulates the rebuilding of the endometrium.",
+        "Sustained high oestradiol stimulates positive feedback on the hypothalamus and pituitary.",
+        "The resulting LH surge triggers ovulation.",
+        "The corpus luteum formed after ovulation secretes progesterone.",
+        "Progesterone maintains the endometrium in a state suitable for implantation."
+      ]
+    },
+    {
       "id": "d31-q-1",
       "paper": "2",
       "kind": "structured-response",
@@ -3034,6 +3232,59 @@
         "A lower CHD rate among clinic-attending HRT users could reflect socioeconomic and health-behaviour differences, not a drug effect."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
+    },
+    {
+      "id": "d31-germination-controls",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D3.1.12"
+      ],
+      "level": "shared",
+      "prompt": "(a) Calculate the difference in the percentage of seeds germinating between A and C, in percentage points. [1]\n(b) Compare the results from A and B and deduce the factor being tested. [2]\n(c) Suggest one improvement that would allow the variability of the result to be estimated. [1]",
+      "marks": 4,
+      "sectionId": "reproduction-12",
+      "referenceIds": [
+        "ib-d31",
+        "hodder-d31"
+      ],
+      "answer": "A = 90% and C = 35%, a difference of 55 percentage points. Thirty-six seeds germinated in A and none in B. Water availability is the factor compared because temperature is the same in A and B. Use multiple independent groups of seeds for each treatment and compare the spread of germination percentages.",
+      "markingPoints": [
+        "A = 90% and C = 35%, a difference of 55 percentage points.",
+        "Thirty-six seeds germinated in A and none in B.",
+        "Water availability is the factor compared because temperature is the same in A and B.",
+        "Use multiple independent groups of seeds for each treatment and compare the spread of germination percentages."
+      ],
+      "data": {
+        "caption": "Simulated germination results after seven days. All groups used the same seed lot and oxygen availability.",
+        "headers": [
+          "Group",
+          "Water available",
+          "Temperature (°C)",
+          "Seeds germinating out of 40"
+        ],
+        "rows": [
+          [
+            "A",
+            "Yes",
+            22,
+            36
+          ],
+          [
+            "B",
+            "No",
+            22,
+            0
+          ],
+          [
+            "C",
+            "Yes",
+            8,
+            14
+          ]
+        ]
+      }
     }
   ],
   "references": [

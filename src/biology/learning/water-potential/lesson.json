@@ -2052,6 +2052,50 @@
   ],
   "questions": [
     {
+      "id": "d23-turgor-application",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.3.6"
+      ],
+      "level": "shared",
+      "prompt": "Two similar plant cells are moved into the same dilute solution. The first has an intact wall and the second lacks a wall. Which outcome is most likely?",
+      "marks": 1,
+      "sectionId": "d23-6",
+      "referenceIds": [
+        "ib-d23",
+        "hodder-d23",
+        "openstax-osmosis"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Both lose water because their interiors are more concentrated.",
+          "correct": false,
+          "feedback": "Water enters by osmosis when the external solution is more dilute."
+        },
+        {
+          "id": "c",
+          "text": "The walled cell becomes turgid, while the cell without a wall may burst.",
+          "correct": true,
+          "feedback": "Water enters both. The wall resists expansion and helps develop pressure inside the first cell."
+        },
+        {
+          "id": "b",
+          "text": "The walled cell bursts first because water cannot cross the wall.",
+          "correct": false,
+          "feedback": "The wall is permeable to water but resists expansion and limits swelling."
+        },
+        {
+          "id": "d",
+          "text": "The cell without a wall stays unchanged because osmosis requires a cell wall.",
+          "correct": false,
+          "feedback": "Osmosis requires a selectively permeable membrane, which both cells have."
+        }
+      ]
+    },
+    {
       "id": "d23-mcq-1",
       "paper": "1A",
       "kind": "selection",
@@ -2070,12 +2114,6 @@
       ],
       "options": [
         {
-          "id": "d23-1-o1",
-          "text": "Partially negative oxygen side",
-          "correct": true,
-          "feedback": "Correct. Water's polarity enables it to dissolve many ionic and polar substances."
-        },
-        {
           "id": "d23-1-o2",
           "text": "Partially positive hydrogen side only",
           "correct": false,
@@ -2092,6 +2130,12 @@
           "text": "A peptide bond",
           "correct": false,
           "feedback": "Consider why “A peptide bond” does not answer this question. The partially negative oxygen region of water tends to orient toward Na⁺."
+        },
+        {
+          "id": "d23-1-o1",
+          "text": "Partially negative oxygen side",
+          "correct": true,
+          "feedback": "Correct. Water's polarity enables it to dissolve many ionic and polar substances."
         }
       ],
       "review": "draft"
@@ -2210,12 +2254,6 @@
       ],
       "options": [
         {
-          "id": "d23-3-o1",
-          "text": "Water crosses both ways with zero net flux",
-          "correct": true,
-          "feedback": "Correct. Osmosis is net water movement across a selectively permeable membrane down a water-potential difference."
-        },
-        {
           "id": "d23-3-o2",
           "text": "Water never crosses the plasma membrane",
           "correct": false,
@@ -2232,6 +2270,12 @@
           "text": "The cell must undergo plasmolysis",
           "correct": false,
           "feedback": "Consider why “The cell must undergo plasmolysis” does not answer this question. Water continues moving in both directions; net flux is zero at equilibrium."
+        },
+        {
+          "id": "d23-3-o1",
+          "text": "Water crosses both ways with zero net flux",
+          "correct": true,
+          "feedback": "Correct. Osmosis is net water movement across a selectively permeable membrane down a water-potential difference."
         }
       ],
       "review": "draft"
@@ -2280,16 +2324,16 @@
       ],
       "options": [
         {
-          "id": "d23-4-o1",
-          "text": "An isotonic solution under the tested conditions",
-          "correct": true,
-          "feedback": "Correct. In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration."
-        },
-        {
           "id": "d23-4-o2",
           "text": "Complete destruction of the cellulose wall",
           "correct": false,
           "feedback": "Consider why “Complete destruction of the cellulose wall” does not answer this question. More concentrated external solute commonly drives net water loss from plant tissue."
+        },
+        {
+          "id": "d23-4-o1",
+          "text": "An isotonic solution under the tested conditions",
+          "correct": true,
+          "feedback": "Correct. In a standard potato-cylinder investigation, pieces of similar size and source are exposed for equal times to solutions of varying solute concentration."
         },
         {
           "id": "d23-4-o3",
@@ -2395,12 +2439,6 @@
       ],
       "options": [
         {
-          "id": "d23-5-o1",
-          "text": "It can swell and lyse",
-          "correct": true,
-          "feedback": "Correct. An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis."
-        },
-        {
           "id": "d23-5-o2",
           "text": "It becomes turgid against a cellulose wall",
           "correct": false,
@@ -2411,6 +2449,12 @@
           "text": "It invariably plasmolyses",
           "correct": false,
           "feedback": "Consider why “It invariably plasmolyses” does not answer this question. Animal cells have no rigid cell wall, so extreme hypotonic swelling can cause lysis."
+        },
+        {
+          "id": "d23-5-o1",
+          "text": "It can swell and lyse",
+          "correct": true,
+          "feedback": "Correct. An animal cell in a strongly hypotonic solution takes up water and may swell until its membrane ruptures, a process called lysis."
         },
         {
           "id": "d23-5-o4",
@@ -2535,12 +2579,6 @@
       ],
       "options": [
         {
-          "id": "d23-7-o1",
-          "text": "To reduce harmful cell swelling or shrinkage",
-          "correct": true,
-          "feedback": "Correct. Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context."
-        },
-        {
           "id": "d23-7-o2",
           "text": "To ensure all cells undergo lysis",
           "correct": false,
@@ -2551,6 +2589,12 @@
           "text": "To make all dissolved solutes impermeable forever",
           "correct": false,
           "feedback": "Consider why “To make all dissolved solutes impermeable forever” does not answer this question. Effective osmotic concentration and other clinical properties must be appropriate."
+        },
+        {
+          "id": "d23-7-o1",
+          "text": "To reduce harmful cell swelling or shrinkage",
+          "correct": true,
+          "feedback": "Correct. Solutions used to introduce fluids intravenously are formulated for appropriate effective osmolality and clinical context."
         },
         {
           "id": "d23-7-o4",
@@ -2678,12 +2722,6 @@
       ],
       "options": [
         {
-          "id": "d23-9-o1",
-          "text": "From −200 toward −700 kPa",
-          "correct": true,
-          "feedback": "Correct. Water tends to move from a region of higher water potential to lower water potential across a permeable pathway."
-        },
-        {
           "id": "d23-9-o2",
           "text": "From −700 toward −200 kPa",
           "correct": false,
@@ -2694,6 +2732,12 @@
           "text": "Neither side can exchange water",
           "correct": false,
           "feedback": "Consider why “Neither side can exchange water” does not answer this question. Net movement is from higher (less negative) to lower (more negative) water potential."
+        },
+        {
+          "id": "d23-9-o1",
+          "text": "From −200 toward −700 kPa",
+          "correct": true,
+          "feedback": "Correct. Water tends to move from a region of higher water potential to lower water potential across a permeable pathway."
         },
         {
           "id": "d23-9-o4",
@@ -2750,16 +2794,16 @@
       ],
       "options": [
         {
-          "id": "d23-10-o1",
-          "text": "−200 kPa",
-          "correct": true,
-          "feedback": "Correct. For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell."
-        },
-        {
           "id": "d23-10-o2",
           "text": "+1400 kPa",
           "correct": false,
           "feedback": "Consider why “+1400 kPa” does not answer this question. Xylem tension may give a negative pressure potential."
+        },
+        {
+          "id": "d23-10-o1",
+          "text": "−200 kPa",
+          "correct": true,
+          "feedback": "Correct. For the specified cell contexts, water potential is modelled as Ψw = Ψs + Ψp, with solute potential Ψs usually zero or negative and pressure potential Ψp usually positive within a turgid plant cell."
         },
         {
           "id": "d23-10-o3",
@@ -2822,12 +2866,6 @@
       ],
       "options": [
         {
-          "id": "d23-11-o1",
-          "text": "Net water leaves the cell",
-          "correct": true,
-          "feedback": "Correct. When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling."
-        },
-        {
           "id": "d23-11-o2",
           "text": "Net water enters the cell",
           "correct": false,
@@ -2844,6 +2882,12 @@
           "text": "The cell's DNA replicates",
           "correct": false,
           "feedback": "Consider why “The cell's DNA replicates” does not answer this question. Higher external solute usually lowers water potential and can draw water out, reducing turgor."
+        },
+        {
+          "id": "d23-11-o1",
+          "text": "Net water leaves the cell",
+          "correct": true,
+          "feedback": "Correct. When a plant cell is placed in a hypotonic solution, water may enter, enlarge the vacuole and increase pressure potential as the wall resists swelling."
         }
       ],
       "review": "draft"

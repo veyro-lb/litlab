@@ -48,7 +48,7 @@
 .bio-app :is(.bio-resource-nav > a, .bio-quick-item) { --resource-color: var(--bio-green); }
 
 .bio-app[data-resource="practice"], .bio-app [data-resource="practice"] { --resource-color: var(--bio-blue); }
-.bio-app[data-resource="revision"], .bio-app [data-resource="revision"] { --resource-color: var(--bio-violet); }
+.bio-app[data-resource="cheat-sheets"], .bio-app [data-resource="cheat-sheets"] { --resource-color: var(--bio-violet); }
 .bio-app[data-resource="flashcards"], .bio-app [data-resource="flashcards"] { --resource-color: var(--bio-rose); }
 .bio-app[data-resource="drawing"], .bio-app [data-resource="drawing"] { --resource-color: var(--bio-amber); }
 
@@ -60,7 +60,6 @@
   color: var(--resource-color);
 }
 
-.bio-app .bio-lesson[data-mode="revision"] .bio-takeaway,
 .bio-app .bio-flashcard {
   background: color-mix(in srgb, var(--resource-color) 8%, var(--surface));
   border-color: color-mix(in srgb, var(--resource-color) 28%, var(--line));

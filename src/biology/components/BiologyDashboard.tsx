@@ -1,7 +1,7 @@
-import RevisionHub from '../learning/RevisionHub';
+import CheatSheetsHub from '../learning/CheatSheetsHub';
 import PracticeHub from '../learning/PracticeHub';
 import DrawingCatalogue from '../learning/drawing-practice/DrawingCatalogue';
-import {ArrowRight, BookOpen, FlaskConical, Layers3, RotateCcw, Search} from 'lucide-react';
+import {ArrowRight, BookOpen, FlaskConical, Layers3, FileText, Search} from 'lucide-react';
 import type {Level} from '../curriculum/schema';
 import {topics, visibleTopics, visibleUnderstandings} from '../curriculum/manifest';
 import CurriculumOverview from './CurriculumOverview';
@@ -18,9 +18,9 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
     <ResourceNav active={resource}/>
     <PracticeHub key={hash} level={level} hash={hash}/>
   </>;
-  if(resource==='revision')return <>
+  if(resource==='cheat-sheets')return <>
     <ResourceNav active={resource}/>
-    <RevisionHub level={level}/>
+    <CheatSheetsHub level={level}/>
   </>;
   return <>
     <header className="bio-welcome" aria-labelledby="bio-welcome-title">
@@ -51,7 +51,7 @@ export default function BiologyDashboard({level,hash}:{level:Level;hash:string})
     <section className="bio-quick-panel" aria-label="Quick study actions">
       {starter&&<a href={'#biology/topic/'+starter.id+'/learn?understanding='+visibleUnderstandings(starter,level)[0].id} className="bio-quick-item"><span className="bio-quick-icon"><BookOpen size={20} aria-hidden="true"/></span><span><strong>Begin a lesson</strong><small>{starter.id} · {starter.title}</small></span><ArrowRight size={16} aria-hidden="true"/></a>}
       <button type="button" className="bio-quick-item" onClick={focusSearch}><span className="bio-quick-icon"><Search size={20} aria-hidden="true"/></span><span><strong>{resource==='drawing'?'Find a diagram':'Find a topic'}</strong><small>Search by name or syllabus code</small></span><ArrowRight size={16} aria-hidden="true"/></button>
-      <a className="bio-quick-item" data-resource="revision" href="#biology?resource=revision"><span className="bio-quick-icon"><RotateCcw size={20} aria-hidden="true"/></span><span><strong>Start revision</strong><small>Active recall and cheat sheets</small></span><ArrowRight size={16} aria-hidden="true"/></a>
+      <a className="bio-quick-item" data-resource="cheat-sheets" href="#biology?resource=cheat-sheets"><span className="bio-quick-icon"><FileText size={20} aria-hidden="true"/></span><span><strong>Cheat Sheets</strong><small>Key points and exam tips</small></span><ArrowRight size={16} aria-hidden="true"/></a>
     </section>
     {resource==='sources'&&<section className="bio-course-bibliography"><h2>Course sources</h2><p><strong>Curriculum:</strong> IB Biology Guide, first assessment 2025. <strong>Primary coursebook:</strong> Clegg, Davis &amp; Talbot, <em>Biology for the IB Diploma Programme</em>, Third Edition (Hodder Education, 2023). Open a topic’s Sources tab for figure credits and references.</p></section>}
 

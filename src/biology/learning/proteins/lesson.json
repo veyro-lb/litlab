@@ -3302,6 +3302,51 @@
         "hodder-b12-hl"
       ],
       "review": "examiner-validation-pending"
+    },
+    {
+      "id": "b12-protein-solubility",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "B1.2.5"
+      ],
+      "level": "shared",
+      "prompt": "(a) Calculate the decrease in the soluble fraction between 40 °C and 65 °C, in percentage points. [1]\n(b) Explain why the soluble fraction does not return to its starting value after cooling, using the protein structure. [2]",
+      "marks": 3,
+      "sectionId": "b12-5",
+      "referenceIds": [
+        "ib-b12-sl",
+        "hodder-b12-sl",
+        "openstax-protein"
+      ],
+      "answer": "98 − 22 = 76 percentage points. Heating can disrupt interactions that maintain the protein’s folded shape. Unfolded chains can aggregate, so most of the protein can remain insoluble after cooling.",
+      "markingPoints": [
+        "98 − 22 = 76 percentage points.",
+        "Heating can disrupt interactions that maintain the protein’s folded shape.",
+        "Unfolded chains can aggregate, so most of the protein can remain insoluble after cooling."
+      ],
+      "data": {
+        "caption": "Simulated solubility measurements from aliquots of a purified protein.",
+        "headers": [
+          "Treatment",
+          "Protein remaining soluble (%)"
+        ],
+        "rows": [
+          [
+            "Held at 40 °C",
+            98
+          ],
+          [
+            "Heated to 65 °C",
+            22
+          ],
+          [
+            "Heated to 65 °C then cooled to 40 °C",
+            25
+          ]
+        ]
+      }
     }
   ],
   "references": [

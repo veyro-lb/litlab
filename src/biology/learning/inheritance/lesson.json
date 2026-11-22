@@ -3564,24 +3564,24 @@
     {
       "id": "d32-written-1",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.1"
       ],
       "level": "shared",
-      "prompt": "Explain gametes and diploid zygotes using a causal mechanism and a relevant example or calculation.",
+      "prompt": "A diploid plant has 18 chromosomes in each root cell. Explain how chromosome number is maintained from one sexual generation to the next. [3]",
       "marks": 3,
       "sectionId": "inheritance-1",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "Meiosis in a diploid parent separates homologous chromosomes so that gametes contain one chromosome from each pair. For each autosomal locus, a haploid gamete normally carries one allele, while a diploid body cell generally has two alleles, one inherited from each parent. Fusion of two haploid gametes during fertilization restores the diploid chromosome complement in the zygote. Subsequent mitotic divisions retain that complement.\nIn humans, an egg with 23 chromosomes and a sperm with 23 normally form a 46-chromosome zygote.",
+      "answer": "Meiosis halves the chromosome number, producing gametes with nine chromosomes. Fusion brings together one haploid chromosome set from each parent. The zygote therefore has 18 chromosomes, the same diploid count as the parents.",
       "markingPoints": [
-        "Gamete fusion restores the diploid complement after meiotic reduction.",
-        "Meiosis in a diploid parent separates homologous chromosomes so that gametes contain one chromosome from each pair.",
-        "In humans, an egg with 23 chromosomes and a sperm with 23 normally form a 46-chromosome zygote."
+        "Meiosis halves the chromosome number, producing gametes with nine chromosomes.",
+        "Fusion brings together one haploid chromosome set from each parent.",
+        "The zygote therefore has 18 chromosomes, the same diploid count as the parents."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -3723,24 +3723,24 @@
     {
       "id": "d32-written-3",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.3"
       ],
       "level": "shared",
-      "prompt": "Explain genotypes and allele combinations using a causal mechanism and a relevant example or calculation.",
+      "prompt": "At one locus, P is dominant to p. One purple-flowered plant is PP and a second is Pp. Compare their genotypes and explain how the plants can have the same flower colour. [3]",
       "marks": 3,
       "sectionId": "inheritance-3",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "A gene is a DNA sequence whose product contributes to a biological function; an allele is one alternative sequence form at a genetic locus. Genotype refers to the allele combination for the gene or genes under discussion, rather than directly to the visible trait. At an autosomal locus in a typical diploid individual there are two alleles.\nAa × aa gives offspring 1/2 Aa and 1/2 aa, in expectation.",
+      "answer": "PP is homozygous because both alleles are P. Pp is heterozygous because the alleles differ. Both express the dominant purple phenotype because each has at least one P allele.",
       "markingPoints": [
-        "Aa is heterozygous because the two alleles differ.",
-        "A gene is a DNA sequence whose product contributes to a biological function; an allele is one alternative sequence form at a genetic locus.",
-        "Aa × aa gives offspring 1/2 Aa and 1/2 aa, in expectation."
+        "PP is homozygous because both alleles are P.",
+        "Pp is heterozygous because the alleles differ.",
+        "Both express the dominant purple phenotype because each has at least one P allele."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -3791,36 +3791,43 @@
     {
       "id": "d32-written-4",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.4"
       ],
       "level": "shared",
-      "prompt": "Explain phenotypes: genes and environment using a causal mechanism and a relevant example or calculation.",
+      "prompt": "(a) Calculate the percentage increase in mean height for genotype P at high nitrate compared with low nitrate. [1]\n(b) Use the data to explain how genotype and environment both affect height. [2]",
       "marks": 3,
       "sectionId": "inheritance-4",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "Phenotype is the observable or measurable expression of an organism's traits. It can reflect genotype, environmental influences and interactions between them. An ABO blood group is determined largely by inherited alleles at the ABO locus; a suntan results from environmental ultraviolet exposure; stature is influenced by many genes together with nutrition and health.\nTwo genetically similar plants may reach different heights if one grows under restricted light or water conditions.",
+      "answer": "(24 − 16) ÷ 16 × 100 = 50%. Within one genotype the height differs between nitrate treatments, supporting an environmental effect. At the same nitrate level the mean heights differ between P and Q, supporting a genotypic effect.",
       "markingPoints": [
-        "Height commonly reflects both genes and environmental conditions.",
-        "Phenotype is the observable or measurable expression of an organism's traits.",
-        "Two genetically similar plants may reach different heights if one grows under restricted light or water conditions."
+        "(24 − 16) ÷ 16 × 100 = 50%.",
+        "Within one genotype the height differs between nitrate treatments, supporting an environmental effect.",
+        "At the same nitrate level the mean heights differ between P and Q, supporting a genotypic effect."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
       "data": {
-        "caption": "Illustrative evidence or example for Phenotypes: genes and environment",
+        "caption": "Simulated means for two plant genotypes raised under otherwise equal conditions.",
         "headers": [
-          "Given evidence",
-          "Interpretation required"
+          "Genotype",
+          "Mean height, low nitrate (cm)",
+          "Mean height, high nitrate (cm)"
         ],
         "rows": [
           [
-            "Two genetically similar plants may reach different heights if one grows under restricted light or water conditions.",
-            "Explain the scientific mechanism and scope"
+            "P",
+            16,
+            24
+          ],
+          [
+            "Q",
+            20,
+            25
           ]
         ]
       }
@@ -3940,24 +3947,24 @@
     {
       "id": "d32-written-6",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.6"
       ],
       "level": "shared",
-      "prompt": "Explain phenotypic plasticity using a causal mechanism and a relevant example or calculation.",
+      "prompt": "Cuttings from a single plant develop thicker leaves in high light than in shade. Explain how these observations illustrate phenotypic plasticity. [3]",
       "marks": 3,
       "sectionId": "inheritance-6",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "Phenotypic plasticity is the capacity of one genotype to produce different phenotypes in different environments. Environmental signals can alter gene regulation, hormone signalling, enzyme activity and development. Some responses are reversible during an individual's life, whereas developmental changes can persist after the triggering conditions disappear.\nPlants of one genotype grown in sun versus shade may form leaves of different thickness and area.",
+      "answer": "Cuttings from the same plant share the same genotype. The light environment can alter gene expression or the course of leaf development. The same genotype therefore produces different leaf phenotypes in different conditions.",
       "markingPoints": [
-        "Plasticity changes trait expression in response to conditions without requiring a new allele.",
-        "Phenotypic plasticity is the capacity of one genotype to produce different phenotypes in different environments.",
-        "Plants of one genotype grown in sun versus shade may form leaves of different thickness and area."
+        "Cuttings from the same plant share the same genotype.",
+        "The light environment can alter gene expression or the course of leaf development.",
+        "The same genotype therefore produces different leaf phenotypes in different conditions."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4009,13 +4016,13 @@
     {
       "id": "d32-written-7",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.7"
       ],
       "level": "shared",
-      "prompt": "Explain phenylketonuria and recessive inheritance using a causal mechanism and a relevant example or calculation.",
+      "prompt": "Two unaffected parents have a child with phenylketonuria caused by a recessive allele. Explain the parents’ genotypes and determine the probability that their next child inherits the disorder. [3]",
       "marks": 3,
       "sectionId": "inheritance-7",
       "referenceIds": [
@@ -4023,11 +4030,11 @@
         "hodder-d32",
         "nih-pku"
       ],
-      "answer": "Phenylketonuria (PKU) is usually caused by disease-associated variants in both copies of the autosomal PAH gene. PAH encodes phenylalanine hydroxylase, needed to convert phenylalanine into tyrosine. Inadequate activity allows phenylalanine to accumulate; without timely treatment, elevated levels can damage developing nervous tissue. Newborn screening and controlled dietary phenylalanine intake help prevent serious harm.\nAa × Aa at a recessive disease locus yields probabilities AA 25%, Aa 50%, aa 25%.",
+      "answer": "Each unaffected parent must be a heterozygous carrier under the recessive model. Each parent has a one-half chance of passing on the recessive allele. The child must inherit both recessive alleles: ½ × ½ = ¼, or 25%.",
       "markingPoints": [
-        "Two carrier parents have a 25% affected-offspring probability per pregnancy.",
-        "Phenylketonuria (PKU) is usually caused by disease-associated variants in both copies of the autosomal PAH gene.",
-        "Aa × Aa at a recessive disease locus yields probabilities AA 25%, Aa 50%, aa 25%."
+        "Each unaffected parent must be a heterozygous carrier under the recessive model.",
+        "Each parent has a one-half chance of passing on the recessive allele.",
+        "The child must inherit both recessive alleles: ½ × ½ = ¼, or 25%."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4078,36 +4085,56 @@
     {
       "id": "d32-written-8",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.8"
       ],
       "level": "shared",
-      "prompt": "Explain snps and multiple alleles using a causal mechanism and a relevant example or calculation.",
+      "prompt": "(a) Identify the position that is polymorphic. [1]\n(b) State the two alleles observed at this position and calculate the frequency of the rarer allele. [2]",
       "marks": 3,
       "sectionId": "inheritance-8",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "A single-nucleotide polymorphism (SNP) is a variation at one nucleotide position among individuals. Such variation can occur in coding or noncoding DNA and need not change protein function. A gene may have numerous alleles within the population gene pool, generated historically by mutations and then influenced by selection, migration and chance.\nThe ABO system has three familiar alleles in a population, although one diploid person carries only two.",
+      "answer": "Position 102 is polymorphic. The alleles are C and T. T is the rarer allele at 24 ÷ 100 = 0.24, or 24%.",
       "markingPoints": [
-        "A population can carry many alleles at a locus while a diploid person carries two.",
-        "A single-nucleotide polymorphism (SNP) is a variation at one nucleotide position among individuals.",
-        "The ABO system has three familiar alleles in a population, although one diploid person carries only two."
+        "Position 102 is polymorphic.",
+        "The alleles are C and T.",
+        "T is the rarer allele at 24 ÷ 100 = 0.24, or 24%."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
       "data": {
-        "caption": "Illustrative evidence or example for SNPs and multiple alleles",
+        "caption": "Simulated allele counts from 100 copies of the same autosomal region.",
         "headers": [
-          "Given evidence",
-          "Interpretation required"
+          "Reference position",
+          "A copies",
+          "C copies",
+          "G copies",
+          "T copies"
         ],
         "rows": [
           [
-            "The ABO system has three familiar alleles in a population, although one diploid person carries only two.",
-            "Explain the scientific mechanism and scope"
+            101,
+            100,
+            0,
+            0,
+            0
+          ],
+          [
+            102,
+            0,
+            76,
+            0,
+            24
+          ],
+          [
+            103,
+            0,
+            0,
+            100,
+            0
           ]
         ]
       }
@@ -4160,13 +4187,13 @@
     {
       "id": "d32-written-9",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.9"
       ],
       "level": "shared",
-      "prompt": "Explain inheritance of abo blood groups using a causal mechanism and a relevant example or calculation.",
+      "prompt": "One parent has blood group A with genotype Iᴬi and the other has blood group B with genotype Iᴮi. Deduce the possible blood groups, state the probability of group O and explain how the group AB phenotype arises. [3]",
       "marks": 3,
       "sectionId": "inheritance-9",
       "referenceIds": [
@@ -4174,11 +4201,11 @@
         "hodder-d32",
         "ncbi-abo"
       ],
-      "answer": "At the ABO locus, Iᴬ and Iᴮ encode enzymes that produce A and B antigens on red blood cells and are codominant; the common i allele produces neither functional A nor B transferase. IᴬIᴬ and Iᴬi give phenotype A; IᴮIᴮ and Iᴮi give B; IᴬIᴮ gives AB; ii gives O. The three allele symbols must be distinguished from the four blood-group phenotypes.\nIᴬi × Iᴮi predicts four ABO phenotypes in a 1:1:1:1 ratio.",
+      "answer": "The possible phenotypes are A, B, AB and O. Group O requires ii and has a probability of ¼. Iᴬ and Iᴮ are codominant, so the IᴬIᴮ genotype expresses both A and B antigens.",
       "markingPoints": [
-        "IᴬIᴮ expresses both A and B antigens, yielding group AB.",
-        "At the ABO locus, Iᴬ and Iᴮ encode enzymes that produce A and B antigens on red blood cells and are codominant; the common i allele produces neither functional A nor B transferase.",
-        "Iᴬi × Iᴮi predicts four ABO phenotypes in a 1:1:1:1 ratio."
+        "The possible phenotypes are A, B, AB and O.",
+        "Group O requires ii and has a probability of ¼.",
+        "Iᴬ and Iᴮ are codominant, so the IᴬIᴮ genotype expresses both A and B antigens."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4229,24 +4256,24 @@
     {
       "id": "d32-written-10",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.10"
       ],
       "level": "shared",
-      "prompt": "Explain incomplete dominance and codominance using a causal mechanism and a relevant example or calculation.",
+      "prompt": "A red × white flower cross yields pink heterozygotes. In another species, an equivalent cross produces petals with distinct red and white patches. Compare the patterns and explain how the heterozygote phenotypes distinguish them. [3]",
       "marks": 3,
       "sectionId": "inheritance-10",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "Incomplete dominance occurs when the heterozygote has an intermediate phenotype compared with both homozygotes. The four-o'clock plant (Mirabilis jalapa) can show red, pink and white flower colours: crossing red and white pure-breeding parents produces pink heterozygotes in this teaching model. Codominance instead means both allelic products are visibly expressed in the heterozygote, as with A and B antigens in people with genotype IᴬIᴮ.\nIn the ABO system group AB is a dual phenotype, not a visual mixture that is an intermediate blood group.",
+      "answer": "Pink illustrates incomplete dominance. The pink phenotype is intermediate between the two homozygous phenotypes. Red and white patches illustrate codominance because both parental traits are distinguishable in the same heterozygote.",
       "markingPoints": [
-        "An intermediate heterozygote illustrates incomplete dominance; a dual phenotype illustrates codominance.",
-        "Incomplete dominance occurs when the heterozygote has an intermediate phenotype compared with both homozygotes.",
-        "In the ABO system group AB is a dual phenotype, not a visual mixture that is an intermediate blood group."
+        "Pink illustrates incomplete dominance.",
+        "The pink phenotype is intermediate between the two homozygous phenotypes.",
+        "Red and white patches illustrate codominance because both parental traits are distinguishable in the same heterozygote."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4297,24 +4324,24 @@
     {
       "id": "d32-written-11",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.11"
       ],
       "level": "shared",
-      "prompt": "Explain human sex chromosomes and inheritance using a causal mechanism and a relevant example or calculation.",
+      "prompt": "Explain how X and Y chromosomes segregate in humans and how fertilization can produce an XX or XY zygote in the usual chromosomal pattern. [3]",
       "marks": 3,
       "sectionId": "inheritance-11",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "In the common human XX/XY pattern, most eggs carry an X chromosome, whereas sperm carry either X or Y. An X-bearing sperm commonly produces an XX zygote and a Y-bearing sperm commonly produces an XY zygote. The Y chromosome commonly carries SRY, which can initiate testis development and downstream hormonal changes in embryos. Chromosomal sex, reproductive anatomy and gender identity should not be treated as perfectly interchangeable.\nXX egg-producing parent × XY sperm-producing parent predicts roughly 1/2 XX and 1/2 XY zygotes under the standard model.",
+      "answer": "Eggs usually carry an X chromosome. Sperm normally carry either X or Y because X and Y segregate during meiosis. An X-bearing sperm produces an XX zygote and a Y-bearing sperm produces an XY zygote when each fertilizes an X-bearing egg.",
       "markingPoints": [
-        "The sex chromosome carried by an X- or Y-bearing sperm affects common XX/XY developmental outcomes.",
-        "In the common human XX/XY pattern, most eggs carry an X chromosome, whereas sperm carry either X or Y.",
-        "XX egg-producing parent × XY sperm-producing parent predicts roughly 1/2 XX and 1/2 XY zygotes under the standard model."
+        "Eggs usually carry an X chromosome.",
+        "Sperm normally carry either X or Y because X and Y segregate during meiosis.",
+        "An X-bearing sperm produces an XX zygote and a Y-bearing sperm produces an XY zygote when each fertilizes an X-bearing egg."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4366,13 +4393,13 @@
     {
       "id": "d32-written-12",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.12"
       ],
       "level": "shared",
-      "prompt": "Explain x-linked inheritance of haemophilia using a causal mechanism and a relevant example or calculation.",
+      "prompt": "In this family, haemophilia is caused by an X-linked recessive allele.\n(a) Deduce the genotype of the mother using Xᴴ and Xʰ. [1]\n(b) Explain how the affected son inherited the allele and calculate the probability that the next son is affected. [2]",
       "marks": 3,
       "sectionId": "inheritance-12",
       "referenceIds": [
@@ -4380,23 +4407,35 @@
         "hodder-d32",
         "nih-hemo"
       ],
-      "answer": "Haemophilia A is commonly associated with variants in the X-linked F8 gene affecting clotting factor VIII; haemophilia B involves F9 and factor IX. For a simple recessive X-linked model, write alleles as Xᴴ (usual clotting) and Xʰ (haemophilia-associated). A person with XʰY typically expresses the condition because there is no second X allele for that gene. XᴴXʰ is typically described as a carrier, although some heterozygous people also bleed due partly to X-inactivation.\nFor a carrier mother and unaffected father, the probability a randomly selected child is a son with haemophilia is 1/4, assuming equal probabilities of XX and XY births.",
+      "answer": "The mother is heterozygous, XᴴXʰ. The affected son inherited Xʰ from his mother and Y from his father. Each son has a 1 in 2 chance of inheriting Xʰ from his mother, independent of earlier births.",
       "markingPoints": [
-        "A carrier mother and unaffected father predict a 50% chance of haemophilia among sons.",
-        "Haemophilia A is commonly associated with variants in the X-linked F8 gene affecting clotting factor VIII; haemophilia B involves F9 and factor IX.",
-        "For a carrier mother and unaffected father, the probability a randomly selected child is a son with haemophilia is 1/4, assuming equal probabilities of XX and XY births."
+        "The mother is heterozygous, XᴴXʰ.",
+        "The affected son inherited Xʰ from his mother and Y from his father.",
+        "Each son has a 1 in 2 chance of inheriting Xʰ from his mother, independent of earlier births."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
       "data": {
-        "caption": "Illustrative evidence or example for X-linked inheritance of haemophilia",
+        "caption": "Hypothetical family. Assume standard XX/XY inheritance and no new mutation.",
         "headers": [
-          "Given evidence",
-          "Interpretation required"
+          "Family member",
+          "Haemophilia phenotype"
         ],
         "rows": [
           [
-            "For a carrier mother and unaffected father, the probability a randomly selected child is a son with haemophilia is 1/4, assuming equal probabilities of XX and XY births.",
-            "Explain the scientific mechanism and scope"
+            "Mother",
+            "Unaffected"
+          ],
+          [
+            "Father",
+            "Unaffected"
+          ],
+          [
+            "Son 1",
+            "Affected"
+          ],
+          [
+            "Son 2",
+            "Unaffected"
           ]
         ]
       }
@@ -4448,24 +4487,24 @@
     {
       "id": "d32-written-13",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.13"
       ],
       "level": "shared",
-      "prompt": "Explain inferring inheritance from pedigrees using a causal mechanism and a relevant example or calculation.",
+      "prompt": "An affected daughter and an unaffected son have two unaffected parents. Assuming complete penetrance and no new mutation, explain why autosomal recessive inheritance is consistent with this family and X-linked recessive inheritance is not. [3]",
       "marks": 3,
       "sectionId": "inheritance-13",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "A pedigree displays parent–offspring relationships and observed phenotypes across generations. Squares usually represent males, circles females, shaded symbols the specified trait and horizontal/vertical lines mating and descent. A recessive trait can appear in a child whose two parents are unaffected carriers; a dominant trait usually appears in successive generations if penetrance is complete. X-linked recessive traits may be more frequent among XY individuals and lack typical father-to-son transmission.\nIf two unaffected parents have an affected child for a single-gene, fully penetrant trait, autosomal recessive inheritance is a plausible explanation.",
+      "answer": "Unaffected parents can both be carriers of an autosomal recessive allele. The daughter can inherit one recessive allele from each parent, while the son can inherit at least one dominant allele. An X-linked recessive affected daughter would need an affected X from her father, who would then show the trait.",
       "markingPoints": [
-        "Unrelated observations in a pedigree may support a mode of inheritance but do not prove it uniquely.",
-        "A pedigree displays parent–offspring relationships and observed phenotypes across generations.",
-        "If two unaffected parents have an affected child for a single-gene, fully penetrant trait, autosomal recessive inheritance is a plausible explanation."
+        "Unaffected parents can both be carriers of an autosomal recessive allele.",
+        "The daughter can inherit one recessive allele from each parent, while the son can inherit at least one dominant allele.",
+        "An X-linked recessive affected daughter would need an affected X from her father, who would then show the trait."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4516,24 +4555,24 @@
     {
       "id": "d32-written-14",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.14"
       ],
       "level": "shared",
-      "prompt": "Explain polygenic traits and continuous variation using a causal mechanism and a relevant example or calculation.",
+      "prompt": "A crop grown across several sites shows a continuous range of seed masses. Explain how polygenic inheritance and environmental variation can produce this pattern. [3]",
       "marks": 3,
       "sectionId": "inheritance-14",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "Polygenic inheritance occurs when alleles at multiple genetic loci contribute to a trait. Height and skin pigmentation typically show a wide range of values rather than a few discrete categories. Environmental conditions can also affect the distribution: for height, nutrition and childhood disease matter; pigmentation is affected by inherited pathways and exposure to sunlight.\nFor heights 150, 160, 165, 170 and 205 cm, the median is 165 cm while the mean is 170 cm.",
+      "answer": "Alleles at several loci contribute to seed mass. Many combinations of alleles produce a range of effects rather than a few distinct categories. Growth conditions such as water or nutrient availability further vary the phenotype, including within a genotype.",
       "markingPoints": [
-        "A multi-locus trait often shows continuous variation, potentially modified by the environment.",
-        "Polygenic inheritance occurs when alleles at multiple genetic loci contribute to a trait.",
-        "For heights 150, 160, 165, 170 and 205 cm, the median is 165 cm while the mean is 170 cm."
+        "Alleles at several loci contribute to seed mass.",
+        "Many combinations of alleles produce a range of effects rather than a few distinct categories.",
+        "Growth conditions such as water or nutrient availability further vary the phenotype, including within a genotype."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4652,36 +4691,48 @@
     {
       "id": "d32-written-16",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.16"
       ],
       "level": "HL",
-      "prompt": "Explain segregation and independent assortment using a causal mechanism and a relevant example or calculation.",
+      "prompt": "A plant heterozygous at two unlinked loci (AaBb) was crossed with aabb.\n(a) Calculate the percentage of offspring that received Ab from the heterozygous parent. [1]\n(b) Identify the expected pattern and explain how meiosis produces it. [2]",
       "marks": 3,
       "sectionId": "inheritance-16",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "At meiosis I, each pair of homologous chromosomes aligns in a random orientation relative to the poles. Alleles at loci on different chromosome pairs therefore assort independently: for AaBb, with A/a on one homologous pair and B/b on another, meiosis can generate AB, Ab, aB and ab gametes in expected equal proportions. Segregation refers to separation of the two alleles of one locus into different gametes.\nA genotype AaBb at two unlinked autosomal loci predicts four gamete types, each with probability 1/4.",
+      "answer": "46 ÷ 200 × 100 = 23%. Unlinked loci give an expected 1:1:1:1 ratio, and the four observed counts are similar. Each allele pair segregates, and the homologous chromosome pairs orient independently during meiosis I.",
       "markingPoints": [
-        "An AaBb parent with unlinked loci forms AB, Ab, aB and ab gametes in equal expected proportions.",
-        "At meiosis I, each pair of homologous chromosomes aligns in a random orientation relative to the poles.",
-        "A genotype AaBb at two unlinked autosomal loci predicts four gamete types, each with probability 1/4."
+        "46 ÷ 200 × 100 = 23%.",
+        "Unlinked loci give an expected 1:1:1:1 ratio, and the four observed counts are similar.",
+        "Each allele pair segregates, and the homologous chromosome pairs orient independently during meiosis I."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
       "data": {
-        "caption": "Illustrative evidence or example for Segregation and independent assortment",
+        "caption": "Simulated counts from a dihybrid test cross.",
         "headers": [
-          "Given evidence",
-          "Interpretation required"
+          "Gamete inferred from the heterozygous parent",
+          "Number of offspring"
         ],
         "rows": [
           [
-            "A genotype AaBb at two unlinked autosomal loci predicts four gamete types, each with probability 1/4.",
-            "Explain the scientific mechanism and scope"
+            "AB",
+            51
+          ],
+          [
+            "Ab",
+            46
+          ],
+          [
+            "aB",
+            49
+          ],
+          [
+            "ab",
+            54
           ]
         ]
       }
@@ -4801,24 +4852,24 @@
     {
       "id": "d32-written-18",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.18"
       ],
       "level": "HL",
-      "prompt": "Explain human gene loci and polypeptides using a causal mechanism and a relevant example or calculation.",
+      "prompt": "A student claims that CFTR and the gene encoding the beta subunit of adult haemoglobin are two alleles of one gene. State what a locus is and explain why the claim is incorrect. [3]",
       "marks": 3,
       "sectionId": "inheritance-18",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "A gene locus is its position on a chromosome. Human gene databases such as NCBI Gene and Ensembl record chromosomal coordinates and gene products, allowing students to distinguish genes on separate chromosomes from neighbours on the same chromosome. For example, the HBB beta-globin gene lies on chromosome 11 and PAH on chromosome 12; their positions on different chromosome pairs support independent assortment in the simple model.\nCompare PAH on chromosome 12 and HBB on chromosome 11 using the same human genome assembly and note the different polypeptides they encode.",
+      "answer": "A locus is a physical position of a gene or DNA sequence on a chromosome. CFTR and HBB occupy different loci and encode different polypeptides. Alleles are alternative versions at the same locus, so these two genes are not alleles of one gene.",
       "markingPoints": [
-        "Two loci on different autosomes usually assort independently.",
-        "A gene locus is its position on a chromosome.",
-        "Compare PAH on chromosome 12 and HBB on chromosome 11 using the same human genome assembly and note the different polypeptides they encode."
+        "A locus is a physical position of a gene or DNA sequence on a chromosome.",
+        "CFTR and HBB occupy different loci and encode different polypeptides.",
+        "Alleles are alternative versions at the same locus, so these two genes are not alleles of one gene."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4869,24 +4920,24 @@
     {
       "id": "d32-written-19",
       "paper": "2",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.19"
       ],
       "level": "HL",
-      "prompt": "Explain autosomal linkage using a causal mechanism and a relevant example or calculation.",
+      "prompt": "A diploid organism carries A and B on one chromosome and a and b on its homologue. Explain why AB and ab gametes may be more common than Ab and aB gametes. [3]",
       "marks": 3,
       "sectionId": "inheritance-19",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "Two loci on the same autosome can be linked because they are carried on one physical chromosome. Show a double heterozygote's phase explicitly with vertical homologous lines, for example A—B on one homologue and a—b on the other (AB/ab). Without crossing over between the loci, gametes retain parental AB or ab combinations rather than the four equiprobable classes expected for unlinked loci.\nIn a coupling-phase AB/ab individual, AB and ab are parental gametes, while Ab and aB are recombinant.",
+      "answer": "The two genes are linked because they lie on the same chromosome. Without a crossover between the loci, the parental combinations remain together as AB and ab. Recombinants require crossing over between the loci, which is less likely when the loci are close together.",
       "markingPoints": [
-        "Nearby loci on one autosome may co-segregate because they share a chromosome.",
-        "Two loci on the same autosome can be linked because they are carried on one physical chromosome.",
-        "In a coupling-phase AB/ab individual, AB and ab are parental gametes, while Ab and aB are recombinant."
+        "The two genes are linked because they lie on the same chromosome.",
+        "Without a crossover between the loci, the parental combinations remain together as AB and ab.",
+        "Recombinants require crossing over between the loci, which is less likely when the loci are close together."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -4937,36 +4988,48 @@
     {
       "id": "d32-written-20",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D3.2.20"
       ],
       "level": "HL",
-      "prompt": "For a coupling-phase test cross with 42 AB, 41 ab, 8 Ab and 9 aB offspring, identify parental classes and calculate recombination frequency.",
+      "prompt": "The heterozygous parent of a test cross carried AB and ab on opposite homologues.\n(a) Identify the recombinant classes. [1]\n(b) Calculate the recombination frequency. [1]\n(c) Explain how the recombinant combinations can arise. [1]",
       "marks": 3,
       "sectionId": "inheritance-20",
       "referenceIds": [
         "ib-d32",
         "hodder-d32"
       ],
-      "answer": "A test cross of AB/ab × ab/ab makes the doubly recessive parent contribute only ab. Consequently each offspring phenotype, if the two loci show simple complete dominance, identifies the gamete genotype produced by the double heterozygote. AB/ab and ab/ab are parental classes for coupling phase; Ab/ab and aB/ab are recombinant classes.\nWith counts 42, 41, 8 and 9, recombinant offspring are the two minority classes (8 + 9) and the estimated frequency is 17%.",
+      "answer": "Ab and aB are recombinant. (8 + 9) ÷ (42 + 41 + 8 + 9) × 100 = 17%. Crossing over between non-sister chromatids of homologous chromosomes between the two loci generates the new combinations.",
       "markingPoints": [
-        "Parental categories AB and ab; recombinant Ab and aB.",
-        "Numerator 8 + 9 = 17 and total 100.",
-        "Recombination frequency = 17%; corresponds to linkage under assumptions."
+        "Ab and aB are recombinant.",
+        "(8 + 9) ÷ (42 + 41 + 8 + 9) × 100 = 17%.",
+        "Crossing over between non-sister chromatids of homologous chromosomes between the two loci generates the new combinations."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
       "data": {
-        "caption": "Illustrative evidence or example for Crossovers and recombinant offspring",
+        "caption": "Simulated offspring counts from a two-locus test cross.",
         "headers": [
-          "Given evidence",
-          "Interpretation required"
+          "Gamete inferred from the heterozygous parent",
+          "Number of offspring"
         ],
         "rows": [
           [
-            "With counts 42, 41, 8 and 9, recombinant offspring are the two minority classes (8 + 9) and the estimated frequency is 17%.",
-            "Explain the scientific mechanism and scope"
+            "AB",
+            42
+          ],
+          [
+            "ab",
+            41
+          ],
+          [
+            "Ab",
+            8
+          ],
+          [
+            "aB",
+            9
           ]
         ]
       }

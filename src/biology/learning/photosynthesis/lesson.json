@@ -2907,6 +2907,51 @@
   ],
   "questions": [
     {
+      "id": "c13-limiting-carbon",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "C1.3.7"
+      ],
+      "level": "shared",
+      "prompt": "At high light intensity, increasing light further has no effect. Adding CO₂ at the original high light intensity increases the photosynthetic rate. Which conclusion is supported?",
+      "marks": 1,
+      "sectionId": "c13-7",
+      "referenceIds": [
+        "ib-c13",
+        "hodder-c13",
+        "openstax-c13",
+        "openstax-calvin"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "CO₂ limited photosynthesis at the original high light intensity.",
+          "correct": true,
+          "feedback": "Only added CO₂ increased rate under those conditions."
+        },
+        {
+          "id": "b",
+          "text": "Light limited photosynthesis at the original high intensity.",
+          "correct": false,
+          "feedback": "If light were limiting there, an increase in light would increase the rate."
+        },
+        {
+          "id": "c",
+          "text": "CO₂ must be limiting at every light intensity.",
+          "correct": false,
+          "feedback": "The observed limiting factor applies to the conditions tested."
+        },
+        {
+          "id": "d",
+          "text": "The experiment shows that temperature is the only limiting factor.",
+          "correct": false,
+          "feedback": "Temperature was not varied; the observed response provides evidence for limitation by CO₂."
+        }
+      ]
+    },
+    {
       "id": "c13-mcq-1",
       "paper": "1A",
       "kind": "selection",
@@ -2926,16 +2971,16 @@
       ],
       "options": [
         {
-          "id": "c13-qa-1-0",
-          "text": "Transfer of absorbed light energy into chemical potential energy of organic compounds",
-          "correct": true,
-          "feedback": "Light drives the synthesis of energy-rich carbon compounds."
-        },
-        {
           "id": "c13-qa-1-1",
           "text": "Conversion of carbon dioxide directly into sunlight",
           "correct": false,
           "feedback": "The direction of energy conversion is reversed."
+        },
+        {
+          "id": "c13-qa-1-0",
+          "text": "Transfer of absorbed light energy into chemical potential energy of organic compounds",
+          "correct": true,
+          "feedback": "Light drives the synthesis of energy-rich carbon compounds."
         },
         {
           "id": "c13-qa-1-2",
@@ -2951,6 +2996,33 @@
         }
       ],
       "review": "scientific-review"
+    },
+    {
+      "id": "c13-photosynthetic-coupling",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "C1.3.19"
+      ],
+      "level": "HL",
+      "prompt": "Explain why carbon fixation can slow when a well-watered leaf with sufficient carbon dioxide is suddenly moved into darkness. In your answer, relate the light-dependent reactions to the Calvin cycle. [5]",
+      "marks": 5,
+      "sectionId": "c13-19",
+      "referenceIds": [
+        "ib-c13",
+        "hodder-c13",
+        "openstax-c13",
+        "openstax-calvin"
+      ],
+      "answer": "Without absorbed light, photosynthetic electron transport declines. Production of ATP and reduced NADP by the light-dependent reactions falls. ATP and reduced NADP are required to convert glycerate 3-phosphate into triose phosphate. ATP is also needed to regenerate RuBP. With less RuBP regeneration, less substrate is available for Rubisco to fix CO₂.",
+      "markingPoints": [
+        "Without absorbed light, photosynthetic electron transport declines.",
+        "Production of ATP and reduced NADP by the light-dependent reactions falls.",
+        "ATP and reduced NADP are required to convert glycerate 3-phosphate into triose phosphate.",
+        "ATP is also needed to regenerate RuBP.",
+        "With less RuBP regeneration, less substrate is available for Rubisco to fix CO₂."
+      ]
     },
     {
       "id": "c13-structured-1",
@@ -3068,12 +3140,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-3-0",
-          "text": "Water split during photosynthesis",
-          "correct": true,
-          "feedback": "The oxygen released during photosynthesis comes from water, not carbon dioxide."
-        },
-        {
           "id": "c13-qa-3-1",
           "text": "Carbon dioxide split to produce oxygen gas",
           "correct": false,
@@ -3084,6 +3150,12 @@
           "text": "Glucose oxidized in mitochondria only",
           "correct": false,
           "feedback": "Respiration consumes, rather than produces, molecular oxygen."
+        },
+        {
+          "id": "c13-qa-3-0",
+          "text": "Water split during photosynthesis",
+          "correct": true,
+          "feedback": "The oxygen released during photosynthesis comes from water, not carbon dioxide."
         },
         {
           "id": "c13-qa-3-3",
@@ -3139,16 +3211,16 @@
       ],
       "options": [
         {
-          "id": "c13-qa-4-0",
-          "text": "Pigment distance from baseline divided by solvent-front distance from baseline",
-          "correct": true,
-          "feedback": "Both lengths share the same baseline, giving a unitless ratio."
-        },
-        {
           "id": "c13-qa-4-1",
           "text": "Solvent-front distance divided by pigment distance",
           "correct": false,
           "feedback": "The inverse can exceed one and is not Rf."
+        },
+        {
+          "id": "c13-qa-4-0",
+          "text": "Pigment distance from baseline divided by solvent-front distance from baseline",
+          "correct": true,
+          "feedback": "Both lengths share the same baseline, giving a unitless ratio."
         },
         {
           "id": "c13-qa-4-2",
@@ -3210,12 +3282,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-5-0",
-          "text": "Their electronic structures absorb different photon energies",
-          "correct": true,
-          "feedback": "Allowed electronic transitions depend on each pigment's molecular structure."
-        },
-        {
           "id": "c13-qa-5-1",
           "text": "All wavelengths always excite every pigment equally",
           "correct": false,
@@ -3232,6 +3298,12 @@
           "text": "Absorption occurs only when oxygen is absent",
           "correct": false,
           "feedback": "Oxygen presence does not set a universal absorption spectrum."
+        },
+        {
+          "id": "c13-qa-5-0",
+          "text": "Their electronic structures absorb different photon energies",
+          "correct": true,
+          "feedback": "Allowed electronic transitions depend on each pigment's molecular structure."
         }
       ],
       "review": "scientific-review"
@@ -3281,16 +3353,16 @@
       ],
       "options": [
         {
-          "id": "c13-qa-6-0",
-          "text": "Rate of oxygen production under different wavelengths of light",
-          "correct": true,
-          "feedback": "A measured photosynthetic response versus wavelength makes an action spectrum."
-        },
-        {
           "id": "c13-qa-6-1",
           "text": "Concentration of pigment in an extraction solvent only",
           "correct": false,
           "feedback": "Extraction concentration alone is not photosynthetic activity."
+        },
+        {
+          "id": "c13-qa-6-0",
+          "text": "Rate of oxygen production under different wavelengths of light",
+          "correct": true,
+          "feedback": "A measured photosynthetic response versus wavelength makes an action spectrum."
         },
         {
           "id": "c13-qa-6-2",
@@ -3352,12 +3424,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-7-0",
-          "text": "Carbon dioxide availability",
-          "correct": true,
-          "feedback": "Light cannot overcome a shortage of carbon substrate."
-        },
-        {
           "id": "c13-qa-7-1",
           "text": "Increasing light further in every case",
           "correct": false,
@@ -3374,6 +3440,12 @@
           "text": "The force of gravity alone",
           "correct": false,
           "feedback": "Gravity is not the specified limiting substrate."
+        },
+        {
+          "id": "c13-qa-7-0",
+          "text": "Carbon dioxide availability",
+          "correct": true,
+          "feedback": "Light cannot overcome a shortage of carbon substrate."
         }
       ],
       "review": "scientific-review"
@@ -3424,12 +3496,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-8-0",
-          "text": "CO₂ effects are studied in field conditions without enclosure",
-          "correct": true,
-          "feedback": "FACE retains many natural field interactions."
-        },
-        {
           "id": "c13-qa-8-1",
           "text": "All environmental variables become perfectly controlled",
           "correct": false,
@@ -3440,6 +3506,12 @@
           "text": "It measures carbon fixation without needing plant observations",
           "correct": false,
           "feedback": "Actual responses still require measurements."
+        },
+        {
+          "id": "c13-qa-8-0",
+          "text": "CO₂ effects are studied in field conditions without enclosure",
+          "correct": true,
+          "feedback": "FACE retains many natural field interactions."
         },
         {
           "id": "c13-qa-8-3",
@@ -3496,16 +3568,16 @@
       ],
       "options": [
         {
-          "id": "c13-qa-9-0",
-          "text": "An excited reaction-centre chlorophyll",
-          "correct": true,
-          "feedback": "The reaction centre carries out primary charge separation."
-        },
-        {
           "id": "c13-qa-9-1",
           "text": "Every antenna pigment simultaneously to NADP",
           "correct": false,
           "feedback": "Antenna pigments normally pass excitation energy toward the centre."
+        },
+        {
+          "id": "c13-qa-9-0",
+          "text": "An excited reaction-centre chlorophyll",
+          "correct": true,
+          "feedback": "The reaction centre carries out primary charge separation."
         },
         {
           "id": "c13-qa-9-2",
@@ -3567,16 +3639,16 @@
       ],
       "options": [
         {
-          "id": "c13-qa-10-0",
-          "text": "To broaden light harvesting and channel excitation to the reaction centre",
-          "correct": true,
-          "feedback": "Complementary pigments improve harvesting and energy transfer."
-        },
-        {
           "id": "c13-qa-10-1",
           "text": "To replace all membrane proteins",
           "correct": false,
           "feedback": "Photosystem proteins help organize and stabilize pigments."
+        },
+        {
+          "id": "c13-qa-10-0",
+          "text": "To broaden light harvesting and channel excitation to the reaction centre",
+          "correct": true,
+          "feedback": "Complementary pigments improve harvesting and energy transfer."
         },
         {
           "id": "c13-qa-10-2",
@@ -3638,12 +3710,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-11-0",
-          "text": "Electrons replace those lost by PSII and protons contribute to the lumen gradient",
-          "correct": true,
-          "feedback": "Water supplies electrons and H⁺ while O₂ is released."
-        },
-        {
           "id": "c13-qa-11-1",
           "text": "Carbon dioxide replaces electrons at PSII",
           "correct": false,
@@ -3660,6 +3726,12 @@
           "text": "Glucose is produced immediately at PSII",
           "correct": false,
           "feedback": "Glucose is not a direct PSII product."
+        },
+        {
+          "id": "c13-qa-11-0",
+          "text": "Electrons replace those lost by PSII and protons contribute to the lumen gradient",
+          "correct": true,
+          "feedback": "Water supplies electrons and H⁺ while O₂ is released."
         }
       ],
       "review": "scientific-review"
@@ -3709,12 +3781,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-12-0",
-          "text": "The stroma",
-          "correct": true,
-          "feedback": "H⁺ moves lumen → stroma through thylakoid ATP synthase."
-        },
-        {
           "id": "c13-qa-12-1",
           "text": "The thylakoid lumen during downhill return",
           "correct": false,
@@ -3731,6 +3797,12 @@
           "text": "The chloroplast envelope exterior",
           "correct": false,
           "feedback": "The envelope is not the immediate ATP synthase interface."
+        },
+        {
+          "id": "c13-qa-12-0",
+          "text": "The stroma",
+          "correct": true,
+          "feedback": "H⁺ moves lumen → stroma through thylakoid ATP synthase."
         }
       ],
       "review": "scientific-review"
@@ -3851,12 +3923,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-14-0",
-          "text": "NADP reduction on the stromal side yields NADPH for carbon fixation",
-          "correct": true,
-          "feedback": "NADPH is made on the stromal side."
-        },
-        {
           "id": "c13-qa-14-1",
           "text": "Water splitting at the thylakoid exterior creates stromal O₂ only",
           "correct": false,
@@ -3873,6 +3939,12 @@
           "text": "The Calvin cycle operates inside the lumen",
           "correct": false,
           "feedback": "Carbon fixation occurs in the stroma."
+        },
+        {
+          "id": "c13-qa-14-0",
+          "text": "NADP reduction on the stromal side yields NADPH for carbon fixation",
+          "correct": true,
+          "feedback": "NADPH is made on the stromal side."
         }
       ],
       "review": "scientific-review"
@@ -3922,12 +3994,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-15-0",
-          "text": "Two three-carbon GP molecules",
-          "correct": true,
-          "feedback": "6C intermediate splits into 3C + 3C GP."
-        },
-        {
           "id": "c13-qa-15-1",
           "text": "One six-carbon glucose molecule",
           "correct": false,
@@ -3938,6 +4004,12 @@
           "text": "Two molecules of oxygen gas",
           "correct": false,
           "feedback": "O₂ is produced at PSII, not Rubisco."
+        },
+        {
+          "id": "c13-qa-15-0",
+          "text": "Two three-carbon GP molecules",
+          "correct": true,
+          "feedback": "6C intermediate splits into 3C + 3C GP."
         },
         {
           "id": "c13-qa-15-3",
@@ -3993,16 +4065,16 @@
       ],
       "options": [
         {
-          "id": "c13-qa-16-0",
-          "text": "ATP and reduced NADP (NADPH)",
-          "correct": true,
-          "feedback": "ATP and NADPH supply energy and reducing electrons."
-        },
-        {
           "id": "c13-qa-16-1",
           "text": "ADP and oxidized NADP⁺",
           "correct": false,
           "feedback": "These are typically returned products, not the energy inputs."
+        },
+        {
+          "id": "c13-qa-16-0",
+          "text": "ATP and reduced NADP (NADPH)",
+          "correct": true,
+          "feedback": "ATP and NADPH supply energy and reducing electrons."
         },
         {
           "id": "c13-qa-16-2",
@@ -4064,12 +4136,6 @@
       ],
       "options": [
         {
-          "id": "c13-qa-17-0",
-          "text": "Five",
-          "correct": true,
-          "feedback": "Five three-carbon TP regenerate three five-carbon RuBP."
-        },
-        {
           "id": "c13-qa-17-1",
           "text": "One",
           "correct": false,
@@ -4080,6 +4146,12 @@
           "text": "Three TP only",
           "correct": false,
           "feedback": "Three TP would not conserve the required 15 regenerated carbon atoms."
+        },
+        {
+          "id": "c13-qa-17-0",
+          "text": "Five",
+          "correct": true,
+          "feedback": "Five three-carbon TP regenerate three five-carbon RuBP."
         },
         {
           "id": "c13-qa-17-3",

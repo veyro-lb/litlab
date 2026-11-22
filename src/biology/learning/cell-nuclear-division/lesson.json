@@ -2720,6 +2720,50 @@
   ],
   "questions": [
     {
+      "id": "d21-reduction-division-application",
+      "paper": "1A",
+      "kind": "selection",
+      "original": true,
+      "understandingIds": [
+        "D2.1.9"
+      ],
+      "level": "shared",
+      "prompt": "In a cell with 2n = 12, meiosis I finishes normally. What is present in each daughter nucleus before meiosis II?",
+      "marks": 1,
+      "sectionId": "d21-9",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21",
+        "ncbi-meiosis"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "12 chromosomes, each with one chromatid",
+          "correct": false,
+          "feedback": "This would preserve the diploid chromosome count; homologues separated in meiosis I."
+        },
+        {
+          "id": "b",
+          "text": "6 chromosomes, each with two sister chromatids",
+          "correct": true,
+          "feedback": "Homologues separate in meiosis I, but sister chromatids remain joined until meiosis II."
+        },
+        {
+          "id": "c",
+          "text": "6 chromosomes, each with one chromatid",
+          "correct": false,
+          "feedback": "That is the usual state after sister chromatids have separated in meiosis II."
+        },
+        {
+          "id": "d",
+          "text": "12 chromosomes, each with two sister chromatids",
+          "correct": false,
+          "feedback": "The cell reaches this state after DNA replication, before homologous chromosomes separate."
+        }
+      ]
+    },
+    {
       "id": "d21-mcq-1",
       "paper": "1A",
       "kind": "selection",
@@ -2738,12 +2782,6 @@
       ],
       "options": [
         {
-          "id": "d21-1-o1",
-          "text": "Division of a parent cell",
-          "correct": true,
-          "feedback": "Correct: A cell arises from a pre-existing parent cell."
-        },
-        {
           "id": "d21-1-o2",
           "text": "Spontaneous assembly of organelles in empty space",
           "correct": false,
@@ -2760,9 +2798,42 @@
           "text": "Water entering a tissue",
           "correct": false,
           "feedback": "Consider why “Water entering a tissue” does not answer this question. Ordinary cellular reproduction proceeds from a pre-existing dividing cell."
+        },
+        {
+          "id": "d21-1-o1",
+          "text": "Division of a parent cell",
+          "correct": true,
+          "feedback": "Correct: A cell arises from a pre-existing parent cell."
         }
       ],
       "review": "draft"
+    },
+    {
+      "id": "d21-meiosis-variation-explanation",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.1.11"
+      ],
+      "level": "shared",
+      "prompt": "Explain how crossing over and independent assortment in meiosis can generate gametes with different combinations of alleles. [6]",
+      "marks": 6,
+      "sectionId": "d21-11",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21",
+        "ncbi-meiosis"
+      ],
+      "answer": "Homologous chromosomes pair during prophase I. Crossing over exchanges corresponding segments between non-sister chromatids. Exchanged segments can produce new combinations of alleles on a chromatid. Homologous pairs orient randomly at metaphase I. The orientation of one chromosome pair is independent of other pairs. Separation of the homologues gives gametes different combinations of maternal and paternal chromosomes.",
+      "markingPoints": [
+        "Homologous chromosomes pair during prophase I.",
+        "Crossing over exchanges corresponding segments between non-sister chromatids.",
+        "Exchanged segments can produce new combinations of alleles on a chromatid.",
+        "Homologous pairs orient randomly at metaphase I.",
+        "The orientation of one chromosome pair is independent of other pairs.",
+        "Separation of the homologues gives gametes different combinations of maternal and paternal chromosomes."
+      ]
     },
     {
       "id": "d21-response-1",
@@ -2808,12 +2879,6 @@
       ],
       "options": [
         {
-          "id": "d21-2-o1",
-          "text": "Vesicles forming a cell plate",
-          "correct": true,
-          "feedback": "Correct: After nuclear segregation in eukaryotes, cytokinesis partitions the parental cytoplasm."
-        },
-        {
           "id": "d21-2-o2",
           "text": "A permanent actin cleavage ring outside a wall",
           "correct": false,
@@ -2830,6 +2895,12 @@
           "text": "Disassembly of all ribosomes",
           "correct": false,
           "feedback": "Consider why “Disassembly of all ribosomes” does not answer this question. Plants assemble a cell plate; animals usually constrict with a contractile ring."
+        },
+        {
+          "id": "d21-2-o1",
+          "text": "Vesicles forming a cell plate",
+          "correct": true,
+          "feedback": "Correct: After nuclear segregation in eukaryotes, cytokinesis partitions the parental cytoplasm."
         }
       ],
       "review": "draft"
@@ -2948,12 +3019,6 @@
       ],
       "options": [
         {
-          "id": "d21-4-o1",
-          "text": "Meiosis",
-          "correct": true,
-          "feedback": "Correct: Mitosis is nuclear division that normally preserves chromosome number, producing genetically similar nuclei when segregation is accurate."
-        },
-        {
           "id": "d21-4-o2",
           "text": "Mitosis",
           "correct": false,
@@ -2970,6 +3035,12 @@
           "text": "DNA transcription",
           "correct": false,
           "feedback": "Consider why “DNA transcription” does not answer this question. Mitosis maintains chromosome number; meiosis reduces it and generates variation."
+        },
+        {
+          "id": "d21-4-o1",
+          "text": "Meiosis",
+          "correct": true,
+          "feedback": "Correct: Mitosis is nuclear division that normally preserves chromosome number, producing genetically similar nuclei when segregation is accurate."
         }
       ],
       "review": "draft"
@@ -3088,12 +3159,6 @@
       ],
       "options": [
         {
-          "id": "d21-6-o1",
-          "text": "Facilitate controlled chromosome movement",
-          "correct": true,
-          "feedback": "Correct: Long DNA molecules are organized with histone proteins into chromatin."
-        },
-        {
           "id": "d21-6-o2",
           "text": "Convert RNA into DNA",
           "correct": false,
@@ -3104,6 +3169,12 @@
           "text": "Reduce the inherited chromosome sequence length",
           "correct": false,
           "feedback": "Consider why “Reduce the inherited chromosome sequence length” does not answer this question. DNA replication duplicates DNA; condensation changes physical packing and visibility."
+        },
+        {
+          "id": "d21-6-o1",
+          "text": "Facilitate controlled chromosome movement",
+          "correct": true,
+          "feedback": "Correct: Long DNA molecules are organized with histone proteins into chromatin."
         },
         {
           "id": "d21-6-o4",
@@ -3218,7 +3289,7 @@
         "D2.1.8"
       ],
       "level": "shared",
-      "prompt": "What is the strongest clue for anaphase in a fixed micrograph?",
+      "prompt": "Which observation best identifies a cell in anaphase of mitosis?",
       "marks": 1,
       "sectionId": "d21-8",
       "referenceIds": [
@@ -3228,28 +3299,28 @@
       ],
       "options": [
         {
-          "id": "d21-8-o1",
-          "text": "Two groups of chromatids moving toward opposite poles",
-          "correct": true,
-          "feedback": "Correct: Microscopy can reveal the position, condensation and arrangement of chromosomes in fixed dividing cells."
-        },
-        {
           "id": "d21-8-o2",
-          "text": "One intact interphase nucleus",
+          "text": "A single intact nucleus with uncondensed chromatin",
           "correct": false,
-          "feedback": "Consider why “One intact interphase nucleus” does not answer this question. Stage identification uses visible chromosome arrangement and may carry uncertainty."
+          "feedback": "This is characteristic of interphase, before mitotic chromosomes are visible."
         },
         {
           "id": "d21-8-o3",
-          "text": "A row of fully aligned metaphase chromosomes",
+          "text": "Condensed chromosomes lined up across the middle of the cell",
           "correct": false,
-          "feedback": "Consider why “A row of fully aligned metaphase chromosomes” does not answer this question. Stage identification uses visible chromosome arrangement and may carry uncertainty."
+          "feedback": "Alignment at the equator distinguishes metaphase."
+        },
+        {
+          "id": "d21-8-o1",
+          "text": "Two groups of separated chromatids between the equator and opposite poles",
+          "correct": true,
+          "feedback": "Sister chromatids have separated and are moving apart in anaphase."
         },
         {
           "id": "d21-8-o4",
-          "text": "Four haploid spermatozoa",
+          "text": "Two newly forming nuclei around chromosome groups at the poles",
           "correct": false,
-          "feedback": "Consider why “Four haploid spermatozoa” does not answer this question. Stage identification uses visible chromosome arrangement and may carry uncertainty."
+          "feedback": "Reforming nuclei indicate telophase, after the chromosomes finish separating."
         }
       ],
       "review": "draft"
@@ -3298,12 +3369,6 @@
       ],
       "options": [
         {
-          "id": "d21-9-o1",
-          "text": "One",
-          "correct": true,
-          "feedback": "Correct: In meiosis I homologous chromosomes pair and then separate, reducing the chromosome number from diploid (2n) to haploid (n)."
-        },
-        {
           "id": "d21-9-o2",
           "text": "Two",
           "correct": false,
@@ -3314,6 +3379,12 @@
           "text": "Four",
           "correct": false,
           "feedback": "Consider why “Four” does not answer this question. One replication is followed by two rounds of chromosome segregation."
+        },
+        {
+          "id": "d21-9-o1",
+          "text": "One",
+          "correct": true,
+          "feedback": "Correct: In meiosis I homologous chromosomes pair and then separate, reducing the chromosome number from diploid (2n) to haploid (n)."
         },
         {
           "id": "d21-9-o4",
@@ -3368,16 +3439,16 @@
       ],
       "options": [
         {
-          "id": "d21-10-o1",
-          "text": "A gamete with an extra chromosome 21",
-          "correct": true,
-          "feedback": "Correct: Nondisjunction is the failure of homologs or sister chromatids to segregate normally during meiosis."
-        },
-        {
           "id": "d21-10-o2",
           "text": "An RNA molecule lacking its cap",
           "correct": false,
           "feedback": "Consider why “An RNA molecule lacking its cap” does not answer this question. Trisomy 21 usually results from a chromosome segregation error rather than a point substitution."
+        },
+        {
+          "id": "d21-10-o1",
+          "text": "A gamete with an extra chromosome 21",
+          "correct": true,
+          "feedback": "Correct: Nondisjunction is the failure of homologs or sister chromatids to segregate normally during meiosis."
         },
         {
           "id": "d21-10-o3",
@@ -3438,16 +3509,16 @@
       ],
       "options": [
         {
-          "id": "d21-11-o1",
-          "text": "Random orientation of homologous pairs",
-          "correct": true,
-          "feedback": "Correct: In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids."
-        },
-        {
           "id": "d21-11-o2",
           "text": "Identical DNA copies followed by an equal mitotic split",
           "correct": false,
           "feedback": "Consider why “Identical DNA copies followed by an equal mitotic split” does not answer this question. They recombine or redistribute existing alleles without purposeful mutation."
+        },
+        {
+          "id": "d21-11-o1",
+          "text": "Random orientation of homologous pairs",
+          "correct": true,
+          "feedback": "Correct: In meiosis I homologous chromosomes can exchange corresponding DNA segments during crossing over, creating recombinant chromatids."
         },
         {
           "id": "d21-11-o3",
@@ -3508,12 +3579,6 @@
       ],
       "options": [
         {
-          "id": "d21-12-o1",
-          "text": "A root or shoot meristem",
-          "correct": true,
-          "feedback": "Correct: Controlled cell proliferation increases cell number in a developing embryo or actively growing plant meristem."
-        },
-        {
           "id": "d21-12-o2",
           "text": "A fully dead xylem vessel element",
           "correct": false,
@@ -3530,6 +3595,12 @@
           "text": "A mature pollen exine",
           "correct": false,
           "feedback": "Consider why “A mature pollen exine” does not answer this question. Rates of cell division are tissue-specific and regulated."
+        },
+        {
+          "id": "d21-12-o1",
+          "text": "A root or shoot meristem",
+          "correct": true,
+          "feedback": "Correct: Controlled cell proliferation increases cell number in a developing embryo or actively growing plant meristem."
         }
       ],
       "review": "draft"
@@ -3579,12 +3650,6 @@
       ],
       "options": [
         {
-          "id": "d21-13-o1",
-          "text": "G1 → S → G2 → mitosis → cytokinesis",
-          "correct": true,
-          "feedback": "Correct: The proliferating eukaryotic cell cycle comprises G1, S and G2 within interphase, then mitosis followed by cytokinesis."
-        },
-        {
           "id": "d21-13-o2",
           "text": "Mitosis → meiosis I → meiosis II → G1",
           "correct": false,
@@ -3595,6 +3660,12 @@
           "text": "G2 → G1 → cytokinesis → S without mitosis",
           "correct": false,
           "feedback": "Consider why “G2 → G1 → cytokinesis → S without mitosis” does not answer this question. Interphase includes growth, active metabolism and DNA synthesis in S phase."
+        },
+        {
+          "id": "d21-13-o1",
+          "text": "G1 → S → G2 → mitosis → cytokinesis",
+          "correct": true,
+          "feedback": "Correct: The proliferating eukaryotic cell cycle comprises G1, S and G2 within interphase, then mitosis followed by cytokinesis."
         },
         {
           "id": "d21-13-o4",
@@ -3723,12 +3794,6 @@
       ],
       "options": [
         {
-          "id": "d21-15-o1",
-          "text": "Their concentrations rise and fall with cell-cycle stage",
-          "correct": true,
-          "feedback": "Correct: Different cyclin proteins accumulate and are degraded at specific stages of the cell cycle."
-        },
-        {
           "id": "d21-15-o2",
           "text": "They permanently replace all chromosomes",
           "correct": false,
@@ -3745,6 +3810,12 @@
           "text": "They are identical to DNA polymerases",
           "correct": false,
           "feedback": "Consider why “They are identical to DNA polymerases” does not answer this question. Distinct cyclins oscillate and permit timed passage through cycle transitions."
+        },
+        {
+          "id": "d21-15-o1",
+          "text": "Their concentrations rise and fall with cell-cycle stage",
+          "correct": true,
+          "feedback": "Correct: Different cyclin proteins accumulate and are degraded at specific stages of the cell cycle."
         }
       ],
       "review": "draft"
@@ -3796,12 +3867,6 @@
       ],
       "options": [
         {
-          "id": "d21-16-o1",
-          "text": "Loss of function of a tumour-suppressor gene",
-          "correct": true,
-          "feedback": "Correct: Proto-oncogenes normally contribute to regulated signals that support growth and division."
-        },
-        {
           "id": "d21-16-o2",
           "text": "Normal checkpoint control with intact DNA",
           "correct": false,
@@ -3812,6 +3877,12 @@
           "text": "A stable mature erythrocyte without a nucleus",
           "correct": false,
           "feedback": "Consider why “A stable mature erythrocyte without a nucleus” does not answer this question. Proto-oncogenes have normal functions; certain alterations can convert them into oncogenic drivers."
+        },
+        {
+          "id": "d21-16-o1",
+          "text": "Loss of function of a tumour-suppressor gene",
+          "correct": true,
+          "feedback": "Correct: Proto-oncogenes normally contribute to regulated signals that support growth and division."
         },
         {
           "id": "d21-16-o4",
@@ -3870,16 +3941,16 @@
       ],
       "options": [
         {
-          "id": "d21-17-o1",
-          "text": "Ability to invade tissues and potentially metastasize",
-          "correct": true,
-          "feedback": "Correct: A benign tumour is a localized abnormal growth that does not invade neighboring tissues or metastasize."
-        },
-        {
           "id": "d21-17-o2",
           "text": "Presence of dividing cells of any kind",
           "correct": false,
           "feedback": "Consider why “Presence of dividing cells of any kind” does not answer this question. Metastasis and invasion define malignant behavior; mitotic index is a separate measure."
+        },
+        {
+          "id": "d21-17-o1",
+          "text": "Ability to invade tissues and potentially metastasize",
+          "correct": true,
+          "feedback": "Correct: A benign tumour is a localized abnormal growth that does not invade neighboring tissues or metastasize."
         },
         {
           "id": "d21-17-o3",
@@ -3922,6 +3993,56 @@
         "A secondary tumour develops at a new site after cells spread from the primary tumour."
       ],
       "review": "draft"
+    },
+    {
+      "id": "d21-mitosis-counts",
+      "paper": "1B",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "D2.1.8"
+      ],
+      "level": "shared",
+      "prompt": "(a) Calculate the percentage of dividing cells in metaphase. [1]\n(b) Deduce the stage that takes the longest, assuming the sample represents an asynchronous, steady population. Give evidence. [2]\n(c) Explain why the raw counts give no direct measure of how long that stage takes in minutes. [1]",
+      "marks": 4,
+      "sectionId": "d21-8",
+      "referenceIds": [
+        "ib-d21",
+        "hodder-d21",
+        "ncbi-meiosis"
+      ],
+      "answer": "10 ÷ 50 × 100 = 20%. Prophase is likely the longest stage. It has the highest count (28 out of 50), indicating the greatest fraction of time in that stage under the given assumptions. These counts estimate relative durations only; the total time for mitosis or a timed observation would be needed.",
+      "markingPoints": [
+        "10 ÷ 50 × 100 = 20%.",
+        "Prophase is likely the longest stage.",
+        "It has the highest count (28 out of 50), indicating the greatest fraction of time in that stage under the given assumptions.",
+        "These counts estimate relative durations only; the total time for mitosis or a timed observation would be needed."
+      ],
+      "data": {
+        "caption": "Simulated observations of 50 cells scored as undergoing mitosis in a root tip.",
+        "headers": [
+          "Stage",
+          "Number of cells"
+        ],
+        "rows": [
+          [
+            "Prophase",
+            28
+          ],
+          [
+            "Metaphase",
+            10
+          ],
+          [
+            "Anaphase",
+            6
+          ],
+          [
+            "Telophase",
+            6
+          ]
+        ]
+      }
     },
     {
       "id": "d21-mitotic-index-data",

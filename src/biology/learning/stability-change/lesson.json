@@ -2514,18 +2514,18 @@
         "D4.2.1"
       ],
       "level": "shared",
-      "prompt": "Explain understanding ecosystem stability with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "A storm knocks down some trees, but saplings fill the gaps and the forest continues to support similar food webs. Explain how this example illustrates ecosystem stability. [3]",
       "marks": 3,
       "sectionId": "stability-change-1",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Ecosystem stability is persistence of key structures and processes despite ordinary environmental variation. A stable ecosystem need not remain exactly unchanged: populations fluctuate, nutrients cycle and local patches regenerate while food-web interactions continue.\nAn old forest may regenerate after individual treefall gaps while retaining its overall forest structure.",
+      "answer": "The storm temporarily changes local structure or species abundance. Regrowth restores the disturbed patches or replaces organisms lost there. Key functions or relationships persist despite local disturbance.",
       "markingPoints": [
-        "Stability concerns continued functioning, not frozen species abundances.",
-        "Ecosystem stability is persistence of key structures and processes despite ordinary environmental variation.",
-        "An old forest may regenerate after individual treefall gaps while retaining its overall forest structure."
+        "The storm temporarily changes local structure or species abundance.",
+        "Regrowth restores the disturbed patches or replaces organisms lost there.",
+        "Key functions or relationships persist despite local disturbance."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2582,18 +2582,18 @@
         "D4.2.2"
       ],
       "level": "shared",
-      "prompt": "Explain conditions supporting ecosystem stability with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "Explain how sunlight, mineral nutrient cycling and species diversity can help maintain a forest ecosystem over time. [3]",
       "marks": 3,
       "sectionId": "stability-change-2",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Ecosystems need a sustained energy supply, usually sunlight captured by photosynthesis, to maintain food webs. Nutrients such as nitrogen and phosphorus must be recycled between organisms and abiotic reservoirs because matter is finite. Genetic variation can support responses to disease and changing conditions.\nA forest can remain productive when decomposers recycle mineral nutrients and rainfall permits seedling survival.",
+      "answer": "Sunlight supports photosynthesis, supplying chemical energy to the food web. Decomposers recycle mineral nutrients for uptake and reuse by plants. Diversity can maintain functions when a species declines, for example when other species can carry out a similar role.",
       "markingPoints": [
-        "Sustained energy, nutrient cycling, diversity and tolerable climate support ecosystem stability.",
-        "Ecosystems need a sustained energy supply, usually sunlight captured by photosynthesis, to maintain food webs.",
-        "A forest can remain productive when decomposers recycle mineral nutrients and rainfall permits seedling survival."
+        "Sunlight supports photosynthesis, supplying chemical energy to the food web.",
+        "Decomposers recycle mineral nutrients for uptake and reuse by plants.",
+        "Diversity can maintain functions when a species declines, for example when other species can carry out a similar role."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2643,36 +2643,43 @@
     },
     {
       "id": "d42-written-3",
-      "kind": "structured-response",
+      "kind": "structured",
       "paper": "1B",
       "original": true,
       "understandingIds": [
         "D4.2.3"
       ],
       "level": "shared",
-      "prompt": "Explain amazon deforestation and tipping risk with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "(a) Compare the change in dry-season rainfall between the two modelled areas. [1]\n(b) Explain the feedback by which forest loss could make further loss more likely. [2]",
       "marks": 3,
       "sectionId": "stability-change-3",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Amazon rainforest trees return water to the atmosphere by transpiration. Evapotranspiration increases atmospheric moisture, affects cooling and contributes to downwind rainfall. Deforestation removes canopy and reduces this moisture recycling, potentially promoting further drying, forest fires and conversion to a different vegetation state.\nFor illustrative original 5 million km² and remaining 4 million km², loss is (5−4)/5×100 = 20%, not an observed Amazon estimate.",
+      "answer": "Rainfall fell more in B (21%) than in A (3%). Loss of trees can reduce evapotranspiration and therefore moisture recycling and rainfall. Drier conditions can increase fire risk or tree mortality, causing further forest loss.",
       "markingPoints": [
-        "Loss of forest can weaken rainfall recycling and increase drying risk, with uncertain tipping thresholds.",
-        "Amazon rainforest trees return water to the atmosphere by transpiration.",
-        "For illustrative original 5 million km² and remaining 4 million km², loss is (5−4)/5×100 = 20%, not an observed Amazon estimate."
+        "Rainfall fell more in B (21%) than in A (3%).",
+        "Loss of trees can reduce evapotranspiration and therefore moisture recycling and rainfall.",
+        "Drier conditions can increase fire risk or tree mortality, causing further forest loss."
       ],
       "data": {
-        "caption": "Illustrative ecosystem scenario",
+        "caption": "Simulated model output for two rainforest areas.",
         "headers": [
-          "Scenario",
-          "Scientific interpretation"
+          "Modelled area",
+          "Forest cover loss (%)",
+          "Change in dry-season rainfall (%)"
         ],
         "rows": [
           [
-            "For illustrative original 5 million km² and remaining 4 million km², loss is (5−4)/5×100 = 20%, not an observed Amazon estimate.",
-            "Infer cause and consequence"
+            "A",
+            10,
+            -3
+          ],
+          [
+            "B",
+            40,
+            -21
           ]
         ]
       },
@@ -2724,36 +2731,43 @@
     },
     {
       "id": "d42-written-4",
-      "kind": "structured-response",
+      "kind": "structured",
       "paper": "1B",
       "original": true,
       "understandingIds": [
         "D4.2.4"
       ],
       "level": "shared",
-      "prompt": "Explain modelling ecosystem stability with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "(a) Identify which treatment best maintained dissolved oxygen across the observation period. [1]\n(b) Suggest one variable that should be controlled and explain why the model alone cannot establish long-term lake stability. [2]",
       "marks": 3,
       "sectionId": "stability-change-4",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "A mesocosm is a simplified ecosystem used to investigate how interactions respond to controlled variables. A sealed glass vessel can exchange energy through light and heat while preventing significant exchange of matter. An aquatic or microbial assemblage may establish more readily than a complex terrestrial community.\nCompare replicate sealed aquatic vessels under two light regimes while keeping initial species and water volume alike.",
+      "answer": "The 10-hour treatment, which ended near the initial 8 mg L⁻¹. Control a relevant variable such as starting organism biomass, water volume or temperature. The model lasted only seven days or omitted real lake factors such as water movement and immigration; it cannot establish a lake’s long-term response.",
       "markingPoints": [
-        "A sealed mesocosm exchanges energy but ideally not matter.",
-        "A mesocosm is a simplified ecosystem used to investigate how interactions respond to controlled variables.",
-        "Compare replicate sealed aquatic vessels under two light regimes while keeping initial species and water volume alike."
+        "The 10-hour treatment, which ended near the initial 8 mg L⁻¹.",
+        "Control a relevant variable such as starting organism biomass, water volume or temperature.",
+        "The model lasted only seven days or omitted real lake factors such as water movement and immigration; it cannot establish a lake’s long-term response."
       ],
       "data": {
-        "caption": "Illustrative ecosystem scenario",
+        "caption": "Simulated mean oxygen concentrations in two model aquatic ecosystems.",
         "headers": [
-          "Scenario",
-          "Scientific interpretation"
+          "Light per day (h)",
+          "Dissolved oxygen at start (mg L⁻¹)",
+          "Dissolved oxygen at day 7 (mg L⁻¹)"
         ],
         "rows": [
           [
-            "Compare replicate sealed aquatic vessels under two light regimes while keeping initial species and water volume alike.",
-            "Infer cause and consequence"
+            4,
+            8,
+            4.5
+          ],
+          [
+            10,
+            8,
+            7.8
           ]
         ]
       },
@@ -2812,18 +2826,18 @@
         "D4.2.5"
       ],
       "level": "shared",
-      "prompt": "Explain keystone species and ecosystem function with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "Predict how a decline in sea otters can affect kelp and explain why the otter is considered a keystone species in this example. [3]",
       "marks": 3,
       "sectionId": "stability-change-5",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "A keystone species has a disproportionately large influence on community organization or ecosystem processes relative to its abundance. Predators may suppress dominant consumers, while ecosystem engineers may create habitats used by many other species.\nWhere otters keep urchin abundance low, kelp can persist and support fish and invertebrates.",
+      "answer": "Fewer otters can mean less predation on sea urchins, increasing urchin abundance. More urchin grazing can reduce kelp cover and alter the habitat available to other species. Otters exert a large effect on community structure relative to their abundance.",
       "markingPoints": [
-        "A keystone species has an unusually strong ecological effect relative to its abundance.",
-        "A keystone species has a disproportionately large influence on community organization or ecosystem processes relative to its abundance.",
-        "Where otters keep urchin abundance low, kelp can persist and support fish and invertebrates."
+        "Fewer otters can mean less predation on sea urchins, increasing urchin abundance.",
+        "More urchin grazing can reduce kelp cover and alter the habitat available to other species.",
+        "Otters exert a large effect on community structure relative to their abundance."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2873,36 +2887,43 @@
     },
     {
       "id": "d42-written-6",
-      "kind": "structured-response",
+      "kind": "structured",
       "paper": "1B",
       "original": true,
       "understandingIds": [
         "D4.2.6"
       ],
       "level": "shared",
-      "prompt": "For an illustrative fish stock with recruitment 120/year, calculate net changes with harvest 80 and 150/year, and state one ecological limitation.",
+      "prompt": "(a) Calculate the annual net stock change under each harvest policy. [2]\n(b) Explain one reason why the larger calculated net gain is uncertain over many years. [1]",
       "marks": 3,
       "sectionId": "stability-change-6",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Sustainable harvesting requires removal rates that can be replenished without long-term depletion of the natural population or its ecosystem functions. Regrowth of terrestrial plant resources and recruitment to a marine fish population are examples of replacement processes, but rates vary with age, climate and reproductive conditions.\nA forest adding 200 tonnes of harvestable biomass each year cannot sustainably support repeated harvest of 300 tonnes per year under constant conditions.",
+      "answer": "A: 120 − 80 = +40 fish per year. B: 120 − 150 = −30 fish per year. Recruitment or other losses can change with conditions or stock density, so the one-year assumptions may not hold.",
       "markingPoints": [
-        "120 − 80 = +40 fish per year in illustrative case.",
-        "120 − 150 = −30 fish per year.",
-        "Explain how mortality/variable recruitment limits inference."
+        "A: 120 − 80 = +40 fish per year.",
+        "B: 120 − 150 = −30 fish per year.",
+        "Recruitment or other losses can change with conditions or stock density, so the one-year assumptions may not hold."
       ],
       "data": {
-        "caption": "Illustrative ecosystem scenario",
+        "caption": "Simplified fish stock model. Other gains and losses are omitted.",
         "headers": [
-          "Scenario",
-          "Scientific interpretation"
+          "Harvest policy",
+          "Recruitment (fish yr⁻¹)",
+          "Harvest (fish yr⁻¹)"
         ],
         "rows": [
           [
-            "A forest adding 200 tonnes of harvestable biomass each year cannot sustainably support repeated harvest of 300 tonnes per year under constant conditions.",
-            "Infer cause and consequence"
+            "A",
+            120,
+            80
+          ],
+          [
+            "B",
+            120,
+            150
           ]
         ]
       },
@@ -2961,18 +2982,18 @@
         "D4.2.7"
       ],
       "level": "shared",
-      "prompt": "Explain sustainability of agricultural practices with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "A farm maintains high yields by leaving fields bare between crops and adding extra fertilizer. Explain two ways this could undermine long-term sustainability and suggest one change. [3]",
       "marks": 3,
       "sectionId": "stability-change-7",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Agricultural sustainability depends on maintaining productive soil, water resources and ecosystem functions while limiting harmful inputs and emissions. Tillage and bare soil can promote erosion; heavy rainfall and excess fertilizer can leach nitrate and phosphate from fields.\nA field with high yield but rapidly eroding topsoil may be productive in the short term yet unsustainable.",
+      "answer": "Bare soil is more prone to erosion, leading to loss of productive topsoil. Excess fertilizer can leach or run off, causing nutrient pollution or requiring continuing inputs to replace losses. A relevant improvement is planting cover crops or matching fertilizer use to crop requirements.",
       "markingPoints": [
-        "Evaluate erosion, nutrient loss, chemicals and carbon footprint alongside agricultural output.",
-        "Agricultural sustainability depends on maintaining productive soil, water resources and ecosystem functions while limiting harmful inputs and emissions.",
-        "A field with high yield but rapidly eroding topsoil may be productive in the short term yet unsustainable."
+        "Bare soil is more prone to erosion, leading to loss of productive topsoil.",
+        "Excess fertilizer can leach or run off, causing nutrient pollution or requiring continuing inputs to replace losses.",
+        "A relevant improvement is planting cover crops or matching fertilizer use to crop requirements."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -3023,14 +3044,14 @@
     },
     {
       "id": "d42-written-8",
-      "kind": "structured-response",
+      "kind": "structured",
       "paper": "1B",
       "original": true,
       "understandingIds": [
         "D4.2.8"
       ],
       "level": "shared",
-      "prompt": "Explain nutrient leaching and eutrophication with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "(a) Compare day-10 dissolved oxygen between the two ponds. [1]\n(b) Explain how the difference in nitrate inputs could lead to the oxygen pattern. [2]",
       "marks": 3,
       "sectionId": "stability-change-8",
       "referenceIds": [
@@ -3038,22 +3059,29 @@
         "hodder-d42",
         "epa-nutrients"
       ],
-      "answer": "Nitrogen and phosphate fertilizer ions can leach or run off into fresh or coastal water, stimulating algal and cyanobacterial growth. Dense blooms shade submerged vegetation; as algae die, microbial decomposers use oxygen during aerobic respiration.\nExcess nitrate → algal bloom → decomposition increases BOD → dissolved oxygen falls → fish may die.",
+      "answer": "The treatment pond had 4.8 mg L⁻¹ less dissolved oxygen than the control. Added nitrate can stimulate excessive algal growth; dead algal material then becomes available to decomposers. Aerobic respiration by decomposers consumes oxygen, decreasing dissolved oxygen.",
       "markingPoints": [
-        "Nutrient enrichment can raise BOD and reduce dissolved oxygen.",
-        "Nitrogen and phosphate fertilizer ions can leach or run off into fresh or coastal water, stimulating algal and cyanobacterial growth.",
-        "Excess nitrate → algal bloom → decomposition increases BOD → dissolved oxygen falls → fish may die."
+        "The treatment pond had 4.8 mg L⁻¹ less dissolved oxygen than the control.",
+        "Added nitrate can stimulate excessive algal growth; dead algal material then becomes available to decomposers.",
+        "Aerobic respiration by decomposers consumes oxygen, decreasing dissolved oxygen."
       ],
       "data": {
-        "caption": "Illustrative ecosystem scenario",
+        "caption": "Simulated results from matched ponds that started at the same dissolved oxygen level.",
         "headers": [
-          "Scenario",
-          "Scientific interpretation"
+          "Model pond",
+          "Nitrate added (mg L⁻¹)",
+          "Day-10 dissolved oxygen (mg L⁻¹)"
         ],
         "rows": [
           [
-            "Excess nitrate → algal bloom → decomposition increases BOD → dissolved oxygen falls → fish may die.",
-            "Infer cause and consequence"
+            "Control",
+            0,
+            8.0
+          ],
+          [
+            "Treatment",
+            4,
+            3.2
           ]
         ]
       },
@@ -3105,36 +3133,44 @@
     },
     {
       "id": "d42-written-9",
-      "kind": "structured-response",
+      "kind": "structured",
       "paper": "1B",
       "original": true,
       "understandingIds": [
         "D4.2.9"
       ],
       "level": "shared",
-      "prompt": "Explain biomagnification through food webs with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "(a) Calculate the concentration of methylmercury in predatory fish as a multiple of that in zooplankton. [1]\n(b) Explain why the overall pattern supports biomagnification. [2]",
       "marks": 3,
       "sectionId": "stability-change-9",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Biomagnification describes an increase in concentration of certain persistent, bioaccumulative substances at successive trophic levels. A producer takes up a pollutant, consumers eat multiple contaminated organisms, and predators may accumulate higher tissue concentrations through their diet.\nIf methylmercury concentration is 0.02 mg/kg in prey and 0.5 mg/kg in predators, the example shows a 25-fold difference, not necessarily a measured field ratio.",
+      "answer": "0.50 ÷ 0.02 = 25 times as high. Concentration increases at each successive trophic level in the food chain. Predators consume many contaminated prey and can retain the pollutant faster than they eliminate it.",
       "markingPoints": [
-        "Persistent toxins such as DDT and methylmercury can become more concentrated up food webs.",
-        "Biomagnification describes an increase in concentration of certain persistent, bioaccumulative substances at successive trophic levels.",
-        "If methylmercury concentration is 0.02 mg/kg in prey and 0.5 mg/kg in predators, the example shows a 25-fold difference, not necessarily a measured field ratio."
+        "0.50 ÷ 0.02 = 25 times as high.",
+        "Concentration increases at each successive trophic level in the food chain.",
+        "Predators consume many contaminated prey and can retain the pollutant faster than they eliminate it."
       ],
       "data": {
-        "caption": "Illustrative ecosystem scenario",
+        "caption": "Simulated tissue concentrations in one aquatic food chain.",
         "headers": [
-          "Scenario",
-          "Scientific interpretation"
+          "Food-chain level",
+          "Mean tissue methylmercury (mg kg⁻¹)"
         ],
         "rows": [
           [
-            "If methylmercury concentration is 0.02 mg/kg in prey and 0.5 mg/kg in predators, the example shows a 25-fold difference, not necessarily a measured field ratio.",
-            "Infer cause and consequence"
+            "Zooplankton",
+            0.02
+          ],
+          [
+            "Small fish",
+            0.1
+          ],
+          [
+            "Predatory fish",
+            0.5
           ]
         ]
       },
@@ -3193,18 +3229,18 @@
         "D4.2.10"
       ],
       "level": "shared",
-      "prompt": "Explain ocean plastics and ecosystem effects with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "Compare one harm caused by discarded fishing gear and one harm caused by microplastics to marine animals. Explain how these harms occur. [3]",
       "marks": 3,
       "sectionId": "stability-change-10",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Macroplastics such as abandoned fishing line or bags can entangle or be swallowed by marine organisms. Microplastics are particles smaller than 5 mm, produced directly or formed as larger plastic fragments break down. Both can persist, move through habitats and be ingested by organisms.\nA turtle may ingest flexible plastic mistaken for food; fishing gear can entangle seals or seabirds.",
+      "answer": "Large discarded fishing gear can entangle marine animals. Entanglement can restrict movement, feeding or surfacing for air. Small plastic particles can be ingested and may interfere with feeding or damage tissues.",
       "markingPoints": [
-        "Macroplastic and microplastic pollution affect marine life through ingestion and entanglement.",
-        "Macroplastics such as abandoned fishing line or bags can entangle or be swallowed by marine organisms.",
-        "A turtle may ingest flexible plastic mistaken for food; fishing gear can entangle seals or seabirds."
+        "Large discarded fishing gear can entangle marine animals.",
+        "Entanglement can restrict movement, feeding or surfacing for air.",
+        "Small plastic particles can be ingested and may interfere with feeding or damage tissues."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -3262,7 +3298,7 @@
         "D4.2.11"
       ],
       "level": "shared",
-      "prompt": "Explain restoring ecosystems through rewilding with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "A restoration project reduces the number of introduced browsing mammals and allows native seedlings to establish. Explain how this intervention illustrates rewilding. [3]",
       "marks": 3,
       "sectionId": "stability-change-11",
       "referenceIds": [
@@ -3270,11 +3306,11 @@
         "hodder-d42",
         "hinewai"
       ],
-      "answer": "Rewilding seeks to restore ecological processes by reducing damaging pressures, improving landscape connectivity, and in some contexts reintroducing keystone species or apex predators. Connectivity allows dispersal and recolonization between habitat patches.\nWith browsing animals controlled at Hinewai, native seedlings can establish beneath ageing gorse shelter.",
+      "answer": "Reducing browsing lowers the loss of native seedlings. The vegetation can regenerate through natural colonization or succession. The intervention re-establishes an ecological process, natural regeneration, instead of relying entirely on repeated planting.",
       "markingPoints": [
-        "Rewilding restores interactions and natural succession, not simply planting trees.",
-        "Rewilding seeks to restore ecological processes by reducing damaging pressures, improving landscape connectivity, and in some contexts reintroducing keystone species or apex predators.",
-        "With browsing animals controlled at Hinewai, native seedlings can establish beneath ageing gorse shelter."
+        "Reducing browsing lowers the loss of native seedlings.",
+        "The vegetation can regenerate through natural colonization or succession.",
+        "The intervention re-establishes an ecological process, natural regeneration, instead of relying entirely on repeated planting."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -3331,18 +3367,18 @@
         "D4.2.12"
       ],
       "level": "HL",
-      "prompt": "Explain processes driving ecological succession with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "Explain why bare volcanic ash can be colonized first by pioneers and later by a community containing shrubs. [3]",
       "marks": 3,
       "sectionId": "stability-change-12",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Ecological succession is long-term change in species composition and ecosystem structure at a site. Abiotic changes such as soil formation, moisture or salinity shifts and biotic changes such as shading, competition or grazing can drive which species establish.\nBare volcanic ash can be colonized by pioneering species that help create conditions for later plants.",
+      "answer": "Pioneers tolerate exposed conditions and initially scarce soil or nutrients. Pioneers can trap particles or add organic matter, modifying the habitat. Developing soil and improved moisture or nutrient availability enable later species to establish.",
       "markingPoints": [
-        "Succession results from changing abiotic conditions and biotic interactions.",
-        "Ecological succession is long-term change in species composition and ecosystem structure at a site.",
-        "Bare volcanic ash can be colonized by pioneering species that help create conditions for later plants."
+        "Pioneers tolerate exposed conditions and initially scarce soil or nutrients.",
+        "Pioneers can trap particles or add organic matter, modifying the habitat.",
+        "Developing soil and improved moisture or nutrient availability enable later species to establish."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -3392,36 +3428,48 @@
     },
     {
       "id": "d42-written-13",
-      "kind": "structured-response",
+      "kind": "structured",
       "paper": "1B",
       "original": true,
       "understandingIds": [
         "D4.2.13"
       ],
       "level": "HL",
-      "prompt": "Explain primary succession with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "(a) Describe the species-richness trend with time since ice retreat, using values from the table. [1]\n(b) Explain how pioneers can facilitate later colonization and state one limitation of substituting different sites for time. [2]",
       "marks": 3,
       "sectionId": "stability-change-13",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Primary succession begins on an initially soil-poor surface such as fresh lava or newly exposed rock. Pioneer organisms weather substrate, contribute organic material and allow gradual accumulation of soil and nutrients. Later herbs, shrubs and trees can establish where the climate permits.\nA retreating glacier exposes mineral surface that first supports pioneers, then develops soil allowing larger vegetation.",
+      "answer": "Richness rises from 1 at 2 years to 5 at 15 years and 14 at 50 years. Pioneer communities can contribute organic matter or aid weathering and soil development, making establishment easier for later plants. Sites may differ in drainage, slope or other factors besides time since exposure, so the pattern may not be entirely due to succession.",
       "markingPoints": [
-        "Primary succession can increase plant size, production, diversity and nutrient cycling through time.",
-        "Primary succession begins on an initially soil-poor surface such as fresh lava or newly exposed rock.",
-        "A retreating glacier exposes mineral surface that first supports pioneers, then develops soil allowing larger vegetation."
+        "Richness rises from 1 at 2 years to 5 at 15 years and 14 at 50 years.",
+        "Pioneer communities can contribute organic matter or aid weathering and soil development, making establishment easier for later plants.",
+        "Sites may differ in drainage, slope or other factors besides time since exposure, so the pattern may not be entirely due to succession."
       ],
       "data": {
-        "caption": "Illustrative ecosystem scenario",
+        "caption": "Simulated results from three sites exposed as a glacier retreated.",
         "headers": [
-          "Scenario",
-          "Scientific interpretation"
+          "Estimated years since ice retreat",
+          "Plant species recorded",
+          "Mean soil depth (cm)"
         ],
         "rows": [
           [
-            "A retreating glacier exposes mineral surface that first supports pioneers, then develops soil allowing larger vegetation.",
-            "Infer cause and consequence"
+            2,
+            1,
+            0.2
+          ],
+          [
+            15,
+            5,
+            2.5
+          ],
+          [
+            50,
+            14,
+            11
           ]
         ]
       },
@@ -3480,18 +3528,18 @@
         "D4.2.14"
       ],
       "level": "HL",
-      "prompt": "Explain cyclical succession with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "A patch of heath passes through young heather, mature heather, senescent heather and open ground. Explain how this sequence can lead to cyclical succession. [3]",
       "marks": 3,
       "sectionId": "stability-change-14",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "Some ecosystems have repeating sequences of communities rather than a single permanently static endpoint. In heathland, ageing heather stands can become open after dieback or disturbance, allowing regeneration and repeated structural phases. Wetland dynamics or grazing can also create local cycles.\nHeather growth, senescence, gaps and recolonization can form a repeating patch cycle in heath vegetation.",
+      "answer": "Young heather establishes in open patches and matures. Senescence results in death or thinning and opens new gaps. New plants recolonize gaps, allowing the same sequence to recur.",
       "markingPoints": [
-        "Cyclical succession repeatedly revisits community states instead of ending at one permanent stage.",
-        "Some ecosystems have repeating sequences of communities rather than a single permanently static endpoint.",
-        "Heather growth, senescence, gaps and recolonization can form a repeating patch cycle in heath vegetation."
+        "Young heather establishes in open patches and matures.",
+        "Senescence results in death or thinning and opens new gaps.",
+        "New plants recolonize gaps, allowing the same sequence to recur."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -3548,18 +3596,18 @@
         "D4.2.15"
       ],
       "level": "HL",
-      "prompt": "Explain climax communities and arrested succession with an appropriate ecosystem example, including causal relationships and limits of the evidence.",
+      "prompt": "Sheep are removed from a grassland, after which shrub seedlings survive more often. Explain how grazing had arrested succession and how removing it may change the community. [3]",
       "marks": 3,
       "sectionId": "stability-change-15",
       "referenceIds": [
         "ib-d42",
         "hodder-d42"
       ],
-      "answer": "A climax community is the relatively persistent ecological state associated with a particular set of climate, soils, disturbance and biotic conditions. It is not an immortal or universally highest-complexity endpoint. An ecosystem can continue changing even when it appears mature.\nContinuing sheep grazing can maintain short grass rather than allow scrub or woodland establishment.",
+      "answer": "Grazing previously removed or damaged young woody plants. Continued grazing maintained a grass-dominated earlier stage. Survival of shrubs after removal can allow succession toward a shrub- or tree-dominated community where other conditions permit.",
       "markingPoints": [
-        "Persistent grazing or drainage can arrest succession before a potential climax state.",
-        "A climax community is the relatively persistent ecological state associated with a particular set of climate, soils, disturbance and biotic conditions.",
-        "Continuing sheep grazing can maintain short grass rather than allow scrub or woodland establishment."
+        "Grazing previously removed or damaged young woody plants.",
+        "Continued grazing maintained a grass-dominated earlier stage.",
+        "Survival of shrubs after removal can allow succession toward a shrub- or tree-dominated community where other conditions permit."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     }

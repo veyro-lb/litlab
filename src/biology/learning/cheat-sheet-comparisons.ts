@@ -1,6 +1,6 @@
 // Use selected compact comparisons from the lesson data. Each inherits the
 // syllabus scope of its section, and its source references remain in the lesson.
-export const revisionComparisons = new Set([
+export const cheatSheetComparisons = new Set([
   'Cohesion and adhesion are different',
   'DNA compared with RNA',
   'Plant, fungal and animal cells',

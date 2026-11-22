@@ -1488,16 +1488,16 @@
       ],
       "options": [
         {
-          "id": "d11-1-o1",
-          "text": "Template-directed DNA replication before division",
-          "correct": true,
-          "feedback": "DNA replication produces two copies of each chromosome's sequence; subsequent chromosome segregation can then distribute one copy to each daughter cell."
-        },
-        {
           "id": "d11-1-o2",
           "text": "Translation of every mRNA into protein",
           "correct": false,
           "feedback": "Translation uses ribosomes to make proteins from mRNA. Making proteins does not copy the DNA sequences that daughter cells inherit."
+        },
+        {
+          "id": "d11-1-o1",
+          "text": "Template-directed DNA replication before division",
+          "correct": true,
+          "feedback": "DNA replication produces two copies of each chromosome's sequence; subsequent chromosome segregation can then distribute one copy to each daughter cell."
         },
         {
           "id": "d11-1-o3",
@@ -1558,12 +1558,6 @@
       ],
       "options": [
         {
-          "id": "d11-2-o1",
-          "text": "One parental and one new strand",
-          "correct": true,
-          "feedback": "Each original strand templates a new complementary strand, so each daughter DNA duplex contains one parental and one newly synthesized strand."
-        },
-        {
           "id": "d11-2-o2",
           "text": "Two original parental strands",
           "correct": false,
@@ -1574,6 +1568,12 @@
           "text": "Two unrelated DNA molecules",
           "correct": false,
           "feedback": "Daughter DNA is related to the parental molecule by complementary base pairing; new strands are not random unrelated molecules."
+        },
+        {
+          "id": "d11-2-o1",
+          "text": "One parental and one new strand",
+          "correct": true,
+          "feedback": "Each original strand templates a new complementary strand, so each daughter DNA duplex contains one parental and one newly synthesized strand."
         },
         {
           "id": "d11-2-o4",
@@ -1698,12 +1698,6 @@
       ],
       "options": [
         {
-          "id": "d11-4-o1",
-          "text": "Denaturation, primer annealing, polymerase extension",
-          "correct": true,
-          "feedback": "Correct. A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers."
-        },
-        {
           "id": "d11-4-o2",
           "text": "Translation, transcription, replication",
           "correct": false,
@@ -1720,6 +1714,12 @@
           "text": "Gel separation, ligation, protein sorting",
           "correct": false,
           "feedback": "Consider why “Gel separation, ligation, protein sorting” does not answer this question. DNA has a negatively charged backbone and migrates toward the positive electrode."
+        },
+        {
+          "id": "d11-4-o1",
+          "text": "Denaturation, primer annealing, polymerase extension",
+          "correct": true,
+          "feedback": "Correct. A PCR cycle first heats DNA to separate strands, then lowers the temperature so short DNA primers can anneal to complementary sequences on opposite strands, then allows thermostable Taq DNA polymerase to extend those primers."
         }
       ],
       "review": "draft"
@@ -1838,12 +1838,6 @@
       ],
       "options": [
         {
-          "id": "d11-6-o1",
-          "text": "The free 3′ end of the growing strand",
-          "correct": true,
-          "feedback": "Correct. A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon."
-        },
-        {
           "id": "d11-6-o2",
           "text": "The 5′ end of the growing strand",
           "correct": false,
@@ -1860,6 +1854,12 @@
           "text": "The middle of an intact phosphodiester bond",
           "correct": false,
           "feedback": "Consider why “The middle of an intact phosphodiester bond” does not answer this question. Both leading and lagging products are always synthesized 5′→3′."
+        },
+        {
+          "id": "d11-6-o1",
+          "text": "The free 3′ end of the growing strand",
+          "correct": true,
+          "feedback": "Correct. A DNA strand has chemically different 5′ and 3′ ends because nucleotides have a phosphate-linked 5′ carbon and a hydroxyl-bearing 3′ carbon."
         }
       ],
       "review": "draft"
@@ -1908,12 +1908,6 @@
       ],
       "options": [
         {
-          "id": "d11-7-o1",
-          "text": "Repeated priming and Okazaki fragments",
-          "correct": true,
-          "feedback": "Correct. On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens."
-        },
-        {
           "id": "d11-7-o2",
           "text": "DNA synthesis in the 3′→5′ direction",
           "correct": false,
@@ -1924,6 +1918,12 @@
           "text": "Use of an RNA template instead of DNA",
           "correct": false,
           "feedback": "Consider why “Use of an RNA template instead of DNA” does not answer this question. Okazaki fragments are individually synthesized 5′→3′, but in the direction opposite fork travel."
+        },
+        {
+          "id": "d11-7-o1",
+          "text": "Repeated priming and Okazaki fragments",
+          "correct": true,
+          "feedback": "Correct. On the leading-strand template, a newly primed strand is extended continuously in the same overall direction in which the replication fork opens."
         },
         {
           "id": "d11-7-o4",
@@ -2048,16 +2048,16 @@
       ],
       "options": [
         {
-          "id": "d11-9-o1",
-          "text": "3′→5′ exonuclease activity",
-          "correct": true,
-          "feedback": "Correct. Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended."
-        },
-        {
           "id": "d11-9-o2",
           "text": "5′→3′ synthesis activity only",
           "correct": false,
           "feedback": "Consider why “5′→3′ synthesis activity only” does not answer this question. Polymerase III removes a mismatched newly added 3′ terminal nucleotide and replaces it with the correct one."
+        },
+        {
+          "id": "d11-9-o1",
+          "text": "3′→5′ exonuclease activity",
+          "correct": true,
+          "feedback": "Correct. Bacterial DNA polymerase III tests the terminal base pair while the daughter strand is being extended."
         },
         {
           "id": "d11-9-o3",
@@ -2102,51 +2102,58 @@
     {
       "id": "d11-pcr-model-data-1b",
       "paper": "1B",
-      "kind": "data",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D1.1.4"
       ],
       "level": "shared",
-      "prompt": "An idealized PCR model begins with 20 amplifiable target duplexes and assumes perfect doubling per cycle. Calculate the expected count after four cycles, then explain why a real reaction may produce fewer copies.",
-      "marks": 2,
+      "prompt": "(a) Use the model to calculate the expected count at cycle 4. [1]\n(b) Calculate the percentage by which the measured count is lower than expected at cycle 4. [1]\n(c) Explain one reason a real reaction can fall below the ideal prediction. [1]",
+      "marks": 3,
       "sectionId": "d11-4",
       "referenceIds": [
         "ib-d11",
         "hodder-d11",
         "ncbi-replication"
       ],
-      "answer": "20 × 2⁴ = 320 target duplexes in this idealized model. Actual reaction efficiency can be reduced by reagent limitations, incomplete primer annealing or inhibition; amplification will not always double perfectly.",
+      "answer": "160 × 2 = 320 copies. (320 − 240) ÷ 320 × 100 = 25%. The ideal model assumes every copy produces a new copy each cycle. In real reactions amplification efficiency can fall below 100%.",
       "markingPoints": [
-        "Correct multiplication 20 × 2⁴ = 320 duplexes.",
-        "One valid mechanism that prevents perfect exponential efficiency."
+        "160 × 2 = 320 copies.",
+        "(320 − 240) ÷ 320 × 100 = 25%.",
+        "The ideal model assumes every copy produces a new copy each cycle. In real reactions amplification efficiency can fall below 100%."
       ],
       "data": {
-        "caption": "Theoretical perfect-doubling PCR model; not measured laboratory observations",
+        "caption": "Simulated copy counts for an anonymous classroom model. The ideal model assumes perfect doubling.",
         "headers": [
-          "Cycles",
-          "Expected target DNA duplexes"
+          "Completed cycles",
+          "Ideal copy count",
+          "Measured copy count"
         ],
         "rows": [
           [
             0,
+            20,
             20
           ],
           [
             1,
+            40,
             40
           ],
           [
             2,
-            80
+            80,
+            76
           ],
           [
             3,
-            160
+            160,
+            140
           ],
           [
             4,
-            320
+            "?",
+            240
           ]
         ]
       },

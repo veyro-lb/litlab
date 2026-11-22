@@ -2364,6 +2364,54 @@
   ],
   "questions": [
     {
+      "id": "b31-leaf-water-loss",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "B3.1.9"
+      ],
+      "level": "shared",
+      "prompt": "A plant closes many of its stomata on a dry afternoon. Explain how this affects water loss and the supply of carbon dioxide for photosynthesis. [4]",
+      "marks": 4,
+      "sectionId": "b31-9",
+      "referenceIds": [
+        "ib-b31-guide",
+        "hodder-b31"
+      ],
+      "answer": "Water evaporates from moist mesophyll surfaces into the leaf air spaces. Narrower stomatal pores reduce diffusion of water vapour out of the leaf, reducing transpiration. Narrower pores also limit carbon dioxide diffusion into the leaf. Reduced carbon dioxide supply can limit carbon fixation and lower the rate of photosynthesis.",
+      "markingPoints": [
+        "Water evaporates from moist mesophyll surfaces into the leaf air spaces.",
+        "Narrower stomatal pores reduce diffusion of water vapour out of the leaf, reducing transpiration.",
+        "Narrower pores also limit carbon dioxide diffusion into the leaf.",
+        "Reduced carbon dioxide supply can limit carbon fixation and lower the rate of photosynthesis."
+      ]
+    },
+    {
+      "id": "b31-alveolar-gradient",
+      "paper": "2",
+      "kind": "structured",
+      "original": true,
+      "understandingIds": [
+        "B3.1.3"
+      ],
+      "level": "shared",
+      "prompt": "Explain how ventilation and blood flow maintain a gradient for oxygen uptake across an alveolus. [4]",
+      "marks": 4,
+      "sectionId": "b31-3",
+      "referenceIds": [
+        "ib-b31-guide",
+        "hodder-b31"
+      ],
+      "answer": "Ventilation brings fresh air into the alveolus and replaces oxygen that has diffused out. Blood arriving at the alveolar capillary has a lower oxygen partial pressure than alveolar air. Oxygen diffuses down its partial-pressure gradient across the alveolar and capillary walls. Blood flow carries oxygen away and continually brings in blood with a lower oxygen partial pressure.",
+      "markingPoints": [
+        "Ventilation brings fresh air into the alveolus and replaces oxygen that has diffused out.",
+        "Blood arriving at the alveolar capillary has a lower oxygen partial pressure than alveolar air.",
+        "Oxygen diffuses down its partial-pressure gradient across the alveolar and capillary walls.",
+        "Blood flow carries oxygen away and continually brings in blood with a lower oxygen partial pressure."
+      ]
+    },
+    {
       "kind": "selection",
       "id": "b31-1-mcq",
       "prompt": "Choose the scientifically supported interpretation for gas exchange becomes harder as organisms enlarge.",
@@ -2371,12 +2419,6 @@
         "B3.1.1"
       ],
       "options": [
-        {
-          "id": "c1",
-          "text": "Volume scales faster than surface area",
-          "correct": true,
-          "feedback": "Correct: Volume grows faster than area, reducing available exchange surface per unit volume."
-        },
         {
           "id": "c2",
           "text": "Area scales faster than volume",
@@ -2388,6 +2430,12 @@
           "text": "Surface area becomes zero",
           "correct": false,
           "feedback": "Incorrect: A doubling of all linear dimensions halves the surface-area-to-volume ratio of a geometrically similar cube; the available surface per unit tissue falls. The proposed answer, “Surface area becomes zero”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "Volume scales faster than surface area",
+          "correct": true,
+          "feedback": "Correct: Volume grows faster than area, reducing available exchange surface per unit volume."
         },
         {
           "id": "c4",
@@ -2415,12 +2463,6 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "Large thin wet permeable area",
-          "correct": true,
-          "feedback": "Correct: Rapid gas exchange requires thin, moist, permeable tissue with large accessible area."
-        },
-        {
           "id": "c2",
           "text": "Thick dry impermeable wall",
           "correct": false,
@@ -2437,6 +2479,12 @@
           "text": "A permanently sealed layer",
           "correct": false,
           "feedback": "Incorrect: A barrier may be very thin yet exchange poorly if its effective area is small or it is not perfused; each property contributes separately to net transfer. The proposed answer, “A permanently sealed layer”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "Large thin wet permeable area",
+          "correct": true,
+          "feedback": "Correct: Rapid gas exchange requires thin, moist, permeable tissue with large accessible area."
         }
       ],
       "paper": "1A",
@@ -2544,16 +2592,16 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "Diaphragm flattens in inspiration",
-          "correct": true,
-          "feedback": "Correct: Expansion lowers alveolar pressure and atmospheric pressure drives air inward."
-        },
-        {
           "id": "c2",
           "text": "Diaphragm domes in inspiration",
           "correct": false,
           "feedback": "Incorrect: Air enters only while pressure in the alveoli is below atmospheric pressure; it does not enter because the lungs actively pull oxygen molecules. The proposed answer, “Diaphragm domes in inspiration”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "Diaphragm flattens in inspiration",
+          "correct": true,
+          "feedback": "Correct: Expansion lowers alveolar pressure and atmospheric pressure drives air inward."
         },
         {
           "id": "c3",
@@ -2587,16 +2635,16 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "TV + IRV + ERV",
-          "correct": true,
-          "feedback": "Correct: Vital capacity is the sum of tidal and inspiratory and expiratory reserves."
-        },
-        {
           "id": "c2",
           "text": "TV + residual volume",
           "correct": false,
           "feedback": "Incorrect: Vital capacity is a volume measured in litres, whereas minute ventilation is a flow rate in litres per minute; they answer different questions. The proposed answer, “TV + residual volume”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "TV + IRV + ERV",
+          "correct": true,
+          "feedback": "Correct: Vital capacity is the sum of tidal and inspiratory and expiratory reserves."
         },
         {
           "id": "c3",
@@ -2673,12 +2721,6 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "Xylem normally upper, phloem lower",
-          "correct": true,
-          "feedback": "Correct: The vascular xylem is usually above the phloem in a transverse section."
-        },
-        {
           "id": "c2",
           "text": "Phloem upper, xylem lower",
           "correct": false,
@@ -2689,6 +2731,12 @@
           "text": "Both inside stomata",
           "correct": false,
           "feedback": "Incorrect: A plan diagram records the observed outlines and relative tissue distribution, not imagined cell detail or a decorative three-dimensional leaf. The proposed answer, “Both inside stomata”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "Xylem normally upper, phloem lower",
+          "correct": true,
+          "feedback": "Correct: The vascular xylem is usually above the phloem in a transverse section."
         },
         {
           "id": "c4",
@@ -2716,16 +2764,16 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "Dry moving air can accelerate loss",
-          "correct": true,
-          "feedback": "Correct: Water uptake is a useful proxy for transpiration but not an identical direct measurement."
-        },
-        {
           "id": "c2",
           "text": "Humidity always accelerates loss",
           "correct": false,
           "feedback": "Incorrect: Relative humidity influences the water-vapour gradient, whereas wind changes the boundary layer; neither automatically determines stomatal aperture. The proposed answer, “Humidity always accelerates loss”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "Dry moving air can accelerate loss",
+          "correct": true,
+          "feedback": "Correct: Water uptake is a useful proxy for transpiration but not an identical direct measurement."
         },
         {
           "id": "c3",
@@ -2759,12 +2807,6 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "Calibrate area and count independent fields",
-          "correct": true,
-          "feedback": "Correct: Determine field area, replicate counts and divide each count by observed area."
-        },
-        {
           "id": "c2",
           "text": "Use an unscaled photo count",
           "correct": false,
@@ -2781,6 +2823,12 @@
           "text": "Ignore sampling surface",
           "correct": false,
           "feedback": "Incorrect: When each field has equal area, the mean of its individual densities equals total stomata divided by total sampled area; state the sampling surface. The proposed answer, “Ignore sampling surface”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "Calibrate area and count independent fields",
+          "correct": true,
+          "feedback": "Correct: Determine field area, replicate counts and divide each count by observed area."
         }
       ],
       "paper": "1A",
@@ -2845,16 +2893,16 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "More CO₂ shifts oxygen binding rightward",
-          "correct": true,
-          "feedback": "Correct: High CO₂ decreases oxygen affinity and favours oxygen release."
-        },
-        {
           "id": "c2",
           "text": "More CO₂ shifts it leftward",
           "correct": false,
           "feedback": "Incorrect: At the same partial pressure of oxygen, a right-shifted curve has a lower percentage saturation, allowing more oxygen to be released into active tissue. The proposed answer, “More CO₂ shifts it leftward”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "More CO₂ shifts oxygen binding rightward",
+          "correct": true,
+          "feedback": "Correct: High CO₂ decreases oxygen affinity and favours oxygen release."
         },
         {
           "id": "c3",
@@ -2888,12 +2936,6 @@
       ],
       "options": [
         {
-          "id": "c1",
-          "text": "A left shift denotes higher affinity",
-          "correct": true,
-          "feedback": "Correct: A left shift reports higher affinity, not greater maximum binding-site number."
-        },
-        {
           "id": "c2",
           "text": "A left shift creates extra haem",
           "correct": false,
@@ -2904,6 +2946,12 @@
           "text": "pO₂ must be plotted on y-axis",
           "correct": false,
           "feedback": "Incorrect: Compare saturation values vertically at the same oxygen partial pressure; changing both axes at once does not demonstrate a Bohr shift. The proposed answer, “pO₂ must be plotted on y-axis”, fails to account for this mechanism."
+        },
+        {
+          "id": "c1",
+          "text": "A left shift denotes higher affinity",
+          "correct": true,
+          "feedback": "Correct: A left shift reports higher affinity, not greater maximum binding-site number."
         },
         {
           "id": "c4",

@@ -1936,27 +1936,27 @@
       "options": [
         {
           "id": "a",
-          "text": "Ice-core temperature correlation alone proves CO\u2082 is the only driver.",
+          "text": "Ice-core temperature correlation alone proves CO₂ is the only driver.",
           "correct": false,
           "feedback": "Correlation motivates a hypothesis; independent physical and observational evidence establishes mechanisms."
         },
         {
           "id": "b",
-          "text": "Increasing atmospheric CO\u2082 and CH\u2084 strengthens infrared absorption and raises global temperature, with multiple lines of causal evidence.",
+          "text": "Increasing atmospheric CO₂ and CH₄ strengthens infrared absorption and raises global temperature, with multiple lines of causal evidence.",
           "correct": true,
-          "feedback": "Correct. CO\u2082 and CH\u2084 absorb outgoing infrared radiation; independent physical evidence supports causation."
+          "feedback": "Correct. CO₂ and CH₄ absorb outgoing infrared radiation; independent physical evidence supports causation."
         },
         {
           "id": "c",
           "text": "Incoming solar radiation is mostly longwave infrared emitted by Earth.",
           "correct": false,
-          "feedback": "This conflicts with evidence or mechanism. Increasing atmospheric CO\u2082 and CH\u2084 strengthens infrared absorption and raises global temperature, with multiple lines of causal evidence."
+          "feedback": "This conflicts with evidence or mechanism. Increasing atmospheric CO₂ and CH₄ strengthens infrared absorption and raises global temperature, with multiple lines of causal evidence."
         },
         {
           "id": "d",
-          "text": "Ice-core CO\u2082\u2013temperature correlation alone establishes a unique cause of climate change.",
+          "text": "Ice-core CO₂–temperature correlation alone establishes a unique cause of climate change.",
           "correct": false,
-          "feedback": "This conflicts with evidence or mechanism. Increasing atmospheric CO\u2082 and CH\u2084 strengthens infrared absorption and raises global temperature, with multiple lines of causal evidence."
+          "feedback": "This conflicts with evidence or mechanism. Increasing atmospheric CO₂ and CH₄ strengthens infrared absorption and raises global temperature, with multiple lines of causal evidence."
         }
       ],
       "review": "source-mapped"
@@ -1964,40 +1964,48 @@
     {
       "id": "d43-written-1",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D4.3.1"
       ],
       "level": "shared",
-      "prompt": "Explain how human activities increase greenhouse warming and why a positive CO\u2082\u2013temperature correlation alone cannot prove causation. [3]",
+      "prompt": "(a) Describe the association between atmospheric CO₂ and temperature anomaly, using the table. [1]\n(b) Explain the greenhouse mechanism and why this table alone cannot establish causation. [2]",
       "marks": 3,
       "sectionId": "climate-change-1",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "Burning fossil fuels and land-use change increase atmospheric CO\u2082, while agriculture and fossil-fuel systems contribute CH\u2084. Both gases absorb and re-emit outgoing infrared radiation, limiting energy loss to space. Ice-core CO\u2082 and temperature values may be positively correlated, but establishing causation also requires evidence of the infrared greenhouse mechanism.",
+      "answer": "Both rise: CO₂ goes from 360 to 410 ppm and the anomaly rises from 0.40 to 0.95 °C. CO₂ absorbs and re-emits outgoing infrared radiation, reducing the initial rate of heat loss to space and promoting warming. Both variables may change with time for other reasons, and the data do not control other climate drivers.",
       "markingPoints": [
-        "Identify an anthropogenic CO\u2082 or CH\u2084 source (1).",
-        "Explain that CO\u2082 and CH\u2084 absorb and re-emit outgoing infrared radiation, strengthening warming (1).",
-        "Explain that correlation alone does not prove causation and refer to independent physical evidence (1)."
+        "Both rise: CO₂ goes from 360 to 410 ppm and the anomaly rises from 0.40 to 0.95 °C.",
+        "CO₂ absorbs and re-emits outgoing infrared radiation, reducing the initial rate of heat loss to space and promoting warming.",
+        "Both variables may change with time for other reasons, and the data do not control other climate drivers."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
       "data": {
-        "caption": "Qualitative evidence and mechanism classification (no invented measurements)",
+        "caption": "Simulated values illustrating an association over time.",
         "headers": [
-          "Claim or evidence",
-          "How to use it"
+          "Model year",
+          "Atmospheric CO₂ (ppm)",
+          "Mean temperature anomaly (°C)"
         ],
         "rows": [
           [
-            "Ice-core CO\u2082 and temperature often vary together over long periods",
-            "Positive correlation; this association by itself does not prove causation"
+            1,
+            360,
+            0.4
           ],
           [
-            "CO\u2082 and CH\u2084 absorb and re-emit outgoing infrared radiation",
-            "Independent physical mechanism linking greenhouse-gas concentrations to warming"
+            11,
+            385,
+            0.6
+          ],
+          [
+            21,
+            410,
+            0.95
           ]
         ]
       }
@@ -2035,7 +2043,7 @@
           "id": "c",
           "text": "Positive feedback reinforces the initial warming through effects such as albedo loss and carbon release.",
           "correct": true,
-          "feedback": "Correct. Less reflective Arctic ice \u2192 more dark ocean exposed \u2192 increased absorbed sunlight \u2192 further warming and additional melting."
+          "feedback": "Correct. Less reflective Arctic ice → more dark ocean exposed → increased absorbed sunlight → further warming and additional melting."
         },
         {
           "id": "d",
@@ -2055,18 +2063,18 @@
         "D4.3.2"
       ],
       "level": "shared",
-      "prompt": "Explain amplifying climate feedbacks using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "Explain how a decrease in Arctic sea ice can amplify an initial rise in temperature. [3]",
       "marks": 3,
       "sectionId": "climate-change-2",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "A positive climate feedback amplifies an initial temperature change; it does not necessarily mean that the initial forcing becomes infinite. Warming can reduce bright snow and sea ice, exposing darker land or water that absorbs more sunlight and increases warming. Warming of previously frozen soils can accelerate microbial decomposition of organic matter and release additional carbon dioxide and methane. Severe drought and wildfires can release stored carbon and reduce vegetation uptake.\nLess reflective Arctic ice \u2192 more dark ocean exposed \u2192 increased absorbed sunlight \u2192 further warming and additional melting.",
+      "answer": "Less ice exposes darker ocean. Darker ocean reflects less and absorbs more incoming solar radiation. Extra warming melts more ice, reinforcing the initial change.",
       "markingPoints": [
-        "Positive feedback reinforces the initial warming through effects such as albedo loss and carbon release.",
-        "A positive climate feedback amplifies an initial temperature change; it does not necessarily mean that the initial forcing becomes infinite.",
-        "Less reflective Arctic ice \u2192 more dark ocean exposed \u2192 increased absorbed sunlight \u2192 further warming and additional melting."
+        "Less ice exposes darker ocean.",
+        "Darker ocean reflects less and absorbs more incoming solar radiation.",
+        "Extra warming melts more ice, reinforcing the initial change."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2117,35 +2125,42 @@
     {
       "id": "d43-written-3",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D4.3.3"
       ],
       "level": "shared",
-      "prompt": "Explain boreal forest carbon tipping points using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "(a) Calculate the net annual carbon transfer to the atmosphere in period P. [1]\n(b) Use the data to identify when the forest is a net carbon source and explain the change. [2]",
       "marks": 3,
       "sectionId": "climate-change-3",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "Boreal forest and taiga ecosystems store carbon in tree biomass, soils and peat. Net carbon accumulation occurs when photosynthetic carbon uptake exceeds releases through ecosystem respiration, fires and decomposition. Warmer growing seasons can initially enhance production at some sites, but higher evaporation demand and decreased winter snow can increase water stress and reduce primary production, causing forest browning.\nIn an illustrative annual carbon budget, fixation of 120 units and combined respiration plus fire losses of 150 units produce a net release of 30 units; the numbers are invented.",
+      "answer": "90 − 120 = −30 units per year to the atmosphere, equivalent to net uptake of 30. The forest is a source in Q, when release exceeds fixation by 35 units per year. Release increases substantially while fixation decreases slightly, reversing the net carbon flux.",
       "markingPoints": [
-        "A boreal carbon sink can become a source if reduced uptake and combustion exceed carbon gains.",
-        "Boreal forest and taiga ecosystems store carbon in tree biomass, soils and peat.",
-        "In an illustrative annual carbon budget, fixation of 120 units and combined respiration plus fire losses of 150 units produce a net release of 30 units; the numbers are invented."
+        "90 − 120 = −30 units per year to the atmosphere, equivalent to net uptake of 30.",
+        "The forest is a source in Q, when release exceeds fixation by 35 units per year.",
+        "Release increases substantially while fixation decreases slightly, reversing the net carbon flux."
       ],
       "data": {
-        "caption": "Evidence type exercise (scientific scenario)",
+        "caption": "Simulated annual boreal forest carbon budgets.",
         "headers": [
-          "Evidence or scenario",
-          "Required interpretation"
+          "Period",
+          "Carbon fixation (units yr⁻¹)",
+          "Carbon released by respiration and fire (units yr⁻¹)"
         ],
         "rows": [
           [
-            "In an illustrative annual carbon budget, fixation of 120 units and combined respiration plus fire losses of 150 units produce a net release of 30 units; the numbers are invented.",
-            "Explain mechanism, classify claim, and give limitation"
+            "P",
+            120,
+            90
+          ],
+          [
+            "Q",
+            115,
+            150
           ]
         ]
       },
@@ -2199,13 +2214,13 @@
     {
       "id": "d43-written-4",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D4.3.4"
       ],
       "level": "shared",
-      "prompt": "Compare how loss of Antarctic landfast ice can affect emperor penguins and how loss of Arctic sea ice can affect walruses. [3]",
+      "prompt": "(a) Compare chick fledging success between the years with the latest and earliest landfast ice breakup. [1]\n(b) Explain how earlier breakup could affect chicks and state one reason the data alone cannot establish causation. [2]",
       "marks": 3,
       "sectionId": "climate-change-4",
       "referenceIds": [
@@ -2213,30 +2228,35 @@
         "hodder-d43",
         "bas-penguin"
       ],
-      "answer": "Emperor penguins breed on Antarctic landfast ice; early breakup before chicks have waterproof feathers can reduce chick survival. Arctic walruses use sea ice as resting habitat between feeding trips; retreat can increase travel distances or force more animals onto coastal haul-outs. These are different habitats in different polar regions, so their ecological effects should be evaluated separately.",
+      "answer": "Success was 80% in the latest-breakup season and 29% in the earliest, a 51 percentage-point difference. Breaking ice can remove the breeding platform before chicks are able to survive in water. Other conditions, such as food supply or storms, may also vary between the three seasons.",
       "markingPoints": [
-        "Explain emperor penguin dependence on stable Antarctic landfast ice for breeding and risk to chicks from early breakup (1).",
-        "Explain walrus dependence on Arctic sea ice for resting near feeding areas, and a consequence of ice loss (1).",
-        "Distinguish Antarctic landfast ice from Arctic floating sea ice, rather than treating them as identical measurements (1)."
+        "Success was 80% in the latest-breakup season and 29% in the earliest, a 51 percentage-point difference.",
+        "Breaking ice can remove the breeding platform before chicks are able to survive in water.",
+        "Other conditions, such as food supply or storms, may also vary between the three seasons."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding",
       "data": {
-        "caption": "Prescribed polar habitats and organisms (qualitative biological comparison)",
+        "caption": "Simulated emperor penguin breeding observations at one site.",
         "headers": [
-          "Habitat",
-          "Organism",
-          "Consequence of ice loss"
+          "Breeding season",
+          "Day of year at landfast ice breakup",
+          "Chicks fledging (%)"
         ],
         "rows": [
           [
-            "Antarctic landfast ice",
-            "Emperor penguin",
-            "Early breakup threatens chicks before waterproof feathers develop"
+            "P",
+            345,
+            80
           ],
           [
-            "Arctic sea ice",
-            "Walrus",
-            "Reduced resting habitat near feeding grounds may increase travel and crowd coastal haul-outs"
+            "Q",
+            334,
+            62
+          ],
+          [
+            "R",
+            315,
+            29
           ]
         ]
       }
@@ -2288,35 +2308,42 @@
     {
       "id": "d43-written-5",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D4.3.5"
       ],
       "level": "shared",
-      "prompt": "Explain upwelling changes and ocean circulation using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "(a) Calculate the difference in surface nitrate concentration between the strong- and weak-upwelling years. [1]\n(b) Explain how reduced upwelling could account for the difference in phytoplankton biomass. [2]",
       "marks": 3,
       "sectionId": "climate-change-5",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "Upwelling raises deeper, nutrient-rich water into the sunlit surface ocean, supplying nitrate, phosphate and other nutrients to phytoplankton. Ocean currents and wind forcing govern the timing and strength of many upwelling systems. Warming of surface water can make the upper ocean more strongly stratified by density, resisting vertical mixing that transports nutrients from deeper layers.\nIf strong stratification reduces nitrate delivery to a nutrient-limited surface layer, phytoplankton growth may fall and support fewer grazers.",
+      "answer": "11 − 4 = 7 µmol L⁻¹. Weaker upwelling delivers less nutrient-rich deep water to the surface. If nitrogen is limiting, lower nitrate restricts phytoplankton growth and can reduce biomass.",
       "markingPoints": [
-        "Warmer stratified waters can limit nutrient upwelling, lowering ocean primary production.",
-        "Upwelling raises deeper, nutrient-rich water into the sunlit surface ocean, supplying nitrate, phosphate and other nutrients to phytoplankton.",
-        "If strong stratification reduces nitrate delivery to a nutrient-limited surface layer, phytoplankton growth may fall and support fewer grazers."
+        "11 − 4 = 7 µmol L⁻¹.",
+        "Weaker upwelling delivers less nutrient-rich deep water to the surface.",
+        "If nitrogen is limiting, lower nitrate restricts phytoplankton growth and can reduce biomass."
       ],
       "data": {
-        "caption": "Evidence type exercise (scientific scenario)",
+        "caption": "Simulated measurements for a coastal surface layer.",
         "headers": [
-          "Evidence or scenario",
-          "Required interpretation"
+          "Upwelling year",
+          "Surface nitrate (µmol L⁻¹)",
+          "Phytoplankton biomass (relative units)"
         ],
         "rows": [
           [
-            "If strong stratification reduces nitrate delivery to a nutrient-limited surface layer, phytoplankton growth may fall and support fewer grazers.",
-            "Explain mechanism, classify claim, and give limitation"
+            "Strong",
+            11,
+            30
+          ],
+          [
+            "Weak",
+            4,
+            12
           ]
         ]
       },
@@ -2375,18 +2402,18 @@
         "D4.3.6"
       ],
       "level": "shared",
-      "prompt": "Explain poleward and upslope species movements using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "The lower limit of a montane bird’s range moves from 1,500 m to 1,650 m. Calculate the shift, suggest a biological cause, and explain why this observation alone does not show genetic evolution. [3]",
       "marks": 3,
       "sectionId": "climate-change-6",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "As climate conditions shift, species may alter their geographical or elevational distributions if suitable habitat becomes available elsewhere. In tropical New Guinea mountains, comparisons of bird surveys at different times have documented upslope shifts in elevational ranges for several montane bird species. Moving higher may allow populations to remain within tolerated temperatures, but mountain peaks impose a finite habitat ceiling.\nIf a montane bird population's lower elevational limit shifts from 1,500 m to 1,650 m, the illustrated 150 m difference is a range change, not necessarily genetic evolution.",
+      "answer": "The lower limit moved 150 m uphill. Warming or habitat changes may make lower elevations less suitable, shifting occupancy upward. Individuals can move or survive differentially across sites without any demonstrated heritable change in the population.",
       "markingPoints": [
-        "Species can shift upslope or poleward, but habitat access and species responses vary.",
-        "As climate conditions shift, species may alter their geographical or elevational distributions if suitable habitat becomes available elsewhere.",
-        "If a montane bird population's lower elevational limit shifts from 1,500 m to 1,650 m, the illustrated 150 m difference is a range change, not necessarily genetic evolution."
+        "The lower limit moved 150 m uphill.",
+        "Warming or habitat changes may make lower elevations less suitable, shifting occupancy upward.",
+        "Individuals can move or survive differentially across sites without any demonstrated heritable change in the population."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2411,23 +2438,23 @@
           "id": "a",
           "text": "Bleaching occurs only because seawater becomes more alkaline.",
           "correct": false,
-          "feedback": "Heat causes a symbiosis stress response; CO\u2082-driven chemistry alters calcification."
+          "feedback": "Heat causes a symbiosis stress response; CO₂-driven chemistry alters calcification."
         },
         {
           "id": "b",
           "text": "Any bleached coral is already irreversibly dead.",
           "correct": false,
-          "feedback": "This conflicts with evidence or mechanism. Heat stress can cause bleaching; extra CO\u2082 can cause ocean acidification and suppress calcification."
+          "feedback": "This conflicts with evidence or mechanism. Heat stress can cause bleaching; extra CO₂ can cause ocean acidification and suppress calcification."
         },
         {
           "id": "c",
           "text": "Ocean acidification creates extra carbonate ions that always speed calcification.",
           "correct": false,
-          "feedback": "This conflicts with evidence or mechanism. Heat stress can cause bleaching; extra CO\u2082 can cause ocean acidification and suppress calcification."
+          "feedback": "This conflicts with evidence or mechanism. Heat stress can cause bleaching; extra CO₂ can cause ocean acidification and suppress calcification."
         },
         {
           "id": "d",
-          "text": "Heat stress can cause bleaching; extra CO\u2082 can cause ocean acidification and suppress calcification.",
+          "text": "Heat stress can cause bleaching; extra CO₂ can cause ocean acidification and suppress calcification.",
           "correct": true,
           "feedback": "Correct. A warmer reef may show bleaching before colony death, while lower carbonate availability slows skeletal growth even without bleaching."
         }
@@ -2443,18 +2470,18 @@
         "D4.3.7"
       ],
       "level": "shared",
-      "prompt": "Explain coral reef threats and collapse using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "Explain how unusually warm seawater causes coral bleaching and how ocean acidification can affect reef growth even in the absence of bleaching. [3]",
       "marks": 3,
       "sectionId": "climate-change-7",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "Reef-building corals host symbiotic algae that transfer photosynthetic products to their animal hosts. Prolonged marine heat stress can disrupt the symbiosis, leading to loss of algal cells or pigments and a pale bleached appearance. Bleaching does not always mean immediate death; recovery is possible if stress subsides, but extended or repeated heat stress increases mortality.\nA warmer reef may show bleaching before colony death, while lower carbonate availability slows skeletal growth even without bleaching.",
+      "answer": "Heat stress can cause corals to lose their symbiotic algae or their pigments, resulting in bleaching. Loss of algae reduces the supply of photosynthetic products to corals. Acidification reduces carbonate ion availability, making deposition of calcium carbonate skeletons more difficult.",
       "markingPoints": [
-        "Heat stress can cause bleaching; extra CO\u2082 can cause ocean acidification and suppress calcification.",
-        "Reef-building corals host symbiotic algae that transfer photosynthetic products to their animal hosts.",
-        "A warmer reef may show bleaching before colony death, while lower carbonate availability slows skeletal growth even without bleaching."
+        "Heat stress can cause corals to lose their symbiotic algae or their pigments, resulting in bleaching.",
+        "Loss of algae reduces the supply of photosynthetic products to corals.",
+        "Acidification reduces carbonate ion availability, making deposition of calcium carbonate skeletons more difficult."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2511,18 +2538,18 @@
         "D4.3.8"
       ],
       "level": "shared",
-      "prompt": "Explain afforestation and peatland restoration using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "Explain how rewetting a drained peatland may reduce carbon release and identify one reason to monitor a second greenhouse gas. [3]",
       "marks": 3,
       "sectionId": "climate-change-8",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "Carbon sequestration stores atmospheric carbon in plant biomass or long-lived soil pools. Afforestation establishes trees where forest was absent, while forest regeneration supports the recovery of degraded woodland. Both can increase carbon uptake if trees survive and accumulated carbon remains stored, but benefits depend on land history, growth rate, disturbance and displaced land use.\nRestoring a drained peatland's water table can slow aerobic decay of stored peat; any methane changes should also be measured.",
+      "answer": "Raising the water table reduces oxygen availability in the peat. Lower oxygen availability slows aerobic decomposition and reduces carbon dioxide release from stored peat. Waterlogged conditions may increase methane emissions, so a net climate assessment should also consider methane.",
       "markingPoints": [
-        "Forest recovery and peatland restoration may sequester carbon, with ecological and greenhouse-gas trade-offs.",
-        "Carbon sequestration stores atmospheric carbon in plant biomass or long-lived soil pools.",
-        "Restoring a drained peatland's water table can slow aerobic decay of stored peat; any methane changes should also be measured."
+        "Raising the water table reduces oxygen availability in the peat.",
+        "Lower oxygen availability slows aerobic decomposition and reduces carbon dioxide release from stored peat.",
+        "Waterlogged conditions may increase methane emissions, so a net climate assessment should also consider methane."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2573,35 +2600,39 @@
     {
       "id": "d43-written-9",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D4.3.9"
       ],
       "level": "HL",
-      "prompt": "Explain phenology and biological timing using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "(a) Calculate how many days earlier budburst occurred in the warmer group. [1]\n(b) Explain why this is a phenological measurement and why repeated years in the field would be valuable. [2]",
       "marks": 3,
       "sectionId": "climate-change-9",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "Phenology is the study of seasonal timing of recurring biological events. Plants may respond to both temperature and photoperiod, including budburst, flowering and bud set in deciduous trees. Bird migration, nesting and reproductive cycles likewise respond to environmental cues and endogenous rhythms. In temperate regions, warmer spring temperatures often shift some events earlier.\nIf budburst occurs on day 110 in one year and 101 next year, the event is 9 days earlier; determining its cause requires long-term comparisons.",
+      "answer": "111 − 100 = 11 days earlier. Budburst date measures the timing of a recurring biological event. Repeating over years could distinguish a consistent temperature–timing association from unusual years or other year-to-year influences.",
       "markingPoints": [
-        "Phenology describes timing of events influenced by temperature, photoperiod and biological regulation.",
-        "Phenology is the study of seasonal timing of recurring biological events.",
-        "If budburst occurs on day 110 in one year and 101 next year, the event is 9 days earlier; determining its cause requires long-term comparisons."
+        "111 − 100 = 11 days earlier.",
+        "Budburst date measures the timing of a recurring biological event.",
+        "Repeating over years could distinguish a consistent temperature–timing association from unusual years or other year-to-year influences."
       ],
       "data": {
-        "caption": "Evidence type exercise (scientific scenario)",
+        "caption": "Simulated results for plants of the same variety under matched day length.",
         "headers": [
-          "Evidence or scenario",
-          "Required interpretation"
+          "Temperature treatment",
+          "Mean day of year of budburst"
         ],
         "rows": [
           [
-            "If budburst occurs on day 110 in one year and 101 next year, the event is 9 days earlier; determining its cause requires long-term comparisons.",
-            "Explain mechanism, classify claim, and give limitation"
+            "Cooler",
+            111
+          ],
+          [
+            "Warmer",
+            100
           ]
         ]
       },
@@ -2655,13 +2686,13 @@
     {
       "id": "d43-written-10",
       "paper": "1B",
-      "kind": "structured-response",
+      "kind": "structured",
       "original": true,
       "understandingIds": [
         "D4.3.10"
       ],
       "level": "HL",
-      "prompt": "Explain climate-driven phenological mismatch using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "(a) Calculate the gap between caterpillar peak and peak nestling food demand in each period. [2]\n(b) Suggest one consequence of the change in this gap for the birds. [1]",
       "marks": 3,
       "sectionId": "climate-change-10",
       "referenceIds": [
@@ -2669,22 +2700,29 @@
         "hodder-d43",
         "greattit"
       ],
-      "answer": "Species within one food web may use different seasonal cues. A plant or insect responding to local temperature can start growth earlier in a warm spring, while a migratory consumer relying partly on photoperiod or distant signals may arrive at approximately the old date. This can create a phenological mismatch between peak food availability and the period when consumers need it.\nIf caterpillar peak occurs on day 126 but nestlings' peak demand occurs on day 137, the illustrative mismatch is 11 days; this is synthetic, not study data.",
+      "answer": "Cooler years: 137 − 134 = 3 days. Warmer years: 132 − 120 = 12 days. The larger mismatch may leave fewer caterpillars when chicks need most food, reducing growth or survival.",
       "markingPoints": [
-        "Different temperature and day-length cues can desynchronize linked seasonal events.",
-        "Species within one food web may use different seasonal cues.",
-        "If caterpillar peak occurs on day 126 but nestlings' peak demand occurs on day 137, the illustrative mismatch is 11 days; this is synthetic, not study data."
+        "Cooler years: 137 − 134 = 3 days.",
+        "Warmer years: 132 − 120 = 12 days.",
+        "The larger mismatch may leave fewer caterpillars when chicks need most food, reducing growth or survival."
       ],
       "data": {
-        "caption": "Evidence type exercise (scientific scenario)",
+        "caption": "Simulated mean dates of two biological events.",
         "headers": [
-          "Evidence or scenario",
-          "Required interpretation"
+          "Spring period",
+          "Day of caterpillar peak",
+          "Day of peak nestling demand"
         ],
         "rows": [
           [
-            "If caterpillar peak occurs on day 126 but nestlings' peak demand occurs on day 137, the illustrative mismatch is 11 days; this is synthetic, not study data.",
-            "Explain mechanism, classify claim, and give limitation"
+            "Cooler years",
+            134,
+            137
+          ],
+          [
+            "Warmer years",
+            120,
+            132
           ]
         ]
       },
@@ -2743,18 +2781,18 @@
         "D4.3.11"
       ],
       "level": "HL",
-      "prompt": "Explain insect generations under warming using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "Suggest why a warmer growing season can allow spruce bark beetles to complete an extra generation, and explain one possible effect on the forest. [3]",
       "marks": 3,
       "sectionId": "climate-change-11",
       "referenceIds": [
         "ib-d43",
         "hodder-d43"
       ],
-      "answer": "Warmer growing seasons can permit some insect species to complete development more rapidly, potentially increasing their number of generations per year (voltinism). The Eurasian spruce bark beetle Ips typographus develops through egg, larval, pupal and adult stages in spruce-associated habitats and can sometimes produce additional broods under suitable warmth.\nIf suitable thermal conditions permit one additional beetle generation, more adults may attack already-stressed spruce before winter.",
+      "answer": "Under temperatures within the insect’s suitable range, development may be faster. A longer period of suitable temperatures or a shorter generation time can allow another generation before winter. An extra generation may increase beetle abundance and the number of spruce trees damaged.",
       "markingPoints": [
-        "Warming can increase spruce bark beetle generations and potentially intensify forest damage.",
-        "Warmer growing seasons can permit some insect species to complete development more rapidly, potentially increasing their number of generations per year (voltinism).",
-        "If suitable thermal conditions permit one additional beetle generation, more adults may attack already-stressed spruce before winter."
+        "Under temperatures within the insect’s suitable range, development may be faster.",
+        "A longer period of suitable temperatures or a shorter generation time can allow another generation before winter.",
+        "An extra generation may increase beetle abundance and the number of spruce trees damaged."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     },
@@ -2786,7 +2824,7 @@
           "id": "b",
           "text": "Individual grey owls become genetically brown whenever snow melts.",
           "correct": false,
-          "feedback": "Evolution is inferred from heritable differences across generations, supported by survival and parent\u2013offspring data."
+          "feedback": "Evolution is inferred from heritable differences across generations, supported by survival and parent–offspring data."
         },
         {
           "id": "c",
@@ -2812,7 +2850,7 @@
         "D4.3.12"
       ],
       "level": "HL",
-      "prompt": "Explain evolutionary responses to climate change using one supported example. Identify which claim is an observation, mechanism, uncertainty or illustrative calculation as appropriate.",
+      "prompt": "Grey and brown plumage in tawny owls is heritable. Explain how milder winters could increase the frequency of the brown morph across generations. [3]",
       "marks": 3,
       "sectionId": "climate-change-12",
       "referenceIds": [
@@ -2820,11 +2858,11 @@
         "hodder-d43",
         "owl-paper"
       ],
-      "answer": "Tawny owls (Strix aluco) occur in heritable grey and brown plumage variants. Long-term Finnish research found that brown owls had lower survival in snowier winters; as winter snow depth decreased, that disadvantage weakened. Over decades, the proportion of brown morphs increased. This links climate to selection on an inherited phenotype and hence a possible evolutionary change in allele frequencies.\nAcross successive cohorts, an increasing proportion of genetically determined brown owls is evidence for changed selection, not colour change within one individual.",
+      "answer": "Milder winters or reduced snow change the relative survival or reproductive success of the morphs. If brown owls survive and reproduce more successfully, on average they contribute more offspring. Inherited alleles associated with brown plumage therefore become more common over generations.",
       "markingPoints": [
-        "Less snow can weaken selection against brown tawny owls and shift population morph frequencies.",
-        "Tawny owls (Strix aluco) occur in heritable grey and brown plumage variants.",
-        "Across successive cohorts, an increasing proportion of genetically determined brown owls is evidence for changed selection, not colour change within one individual."
+        "Milder winters or reduced snow change the relative survival or reproductive success of the morphs.",
+        "If brown owls survive and reproduce more successfully, on average they contribute more offspring.",
+        "Inherited alleles associated with brown plumage therefore become more common over generations."
       ],
       "review": "Sprint 9: content-specific marking points; independent examiner sign-off outstanding"
     }
