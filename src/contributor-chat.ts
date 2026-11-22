@@ -334,7 +334,7 @@ function renderUserHub(){
   if(developerAccess===true){removeUserUi();return}
   if(!token()){
     shortcutRoot()?.remove();
-    setHubMarkup('signed-out','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Sign in and submit a contributor application before live chat becomes available.</p></div><div class="ll-chat-hub-empty ll-chat-hub-locked"><span>🔒</span><div><b>Live chat is locked.</b><p>You need a signed-in LitLab account and at least one submitted contributor application before you can message the LitLab team here.</p></div></div>');
+    setHubMarkup('signed-out','<div class="ll-contrib-section-head"><span>Private messages</span><h2>Live chat with LitLab</h2><p>Sign in and submit a contributor application before live chat becomes available.</p></div><div class="ll-chat-hub-empty ll-chat-hub-locked"><span>🔒</span><div><b>Live chat is locked.</b><p>You need a signed-in ibdplabs account and at least one submitted contributor application before you can message the LitLab team here.</p></div></div>');
     return;
   }
   const signature=hubApps.map(app=>`${app.id}:${app.status}:${app.topics}:${app.contribution_type}`).join('|');

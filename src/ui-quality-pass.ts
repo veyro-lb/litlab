@@ -29,7 +29,7 @@ function polishAccountCenter(){
   if(!card)return;
   const connected=card.querySelector<HTMLElement>('.litlab-account-center-head i');if(connected?.textContent?.trim()==='Google connected')connected.textContent='Account connected';
   const identity=card.querySelector<HTMLElement>('.litlab-account-center-head p');if(identity?.textContent?.trim()==='Google account')identity.textContent='Signed-in account';
-  replaceText(card.querySelector<HTMLElement>('.litlab-account-center-explain'),'stored with your Google account','stored with your LitLab account');
+  replaceText(card.querySelector<HTMLElement>('.litlab-account-center-explain'),'stored with your Google account','stored with your ibdplabs account');
   const message=card.querySelector<HTMLElement>('[data-account-message]');
   if(message?.textContent?.includes('Your Google password and other Google data'))message.textContent='Only LitLab learning progress is included. Your sign-in password and external account data are never stored by LitLab.';
 }
@@ -38,7 +38,7 @@ function polishAdminCopy(){
   document.querySelectorAll<HTMLElement>('.admin-user-table th').forEach(element=>{if(element.textContent?.trim()==='Last Google sign-in')element.textContent='Last provider sign-in'});
   document.querySelectorAll<HTMLElement>('.admin-metric small,.admin-gate-card p,.admin-privacy p').forEach(element=>{
     if(!element.textContent)return;
-    const next=element.textContent.replace('Google-authenticated LitLab accounts','Authenticated LitLab accounts').replace('recent Google sign-in','recent provider sign-in').replace('approved LitLab developer Google account','approved LitLab developer account').replace('No Google passwords, Gmail messages, Drive files','No provider passwords, email messages, cloud files');
+    const next=element.textContent.replace('Google-authenticated ibdplabs accounts','Authenticated ibdplabs accounts').replace('recent Google sign-in','recent provider sign-in').replace('approved ibdplabs developer Google account','approved ibdplabs developer account').replace('No Google passwords, Gmail messages, Drive files','No provider passwords, email messages, cloud files');
     if(next!==element.textContent)element.textContent=next;
   });
 }

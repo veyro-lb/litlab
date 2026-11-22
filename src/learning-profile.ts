@@ -202,7 +202,7 @@ function createDashboard(){
   section.className='section my-litlab-dashboard';
   section.innerHTML=`
     <div class="my-litlab-heading">
-      <div><span>✦ MY LITLAB</span><h2>Your learning dashboard.</h2><p>LitLab uses practice saved on this browser to show what you have reviewed, what looks strongest, and what deserves another attempt.</p></div>
+      <div><span>✦ MY IBDPLABS</span><h2>Your learning dashboard.</h2><p>LitLab uses practice saved on this browser to show what you have reviewed, what looks strongest, and what deserves another attempt.</p></div>
       <span class="my-litlab-local">Saved locally • no account</span>
     </div>
     <div class="my-litlab-grid">

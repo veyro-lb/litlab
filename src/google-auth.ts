@@ -7,6 +7,8 @@ const SUPABASE_PUBLISHABLE_KEY='sb_publishable_FNjxRB0rtl5TwnC8NtCDGg_RHEpSZLN';
 const SESSION_KEY='litlabSupabaseSession';
 const RETURN_KEY='litlabAuthReturnHash';
 const ERROR_KEY='litlabAuthError';
+const REMINDER_KEY='ibdplabsSignInReminderSeen';
+const SIGN_IN_TITLE='Sign in to ibdplabs';
 
 type StoredSession={access_token:string;refresh_token:string;expires_at:number;token_type:string};
 type AuthUser={id:string;email?:string;user_metadata?:{full_name?:string;name?:string;avatar_url?:string;picture?:string}};
@@ -15,8 +17,9 @@ let currentUser:AuthUser|null=null;
 let accountMenuOpen=false;
 let modalOpen=false;
 let renderScheduled=false;
+let reminderSeen=false;
 
-const signInSubject=()=>isBiologyRoute(location.hash.slice(1))?'BioLab':'LitLab';
+const signInSubject=()=>isBiologyRoute(location.hash.slice(1).split('#')[0])?'BioLab':'LitLab';
 
 const readSession=():StoredSession|null=>{
   try{
@@ -24,6 +27,16 @@ const readSession=():StoredSession|null=>{
     return value&&typeof value.access_token==='string'&&typeof value.refresh_token==='string'?value:null;
   }catch{return null}
 };
+
+export function shouldShowSignInReminder(){
+  if(reminderSeen||currentUser||readSession())return false;
+  try{return localStorage.getItem(REMINDER_KEY)!=='true'}catch{return true}
+}
+
+function rememberSignInDialog(){
+  reminderSeen=true;
+  try{localStorage.setItem(REMINDER_KEY,'true')}catch{}
+}
 
 const saveSession=(session:StoredSession)=>localStorage.setItem(SESSION_KEY,JSON.stringify(session));
 const clearSession=()=>{localStorage.removeItem(SESSION_KEY);currentUser=null};
@@ -164,11 +177,10 @@ function openModal(){
   overlay.innerHTML=`<div class="litlab-auth-dialog">
     <button type="button" class="litlab-auth-close" data-auth-close aria-label="Close">×</button>
     <div class="litlab-auth-mark">LL</div>
-    <span class="litlab-auth-eyebrow">MY ${subject.toUpperCase()}</span>
-    <h2 id="litlab-auth-title">Sign in to ${subject}</h2>
-    <p>${subject==='BioLab'?'Use the same account for BioLab and LitLab. You can also keep studying Biology as a guest.':'Choose an available sign-in method to create or access your LitLab account. You can also close this window and keep browsing.'}</p>
+    <h2 id="litlab-auth-title">${SIGN_IN_TITLE}</h2>
+    <p>One account for LitLab and BioLab.</p>
     <button type="button" class="litlab-google-button" data-auth-google><span class="litlab-google-g">G</span><b>Continue with Google</b></button>
-    ${subject==='BioLab'?'<button type="button" class="biolab-auth-guest" data-auth-guest>Continue as guest</button>':'<small>Your sign-in password is handled by your provider and is never shared with LitLab.</small>'}
+    <button type="button" class="litlab-auth-guest" data-auth-guest>Continue as guest</button>
     <div class="litlab-auth-error" data-auth-error hidden></div>
   </div>`;
 
@@ -192,6 +204,7 @@ function openModal(){
   }
 
   document.body.append(overlay);
+  rememberSignInDialog();
   overlay.querySelector<HTMLButtonElement>('[data-auth-google]')?.focus();
 }
 
@@ -217,7 +230,7 @@ function renderAuth(){
     button.type='button';
     button.className='litlab-auth-signin';
     button.dataset.authOpen='true';
-    button.setAttribute('aria-label',`Sign in to ${signInSubject()}`);
+    button.setAttribute('aria-label',SIGN_IN_TITLE);
     button.innerHTML='<span class="litlab-google-g small">G</span><span class="litlab-auth-label">Sign in</span>';
     button.addEventListener('click',openModal);
     root.append(button);
@@ -314,7 +327,6 @@ window.addEventListener('hashchange',()=>{
   const subject=signInSubject();
   const overlay=document.querySelector<HTMLElement>('[data-auth-modal]');
   if(overlay&&overlay.dataset.authSubject!==subject)closeModal();
-  document.querySelector('[data-auth-open]')?.setAttribute('aria-label',`Sign in to ${subject}`);
   setTimeout(scheduleRenderIfMissing,0);
 });
 document.addEventListener('click',event=>{

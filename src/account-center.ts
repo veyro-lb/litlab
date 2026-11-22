@@ -92,7 +92,7 @@ async function openAccountCenter(){
   const overlay=document.createElement('div');
   overlay.className='litlab-account-center-overlay';
   overlay.dataset.litlabAccountCenter='true';
-  overlay.innerHTML='<section class="litlab-account-center-card" role="dialog" aria-modal="true" aria-label="My LitLab"><div class="litlab-account-center-loading"><span>LL</span><b>Loading My LitLab…</b></div></section>';
+  overlay.innerHTML='<section class="litlab-account-center-card" role="dialog" aria-modal="true" aria-label="My ibdplabs"><div class="litlab-account-center-loading"><span>LL</span><b>Loading My ibdplabs…</b></div></section>';
   overlay.addEventListener('pointerdown',event=>{if(event.target===overlay)closeAccountCenter()});
   document.body.append(overlay);
 
@@ -100,7 +100,7 @@ async function openAccountCenter(){
   const card=overlay.querySelector<HTMLElement>('.litlab-account-center-card');
   if(!card)return;
   if(!user){
-    card.innerHTML='<button type="button" class="litlab-account-center-close" aria-label="Close">×</button><div class="litlab-account-center-error"><b>Could not load your LitLab account.</b><p>Close this window and try again. Your normal LitLab progress on this device is unchanged.</p></div>';
+    card.innerHTML='<button type="button" class="litlab-account-center-close" aria-label="Close">×</button><div class="litlab-account-center-error"><b>Could not load your ibdplabs account.</b><p>Close this window and try again. Your normal LitLab progress on this device is unchanged.</p></div>';
     card.querySelector<HTMLButtonElement>('.litlab-account-center-close')?.addEventListener('click',closeAccountCenter);
     return;
   }
@@ -113,7 +113,7 @@ async function openAccountCenter(){
     <button type="button" class="litlab-account-center-close" aria-label="Close">×</button>
     <header class="litlab-account-center-head">
       ${avatar?`<img src="${escapeHTML(avatar)}" alt="" referrerpolicy="no-referrer">`:'<span class="litlab-account-center-avatar">LL</span>'}
-      <div><span>MY LITLAB</span><h2>${escapeHTML(displayName(user))}</h2><p>${escapeHTML(user.email||'Google account')}</p></div><i>Google connected</i>
+      <div><span>MY IBDPLABS</span><h2>${escapeHTML(displayName(user))}</h2><p>${escapeHTML(user.email||'Google account')}</p></div><i>Google connected</i>
     </header>
     <section class="litlab-account-center-stats" aria-label="Current device progress">
       <article><b>${stats.guides}</b><span>guides reviewed</span></article><article><b>${stats.books}</b><span>books reviewed</span></article><article><b>${stats.skills}</b><span>skills completed</span></article><article><b>${stats.ee}</b><span>EE checks done</span></article>
@@ -122,7 +122,7 @@ async function openAccountCenter(){
       <div class="litlab-account-center-cloud-head"><span>☁</span><div><b>Cloud backup</b><p data-cloud-time>${formatCloudTime(remote?.updated_at||remote?.data?.updated_at)}</p></div></div>
       <p class="litlab-account-center-explain">This is deliberately manual so account features cannot interfere with LitLab's navigation or practice tools. Save when you want this device's progress stored with your Google account, then restore it on another device.</p>
       <div class="litlab-account-center-actions"><button type="button" class="primary" data-account-save>Save this device to cloud</button><button type="button" data-account-restore ${remote?.data?'':'disabled'}>Restore cloud progress</button></div>
-      <small data-account-message data-state="normal">Only LitLab learning progress is included. Your Google password and other Google data are never stored by LitLab.</small>
+      <small data-account-message data-state="normal">Only LitLab learning progress is included. Your Google password and other Google data are never stored by ibdplabs.</small>
     </section>
     <footer><span>${stats.practiced} authorial-choice terms practiced on this device</span><b>Private to your account</b></footer>`;
 
@@ -155,10 +155,10 @@ async function openAccountCenter(){
 function injectAccountCenterEntry(){
   const menu=document.querySelector<HTMLElement>('.litlab-account-menu');
   if(!menu||menu.querySelector('[data-open-account-center]'))return;
-  const status=menu.querySelector<HTMLElement>('.litlab-account-status small');if(status)status.textContent='My LitLab cloud backup is available.';
+  const status=menu.querySelector<HTMLElement>('.litlab-account-status small');if(status)status.textContent='My ibdplabs cloud backup is available.';
   const button=document.createElement('button');
   button.type='button';button.className='litlab-account-center-entry';button.dataset.openAccountCenter='true';
-  button.innerHTML='<span>☁</span><div><b>My LitLab</b><small>Progress & cloud backup</small></div><i>›</i>';
+  button.innerHTML='<span>☁</span><div><b>My ibdplabs</b><small>Progress & cloud backup</small></div><i>›</i>';
   button.addEventListener('click',event=>{event.stopPropagation();void openAccountCenter()});
   const signout=menu.querySelector('.litlab-signout');if(signout)menu.insertBefore(button,signout);else menu.append(button);
 }

@@ -32,6 +32,7 @@ try {
     await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
    }
    await visit('home');
+   await expect(page.locator('[data-auth-modal]')).toHaveCount(0);
    await verifyHeaderScroll('english');
    const switcher=page.getByRole('navigation',{name:'Switch between LitLab and BioLab'});
    assert.equal((await switcher.locator('a').allTextContents()).map(s=>s.trim()).join('|'),'LitLab|BioLab','Study-space names must be LitLab and BioLab');
@@ -48,6 +49,12 @@ try {
    assert.equal(await page.locator('.biolab-section-navigation').count(),0,'BioLab course navigation should not appear inside LitLab');
    await switcher.getByRole('link',{name:'BioLab — Biology'}).click();
    await page.waitForURL(/#biology$/);
+   const signInDialog=page.getByRole('dialog',{name:'Sign in to ibdplabs'});
+   const guest=signInDialog.getByRole('button',{name:'Continue as guest'});
+   await expect(signInDialog).toHaveAttribute('data-auth-subject','BioLab');
+   const bioAccent=await signInDialog.evaluate(el=>getComputedStyle(el).getPropertyValue('--accent'));
+   await guest.click();
+   await expect(signInDialog).toHaveCount(0);
    const nav=page.getByRole('navigation',{name:'BioLab course navigation'});
    const menuToggle=page.getByRole('button',{name:'Toggle menu'});
    const openCourseNav=async()=>{
@@ -77,13 +84,11 @@ try {
    await openCourseNav();
    await expect(nav.locator('a[aria-current="page"]')).toHaveText('Theme A');
    if(width<=1100) await menuToggle.press('Escape');
-   const signIn=page.getByRole('button',{name:'Sign in to BioLab'});
+   const signIn=page.getByRole('button',{name:'Sign in to ibdplabs'});
    await expect(page.locator('[data-auth-modal]')).toHaveCount(0);
    await signIn.press('Enter');
-   const signInDialog=page.getByRole('dialog',{name:'Sign in to BioLab'});
    const google=signInDialog.getByRole('button',{name:'Continue with Google'});
    await expect(google).toBeFocused();
-   const guest=signInDialog.getByRole('button',{name:'Continue as guest'});
    await guest.focus();
    await page.keyboard.press('Tab');
    await expect(signInDialog.getByRole('button',{name:'Close',exact:true})).toBeFocused();
@@ -173,12 +178,16 @@ try {
    }
    const back=page.getByRole('button',{name:'LitLab home'});
    assert.equal(await back.count(),1,'BioLab header must include a clear way back to LitLab');
+   await page.reload();
    await back.click();
    await page.waitForURL(/#home$/);
    await expect(page.locator('.subject-bar[data-subject="english"]')).toHaveCount(1);
    await expect(switcher.locator('a[aria-current="page"]')).toHaveText('LitLab');
-   await page.getByRole('button',{name:'Sign in to LitLab'}).click();
-   await expect(page.getByRole('dialog',{name:'Sign in to LitLab'})).toBeVisible();
+   await expect(signInDialog).toHaveCount(0);
+   await signIn.click();
+   await expect(signInDialog).toHaveAttribute('data-auth-subject','LitLab');
+   const litAccent=await signInDialog.evaluate(el=>getComputedStyle(el).getPropertyValue('--accent'));
+   assert.notEqual(litAccent,bioAccent,'Sign-in accents must match the active lab');
    await page.keyboard.press('Escape');
    const metrics=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
    assert(metrics.scroll<=metrics.client+2,'Return route overflows at '+name+': '+JSON.stringify(metrics));

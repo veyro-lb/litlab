@@ -85,7 +85,7 @@ function pageLabel(page:string){
 
 function renderAccessState(main:HTMLElement,kind:'signin'|'denied'|'loading'){
   const copy=kind==='signin'
-    ?'<h1>Developer sign-in required.</h1><p>Sign in with an approved LitLab developer Google account, then return to this page.</p>'
+    ?'<h1>Developer sign-in required.</h1><p>Sign in with an approved ibdplabs developer Google account, then return to this page.</p>'
     :kind==='denied'
       ?'<h1>Developer access only.</h1><p>This account can use LitLab normally, but it is not on the developer analytics allowlist.</p>'
       :'<h1>Opening developer analytics…</h1><p>Checking your LitLab developer access and loading current metrics.</p>';
@@ -133,7 +133,7 @@ function renderDashboard(main:HTMLElement,data:Analytics){
     </header>
     <div class="admin-freshness">Updated ${escapeHTML(fmt(data.generated_at))} <span>•</span> “Online now” means active within roughly 5 minutes.</div>
     <section class="admin-metrics">
-      ${metricCard('Total accounts',t.users,'Google-authenticated LitLab accounts')}
+      ${metricCard('Total accounts',t.users,'Google-authenticated ibdplabs accounts')}
       ${metricCard('New • 7 days',t.new_users_7d,'Accounts created in the last week')}
       ${metricCard('Signed in • 24h',t.users_signed_in_24h,'Accounts with a recent Google sign-in')}
       ${metricCard('Online now',t.online_now,'Tracked sessions active in ~5 min')}
@@ -145,7 +145,7 @@ function renderDashboard(main:HTMLElement,data:Analytics){
       <article class="admin-panel"><header><div><span>TRAFFIC</span><h2>Most-used pages • 30 days</h2></div><strong>${t.visitors_7d}<small> visitors / 7d</small></strong></header>${topPages(data.top_pages||[])}</article>
     </section>
     <section class="admin-grid side">
-      <article class="admin-panel admin-users"><header><div><span>MEMBERS</span><h2>Recent LitLab accounts</h2></div><strong>${t.users}<small> total</small></strong></header>${recentUsers(data.recent_users||[])}</article>
+      <article class="admin-panel admin-users"><header><div><span>MEMBERS</span><h2>Recent ibdplabs accounts</h2></div><strong>${t.users}<small> total</small></strong></header>${recentUsers(data.recent_users||[])}</article>
       <aside class="admin-panel"><header><div><span>AUTH</span><h2>Sign-in providers</h2></div></header>${providers(data.providers||[])}<div class="admin-privacy"><b>What this page does not collect</b><p>No Google passwords, Gmail messages, Drive files, precise location, or browsing outside LitLab. Visitor tracking is a random LitLab browser-session ID plus page and timestamp.</p></div></aside>
     </section>
   </section>`;

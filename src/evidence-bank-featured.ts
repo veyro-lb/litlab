@@ -14,14 +14,14 @@ function upgradeEvidenceLaunchers(){
       card.innerHTML=`
         <div class="evidence-feature-icon" aria-hidden="true"><span>“</span><b>+</b></div>
         <div class="evidence-feature-copy">
-          <span class="evidence-feature-eyebrow">MY LITLAB • SIGNED-IN TOOL</span>
+          <span class="evidence-feature-eyebrow">MY IBDPLABS • SIGNED-IN TOOL</span>
           <h2>Build your Evidence Bank.</h2>
           <p>Save the quotations and moments you actually want to use. Keep the page, effect, analysis, and your own notes together so revision becomes much faster.</p>
           <div class="evidence-feature-flow" aria-label="Evidence workflow"><span>QUOTE / EVIDENCE</span><i>→</i><span>EFFECT</span><i>→</i><span>ANALYSIS</span></div>
         </div>
         <div class="evidence-feature-action">
           <button type="button" class="evidence-feature-button" data-evidence-open>Open Evidence Bank <span>→</span></button>
-          <small><i>✓</i> Saved securely to your LitLab account</small>
+          <small><i>✓</i> Saved securely to your ibdplabs account</small>
         </div>`;
       head.insertAdjacentElement('afterend',card);
     }

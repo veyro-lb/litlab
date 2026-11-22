@@ -108,7 +108,7 @@ function invalidFieldName(field:Field|null){
 }
 
 function renderPending(form:HTMLFormElement){
-  form.innerHTML='<div class="ll-contrib-thanks ll-contrib-pending"><span>✓</span><div class="ll-contrib-pending-badge">PENDING ADMIN REVIEW</div><h3>Your application has been submitted.</h3><p>Your application is saved to your LitLab account and is now waiting for LitLab admin review.</p><p class="ll-contrib-thanks-note"><b>What happens next:</b> review decisions, revision requests and next-step instructions stay attached to your LitLab account.</p><button type="button" data-contrib-home>Back to LitLab</button></div>';
+  form.innerHTML='<div class="ll-contrib-thanks ll-contrib-pending"><span>✓</span><div class="ll-contrib-pending-badge">PENDING ADMIN REVIEW</div><h3>Your application has been submitted.</h3><p>Your application is saved to your ibdplabs account and is now waiting for LitLab admin review.</p><p class="ll-contrib-thanks-note"><b>What happens next:</b> review decisions, revision requests and next-step instructions stay attached to your ibdplabs account.</p><button type="button" data-contrib-home>Back to LitLab</button></div>';
   form.querySelector<HTMLButtonElement>('[data-contrib-home]')?.addEventListener('click',()=>{location.hash='home'});
   window.dispatchEvent(new CustomEvent('litlab:contributor-submitted'));
 }
@@ -116,7 +116,7 @@ function renderPending(form:HTMLFormElement){
 async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
   if(submitting||button.dataset.submitting==='true')return;
   const auth=token();const uid=userId();
-  if(!auth||!uid){setStatus(form,'Sign in to LitLab before submitting your contributor application.','error');return}
+  if(!auth||!uid){setStatus(form,'Sign in to ibdplabs before submitting your contributor application.','error');return}
 
   submitting=true;
   button.disabled=true;button.dataset.submitting='true';button.textContent='Checking…';
@@ -165,7 +165,7 @@ async function directSubmit(form:HTMLFormElement,button:HTMLButtonElement){
     };
 
     button.textContent='Submitting…';
-    setStatus(form,'Saving your application to your LitLab account…','ready');
+    setStatus(form,'Saving your application to your ibdplabs account…','ready');
     const response=await requestWithTimeout(`${SUPABASE_URL}/rest/v1/litlab_contributor_applications`,{
       method:'POST',
       headers:{'Content-Type':'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`,Prefer:'return=minimal'},

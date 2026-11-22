@@ -1,48 +1,29 @@
-import {isBiologyRoute} from './biology/routes';
-const SESSION_KEY='litlabSupabaseSession';
+import {shouldShowSignInReminder} from './google-auth';
 
-let navigationId=0;
+let navigationIntent=0;
 
-function currentRoute(){
-  return location.hash.replace(/^#/,'').split('?')[0].split('#')[0].trim().toLowerCase()||'home';
-}
-
-function hasStoredSession(){
-  try{
-    const session=JSON.parse(localStorage.getItem(SESSION_KEY)||'null') as {access_token?:unknown;refresh_token?:unknown}|null;
-    return Boolean(session&&typeof session.access_token==='string'&&typeof session.refresh_token==='string');
-  }catch{return false}
-}
-
-function isHome(){
-  return currentRoute()==='home'||isBiologyRoute(currentRoute());
-}
-
-function openSignInPrompt(id:number,attempt=0){
-  if(id!==navigationId||isHome()||hasStoredSession())return;
+function openSignInReminder(destination:string,attempt=0){
+  if(location.hash!==destination||!shouldShowSignInReminder())return;
   if(document.querySelector('[data-auth-modal]'))return;
 
   const signIn=document.querySelector<HTMLButtonElement>('[data-auth-open]');
   if(signIn){
     signIn.click();
-    return;
+  }else if(attempt<8){
+    setTimeout(()=>openSignInReminder(destination,attempt+1),100);
   }
-
-  if(attempt<8)setTimeout(()=>openSignInPrompt(id,attempt+1),100);
 }
 
-function promptForCurrentRoute(delay=120){
-  const id=++navigationId;
-  if(isHome()||hasStoredSession())return;
-  setTimeout(()=>openSignInPrompt(id),delay);
-}
+// A click only counts when it leads to a route change.
+document.addEventListener('click',event=>{
+  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!shouldShowSignInReminder())return;
+  if(!event.composedPath().some(node=>node instanceof Element&&node.matches('button,a[href]')))return;
+  navigationIntent=performance.now()+1000;
+},true);
 
-window.addEventListener('hashchange',()=>promptForCurrentRoute());
-
-// Give the auth module time to restore/refresh an existing session before prompting
-// someone who opens LitLab directly on a non-Home route.
-if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded',()=>promptForCurrentRoute(900),{once:true});
-}else{
-  promptForCurrentRoute(900);
-}
+window.addEventListener('hashchange',()=>{
+  if(!navigationIntent||performance.now()>navigationIntent)return;
+  navigationIntent=0;
+  const destination=location.hash;
+  setTimeout(()=>openSignInReminder(destination),0);
+});

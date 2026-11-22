@@ -45,7 +45,7 @@ async function deleteAccount(user:RecentUser,card:HTMLElement){
   if(!auth||!user.user_id||!email||!input||!button||input.value.trim().toLowerCase()!==email.toLowerCase())return;
 
   button.disabled=true;button.textContent='Deleting account…';input.disabled=true;
-  if(status){status.textContent='Removing sign-in access, private files and LitLab account data…';status.dataset.state='working'}
+  if(status){status.textContent='Removing sign-in access, private files and ibdplabs account data…';status.dataset.state='working'}
   try{
     const response=await fetch(`${SUPABASE_URL}/functions/v1/admin-delete-account`,{
       method:'POST',
@@ -75,7 +75,7 @@ function openDeleteModal(user:RecentUser,source:HTMLElement){
   const name=String(user.display_name||email.split('@')[0]||'LitLab user');
   const overlay=document.createElement('div');
   overlay.className='ll-admin-delete-overlay';overlay.dataset.adminDeleteModal='true';
-  overlay.innerHTML=`<section class="ll-admin-delete-card" role="dialog" aria-modal="true" aria-labelledby="ll-admin-delete-title"><button type="button" class="ll-admin-delete-close" data-admin-delete-close aria-label="Close">×</button><span class="ll-admin-delete-kicker">PERMANENT ACCOUNT DELETION</span><h2 id="ll-admin-delete-title">Delete ${esc(name)}?</h2><p>This removes this person's LitLab sign-in account, their account-linked LitLab data and any private contributor files they own. This cannot be undone.</p><div class="ll-admin-delete-target"><b>${esc(email)}</b><small>Admin accounts and your own Admin account are protected from this control.</small></div><label><span>Type the email exactly to confirm</span><input type="email" autocomplete="off" spellcheck="false" data-admin-delete-confirm placeholder="${esc(email)}"></label><small class="ll-admin-delete-status" data-admin-delete-status data-state="normal">No deletion happens until the email matches exactly.</small><div class="ll-admin-delete-actions"><button type="button" data-admin-delete-cancel>Cancel</button><button type="button" class="danger" data-admin-delete-submit disabled>Delete account permanently</button></div></section>`;
+  overlay.innerHTML=`<section class="ll-admin-delete-card" role="dialog" aria-modal="true" aria-labelledby="ll-admin-delete-title"><button type="button" class="ll-admin-delete-close" data-admin-delete-close aria-label="Close">×</button><span class="ll-admin-delete-kicker">PERMANENT ACCOUNT DELETION</span><h2 id="ll-admin-delete-title">Delete ${esc(name)}?</h2><p>This removes this person's ibdplabs sign-in account, their account-linked LitLab data and any private contributor files they own. This cannot be undone.</p><div class="ll-admin-delete-target"><b>${esc(email)}</b><small>Admin accounts and your own Admin account are protected from this control.</small></div><label><span>Type the email exactly to confirm</span><input type="email" autocomplete="off" spellcheck="false" data-admin-delete-confirm placeholder="${esc(email)}"></label><small class="ll-admin-delete-status" data-admin-delete-status data-state="normal">No deletion happens until the email matches exactly.</small><div class="ll-admin-delete-actions"><button type="button" data-admin-delete-cancel>Cancel</button><button type="button" class="danger" data-admin-delete-submit disabled>Delete account permanently</button></div></section>`;
   document.body.append(overlay);modal=overlay;document.body.classList.add('ll-admin-delete-open');
   const card=overlay.querySelector<HTMLElement>('.ll-admin-delete-card')!;
   const input=card.querySelector<HTMLInputElement>('[data-admin-delete-confirm]')!;
@@ -119,7 +119,7 @@ async function decorate(table:HTMLElement){
     const data=await rpc<Analytics>('get_litlab_admin_analytics');
     if(id!==requestId||!table.isConnected||route()!=='admin')return;
     decorateRows(table,Array.isArray(data.recent_users)?data.recent_users:[]);
-  }catch(error){console.error('LitLab admin account deletion controls unavailable',error)}
+  }catch(error){console.error('ibdplabs admin account deletion controls unavailable',error)}
 }
 
 function scan(){

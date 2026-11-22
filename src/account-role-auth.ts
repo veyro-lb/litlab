@@ -28,15 +28,7 @@ async function rpc<T>(name:string,body:Record<string,unknown>={}):Promise<T>{
 }
 
 function roleName(state:RoleState|null){if(state?.is_admin)return 'Admin';if(state?.role==='teacher')return 'Teacher / mentor';if(state?.role==='student')return 'Student';return 'Not selected'}
-function roleDescription(state:RoleState|null){if(state?.is_admin)return 'LitLab admin account';if(state?.role==='teacher')return 'Teacher review and mentoring account';if(state?.role==='student')return 'Student learning and contributor account';return 'Choose Student or Teacher after sign-in'}
-
-function decorateSignInModal(){
-  const dialog=document.querySelector<HTMLElement>('[data-auth-subject="LitLab"] .litlab-auth-dialog');if(!dialog||dialog.querySelector('[data-auth-role-info]'))return;
-  const authButton=dialog.querySelector<HTMLElement>('[data-auth-google]')||dialog.querySelector<HTMLElement>('button');if(!authButton)return;
-  const info=document.createElement('div');info.className='ll-auth-role-info';info.dataset.authRoleInfo='true';
-  info.innerHTML=`<span>ACCOUNT TYPE</span><b>Student or Teacher?</b><p>After your first sign-in, LitLab will ask you to choose one account type. Returning accounts keep the type already saved.</p><div class="ll-auth-role-mini-grid"><div><i>✦</i><strong>Student</strong><small>Study tools + your own contributor applications, DOCX work, feedback and student evidence.</small></div><div><i>✓</i><strong>Teacher / mentor</strong><small>Study access + teacher reviewer applications, assigned students, rubric feedback and testimony.</small></div></div><em>LitLab admin accounts are detected automatically and are not asked to choose.</em>`;
-  authButton.before(info);
-}
+function roleDescription(state:RoleState|null){if(state?.is_admin)return 'ibdplabs admin account';if(state?.role==='teacher')return 'Teacher review and mentoring account';if(state?.role==='student')return 'Student learning and contributor account';return 'Choose Student or Teacher after sign-in'}
 
 function decorateAccountMenu(){
   document.querySelectorAll<HTMLElement>('.litlab-account-menu').forEach(menu=>{
@@ -54,8 +46,8 @@ function decorateAccountMenu(){
 function closeRoleChooser(){document.querySelector('[data-auth-role-setup]')?.remove();document.documentElement.classList.remove('ll-auth-role-open')}
 
 function chooserMarkup(state:RoleState){
-  if(state.has_conflict)return `<div class="ll-auth-role-overlay" data-auth-role-setup role="dialog" aria-modal="true" aria-labelledby="ll-auth-role-title"><section class="ll-auth-role-dialog is-conflict"><div class="ll-auth-role-mark">LL</div><span>ACCOUNT TYPE</span><h2 id="ll-auth-role-title">This account needs LitLab review.</h2><p>Older contributor records on this account include both Student and Teacher activity. LitLab will not guess which account type should own it.</p><div class="ll-auth-role-warning">Contributor tools stay locked until LitLab admin resolves the account type. Your normal LitLab study tools are still available.</div><button type="button" class="ll-auth-role-secondary" data-close-role-review>Continue to LitLab</button></section></div>`;
-  return `<div class="ll-auth-role-overlay" data-auth-role-setup role="dialog" aria-modal="true" aria-labelledby="ll-auth-role-title"><section class="ll-auth-role-dialog"><div class="ll-auth-role-mark">LL</div><span>ONE-TIME ACCOUNT SETUP</span><h2 id="ll-auth-role-title">Are you a Student or a Teacher?</h2><p class="ll-auth-role-lead">Choose the account type that matches how you use LitLab. This keeps student contribution work and teacher review work completely separate.</p><div class="ll-auth-role-choice-grid"><button type="button" data-auth-choose-role="student" aria-label="Choose Student account"><i>✦</i><div><strong>Student account</strong><p>I use LitLab as a student and submit my own contributor work.</p><small>Student application • DOCX submissions • revisions • feedback • evidence • student recognition</small></div><b>Choose Student →</b></button><button type="button" data-auth-choose-role="teacher" aria-label="Choose Teacher or mentor account"><i>✓</i><div><strong>Teacher / mentor account</strong><p>I use LitLab as an educator and review or mentor assigned student work.</p><small>Teacher application • assigned students • academic rubric • notes • testimony • mentoring history</small></div><b>Choose Teacher →</b></button></div><div class="ll-auth-role-note"><b>One account, one type.</b><span>This choice is saved to your LitLab account. It is not a switch you change between projects. If you choose incorrectly, contact LitLab.</span></div><p class="ll-auth-role-status" data-auth-role-status role="status" aria-live="polite"></p></section></div>`;
+  if(state.has_conflict)return `<div class="ll-auth-role-overlay" data-auth-role-setup role="dialog" aria-modal="true" aria-labelledby="ll-auth-role-title"><section class="ll-auth-role-dialog is-conflict"><div class="ll-auth-role-mark">LL</div><span>ACCOUNT TYPE</span><h2 id="ll-auth-role-title">This account needs ibdplabs review.</h2><p>Older contributor records on this account include both Student and Teacher activity. The ibdplabs team will review which account type applies.</p><div class="ll-auth-role-warning">Contributor tools stay locked until LitLab admin resolves the account type. Your normal LitLab study tools are still available.</div><button type="button" class="ll-auth-role-secondary" data-close-role-review>Continue to ibdplabs</button></section></div>`;
+  return `<div class="ll-auth-role-overlay" data-auth-role-setup role="dialog" aria-modal="true" aria-labelledby="ll-auth-role-title"><section class="ll-auth-role-dialog"><div class="ll-auth-role-mark">LL</div><span>ONE-TIME ACCOUNT SETUP</span><h2 id="ll-auth-role-title">Are you a Student or a Teacher?</h2><p class="ll-auth-role-lead">Choose the account type that matches how you use LitLab. This keeps student contribution work and teacher review work completely separate.</p><div class="ll-auth-role-choice-grid"><button type="button" data-auth-choose-role="student" aria-label="Choose Student account"><i>✦</i><div><strong>Student account</strong><p>I use LitLab as a student and submit my own contributor work.</p><small>Student application • DOCX submissions • revisions • feedback • evidence • student recognition</small></div><b>Choose Student →</b></button><button type="button" data-auth-choose-role="teacher" aria-label="Choose Teacher or mentor account"><i>✓</i><div><strong>Teacher / mentor account</strong><p>I use LitLab as an educator and review or mentor assigned student work.</p><small>Teacher application • assigned students • academic rubric • notes • testimony • mentoring history</small></div><b>Choose Teacher →</b></button></div><div class="ll-auth-role-note"><b>One account, one type.</b><span>This choice is saved to your ibdplabs account. It is not a switch you change between projects. If you choose incorrectly, contact ibdplabs.</span></div><p class="ll-auth-role-status" data-auth-role-status role="status" aria-live="polite"></p></section></div>`;
 }
 
 function openRoleChooser(state:RoleState){
@@ -92,11 +84,11 @@ async function refreshRoleState(force=false){
     const state=await rpc<RoleState>('get_my_litlab_contributor_account_role');
     if(token()!==current)return;
     applyRoleState(state);window.dispatchEvent(new CustomEvent('litlab:contributor-account-role',{detail:state}));
-  }catch(error){console.error('LitLab account type unavailable',error)}finally{loading=false}
+  }catch(error){console.error('ibdplabs account type unavailable',error)}finally{loading=false}
 }
 
 function syncAuthUi(){
-  decorateSignInModal();decorateAccountMenu();
+  decorateAccountMenu();
   const current=token();
   if(current!==lastToken&&!loading)void refreshRoleState(true);
 }

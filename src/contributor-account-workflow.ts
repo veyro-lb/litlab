@@ -40,7 +40,7 @@ function accountGate(){
   const gate=document.createElement('div');
   gate.className='ll-contrib-account-gate';
   gate.dataset.contributorAccountGate='true';
-  gate.innerHTML=`<span>ACCOUNT REQUIRED</span><h3>Sign in before you apply.</h3><p>Your contributor application, review status, private live chat and future updates are saved to your LitLab account. This lets LitLab notify you about review decisions and new messages when you sign in.</p><button type="button">Sign in with Google to apply</button><small>Your Google password is never shared with LitLab.</small>`;
+  gate.innerHTML=`<span>ACCOUNT REQUIRED</span><h3>Sign in before you apply.</h3><p>Your contributor application, review status, private live chat and future updates are saved to your ibdplabs account. This lets LitLab notify you about review decisions and new messages when you sign in.</p><button type="button">Sign in with Google to apply</button><small>Your Google password is never shared with ibdplabs.</small>`;
   gate.querySelector('button')?.addEventListener('click',signInToApply);
   return gate;
 }
@@ -123,7 +123,7 @@ function addSignedInBanner(form:HTMLFormElement){
   state.dataset.contributorAccountState='true';
   state.className='ll-contrib-account-state';
   const email=accountEmail();
-  state.innerHTML=`<span>✓</span><div><b>Signed in${email?` as ${esc(email)}`:''}</b><small>Your application, review result and private contributor chat will stay saved to this LitLab account.</small></div>`;
+  state.innerHTML=`<span>✓</span><div><b>Signed in${email?` as ${esc(email)}`:''}</b><small>Your application, review result and private contributor chat will stay saved to this ibdplabs account.</small></div>`;
   form.before(state);
 }
 
@@ -133,7 +133,7 @@ function prefillAccount(form:HTMLFormElement){
   if(email&&accountEmail()){
     email.value=accountEmail();
     email.readOnly=true;
-    email.title='Contributor applications use the email on your signed-in LitLab account.';
+    email.title='Contributor applications use the email on your signed-in ibdplabs account.';
   }
   if(name&&!name.value&&accountName())name.value=accountName();
 }

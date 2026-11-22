@@ -73,7 +73,7 @@ function applicationCard(app:Application){
       <div class="admin-contrib-status-row"><div><span>Application status</span><small>Update the application as you review and work with the contributor.</small></div><select data-contributor-status data-id="${esc(app.id)}" aria-label="Application status for ${esc(app.full_name)}">
         ${(['new','reviewing','accepted','declined','completed'] as ContributorStatus[]).map(s=>`<option value="${s}"${app.status===s?' selected':''}>${esc(statusLabel(s))}</option>`).join('')}
       </select><span class="admin-contrib-save-state" role="status"></span></div>
-      <small class="admin-contrib-notify-note">Status changes are saved to the applicant’s LitLab account and can appear as an in-site notification while they are signed in.</small>
+      <small class="admin-contrib-notify-note">Status changes are saved to the applicant’s ibdplabs account and can appear as an in-site notification while they are signed in.</small>
       <div class="admin-contrib-chat-strip"><div><span>PRIVATE CHAT</span><p>Message ${esc(app.full_name)} about feedback, revisions or next steps.</p></div><button type="button" data-admin-contrib-chat-open data-chat-open data-chat-mode="admin" data-application-id="${esc(app.id)}" data-chat-title="${esc(chatTitle)}">Open live chat</button></div>
       <div class="admin-contrib-detail-grid">
         ${relationship}
@@ -132,7 +132,7 @@ function renderAccessState(main:HTMLElement,kind:'loading'|'signin'|'denied'|'er
   const copy=kind==='loading'
     ?'<h1>Opening contributor dashboard…</h1><p>Checking developer access and loading applications.</p>'
     :kind==='signin'
-      ?'<h1>Developer sign-in required.</h1><p>Sign in with an approved LitLab developer account to review contributor applications.</p>'
+      ?'<h1>Developer sign-in required.</h1><p>Sign in with an approved ibdplabs developer account to review contributor applications.</p>'
       :kind==='denied'
         ?'<h1>Developer access only.</h1><p>This account can use LitLab normally, but it cannot access contributor applications.</p>'
         :'<h1>Contributor dashboard could not load.</h1><p>Your developer session may need to be refreshed. Try again or return to Developer Analytics.</p>';

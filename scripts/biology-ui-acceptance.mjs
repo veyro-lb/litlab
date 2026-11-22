@@ -11,7 +11,7 @@ const report={sourceSha:process.env.GITHUB_SHA||null,base:origin,browser:'Playwr
 const browser=await chromium.launch({executablePath:process.env.CHROME_BIN||undefined,headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 async function context(level='SL',theme='light',width=1440){
  const ctx=await browser.newContext({viewport:{width,height:900},reducedMotion:'reduce',serviceWorkers:'block'});
- await ctx.addInitScript(({level,theme})=>{localStorage.setItem('litlab:biology:preferences:v1',level);localStorage.setItem('litlabTheme',theme)}, {level,theme});
+ await ctx.addInitScript(({level,theme})=>{localStorage.setItem('litlab:biology:preferences:v1',level);localStorage.setItem('litlabTheme',theme);localStorage.setItem('ibdplabsSignInReminderSeen','true')}, {level,theme});
  await ctx.route('**/*',route=>{const u=new URL(route.request().url());if(u.origin===new URL(origin).origin||u.protocol==='data:')return route.continue();return route.abort('blockedbyclient')});
  return ctx;
 }
@@ -237,7 +237,7 @@ try {
  await check('Authentication entry opens a labelled dialog and Escape restores control focus',async()=>{
    await navigate(p,'#biology');
    const trigger=p.locator('[data-auth-open]');
-   await expect(trigger).toHaveAttribute('aria-label','Sign in to LitLab');
+   await expect(trigger).toHaveAttribute('aria-label','Sign in to ibdplabs');
    await trigger.click();
    await expect(p.locator('[data-auth-modal][role=dialog]')).toBeVisible();
    await expect(p.locator('[data-auth-google]')).toBeFocused();
