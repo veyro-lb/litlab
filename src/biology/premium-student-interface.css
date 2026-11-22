@@ -60,17 +60,9 @@
   color: var(--resource-color);
 }
 
-.bio-app .bio-lesson[data-mode="revision"] .bio-takeaway,
-.bio-app .bio-flashcard {
+.bio-app .bio-lesson[data-mode="revision"] .bio-takeaway {
   background: color-mix(in srgb, var(--resource-color) 8%, var(--surface));
   border-color: color-mix(in srgb, var(--resource-color) 28%, var(--line));
-}
-
-.bio-app .bio-flashcard {
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 14px;
-  padding-inline: clamp(16px, 4vw, 30px);
 }
 
 .bio-app{color:var(--ink);max-width:1232px}

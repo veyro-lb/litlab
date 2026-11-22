@@ -1,8 +1,9 @@
 import {useEffect, useId, useRef, useState} from 'react';
 import type {PointerEvent} from 'react';
-import {ArrowLeft, ArrowRight, RotateCcw} from 'lucide-react';
+import {ArrowLeft, ArrowRight, Check, Layers3, RotateCcw} from 'lucide-react';
 import type {Topic} from '../curriculum/schema';
-import type {Lesson, Section, StudyState} from './content';
+import {themes} from '../curriculum/manifest';
+import type {FlashcardRating, Lesson, Section, StudyState} from './content';
 import type {UpdateStudy} from './StudyQuestion';
 import ScientificFigure from './ScientificFigure';
 import keyFacts from './flashcard-key-facts.json';
@@ -41,6 +42,9 @@ export default function FlashcardStudy({lesson, topic, sections, requestedId, st
 }) {
   const [filter,setFilter] = useState(requestedId ?? '');
   const [revealedCard,setRevealedCard] = useState<string>();
+  const [reviewOnly,setReviewOnly] = useState(false);
+  const allCardsToggle = useRef<HTMLButtonElement>(null);
+  const reviewToggle = useRef<HTMLButtonElement>(null);
   const [direction,setDirection] = useState<'next' | 'previous'>();
   const deck = useRef<HTMLElement>(null);
   const button = useRef<HTMLButtonElement>(null);
@@ -49,8 +53,12 @@ export default function FlashcardStudy({lesson, topic, sections, requestedId, st
   const uid = useId();
   const understanding = sections.some(section => section.understandingIds.includes(filter)) ? filter : '';
   const visibleUnderstandings = topic.understandings.filter(item => sections.some(section => section.understandingIds.includes(item.id)));
-  const cards = buildDeck(sections, understanding);
-  const positionKey = `flashcard:${understanding || 'all'}`;
+  const scopeCards = buildDeck(sections, understanding);
+  const ratings = study.flashcardRatings ?? {};
+  const needsReview = scopeCards.filter(card => ratings[card.id] === 'again');
+  const knownCount = scopeCards.filter(card => ratings[card.id] === 'known').length;
+  const cards = reviewOnly ? needsReview : scopeCards;
+  const positionKey = `flashcard:${understanding || 'all'}${reviewOnly ? ':review' : ''}`;
   const savedPosition = study.drafts[positionKey];
   const savedCardIndex = cards.findIndex(card => card.id === savedPosition);
   const legacyCard = /^\d+$/.test(savedPosition ?? '')
@@ -69,6 +77,28 @@ export default function FlashcardStudy({lesson, topic, sections, requestedId, st
     setDirection(target > index ? 'next' : 'previous');
     setRevealedCard(undefined);
     update(previous => ({...previous,drafts:{...previous.drafts,[positionKey]:next.id}}));
+  }
+
+  function changeQueue(nextReviewOnly: boolean) {
+    setReviewOnly(nextReviewOnly);
+    setRevealedCard(undefined);
+    setDirection(undefined);
+  }
+
+  function rate(value: FlashcardRating) {
+    if (!card || !reveal) return;
+    const removesCard = reviewOnly && value === 'known';
+    const next = cards[index + 1] ?? (removesCard ? cards[index - 1] : undefined);
+    update(previous => ({
+      ...previous,
+      flashcardRatings:{...previous.flashcardRatings,[card.id]:value},
+      drafts:next ? {...previous.drafts,[positionKey]:next.id} : previous.drafts,
+    }));
+    if (next || removesCard) {
+      setRevealedCard(undefined);
+      setDirection(next ? (cards[index + 1] ? 'next' : 'previous') : undefined);
+    }
+    (removesCard && !next ? reviewToggle.current : button.current)?.focus({preventScroll:true});
   }
 
   useEffect(() => {
@@ -124,78 +154,102 @@ export default function FlashcardStudy({lesson, topic, sections, requestedId, st
     if (Math.abs(x) >= Math.max(swipeDistance, Math.abs(y) * 1.3)) move(index + (x < 0 ? 1 : -1));
   }
 
-  return <section className="bio-flashcards" ref={deck} aria-labelledby={`${uid}-title`}>
-    <div className="bio-deck-heading">
+  return <section className="bio-flashcards" ref={deck} aria-label="Flashcards">
+    <header className="bio-deck-heading">
       <div>
-        <span className="bio-eyebrow">{topic.id} · {topic.title}</span>
-        <h2 id={`${uid}-title`}>Flashcards</h2>
+        <span className="bio-deck-kicker"><Layers3 size={17} aria-hidden="true"/> Flashcards · Theme {topic.theme} · {themes[topic.theme].title}</span>
+        <h1>{topic.id} <span>{topic.title}</span></h1>
       </div>
-      <a className="bio-deck-link" href="#biology?resource=flashcards">Browse topics</a>
-    </div>
-    <label className="bio-deck-filter">
-      Review
-      <select value={understanding} onChange={event => {
-        setFilter(event.target.value);
-        setRevealedCard(undefined);
-        setDirection(undefined);
-      }}>
-        <option value="">Entire topic</option>
-        {visibleUnderstandings.map(item => <option key={item.id} value={item.id}>{item.id}{item.studentTitle ? ` · ${item.studentTitle}` : ''}</option>)}
-      </select>
-    </label>
-    {card ? <>
-      <div className="bio-deck-progress" role="status" aria-atomic="true">
-        <span>{sectionId}{sectionTitle && ` · ${sectionTitle}`}{card.section.level === 'HL' && ' · HL'}</span>
-        <strong>Card {index + 1} of {cards.length}</strong>
-      </div>
-      <progress className="bio-deck-meter" aria-label="Position in deck" value={index + 1} max={cards.length}/>
-      <div className="bio-flashcard">
-        <button
-          ref={button}
-          className="bio-card-button"
-          type="button"
-          aria-expanded={reveal}
-          aria-controls={`${uid}-answer`}
-          aria-label={reveal ? 'Hide answer' : 'Reveal answer'}
-          aria-describedby={reveal ? `${uid}-question ${uid}-answer` : `${uid}-question`}
-          aria-keyshortcuts="Space ArrowLeft ArrowRight"
-          onClick={event => {
-            if (suppressClick.current && event.detail !== 0) {
-              suppressClick.current = false;
-              return;
-            }
-            setRevealedCard(reveal ? undefined : card.id);
-          }}
-          onPointerDown={startSwipe}
-          onPointerMove={trackSwipe}
-          onPointerUp={endSwipe}
-          onPointerCancel={event => endSwipe(event,true)}
-        >
-          <span key={card.id} className="bio-card-face" data-direction={direction}>
-            <span className="bio-card-label">Question</span>
-            <span className="bio-card-question" id={`${uid}-question`}>{card.prompt}</span>
-            <span className="bio-flashcard-answer" id={`${uid}-answer`} hidden={!reveal}>
-              <span className="bio-card-label">Answer</span>
-              <span>{card.answer}</span>
+      <a className="bio-deck-link" href="#biology?resource=flashcards"><ArrowLeft size={16} aria-hidden="true"/> Browse decks</a>
+    </header>
+    <div className="bio-deck-workspace">
+      <aside className="bio-deck-sidebar" aria-label="Deck settings">
+        <label className="bio-deck-filter">
+          Review
+          <select value={understanding} onChange={event => {
+            setFilter(event.target.value);
+            setRevealedCard(undefined);
+            setDirection(undefined);
+          }}>
+            <option value="">Entire topic</option>
+            {visibleUnderstandings.map(item => <option key={item.id} value={item.id}>{item.id}{item.studentTitle ? ` · ${item.studentTitle}` : ''}</option>)}
+          </select>
+        </label>
+        <div className="bio-deck-queues" role="group" aria-label="Card queue">
+          <button type="button" ref={allCardsToggle} aria-pressed={!reviewOnly} onClick={() => changeQueue(false)}>All cards <span>{scopeCards.length}</span></button>
+          <button type="button" ref={reviewToggle} aria-pressed={reviewOnly} onClick={() => changeQueue(true)}>Needs review <span>{needsReview.length}</span></button>
+        </div>
+        <p className="bio-deck-tally"><Check size={16} aria-hidden="true"/> {knownCount} marked “Got it”</p>
+      </aside>
+      <div className="bio-deck-main">
+      {card ? <>
+        <div className="bio-deck-progress" role="status" aria-atomic="true">
+          <span>{sectionId}{sectionTitle && ` · ${sectionTitle}`}{card.section.level === 'HL' && ' · HL'}</span>
+          <strong>Card {index + 1} of {cards.length}</strong>
+        </div>
+        <progress className="bio-deck-meter" aria-label="Position in deck" value={index + 1} max={cards.length}/>
+        <div className="bio-flashcard">
+          <button
+            ref={button}
+            className="bio-card-button"
+            type="button"
+            aria-expanded={reveal}
+            aria-controls={`${uid}-answer`}
+            aria-label={reveal ? 'Hide answer' : 'Reveal answer'}
+            aria-describedby={reveal ? `${uid}-question ${uid}-answer` : `${uid}-question`}
+            aria-keyshortcuts="Space ArrowLeft ArrowRight"
+            onClick={event => {
+              if (suppressClick.current && event.detail !== 0) {
+                suppressClick.current = false;
+                return;
+              }
+              setRevealedCard(reveal ? undefined : card.id);
+            }}
+            onPointerDown={startSwipe}
+            onPointerMove={trackSwipe}
+            onPointerUp={endSwipe}
+            onPointerCancel={event => endSwipe(event,true)}
+          >
+            <span key={card.id} className="bio-card-face" data-direction={direction}>
+              <span className="bio-card-top">
+                <span className="bio-card-label">Question</span>
+                {ratings[card.id]&&<span className="bio-card-rating">{ratings[card.id]==='known'?'Got it':'Needs review'}</span>}
+              </span>
+              <span className="bio-card-question" id={`${uid}-question`}>{card.prompt}</span>
+              <span className="bio-flashcard-answer" id={`${uid}-answer`} hidden={!reveal}>
+                <span className="bio-card-label">Answer</span>
+                <span>{card.answer}</span>
+              </span>
+              <span className="bio-card-action"><RotateCcw size={16} aria-hidden="true"/>{reveal ? 'Hide answer' : 'Reveal answer'}</span>
             </span>
-            <span className="bio-card-action"><RotateCcw size={16} aria-hidden="true"/>{reveal ? 'Hide answer' : 'Reveal answer'}</span>
-          </span>
-        </button>
-        <p className="bio-sr-only" role="status" aria-atomic="true">{reveal ? `Answer. ${card.answer}` : ''}</p>
+          </button>
+          <p className="bio-sr-only" role="status" aria-atomic="true">{reveal ? `Answer. ${card.answer}` : ''}</p>
+        </div>
+        {reveal&&<div className="bio-deck-ratings" aria-label="Rate this card" role="group">
+          <button type="button" className="bio-btn-quiet" onClick={() => rate('again')}><RotateCcw size={17} aria-hidden="true"/> Review again</button>
+          <button type="button" className="bio-btn-primary" onClick={() => rate('known')}><Check size={17} aria-hidden="true"/> Got it</button>
+        </div>}
+        <p className="bio-deck-hint"><span>Tap to reveal or swipe to change cards.</span><span>Press <kbd>Space</kbd> to reveal or <kbd>←</kbd> <kbd>→</kbd> to change cards.</span></p>
+        <div className="bio-deck-nav" aria-label="Card navigation" role="group">
+          <button type="button" className="bio-btn-quiet" disabled={index === 0} onClick={() => move(index - 1)}><ArrowLeft size={17} aria-hidden="true"/> Previous card</button>
+          <a className="bio-deck-link" href={`#biology/topic/${lesson.topicId}/learn?understanding=${sectionId}`}>Read the lesson</a>
+          {index === cards.length - 1 && cards.length > 1
+            ? <button type="button" className="bio-btn-quiet" onClick={() => {button.current?.focus({preventScroll:true});move(0)}}><RotateCcw size={16} aria-hidden="true"/> Restart deck</button>
+            : <button type="button" className="bio-btn-primary" disabled={cards.length < 2} onClick={() => move(index + 1)}>Next card <ArrowRight size={17} aria-hidden="true"/></button>}
+        </div>
+        {asset && <details className="bio-flashcard-figure" key={asset.id}>
+          <summary>Diagram for this understanding</summary>
+          <p>Try naming the missing labels before revealing the answer.</p>
+          <ScientificFigure asset={asset} hideLabels={!reveal}/>
+        </details>}
+      </> : <div className="bio-deck-empty">
+        <h2>{reviewOnly?'No cards to review here':'No cards in this understanding'}</h2>
+        {reviewOnly&&<>
+          <p>Choose “Review again” after revealing a card to add it to this queue.</p>
+          <button type="button" className="bio-btn-quiet" onClick={() => {changeQueue(false);allCardsToggle.current?.focus()}}>Show all cards</button>
+        </>}
+      </div>}
       </div>
-      <p className="bio-deck-hint"><span>Tap to reveal or swipe to change cards.</span><span>Press <kbd>Space</kbd> to reveal or <kbd>←</kbd> <kbd>→</kbd> to change cards.</span></p>
-      <div className="bio-deck-nav" aria-label="Card navigation" role="group">
-        <button type="button" className="bio-btn-quiet" disabled={index === 0} onClick={() => move(index - 1)}><ArrowLeft size={17} aria-hidden="true"/> Previous card</button>
-        <a className="bio-deck-link" href={`#biology/topic/${lesson.topicId}/learn?understanding=${sectionId}`}>Read the lesson</a>
-        {index === cards.length - 1 && cards.length > 1
-          ? <button type="button" className="bio-btn-quiet" onClick={() => {button.current?.focus({preventScroll:true});move(0)}}><RotateCcw size={16} aria-hidden="true"/> Restart deck</button>
-          : <button type="button" className="bio-btn-primary" disabled={cards.length < 2} onClick={() => move(index + 1)}>Next card <ArrowRight size={17} aria-hidden="true"/></button>}
-      </div>
-      {asset && <details className="bio-flashcard-figure" key={asset.id}>
-        <summary>Diagram for this understanding</summary>
-        <p>Try naming the missing labels before revealing the answer.</p>
-        <ScientificFigure asset={asset} hideLabels={!reveal}/>
-      </details>}
-    </> : <p>No cards in this understanding.</p>}
+    </div>
   </section>;
 }

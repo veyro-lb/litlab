@@ -7,13 +7,13 @@ import type {LessonMode} from '../routes';
 const icons = {A:Dna,B:Atom,C:Network,D:RefreshCw};
 const ids: ThemeId[] = ['A','B','C','D'];
 
-function TopicTile({topic,resource,level}:{topic:Topic;resource:LessonMode;level:Level}) {
+function TopicTile({topic,resource}:{topic:Topic;resource:LessonMode}) {
   const destination=topic.lessonId&&resource!=='learn' ? '#biology/topic/'+topic.id+'/'+resource : '#biology/topic/'+topic.id;
   const action=!topic.lessonId?'View topic scope':resource==='learn'?'Open topic':resource==='practice'?'Open practice':resource==='revision'?'Open revision':resource==='flashcards'?'Open flashcards':'Practise diagrams';
   return <a className="bio-discovery-topic" href={destination} data-topic-id={topic.id}>
     <div className="bio-discovery-topic-top"><span className="bio-topic-code">{topic.id}</span>{topic.level==='HL'&&<span className="bio-hl-mark">HL ONLY</span>}</div>
     <h4>{topic.title}</h4>
-    <p>{organizations[topic.organization-1]} <span aria-hidden="true">·</span> {topic.lessonId?'Lesson available':'Lesson planned'}</p>
+    <p>{organizations[topic.organization-1]}{resource!=='flashcards'&&<> <span aria-hidden="true">·</span> {topic.lessonId?'Lesson available':'Lesson planned'}</>}</p>
     <span className="bio-discovery-topic-link">{action}<ArrowRight size={15} aria-hidden="true"/></span>
   </a>;
 }
@@ -21,15 +21,21 @@ function TopicTile({topic,resource,level}:{topic:Topic;resource:LessonMode;level
 export default function CurriculumOverview({level,theme,resource='learn'}:{level:Level;theme?:ThemeId;resource?:LessonMode}) {
   const [query,setQuery]=useState('');
   const searchInput=useRef<HTMLInputElement>(null);
-  const list=findTopics(query,level,theme);
+  const flashcards=resource==='flashcards';
+  const list=findTopics(query,level,theme).filter(topic=>!flashcards||topic.lessonId);
   const all=visibleTopics(level);
   const hasQuery=query.trim().length>0;
-  return <section className="bio-course-library bio-discovery" id="bio-topic-browser" aria-labelledby="bio-discovery-heading">
-    <div className="bio-discovery-heading"><div><span className="bio-eyebrow">{theme?'THEME '+theme:'YOUR COURSE LIBRARY'}</span><h2 id="bio-discovery-heading">{theme?'Explore the topics':'Find your next topic'}</h2><p>{theme?'Select a topic to explore its understandings and learning resources.':'Choose a theme, or search the full curriculum by name or official code.'}</p></div></div>
+  return <section className={flashcards?"bio-course-library bio-discovery bio-flashcard-library":"bio-course-library bio-discovery"} id="bio-topic-browser" aria-labelledby="bio-discovery-heading">
+    {flashcards?<header className="bio-flashcard-library-heading"><h1 id="bio-discovery-heading">Flashcard decks</h1><p>Find a topic and test what you remember.</p></header>
+      :<div className="bio-discovery-heading"><div><span className="bio-eyebrow">{theme?'THEME '+theme:'YOUR COURSE LIBRARY'}</span><h2 id="bio-discovery-heading">{theme?'Explore the topics':'Find your next topic'}</h2><p>{theme?'Select a topic to explore its understandings and learning resources.':'Choose a theme, or search the full curriculum by name or official code.'}</p></div></div>}
+    {flashcards&&<nav className="bio-flashcard-themes" aria-label="Flashcard themes">
+      <a href="#biology?resource=flashcards" aria-current={!theme?'page':undefined}>All themes</a>
+      {ids.map(id=><a key={id} data-course-theme={id} href={`#biology/theme/${id}?resource=flashcards`} aria-current={theme===id?'page':undefined}>Theme {id}</a>)}
+    </nav>}
     <label className="bio-sr-only" htmlFor="bio-topic-search">Search topics by syllabus code, name, theme or level of biological organization</label>
     <div className="bio-library-search bio-search-enhanced"><Search size={20} aria-hidden="true"/><input ref={searchInput} id="bio-topic-search" type="search" value={query} onChange={event=>setQuery(event.target.value)} aria-describedby="bio-library-results-count" placeholder={theme?'Search topics in this theme':'Search topics, e.g. A1.1 or photosynthesis'} autoComplete="off"/>{query?<button type="button" onClick={()=>{setQuery('');searchInput.current?.focus()}} aria-label="Clear topic search"><X size={17} aria-hidden="true"/></button>:<kbd aria-hidden="true" title="Control or Command plus K">Ctrl/⌘ K</kbd>}</div>
-    <p id="bio-library-results-count" className="bio-library-meta" role="status">{hasQuery?list.length+' matching '+(list.length===1?'topic':'topics')+' in '+level:theme?list.length+' topics in '+level+' scope':'Showing '+all.length+' topics in '+level+' scope across four themes'}</p>
-    {!theme&&!hasQuery&&<div className="bio-discovery-themes" aria-label="Choose a biology theme">{ids.map(id=>{
+    <p id="bio-library-results-count" className="bio-library-meta" role="status">{flashcards?`${list.length} ${list.length===1?'deck':'decks'} · ${level}`:hasQuery?list.length+' matching '+(list.length===1?'topic':'topics')+' in '+level:theme?list.length+' topics in '+level+' scope':'Showing '+all.length+' topics in '+level+' scope across four themes'}</p>
+    {!flashcards&&!theme&&!hasQuery&&<div className="bio-discovery-themes" aria-label="Choose a biology theme">{ids.map(id=>{
       const Icon=icons[id];const count=all.filter(topic=>topic.theme===id).length;
       return <a key={id} className={'bio-discovery-theme bio-discovery-theme-'+id} data-course-theme={id} href={'#biology/theme/'+id+(resource==='learn'?'':'?resource='+resource)}>
         <div className="bio-theme-top"><span className="bio-theme-monogram">{id}</span><Icon size={22} strokeWidth={1.7} aria-hidden="true"/></div>
@@ -37,10 +43,10 @@ export default function CurriculumOverview({level,theme,resource='learn'}:{level
         <span className="bio-theme-footer"><span>{count} {count===1?'topic':'topics'} · {level}</span><span>Explore <ArrowRight size={16} aria-hidden="true"/></span></span>
       </a>;
     })}</div>}
-    {(theme||hasQuery)&&<>{list.length?<div className="bio-results-group">{ids.filter(id=>list.some(topic=>topic.theme===id)).map(id=><section key={id} className="bio-topic-result-section" data-course-theme={id} aria-label={'Theme '+id+': '+themes[id].title}>
+    {(flashcards||theme||hasQuery)&&<>{list.length?<div className="bio-results-group">{ids.filter(id=>list.some(topic=>topic.theme===id)).map(id=><section key={id} className="bio-topic-result-section" data-course-theme={id} aria-label={'Theme '+id+': '+themes[id].title}>
       <div className="bio-result-section-head"><div><span className="bio-result-letter">{id}</span><h3>{themes[id].title}</h3></div>{!theme&&<a href={'#biology/theme/'+id+(resource==='learn'?'':'?resource='+resource)}>View theme <ArrowRight size={14} aria-hidden="true"/></a>}</div>
-      <div className="bio-discovery-grid">{list.filter(topic=>topic.theme===id).map(topic=><TopicTile key={topic.id} topic={topic} resource={resource} level={level}/>)}</div>
+      <div className="bio-discovery-grid">{list.filter(topic=>topic.theme===id).map(topic=><TopicTile key={topic.id} topic={topic} resource={resource}/>)}</div>
     </section>)}</div>:<div className="bio-search-empty" role="status"><Search size={26} aria-hidden="true"/><h3>No matching topics</h3><p>Try a shorter keyword, syllabus code, or another course level.</p><button type="button" onClick={()=>setQuery('')}>Clear search</button></div>}</>}
-    {!theme&&!hasQuery&&<p className="bio-discovery-hint">Looking for something specific? Search above to open a matching topic directly. HL-only topics appear when Higher Level is selected.</p>}
+    {!flashcards&&!theme&&!hasQuery&&<p className="bio-discovery-hint">Looking for something specific? Search above to open a matching topic directly. HL-only topics appear when Higher Level is selected.</p>}
   </section>;
 }
