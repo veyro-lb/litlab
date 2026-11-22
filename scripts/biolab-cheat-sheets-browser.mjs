@@ -36,22 +36,18 @@ try {
   await expect(page.getByRole('heading', {name: 'Exam tip'})).toBeVisible();
   await expect(page.locator('.bio-sheets-point-body').first()).toBeVisible();
   const note = page.locator('.bio-sheets-note').first();
-  await expect(note.locator('s')).toBeHidden();
-  await note.getByText('Common mistake', {exact: true}).press('Enter');
-  await expect(note.locator('s')).toBeVisible();
+  await expect(note.getByText('Common mistake', {exact: true})).toBeVisible();
+  await expect(note.getByText('Correction', {exact: true})).toBeVisible();
   const figure = page.locator('.bio-sheets-point [data-asset-id="bonding"]');
   await figure.getByRole('button', {name: /^Enlarge diagram/}).click();
   await expect(figure.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(figure.getByRole('dialog')).toHaveCount(0);
   const selfCheck = page.locator('.bio-sheets-self-check');
-  await expect(selfCheck.getByText(/Hydrogen bonds create cohesion/)).toBeHidden();
-  await selfCheck.getByText('Show answer', {exact: true}).press('Enter');
   await expect(selfCheck.getByText(/Hydrogen bonds create cohesion/)).toBeVisible();
   await expect(page.locator('.bio-sheets-point')).toHaveCount(6);
   await expect(page.locator('.bio-sheets-extension')).toHaveCount(0);
   await expect(page.getByRole('link', {name: 'Active recall', exact: true})).toHaveCount(0);
-  await page.getByText('Cohesion and adhesion are different', {exact: true}).click();
   await expect(page.getByRole('table', {name: 'Cohesion and adhesion are different'})).toBeVisible();
 
   await page.goto(origin+'#biology/topic/A1.1/revision?understanding=A1.1.5');
@@ -71,7 +67,6 @@ try {
   await expect(mobile.page.getByLabel('Theme', {exact: true})).toHaveValue('A');
   await expect(mobile.page.locator('.bio-sheets-tile')).toHaveCount(registry.filter(topic => topic.theme === 'A' && topic.lessonId).length);
   await mobile.page.getByRole('link', {name: 'A1.1 Water', exact: true}).click();
-  await mobile.page.getByText('Cohesion and adhesion are different', {exact: true}).click();
   await expect(mobile.page.locator('.bio-sheets-table-mobile').first().getByText('Adhesion', {exact: true}).first()).toBeVisible();
   await expect(mobile.page.getByRole('table', {name: 'Cohesion and adhesion are different'})).toHaveCount(0);
   await expect(mobile.page.locator('.bio-sheets-extension')).toBeVisible();
@@ -82,7 +77,9 @@ try {
     await expect(mobile.page.locator('.bio-sheets-code')).toContainText(topic.id);
     await expect(mobile.page.locator('.bio-sheets-essentials > div')).toHaveCount(3);
     await expect(mobile.page.locator('.bio-sheets-point')).toHaveCount(topic.understandings.length);
-    await expect(mobile.page.getByRole('heading', {name: 'Test yourself'})).toBeVisible();
+    await expect(mobile.page.getByRole('heading', {name: 'Worked question'})).toBeVisible();
+    await expect(mobile.page.locator('.bio-sheets-answer')).toBeVisible();
+    await expect(mobile.page.locator('.bio-sheets details:not(dialog details)')).toHaveCount(0);
     for (const img of await mobile.page.locator('.bio-sheets-point picture img').all()) {
       await img.evaluate(el => { el.loading = 'eager'; });
       await expect.poll(() => img.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
