@@ -16,7 +16,7 @@
   min-width:0;
   flex-wrap:nowrap;
 }
-.topbar nav button{
+.topbar nav :is(button,a){
   flex:0 0 auto!important;
   min-width:max-content;
   white-space:nowrap!important;
@@ -65,7 +65,7 @@
 @media (min-width:1101px) and (max-width:1180px){
   .topbar{padding-inline:14px;gap:8px}
   .topbar nav{gap:2px;padding:4px}
-  .topbar nav button{padding:8px 10px;font-size:12.5px}
+  .topbar nav :is(button,a){padding:8px 10px;font-size:12.5px}
   .search-trigger{padding-inline:9px}
   .search-trigger kbd{display:none}
   .litlab-account-trigger{max-width:150px;padding-inline:9px}
