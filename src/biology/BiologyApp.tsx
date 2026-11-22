@@ -18,7 +18,7 @@ export default function BiologyApp({hash}:{hash:string}) {
   const focusRef=useRef<HTMLDivElement>(null);
   const previousHash=useRef(hash);
   const route=parseBiologyRoute(hash);
-  const resource=resourceFromHash(hash);
+  const resource=(route.kind==='topic' && route.mode) || resourceFromHash(hash);
   const topic=route.kind==='topic'?topics.find(t=>t.id===route.id):undefined;
   useEffect(()=>{
     const title=route.kind==='topic'&&topic?topic.id+' '+topic.title:route.kind==='theme'?themes[route.id].title:resource==='revision'?'Revision':'Curriculum';
@@ -31,7 +31,7 @@ export default function BiologyApp({hash}:{hash:string}) {
     }
   },[hash,topic,route.kind,resource]);
   const missing=route.kind==='not-found'||(route.kind==='topic'&&!topic);
-  return <div className="bio-app" ref={focusRef} tabIndex={-1}>
+  return <div className="bio-app" data-course-theme={route.kind==='theme'?route.id:topic?.theme} data-resource={resource} ref={focusRef} tabIndex={-1}>
     <div className="bio-toolbar">
       {route.kind==='dashboard'?<span className="bio-toolbar-title">Your IB Biology course</span>:<nav aria-label="Biology breadcrumb"><a href="#biology"><FlaskConical size={17} aria-hidden="true"/> BioLab</a><span aria-hidden="true">/</span>{route.kind==='theme'?<span>Theme {route.id}</span>:topic?<><a href={'#biology/theme/'+topic.theme}>Theme {topic.theme}</a><span aria-hidden="true">/</span><span>{topic.id} · {topic.title}</span></>:<span>Page not found</span>}</nav>}
       <div className="bio-toolbar-actions">

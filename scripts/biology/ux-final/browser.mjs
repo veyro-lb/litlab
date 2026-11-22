@@ -86,14 +86,14 @@ try {
   await page.waitForURL(/#biology\/topic\/A1\.1\/practice$/);
   await page.locator('.bio-practice').waitFor();
  });
- await test('Review concepts finds a real Revision route',async()=>{
+ await test('Start revision opens the dedicated recall route',async()=>{
   await visit(page,'#biology');
-  await page.getByRole('link',{name:/Review concepts/i}).click();
+  await page.getByRole('link',{name:/Start revision/i}).click();
   await page.waitForURL(/#biology\?resource=revision$/);
   await page.locator('#bio-topic-search').fill('A1.1');
-  await page.locator('.bio-discovery-topic[data-topic-id="A1.1"]').click();
+  await page.getByRole('link',{name:'Start recall for Water',exact:true}).click();
   await page.waitForURL(/#biology\/topic\/A1\.1\/revision$/);
-  await page.locator('.bio-lesson-content').waitFor();
+  await page.locator('.bio-rev-card').waitFor();
  });
  await test('Theme, topic, lesson path; browser backward/forward',async()=>{
   await visit(page,'#biology');
@@ -141,7 +141,7 @@ try {
   await visit(page,'#biology/topic/A1.1/flashcards');
   await page.locator('.bio-flashcards').waitFor();
   await page.getByRole('button',{name:'Reveal answer'}).first().click();
-  await page.locator('.bio-flashcard-answer[role="status"]').waitFor();
+  await page.locator('.bio-flashcard-answer').waitFor();
   await page.getByRole('button',{name:/Next card/}).click();
   await page.locator('.bio-flashcards').waitFor();
  });

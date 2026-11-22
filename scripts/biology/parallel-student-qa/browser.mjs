@@ -119,7 +119,7 @@ try{
       await expect(page.locator('.bio-flashcard-answer')).toBeVisible();
       await page.getByRole('button',{name:'Next card'}).first().click();
       await visit(page,'biology/topic/'+id+'/revision');
-      await expect(page.locator('.bio-takeaway')).toBeVisible();
+      await expect(page.locator('.bio-rev-card')).toBeVisible();
     });
     await check('Figure interaction and keyboard dismissal '+id,'1440px, lesson',async()=>{
       await visit(page,'biology/topic/'+id+'/learn');

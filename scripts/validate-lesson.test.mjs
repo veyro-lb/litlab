@@ -31,7 +31,15 @@ fixture.questions=fixture.sections.map((s,i)=>({id:`fq-${i}`,kind:'selection',pa
 test('synthetic three-understanding topic validates without Water IDs',()=>assert.deepEqual(validateLesson(fixture,fixtureTopic),[]));
 // Compile the real TSX renderer with the existing build dependency; no browser or additional dependency.
 const out=new URL(`.lesson-render-${process.pid}.mjs`,import.meta.url);
-const result=await build({stdin:{contents:`export {default as LessonView} from './src/biology/learning/LessonView.tsx';export {saveStudy} from './src/biology/learning/content.ts';export {default as TopicOverview} from './src/biology/components/TopicOverview.tsx';`,resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'esm',packages:'external',write:false,jsx:'automatic'});
+// Node renders individual lessons here. The Vite index is used for cross-topic practice navigation.
+const practiceIndexFixture={
+ name:'practice-index-fixture',
+ setup(build){
+  build.onResolve({filter:/^virtual:biolab-practice-index$/},({path})=>({path,namespace:'fixture'}));
+  build.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:'export default {}'}));
+ }
+};
+const result=await build({plugins:[practiceIndexFixture],stdin:{contents:`export {default as LessonView} from './src/biology/learning/LessonView.tsx';export {saveStudy} from './src/biology/learning/content.ts';export {default as TopicOverview} from './src/biology/components/TopicOverview.tsx';`,resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'esm',packages:'external',write:false,jsx:'automatic'});
 await writeFile(out,result.outputFiles[0].text);
 const {LessonView,TopicOverview,saveStudy}=await import(out.href);await unlink(out);
 const {createElement}=await import('react');const {renderToStaticMarkup}=await import('react-dom/server');

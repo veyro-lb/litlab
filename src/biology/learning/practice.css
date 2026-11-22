@@ -51,8 +51,8 @@
 }
 
 .bio-paper-option:has(input:checked) {
-  border-color: var(--bio-green);
-  background: color-mix(in srgb, var(--bio-green) 9%, var(--surface));
+  border-color: var(--resource-color);
+  background: color-mix(in srgb, var(--resource-color) 9%, var(--surface));
 }
 
 .bio-paper-option:has(input:focus-visible) {
@@ -66,13 +66,13 @@
   height: 17px;
   width: 17px;
   margin: 0;
-  accent-color: var(--bio-primary-bg);
+  accent-color: var(--resource-color);
 }
 
 .bio-paper-option svg {
   grid-column: 1;
   grid-row: 1;
-  color: var(--bio-green);
+  color: var(--resource-color);
 }
 
 .bio-paper-option span {

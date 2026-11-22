@@ -36,7 +36,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
   function revisit(id:string){update(s=>({...s,sectionId:id}));location.hash=`${base}/learn?understanding=${lesson.sections.find(s=>s.id===id)?.understandingIds[0]??''}`}
   return <article className="bio-lesson" data-lesson-id={lesson.id} data-mode={mode}>
     <a className="bio-back" href={base}><ArrowLeft size={16} aria-hidden="true"/>Back to understandings</a>
-    <header className="bio-lesson-hero"><div><span className="bio-eyebrow">{topic.id} / {themes[topic.theme].title.toUpperCase()} / {organizations[topic.organization-1].toUpperCase()}</span><h1>{lesson.title}</h1><p>{lesson.introduction}</p><div className="bio-lesson-meta"><span>{level} · {sections.length} sections</span><span>First assessment 2025</span></div></div></header>
+    <header className="bio-lesson-hero"><div><span className="bio-eyebrow">{topic.id} / {themes[topic.theme].title.toUpperCase()} / {organizations[topic.organization-1].toUpperCase()}</span><h1>{lesson.title}</h1>{mode!=='flashcards'&&<><p>{lesson.introduction}</p><div className="bio-lesson-meta"><span>{level} · {sections.length} sections</span><span>First assessment 2025</span></div></>}</div></header>
     <ResourceNav active={mode} topicId={topic.id} understandingId={requestedId??undefined}/>
     {mode==='learn'&&<div className="bio-lesson-layout"><aside className="bio-lesson-nav"><span className="bio-eyebrow">YOUR PATH / {level}</span><details className="bio-toc" ref={toc} open><summary>Understandings <span>{section.understandingIds[0]} · {index+1} of {sections.length}</span></summary><ol>{sections.map((s)=><li key={s.id}><button type="button" aria-current={s.id===section.id?'step':undefined} onClick={()=>chooseSection(s.id)}><UnderstandingLabel topic={topic} ids={s.understandingIds}/>{s.level==='HL'&&<small>HL</small>}</button></li>)}</ol></details><p>Read at your own pace. Activities are optional.</p><small>Answers stay in this tab across routes. Refresh starts a new session. No mastery or completion is recorded.</small></aside>
     <section className="bio-lesson-content" tabIndex={-1} data-understanding-id={section.understandingIds[0]} data-level={section.level}><span className="bio-eyebrow">{section.understandingIds[0]} · {section.level==='HL'?'ADDITIONAL HL':'SL + HL'} · UNDERSTANDING {index+1} OF {sections.length}</span><h2><UnderstandingLabel topic={topic} ids={section.understandingIds}/></h2><p className="bio-guiding-question">{section.guidingQuestion}</p>
@@ -45,7 +45,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
     </section></div>}
     {mode==='practice'&&<TopicPractice key={hash+level} lesson={lesson} topic={topic} level={level} hash={hash} requestedId={requestedId} study={study} update={update} revisit={revisit}/>}
     {mode==='drawing'&&<DrawingPractice key={hash} lesson={lesson} sections={sections} level={level} study={study} update={update} requestedId={requestedId} requestedDiagram={new URLSearchParams(hash.split('?')[1]??'').get('diagram')}/>}
-    {mode==='flashcards'&&<FlashcardStudy lesson={lesson} sections={sections} requestedId={requestedId} study={study} update={update}/>}
+    {mode==='flashcards'&&<FlashcardStudy key={requestedId??'all'} lesson={lesson} topic={topic} sections={sections} requestedId={requestedId} study={study} update={update}/>}
     {mode==='sources'&&<SourcesPanel lesson={lesson} level={level}/>}
   </article>;
 }

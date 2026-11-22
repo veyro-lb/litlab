@@ -11,6 +11,6 @@ export default function ResourceNav({active,topicId,theme,understandingId}:{acti
   const href = topicId
     ? `#biology/topic/${topicId}/${r.id}${targetUnderstanding ? '?understanding='+targetUnderstanding : ''}`
     : `${theme ? '#biology/theme/'+theme : '#biology'}${r.id === 'learn' ? '' : '?resource='+r.id}`;
-  return <a key={r.id} href={href} aria-current={active===r.id?'page':undefined}><Icon size={16} aria-hidden="true"/><span>{r.label}</span></a>;
+  return <a key={r.id} data-resource={r.id} href={href} aria-current={active===r.id?'page':undefined}><Icon size={16} aria-hidden="true"/><span>{r.label}</span></a>;
  })}</nav>;
 }
