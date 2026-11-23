@@ -34,7 +34,7 @@ try {
   await page.getByRole('link', {name: 'A1.1 Water', exact: true}).press('Enter');
   await expect(page).toHaveURL(/#biology\/topic\/A1\.1\/cheat-sheets$/);
   const pdf = page.getByRole('region', {name: 'Cheat sheet PDF'});
-  const first = pdf.getByRole('region', {name: /^Page 1 of [12]$/});
+  const first = pdf.getByRole('region', {name: 'Page 1 of 1', exact: true});
   await expect(first.locator('canvas')).toBeVisible({timeout: 20000});
   await expect(first).toContainText('Polarity');
   await expect(first).toContainText('Exam tip');
