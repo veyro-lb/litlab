@@ -1,5 +1,4 @@
 import './account-center-branding.css';
-import './unassigned-role-guard';
 import {createLitLabMark} from './brand-mark';
 
 function replaceLoadingMark(root:ParentNode){

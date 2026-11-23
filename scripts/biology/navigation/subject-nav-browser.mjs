@@ -10,7 +10,50 @@ const browser=await chromium.launch({headless:true,...(executablePath?{executabl
 const output=resolve('qa-artifacts/biolab-navigation');
 mkdirSync(output,{recursive:true});
 const results=[];
+
+async function verifySignedInStudyAccess(){
+ const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});
+ const page=await context.newPage();
+ const lesson='#biology/topic/A1.1/learn?understanding=A1.1.2';
+ const callback=new URL(base);
+ callback.hash='access_token=study-access-fixture&refresh_token=refresh-fixture&expires_in=3600';
+ await context.route('https://qdqseajcukfdbfikjptu.supabase.co/**',async route=>{
+  const endpoint=new URL(route.request().url()).pathname;
+  if(endpoint==='/auth/v1/authorize')return route.fulfill({status:302,headers:{location:callback.href}});
+  const headers={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'apikey, authorization, content-type, prefer'};
+  if(route.request().method()==='OPTIONS')return route.fulfill({status:204,headers});
+  if(endpoint==='/auth/v1/user')return route.fulfill({headers,json:{id:'00000000-0000-4000-8000-000000000001',user_metadata:{full_name:'Study Access Student'}}});
+  if(endpoint.endsWith('/get_my_litlab_contributor_account_role'))return route.fulfill({headers,json:{role:null,needs_choice:true,is_admin:false}});
+  return route.fulfill({headers,json:[]});
+ });
+ try{
+  await page.goto(new URL(lesson,base).href);
+  const section=page.locator('.bio-lesson-content[data-understanding-id="A1.1.2"]');
+  await expect(section).toBeVisible();
+  await page.getByRole('button',{name:'Sign in to ibdplabs'}).click();
+  await page.getByRole('button',{name:'Continue with Google'}).press('Enter');
+  const account=page.locator('.litlab-account-trigger');
+  await expect(account).toBeVisible();
+  assert.equal(new URL(page.url()).hash,lesson);
+  await expect(section).toBeVisible();
+  await expect(page.locator('[data-auth-role-setup]')).toHaveCount(0);
+  await account.click();
+  await page.getByRole('button',{name:'Choose Student or Teacher account type'}).click();
+  await page.getByRole('button',{name:'Continue studying'}).click();
+  await expect(section).toBeVisible();
+  const spaces=page.getByRole('navigation',{name:'Switch between LitLab and BioLab'});
+  await spaces.getByRole('link',{name:'LitLab — English'}).click();
+  await expect(page.locator('.home-hero')).toBeVisible();
+  await spaces.getByRole('link',{name:'BioLab — Biology'}).click();
+  await expect(page.locator('.bio-discovery-theme-A')).toBeVisible();
+  await expect(account).toBeVisible();
+  await expect(page.locator('[data-auth-role-setup]')).toHaveCount(0);
+  console.log('PASS signed-in lesson return and study access for an account without a contributor role');
+ }finally{await context.close();}
+}
+
 try {
+ await verifySignedInStudyAccess();
  for(const theme of ['light','dark'])for (const {name,width,height} of [{name:'desktop',width:1440,height:900},{name:'tablet',width:768,height:1024},{name:'mobile',width:390,height:844},{name:'small-mobile',width:320,height:720}]) {
   const context=await browser.newContext({viewport:{width,height},hasTouch:name.includes('mobile'),reducedMotion:'reduce'});
   await context.addInitScript(theme=>localStorage.litlabTheme=theme,theme);
