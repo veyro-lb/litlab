@@ -1,15 +1,12 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import fonts from 'pdfmake/build/vfs_fonts';
+import nunitoBody from '@fontsource/nunito/files/nunito-latin-400-normal.woff?url';
 import nunitoHeading from '@fontsource/nunito/files/nunito-latin-800-normal.woff?url';
 import type {Content, ContentText, TableCell, TDocumentDefinitions} from 'pdfmake/interfaces';
 import {getFigureCredit} from './source-policy';
 import type {CheatSheetData} from './cheat-sheet-data';
 
 pdfMake.addVirtualFileSystem(fonts);
-
-function headingFont(text: string): string {
-  return /^[ -ÿ‐-•]*$/.test(text) ? 'Nunito' : 'Roboto';
-}
 
 const palettes = {
   A: {ink: '#155549', line: '#BCD9CC', tint: '#E7F3ED'},
@@ -21,9 +18,12 @@ const hlPalette = {ink: '#564278', line: '#D6CBE5', tint: '#F2ECF8'};
 const examPalette = {ink: '#705321', line: '#E7D6AC', tint: '#FFF5DA'};
 const textColor = '#192D35';
 const subdued = '#4E6269';
-const margin = 27;
-const columnGap = 12;
-const columnWidth = (595.28 - 2 * margin - columnGap) / 2;
+const margin = 25;
+const columnGap = 10;
+const a4 = {width: 595.28, height: 841.89};
+const pageMargins: [number, number, number, number] = [margin, 23, margin, 33];
+const availableHeight = a4.height - pageMargins[1] - pageMargins[3];
+const columnWidth = (a4.width - 2 * margin - columnGap) / 2;
 
 type Palette = (typeof palettes)[keyof typeof palettes];
 type Point = CheatSheetData['groups'][number]['points'][number] & {higher: boolean};
@@ -31,10 +31,10 @@ type Point = CheatSheetData['groups'][number]['points'][number] & {higher: boole
 // Render equivalent arrows and raised allele labels with the bundled font.
 function pdfText(text: string): ContentText[] {
   return text.replaceAll('→', '->').replaceAll('⇌', '<=>').replaceAll('ʻ', '‘')
-    .split(/([ᴬᴮ])/).filter(Boolean).map(part => {
+    .match(/[\x20-\xff\u2010-\u2022]+|[^\x20-\xff\u2010-\u2022]/gu)?.map(part => {
       if (part === 'ᴬ' || part === 'ᴮ') return {text: part === 'ᴬ' ? 'A' : 'B', sup: true};
-      return {text: part};
-    });
+      return /^[\x20-\xff\u2010-\u2022]+$/.test(part) ? {text: part} : {text: part, font: 'Roboto'};
+    }) ?? [];
 }
 
 async function getImage(path: string): Promise<string> {
@@ -56,38 +56,66 @@ function panel(title: string, body: Content[], palette: Palette, compact = false
     table: {
       widths: ['*'],
       body: [
-        [{text: pdfText(title), font: headingFont(title), bold: true, color: palette.ink, fillColor: palette.tint}],
+        [{text: pdfText(title), bold: true, color: palette.ink, fillColor: palette.tint}],
         [{stack: body}],
       ],
     },
     layout: {
       hLineWidth: () => .55, vLineWidth: () => .55,
       hLineColor: () => palette.line, vLineColor: () => palette.line,
-      paddingLeft: () => 8, paddingRight: () => 8,
+      paddingLeft: () => 7, paddingRight: () => 7,
       paddingTop: index => compact ? 2 : index === 0 ? 4 : 5,
       paddingBottom: index => compact ? 2 : index === 0 ? 4 : 6,
     },
   };
 }
 
-function splitBalanced<T>(items: T[], weight: (item: T) => number, fraction = .5): [T[], T[]] {
-  const total = items.reduce((sum, item) => sum + weight(item), 0);
-  let split = items.length;
-  let running = 0;
-  let best = Infinity;
-  for (let index = 1; index < items.length; index++) {
-    running += weight(items[index - 1]);
-    const distance = Math.abs(running - total * fraction);
-    if (distance >= best) break;
-    best = distance;
+type PanelColumns = {left: number[]; right: number[]; height: number};
+type PlannedPage = {columns: PanelColumns; remaining: number};
+
+function balanceColumns(indices: number[], heights: number[]): PanelColumns {
+  const total = indices.reduce((sum, index) => sum + heights[index], 0);
+  let split = indices.length;
+  let bestHeight = total;
+  let leftHeight = 0;
+  for (let index = 1; index < indices.length; index++) {
+    leftHeight += heights[indices[index - 1]];
+    const height = Math.max(leftHeight, total - leftHeight);
+    if (height >= bestHeight) break;
+    bestHeight = height;
     split = index;
   }
-  return [items.slice(0, split), items.slice(split)];
+  return {left: indices.slice(0, split), right: indices.slice(split), height: bestHeight};
+}
+
+// Match the widths of the final layout. A tall scratch page lets pdfmake measure
+// wrapped text, images, table padding and card spacing without an intervening break.
+async function measureBlocks(definition: TDocumentDefinitions, blocks: Content[][]): Promise<number[]> {
+  const positions = new Map<string, number>();
+  const marker = (id: string): Content => ({id, text: '.', fontSize: 1});
+  await pdfMake.createPdf({
+    ...definition,
+    pageSize: {width: a4.width, height: 6000},
+    content: blocks.flatMap((block, index) => [
+      marker(`start-${index}`), ...block, marker(`end-${index}`),
+    ]),
+    pageBreakBefore: node => {
+      if (node.id) positions.set(node.id, node.startPosition.top);
+      return false;
+    },
+  }).getBlob();
+  return blocks.map((_, index) => {
+    const start = positions.get(`start-${index}`);
+    const end = positions.get(`end-${index}`);
+    if (start === undefined || end === undefined || end <= start) throw new Error('Unable to measure the cheat sheet layout.');
+    return end - start;
+  });
 }
 
 export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
   const headingUrl = new URL(nunitoHeading, document.baseURI).href;
-  pdfMake.addFonts({Nunito: {normal: headingUrl, bold: headingUrl}});
+  const bodyUrl = new URL(nunitoBody, document.baseURI).href;
+  pdfMake.addFonts({Nunito: {normal: bodyUrl, bold: headingUrl}});
   const {sheet, extension, check} = data;
   const palette = palettes[data.id[0] as keyof typeof palettes] ?? palettes.A;
   const points: Point[] = data.groups.flatMap(group => group.points.map(point => ({...point, higher: group.higher})));
@@ -97,15 +125,9 @@ export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
   const example = illustration?.mistake ? illustration : points.find(point => point.mistake);
   const comparison = data.comparisons[0];
 
-  function weight(point: Point, includeFigure: boolean) {
-    const words = point.heading.length + point.section.revisionSummary.length;
-    return 32 + words / 4.2 + (includeFigure && point === illustration ? 115 : 0)
-      + (point === example ? 38 : 0);
-  }
-
-  function renderPoint(point: Point, includeFigure: boolean, figureHeight: number, compact: boolean): Content {
+  function renderPoint(point: Point, figureHeight: number, compact: boolean): Content {
     const body: Content[] = [{text: pdfText(point.section.revisionSummary)}];
-    if (includeFigure && figure && point === illustration) {
+    if (figure && point === illustration) {
       const credit = getFigureCredit(figure, data.references);
       body.push(
         {image: figure.src, fit: [columnWidth - 20, figureHeight], alignment: 'center', margin: [0, 4, 0, 3]},
@@ -127,33 +149,33 @@ export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
 
   function title(continued: boolean): Content {
     return {
-      margin: [0, 0, 0, 10],
+      margin: [0, 0, 0, 8],
       table: {widths: ['*'], body: [[{fillColor: palette.ink, stack: [
         {text: pdfText(`BioLab cheat sheet   ·   ${data.subtitle}`), fontSize: 8.8, bold: true, characterSpacing: .3, color: '#FFFFFF'},
         {text: pdfText(continued ? `${data.title} (continued)` : data.title),
-          font: headingFont(data.title), fontSize: continued ? 15 : 24, bold: true, color: '#FFFFFF', margin: [0, 4, 0, 0]},
+          fontSize: continued ? 15 : 25, bold: true, color: '#FFFFFF', margin: [0, 4, 0, 0]},
       ]}]]},
       layout: {
         hLineWidth: () => 0, vLineWidth: () => 0,
         paddingLeft: () => 11, paddingRight: () => 11,
-        paddingTop: () => 8, paddingBottom: () => 9,
+        paddingTop: () => 6, paddingBottom: () => 7,
       },
     };
   }
 
-  function overview(): Content[] {
+  function overview(compact: boolean): Content[] {
     if (!sheet) return [];
     const info: Content[] = [
-      {columns: sheet.essentials.map(([label, value]) => panel(label, [{text: pdfText(value)}], palette)), columnGap: 8},
+      {columns: sheet.essentials.map(([label, value]) => panel(label, [{text: pdfText(value)}], palette, compact)), columnGap: 8},
     ];
-    const tips: Content[] = [panel('Exam tip', [{text: pdfText(sheet.exam)}], examPalette)];
-    if (sheet.formula) tips.push(panel(sheet.formula[0], [{text: pdfText(sheet.formula[1])}], palette));
-    if (extension) tips.push(panel('HL · ' + extension[0], [{text: pdfText(extension[1])}], hlPalette));
+    const tips: Content[] = [panel('Exam tip', [{text: pdfText(sheet.exam)}], examPalette, compact)];
+    if (sheet.formula) tips.push(panel(sheet.formula[0], [{text: pdfText(sheet.formula[1])}], palette, compact));
+    if (extension) tips.push(panel('HL · ' + extension[0], [{text: pdfText(extension[1])}], hlPalette, compact));
     info.push({columns: tips, columnGap: 8, margin: [0, 0, 0, 3]});
     return info;
   }
 
-  function wrapUp(): Content[] {
+  function wrapUp(compact: boolean): Content[] {
     const content: Content[] = [];
     if (comparison) {
       const body: TableCell[][] = [
@@ -163,61 +185,102 @@ export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
       const table: Content[] = [{table: {headerRows: 1, dontBreakRows: true, widths: comparison.headers.map(() => '*'), body},
         layout: 'lightHorizontalLines', fontSize: 8.4}];
       if (comparison.note) table.push({text: pdfText(comparison.note), style: 'credit'});
-      content.push(panel(comparison.title, table, palette));
+      content.push(panel(comparison.title, table, palette, compact));
     }
     if (check) {
       content.push(panel('Worked question', [
         {text: pdfText(check[0]), bold: true, margin: [0, 0, 0, 3]},
         {text: [{text: 'Answer: ', bold: true, color: examPalette.ink}, ...pdfText(check[1])]},
-      ], examPalette));
+      ], examPalette, compact));
+    }
+    if (compact && content.length === 2 && comparison && comparison.headers.length <= 3) {
+      return [{columns: [{width: '64%', stack: [content[0]]}, {width: '*', stack: [content[1]]}], columnGap: 8}];
     }
     return content;
   }
 
-  async function render({pages, fontSize = 9.5, figureHeight = 92, firstPageShare = .53}:
-    {pages: 1 | 2; fontSize?: number; figureHeight?: number; firstPageShare?: number}): Promise<{blob: Blob; pages: number}> {
-    let actualPages = 0;
-    const includeFigure = figureHeight > 0;
-    const weighted = (point: Point) => weight(point, includeFigure);
-    const batches = pages === 1 ? [points] : splitBalanced(points, weighted, firstPageShare);
-    const content: Content[] = batches.flatMap((batch, index) => {
-      const columns = splitBalanced(batch, weighted).map(column => ({stack: column.map(point => renderPoint(point, includeFigure, figureHeight, fontSize < 9))}));
-      return [
-        ...(index ? [{stack: [title(true)], pageBreak: 'before' as const}] : [title(false), ...overview()]),
-        {columns, columnGap},
-        ...(index === batches.length - 1 ? wrapUp() : []),
-      ];
-    });
+  async function plan(density: 'standard' | 'compact' | 'spacious') {
+    const compact = density === 'compact';
+    const fontSize = compact ? 8.8 : density === 'spacious' ? 11 : 9.5;
+    const figureHeight = compact ? 72 : density === 'spacious' ? 120 : 92;
+    const firstHeader = () => [title(false), ...overview(compact)];
+    const secondHeader = () => [title(true)];
+    const closing = () => wrapUp(compact);
+    const card = (index: number) => renderPoint(points[index], figureHeight, compact);
+    const indices = points.map((_, index) => index);
+
     const definition: TDocumentDefinitions = {
       info: {title: `BioLab Cheat Sheet · ${data.subtitle} · ${data.title}`, author: 'BioLab'},
       language: 'en',
-      pageSize: 'A4',
-      pageMargins: [margin, 25, margin, 37],
-      defaultStyle: {fontSize, lineHeight: 1.08, color: textColor},
-      styles: {
-        credit: {fontSize: 7.2, color: subdued, margin: [0, 2, 0, 0]},
-      },
-      footer: (page, count) => {
-        actualPages = count;
-        return {columns: [{text: `BioLab · ${data.id} Cheat Sheet`}, {text: `${page} / ${count}`, alignment: 'right'}],
-          color: subdued, fontSize: 8, margin: [margin, 10, margin, 0]};
-      },
+      pageSize: a4,
+      pageMargins,
+      defaultStyle: {font: 'Nunito', fontSize, lineHeight: 1.03, color: textColor},
+      styles: {credit: {fontSize: 7.2, color: subdued, margin: [0, 2, 0, 0]}},
       images,
-      content,
+      content: [],
     };
-    return {blob: await pdfMake.createPdf(definition).getBlob(), pages: actualPages};
+
+    const [intro, continuation, closingHeight, ...heights] = await measureBlocks(definition, [
+      firstHeader(), secondHeader(), closing(),
+      ...indices.map(index => [{columns: [{width: columnWidth, stack: [card(index)]}]}]),
+    ]);
+    const pageFor = (selected: number[], titleHeight: number, ending = 0): PlannedPage => {
+      const columns = balanceColumns(selected, heights);
+      return {columns, remaining: availableHeight - columns.height - titleHeight - ending};
+    };
+    const first = pageFor(indices, intro, closingHeight);
+    let pages: PlannedPage[] = first.remaining >= 0 ? [first] : [];
+    if (!pages.length) {
+      let leastUneven = Infinity;
+      for (let split = 1; split < indices.length; split++) {
+        const a = pageFor(indices.slice(0, split), intro);
+        const b = pageFor(indices.slice(split), continuation, closingHeight);
+        if (a.remaining < 0 || b.remaining < 0) continue;
+        const uneven = Math.abs(a.remaining - b.remaining);
+        if (uneven < leastUneven) {
+          leastUneven = uneven;
+          pages = [a, b];
+        }
+      }
+    }
+
+    async function render() {
+      let pageCount = 0;
+      const content: Content[] = pages.flatMap(({columns}, index) => [
+        ...(index ? [{stack: secondHeader(), pageBreak: 'before' as const}] : firstHeader()),
+        {columns: [columns.left, columns.right].map(group => ({width: columnWidth, stack: group.map(card)})), columnGap},
+        ...(index === pages.length - 1 ? closing() : []),
+      ]);
+      const blob = await pdfMake.createPdf({
+        ...definition, content,
+        footer: (page, count) => {
+          pageCount = count;
+          return {columns: [{text: `BioLab · ${data.id} Cheat Sheet`}, {text: `${page} / ${count}`, alignment: 'right'}],
+            color: subdued, fontSize: 8, margin: [margin, 9, margin, 0]};
+        },
+      }).getBlob();
+      if (pageCount === pages.length) return blob;
+    }
+    return {pageCount: pages.length, freeSpace: pages[0]?.remaining ?? 0, render};
   }
 
-  const layouts = [
-    ...(points.length <= 10 ? [{pages: 1 as const, fontSize: 9.3, figureHeight: 86}] : []),
-    {pages: 2 as const},
-    {pages: 2 as const, fontSize: 8.8, figureHeight: 75, firstPageShare: .52},
-    {pages: 2 as const, fontSize: 8.8, figureHeight: 75, firstPageShare: .47},
-    {pages: 2 as const, fontSize: 8.8, figureHeight: 75, firstPageShare: .57},
-  ];
-  for (const layout of layouts) {
-    const result = await render(layout);
-    if (result.pages > 0 && result.pages <= layout.pages) return result.blob;
+  const standard = await plan('standard');
+  if (standard.pageCount === 1) {
+    if (standard.freeSpace > 230) {
+      const spacious = await plan('spacious');
+      const blob = spacious.pageCount === 1 ? await spacious.render() : undefined;
+      if (blob) return blob;
+    }
+    const blob = await standard.render();
+    if (blob) return blob;
+  }
+
+  const compact = await plan('compact');
+  const options = [standard, compact].filter(layout => layout.pageCount === 2 || (layout === compact && layout.pageCount === 1))
+    .sort((a, b) => a.pageCount - b.pageCount);
+  for (const layout of options) {
+    const blob = await layout.render();
+    if (blob) return blob;
   }
   throw new Error('The cheat sheet exceeded the two-page PDF layout.');
 }
