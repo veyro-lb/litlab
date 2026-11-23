@@ -14,6 +14,7 @@ const results=[];
 async function verifySignedInStudyAccess(){
  const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});
  const page=await context.newPage();
+ const displayName='Study Access Student With a Long Display Name';
  const lesson='#biology/topic/A1.1/learn?understanding=A1.1.2';
  const callback=new URL(base);
  callback.hash='access_token=study-access-fixture&refresh_token=refresh-fixture&expires_in=3600';
@@ -22,7 +23,7 @@ async function verifySignedInStudyAccess(){
   if(endpoint==='/auth/v1/authorize')return route.fulfill({status:302,headers:{location:callback.href}});
   const headers={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'apikey, authorization, content-type, prefer'};
   if(route.request().method()==='OPTIONS')return route.fulfill({status:204,headers});
-  if(endpoint==='/auth/v1/user')return route.fulfill({headers,json:{id:'00000000-0000-4000-8000-000000000001',user_metadata:{full_name:'Study Access Student'}}});
+  if(endpoint==='/auth/v1/user')return route.fulfill({headers,json:{id:'00000000-0000-4000-8000-000000000001',user_metadata:{full_name:displayName}}});
   if(endpoint.endsWith('/get_my_litlab_contributor_account_role'))return route.fulfill({headers,json:{role:null,needs_choice:true,is_admin:false}});
   return route.fulfill({headers,json:[]});
  });
@@ -44,6 +45,24 @@ async function verifySignedInStudyAccess(){
   const spaces=page.getByRole('navigation',{name:'Switch between LitLab and BioLab'});
   await spaces.getByRole('link',{name:'LitLab — English'}).click();
   await expect(page.locator('.home-hero')).toBeVisible();
+  await expect(account).toHaveAccessibleName('Account menu for '+displayName);
+  for(const width of [1101,1181,1240,1280,1440]){
+   await page.setViewportSize({width,height:900});
+   const header=page.locator('.topbar');
+   await expect(header.locator('.tutor-topbar-trigger')).toBeVisible();
+   const sizes=await header.evaluate(el=>{
+    const elements=Array.from(el.querySelectorAll(':scope > .brand-btn, :scope > nav, .litlab-account-trigger, .tutor-topbar-trigger, .search-trigger, .top-actions > .icon-btn')).filter(node=>node.getBoundingClientRect().height>0);
+    const boxes=elements.map(node=>node.getBoundingClientRect()).sort((a,b)=>a.left-b.left);
+    const center=boxes[0].top+boxes[0].height/2;
+    const label=el.querySelector('.litlab-account-trigger .litlab-auth-label');
+    return {
+     oneRow:boxes.every(box=>Math.abs(box.top+box.height/2-center)<2),
+     fits:boxes.every((box,i)=>box.left>=0&&box.right<=innerWidth&&(!i||boxes[i-1].right<=box.left+1)),
+     truncates:label.clientWidth>0&&label.scrollWidth>label.clientWidth,
+    };
+   });
+   assert.deepEqual(sizes,{oneRow:true,fits:true,truncates:true},'Signed-in header layout at '+width+'px');
+  }
   await spaces.getByRole('link',{name:'BioLab — Biology'}).click();
   await expect(page.locator('.bio-discovery-theme-A')).toBeVisible();
   await expect(account).toBeVisible();
