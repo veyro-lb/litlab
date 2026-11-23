@@ -93,7 +93,7 @@ try {
   await page.locator('#bio-topic-search').fill('A1.1');
   await page.getByRole('link',{name:'A1.1 Water',exact:true}).click();
   await page.waitForURL(/#biology\/topic\/A1\.1\/cheat-sheets$/);
-  await page.locator('.bio-sheets-essentials').waitFor();
+  await page.locator('.bio-sheet-pdf-reader').waitFor();
  });
  await test('Theme, topic, lesson path; browser backward/forward',async()=>{
   await visit(page,'#biology');

@@ -1,12 +1,14 @@
 import {themes} from '../curriculum/manifest';
 import type {Level, Topic} from '../curriculum/schema';
-import type {Lesson, Section} from './content';
+import {inScope} from './content';
+import type {Lesson} from './content';
 import {understandingTitle} from './UnderstandingLabel';
 import {cheatSheetComparisons} from './cheat-sheet-comparisons';
 import {cheatSheets} from './cheat-sheet-content';
 import {sheetChecks, sheetIllustrations} from './cheat-sheet-extras';
 
-export function getCheatSheet(lesson: Lesson, topic: Topic, sections: Section[], level: Level) {
+export function getCheatSheet(lesson: Lesson, topic: Topic, level: Level) {
+  const sections = lesson.sections.filter(section => inScope(section, level));
   const sheet = cheatSheets[topic.id];
   const groups = [
     {label: 'Core concepts', level: 'shared'},
