@@ -4,7 +4,11 @@
 
 .books-hero{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:34px;align-items:center;overflow:hidden;padding:44px;border:1px solid var(--line);border-radius:32px;background:radial-gradient(circle at 85% 12%,color-mix(in srgb,var(--coral,#f36b7f) 10%,transparent),transparent 29%),linear-gradient(145deg,color-mix(in srgb,var(--violet) 7%,var(--surface)),var(--surface));box-shadow:0 24px 70px rgba(20,18,48,.08)}
 .books-hero-copy h1{margin:12px 0 18px;color:var(--ink);font:800 clamp(3rem,6vw,5.8rem)/.92 var(--display);letter-spacing:-.055em}.books-hero-copy h1 em{font-style:normal;color:var(--violet)}
-.books-hero-copy>p{max-width:740px;margin:0;color:var(--muted);font-size:clamp(1rem,1.45vw,1.17rem);line-height:1.72}.books-hero-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.books-hero-stats>div{min-width:120px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--surface) 88%,transparent)}.books-hero-stats b{display:block;color:var(--ink);font:800 1.35rem var(--display)}.books-hero-stats span{display:block;margin-top:2px;color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+.books-hero-copy>p{max-width:740px;margin:0;color:var(--muted);font-size:clamp(1rem,1.45vw,1.17rem);line-height:1.72}
+.books-hero-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;caret-color:transparent}
+.books-hero-stats>div{min-width:120px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--surface) 88%,transparent)}
+.books-hero-stats b{display:block;color:var(--ink);font:800 1.35rem var(--display)}
+.books-hero-stats span{display:block;margin-top:2px;color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
 .books-hero-art{display:grid;place-items:center;min-height:330px}
 
 .lit-book-cover{position:relative;width:176px;aspect-ratio:.67;border-radius:9px 17px 17px 9px;overflow:hidden;padding:18px;background:linear-gradient(155deg,#9f1533,#d23b4e 55%,#6d1027);box-shadow:0 20px 46px rgba(83,13,30,.25),inset 5px 0 0 rgba(0,0,0,.12);color:#fff;text-align:left;isolation:isolate}
