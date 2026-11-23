@@ -42,6 +42,13 @@ export const sheetChecks: Record<string, readonly [question: string, answer: str
   'D4.3': ['Explain how melting sea ice can amplify warming.', 'Exposed ocean absorbs more solar energy than reflective ice. Further warming can melt more ice and continue the feedback.'],
 };
 
+// Use the HL calculation or interpretation when it adds more value than repeating the SL check.
+export const higherSheetChecks: typeof sheetChecks = {
+  'D2.3': ['Cell A has solute potential −600 kPa and pressure potential +300 kPa. Cell B has total water potential −450 kPa. In which direction is net osmosis?', 'Cell A has total water potential −300 kPa. Water moves from A to B across a partially permeable membrane, from higher to lower water potential.'],
+  'D3.2': ['For two unlinked genes, what fraction of offspring from AaBb × AaBb should show both recessive traits?', '1/16. Each recessive phenotype has probability 1/4 under complete dominance. For unlinked genes, independent assortment lets you multiply the two probabilities.'],
+  'D4.1': ['In a population at Hardy–Weinberg equilibrium, 9% show a fully recessive phenotype. Predict the heterozygote frequency.', 'q² = 0.09, so q = 0.30 and p = 0.70. Expected heterozygote frequency = 2pq = 0.42, or 42%.'],
+};
+
 // Selected credited raster figures already published in the matching lessons.
 export const sheetIllustrations = new Set([
   'bonding', 'a12-paired', 'a22-eukaryote', 'a42-richness-evenness',

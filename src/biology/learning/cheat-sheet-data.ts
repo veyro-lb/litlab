@@ -5,7 +5,8 @@ import type {Lesson} from './content';
 import {understandingTitle} from './UnderstandingLabel';
 import {cheatSheetComparisons} from './cheat-sheet-comparisons';
 import {cheatSheets} from './cheat-sheet-content';
-import {sheetChecks, sheetIllustrations} from './cheat-sheet-extras';
+import {cheatSheetSummaries} from './cheat-sheet-summaries';
+import {higherSheetChecks, sheetChecks, sheetIllustrations} from './cheat-sheet-extras';
 
 export function getCheatSheet(lesson: Lesson, topic: Topic, level: Level) {
   const sections = lesson.sections.filter(section => inScope(section, level));
@@ -20,7 +21,7 @@ export function getCheatSheet(lesson: Lesson, topic: Topic, level: Level) {
       const id = section.understandingIds[0];
       return {
         id,
-        section,
+        summary: cheatSheetSummaries[id] ?? section.revisionSummary,
         heading: understandingTitle(topic, id),
         figure: lesson.assets.find(asset => section.assets.includes(asset.id) && sheetIllustrations.has(asset.id)
           && asset.publicReproductionRights === 'cleared' && !asset.withheldReason),
@@ -36,7 +37,7 @@ export function getCheatSheet(lesson: Lesson, topic: Topic, level: Level) {
     filename: `BioLab-${topic.id}-${level}-Cheat-Sheet.pdf`,
     sheet,
     extension: level === 'HL' ? sheet?.hl : undefined,
-    check: sheetChecks[topic.id],
+    check: (level === 'HL' ? higherSheetChecks[topic.id] : undefined) ?? sheetChecks[topic.id],
     comparisons: sections.flatMap(section => (section.visuals ?? []).flatMap(visual =>
       visual.kind === 'comparison' && cheatSheetComparisons.has(visual.title) ? [visual] : []
     )),
