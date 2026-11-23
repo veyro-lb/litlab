@@ -126,7 +126,7 @@ export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
   const comparison = data.comparisons[0];
 
   function renderPoint(point: Point, figureHeight: number, compact: boolean): Content {
-    const body: Content[] = [{text: pdfText(point.section.revisionSummary)}];
+    const body: Content[] = [{text: pdfText(point.summary)}];
     if (figure && point === illustration) {
       const credit = getFigureCredit(figure, data.references);
       body.push(
