@@ -1,6 +1,10 @@
-name: Deploy to GitHub Pages
+name: Redirect legacy GitHub Pages
 on:
-  # Cloudflare Workers is the public release host. GitHub Pages remains manual-only.
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/deploy.yml
+      - deploy/legacy-pages/**
   workflow_dispatch:
 permissions:
   contents: read
@@ -10,36 +14,23 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
-  build:
+  redirect:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - name: Start production preview
-        shell: bash
-        run: |
-          npm run preview -- --host 127.0.0.1 --port 4173 > preview.log 2>&1 &
-          echo $! > preview.pid
-          for attempt in {1..30}; do
-            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
-              exit 0
-            fi
-            sleep 1
-          done
-          cat preview.log
-          exit 1
-      - name: Diagnose Student and Teacher application submission
-        continue-on-error: true
-        run: node scripts/contributor-submit-smoke.mjs
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Package legacy redirects
+        run: |
+          mkdir -p pages
+          cp deploy/legacy-pages/index.html pages/index.html
+          cp deploy/legacy-pages/index.html pages/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: pages
       - uses: actions/deploy-pages@v4
+        id: pages
