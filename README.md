@@ -56,7 +56,7 @@ npm run build
 
 Public releases must use an approved, tested `main` commit. Before promotion, the BioLab launch checks validate all 40 lesson routes, static figure placement, the public build's private-file gate and the existing English features. Pushing to `main` is expected to trigger the existing Cloudflare Git integration. The `BioLab Cloudflare Production Verification` workflow independently polls the public Worker for `/biolab-release.json`; a successful merge **does not** itself establish that Cloudflare deployed. If the marker is not live, inspect Cloudflare's connected Git branch, build command (`npm ci && npm run build`), output (`dist`) and Worker (`litlab`) before announcing publication.
 
-The GitHub Pages workflow remains available as a **manual fallback only** and no longer publishes on every `main` push. The Vite base is relative (`./`) so asset URLs continue to work on either host.
+The legacy GitHub Pages address at https://veyro-lb.github.io/litlab/ redirects to the public host and preserves bookmarks for normal study routes. The Pages workflow publishes the redirect when its files change on `main` and supports manual redeployment.
 
 **Release restrictions:** report rights permissions as owner-attested unless documents are inspected; visibly credit third-party original figures and maintain the independent, non-IB-endorsed disclaimer. Automated science and accessibility checks are not qualified independent approvals.
 

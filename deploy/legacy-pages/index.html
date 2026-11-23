@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="https://litlab.jamesloom18.workers.dev/" />
+    <title>Open ibdplabs</title>
+    <script>
+      const destination = new URL('https://litlab.jamesloom18.workers.dev/');
+      const route = location.hash.slice(1);
+      // Preserve study links, including BioLab lesson sections, and discard old OAuth responses.
+      if (/^[a-z][a-z0-9./-]*(?:[?#].*)?$/i.test(route)) {
+        destination.hash = route;
+      }
+      location.replace(destination.href);
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=https://litlab.jamesloom18.workers.dev/" />
+    </noscript>
+  </head>
+  <body>
+    <p>Continue to <a href="https://litlab.jamesloom18.workers.dev/">ibdplabs</a> for LitLab and BioLab.</p>
+  </body>
+</html>
