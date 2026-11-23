@@ -43,6 +43,7 @@ function addMicrosoftButton(){
   button.className='litlab-microsoft-button';
   button.dataset.authMicrosoft='true';
   button.innerHTML='<span class="litlab-microsoft-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>Continue with Microsoft</b>';
+  button.addEventListener('click',signInWithMicrosoft);
   google.insertAdjacentElement('afterend',button);
 }
 
@@ -76,11 +77,6 @@ async function detectMicrosoftProvider(){
 document.addEventListener('pointerdown',event=>{
   const target=event.target instanceof Element?event.target:null;
   if(target?.closest('[data-auth-open]'))setTimeout(schedulePatch,0);
-  if(target?.closest('[data-auth-microsoft]')){
-    event.preventDefault();
-    event.stopPropagation();
-    signInWithMicrosoft();
-  }
 },true);
 
 const observer=new MutationObserver(mutations=>{

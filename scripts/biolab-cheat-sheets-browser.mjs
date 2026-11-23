@@ -10,6 +10,7 @@ async function openContext(theme, level, width) {
   await context.addInitScript(({theme, level}) => {
     localStorage.setItem('litlabTheme', theme);
     localStorage.setItem('litlab:biology:preferences:v1', level);
+    localStorage.setItem('ibdplabsSignInReminderSeen', 'true');
   }, {theme, level});
   await context.route('**/*', route => route.request().url().startsWith(origin) ? route.continue() : route.abort());
   const page = await context.newPage();

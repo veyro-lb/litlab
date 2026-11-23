@@ -153,7 +153,7 @@ function appMarkup(app:Workspace){
 function render(){
   renderApplicationGuide();
   const root=mount();if(!root)return;
-  if(!token()){root.innerHTML='<div class="ll-workspace-head"><span>CONTRIBUTOR WORKSPACE</span><h2>Sign in to view your work.</h2><p>Your application, Word documents, tasks, feedback and teacher reviews are private to your LitLab account.</p></div>';return}
+  if(!token()){root.innerHTML='<div class="ll-workspace-head"><span>CONTRIBUTOR WORKSPACE</span><h2>Sign in to view your work.</h2><p>Your application, Word documents, tasks, feedback and teacher reviews are private to your ibdplabs account.</p></div>';return}
   if(!workspaces.length&&!assignments.length){root.innerHTML=emptyMarkup();return}
   const app=current();
   root.innerHTML=`<div class="ll-workspace-head"><span>MY CONTRIBUTOR WORKSPACE</span><h2>${app?'Your contribution, organized.':'Teacher review workspace'}</h2><p>Everything important stays in one place: project brief, current tasks, DOCX submissions, revision requests, live chat and completion history.</p></div>${app?appMarkup(app):''}${teacherAssignmentsMarkup()}`;

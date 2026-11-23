@@ -54,8 +54,8 @@ function syncAccountGate(){
   const note=gate.querySelector<HTMLElement>('small');
   const copy=gate.querySelector<HTMLElement>('p');
   if(button)button.textContent='Sign in to apply';
-  if(note)note.textContent='Your Google or Microsoft password is never shared with LitLab.';
-  if(copy)copy.textContent='Sign in with Google or Microsoft so your application, review status, private chat and future updates stay attached to your LitLab account.';
+  if(note)note.textContent='Your Google or Microsoft password is never shared with ibdplabs.';
+  if(copy)copy.textContent='Sign in with Google or Microsoft so your application, review status, private chat and future updates stay attached to your ibdplabs account.';
 }
 
 function syncInteractiveStates(){

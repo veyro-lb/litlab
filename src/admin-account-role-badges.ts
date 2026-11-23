@@ -50,7 +50,7 @@ function addRoleBadges(table:HTMLElement,users:RecentUser[]){
     badge.className=`admin-account-role ${meta.className}`;
     badge.dataset.adminAccountRole=meta.className;
     badge.textContent=meta.label;
-    badge.title=`LitLab account type: ${meta.label}`;
+    badge.title=`ibdplabs account type: ${meta.label}`;
     providerCell.append(badge);
   });
   table.dataset.accountRolesReady='true';
@@ -63,7 +63,7 @@ async function decorate(table:HTMLElement){
     if(id!==requestId||!document.body.contains(table))return;
     addRoleBadges(table,Array.isArray(data.recent_users)?data.recent_users:[]);
   }catch(error){
-    console.error('LitLab admin account roles unavailable',error);
+    console.error('ibdplabs admin account roles unavailable',error);
   }
 }
 

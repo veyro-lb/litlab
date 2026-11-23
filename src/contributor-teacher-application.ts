@@ -44,7 +44,7 @@ function syncTeacherForm(form:HTMLFormElement){
     const span=labelEl?.querySelector<HTMLElement>(':scope > span');
     const small=labelEl?.querySelector<HTMLElement>('small');
     if(span)span.textContent='Student email (required)';
-    if(small)small.textContent='Required for teacher reviewers. Use the exact email on the student’s LitLab account so the student → teacher → LitLab review path can be linked.';
+    if(small)small.textContent='Required for teacher reviewers. Use the exact email on the student’s ibdplabs account so the student → teacher → LitLab review path can be linked.';
   }
   const topics=form.querySelector('textarea[name="topics"]');
   const idea=form.querySelector('textarea[name="contribution_idea"]');
@@ -131,7 +131,7 @@ function renderUserPipeline(data:Pipeline){
   root.querySelector('[data-mentor-pipeline]')?.remove();
   const head=root.querySelector('.ll-workspace-head');const panel=document.createElement('section');panel.dataset.mentorPipeline='true';panel.className='ll-mentor-pipeline';
   const status=data.stage==='complete'?'Complete':data.stage==='admin_review'?'Admin review':data.stage==='mentor_review'||data.stage==='mentor_link'?'Teacher review':data.stage==='student_revision'?'Revision needed':'Student work';
-  panel.innerHTML=`<div class="ll-mentor-pipeline-head"><div><span>REVIEW PATH</span><h3>${data.mentor_required?'Student → teacher → LitLab admin':'Student → LitLab admin'}</h3><p>The latest submission controls the path. Every evidence item, review decision and workflow event stays attached to this LitLab account.</p></div><div class="ll-mentor-pill">${esc(status)}</div></div>${pipelineSteps(data)}${stageNote(data)}${evidenceMarkup(data)}${activityMarkup(data)}`;
+  panel.innerHTML=`<div class="ll-mentor-pipeline-head"><div><span>REVIEW PATH</span><h3>${data.mentor_required?'Student → teacher → LitLab admin':'Student → LitLab admin'}</h3><p>The latest submission controls the path. Every evidence item, review decision and workflow event stays attached to this ibdplabs account.</p></div><div class="ll-mentor-pill">${esc(status)}</div></div>${pipelineSteps(data)}${stageNote(data)}${evidenceMarkup(data)}${activityMarkup(data)}`;
   if(head)head.after(panel);else root.prepend(panel);
 }
 

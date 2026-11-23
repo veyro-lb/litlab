@@ -86,6 +86,7 @@ try {
    await open('home');
    await expect(page.locator('.subject-bar[data-subject=english]')).toHaveCount(1);
    await page.locator('#ll-feedback-trigger').click();
+   await expect(page.locator('[data-auth-modal]')).toHaveCount(0);
    await expect(modal.locator('#ll-feedback-title')).toHaveText('Tell us how LitLab can be better.');
    await expect(modal.locator('#ll-feedback-form select[name=section]')).toHaveValue('General website');
    assert.equal(await modal.locator('#ll-feedback-form option').filter({hasText:'BioLab — A1.1'}).count(),0,'Biology choice leaked into English form');

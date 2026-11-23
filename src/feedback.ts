@@ -31,7 +31,7 @@ function currentSection(){
 function feedbackForm(){
   const context=feedbackPageContext();
   const defaultSection=context.section;
-  const litlabSections=['General website','Start Here','Paper 1','Paper 2','Individual Oral','Extended Essay','HL Essay','Skills Lab','Books','LitLab Tutor','Toolkit','Accounts / My LitLab','Other'];
+  const litlabSections=['General website','Start Here','Paper 1','Paper 2','Individual Oral','Extended Essay','HL Essay','Skills Lab','Books','LitLab Tutor','Toolkit','Accounts / My ibdplabs','Other'];
   const biologySections=['BioLab — Curriculum','BioLab — Lessons','BioLab — Practice','BioLab — Revision / flashcards','BioLab — Diagrams / figures','BioLab — SL / HL','BioLab — Site experience','BioLab — Other'];
   const sections=context.isBiology?[...new Set([defaultSection,...biologySections])]:litlabSections;
   return `<form class="ll-feedback-form" id="ll-feedback-form" data-feedback-panel="feedback">

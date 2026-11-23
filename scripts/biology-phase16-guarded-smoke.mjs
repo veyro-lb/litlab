@@ -317,14 +317,16 @@ try{
   }
   await check('English navigation did not fetch the lazy Biology entry',async()=>await evaluate("!performance.getEntriesByType('resource').some(x=>/\\/entry-[^/]+\\.js/.test(x.name))"));
   await check('Subject switch opens Biology from English',async()=>{
-    // A real guest dismisses the existing English sign-in overlay before using the switch.
+    // Clear any sign-in dialog explicitly opened by earlier checks.
     await evaluate(closeAuthExpression);
     const clicked=await evaluate("(()=>{const a=document.querySelector('.subject-navigation a[href=\"#biology\"]');if(!a)return false;a.click();return true})()");
     await waitBio();return clicked&&await bioEval("root.querySelector('h1')?.textContent.includes('Life is connected')");
   });
-  await check('Biology excludes English announcements, tutoring and guest sign-in prompts',async()=>{
+  await check('Biology excludes English announcements and tutoring, and reuses the ibdplabs sign-in',async()=>{
     await sleep(1000);
-    return await evaluate("!document.querySelector('#ll-analysis-launch-notice')&&!document.querySelector('[data-auth-modal]')&&getComputedStyle(document.querySelector('.tutor-topbar-trigger')).display==='none'");
+    const correct=await evaluate("(()=>{const auth=document.querySelector('[data-auth-modal]');return (!auth||(auth.dataset.authSubject==='BioLab'&&auth.querySelector('h2')?.textContent==='Sign in to ibdplabs'))&&!document.querySelector('#ll-analysis-launch-notice')&&getComputedStyle(document.querySelector('.tutor-topbar-trigger')).display==='none'})()");
+    await evaluate(closeAuthExpression);
+    return correct;
   });
   await check('Biology keyboard search stays within Biology',async()=>{
     await command('Input.dispatchKeyEvent',{type:'keyDown',key:'k',code:'KeyK',modifiers:2,windowsVirtualKeyCode:75});

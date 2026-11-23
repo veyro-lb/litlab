@@ -43,13 +43,13 @@ function mount(){
  const timerCard=section.querySelector('.io-timer-card');if(timerCard)section.insertBefore(box,timerCard);else section.append(box);
  const workspace=box.querySelector<HTMLElement>('[data-io-planner-workspace]')!;
  let remoteTimer=0,clockTimer=0,clockStart=0,clockElapsed=state.lastPracticeSeconds,clockRunning=false;
- const syncLabel=()=>session()?'Saved to your LitLab account':'Sign in required';
+ const syncLabel=()=>session()?'Saved to your ibdplabs account':'Sign in required';
  const titleFor=(slug:string)=>bookProfiles.find(b=>b.id===slug)?.title||'';
  const formatTime=(seconds:number)=>`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;
  const setSaveStatus=(text:string)=>workspace.querySelectorAll<HTMLElement>('[data-io-save]').forEach(x=>x.textContent=text);
  const save=()=>{saveLocal(state);window.clearTimeout(remoteTimer);remoteTimer=window.setTimeout(()=>void syncRemote(),650)};
- const collect=()=>{workspace.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[name]').forEach(el=>{const name=el.name;if(name.startsWith('outline-')){state.outline[Number(name.split('-')[1])]=el.value}else if(name in state){(state as unknown as Record<string,string>)[name]=el.value}});save();setSaveStatus(session()?'Saving to your LitLab account…':'Sign in required')};
- const syncRemote=async()=>{const s=session();if(!s)return;try{const user=await currentUser(s);if(!user)return;await saveRemote(s,user,state);setSaveStatus('Synced to your LitLab account ✓')}catch{setSaveStatus('Could not sync • keep this page open and try again')}};
+ const collect=()=>{workspace.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('[name]').forEach(el=>{const name=el.name;if(name.startsWith('outline-')){state.outline[Number(name.split('-')[1])]=el.value}else if(name in state){(state as unknown as Record<string,string>)[name]=el.value}});save();setSaveStatus(session()?'Saving to your ibdplabs account…':'Sign in required')};
+ const syncRemote=async()=>{const s=session();if(!s)return;try{const user=await currentUser(s);if(!user)return;await saveRemote(s,user,state);setSaveStatus('Synced to your ibdplabs account ✓')}catch{setSaveStatus('Could not sync • keep this page open and try again')}};
  const buildOutline=()=>{collect();const lit=titleFor(state.literaryWork)||'your literary work',second=state.secondTitle||'your second material',issue=state.globalIssue||'your global issue';state.outline=[
   `Frame the global issue: ${issue}. Identify ${lit} and ${second}.`,
   `Literary extract: locate the chosen moment and establish why it matters to ${issue}. ${state.literaryExtract||''}`.trim(),

@@ -123,7 +123,7 @@ function accountCard(copy:SpecCopy){
   let card=host.querySelector<HTMLElement>('[data-reviewer-specialization-card]');
   const apply=document.getElementById('contribute-apply');
   if(!card&&apply){card=document.createElement('section');card.className='ll-reviewer-specialization-card';card.dataset.reviewerSpecializationCard='true';apply.before(card)}
-  if(card)card.innerHTML=`<span>REVIEWER SPECIALIZATION</span><h3>${esc(copy.name)}</h3><p>${esc(copy.scope)}</p><small>This specialization is saved to your LitLab account and determines the reviewer tools shown to you.</small>`;
+  if(card)card.innerHTML=`<span>REVIEWER SPECIALIZATION</span><h3>${esc(copy.name)}</h3><p>${esc(copy.scope)}</p><small>This specialization is saved to your ibdplabs account and determines the reviewer tools shown to you.</small>`;
 }
 
 function application(copy:SpecCopy,spec:ReviewerSpecialization){

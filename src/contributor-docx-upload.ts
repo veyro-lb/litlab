@@ -40,7 +40,7 @@ async function responseMessage(response:Response){
   }catch{return fallback}
 }
 async function rpc<T>(name:string,body:Record<string,unknown>):Promise<T>{
-  const auth=token();if(!auth)throw new Error('Your LitLab sign-in has expired. Sign in again, then retry the upload.');
+  const auth=token();if(!auth)throw new Error('Your ibdplabs sign-in has expired. Sign in again, then retry the upload.');
   const controller=new AbortController();const timeout=window.setTimeout(()=>controller.abort(),REQUEST_TIMEOUT_MS);
   try{
     const response=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${auth}`},body:JSON.stringify(body),signal:controller.signal});
@@ -77,7 +77,7 @@ async function cleanup(path:string){
 }
 function friendlyUploadFailure(status:number,message:string){
   const lower=message.toLowerCase();
-  if(status===401)return 'Your LitLab sign-in expired. Sign in again and retry the Word document.';
+  if(status===401)return 'Your ibdplabs sign-in expired. Sign in again and retry the Word document.';
   if(status===403||lower.includes('row-level security')||lower.includes('policy'))return 'LitLab blocked this upload. Word submissions are available only for your own student contribution after it is Accepted or marked Needs review.';
   if(status===413)return 'This Word document is too large. The maximum size is 15 MB.';
   if(status>=500)return 'LitLab file storage is temporarily unavailable. Your file was not lost—please retry in a moment.';
@@ -87,7 +87,7 @@ function friendlyUploadFailure(status:number,message:string){
 async function submitDocx(form:HTMLFormElement,applicationId:string){
   if(uploading)return;
   const auth=token();const uid=userId();
-  if(!auth||!uid){setState(form,'Your LitLab sign-in expired. Sign in again before uploading.','error');return}
+  if(!auth||!uid){setState(form,'Your ibdplabs sign-in expired. Sign in again before uploading.','error');return}
   if(!navigator.onLine){setState(form,'You are offline. Reconnect before uploading the Word document.','error');return}
   if(!form.checkValidity()){
     const missingConfirmations=Array.from(form.querySelectorAll<HTMLInputElement>('input[type="checkbox"][required]')).some(box=>!box.checked);
