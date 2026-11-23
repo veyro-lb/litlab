@@ -1,10 +1,15 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import fonts from 'pdfmake/build/vfs_fonts';
+import nunitoHeading from '@fontsource/nunito/files/nunito-latin-800-normal.woff?url';
 import type {Content, ContentText, TableCell, TDocumentDefinitions} from 'pdfmake/interfaces';
 import {getFigureCredit} from './source-policy';
 import type {CheatSheetData} from './cheat-sheet-data';
 
 pdfMake.addVirtualFileSystem(fonts);
+
+function headingFont(text: string): string {
+  return /^[ -ÿ‐-•]*$/.test(text) ? 'Nunito' : 'Roboto';
+}
 
 const palettes = {
   A: {ink: '#155549', line: '#BCD9CC', tint: '#E7F3ED'},
@@ -51,7 +56,7 @@ function panel(title: string, body: Content[], palette: Palette, compact = false
     table: {
       widths: ['*'],
       body: [
-        [{text: pdfText(title), bold: true, color: palette.ink, fillColor: palette.tint}],
+        [{text: pdfText(title), font: headingFont(title), bold: true, color: palette.ink, fillColor: palette.tint}],
         [{stack: body}],
       ],
     },
@@ -81,6 +86,8 @@ function splitBalanced<T>(items: T[], weight: (item: T) => number, fraction = .5
 }
 
 export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
+  const headingUrl = new URL(nunitoHeading, document.baseURI).href;
+  pdfMake.addFonts({Nunito: {normal: headingUrl, bold: headingUrl}});
   const {sheet, extension, check} = data;
   const palette = palettes[data.id[0] as keyof typeof palettes] ?? palettes.A;
   const points: Point[] = data.groups.flatMap(group => group.points.map(point => ({...point, higher: group.higher})));
@@ -122,9 +129,9 @@ export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
     return {
       margin: [0, 0, 0, 10],
       table: {widths: ['*'], body: [[{fillColor: palette.ink, stack: [
-        {text: pdfText(`BIOLAB / CHEAT SHEET     ${data.subtitle}`), fontSize: 8.8, bold: true, characterSpacing: .3, color: '#FFFFFF'},
+        {text: pdfText(`BioLab cheat sheet   ·   ${data.subtitle}`), fontSize: 8.8, bold: true, characterSpacing: .3, color: '#FFFFFF'},
         {text: pdfText(continued ? `${data.title} (continued)` : data.title),
-          fontSize: continued ? 14 : 21, bold: true, color: '#FFFFFF', margin: [0, 4, 0, 0]},
+          font: headingFont(data.title), fontSize: continued ? 15 : 24, bold: true, color: '#FFFFFF', margin: [0, 4, 0, 0]},
       ]}]]},
       layout: {
         hLineWidth: () => 0, vLineWidth: () => 0,
@@ -202,7 +209,7 @@ export async function makeCheatSheetPdf(data: CheatSheetData): Promise<Blob> {
   }
 
   const layouts = [
-    ...(points.length <= 10 ? [{pages: 1 as const}] : []),
+    ...(points.length <= 10 ? [{pages: 1 as const, fontSize: 9.3, figureHeight: 86}] : []),
     {pages: 2 as const},
     {pages: 2 as const, fontSize: 8.8, figureHeight: 75, firstPageShare: .52},
     {pages: 2 as const, fontSize: 8.8, figureHeight: 75, firstPageShare: .47},

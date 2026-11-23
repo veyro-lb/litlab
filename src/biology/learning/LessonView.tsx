@@ -28,7 +28,7 @@ export default function LessonView({lesson,topic,level,mode,hash}: {lesson:Lesso
   const update:UpdateStudy=fn=>setStudy(s=>{const next=fn(s);saveStudy(lesson.id,next);return next});
   const sections=lesson.sections.filter(s=>inScope(s,level));
   if(!sections.length)return <section className="bio-empty"><h1>This topic is HL only</h1><p>Select HL to open this lesson.</p></section>;
-  if(mode==='cheat-sheets')return <CheatSheetView key={hash+level} lesson={lesson} topic={topic} sections={sections} level={level} requestedId={requestedId}/>;
+  if(mode==='cheat-sheets')return <CheatSheetView key={hash+level} lesson={lesson} topic={topic} level={level} requestedId={requestedId}/>;
   const section=sections.find(s=>s.id===study.sectionId)??sections[0];
   const index=sections.indexOf(section);
   function chooseSection(id:string){if(window.matchMedia('(max-width: 760px)').matches&&toc.current)toc.current.open=false;const target=lesson.sections.find(s=>s.id===id);if(target)location.hash=`${base}/${mode}?understanding=${target.understandingIds[0]}`;update(s=>({...s,sectionId:id}));requestAnimationFrame(()=>{const el=document.querySelector('[data-biology-host]')?.shadowRoot?.querySelector<HTMLElement>('.bio-lesson-content');el?.focus({preventScroll:true});el?.scrollIntoView({block:'start',behavior:'instant' as ScrollBehavior})})}

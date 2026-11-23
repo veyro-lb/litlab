@@ -39,16 +39,33 @@ const practiceIndexFixture={
   build.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:'export default {}'}));
  }
 };
-const result=await build({plugins:[practiceIndexFixture],stdin:{contents:`export {default as LessonView} from './src/biology/learning/LessonView.tsx';export {saveStudy} from './src/biology/learning/content.ts';export {default as TopicOverview} from './src/biology/components/TopicOverview.tsx';`,resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'esm',packages:'external',external:['./cheat-sheet-pdf','./cheat-sheet-pdf-preview'],write:false,jsx:'automatic'});
+const result=await build({plugins:[practiceIndexFixture],stdin:{contents:`export {default as LessonView} from './src/biology/learning/LessonView.tsx';export {getCheatSheet} from './src/biology/learning/cheat-sheet-data.ts';export {saveStudy} from './src/biology/learning/content.ts';export {default as TopicOverview} from './src/biology/components/TopicOverview.tsx';`,resolveDir:process.cwd(),loader:'tsx'},bundle:true,platform:'node',format:'esm',packages:'external',external:['./cheat-sheet-pdf','./cheat-sheet-pdf-preview'],write:false,jsx:'automatic'});
 await writeFile(out,result.outputFiles[0].text);
-const {LessonView,TopicOverview,saveStudy}=await import(out.href);await unlink(out);
+const {LessonView,TopicOverview,saveStudy,getCheatSheet}=await import(out.href);await unlink(out);
 const {createElement}=await import('react');const {renderToStaticMarkup}=await import('react-dom/server');
 const render=(lesson,t,level,mode,id,phase=0)=>{const section=lesson.sections.find(s=>s.understandingIds.includes(id))??lesson.sections[0];saveStudy(lesson.id,{answers:{},drafts:{[section.id+':phase']:String(phase)},revealed:{},labels:true,sectionId:section.id});return renderToStaticMarkup(createElement(LessonView,{lesson,topic:t,level,mode,hash:`#biology/topic/${t.id}/${mode}${id?'?understanding='+id:''}`}))};
-test('actual Learn and Cheat Sheets headings use exact registry IDs and titles for all eight',()=>{
- for(const mode of ['learn','cheat-sheets'])for(const u of topic.understandings){const html=render(water,topic,'HL',mode,u.id);assert.ok(html.includes(`data-understanding-id="${u.id}"`));if(mode==='learn')assert.ok(html.includes(`<b>${u.id}</b>`));assert.ok(html.includes(u.studentTitle.replaceAll('&','&amp;')))}
+test('Learn headings and the PDF export use exact registry IDs and titles',()=>{
+ const points=getCheatSheet(water,topic,'HL').groups.flatMap(group=>group.points);
+ assert.deepEqual(points.map(({id,heading})=>[id,heading]),topic.understandings.map(u=>[u.id,u.studentTitle]));
+ for(const u of topic.understandings){
+  const html=render(water,topic,'HL','learn',u.id);
+  assert.ok(html.includes(`data-understanding-id="${u.id}"`));
+  assert.ok(html.includes(`<b>${u.id}</b>`));
+  assert.ok(html.includes(u.studentTitle.replaceAll('&','&amp;')));
+ }
  const overview=renderToStaticMarkup(createElement(TopicOverview,{topic,level:'HL'}));for(const u of topic.understandings)assert.ok(overview.includes(`understanding=${u.id}`));
 });
-test('actual SL markup excludes HL-only sections and assessments',()=>{for(const mode of ['learn','cheat-sheets','practice']){const html=render(water,topic,'SL',mode);assert.doesNotMatch(html,/data-(?:syllabus|understanding)-id="A1\.1\.[78]"/);assert.ok(!html.includes('data-question-id="p1a-7"'))}});
+test('SL study views and PDF export exclude HL-only content',()=>{
+ for(const mode of ['learn','practice']){
+  const html=render(water,topic,'SL',mode);
+  assert.doesNotMatch(html,/data-(?:syllabus|understanding)-id="A1\.1\.[78]"/);
+  assert.ok(!html.includes('data-question-id="p1a-7"'));
+ }
+ const pdf=getCheatSheet(water,topic,'SL');
+ assert.ok(pdf.groups.every(group=>!group.higher));
+ assert.equal(pdf.groups.flatMap(group=>group.points).length,6);
+ assert.ok(render(water,topic,'SL','cheat-sheets').includes('aria-label="Cheat sheet PDF"'));
+});
 test('synthetic real renderer supports 3 sections, study modes and scoped practice',()=>{
  for(const mode of ['learn','cheat-sheets','practice']){const html=render(fixture,fixtureTopic,'HL',mode,'B1.9.2');assert.ok(html.includes('Synthetic renderer fixture'));assert.ok(!html.includes('biology/topic/A1.1'));assert.ok(html.includes('B1.9.2'))}
  assert.ok(!render(fixture,fixtureTopic,'SL','learn').includes('data-syllabus-id="B1.9.3"'));
@@ -94,8 +111,11 @@ for(const slug of ['carbohydrates-lipids','proteins']){
  const t=registry.find(x=>x.id===d.topicId);
  test('Phase 4 actual '+t.id+' headings and scope in Learn, Cheat Sheets and targeted Practice',()=>{
   for(const u of t.understandings){
-   for(const mode of ['learn','cheat-sheets']){const html=render(d,t,'HL',mode,u.id);assert.ok(html.includes(`data-understanding-id="${u.id}"`));assert.ok(html.includes(u.studentTitle.replaceAll('&','&amp;')))}
-   if(u.level==='HL')for(const mode of ['learn','cheat-sheets','practice']){
+   const html=render(d,t,'HL','learn',u.id);
+   assert.ok(html.includes(`data-understanding-id="${u.id}"`));
+   assert.ok(html.includes(u.studentTitle.replaceAll('&','&amp;')));
+   assert.ok(getCheatSheet(d,t,'HL').groups.some(group=>group.points.some(point=>point.id===u.id&&point.heading===u.studentTitle)));
+   if(u.level==='HL')for(const mode of ['learn','practice']){
     const html=render(d,t,'SL',mode,u.id);
     for(const attr of ['data-syllabus-id','data-understanding-id'])assert.ok(!html.includes(`${attr}="${u.id}"`));
    }

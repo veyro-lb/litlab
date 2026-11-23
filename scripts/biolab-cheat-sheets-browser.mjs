@@ -33,52 +33,30 @@ try {
   await page.getByRole('searchbox').fill('A1.1');
   await page.getByRole('link', {name: 'A1.1 Water', exact: true}).press('Enter');
   await expect(page).toHaveURL(/#biology\/topic\/A1\.1\/cheat-sheets$/);
-  await expect(page.getByRole('heading', {name: 'At a glance'})).toBeVisible();
-  await expect(page.getByRole('heading', {name: 'Exam tip'})).toBeVisible();
-  const previewButton = page.getByRole('button', {name: 'Preview PDF', exact: true});
+  const pdf = page.getByRole('region', {name: 'Cheat sheet PDF'});
+  const first = pdf.getByRole('region', {name: /^Page 1 of [12]$/});
+  await expect(first.locator('canvas')).toBeVisible({timeout: 20000});
+  await expect(first).toContainText('Polarity');
+  await expect(first).toContainText('Exam tip');
+  await expect(pdf).toContainText('Worked question');
+  await expect(pdf).toContainText('Cohesion and adhesion are different');
+  await expect(pdf).not.toContainText('A1.1.8');
+  await expect(page.locator('.bio-sheets-point')).toHaveCount(0);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
   const [download] = await Promise.all([
     page.waitForEvent('download'),
-    page.getByRole('button', {name: 'Download PDF', exact: true}).click(),
+    pdf.getByRole('link', {name: 'Download PDF', exact: true}).click(),
   ]);
   expect(download.suggestedFilename()).toBe('BioLab-A1.1-SL-Cheat-Sheet.pdf');
   const pdfBytes = await readFile(await download.path());
   expect(pdfBytes.subarray(0, 5).toString()).toBe('%PDF-');
-  await previewButton.click();
-  const pdfPreview = page.getByRole('dialog', {name: 'Water · PDF preview'});
-  await expect(pdfPreview.locator('canvas')).toBeVisible({timeout: 20000});
-  await expect(pdfPreview.getByText(/^Page 1 of [12]$/)).toBeVisible();
-  const nextPdfPage = pdfPreview.getByRole('button', {name: 'Next page'});
-  if (await nextPdfPage.isEnabled()) {
-    await nextPdfPage.click();
-    await expect(pdfPreview.getByLabel('Preview of page 2')).toBeVisible();
-    await expect(nextPdfPage).toBeDisabled();
-  }
-  await page.keyboard.press('Escape');
-  await expect(pdfPreview).toHaveCount(0);
-  await expect(previewButton).toBeFocused();
-  await expect(page.locator('.bio-sheets-point-body').first()).toBeVisible();
-  const note = page.locator('.bio-sheets-note').first();
-  await expect(note.getByText('Common mistake', {exact: true})).toBeVisible();
-  await expect(note.getByText('Correction', {exact: true})).toBeVisible();
-  const figure = page.locator('.bio-sheets-point [data-asset-id="bonding"]');
-  await figure.getByRole('button', {name: /^Enlarge diagram/}).click();
-  await expect(figure.getByRole('dialog')).toBeVisible();
-  await page.keyboard.press('Escape');
-  await expect(figure.getByRole('dialog')).toHaveCount(0);
-  const selfCheck = page.locator('.bio-sheets-self-check');
-  await expect(selfCheck.getByText(/Hydrogen bonds create cohesion/)).toBeVisible();
-  await expect(page.locator('.bio-sheets-point')).toHaveCount(6);
-  await expect(page.locator('.bio-sheets-extension')).toHaveCount(0);
-  await expect(page.getByRole('link', {name: 'Active recall', exact: true})).toHaveCount(0);
-  await expect(page.getByRole('table', {name: 'Cohesion and adhesion are different'})).toBeVisible();
 
   await page.goto(origin+'#biology/topic/A1.1/revision?understanding=A1.1.5');
-  const point = page.locator('.bio-sheets-point[data-understanding-id="A1.1.5"]');
-  await expect(point).toHaveAttribute('data-highlighted', 'true');
-  await point.getByRole('link', {name: 'Full explanation'}).click();
+  await expect(pdf).toContainText('A1.1.5');
+  await page.getByRole('link', {name: 'Full explanation'}).click();
   await expect(page.locator('.bio-lesson-content')).toHaveAttribute('data-understanding-id', 'A1.1.5');
   await page.getByRole('link', {name: 'Cheat sheet · A1.1.5'}).click();
-  await expect(point).toHaveAttribute('data-highlighted', 'true');
+  await expect(pdf).toContainText('A1.1.5');
   await page.goto(origin+'#biology?resource=revision');
   await expect(navigation.getByRole('link', {name: 'Cheat Sheets', exact: true})).toHaveAttribute('aria-current', 'page');
   expect(errors).toEqual([]);
@@ -89,52 +67,26 @@ try {
   await expect(mobile.page.getByLabel('Theme', {exact: true})).toHaveValue('A');
   await expect(mobile.page.locator('.bio-sheets-tile')).toHaveCount(registry.filter(topic => topic.theme === 'A' && topic.lessonId).length);
   await mobile.page.getByRole('link', {name: 'A1.1 Water', exact: true}).click();
-  await expect(mobile.page.locator('.bio-sheets-table-mobile').first().getByText('Adhesion', {exact: true}).first()).toBeVisible();
-  await expect(mobile.page.getByRole('table', {name: 'Cohesion and adhesion are different'})).toHaveCount(0);
-  await expect(mobile.page.locator('.bio-sheets-extension')).toBeVisible();
-  await mobile.page.getByRole('button', {name: 'Preview PDF', exact: true}).click();
-  const mobilePreview = mobile.page.getByRole('dialog', {name: 'Water · PDF preview'});
-  await expect(mobilePreview.locator('canvas')).toBeVisible({timeout: 20000});
-  await expect(mobilePreview.getByText(/^Page 1 of [12]$/)).toBeVisible();
-  const hlDownload = mobilePreview.getByRole('link', {name: 'Download PDF', exact: true});
-  await expect(hlDownload).toHaveAttribute('download', 'BioLab-A1.1-HL-Cheat-Sheet.pdf');
-  expect((await mobilePreview.boundingBox()).width).toBeLessThanOrEqual(320);
-  await mobilePreview.getByRole('button', {name: 'Zoom in'}).click();
-  await expect(mobilePreview.locator('canvas')).toHaveAttribute('data-zoomed', 'true');
-  await mobilePreview.getByRole('button', {name: 'Fit page'}).click();
-  await mobilePreview.getByRole('button', {name: 'Close'}).click();
-
-  const headings = new Set();
+  const mobilePdf = mobile.page.getByRole('region', {name: 'Cheat sheet PDF'});
+  await expect(mobilePdf.getByRole('region', {name: /^Page 1 of [12]$/}).locator('canvas')).toBeVisible({timeout: 20000});
+  await expect(mobilePdf).toContainText('A1.1.8');
+  await expect(mobilePdf.getByRole('link', {name: 'Download PDF', exact: true})).toHaveAttribute('download', 'BioLab-A1.1-HL-Cheat-Sheet.pdf');
+  await mobilePdf.getByRole('button', {name: 'Zoom in'}).click();
+  await expect(mobilePdf.getByRole('region', {name: 'Zoomed PDF pages'})).toBeVisible();
+  await mobilePdf.getByRole('button', {name: 'Fit width'}).click();
   for (const topic of registry.filter(item => item.lessonId)) {
     await mobile.page.goto(origin+`#biology/topic/${topic.id}/cheat-sheets`);
     await expect(mobile.page.locator('.bio-sheets-code')).toContainText(topic.id);
-    await expect(mobile.page.locator('.bio-sheets-essentials > div')).toHaveCount(3);
-    await expect(mobile.page.locator('.bio-sheets-point')).toHaveCount(topic.understandings.length);
-    await expect(mobile.page.getByRole('heading', {name: 'Worked question'})).toBeVisible();
-    await expect(mobile.page.locator('.bio-sheets-answer')).toBeVisible();
-    await expect(mobile.page.locator('.bio-sheets details:not(dialog details)')).toHaveCount(0);
-    for (const img of await mobile.page.locator('.bio-sheets-point picture img').all()) {
-      await img.evaluate(el => { el.loading = 'eager'; });
-      await expect.poll(() => img.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
-    }
-    const firstHeading = await mobile.page.locator('.bio-sheets-essentials dt').first().innerText();
-    expect(headings.has(firstHeading), firstHeading+' is repeated').toBe(false);
-    headings.add(firstHeading);
-    const width = await mobile.page.evaluate(() => ({document: document.documentElement.scrollWidth, viewport: innerWidth}));
-    expect(width.document).toBeLessThanOrEqual(width.viewport + 2);
+    await expect(mobilePdf.getByRole('region', {name: /^Page 1 of [12]$/}).locator('canvas')).toBeVisible({timeout: 20000});
+    await expect(mobilePdf).toContainText('Worked question');
+    await expect(mobilePdf).toContainText(topic.understandings.at(-1).id);
+    expect(await mobile.page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(2);
   }
-  // The densest sheet exercises the two-page layout and viewer paging.
   await mobile.page.goto(origin+'#biology/topic/C3.1/cheat-sheets');
-  await expect(mobile.page.locator('.bio-sheets-code')).toContainText('C3.1');
-  await mobile.page.getByRole('button', {name: 'Preview PDF', exact: true}).click();
-  const densePreview = mobile.page.getByRole('dialog', {name: 'Integration of body systems · PDF preview'});
-  await expect(densePreview.getByText('Page 1 of 2', {exact: true})).toBeVisible({timeout: 20000});
-  const lastPage = densePreview.getByRole('button', {name: 'Next page'});
-  await lastPage.click();
-  await expect(densePreview.getByLabel('Preview of page 2')).toBeVisible();
-  await expect(lastPage).toBeDisabled();
+  await expect(mobilePdf.getByRole('region', {name: 'Page 1 of 2'}).locator('canvas')).toBeVisible({timeout: 20000});
+  await expect(mobilePdf.getByRole('region', {name: 'Page 2 of 2'}).locator('canvas')).toBeVisible();
   expect(mobile.errors).toEqual([]);
-  console.log('All 40 Cheat Sheets passed. Checked navigation, search, scope, legacy links, mobile comparisons and reflow.');
+  console.log('All 40 inline Cheat Sheet previews passed. Checked navigation, scope, download, zoom and responsive layout.');
 } finally {
   await browser.close();
 }
