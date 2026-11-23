@@ -43,7 +43,6 @@
 .litlab-account-trigger{
   flex:0 1 auto;
   min-width:44px;
-  max-width:min(210px,16vw);
 }
 .litlab-account-trigger img,
 .litlab-account-trigger .litlab-account-initials,
@@ -60,18 +59,6 @@
   white-space:nowrap;
 }
 
-/* Only compact slightly in the very narrow desktop band before the existing
-   mobile-menu breakpoint. Normal laptop/desktop widths keep the original sizing. */
-@media (min-width:1101px) and (max-width:1180px){
-  .topbar{padding-inline:14px;gap:8px}
-  .topbar nav{gap:2px;padding:4px}
-  .topbar nav :is(button,a){padding:8px 10px;font-size:12.5px}
-  .search-trigger{padding-inline:9px}
-  .search-trigger kbd{display:none}
-  .litlab-account-trigger{max-width:150px;padding-inline:9px}
-  .litlab-account-trigger .litlab-auth-label{max-width:90px}
-}
-
 /* Intrinsic header layout. Account controls have an owned slot in normal flow;
    both guest and authenticated renders use the same space. */
 .topbar{height:auto!important;min-height:78px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
@@ -79,11 +66,24 @@
 .topbar>.top-actions>.account-slot{display:flex;position:relative;min-width:0;flex:0 1 auto;max-width:100%}
 .topbar .litlab-auth-root{position:relative;inset:auto;transform:none;max-width:100%}
 .topbar .litlab-auth-signin,.topbar .litlab-account-trigger,.topbar .icon-btn,.topbar .search-trigger{min-height:44px;height:auto;min-width:44px}
-.topbar .litlab-account-trigger{max-width:min(210px,25vw)}
+.topbar .litlab-account-trigger{max-width:min(210px,100%)}
 .topbar .litlab-account-menu{width:min(300px,calc(100vw - 28px));right:0;left:auto;top:calc(100% + 10px);max-height:calc(100dvh - 170px)}
+@media (min-width:1101px){
+  .topbar,.topbar>.top-actions{flex-wrap:nowrap}
+  .topbar>.top-actions>button{flex-shrink:0}
+  .topbar>.top-actions>.account-slot{min-width:80px}
+}
+@media (min-width:1101px) and (max-width:1320px){
+  .topbar{padding-inline:clamp(14px,2vw,26px);gap:8px}
+  .topbar nav{gap:2px;padding:4px}
+  .topbar nav :is(button,a){padding:8px 10px;font-size:12.5px}
+  .topbar .search-trigger{padding-inline:9px}
+  .topbar .search-trigger kbd{display:none}
+}
 @media(max-width:700px){
  .topbar .litlab-auth-signin,.topbar .litlab-account-trigger{width:44px;height:44px;min-width:44px}
  .topbar .litlab-account-trigger{max-width:44px}
+ .topbar .litlab-account-trigger .litlab-auth-label{display:none}
  .topbar>.top-actions{gap:6px}
 }
 @media(max-width:600px){

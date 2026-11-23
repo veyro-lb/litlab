@@ -242,6 +242,9 @@ function renderAuth(){
   trigger.type='button';
   trigger.className='litlab-account-trigger';
   trigger.setAttribute('aria-expanded',String(accountMenuOpen));
+  const name=displayName(currentUser);
+  trigger.setAttribute('aria-label',`Account menu for ${name}`);
+  trigger.title=name;
   const avatar=currentUser.user_metadata?.avatar_url||currentUser.user_metadata?.picture;
   if(avatar){
     const img=document.createElement('img');
@@ -257,7 +260,7 @@ function renderAuth(){
   }
   const label=document.createElement('span');
   label.className='litlab-auth-label';
-  label.textContent=displayName(currentUser);
+  label.textContent=name;
   trigger.append(label);
   const chevron=document.createElement('span');
   chevron.className='litlab-account-chevron';
