@@ -138,3 +138,8 @@
 .book-poem-group-title[hidden] {
   display: none;
 }
+
+.book-moment-body .book-poem-close-reading {
+  grid-column: 1 / -1;
+  border-color: color-mix(in srgb, var(--violet) 30%, var(--line));
+}

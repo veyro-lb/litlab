@@ -151,13 +151,16 @@ function renderBookMoments(profile: BookProfile) {
     ...catalog.map(entry=>entry.collection),
   ])].sort((left,right)=>left.localeCompare(right));
   const byTitle=(left:{title:string},right:{title:string})=>left.title.localeCompare(right.title);
-  const moments=poetry?[...profile.moments].sort(byTitle):profile.moments;
+  const moments=poetry?[...profile.moments].sort((left,right)=>{
+    if(left.reading&&right.reading)return left.reading.pdfPage-right.reading.pdfPage;
+    return Number(Boolean(right.reading))-Number(Boolean(left.reading))||byTitle(left,right);
+  }):profile.moments;
   const filters=['All','Control','Gender','Resistance','Memory','Complicity'];
   return `<section id="book-moments" class="book-section">
     <div class="book-section-head">
       <span>07 • ${poetry?'POEMS':'IMPORTANT MOMENTS'}</span>
       <h2>${poetry?'Poem guide and index':'Twenty moments worth being able to locate and use.'}</h2>
-      <p>${poetry?'Find a poem by title, collection, theme or technique. Index entries identify titles whose study guides are still to come.':'Use the timeline to find what happens, how it is written, and what argument it can support.'}</p>
+      <p>${poetry?'Explore the main collection in reading order. Search by poem, theme or technique, or change the collection to browse the wider index.':'Use the timeline to find what happens, how it is written, and what argument it can support.'}</p>
     </div>
     <div class="book-moment-tools ${poetry?'book-poetry-tools':''}">
       <label>
@@ -168,7 +171,7 @@ function renderBookMoments(profile: BookProfile) {
         <span id="book-poem-collection-label">Collection</span>
         <select data-poem-collection aria-labelledby="book-poem-collection-label">
           <option value="">All collections</option>
-          ${collections.map(collection=>`<option>${esc(collection)}</option>`).join('')}
+          ${collections.map(collection=>`<option${collection===poetry.featuredCollection?' selected':''}>${esc(collection)}</option>`).join('')}
         </select>
       </label>
       <label>
@@ -186,13 +189,13 @@ function renderBookMoments(profile: BookProfile) {
     <h3 class="book-poem-group-title" data-poem-group="guide">Study guides</h3>`:''}
     <div class="book-moment-list" data-moment-list>
       ${moments.map(moment=>{
-        const search=[moment.collection,moment.title,moment.why,moment.choices,moment.themes,moment.paper2].join(' ').trim().toLowerCase();
+        const search=[moment.collection,moment.title,moment.why,moment.choices,moment.themes,moment.paper2,moment.reading?.focus].join(' ').trim().toLowerCase();
         return `<details data-moment ${poetry?'data-poem-entry="guide"':''} data-collection="${esc(moment.collection||'')}" data-moment-text="${esc(search)}">
           <summary>
             <span aria-hidden="true">${poetry?'¶':String(moment.n).padStart(2,'0')}</span>
             <div>
               <h3>${esc(moment.title)}</h3>
-              ${moment.collection?`<small class="book-poem-collection">${esc(moment.collection)}</small>`:''}
+              ${moment.collection?`<small class="book-poem-collection">${esc(moment.collection)}${moment.reading?` · PDF p. ${moment.reading.pdfPage}`:''}</small>`:''}
               <p>${esc(moment.themes)}</p>
             </div>
             <b>+</b>
@@ -200,6 +203,7 @@ function renderBookMoments(profile: BookProfile) {
           <div class="book-moment-body">
             <div><span>WHY IT MATTERS</span><p>${esc(moment.why)}</p></div>
             <div><span>${poetry?'POETIC TECHNIQUES':'CHOICE(S)'}</span><p>${esc(moment.choices)}</p></div>
+            ${moment.reading?`<div class="book-poem-close-reading"><span>CLOSE READING · PDF P. ${moment.reading.pdfPage}</span><p>${esc(moment.reading.focus)}</p></div>`:''}
             ${moment.paper2?`<div><span>${poetry?'COMPARISON IDEA':'PAPER 2 USE'}</span><p>${esc(moment.paper2)}</p></div>`:''}
           </div>
         </details>`;
@@ -288,6 +292,7 @@ function bindMomentFilters(page: HTMLElement) {
   input?.addEventListener('input',apply);
   collection?.addEventListener('change',apply);
   coverage?.addEventListener('change',apply);
+  if(collection)apply();
   page.querySelectorAll<HTMLButtonElement>('[data-moment-filter]').forEach(button=>button.addEventListener('click',()=>{
     filter=button.dataset.momentFilter||'all';
     page.querySelectorAll('[data-moment-filter]').forEach(item=>item.classList.toggle('active',item===button));

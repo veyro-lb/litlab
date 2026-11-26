@@ -1,5 +1,5 @@
 import {bookProfiles, type BookProfile} from './books-data';
-import {duffyCatalog, expandedDuffyGuides} from './books-duffy-poems';
+import {duffyCatalog, expandedDuffyGuides, worldsWife, worldsWifeReading} from './books-duffy-poems';
 
 const duffy: BookProfile = {
   id: 'carol-ann-duffy',
@@ -9,11 +9,12 @@ const duffy: BookProfile = {
   form: 'Poetry and dramatic monologues',
   language: 'English',
   level: 'HL studied work',
-  overview: 'Browse Duffy’s poems by collection and study how she builds voice, imagery and form. Start with the complete guide to The World’s Wife, or search for a poem from another collection.',
+  overview: 'Study all 30 poems in The World’s Wife in the order they appear in the Picador edition. Each guide includes a close-reading task and a page reference for the annotated PDF.',
   context: 'Carol Ann Duffy is a Scottish poet who served as UK Poet Laureate from 2009 to 2019. In The World’s Wife, she revisits myths, scripture and literary history through the voices of women whose perspectives the familiar stories leave out.',
   poetry: {
+    featuredCollection: worldsWife,
     catalog: duffyCatalog,
-    sourceNote: 'The index covers verified titles from several collections and is still growing. Study guides use paraphrased evidence. Check your assigned edition for the poem text and your class selection.',
+    sourceNote: 'The World’s Wife guides follow the annotated PDF of the 2017 Picador electronic edition. References use the page number shown in the PDF viewer. Other collections are available in the Collection filter.',
     sources: [
       {title: 'Scottish Poetry Library', url: 'https://www.scottishpoetrylibrary.org.uk/poet/carol-ann-duffy/'},
       {title: 'Picador · Collected Poems', url: 'https://www.panmacmillan.com/authors/carol-ann-duffy/collected-poems/9781447231752'},
@@ -29,10 +30,10 @@ const duffy: BookProfile = {
       {title: 'Tim Scheffe · The Falling Soldier', url: 'https://zenodo.org/records/4166398'},
     ],
     practice: [
-      {prompt: 'Which poem reworks a conventional love gift through an extended metaphor?', options: ['Anne Hathaway', 'Valentine', 'Mrs Lazarus'], answer: 1, feedback: 'In Valentine, the onion’s layers, tears and lingering scent make intimacy feel complex and less predictable.'},
+      {prompt: 'Which speaker repeatedly changes shape to get away from her pursuer?', options: ['Medusa', 'Thetis', 'Circe'], answer: 1, feedback: 'In Thetis, each new shape creates a different possibility for escape. Notice how each is met by a new way of capturing her.'},
       {prompt: 'Whose voice revisits a detail from Shakespeare’s will?', options: ['Miss Havisham', 'Medusa', 'Anne Hathaway'], answer: 2, feedback: 'Duffy gives Anne Hathaway a sonnet in which the bed becomes a place of shared intimacy and imagination.'},
-      {prompt: 'Which poem uses regular stanzas to echo a speaker’s effort to impose order on traumatic material?', options: ['War Photographer', 'Stealing', 'Havisham'], answer: 0, feedback: 'The regular stanzas of War Photographer echo the discipline of darkroom work while the memories resist that order.'},
-      {prompt: 'Which speaker has already begun rebuilding her life when the person she mourned returns?', options: ['Medusa', 'Mrs Lazarus', 'Miss Havisham'], answer: 1, feedback: 'In Mrs Lazarus, the return interrupts a process of grief that has already changed what the speaker wants and needs.'},
+      {prompt: 'Which poem uses needlework to explore the speaker’s creative independence?', options: ['Penelope', 'Mrs Faust', 'Mrs Midas'], answer: 0, feedback: 'Penelope continues threading her needle at the sound of returning footsteps. The action keeps attention on the work she has chosen.'},
+      {prompt: 'Which speaker has already begun rebuilding her life when the person she mourned returns?', options: ['Medusa', 'Mrs Lazarus', 'Mrs Midas'], answer: 1, feedback: 'In Mrs Lazarus, the return interrupts a process of grief that has already changed what the speaker wants and needs.'},
     ],
   },
   characters: [
@@ -114,5 +115,10 @@ const duffy: BookProfile = {
     {q: 'Where can I check the exact wording?', a: 'Use your assigned anthology or edition. The evidence anchors point you to moments and techniques you can locate in the text.'},
   ],
 };
+
+duffy.moments = duffy.moments.map(moment => {
+  const reading = moment.collection === worldsWife ? worldsWifeReading.get(moment.title) : undefined;
+  return reading ? {...moment, reading} : moment;
+});
 
 if (!bookProfiles.some(profile => profile.id === duffy.id)) bookProfiles.push(duffy);

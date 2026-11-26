@@ -1,6 +1,42 @@
-import type {BookMoment} from './books-data';
+import type {BookMoment, PoemReading} from './books-data';
 
 export const worldsWife = 'The World’s Wife';
+
+// Viewer page numbers for the annotated PDF of the 2017 Picador electronic edition.
+export const worldsWifeReading = new Map<string, PoemReading>(
+  ([
+    ['Little Red-Cap', 6, 'Compare the wolf’s first public reading with the years of repetition near the end. How does the older speaker show that she has outgrown the model of poetry she came to learn?'],
+    ['Thetis', 8, 'Follow the repeated pattern of a new shape and a matching means of capture. What changes when the final transformation is childbirth?'],
+    ['Queen Herod', 10, 'Compare the queens’ gift-giving with the threat beneath the final lullabies. How does the sound of horses connect a private act of protection to public violence?'],
+    ['Mrs Midas', 13, 'Put the first dinner after the wish next to the last memory of his hands. What can the ending’s emphasis on touch show that the earlier gold imagery cannot?'],
+    ['from Mrs Tiresias', 16, 'Find the handshake at the end, where the speaker notices rings and painted nails. How does the focus on hands complicate her earlier efforts to explain the change?'],
+    ['Pilate’s Wife', 20, 'Trace the descriptions of Pilate’s hands into the washing scene. How does the ritual separate his public performance from what his wife thinks he believes?'],
+    ['Mrs Aesop', 21, 'Look at the point where Mrs Aesop starts telling her own fable. How does she take over the role of storyteller and change the purpose of the moral?'],
+    ['Mrs Darwin', 22, 'Notice the precise diary date before the casual remark at the zoo. How does the difference in register make an apparently trivial observation sound historically important?'],
+    ['Mrs Sisyphus', 23, 'Read the rhyme aloud as the speaker’s voice is compared to a squawk and her husband keeps working. How does the sound pattern make his task feel inescapable to both of them?'],
+    ['Mrs Faust', 25, 'Compare the quick lists of possessions and successes with the final secret about the bargain. How does what she chooses to reveal change your judgment of both spouses?'],
+    ['Delilah', 29, 'Find the moment Samson asks how to become less strong, then reread the haircut. How does hearing the request from Delilah change what readers make of her actions?'],
+    ['Anne Hathaway', 31, 'Compare the imagery of performance and poetry in the couple’s bed with the language used for the guests in the other bed. How does the closing couplet turn physical intimacy into an act of memory?'],
+    ['Queen Kong', 32, 'Compare the lover’s small size while alive with the memorial she wears after his death. What makes the final image feel affectionate and possessive at the same time?'],
+    ['Mrs Quasimodo', 35, 'Compare the first descriptions of the bells with the damage at the close. What is lost when sound that once connected the characters becomes the target of retaliation?'],
+    ['Medusa', 40, 'Track the encounters with living creatures before the speaker confronts her own reflection. How does directing the petrifying gaze inward change the reader’s sense of who is threatened?'],
+    ['The Devil’s Wife', 42, 'Read the changes in sentence structure across the five titled sections. How does the shift toward fragments and unanswered conditions affect what you can trust about the speaker’s account?'],
+    ['Circe', 47, 'Find the moment the recipe gives way to a memory of watching ships. How does the return to cooking at the end change the tone of the earlier instructions?'],
+    ['Mrs Lazarus', 49, 'Compare the early signs of mourning with the sensory account of Lazarus’s return. What does the body make disturbing about the event celebrated in the source story?'],
+    ['Pygmalion’s Bride', 51, 'Track the imagery of coldness, then find where the speaker changes tactics. How do you tell the difference between a genuine change of feeling and a performance meant for the sculptor?'],
+    ['Mrs Rip Van Winkle', 53, 'Compare the list of activities during the husband’s absence with the closing reference to medication. How does the rhyme make his return feel like an interruption?'],
+    ['Mrs Icarus', 54, 'Read how the first line puts the wife among other observers of comparable behavior. How does the abrupt final insult turn a mythic flight into an ordinary pattern of judgment?'],
+    ['Frau Freud', 55, 'Compare the slang catalogue with the formal address to her listeners. What happens to the apparent authority of the subject as more and more names accumulate?'],
+    ['Salome', 56, 'Trace the hints about the previous night before the speaker lifts the sheets. What is the effect of delaying the image a reader familiar with Salome might already expect?'],
+    ['Eurydice', 58, 'Find the remark that makes Orpheus turn, then consider the silence at the close. Why does praising his poetry help Eurydice secure the kind of space she wants?'],
+    ['The Kray Sisters', 62, 'Compare the shared narration with the performance and song at the end. How do the twins use a public spectacle to define the version of themselves the audience sees?'],
+    ['Elvis’s Twin Sister', 65, 'Trace the references to Elvis’s songs through the speaker’s account of convent life. What kind of independence can she claim while still speaking in a language shaped by his fame?'],
+    ['Pope Joan', 67, 'Compare the outward signs of papal authority with the short lines describing birth at the close. Why does the speaker identify a different event as her miracle?'],
+    ['Penelope', 69, 'Notice what Penelope does with her thread after hearing the approaching footsteps. How does her small final action answer the expectation that her life was spent waiting?'],
+    ['Mrs Beast', 71, 'Put the speaker’s reflections on other women beside her last demands. How does remembering women with fewer choices complicate her determination to set the terms of love?'],
+    ['Demeter', 74, 'Compare the temperature and texture of the setting before and after the daughter appears. How does the final small image of the moon show renewal without making the ending grand or public?'],
+  ] satisfies [string, number, string][]).map(([title, pdfPage, focus]) => [title, {pdfPage, focus}]),
+);
 
 type GuideNotes = [themes: string, overview: string, techniques: string, comparison: string];
 type GuideRow = [title: string, collection: string, ...notes: GuideNotes];
