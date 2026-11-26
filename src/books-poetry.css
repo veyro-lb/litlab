@@ -173,3 +173,34 @@
     grid-template-columns: 1fr;
   }
 }
+
+.book-poem-results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  min-height: 42px;
+}
+
+.book-poem-results p,
+.book-poem-empty p {
+  margin: 0;
+}
+
+.book-poem-empty {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.book-poem-empty .btn {
+  margin-top: 12px;
+}
+
+.books-profile-page [data-poem-reset][hidden],
+.books-profile-page [data-poem-search-all][hidden] {
+  display: none;
+}

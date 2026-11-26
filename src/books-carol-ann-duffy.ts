@@ -9,12 +9,12 @@ const duffy: BookProfile = {
   form: 'Poetry and dramatic monologues',
   language: 'English',
   level: 'HL studied work',
-  overview: 'Study all 30 poems in The World’s Wife in the order they appear in the Picador edition. Each guide explains a poetic technique through a specific moment and gives you a close-reading task with a PDF page reference.',
+  overview: 'Study all 30 poems in The World’s Wife in the order they appear in the Picador edition. Each guide explains a poetic technique through a specific moment and gives you a close-reading task to try.',
   context: 'Carol Ann Duffy is a Scottish poet who served as UK Poet Laureate from 2009 to 2019. In The World’s Wife, she revisits myths, scripture and literary history through the voices of women whose perspectives the familiar stories leave out.',
   poetry: {
     featuredCollection: worldsWife,
     catalog: duffyCatalog,
-    sourceNote: 'The World’s Wife guides follow the annotated PDF of the 2017 Picador electronic edition. References use the page number shown in the PDF viewer. Other collections are available in the Collection filter.',
+    sourceNote: 'The World’s Wife guides follow the annotated PDF of the 2017 Picador electronic edition. Other collections are available in the Collection filter.',
     sources: [
       {title: 'Scottish Poetry Library', url: 'https://www.scottishpoetrylibrary.org.uk/poet/carol-ann-duffy/'},
       {title: 'Picador · Collected Poems', url: 'https://www.panmacmillan.com/authors/carol-ann-duffy/collected-poems/9781447231752'},
