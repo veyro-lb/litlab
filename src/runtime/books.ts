@@ -1,6 +1,7 @@
 import '../books-frankenstein';
 import '../books-nineteen-eighty-four';
 import '../books-persepolis';
+import '../books-carol-ann-duffy';
 import '../books-coming-soon';
 import '../books-library';
 import '../books-cover-system';
