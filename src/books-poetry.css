@@ -1,0 +1,99 @@
+[data-poetry-profile] .book-character p,
+[data-poetry-profile] .book-moment-list p,
+[data-poetry-profile] .book-theme-card p,
+[data-poetry-profile] .book-review-grid p {
+  font-size: .875rem;
+}
+
+.book-poem-collection {
+  display: block;
+  margin-top: 4px;
+  color: var(--violet);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.book-poetry-tools {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.book-poetry-tools select {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+
+.book-poem-empty,
+.book-poetry-sources {
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.book-poetry-sources a {
+  color: var(--violet);
+  text-decoration: underline;
+}
+
+.book-poetry-practice {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.book-poetry-question {
+  min-width: 0;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.book-poetry-question legend {
+  padding: 0 5px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.book-poetry-question label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.book-poetry-question input {
+  accent-color: var(--violet);
+}
+
+.book-poetry-question .btn {
+  margin-top: 8px;
+}
+
+.book-poetry-feedback {
+  margin: 10px 0 0;
+  color: var(--ink);
+  font-size: .875rem;
+}
+
+.book-poetry-feedback:empty {
+  margin: 0;
+}
+
+.books-profile-page [data-poem-empty][hidden],
+.books-profile-page [data-moment][hidden] {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .book-poetry-practice,
+  .book-poetry-tools {
+    grid-template-columns: 1fr;
+  }
+}

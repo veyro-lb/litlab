@@ -72,14 +72,14 @@ function applyProfile(page:HTMLElement){
   const finish=page.querySelector<HTMLElement>('.book-finish-card>span');
   if(finish)finish.textContent=`${shortTitle(profile).toUpperCase()} • PROFILE COMPLETE`;
   const note=page.querySelector<HTMLElement>('.book-source-note p');
-  if(note){
+  if(note && !profile.poetry){
     note.textContent=profile.id==='frankenstein'
       ?'This profile paraphrases evidence points instead of reproducing extended passages. Confirm whether your class uses the 1818 or 1831 edition, and verify exact wording against that assigned copy before using a direct quotation.'
       :'This profile paraphrases evidence points instead of reproducing extended passages. Check your assigned copy for exact wording before using a direct quotation, and keep novel analysis separate from adaptation details.';
   }
   const search=page.querySelector<HTMLInputElement>('[data-moment-search]');
-  if(search)search.placeholder=profile.id==='frankenstein'?'Search creation, rejection, ambition, Arctic…':'Search Ceremony, resistance, Historical Notes…';
-  bindProfileMomentFilters(page,profile);
+  if(search && !profile.poetry)search.placeholder=profile.id==='frankenstein'?'Search creation, rejection, ambition, Arctic…':'Search Ceremony, resistance, Historical Notes…';
+  if(!profile.poetry)bindProfileMomentFilters(page,profile);
 }
 
 function sync(){

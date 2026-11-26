@@ -1,12 +1,17 @@
 export type BookCharacter={name:string;role:string;development:string;themes:string;methods:string};
 export type BookTheme={name:string;appears:string;choices:string;interpretation:string;compare?:string};
 export type BookItem={title:string;text:string};
-export type BookMoment={n:number;title:string;why:string;choices:string;themes:string;paper2?:string};
+export type BookMoment={n:number;title:string;why:string;choices:string;themes:string;paper2?:string;collection?:string};
 export type BookConnection={theme:string;with:string;similarity:string;difference:string;methods:string;why:string};
 export type BookFAQ={q:string;a:string};
+export type BookPoetry = {
+  sourceNote: string;
+  sources: {title: string; url: string}[];
+  practice: {prompt: string; options: string[]; answer: number; feedback: string}[];
+};
 export type BookProfile={
   id:string;title:string;author:string;year:string;form:string;language:string;level:string;
-  context:string;overview:string;
+  context:string;overview:string;poetry?:BookPoetry;
   characters:BookCharacter[];themes:BookTheme[];symbols:BookItem[];motifs:BookItem[];choices:BookItem[];
   voice:string;structure:string;setting:string;moments:BookMoment[];evidence:BookItem[];
   connections:BookConnection[];arguments:string[];misunderstandings:string[];faqs:BookFAQ[];

@@ -8,7 +8,6 @@ const emptyProfile=(id:string,title:string,level:string):BookProfile=>({
 });
 
 const placeholders:BookProfile[]=[
-  emptyProfile('carol-ann-duffy','Carol Ann Duffy','HL studied work'),
   emptyProfile('the-stranger','The Stranger','SL studied work')
 ];
 
