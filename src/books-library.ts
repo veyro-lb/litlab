@@ -152,7 +152,7 @@ function renderBookMoments(profile: BookProfile) {
   ])].sort((left,right)=>left.localeCompare(right));
   const byTitle=(left:{title:string},right:{title:string})=>left.title.localeCompare(right.title);
   const moments=poetry?[...profile.moments].sort((left,right)=>{
-    if(left.reading&&right.reading)return left.reading.pdfPage-right.reading.pdfPage;
+    if(left.reading&&right.reading)return left.reading.order-right.reading.order;
     return Number(Boolean(right.reading))-Number(Boolean(left.reading))||byTitle(left,right);
   }):profile.moments;
   const filters=['All','Control','Gender','Resistance','Memory','Complicity'];
@@ -160,7 +160,7 @@ function renderBookMoments(profile: BookProfile) {
     <div class="book-section-head">
       <span>07 • ${poetry?'POEMS':'IMPORTANT MOMENTS'}</span>
       <h2>${poetry?'Poem guide and index':'Twenty moments worth being able to locate and use.'}</h2>
-      <p>${poetry?'Explore the main collection in reading order. Search by poem, theme or technique, or change the collection to browse the wider index.':'Use the timeline to find what happens, how it is written, and what argument it can support.'}</p>
+      <p>${poetry?'Search by title, theme or technique within the selected collection.':'Use the timeline to find what happens, how it is written, and what argument it can support.'}</p>
     </div>
     <div class="book-moment-tools ${poetry?'book-poetry-tools':''}">
       <label>
@@ -175,17 +175,20 @@ function renderBookMoments(profile: BookProfile) {
         </select>
       </label>
       <label>
-        <span id="book-poem-coverage-label">Coverage</span>
+        <span id="book-poem-coverage-label">Show</span>
         <select data-poem-coverage aria-labelledby="book-poem-coverage-label">
           <option value="">All poems</option>
           <option value="guide">Study guides</option>
-          <option value="index">Index entries</option>
+          <option value="index">Titles without guides</option>
         </select>
       </label>`:`<div class="book-moment-filters" data-moment-filters>
         ${filters.map((label,index)=>`<button type="button" data-moment-filter="${label.toLowerCase()}" class="${index===0?'active':''}">${label}</button>`).join('')}
       </div>`}
     </div>
-    ${poetry?`<p class="book-poem-count" data-poem-count role="status">${moments.length+catalog.length} poems · ${moments.length} study guides</p>
+    ${poetry?`<div class="book-poem-results">
+      <p class="book-poem-count" data-poem-count role="status"></p>
+      <button class="btn secondary book-poem-reset" type="button" data-poem-reset hidden>Reset filters</button>
+    </div>
     <h3 class="book-poem-group-title" data-poem-group="guide">Study guides</h3>`:''}
     <div class="book-moment-list" data-moment-list>
       ${moments.map(moment=>{
@@ -195,7 +198,7 @@ function renderBookMoments(profile: BookProfile) {
             <span aria-hidden="true">${poetry?'¶':String(moment.n).padStart(2,'0')}</span>
             <div>
               <h3>${esc(moment.title)}</h3>
-              ${moment.collection?`<small class="book-poem-collection">${esc(moment.collection)}${moment.reading?` · PDF p. ${moment.reading.pdfPage}`:''}</small>`:''}
+              ${moment.collection?`<small class="book-poem-collection">${esc(moment.collection)}</small>`:''}
               <p>${esc(moment.themes)}</p>
             </div>
             <b>+</b>
@@ -207,14 +210,17 @@ function renderBookMoments(profile: BookProfile) {
               <span>HOW THE TECHNIQUE WORKS</span><p>${esc(moment.reading.analysis)}</p>
             </div>
             <div class="book-poem-close-reading">
-              <span>TRY A CLOSE READING · PDF P. ${moment.reading.pdfPage}</span><p>${esc(moment.reading.focus)}</p>
+              <span>TRY A CLOSE READING</span><p>${esc(moment.reading.focus)}</p>
             </div>`:''}
             ${moment.paper2?`<div><span>${poetry?'COMPARISON IDEA':'PAPER 2 USE'}</span><p>${esc(moment.paper2)}</p></div>`:''}
           </div>
         </details>`;
       }).join('')}
     </div>
-    ${poetry?'<p class="book-poem-empty" data-poem-empty role="status" hidden>No poems match these filters.</p>':''}
+    ${poetry?`<div class="book-poem-empty" data-poem-empty hidden>
+      <p>No poems match this search. Try fewer words or change your filters.</p>
+      <button class="btn secondary" type="button" data-poem-search-all hidden>Search all collections</button>
+    </div>`:''}
     ${poetry?`<h3 class="book-poem-group-title" data-poem-group="index">Index entries</h3>
     <ul class="book-poem-index">
       ${[...catalog].sort(byTitle).map(entry=>`<li data-poem-entry="index"
@@ -265,6 +271,10 @@ function bindPoetryPractice(page: HTMLElement, poetry: BookPoetry) {
   });
 }
 
+function poemSearchWords(text: string) {
+  return text.toLowerCase().replace(/['’]/g,'').split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+}
+
 function bindMomentFilters(page: HTMLElement) {
   const input=page.querySelector<HTMLInputElement>('[data-moment-search]');
   const collection=page.querySelector<HTMLSelectElement>('[data-poem-collection]');
@@ -273,22 +283,34 @@ function bindMomentFilters(page: HTMLElement) {
   const empty=page.querySelector<HTMLElement>('[data-poem-empty]');
   const entries=page.querySelectorAll<HTMLElement>(coverage?'[data-poem-entry]':'[data-moment]');
   const groups=page.querySelectorAll<HTMLElement>('[data-poem-group]');
+  const reset=page.querySelector<HTMLButtonElement>('[data-poem-reset]');
+  const searchAll=page.querySelector<HTMLButtonElement>('[data-poem-search-all]');
+  const defaultCollection=collection?.value||'';
+  const keywordText=coverage
+    ? Array.from(entries, item=>poemSearchWords(item.dataset.momentText||'').join(' '))
+    : [];
   let filter='all';
   const apply=()=>{
     const query=(input?.value.trim().toLowerCase()||'').replace(/’/g,"'");
+    const words=coverage?poemSearchWords(query):[];
     let visible=0;
     let guided=0;
-    entries.forEach(item=>{
+    let availableElsewhere=false;
+    entries.forEach((item,index)=>{
       const searchable=(item.dataset.momentText||'').replace(/’/g,"'");
       const matchesCollection=!collection?.value||item.dataset.collection===collection.value;
       const matchesCoverage=!coverage?.value||item.dataset.poemEntry===coverage.value;
-      item.hidden=!(matchesCollection&&matchesCoverage&&searchable.includes(query)&&(filter==='all'||searchable.includes(filter)));
+      const matchesQuery=coverage?words.every(word=>keywordText[index].includes(word)):searchable.includes(query);
+      item.hidden=!(matchesCollection&&matchesCoverage&&matchesQuery&&(filter==='all'||searchable.includes(filter)));
+      if(!matchesCollection&&matchesCoverage&&matchesQuery)availableElsewhere=true;
       if(!item.hidden){
         visible++;
         if(item.dataset.poemEntry==='guide')guided++;
       }
     });
     if(empty)empty.hidden=visible>0;
+    if(reset)reset.hidden=!query&&!coverage?.value&&collection?.value===defaultCollection;
+    if(searchAll)searchAll.hidden=!availableElsewhere;
     if(count)count.textContent=`${visible} ${visible===1?'poem':'poems'} · ${guided} study ${guided===1?'guide':'guides'}`;
     groups.forEach(heading=>{
       heading.hidden=(heading.dataset.poemGroup==='guide'?guided:visible-guided)===0;
@@ -297,6 +319,18 @@ function bindMomentFilters(page: HTMLElement) {
   input?.addEventListener('input',apply);
   collection?.addEventListener('change',apply);
   coverage?.addEventListener('change',apply);
+  reset?.addEventListener('click',()=>{
+    if(input)input.value='';
+    if(collection)collection.value=defaultCollection;
+    if(coverage)coverage.value='';
+    apply();
+    input?.focus();
+  });
+  searchAll?.addEventListener('click',()=>{
+    if(collection)collection.value='';
+    apply();
+    input?.focus();
+  });
   if(collection)apply();
   page.querySelectorAll<HTMLButtonElement>('[data-moment-filter]').forEach(button=>button.addEventListener('click',()=>{
     filter=button.dataset.momentFilter||'all';
