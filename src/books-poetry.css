@@ -14,7 +14,7 @@
 }
 
 .book-poetry-tools {
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
 }
 
 .book-poetry-tools select {
@@ -96,4 +96,45 @@
   .book-poetry-tools {
     grid-template-columns: 1fr;
   }
+}
+
+.book-poem-count {
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.book-poem-group-title {
+  margin: 20px 0 10px;
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+
+.book-poem-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.book-poem-index li {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: .875rem;
+}
+
+.book-poem-index li span {
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.book-poem-index li[hidden],
+.book-poem-group-title[hidden] {
+  display: none;
 }

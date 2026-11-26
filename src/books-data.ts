@@ -5,6 +5,7 @@ export type BookMoment={n:number;title:string;why:string;choices:string;themes:s
 export type BookConnection={theme:string;with:string;similarity:string;difference:string;methods:string;why:string};
 export type BookFAQ={q:string;a:string};
 export type BookPoetry = {
+  catalog: {collection: string; titles: string[]}[];
   sourceNote: string;
   sources: {title: string; url: string}[];
   practice: {prompt: string; options: string[]; answer: number; feedback: string}[];

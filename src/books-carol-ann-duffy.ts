@@ -1,20 +1,32 @@
 import {bookProfiles, type BookProfile} from './books-data';
+import {duffyCatalog, expandedDuffyGuides} from './books-duffy-poems';
 
 const duffy: BookProfile = {
   id: 'carol-ann-duffy',
   title: 'Carol Ann Duffy’s Poetry',
   author: 'Carol Ann Duffy',
-  year: '1985–1999',
-  form: 'Selected poems',
+  year: 'Multiple collections',
+  form: 'Poetry and dramatic monologues',
   language: 'English',
   level: 'HL studied work',
-  overview: 'Explore eight poems from four collections. Follow how Duffy gives overlooked speakers a voice, makes familiar images feel strange, and uses poetic form to shape what readers hear and notice.',
+  overview: 'Browse Duffy’s poems by collection and study how she builds voice, imagery and form. Start with the complete guide to The World’s Wife, or search for a poem from another collection.',
   context: 'Carol Ann Duffy is a Scottish poet who served as UK Poet Laureate from 2009 to 2019. In The World’s Wife, she revisits myths, scripture and literary history through the voices of women whose perspectives the familiar stories leave out.',
   poetry: {
-    sourceNote: 'This guide adapts the LitLab study profile and uses paraphrased evidence. Check your assigned anthology for exact wording and which poems your class studied.',
+    catalog: duffyCatalog,
+    sourceNote: 'The index covers verified titles from several collections and is still growing. Study guides use paraphrased evidence. Check your assigned edition for the poem text and your class selection.',
     sources: [
       {title: 'Scottish Poetry Library', url: 'https://www.scottishpoetrylibrary.org.uk/poet/carol-ann-duffy/'},
-      {title: 'Picador · Standing Female Nude', url: 'https://www.panmacmillan.com/authors/carol-ann-duffy/standing-female-nude/9781509824960'},
+      {title: 'Picador · Collected Poems', url: 'https://www.panmacmillan.com/authors/carol-ann-duffy/collected-poems/9781447231752'},
+      {title: 'The World’s Wife contents', url: 'https://drake.ecampus.com/worlds-wife-duffy-carol-ann/bk/9780330372213'},
+      {title: 'Selected Poems contents', url: 'https://lackawanna.ecampus.com/selected-poems-carol-ann-duffy-duffy/bk/9780140587357'},
+      {title: 'Feminine Gospels contents', url: 'https://lackawanna.ecampus.com/feminine-gospels-poems-national-carol-ann/bk/9780571211876'},
+      {title: 'Poetry Foundation · Rapture', url: 'https://www.poetryfoundation.org/books/book-picks/1836765/rapture'},
+      {title: 'OCR · Rapture selection', url: 'https://www.ocr.org.uk/Images/171203-specification-accredited-as-level-gce-english-language-and-literature-h074.pdf'},
+      {title: 'Poetry Foundation · Warming Her Pearls', url: 'https://www.poetryfoundation.org/poems/56715/warming-her-pearls'},
+      {title: 'Scottish Review of Books · The Bees', url: 'https://www.scottishreviewofbooks.org/2011/11/'},
+      {title: 'Sincerity contents preview', url: 'https://books.google.com/books?id=ocZUDwAAQBAJ'},
+      {title: 'Hachette · The Laughter of Stafford Girls’ High', url: 'https://magazines.hachettelearning.com/magazine/english-review/29/4/insights-whats-so-amusing/'},
+      {title: 'Tim Scheffe · The Falling Soldier', url: 'https://zenodo.org/records/4166398'},
     ],
     practice: [
       {prompt: 'Which poem reworks a conventional love gift through an extended metaphor?', options: ['Anne Hathaway', 'Valentine', 'Mrs Lazarus'], answer: 1, feedback: 'In Valentine, the onion’s layers, tears and lingering scent make intimacy feel complex and less predictable.'},
@@ -67,6 +79,7 @@ const duffy: BookProfile = {
     {n: 6, title: 'Medusa', collection: 'The World’s Wife', themes: 'Jealousy · Betrayal · Monstrosity', why: 'Medusa describes a transformation bound up with jealousy and suspicion. Her account invites sympathy while leaving room to question how she interprets events.', choices: 'First-person monologue, escalating images of petrification and direct address.', paper2: 'Compare how Duffy and Shelley use the voice of a feared figure to complicate a reader’s judgment.'},
     {n: 7, title: 'Education for Leisure', collection: 'Standing Female Nude', themes: 'Alienation · Neglect · Violence', why: 'A disaffected speaker looks for recognition and control. The escalation and closing address make the reader feel less safely distant from the threat.', choices: 'Plain first-person diction, escalation and a closing shift toward the listener.', paper2: 'Compare how an unsettling voice affects the reader’s understanding of alienation in The Stranger.'},
     {n: 8, title: 'Stealing', collection: 'Selling Manhattan', themes: 'Alienation · Possession · Destruction', why: 'A speaker recalls stealing a snowman. The theft offers a brief sense of control, and what follows shows how little that control changes.', choices: 'Conversational confession, direct address, an unusual central object and irony.', paper2: 'Compare how Duffy and Camus use detached or evasive speakers to unsettle judgments about motive.'},
+    ...expandedDuffyGuides,
   ],
   evidence: [
     {title: 'Valentine · The last turn', text: 'Locate the shift from presenting the onion as a gift to imagery of danger and persistence. Explain what this does to the tone of the address.'},

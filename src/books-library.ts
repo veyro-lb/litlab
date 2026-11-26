@@ -88,7 +88,6 @@ function renderProfile(page:HTMLElement,profile:BookProfile){
   page.dataset.activeBook=profile.id;
   const poetry=profile.poetry;
   page.toggleAttribute('data-poetry-profile', Boolean(poetry));
-  const collections=[...new Set(profile.moments.flatMap(moment=>moment.collection?[moment.collection]:[]))];
   const sections=[
     ['book-overview','Overview'], ['book-characters',poetry?'Speakers':'Characters'], ['book-themes','Themes'],
     ['book-symbols','Symbols + motifs'], ['book-choices',poetry?'Poetic choices':'Authorial choices'],
@@ -100,7 +99,7 @@ function renderProfile(page:HTMLElement,profile:BookProfile){
     <div class="book-profile-topline"><button type="button" data-back-library>← Back to Books</button><span>${esc(profile.level)} • ${esc(profile.year)}</span></div>
     <section class="book-profile-hero">
       <div class="book-profile-cover-wrap">${cover(profile,true)}</div>
-      <div class="book-profile-hero-copy"><span class="books-eyebrow">✦ BOOK PROFILE • HL STUDIED WORK</span><h1>${esc(profile.title)}</h1><p class="book-byline">${esc(profile.author)}</p><div class="book-facts"><span><b>Published</b>${esc(profile.year)}</span><span><b>Form</b>${esc(profile.form)}</span><span><b>Language</b>${esc(profile.language)}</span></div><p class="book-profile-lead">${esc(profile.overview)}</p><div class="book-profile-actions"><button type="button" class="btn primary" data-jump="${poetry?'book-moments':'book-themes'}">${poetry?'Explore the poems':'Start with themes →'}</button><button type="button" class="btn secondary ${isReviewed?'reviewed':''}" data-mark-book>${isReviewed?'✓ Profile reviewed':'Mark profile reviewed'}</button></div></div>
+      <div class="book-profile-hero-copy"><span class="books-eyebrow">✦ BOOK PROFILE • HL STUDIED WORK</span><h1>${esc(profile.title)}</h1><p class="book-byline">${esc(profile.author)}</p><div class="book-facts"><span><b>${poetry?'Scope':'Published'}</b>${esc(profile.year)}</span><span><b>Form</b>${esc(profile.form)}</span><span><b>Language</b>${esc(profile.language)}</span></div><p class="book-profile-lead">${esc(profile.overview)}</p><div class="book-profile-actions"><button type="button" class="btn primary" data-jump="${poetry?'book-moments':'book-themes'}">${poetry?'Explore the poems':'Start with themes →'}</button><button type="button" class="btn secondary ${isReviewed?'reviewed':''}" data-mark-book>${isReviewed?'✓ Profile reviewed':'Mark profile reviewed'}</button></div></div>
     </section>
     <nav class="book-profile-toc" aria-label="Book profile sections">${sections.map(([id,label])=>`<button type="button" data-jump="${id}">${label}</button>`).join('')}</nav>
 
@@ -116,7 +115,7 @@ function renderProfile(page:HTMLElement,profile:BookProfile){
 
     <section id="book-voice" class="book-section"><div class="book-section-head"><span>06 • VOICE + STRUCTURE + SETTING</span><h2>Three large-scale choices that change interpretation.</h2></div><div class="book-big-choice-grid"><article><span>${poetry?'SPEAKER / PERSPECTIVE':'NARRATIVE PERSPECTIVE / VOICE'}</span><p>${esc(profile.voice)}</p></article><article><span>STRUCTURE</span><p>${esc(profile.structure)}</p></article><article><span>SETTING</span><p>${esc(profile.setting)}</p></article></div></section>
 
-    ${renderBookMoments(profile,collections)}
+    ${renderBookMoments(profile)}
 
     <section id="book-paper2" class="book-section"><div class="book-section-head"><span>08 • PAPER 2 CONNECTIONS</span><h2>Compare methods, not only themes.</h2><p>These pairings come from the current study profile. Use them when the comparison work is one you have actually studied.</p></div><div class="book-table-wrap"><table class="book-comparison-table"><thead><tr><th>Theme / idea</th><th>Compare with</th><th>Similarity</th><th>Difference</th><th>Authorial methods</th><th>Why it matters</th></tr></thead><tbody>${profile.connections.map(c=>`<tr><td data-label="Theme / idea"><b>${esc(c.theme)}</b></td><td data-label="Compare with"><strong>${esc(c.with)}</strong></td><td data-label="Similarity">${esc(c.similarity)}</td><td data-label="Difference">${esc(c.difference)}</td><td data-label="Authorial methods">${esc(c.methods)}</td><td data-label="Why it matters">${esc(c.why)}</td></tr>`).join('')}</tbody></table></div></section>
 
@@ -144,14 +143,21 @@ function renderProfile(page:HTMLElement,profile:BookProfile){
   window.scrollTo({top:0,behavior:reduceMotion()?'auto':'smooth'});
 }
 
-function renderBookMoments(profile: BookProfile, collections: string[]) {
+function renderBookMoments(profile: BookProfile) {
   const poetry=profile.poetry;
+  const catalog=poetry?.catalog.flatMap(group=>group.titles.map(title=>({title, collection:group.collection})))||[];
+  const collections=[...new Set([
+    ...profile.moments.flatMap(moment=>moment.collection?[moment.collection]:[]),
+    ...catalog.map(entry=>entry.collection),
+  ])].sort((left,right)=>left.localeCompare(right));
+  const byTitle=(left:{title:string},right:{title:string})=>left.title.localeCompare(right.title);
+  const moments=poetry?[...profile.moments].sort(byTitle):profile.moments;
   const filters=['All','Control','Gender','Resistance','Memory','Complicity'];
   return `<section id="book-moments" class="book-section">
     <div class="book-section-head">
       <span>07 • ${poetry?'POEMS':'IMPORTANT MOMENTS'}</span>
-      <h2>${poetry?'Explore the eight poems':'Twenty moments worth being able to locate and use.'}</h2>
-      <p>${poetry?'Search by poem, technique or theme, or filter by collection.':'Use the timeline to find what happens, how it is written, and what argument it can support.'}</p>
+      <h2>${poetry?'Poem guide and index':'Twenty moments worth being able to locate and use.'}</h2>
+      <p>${poetry?'Find a poem by title, collection, theme or technique. Index entries identify titles whose study guides are still to come.':'Use the timeline to find what happens, how it is written, and what argument it can support.'}</p>
     </div>
     <div class="book-moment-tools ${poetry?'book-poetry-tools':''}">
       <label>
@@ -164,16 +170,26 @@ function renderBookMoments(profile: BookProfile, collections: string[]) {
           <option value="">All collections</option>
           ${collections.map(collection=>`<option>${esc(collection)}</option>`).join('')}
         </select>
+      </label>
+      <label>
+        <span id="book-poem-coverage-label">Coverage</span>
+        <select data-poem-coverage aria-labelledby="book-poem-coverage-label">
+          <option value="">All poems</option>
+          <option value="guide">Study guides</option>
+          <option value="index">Index entries</option>
+        </select>
       </label>`:`<div class="book-moment-filters" data-moment-filters>
         ${filters.map((label,index)=>`<button type="button" data-moment-filter="${label.toLowerCase()}" class="${index===0?'active':''}">${label}</button>`).join('')}
       </div>`}
     </div>
+    ${poetry?`<p class="book-poem-count" data-poem-count role="status">${moments.length+catalog.length} poems · ${moments.length} study guides</p>
+    <h3 class="book-poem-group-title" data-poem-group="guide">Study guides</h3>`:''}
     <div class="book-moment-list" data-moment-list>
-      ${profile.moments.map(moment=>{
+      ${moments.map(moment=>{
         const search=[moment.collection,moment.title,moment.why,moment.choices,moment.themes,moment.paper2].join(' ').trim().toLowerCase();
-        return `<details data-moment data-collection="${esc(moment.collection||'')}" data-moment-text="${esc(search)}">
+        return `<details data-moment ${poetry?'data-poem-entry="guide"':''} data-collection="${esc(moment.collection||'')}" data-moment-text="${esc(search)}">
           <summary>
-            <span>${String(moment.n).padStart(2,'0')}</span>
+            <span aria-hidden="true">${poetry?'¶':String(moment.n).padStart(2,'0')}</span>
             <div>
               <h3>${esc(moment.title)}</h3>
               ${moment.collection?`<small class="book-poem-collection">${esc(moment.collection)}</small>`:''}
@@ -184,16 +200,24 @@ function renderBookMoments(profile: BookProfile, collections: string[]) {
           <div class="book-moment-body">
             <div><span>WHY IT MATTERS</span><p>${esc(moment.why)}</p></div>
             <div><span>${poetry?'POETIC TECHNIQUES':'CHOICE(S)'}</span><p>${esc(moment.choices)}</p></div>
-            ${moment.paper2?`<div><span>PAPER 2 USE</span><p>${esc(moment.paper2)}</p></div>`:''}
+            ${moment.paper2?`<div><span>${poetry?'COMPARISON IDEA':'PAPER 2 USE'}</span><p>${esc(moment.paper2)}</p></div>`:''}
           </div>
         </details>`;
       }).join('')}
     </div>
     ${poetry?'<p class="book-poem-empty" data-poem-empty role="status" hidden>No poems match these filters.</p>':''}
+    ${poetry?`<h3 class="book-poem-group-title" data-poem-group="index">Index entries</h3>
+    <ul class="book-poem-index">
+      ${[...catalog].sort(byTitle).map(entry=>`<li data-poem-entry="index"
+        data-collection="${esc(entry.collection)}"
+        data-moment-text="${esc(`${entry.title} ${entry.collection}`.toLowerCase())}">
+        <strong>${esc(entry.title)}</strong><span>${esc(entry.collection)}</span>
+      </li>`).join('')}
+    </ul>`:''}
     <div class="book-evidence-panel">
       <div>
         <span>EVIDENCE ANCHORS • PARAPHRASED</span>
-        <h3>Three moments to know especially well.</h3>
+        <h3>${poetry?'Practise close reading':'Three moments to know especially well.'}</h3>
         <p>Use these notes to locate the evidence in your assigned edition.</p>
       </div>
       <div>${profile.evidence.map(item=>`<article><b>${esc(item.title)}</b><p>${esc(item.text)}</p></article>`).join('')}</div>
@@ -235,21 +259,35 @@ function bindPoetryPractice(page: HTMLElement, poetry: BookPoetry) {
 function bindMomentFilters(page: HTMLElement) {
   const input=page.querySelector<HTMLInputElement>('[data-moment-search]');
   const collection=page.querySelector<HTMLSelectElement>('[data-poem-collection]');
+  const coverage=page.querySelector<HTMLSelectElement>('[data-poem-coverage]');
+  const count=page.querySelector<HTMLElement>('[data-poem-count]');
   const empty=page.querySelector<HTMLElement>('[data-poem-empty]');
+  const entries=page.querySelectorAll<HTMLElement>(coverage?'[data-poem-entry]':'[data-moment]');
+  const groups=page.querySelectorAll<HTMLElement>('[data-poem-group]');
   let filter='all';
   const apply=()=>{
     const query=(input?.value.trim().toLowerCase()||'').replace(/’/g,"'");
     let visible=0;
-    page.querySelectorAll<HTMLElement>('[data-moment]').forEach(item=>{
+    let guided=0;
+    entries.forEach(item=>{
       const searchable=(item.dataset.momentText||'').replace(/’/g,"'");
       const matchesCollection=!collection?.value||item.dataset.collection===collection.value;
-      item.hidden=!(matchesCollection&&searchable.includes(query)&&(filter==='all'||searchable.includes(filter)));
-      if(!item.hidden)visible++;
+      const matchesCoverage=!coverage?.value||item.dataset.poemEntry===coverage.value;
+      item.hidden=!(matchesCollection&&matchesCoverage&&searchable.includes(query)&&(filter==='all'||searchable.includes(filter)));
+      if(!item.hidden){
+        visible++;
+        if(item.dataset.poemEntry==='guide')guided++;
+      }
     });
     if(empty)empty.hidden=visible>0;
+    if(count)count.textContent=`${visible} ${visible===1?'poem':'poems'} · ${guided} study ${guided===1?'guide':'guides'}`;
+    groups.forEach(heading=>{
+      heading.hidden=(heading.dataset.poemGroup==='guide'?guided:visible-guided)===0;
+    });
   };
   input?.addEventListener('input',apply);
   collection?.addEventListener('change',apply);
+  coverage?.addEventListener('change',apply);
   page.querySelectorAll<HTMLButtonElement>('[data-moment-filter]').forEach(button=>button.addEventListener('click',()=>{
     filter=button.dataset.momentFilter||'all';
     page.querySelectorAll('[data-moment-filter]').forEach(item=>item.classList.toggle('active',item===button));
