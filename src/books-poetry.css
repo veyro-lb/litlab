@@ -139,7 +139,37 @@
   display: none;
 }
 
-.book-moment-body .book-poem-close-reading {
+.book-moment-body.book-poem-study {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.book-poem-study > div {
+  padding: 14px;
+}
+
+.book-poem-study .book-poem-analysis {
   grid-column: 1 / -1;
-  border-color: color-mix(in srgb, var(--violet) 30%, var(--line));
+  border-color: color-mix(in srgb, var(--violet) 34%, var(--line));
+  background: color-mix(in srgb, var(--violet) 7%, var(--surface));
+}
+
+.book-poem-study p {
+  max-width: 90ch;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.book-poem-study > div > span {
+  font-size: .7rem;
+}
+
+[data-poetry-profile] [data-moment] summary h3 {
+  font-size: 1rem;
+}
+
+@media (max-width: 680px) {
+  .book-moment-body.book-poem-study {
+    grid-template-columns: 1fr;
+  }
 }

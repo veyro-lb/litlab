@@ -189,7 +189,7 @@ function renderBookMoments(profile: BookProfile) {
     <h3 class="book-poem-group-title" data-poem-group="guide">Study guides</h3>`:''}
     <div class="book-moment-list" data-moment-list>
       ${moments.map(moment=>{
-        const search=[moment.collection,moment.title,moment.why,moment.choices,moment.themes,moment.paper2,moment.reading?.focus].join(' ').trim().toLowerCase();
+        const search=[moment.collection,moment.title,moment.why,moment.choices,moment.themes,moment.paper2,moment.reading?.analysis,moment.reading?.focus].join(' ').trim().toLowerCase();
         return `<details data-moment ${poetry?'data-poem-entry="guide"':''} data-collection="${esc(moment.collection||'')}" data-moment-text="${esc(search)}">
           <summary>
             <span aria-hidden="true">${poetry?'¶':String(moment.n).padStart(2,'0')}</span>
@@ -200,10 +200,15 @@ function renderBookMoments(profile: BookProfile) {
             </div>
             <b>+</b>
           </summary>
-          <div class="book-moment-body">
-            <div><span>WHY IT MATTERS</span><p>${esc(moment.why)}</p></div>
+          <div class="book-moment-body ${moment.reading?'book-poem-study':''}">
+            <div><span>${moment.reading?'POEM OVERVIEW':'WHY IT MATTERS'}</span><p>${esc(moment.why)}</p></div>
             <div><span>${poetry?'POETIC TECHNIQUES':'CHOICE(S)'}</span><p>${esc(moment.choices)}</p></div>
-            ${moment.reading?`<div class="book-poem-close-reading"><span>CLOSE READING · PDF P. ${moment.reading.pdfPage}</span><p>${esc(moment.reading.focus)}</p></div>`:''}
+            ${moment.reading?`<div class="book-poem-analysis">
+              <span>HOW THE TECHNIQUE WORKS</span><p>${esc(moment.reading.analysis)}</p>
+            </div>
+            <div class="book-poem-close-reading">
+              <span>TRY A CLOSE READING · PDF P. ${moment.reading.pdfPage}</span><p>${esc(moment.reading.focus)}</p>
+            </div>`:''}
             ${moment.paper2?`<div><span>${poetry?'COMPARISON IDEA':'PAPER 2 USE'}</span><p>${esc(moment.paper2)}</p></div>`:''}
           </div>
         </details>`;
